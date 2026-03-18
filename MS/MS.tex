@@ -1,5 +1,7 @@
 \documentclass{article}
-\usepackage{graphicx, amsfonts, amsmath, amssymb, amsthm, float, cancel, braket} % Required for inserting images
+\usepackage{graphicx, amsfonts, amsmath, amssymb, amsthm, float, cancel, braket}
+\setcounter{secnumdepth}{3} % Numera solo fino alle subsection (livello 2)
+\setcounter{tocdepth}{3}    % Mostra nell'indice fino alle subsubsection (livello 3)
 
 \title{Meccanica Statistica}
 \author{Alessandro Ballini}
@@ -15,7 +17,7 @@
 In particolare ci occuperemo di sistemi termodinamici all'equilibrio (termico, meccanico e chimico), dunque l'hamiltoniana che descrive i sistemi in esame non dipenderà esplicitamente dal tempo. Lo scopo è quello di ricavare leggi generali a partire dallo studio microscopico di sistemi con un numero molto elevato di gradi di libertà. Inizialmente seguiremo un approccio classico per la descrizione dei fenomeni microscopici.
 
 \newpage
-\section{Ensemble microscopici}
+\section{Ensemble microcanonici}
 \subsection{Densità di probabilità per ensemble microcanonici}
 Consideriamo un sistema isolato costituito da $N$ particelle, ognuna con $3$ gradi di libertà spaziali. Indichiamo con $q^i_j$ e $p^i_j$ rispettivamente la $j$-esima coordinata spaziale e il $j$-esimo impulso della $i$-esima particella. \\
 Fissato un tempo $t_0$, se sono note tutte le coordinate e tutti gli impulsi di ogni particella, lo stato del sistema è identificato univocamente da un punto $(\mathbf{p}(t_0), \mathbf{q}(t_0))$ dello spazio delle fasi ($6N$ dimensionale), dove
@@ -193,7 +195,7 @@ In particolare $\Omega \sim E^\alpha$, con $\alpha \sim N$, dato che si tratta d
 \end{align}
 dove è stato trascurato il primo termine del membro di destra per $N \rightarrow \infty$, concludiamo che al limite termodinamico possiamo sostituire $\Gamma$ con $\Omega$.
 
-\subsubsection*{Particelle libere in una scatola}
+\subsubsection{Particelle libere in una scatola}
 Vediamo ora il caso particolare del gas libero confinato in un volume $V$. si ha
 \begin{gather}
     \mathcal{H} = \sum_{i = 1}^N \frac{\mathbf{p}^2_i}{2m} \notag
@@ -319,7 +321,7 @@ pertanto l'espressione corretta dell'entropia diventa
 \end{align}
 notiamo che $N$ è già fattorizzato e i termini che moltiplica dipendono solamente da quantità intensive, dunque questa espressione dell'entropia è estensiva. 
 
-\subsubsection*{Particelle soggette a potenziale armonico in una scatola}
+\subsubsection{Particelle soggette a potenziale armonico in una scatola}
 Nel caso in cui le particelle sono soggette ad un potenziale armonico si ha
 \begin{align}
     \mathcal{H} = \sum_{i = 1}^N \left(\frac{\mathbf{p}^2_i}{2m} + \frac{1}{2}m\omega^2\mathbf{q}^2_i\right) \tag{1.2.28}
@@ -367,7 +369,7 @@ il fattore $3$ segue dal fatto che in questo caso i gradi di libertà sono $6$, 
 \end{align}
 infatti, essendo ogni particella localizzata attorno ad un punto di equilibrio, non avvengono urti che si manifestano poi in pressione.
 
-\subsubsection*{Particelle relativistiche libere in una scatola}
+\subsubsection{Particelle relativistiche libere in una scatola}
 L'hamiltoniana relativistica di un insieme di $N$ particelle libere in una scatola è
 \begin{align}
     \mathcal{H} = c\sum_{i = 1}^N |\mathbf{p}_i| \tag{1.2.31}
@@ -499,10 +501,9 @@ il primo integrale è nullo dato che $x_i(\mathcal{H} - E) = 0$ per $\mathcal{H}
 \end{align}
 che è la tesi, dove si è usata la formula di derivazione di funzione integrale rispetto ad un parametro e $T = \left(\frac{\partial S}{\partial E}\right)^{-1}$. \qed
 
-\subsubsection{Esercizi}
-\textbf{1.} Consideriamo un insieme di $N$ siti localizzati a due stati, in particolare ogni sito del sistema può avere energia $0$ o energia $\varepsilon$ fissata. Fissata l'energia del sistema siamo interessati a determinare l'espressione dell'entropia al limite termodinamico. \\
-
-\textbf{Soluzione:} fissiamo l'energia totale del sistema $E = m\varepsilon$, dove $m$ è il numero di stati ad energia $\varepsilon$. Il primo sito con energia $\varepsilon$ ha $N$ possibili opzioni. Fissato il primo, il secondo ha $N - 1$ possibili opzioni e così via fino ad aver assegnato ogni quanto di energia $\varepsilon$. Tuttavia l'ordine di scelta non cambia il sistema finale, finché gli stati con quanto di energia non nullo siano sempre gli stessi. Pertanto
+\subsubsection{Sistema di $N$ siti a due stati}
+Consideriamo un insieme di $N$ siti localizzati a due stati, in particolare ogni sito del sistema può avere energia $0$ o energia $\varepsilon$ fissata. Fissata l'energia del sistema siamo interessati a determinare l'espressione dell'entropia al limite termodinamico. \\ \\
+Fissiamo l'energia totale del sistema $E = m\varepsilon$, dove $m$ è il numero di stati ad energia $\varepsilon$. Il primo sito con energia $\varepsilon$ ha $N$ possibili opzioni. Fissato il primo, il secondo ha $N - 1$ possibili opzioni e così via fino ad aver assegnato ogni quanto di energia $\varepsilon$. Tuttavia l'ordine di scelta non cambia il sistema finale, finché gli stati con quanto di energia non nullo siano sempre gli stessi. Pertanto
 \begin{align}
     \Gamma(m, N) = \frac{N!}{(N - m)!m!} \notag
 \end{align}
@@ -526,10 +527,9 @@ quindi
 \begin{align}
     m = \frac{N}{e^{\frac{\varepsilon}{kT}} + 1} \tag{1.2.49}
 \end{align}
-Notiamo che per $T \rightarrow \infty$ si ha $m = N/2$, ovvero quando l'energia termica è molto più grande del quanto di energia $\varepsilon$ si osserva la configurazione per la quale $\Gamma$ è massimo. Mentre per $T \rightarrow 0$ si ha $m = 0$, ovvero a basse temperature non ci sono quanti di energia accessibili. \\ \\
-\textbf{2.} Consideriamo un sistema composto da $N$ oscillatori armonici quantistici $3D$. Fissata l'energia del sistema siamo interessati a determinare l'espressione dell'entropia al limite termodinamico. \\
-
-\textbf{Soluzione:} limitiamoci per un attimo al caso di oscillatori armonici quantistici unidimensionali. Possiamo pensare a tale sistema come un insieme di $N$ scatole localizzate, ognuna con un numero $n_i$ di quanti di energia. In particolare, fissata l'energia totale del sistema $E$, si ha 
+Notiamo che per $T \rightarrow \infty$ si ha $m = N/2$, ovvero quando l'energia termica è molto più grande del quanto di energia $\varepsilon$ si osserva la configurazione per la quale $\Gamma$ è massimo. Mentre per $T \rightarrow 0$ si ha $m = 0$, ovvero a basse temperature non ci sono quanti di energia accessibili.
+\subsubsection{Sistema di $N$ oscillatori armonici quantistici 3D} Consideriamo un sistema composto da $N$ oscillatori armonici quantistici $3D$. Fissata l'energia del sistema siamo interessati a determinare l'espressione dell'entropia al limite termodinamico. \\ \\
+Limitiamoci per un attimo al caso di oscillatori armonici quantistici unidimensionali. Possiamo pensare a tale sistema come un insieme di $N$ scatole localizzate, ognuna con un numero $n_i$ di quanti di energia. In particolare, fissata l'energia totale del sistema $E$, si ha 
 \begin{align}
     E = \sum_{i = 1}^N(n_i + \frac{1}{2}) = \sum_{i = 1}^N n_i + \frac{N}{2} \notag
 \end{align}
@@ -537,6 +537,11 @@ dove si è espressa l'energia di ogni oscillatore armonico quantistico in unità
 \begin{align}
     \Gamma(N, M) &= \frac{(M + N - 1)!}{M!(N - 1)!} \tag{1.2.50}
 \end{align}
+Questa formula vale in generale, infatti dato un insieme $U$ con cardinalità $N$ che può essere espresso come unione di $k$ sottoinsiemi $V_1, \dots, V_k$ composti da oggetti indistinguibili, ognuno con cardinalità $n_i$, $i = 1, \dots, k$, si ha che il numero $N_\sigma$ di permutazioni $\sigma$ è dato da
+\begin{align}
+    N_\sigma = \frac{N!}{n_1!n_2!\dots n_k!} \notag
+\end{align}
+detto coefficiente multinomiale. \\
 Nel caso $3D$ basta sostituire $N$ con $3N$, infatti l'hamiltoniano dell'oscillatore armonico quantistico $3D$ è la somma di 3 hamiltoniani unidimensionali. Allora si ha 
 \begin{align}
     \Gamma(N, M) &= \frac{(M + 3N - 1)!}{M!(3N - 1)!} \tag{1.2.51}
@@ -554,8 +559,34 @@ Notiamo che
 \begin{align}
     \frac{1}{T} &= \left(\frac{\partial S}{\partial E}\right)_N \notag \\
     &= \left(\frac{\partial u}{\partial E}\frac{\partial S}{\partial u}\right)_N \notag \\
-    &= 
+    &= k\ln \left(\frac{u + 3/2}{u - 3/2}\right) \notag
 \end{align}
+ovvero 
+\begin{align}
+    e^{\frac{1}{kT}} &= \frac{u + 3/2}{u - 3/2} \notag
+\end{align}
+quindi si ottiene 
+\begin{align}
+    u(T) &= \frac{3}{2}\frac{e^{\frac{1}{kT}} + 1}{e^{\frac{1}{kT}} - 1} \notag \\
+    &= \frac{3}{2}\frac{e^{\frac{1}{2kT}} + e^{-\frac{1}{2kT}}}{e^{\frac{1}{2kT}} - e^{-\frac{1}{2kT}}} \notag \\
+    &= \frac{3}{2}\coth\frac{1}{2kT} \tag{1.2.51}
+\end{align}
+dove si è moltiplicato e diviso per $e^{-\frac{1}{2kT}}$ il secondo membro della prima uguaglianza. Moltiplicando per la scala scelta all'inizio (unità di $\hbar\omega$) si ha 
+\begin{align}
+    u(T) = \frac{3}{2}\hbar\omega\coth\frac{\hbar\omega}{2kT} \tag{1.2.52}
+\end{align}
+Notiamo che $u \rightarrow \infty$ per $T \rightarrow \infty$, in particolare 
+\begin{align}
+    u(T) \sim \frac{3}{2}kT \notag
+\end{align}
+per $T \rightarrow \infty$, ovvero al limite in cui l'energia termica è molto maggiore di $\hbar\omega$ si osserva comportamento classico e l'informazione quantistica viene persa. Mentre per $T \rightarrow 0$ si ha 
+\begin{align}
+    u(T) \sim \frac{3}{2}\hbar\omega \notag
+\end{align}
+ovvero $E = \frac{3}{2}N\hbar\omega$ (in unità di $\hbar\omega$), quindi ogni oscillatore armonico si trova allo stato fondamentale $n = 0$.
+
+\newpage
+\section{Ensemble canonico}
 
 
 
