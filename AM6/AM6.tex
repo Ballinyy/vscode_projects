@@ -486,7 +486,36 @@ per ogni $n > N_\varepsilon$. Notiamo che esiste $N_1 \in \mathbf{N}$ tale che f
 tale che $\overline{j(X)} = \overline{X}$, ovvero $j(X)$ è denso in $\overline{X}$. Inoltre il completamento è unico, nel senso che se $(\tilde{X}, \tilde{d})$ è un altro completamento di $(X, d)$ e $k : X \longrightarrow \tilde{X}$
 un'altra isometria, esiste un'isometria suriettiva $\phi : \overline{X} \longrightarrow \tilde{X}$ tale che $\phi \circ j = k$. \\
 
-\textbf{Dimostrazione:}
+\textbf{Dimostrazione:} consideriamo l'insieme $S$ delle successione di Cauchy contenute in $X$, ovvero 
+\begin{align}
+    S = \{\{x_n\}_{n \in \mathbf{N}} : \{x_n\}_{n \in \mathbf{N}} \text{ è di Cauchy}\} \notag
+\end{align}
+e introduciamo una relazione di equivalenza $\sim$ su $S$, in particolare, per ogni coppia di successioni in $S$, poniamo 
+\begin{align}
+    \{x_n : n \in \mathbf{N}\} \sim \{y_n : n \in \mathbf{N}\} \notag
+\end{align}
+se 
+\begin{align}
+    \lim_{n \rightarrow \infty} d(x_n, y_n) = 0 \notag
+\end{align}
+Si verifica immediatamente che $\sim$ è riflessia e simmetrica, inoltre data $\{z_n : n \in \mathbf{N}\}$ in $X$ tale che 
+\begin{align}
+    \{z_n : n \in \mathbf{N}\} \sim \{y_n : n \in \mathbf{N}\} \notag
+\end{align}
+si ha 
+\begin{align}
+    d(x_n, z_n) \leq d(x_n, y_n) + d(y_n, z_n) \notag
+\end{align}
+pertanto 
+\begin{align}
+    \lim_{n \rightarrow \infty}d(x_n, z_n) &\leq \lim_{n \rightarrow \infty}(d(x_n, y_n) + d(y_n, z_n)) \notag \\
+    &= \lim_{n\rightarrow \infty}d(x_n, y_n) + \lim_{n \rightarrow \infty}d(y_n, z_n) = 0 \notag
+\end{align}
+per ipotesi, allora si ha 
+\begin{align}
+    \{z_n : n \in \mathbf{N}\} \sim \{x_n : n \in \mathbf{N}\} \notag
+\end{align}
+ovvero $\sim$ transitiva.
 
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che i seguenti spazi normati sono di Banach: \\
