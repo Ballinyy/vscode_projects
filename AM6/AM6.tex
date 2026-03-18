@@ -515,7 +515,23 @@ per ipotesi, allora si ha
 \begin{align}
     \{z_n : n \in \mathbf{N}\} \sim \{x_n : n \in \mathbf{N}\} \notag
 \end{align}
-ovvero $\sim$ transitiva.
+ovvero $\sim$ è transitiva. Definiamo $\overline{X}$ come l'insieme quoziente $X/\sim$, ovvero 
+\begin{align}
+    \overline{X} = \left\{\left[\{x_n\}_{n \in \mathbf{N}}\right] : \{x_n\}_{n \in \mathbf{N}} \text{ è di Cauchy}\right\} \notag
+\end{align}
+ovvero l'insieme delle classi di equivalenza tra successioni di Cauchy in $X$ rispetto a $\sim$. Su $\overline{X}$ introduciamo struttura di spazio metrico defininendo come operazione di somma $+$ la seguente 
+\begin{align}
+    [\{x_n\}_{n \in \mathbf{N}}] + [\{y_n\}_{n \in \mathbf{N}}] = [\{x_n + y_n\}_{n \in \mathbf{N}}] \notag
+\end{align}
+come operazione di prodotto per scalare $\cdot$ la seguente 
+\begin{align}
+    \lambda \cdot [\{x_n\}_{n \in \mathbf{N}}] = [\{\lambda \cdot x_n\}_{n \in \mathbf{N}}] \notag
+\end{align}
+e definendo metrica $\overline{d}$ come 
+\begin{align}
+    \overline{d}\left([\{x_n\}_{n \in \mathbf{N}}], [\{y_n\}_{n \in \mathbf{N}}]\right) = \lim_{n \rightarrow \infty}d(x_n, y_n) \notag
+\end{align}
+Si vede facilmente che $+$ e $\cdot$ sono ben definite e soddisfano tutte le proprietà richieste. Resta da controllare che $\overline{d}$ sia ben posta, ovvero che sia indipendente dalla scelta del rappresentante della classe di equivalenza.
 
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che i seguenti spazi normati sono di Banach: \\
