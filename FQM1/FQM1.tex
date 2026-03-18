@@ -233,13 +233,52 @@ con $c > 0$. \\
 \end{align}
 allora otteniamo 
 \begin{align}
-    N =   \notag
+    4\pi N^2 \frac{1}{8c}\sqrt{\frac{\pi}{2c}} = 1 \notag
 \end{align}
-A questo punto $\braket{H}_c = \braket{T}_c + \braket{V}_c$, quindi
+quindi poniamo 
 \begin{align}
-    \braket{V}_c &= 4\pi N^2 \int_0^\infty r^2e^{-2cr^2}\frac{1}{r} \, dr \notag \\
-    \braket{T}_c &= -2\pi N^2 \int_0^\infty r^2\psi^*(r, \theta, \varphi)\nabla^2\psi(r, \theta, \varphi) \, dr \notag
-\end{align} \\ \\
+    N = \left(\frac{8c^3}{\pi^3}\right)^{1/4} \notag
+\end{align}
+A questo punto $\braket{H}_c = \braket{T}_c + \braket{V}_c$, dove
+\begin{align}
+    \braket{V}_c &= -4\pi N^2 \int_0^\infty r^2e^{-2cr^2}\frac{1}{r} \, dr \notag \\
+    &= -N^2\frac{\pi}{c} \notag \\
+    &= -\sqrt{\frac{8c}{\pi}} \notag
+\end{align}
+e 
+\begin{align}
+    \braket{T}_c &= -2\pi N^2 \int_0^\infty r^2\psi^*\nabla^2\psi \, dr \notag
+\end{align}
+in particolare, usando coordinate sferiche e sfruttando la simmetria radiale della funzione d'onda, si ha 
+\begin{align}
+    \nabla^2\psi &= \left(\frac{2}{r}\frac{\partial}{\partial r} + \frac{\partial^2}{\partial r^2}\right)\psi \notag \\
+    &= \frac{2}{r}\left(-cr\psi\right) + \left(-c\psi + c^2r^2\psi\right) \notag \\
+    &= -3c\psi + c^2r^2\psi \notag
+\end{align}
+allora 
+\begin{align}
+    \braket{T}_c &= 6\pi cN^2\int_0^\infty r^2|\psi|^2 \, dr - 2\pi c^2N^2\int_0^\infty r^4|\psi|^2 \, dr \notag \\
+    &= \frac{3}{2}c - 2\pi c^2N^2\frac{3}{16c^2}\sqrt{\frac{\pi}{2c}} \notag \\
+    &= \frac{3}{2}c - N^2\frac{3}{8}\sqrt{\frac{\pi^3}{2c}} \notag \\
+    &= \frac{3}{2}c - \frac{3}{4} \notag
+\end{align}
+si ottiene quindi 
+\begin{align}
+    \braket{H}_c = \frac{3}{2}c - \sqrt{\frac{8c}{\pi}} - \frac{3}{4} \notag
+\end{align}
+che ha come punto di minimo 
+\begin{align}
+    \overline{c} = \frac{8}{9\pi} \notag
+\end{align}
+per cui vale 
+\begin{align}
+    \braket{H}_{\overline{c}} = -0.424 \, u.a. \notag
+\end{align}
+e quindi l'errore rispetto al valore reale è 
+\begin{align}
+    \Delta E = 0.074 \, u.a. \notag
+\end{align}
+che è circa del $15 \%$. \\ \\
 \textbf{2.} Consideriamo il seguente hamiltoniano 
 \begin{align}
     H_\mu = -\frac{1}{2\mu}\nabla^2 - \frac{1}{r} \notag
