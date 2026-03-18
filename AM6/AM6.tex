@@ -1,0 +1,563 @@
+\documentclass{article}
+\usepackage{graphicx, amsfonts, amsmath, amssymb, amsthm, braket, float, cancel} % Required for inserting images
+
+\title{Analisi Matematica VI}
+\author{Alessandro Ballini}
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Spazi di operatori}
+\subsection{Operatori limitati}
+\textbf{Lemma (1.1.1):} sia $(X, \|\cdot\|)$ uno spazio normato, allora si ha
+\begin{gather}
+    |\|u\| - \|v\|| \leq \|u - v\| \notag
+\end{gather}
+per ogni $u, v \in X$. \\
+
+\textbf{Dimostrazione:} scriviamo
+\begin{align}
+    u = (u - v) + v \notag
+\end{align}
+allora si ha
+\begin{align}
+    \|u\| &= \|(u - v) + v\| \notag \\
+    &\leq \|u - v\| + \|v\| \notag
+\end{align}
+ovvero
+\begin{align}
+    \|u\| - \|v\| \leq \|u - v\| \notag
+\end{align}
+ora invece scriviamo
+\begin{align}
+    v = (v - u) + u \notag
+\end{align}
+allora si ha
+\begin{align}
+    \|v\| &= \|(v - u) + u\| \notag \\
+    &\leq \|v - u\| + \|u\| \notag
+\end{align}
+ovvero
+\begin{align}
+    \|v\| - \|u\| \leq \|u - v\| \notag
+\end{align}
+confrontando le due disuguaglianze ottenute si ottiene
+\begin{align}
+    \|u - v\| \geq \pm(\|u\| - \|v\|) \notag
+\end{align}
+ovvero
+\begin{align}
+    \|u - v\| \geq |\|u\| - \|v\|| \notag
+\end{align}  \qed  \\ \\
+\textbf{Teorema (di equivalenza delle norme):} sia $X$ uno spazio vettoriale di dimensione $n$ finita, allora tutte le norme definite su $X$ identificano la stessa topologia, ovvero per ogni coppia di norme $\|\cdot\|_\alpha, \|\cdot\|_\beta : X \longrightarrow \mathbf{R}^+$ esistono $\lambda, \mu \in \mathbf{R}^+$ tali che
+\begin{gather}
+    \lambda\|v\|_\alpha \leq \|v\|_\beta \leq \mu\|v\|_\alpha \notag
+\end{gather}
+per ogni $v \in X$. \\
+
+\textbf{Dimostrazione:} per dimostrare la prima disuguaglianza facciamo uso di un lemma, ovvero dimostriamo che $\|v\|_\infty \leq \|v\|_2 \leq \|v\|_1 \leq n\|v\|_\infty$ per ogni $v \in X$, dove
+\begin{align}
+    \|v\|_\infty &:= \max_{i = 1, \dots, n}|v_i| \notag \\
+    \|v\|_1 &:= \sum_{i = 1}^n |v_i| \notag \\
+    \|v\|_2 &:= \left(\sum_{i = 1}^n |v_i|^2\right)^{1/2} \notag
+\end{align}
+Sia $M$ un indice compreso tra $1$ e $n$ tale per cui
+\begin{gather}
+    |v_M| = \max_{i = 1, \dots, n}|v_i| \notag
+\end{gather}
+si ha che
+\begin{align}
+    \sum_{i = 1}^n|v_i|^2 - |v_M|^2 = \sum_{i \neq k}|v_i|^2 \geq 0 \notag
+\end{align}
+dunque segue che $\|v\|_\infty \leq \|v\|_2$. Inoltre osserviamo che
+\begin{align}
+    \sum_{i = 1}^n |v_i|^2 + \sum_{j, k = 1}^n|v_j||v_k| - \sum_{l = 1}^n|v_l|^2 &= \sum_{j, k = 1}^n|v_j||v_k| \geq 0 \notag
+\end{align}
+dunque segue che $\|v\|_2 \leq \|v\|_1$. Infine osserviamo che
+\begin{align}
+    \sum_{i = 1}^n|v_M| - \sum_{j = 1}^n|v_j| = \sum_{i = 1}^n(|v_M| - |v_i|) \geq 0 \notag
+\end{align}
+per definizione di $|v_M|$, dunque segue che $\|v\|_1 \leq n\|v\|_\infty$. Ora dimostreremo che ogni norma è equivalente alla norma $\|\cdot\|_2$. Per definizione di norma si ha che
+\begin{align}
+    \|v\|_\alpha &= \|\sum_{i = 1}^n v_ie_i\| \notag \\
+    &\leq \sum_{i = 1}^n|v_i|\|e_i\| \notag \\
+    &\leq \max_{j = 1, \dots, n}\|e_j\|\sum_{i = 1}^n|v_i| \notag \\
+    &\leq n\max_{j = 1, \dots, n}\|e_j\|\|v\|_\infty \notag \\
+    &\leq n\max_{j = 1, \dots, n}\|e_j\|\|v\|_2 \notag
+\end{align}
+pertanto posto
+\begin{gather}
+    \mu = n\max_{j = 1, \dots, n}\|e_j\| \notag
+\end{gather}
+si ottiene $\|v\|_\alpha \leq \mu\|v\|_2$. A questo punto notiamo che la norma $\|\cdot\|_\alpha$ è continua, infatti sia $u \in X$ e sia $\varepsilon > 0$, si ha che
+\begin{align}
+    |\|u\|_\alpha - \|w\|_\alpha| \leq \|u - w\|_\alpha \notag
+\end{align}
+pertanto basta prendere $\delta = \varepsilon/2$ e se $\|u - w\|_\alpha < \delta$ si ha
+\begin{align}
+    |\|u\|_\alpha - \|w\|_\alpha| \leq \|u - w\|_\alpha < \varepsilon \notag
+\end{align}
+Infine cerchiamo $\lambda > 0$ tale che
+\begin{align}
+    \lambda\|v\|_2 \leq \|\alpha\|_\alpha \notag
+\end{align}
+che equivale a
+\begin{align}
+    \lambda \leq \left\|\frac{v}{\|v\|_2}\right\|_\alpha \notag
+\end{align}
+per omogeneità della norma. Dunque basta scegliere $\lambda > 0$ tale che
+\begin{gather}
+    \lambda = \inf_{s \in \mathbf{S}^1}\|s\|_\alpha \notag
+\end{gather}
+poiché la norma $\|\cdot\|_\alpha$ è continua e $\mathbf{S}^1$ è un compatto (chiuso e limitato) segue dal \textit{teorema di Weierstrass} che $\|\cdot\|_\alpha$ ammette un massimo e un minimo assoluto su $\mathbf{S}^1$. Sia $s_m \in \mathbf{S}^1$ tale che
+\begin{align}
+    \|s_m\|_\alpha \leq \|s\|_\alpha \notag
+\end{align}
+per ogni $s \in \mathbf{S}^1$ e poniamo $\lambda = \|s_m\|$, $\lambda \neq 0$ poiché $0 \not\in \mathbf{S}^1$ e la norma soddisfa la proprietà di fedeltà (per definizione), allora si ha
+\begin{gather}
+    \lambda\|v\|_2 \leq \|v\|_\alpha \notag
+\end{gather}
+e quindi segue la tesi. \qed \\ \\
+\textbf{Definizione:} siano $X, Y$ spazi lineari, un operatore lineare $T : X \longrightarrow Y$ è detto limitato se esiste $M > 0$ tale che $\|T(v)\| \leq M\|v\|$ per ogni $v \in X$. \\ \\
+\textbf{Proposizione (1.1.1):} siano $X, Y$ spazi vettoriali e sia $T : X \longrightarrow Y$ un operatore lineare, allora le seguenti sono equivalenti: \\
+\textbf{1.} $T$ è limitato in $X$. \\
+\textbf{2.} $T$ è continuo in $X$. \\
+\textbf{3.} $T$ è continuo in $0 \in X$. \\
+
+\textbf{Dimostrazione:} $(1 \rightarrow 2)$ sia $T$ limitato in $X$, allora esiste $M > 0$ tale che $\|T(v)\| \leq M\|v\|$ per ogni $v \in T$. Sia $\varepsilon > 0$ e sia $u \in X$, si ha che
+\begin{align}
+    \|T(u) - T(v)\| &= \|T(u - v)\| \notag \\
+    &\leq M\|u - v\| \notag
+\end{align}
+pertanto basta scegliere $v$ tale che $\|u - v\| = \frac{\varepsilon}{2M}$ per ottenere
+\begin{align}
+    \|T(u) - T(v)\| \leq M\|u - v\| = \frac{\varepsilon}{2} < \varepsilon \notag
+\end{align}
+$(2 \rightarrow 3)$ Immediato. $(3 \rightarrow 1)$ Per ipotesi $T$ è continuo in $0$, dunque per ogni $\varepsilon > 0$ esiste $\delta > 0$ tale che
+\begin{align}
+    \|u - 0\| \leq \delta \implies \|T(u) - T(0)\| \leq \varepsilon \notag
+\end{align}
+Inoltre $T$ è lineare, quindi $T(0) = 0$, pertanto si ha
+\begin{align}
+    \|u\| \leq \delta \implies \|T(u)\| \leq \varepsilon \notag
+\end{align}
+sia $v \in X \setminus \{0\}$ e poniamo
+\begin{align}
+    w = \delta\frac{v}{\|v\|} \notag
+\end{align}
+allora per omogeneità della norma si ha
+\begin{align}
+    \|w\| = \delta \notag
+\end{align}
+e quindi per continuità
+\begin{align}
+    \|T(w)\| \leq \varepsilon \notag
+\end{align}
+Pertanto otteniamo
+\begin{align}
+    \|T(v)\| = \frac{\|v\|}{\delta}\|T(w)\| \leq \frac{\varepsilon}{\delta}\|v\| \notag
+\end{align}
+e posto $M = \frac{\varepsilon}{\delta}$ si ha
+\begin{align}
+    \|T(v)\| \leq M\|v\| \notag
+\end{align}
+per ogni $v \in X \setminus \{0\}$, ovvero $T$ limitato. Notiamo che per $v = 0$ la tesi è ovvia. \qed \\ \\
+\textbf{Definizione:} siano $X, Y$ spazi vettoriali, poniamo
+\begin{align}
+    \mathcal{B}(X, Y) = \{T : X \longrightarrow Y : T \text{ è lineare e limitato}\} \notag
+\end{align} \\
+\textbf{Definizione:} siano $X, Y$ spazi vettoriali, definiamo
+\begin{align}
+    \|\cdot\|_{op} : \mathcal{B}(X, Y) \longrightarrow \mathbf{R}^+ \notag
+\end{align}
+ponendo
+\begin{align}
+    \|T\|_{op} = \sup_{v \neq 0}\frac{\|T(v)\|}{\|v\|} \notag
+\end{align}
+per ogni $T \in \mathcal{B}(X, Y)$. \\ \\
+\textbf{Osservazione:} sia $T$ un operatore lineare, $T \in \mathcal{B}(X, Y)$ se e solo se esiste $M > 0$ tale che $\|T\|_{op} = M$. \\ \\
+\textbf{Osservazione:} sia $T \in \mathcal{B}(X, Y)$, si ha che
+\begin{align}
+    \sup_{v \neq 0}\frac{\|T(v)\|}{\|v\|} = \sup_{\|v\| = 1}\|T(v)\| \notag
+\end{align}
+infatti per omogeneità della norma si ha
+\begin{align}
+    \sup_{v \neq 0}\frac{\|T(v)\|}{\|v\|} &= \sup_{v \neq 1}\frac{1/\|v\|}{1/\|v\|}\frac{\|T(v)\|}{\|v\|} \notag \\
+    &= \sup_{v \neq 0}\|T(v/\|v\|)\| \notag \\
+    &= \sup_{\|w\| = 1}\|T(w)\| \notag
+\end{align}
+\textbf{Osservazione:} sia $T \in \mathcal{B}(X, Y)$, allora per ogni $u \in X$ si ha
+\begin{align}
+    \|T(u)\| \leq \|T\|_{op}\|u\| \notag
+\end{align}
+infatti per definizione di norma operatore si ha
+\begin{align}
+    \frac{\|T(u)\|}{\|u\|} \leq \|T\|_{op} \notag
+\end{align} \\
+\textbf{Proposizione (1.1.2):} siano $X, Y$ spazi vettoriali, allora $(\mathcal{B}(X, Y), \|\cdot\|_{op})$ è uno spazio normato. \\
+
+\textbf{Dimostrazione:} definiamo le seguenti operazioni di somma $+$ e di prodotto per scalare $\cdot$ su $\mathcal{B}(X, Y)$
+\begin{align}
+    (T_1 + T_2)(u) &= T_1(u) + T_2(u) \notag \\
+    (\lambda \cdot T)(u) &= \lambda \cdot T(u) \notag
+\end{align}
+per ogni $T_1, T_2, T \in \mathcal{B}(X, Y)$ e ogni $\lambda \in \mathbf{C}$. Verifichiamo che $\|\cdot\|_{op}$ sia una norma, si ha che
+\begin{align}
+    \|T\|_{op} &= \sup_{\|v\| = 1}\|T(v)\| \geq 0 \notag
+\end{align}
+per proprietà di norma sullo spazio $Y$. Inoltre, $\|T\|_{op} = 0$ se e solo se
+\begin{align}
+    \sup_{\|v\| = 1}\|T(v)\| = 0 \notag
+\end{align}
+per linearità di $T$ e fedeltà della norma su $Y$ si ha che
+\begin{align}
+    \sup_{\|v\| = 1}\|T(v)\| = 0 \notag
+\end{align}
+se e solo se $T = \mathcal{O}$, ovvero $T$ identicamente nullo. Sia poi $\lambda \in \mathbf{C}$, si ha che
+\begin{align}
+    \|\lambda\cdot T\|_{op} &= \sup_{\|v\| = 1}\|\lambda T(v)\| \notag \\
+    &= \sup_{\|v\| = 1}|\lambda|\|T(v)\| \notag \\
+    &= |\lambda|\sup_{\|v\| = 1}\|T(v)\| \notag \\
+    &= |\lambda|\|T\|_{op} \notag
+\end{align}
+per omogeneità della norma su $Y$. Infine si ha che
+\begin{align}
+    \|T_1 + T_2\|_{op} &= \sup_{\|v\| = 1}\|T_1(v) + T_2(v)\| \notag \\
+    &\leq \sup_{\|v\| = 1}\|T_1(v)\| + \|T_2(v)\| \notag \\
+    &\leq \|T_1\|_{op} + \|T_2\|_{op} \notag
+\end{align}
+infatti siano $v_1$ e $v_2$ di norma unitaria tali che
+\begin{align}
+    \|T_1(v_1)\| \geq \|T_1(v)\| \qquad \|T_2(v_2)\| \geq \|T_2(v)\| \notag
+\end{align}
+per ogni $v \in X$ tale che $\|v\| = 1$, allora se $v_1 = v_2$ si ha
+\begin{align}
+    \|T_1 + T_2\|_{op} = \|T_1\|_{op} + \|T_2\|_{op} \notag
+\end{align}
+mentre se $v_1 \neq v_2$ si ha che
+\begin{align}
+    \|T_1 + T_2\|_{op} &< \|T_1(v_1)\| + \|T_2(v_2)\| \notag \\
+    &= \|T_1\|_{op} + \|T_2\|_{op} \notag
+\end{align}
+Ora mostriamo che $\mathcal{B}(X, Y)$ è chiuso rispetto alle operazioni di somma e prodotto per scalare, siano $T_1, T_2 \in \mathcal{B}(X, Y)$, allora
+\begin{align}
+    \|T_1 + T_2\|_{op} &\leq \|T_1\|_{op} + \|T_2\|_{op} \notag \\
+    &\leq M_1 + M_2 \notag
+\end{align}
+dove
+\begin{align}
+    M_1 = \sup_{\|v\| = 1}\|T_1(v)\| \qquad M_2 = \sup_{\|v\| = 1}\|T_2(v)\| \notag
+\end{align}
+pertanto ponendo $M = M_1 + M_2$ si ha
+\begin{align}
+    \|T_1 + T_2\|_{op} \leq M < \infty \notag
+\end{align}
+ovvero $T_1 + T_2$ limitato. Inoltre, sia $T \in \mathcal{B}(X, Y)$ e $\lambda \in \mathbf{C}$, si ha che
+\begin{align}
+    \|\lambda T\|_{op} = |\lambda|\|T\|_{op} \leq \lambda M \notag
+\end{align}
+dove
+\begin{align}
+    M = \sup_{\|v\| = 1}\|T(v)\| \notag
+\end{align}
+pertanto ponendo $M_\lambda = \lambda M$ si ha
+\begin{align}
+    \|\lambda T\|_{op} \leq M_\lambda \notag
+\end{align}
+ovvero $\lambda T$ limitato. \qed \\ \\
+\textbf{Proposizione (1.1.3):} la norma $\|\cdot\|_{op}$ è submoltiplicativa, ovvero
+\begin{align}
+    \|T_1 \cdot T_2\|_{op} \leq \|T_1\|_{op}\|T_2\|_{op} \notag
+\end{align}
+per ogni $T_1, T_2 \in \mathcal{B}(X, Y)$. \\
+
+\textbf{Dimostrazione:} si ha che
+\begin{align}
+    \|T_1\cdot T_2\|_{op} &= \sup_{\|v\| = 1}\|(T_1\cdot T_2)(v)\| \notag \\
+    &= \sup_{w \in W}\|T_1(w)\| \notag
+\end{align}
+dove $W = \{w \in X : w = T_2(v), \|v\| = 1\}$. Pertanto
+\begin{align}
+    \sup_{w \in W}\|T_1(w)\| &= \sup_{w \in W}\frac{\|T_1(w)\|}{\|w\|}\|w\| \notag \\
+    &\leq \|T_1\|_{op}\|T_2\|_{op} \notag
+\end{align}
+infatti siano $w_1, w_2 \in W$ tali che
+\begin{align}
+    \frac{\|T_1(w_1)\|}{\|w_1\|} = \sup_{w \in W}\frac{\|T_1(w)\|}{\|w\|} \qquad \|w_2\| = \sup_{w \in W}\|w\| \notag
+\end{align}
+se $w_1 = w_2$ si ha
+\begin{align}
+    \|T_1 \cdot T_2\|_{op} = \|T_1\|_{op} + \|T_2\|_{op} \notag
+\end{align}
+mentre se $w_1 \neq w_2$ si ha
+\begin{align}
+    \|T_1 \cdot T_2\|_{op} &< \frac{\|T_1(w_1)\|}{\|w_1\|}\|w_2\| \notag \\
+    &= \|T_1\|_{op}\|T_2\|_{op} \notag
+\end{align}
+e quindi si ottiene la tesi. \qed
+
+\subsubsection{Esercizi}
+\textbf{1.} Verificare se $\|\cdot\|_2 : \mathbf{C}^n \longrightarrow \mathbf{R}^+$ definita ponendo
+\begin{align}
+    \|v\|_2 = \left(\sum_{i = 1}^n|v_i|^2\right)^{1/2} \notag
+\end{align}
+per ogni $v = (v_1, \dots, v_n) \in \mathbf{C}^n$ è una norma su $\mathbf{C}^n$. \\
+
+\textbf{Soluzione:} dimostriamo il caso $n = 1$, siano $u, v \in \mathbf{C}$, si ha che
+\begin{align}
+    |u + v|^2 &= (u + v)(u^* + v^*) \notag \\
+    &= |u|^2 + |v|^2 + 2\mathrm{Re}(uv^*) \notag
+\end{align}
+inoltre $\mathrm{Re}(uv^*) \leq |u||v|$, pertanto
+\begin{align}
+    |u + v|^2 &= |u|^2 + |v|^2 + 2\mathrm{Re}(uv^*) \notag \\
+    &\leq |u|^2 + |v|^2 + 2|u||v| \notag \\
+    &= (|u| + |v|)^2 \notag
+\end{align}
+e per la monotonia della funzione radice quadrata si ha
+\begin{align}
+    |u + v| \leq |u| + |v| \notag
+\end{align}
+Ragionando per induzione, supponiamo che sia vero per $n - 1$ e dimostriamo la subadditività per $n$. Siano $u, v \in \mathbf{C}^n$, si ha che
+\begin{align}
+    \sum_{i = 1}^n |u_i + v_i|^2 &= \sum_{i = 1}^{n - 1}|u_i + v_i|^2 + |u_n + v_n|^2 \notag \\
+    &\leq \sum_{i = 1}^{n - 1}|u_i|^2 + \sum_{i = 1}^{n - 1}|v_i|^2 + 2\left(\sum_{j = 1}^{n - 1}|u_j|^2\sum_{k = 1}^{n - 1}|v_k|^2\right)^{1/2} \notag \\
+    &+ |u_n|^2 + |v_n|^2 + 2|u_n||v_n| \notag \\
+    &\leq \sum_{i = 1}^n|u_i|^2 + \sum_{i = 1}^n|v_i|^2 + 2\left(\sum_{j = 1}^n|u_j|^2\sum_{k = 1}^n|v_k|^2\right)^{1/2} \notag \\
+    &= \left(\left(\sum_{i = 1}^n|u_i|^2\right)^{1/2} + \left(\sum_{i = 1}^n|v_i|^2\right)^{1/2}\right)^{2} \notag
+\end{align}
+ovvero
+\begin{align}
+    \|u + v\|^2_2 \leq (\|u\|_2 + \|v\|_2)^2 \notag
+\end{align}
+e per monotonia della funzione radice quadrata si ha
+\begin{align}
+    \|u + v\|_2 \leq \|u\|_2 + \|v\|_2 \notag
+\end{align} \\
+\textbf{2.} Siano $(X, \|\cdot\|_X)$ e $(Y, \|\cdot\|_Y)$ spazi normati tali che $X \cong \mathbf{C}^n$ e $Y \cong \mathbf{C}^m$, sia $T : X \longrightarrow Y$, dimostrare che se $T$ è lineare allora $T$ è limitato. \\
+
+\textbf{Soluzione:} fissiamo una base per $X$ e una base per $Y$, sia $v \in X$, si ha
+\begin{align}
+    \|T(v)\|_Y &= \|\sum_{i = 1}^mc_iT(e_i)\|_Y \notag \\
+    &\leq \sum_{i = 1}^m|c_i|\|T(e_i)\|_Y \notag \\
+    &\leq \|v\|_\infty \cdot \max_{i = 1, \dots, m}\|T(e_i)\|_Y \notag
+\end{align}
+Per il \textit{teorema di equivalenza delle norme} esiste $\lambda > 0$ tale che $\lambda\|u\|_\infty \leq \|u\|_X$ per ogni $u \in X$, pertanto
+\begin{align}
+    \|T(v)\|_Y \leq \mu \|v\|_X \notag
+\end{align}
+dove si è posto
+\begin{align}
+    \mu = \frac{1}{\lambda}\max_{i = 1, \dots, m}\|T(e_i)\|_Y \notag
+\end{align}
+Dall'arbitrarietà di $v$ segue che
+\begin{align}
+    \sup_{v \neq 0}\frac{\|T(v)\|_Y}{\|v\|_X} < \infty \notag
+\end{align}
+che è la tesi.
+
+\newpage
+\subsection{Completezza}
+\textbf{Definizione:} sia $(X, d)$ uno spazio metrico, sia $\{x_n : n \in \mathbf{N}\}$ una successione contenuta in $X$. $\{x_n : n \in \mathbf{N}\}$ è detta di Cauchy se per ogni $\varepsilon > 0$ esiste $N_\varepsilon > 0$ tale che
+\begin{align}
+    d(x_n, x_m) < \varepsilon \notag
+\end{align}
+per ogni $n, m > N_\varepsilon$. \\ \\
+\textbf{Osservazione:} ogni successione convergente è di Cauchy, infatti se $\{x_n : n \in \mathbf{N}\}$ è una successione contenuta in $X$ convergente a $x \in X$, fissato $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbf{N}$ tale che
+\begin{align}
+    d(x_n, x_m) &\leq d(x_n, x) + d(x, x_m) < 2\varepsilon \notag
+\end{align}
+per ogni $n, m > N_\varepsilon$, per definizione di convergenza di successione in uno spazio metrico. \\ \\
+\textbf{Proposizione 1.2.1:} ogni successione di Cauchy che ammette una sottosuccessione convergente è convergente. \\
+
+\textbf{Dimostrazione:} sia $\{x_n : n \in \mathbf{N}\} \subset X$ una successione di Cauchy e sia $\{x_{\nu(k)} : \nu : \mathbf{N} \longrightarrow \mathbf{N}\}$ una sottosuccessione convergente a $x \in X$. Fissiamo $\varepsilon > 0$, per definizione esiste $N_\varepsilon \in \mathbf{N}$ tale che
+\begin{align}
+    d(x_{\nu(k)}, x) < \varepsilon \notag
+\end{align}
+se $k > N_\varepsilon$, infatti dato che $\nu$ è strettamente crescente e definita da $\mathbf{N}$ a $\mathbf{N}$ si ha $\nu(k) \geq k$ per ogni $k \in \mathbf{N}$. Inoltre esiste $M_\varepsilon \in \mathbf{N}$ tale che 
+\begin{align}
+    d(x_n, x_m) < \varepsilon \notag
+\end{align}
+per ogni $n, m > M_\varepsilon$. Allora, per subadditività della metrica $d$, fissato $k > \max\{N_\varepsilon, M_\varepsilon\}$, si ha
+\begin{align}
+    d(x_n, x) \leq d(x_n, x_{\nu(k)}) + d(x_{\nu(k)}, x) < 2\varepsilon \notag
+\end{align}
+per ogni $n > \max\{N_\varepsilon, M_\varepsilon\}$. \qed \\ \\
+\textbf{Definizione:} sia $(X, d)$ uno spazio metrico e sia $\{x_n : n \in \mathbf{N}\}$ una successione contenuta in $X$. Chiamiamo variazione della successione la somma
+\begin{align}
+    d(x_0, x_1) + d(x_1, x_2) + \dots + d(x_{n - 1}, x_n) + \dots \notag
+\end{align}
+Se la somma è convergente si dice che la serie è a variazione finita. \\ \\
+\textbf{Osservazione:} consideriamo una successione a variazione finita $\{x_n : n \in \mathbf{N}\}$ a termini reali o complessi e consideriamo la seguente somma parziale
+\begin{align}
+    x_1 + (x_2 - x_1) + (x_3 - x_2) + \dots + (x_n - x_{n - 1}) \notag
+\end{align}
+In particolare si ha che
+\begin{align}
+    x_1 + \sum_{i = 1}^n(x_{i + 1} - x_i) = x_n \notag
+\end{align}
+dunque, dato che la successione delle somme parziali
+\begin{align}
+    \left\{\sum_{i = 1}^n(x_{i + i} - x_i)\right\}_{n \in \mathbf{N}} \notag
+\end{align}
+converge semplicemente, poiché per ipotesi converge assolutamente, si ha che anche la successione $\{x_n : n \in \mathbf{N}\}$ converge, infatti
+\begin{align}
+    \lim_{n \rightarrow \infty}x_n = x_1 + \lim_{n \rightarrow \infty}\sum_{i = 1}^n(x_{i + 1} - x_i) < \infty \notag
+\end{align}
+Allora segue immediatamente il seguente risultato. \\ \\
+\textbf{Proposizione 1.2.2:} ogni successione a termini reali o complessi a variazione finita è convergente. \\ 
+
+\textbf{Dimostrazione:} immediata. \qed  \\ \\
+\textbf{Proposizione 1.2.3:} ogni successione di Cauchy ammette una sottosuccessione a variazione finita. \\
+
+\textbf{Dimostrazione:} sia $\{x_n : n \in \mathbf{N}\}$ una successione di Cauchy, possiamo costruire induttivamente $\nu : \mathbf{N} \longrightarrow \mathbf{N}$ strettamente crescente tale che
+\begin{align}
+    d(x_{\nu(k + 1)}, x_{\nu(k)}) < \frac{1}{2^{k + 1}} \notag
+\end{align}
+Poniamo $\varepsilon_k = 2^{-(k + 1)}$ e definiamo $\nu(0)$ come il minimo naturale $m$ tale che $\{x_n : n \geq m\}$ ha diametro minore di $\varepsilon_0$. Analogamente definiamo $\nu(k)$ come il minimo naturale $m$, strettamente maggiore di $\nu(k - 1)$, tale che il diametro di $\{x_n : n \geq m\}$ è minore di $\varepsilon_k$. Si ottiene così una successione a variazione finita, infatti
+\begin{align}
+    \sum_{k = 1}^\infty d(x_{\nu(k + 1)}, x_{\nu(k)}) < \sum_{k = 1}^\infty \frac{1}{2^{k + 1}} < \infty \notag
+\end{align} \qed \\ \\
+\textbf{Definizione:} sia $(X, d)$ uno spazio metrico, $X$ è detto completo se e solo se ogni successione di Cauchy contenuta in $X$ è anche convergente. \\ \\
+\textbf{Definizione:} uno spazio normato $(X, \|\cdot\|)$ è detto di Banach se è completo rispetto alla metrica indotta dalla norma. \\ \\
+\textbf{Proposizione 1.2.4:} $\mathbf{R}$ e $\mathbf{C}$ sono spazi di Banach. \\
+
+\textbf{Dimostrazione:} per la \textit{proposizione 1.2.3} ogni successione di Cauchy ammette una sottosuccessione a variazione finita, per la \textit{proposizione 1.2.2} ogni successione a termini reali o complessi a variazione finita è convergente e infine per la \textit{proposizione 1.2.1} ogni successione di Cauchy che ammette una sottosuccessione convergente è convergente. \qed \\ \\
+Altrimenti avremmo potuto argomentare come segue. Ogni successione di Cauchy (in uno spazio normato) è limitata, infatti per ipotesi esiste $N \in \mathbf{N}$ tale che
+\begin{align}
+    \|x_n - x_m\| < 1 \notag
+\end{align}
+per ogni $n, m > N$. Allora, fissato $m > N$, si ha che
+\begin{align}
+    \|x_n\| \leq \|x_n - x_m\| + \|x_m\| < \infty \notag
+\end{align}
+per ogni $n > N$, ovvero
+\begin{align}
+    \sup_{n \in \mathbf{N}}\|x_n\| < \infty \notag
+\end{align}
+A questo punto dimostriamo il seguente risultato. \\ \\
+\textbf{Proposizione 1.2.5:} ogni successione limitata a termini complessi ammette una sottosuccessione convergente. \\
+
+\textbf{Dimostrazione:} sia $\{z_n : n \in \mathbf{N}\}$ una successione limitata a termini complessi. Poniamo $z_n = x_n + iy_n$, dove $x_n, y_n \in \mathbf{R}$ per ogni $n \in \mathbf{N}$. Poiché $|z_n| = \sqrt{x^2_n + y^2_n}$, si ha che se $\{z_n : n \in \mathbf{N}\}$ è limitata anche $\{x_n : n \in \mathbf{N}\}$ e $\{y_n : n \in \mathbf{N}\}$ sono limitate. Dimostriamo allora che ogni successione limitata a termini reali ammette una sottosuccessione convergente. \\
+Sia $\{a_n : n \in \mathbf{N}\}$ a termini reali e limitata. Sia
+\begin{align}
+    M = \sup_{n \in \mathbf{N}}|a_n| \notag
+\end{align}
+Allora
+\begin{align}
+    \{a_n : n \in \mathbf{N}\} \subset [-M, M] \notag
+\end{align}
+Uno tra gli intervalli $[-M, 0]$ e $[0, M]$ contiene infiniti termini della successione. Supponiamo senza perdita di generalità che sia $[0, M]$ e definiamo $n_1$ come il minimo interno $n$ tale che $a_n$ è contenuto in $[0, M]$. Analogamente uno degli intervalli tra $[0, M/2]$ e $[M/2, M]$ contiene infiniti termini della successione, supponiamo che sia $[M/2, M]$ e poniamo $n_2$ come il minimo interno $n$, strettamente maggiore di $n_1$, tale che $a_n \in [M/2, M]$. Ragionando per induzione, si ottiene un intervallo $I_k$ di diametro $M2^{1 - k}$ che contiene infiniti termini della successione e definiamo $n_k$ come il minimo intero $n$, strettamente maggiore di $n_{k - 1}$, tale che $a_k \in I_k$. Si vede immediatamente che la sottosuccessione $\{a_{n_k} : k \in \mathbf{N}\}$ è convergente. \\
+Allora $\{x_n : n \in \mathbf{N}\}$ ammette una sottosuccessione convergente $\{x_{\nu(k)} : k \in \mathbf{N}\}$. Tuttavia, in generale, $\{y_{\nu(k)} : k \in \mathbf{N}\}$ non è convergente, ma essendo ancora limitata ammette una sottosuccessione convergente $\{y_{\nu(k(l))} : l \in \mathbf{N}\}$ e ovviamente anche $\{x_{\nu(k(l))} : l \in \mathbf{N}\}$ è convergente, pertanto $\{z_{\nu(k(l))} : l \in \mathbf{N}\}$ è una sottosuccessione convergente di $\{z_n : n \in \mathbf{N}\}$. \qed \\ \\
+\textbf{Corollario 1.2.1:} $\mathbf{R}^n$ e $\mathbf{C}^n$ sono spazi di Banach per ogni $n \in \mathbf{N}$. \\ \\
+\textbf{Esempio:} sia $S$ un insieme, un esempio non banale di spazio di Banach è
+\begin{align}
+    l^\infty(S) := \{f : S \longrightarrow \mathbf{C} : \|f\|_\infty < \infty\} \notag
+\end{align}
+rispetto alla metrica indotta da $\|\cdot\|_\infty$. Infatti, sia $\{f_n : n \in \mathbf{N}\}$ una successione di Cauchy contenuta in $l^\infty(S)$. Fissato $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbf{N}$ tale che
+\begin{align}
+    \|f_n - f_m\|_\infty < \varepsilon \notag
+\end{align}
+per ogni $n, m > N_\varepsilon$. Allora per ogni $t \in S$ si ha
+\begin{align}
+    |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \varepsilon \notag
+\end{align}
+per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbf{N}\}$ è una successione di Cauchy a termini complessi per ogni $t \in S$. Per la \textit{proposizione 1.2.4} per ogni $t \in S$ esiste $M_{\varepsilon, t} \in \mathbf{N}$ tale che
+\begin{align}
+    |f_n(t) - f(t)| < \varepsilon \notag
+\end{align}
+per ogni $n > M_{\varepsilon, t}$. Resta da dimostrare che $\|f_n - f\|_\infty \rightarrow 0$ per $n \rightarrow \infty$ e che $f \in l^\infty(S)$. Per ipotesi, fissato $m > N_\varepsilon$
+\begin{align}
+    \|f_n - f\|_\infty \leq \|f_n - f_m\|_\infty + \|f_m - f\|_\infty < 2\varepsilon \notag
+\end{align}
+per ogni $n > N_\varepsilon$. Notiamo che esiste $N_1 \in \mathbf{N}$ tale che fissato $n > N_1$ si ha
+\begin{align}
+    \|f\|_\infty &\leq \|f - f_n\|_\infty + \|f_n\|_\infty \notag \\
+    &< 1 + \|f_n\|_\infty \notag
+\end{align}
+ ovvero la tesi. \qed \\ \\
+\textbf{Teorema (di completamento di spazi metrici):} sia $(X, d)$ uno spazio metrico, allora esiste uno spazio metrico completo $(\overline{X}, \overline{d})$ detto completamento di $(X, d)$ e un'isometria $j : X \longrightarrow \overline{X}$
+tale che $\overline{j(X)} = \overline{X}$, ovvero $j(X)$ è denso in $\overline{X}$. Inoltre il completamento è unico, nel senso che se $(\tilde{X}, \tilde{d})$ è un altro completamento di $(X, d)$ e $k : X \longrightarrow \tilde{X}$
+un'altra isometria, esiste un'isometria suriettiva $\phi : \overline{X} \longrightarrow \tilde{X}$ tale che $\phi \circ j = k$. \\
+
+\textbf{Dimostrazione:}
+
+\subsubsection{Esercizi}
+\textbf{1.} Dimostrare che i seguenti spazi normati sono di Banach: \\
+\begin{align}
+    &a. \quad l^1(\mathbf{N}) := \{\mathbf{x} = \{x_n\}_{n \in \mathbf{N}} : \sum_{i = 1}^\infty |x_i| < \infty\} \text{ rispetto alla norma }\|\cdot\|_1 \notag \\
+    &b. \quad l^2(\mathbf{N}) := \{\mathbf{x} = \{x_n\}_{n \in \mathbf{N}} : \sum_{i = 1}^\infty |x_i|^2 < \infty\} \text{ rispetto alla norma }\|\cdot\|_2 \notag \\
+    &c. \quad \mathcal{B}(X, Y) \text{ se } Y \text{ è di Banach, rispetto alla norma } \|\cdot\|_{op} \notag
+\end{align} \\
+
+\textbf{Soluzione:} $(a)$ sia $\{\mathbf{x}_n : n \in \mathbf{N}\} \subset l^1(\mathbf{N})$ una successione di Cauchy. Fissato $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbf{N}$ tale che
+\begin{align}
+    \|\mathbf{x}_n - \mathbf{x}_m\|_1 < \varepsilon \notag
+\end{align}
+per ogni $n, m > N_\varepsilon$, ovvero
+\begin{align}
+    \sum_{k = 1}^\infty |x^k_n - x^k_m| < \varepsilon \notag
+\end{align}
+per ogni $n, m > N_\varepsilon$. Allora per ogni $k \in \mathbf{N}$ si ha
+\begin{align}
+    |x^k_n - x^k_m| < \varepsilon \notag
+\end{align}
+per ogni $n, m > N_\varepsilon$, dunque per ogni $k \in \mathbf{N}$ si ha che $\{x^k_n : n \in \mathbf{N}\}$ è una successione di Cauchy a termini complessi. Per la \textit{proposizione 1.2.4}, per ogni $k \in \mathbf{N}$ esiste $x^k \in \mathbf{C}$ ed esiste $N_l \in \mathbf{N}$ tale che
+\begin{align}
+    |x^k_n - x^k| < \varepsilon2^{-l} \notag
+\end{align}
+per ogni $n > N_l$. Sia $\mathbf{x} = \{x^k : k \in \mathbf{N}\}$, allora
+\begin{align}
+    \|\mathbf{x}_n - \mathbf{x}\|_1 &= \sum_{k = 1}^\infty|x^k_n - x^k| \notag \\
+    &< \varepsilon\sum_{l = 1}^\infty 2^{-l} = \varepsilon \notag
+\end{align}
+per ogni $n > N_l$. Inoltre, fissato $n > N_l$ si ha
+\begin{align}
+    \|\mathbf{x}\|_1 \leq \|\mathbf{x} - \mathbf{x}_n\|_1 + \|\mathbf{x}_n\|_1 < \infty \notag
+\end{align} 
+ovvero la tesi. \\ \\
+$(b)$ Sia $\{\mathbf{x}_n : n \in \mathbf{N}\} \subset l^2(\mathbf{N})$ una successione di Cauchy. Fissato $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbf{N}$ tale che 
+\begin{align}
+    \|\mathbf{x}_n - \mathbf{x}_m\|_2 < \varepsilon \notag
+\end{align} 
+per ogni $n, m > N_\varepsilon$, ovvero
+\begin{align}
+    \sum_{k = 1}^\infty|x^k_n - x^k_m|^2 < \varepsilon^2 \notag
+\end{align}
+per ogni $n, m > N-\varepsilon$. Allora per ogni $k \in \mathbf{N}$ si ha
+\begin{align}
+    |x^k_n - x^k_m| < \varepsilon \notag
+\end{align}
+per ogni $n, m > N_\varepsilon$, a questo punto la dimostrazione è del tutto analoga a quella del punto $(a)$. \\ \\
+$(c)$ Sia $\{T_n : n \in \mathbf{N}\} \subset \mathcal{B}(X, Y)$ una successione di Cauchy. Fissato $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbf{N}$ tale che
+\begin{align}
+    \|T_n - T_m\|_{op} < \varepsilon \notag
+\end{align} 
+per ogni $n, m > N_\varepsilon$, ovvero
+\begin{align}
+    \sup_{\|v\| = 1}\|T_n(v) - T_m(v)\| < \varepsilon \notag
+\end{align}
+per ogni $n, m > N_\varepsilon$. Allora fissato $v \in X$ si ha che $\{T_n(v) : n \in \mathbf{N}\}$ è una successione di Cauchy in $Y$. Per ipotesi $Y$ è uno spazio di Banach,
+allora la successione $\{T_n(v) : n \in \mathbf{N}\}$ è una successione convergente. Poniamo
+\begin{align}
+    T(v) := \lim_{n \rightarrow \infty}T_n(v) \notag
+\end{align}
+per ogni $v \in X$. Resta da mostrare che $\|T_n - T\|_{op} \rightarrow 0$ per $n \rightarrow \infty$ e che $T \in \mathcal{B}(X, Y)$. Fissato $m > N_\varepsilon$ si ha
+\begin{align}
+    \|T_n - T\|_{op} &\leq \|T_n - T_m\|_{op} + \|T_m - T\|_{op} < 2\varepsilon \notag
+\end{align}
+per ogni $n > N_\varepsilon$. Notiamo che esiste $N_1 \in \mathbf{N}$ tale che fissato $n > N_1$ si ha
+\begin{align}
+    \|T\|_{op} &\leq \|T - T_n\|_{op} + \|T_n\|_{op} \notag \\
+    &< 1 + \|T_n\|_{op} < \infty \notag
+\end{align}
+ovvero la tesi. \qed
+
+
+
+
+\end{document}

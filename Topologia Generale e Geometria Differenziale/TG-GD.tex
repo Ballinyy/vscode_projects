@@ -1,0 +1,2430 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts, amsmath, amssymb, amsthm, float}
+\usepackage{tikz-cd}
+
+\title{Introduzione alla topologia e geometria differenziale}
+\author{Alessandro Ballini}
+\date{September 2025}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+\section{Topologia}
+\textbf{Teorema di De Morgan:} siano $X$ un insieme e $\{ A_i \}_{i \in I} \subset X$ una famiglia di sottoinsiemi. Allora:
+\begin{gather}
+    X \setminus \bigcup_{i \in I} A_i = \bigcap_{i \in I} (X \setminus A_i) \notag \\
+    X \setminus \bigcap_{i \in I} A_i = \bigcup_{i \in I} (X \setminus A_i) \notag
+\end{gather} \\
+
+\textbf{Dimostrazione:} se $x \in X \setminus \bigcup_{i \in I} A_i$ si ha $x \not\in \bigcup_{i \in I} A_i$, pertanto $x \not\in A_i$ per ogni $i \in I$, ciò equivale a $x \in X \setminus A_i$ per ogni $i \in I$, dunque $x \in \bigcap_{i \in I} (X \setminus A_i)$. Viceversa, se $y \in \bigcap_{i \in I} (X \setminus A_i)$ segue che $y \in X \setminus A_i$ per ogni $i \in I$, pertanto $y \not\in A_i$ per ogni $i \in I$, dunque $y \in X \setminus \bigcup_{i \in I} A_i$. \\ \\
+Se $x \in X \setminus \bigcap_{i \in I} A_i$ si ha che $x \not\in \bigcap_{i \in I} A_i$, pertanto esiste $j \in I$ tale che $x \not\in A_j$, ciò comporta che $x \in X \setminus A_j$, quindi $x \in \bigcup_{i \in I} (X \setminus A_i)$. Viceversa, se $y \in \bigcap_{i \in I} (X \setminus A_i)$ segue che esiste $k \in I$ tale che $y \in X \setminus A_k$, ovvero $y \not\in A_k$, pertanto $y \not\in \bigcap_{i \in I} A_i$, dunque $y \in X \setminus \bigcap_{i \in I} A_i$. \\ \\ \\
+\textbf{W.O.P (assioma):} sia $S \subseteq \mathbb{N}$, con $\mathbb{N} := \{0, 1, 2, \dots\}$, allora esiste $m \in S$ tale che $m \leq x$ per ogni $x \in S$.
+\subsection{Spazi topologici e applicazioni continue}
+\textbf{Definizione 1.1.1:} sia $X$ un insieme. Una \textit{topologia} su $X$ è un sottoinsieme $\tau \subseteq P(X)$ tale che: \\
+\textbf{1.} $\emptyset, X \in \tau$. \\
+\textbf{2.} se $A, B \in \tau$ allora $A \cap B \in \tau$. \\
+\textbf{3.} se $\{ A_i \}_{i \in I} \subset \tau$ allora $\bigcup_{i \in I} A_i \in \tau$. \\ \\
+Si dice che la coppia $(X, \tau)$ è uno \textit{spazio topologico} e gli elementi di $\tau$ si dicono \textit{aperti}. \\ \\
+\textbf{Esempi:} - sia $X$ un insieme, $\tau = P(X)$ è una topologia su $X$, detta \textit{topologia discreta}. \\
+- sia $X$ un insieme, $\tau = \{ \emptyset, X \}$ è una topologia su $X$, detta \textit{topologia banale}. \\
+- sia $X = \mathbb{R}$, sia $A \in \tau$ se e solo se $A$ è della forma $A = \bigcup_{k \in \mathbb{N}} (a_k, b_k)$. Allora $\tau$ è una topologia, detta \textit{topologia euclidea}. Sia $B = \bigcup_{j \in \mathbb{N}} (c_j, d_j)$, si ha che $A \cap B = \bigcup_{k \in \mathbb{N}} (a_k, b_k) \cap \bigcup_{j \in \mathbb{N}} (c_j, d_j) = \bigcup_k \bigcup_j ((a_k, b_k) \cap (c_j, d_j))$, pertanto anche $A \cap B \in \tau$. \\ \\ \\
+\textbf{Definizione 1.1.2:} sia $(X, \tau)$ uno spazio topologico, sia $C \subseteq X$, $C$ è detto \textit{chiuso} se $X \setminus C \in \tau$. \\ \\
+Notiamo che è possibile definire una topologia su un insieme partendo da una definizione di insieme chiuso. Denotiamo con $\mathcal{F}$ la famiglia dei sottoinsiemi chiusi di $X$, dalla definizione di insieme aperto si ottiene che $\mathcal{F}$ gode delle seguenti proprietà: \\
+\textbf{1.}$\emptyset, X \in \mathcal{F}$. \\
+\textbf{2.} L'intersezione di una qualsiasi famiglia di elementi di $\mathcal{F}$ è un elemento di $\mathcal{F}$. \\
+\textbf{3.} L'unione di un numeri finito di elementi di $\mathcal{F}$ è una elemento di $\mathcal{F}$. \\ \\
+Pertanto dato un insieme non vuoto $X$ ed una famiglia $\mathcal{F}$ che gode delle precedenti proprietà, si ha che la famiglia $\tau \subset \mathcal{P}(X)$ definita da
+\begin{gather}
+    A \in \tau \iff X \setminus A \in \mathcal{F} \notag
+\end{gather}
+è una topologia su $X$. \\ \\
+\textbf{Osservazioni:} se $C, D$ sono chiusi allora anche $C \cap D$ è chiuso, infatti
+\begin{gather}
+    X \setminus (C \cap D) = X \setminus C \cup X \setminus D \notag
+\end{gather}
+unione di aperti, pertanto $X \setminus (C \cap D) \in \tau$. \\ \\
+Se $\{ C_i \}_{i \in I}$ è una famiglia di chiusi, allora $\bigcap_{i \in I} C_i$ è chiuso, infatti
+\begin{gather}
+    X \setminus \bigcap_{i \in I} C_i = \bigcup_{i \in I} (X \setminus C_i) \notag
+\end{gather}
+unione numerabile di aperti, pertanto $\bigcup_{i \in I} (X \setminus C_i) \in \tau$. \\ \\ \\
+\textbf{Esempi:} - sia $X = \mathbb{R}$, allora $\bigcap_{n \in \mathbb{N}} \left(-\frac{1}{n}, \frac{1}{n}\right) = \emptyset$, ovvero in generale un'intersezione numerabile di aperti non è un aperto. \\
+- sia $X = \mathbb{R}$, allora $\bigcup_{-1 < a < b < 1} [a, b] = (-1, 1)$, pertanto in generale l'unione (in questo caso non numerabile) di chiusi non è un chiuso. \\ \\ \\
+\textbf{Definizione 1.1.3:} sia $(X, \tau)$ uno spazio topologico, sia $Y \subseteq X$. Allora $\tau_Y := \{ A \cap Y : A \in \tau \}$ è una topologia su $Y$, detta \textit{topologia indotta} su $Y$ da $X$, in tal caso si dice che $Y$ è un \textit{sottospazio} di $X$. Notiamo che gli aperti di $(Y, \tau_Y)$ NON sono uguali agli aperti di $(X, \tau)$. \\ \\ \\
+\textbf{Definizione 1.1.4:} siano $(X, \tau)$ uno spazio topologico, $x_0 \in X$ e $A \subseteq X$. $A$ è detto \textit{intorno} di $x_0$ se esiste $W \in \tau$ tale che $W \subseteq A$ e $x_0 \in W$. Poniamo $\mathcal{N}(x_0) := \{ V \in \tau : V \text{ intorno di } x_0 \}$. \\ \\
+Un \textit{sistema fondamentale di intorni di un punto} $x$ dello spazio topologico $X$ è una famiglia $\mathcal{B}(x)$ di intorni di $x$ tale che per ogni intorno $M$ di $x$ esiste $N \in \mathcal{B}(x)$ tale che $N \subseteq M$. \\
+L'insieme $\mathcal{N}(x)$ di tutti gli intorni di $x$ è un particolare esempio di sistema fondamentale di intorni di $x$. \\ \\ \\
+\textbf{Proposizione 1.1.1:} sia $(X, \tau)$ uno spazio topologico, sia $A \subseteq X$. $A$ è aperto se e solo se per ogni $x \in A$ esiste $V \in \mathcal{N}(x)$ tale che $V \subseteq A$. \\
+
+\textbf{Dimostrazione:} ($\Rightarrow$) sia $A$ aperto, poniamo $V := A$, si ha che $V \in \tau$ e $V \subseteq A$, infine $x \in V$ per ogni $x \in A$, dunque $A$ è un intorno di $x$ per ogni $x \in A$. \\
+($\Leftarrow$) supponiamo ora che per ogni $x \in A$ esiste $V_x \in \mathcal{N}(x)$ tale che $V_x \subseteq A$, allora per definizione di intorno esiste $W_x \subseteq V_x$ tale che $W_x \in \tau$ per ogni $x \in A$, dunque $A = \bigcup_{x \in A} W_x$, unione di aperti, pertanto $A \in \tau$. \\ \\ \\
+\textbf{Definizione 1.1.5:} siano $(X, \tau)$ uno spazio topologico e $\mathcal{B} \subseteq \tau$ una famiglia di aperti. $\mathcal{B}$ è una \textit{base} per $\tau$ se ogni aperto $\tau$ di è unione di aperti di $\mathcal{B}$. \\ \\
+Dalla definizione segue che se $\mathcal{B}$ è una base per $\tau$ e $\mathcal{B} \subset \mathcal{C} \subset \tau$ si ha che anche $\mathcal{C}$ è una base per $\tau$. \\ \\
+Una \textit{sottobase} è una famiglia $\mathcal{S}$ di insiemi aperti tali che la famiglia
+\begin{gather}
+    \mathcal{B}_\mathcal{S} := \{ U_1 \cap \dots \cap U_n : U_1, \dots , U_n \in \mathcal{S} \} \notag
+\end{gather}
+costituita dalle intersezioni finite di elementi di $\mathcal{S}$ sia una base della topologia $\tau$. \\ \\ \\
+\textbf{Proposizione 1.1.2:} sia $X$ un insieme non vuoto e $\mathcal{B}$ una famiglia di sottoinsiemi di $X$ tali che: \\
+\textbf{1.} $\bigcup_{B \in \mathcal{B}} B = X$. \\
+\textbf{2.} dati comunque $A, B \in \mathcal{B}$, si ha che $A \cap B$ è unione di elementi di $\mathcal{B}$. \\ \\
+Allora esiste una topologia $\tau_\mathcal{B}$ su $X$ di cui $\mathcal{B}$ è una base; $\tau_\mathcal{B}$ è l'unica topologia con tale proprietà. \\
+
+\textbf{Dimostrazione:} se $\tau_\mathcal{B}$ esiste è unica poiché ogni suo aperto deve essere unione di elementi di $\mathcal{B}$ e, viceversa, ogni unione di elementi di $\mathcal{B}$ deve appartenere a $\tau_\mathcal{B}$, perché gli elementi di $\mathcal{B}$ sono aperti in $\tau_\mathcal{B}$. Dunque $\tau_\mathcal{B}$ deve coincidere con la famiglia di sottoinsiemi di $X$ che sono unione di elementi di $\mathcal{B}$. \\ \\
+Dimostriamo ora che $\tau_\mathcal{B}$ è una topologia: innanzitutto $\emptyset, X \in \tau_\mathcal{B}$, il primo come unione della famiglia vuota di elementi di $\mathcal{B}$, il secondo per l'ipotesi \textbf{1}. Consideriamo ora una famiglia $\{ U_j \}_{j \in J}$ di elementi di $\tau_\mathcal{B}$, allora si ha
+\begin{gather}
+    U_j = \bigcup_{k \in K(j)} B_k, \quad B_k \in \mathcal{B} \quad \forall j \in J \notag
+\end{gather}
+dove $K(j)$ sono opportuni insiemi di indici. Quindi si ottiene
+\begin{gather}
+    \bigcup_{j \in J} U_j = \bigcup_{j \in J} \left( \bigcup_{k \in K(j)} B_k \right) \in \tau_\mathcal{B} \notag
+\end{gather}
+Infine se
+\begin{gather}
+    U_1 = \bigcup_{h \in H} B_h \in \tau_\mathcal{B}, \quad U_2 = \bigcup_{k \in K} B_k \in \tau_\mathcal{B} \notag
+\end{gather}
+si ottiene
+\begin{align}
+    U_1 \cap U_2 &= \bigcup_{h \in H} B_h \cap \bigcup_{k \in K} B_k = \notag \\
+    &= \bigcup_{\substack{h \in H \\ k \in K}} (B_h \cap B_k) \notag
+\end{align}
+poiché per ipotesi $B_h \cap B_k \in \tau_\mathcal{B}$ per ogni $(h, k) \in H \times K$, si ottiene la tesi. \\ \\
+Uno spazio topologico $X$ soddisfa il \textit{primo assioma di numerabilità} se ogni suo punto possiede un sistema fondamentale di intorni numerabile, cioè se per ogni $x \in X$ esiste una famiglia
+\begin{gather}
+    \{ N_i : i = 1, 2, \dots \} \notag
+\end{gather}
+che è una base di intorni di $x$. Si può sempre supporre che un sistema fondamentale di intorni numerabile soddisfi l'ulteriore condizione $N_{i + 1} \subset N_i$ per ogni $i$, basta sostituire $\{ N_i \}$ con
+\begin{gather}
+    \{ M_i := \bigcap_{j \leq i} N_i : i = 1, 2, \dots \} \notag
+\end{gather}
+Uno spazio topologico $X$ soddisfa il \textit{seconda assioma di numerabilità} se $X$ possiede una base numerabile. \\
+Ogni spazio metrizzabile soddisfa il primo assioma di numerabilità, infatti per ogni $x \in X$ la famiglia
+\begin{gather}
+    \mathcal{B}(x) := \{ D_{1/n}(x) : n \in \mathbb{N} \} \notag
+\end{gather}
+è un sistema fondamentale di intorni numerabile. \\
+In particolare $\mathbb{R}^n$ soddisfa il secondo assioma di numerabilità perché la famiglia
+\begin{gather}
+    \mathcal{B} := \{ D_{1/n}(\mathbf{x}) := n \in \mathbb{N}, \mathbf{x} \in \mathbf{Q}^n \} \notag
+\end{gather}
+è una base numerabile della topologia euclidea. \\ \\ \\
+\textbf{Definizione 1.1.6:} siano $X, Y$ spazi topologici, $x_0 \in X$, $f : X \longrightarrow Y$, allora $f$ è detta \textit{continua} in $x_0$ se per ogni $V \in \mathcal{N}(f(x_0))$ esiste $W \in \mathcal{N}(x_0)$ tale che $f(W) \subset V$. \\
+$f$ si dice \textit{continua} se è continua per ogni $x \in X$. \\ \\ \\
+\textbf{Proposizione 1.1.3:} siano $X, Y$ spazi topologici, $f : X \longrightarrow Y$, allora $f$ è continua se e solo se $f^{-1}(A) \subseteq X$ è un aperto per ogni aperto $A \subseteq Y$. \\
+
+\textbf{Dimostrazione:} ($\Rightarrow$) siano $f$ continua per ipotesi, $A \subseteq Y$ un aperto, \\ $x \in f^{-1}(A)$ e infine $y := f(x) \in A$. Poiché $A \in \mathcal{N}(f(x))$, per ipotesi di continuità, si ha che esiste $W \in \mathcal{N}(x)$ tale che $f(W) \subset A$, ciò comporta $W \subset f^{-1}(A)$, pertanto, dato che vale per ogni $x \in f^{-1}(A)$, per la \textit{proposizione 1.1.1} si ottiene che $f^{-1}(A)$ è un aperto di $X$. \\ \\
+$(\Leftarrow)$ Supponiamo per ipotesi che per ogni aperto $A \subseteq Y$ si ha che $f^{-1}(A)$ è un aperto di $X$. Sia $x \in X$, consideriamo un intorno $V \in \mathcal{N}(f(x))$, per definizione esiste un aperto $W$ di $Y$ tale che $f(x) \in W \subseteq V$, inoltre per ipotesi si ha che $f^{-1}(W)$ è un aperto di $X$. Pertanto otteniamo $f(f^{-1}(W)) \subseteq W \subseteq V$, quindi $f$ è continua. \\ \\ \\
+\textbf{Osservazione:} $f$ è continua se e solo se $f^{-1}(C)$ è un chiuso per ogni chiuso $C \subseteq Y$. \\ \\
+$f$ continua NON implica in generale che $f(A)$ è un aperto per ogni aperto $A \subseteq X$; infatti sia $X := \mathbb{R}$, topologia euclidea, e sia $f(x) = x^2$ per ogni $x \in \mathbb{R}$, allora $f$ è continua, consideriamo l'intervallo aperto $(-1, 1)$, si ha che $f((-1, 1)) = [0, 1)$ che non è aperto né chiuso. \\ \\ \\
+\textbf{Definizione 1.1.7:} sia $f : X \longrightarrow Y$ un'applicazione tra spazi topologici, $f$ è detta \textit{omeomorfismo} se: \\
+\textbf{1.} $f$ è continua. \\
+\textbf{2.} $f$ è biunivoca (biettiva e suriettiva). \\
+\textbf{3.} $f^{-1}$ è continua. \\ \\
+Se tra due spazi topologici $X, Y$ esiste un omeomorfismo si dice che $X$ è omeomorfo a $Y$ (o viceversa) e si scrive $X \cong Y$. \\ \\ \\
+\textbf{Definizione 1.1.8:} sia $\mathcal{P}$ una proprietà, $\mathcal{P}$ è detta \textit{proprietà topologica} se per $X \cong Y$ si ha che $X$ ha $\mathcal{P}$ se e solo se $Y$ ha $\mathcal{P}$, ovvero se la proprietà è invariante per omeomorfismi. \\ \\ \\
+\textbf{Definizione 1.1.9:} si dice che $f : X \longrightarrow X$ è un \textit{automorfismo} se $f$ è un omeomorfismo. \\ \\ \\
+\textbf{Definizione 1.1.10:} sia $X$ uno spazio topologico, sia $A \subseteq X$, è detta \textit{parte interna di $A$} l'insieme
+\begin{gather}
+    \mathring{A} := \bigcup_{\substack{B \subseteq A \\ B \text{ aperto}}} B \notag
+\end{gather}
+ovvero il più "grande" aperto contenuto in $A$. \\ \\
+Mentre è detta \textit{chiusura di $A$} l'insieme
+\begin{gather}
+    \overline{A} := \bigcap_{\substack{C \supseteq A \\ C \text{ chiuso}}} C \notag
+\end{gather}
+ovvero il più piccolo chiuso che contiene $A$. \\ \\ \\
+\textbf{Osservazione:} ovviamente vale che $\mathring{A} \subseteq A \subseteq \overline{A}$, inoltre se $A$ è aperto si ha $\mathring{A} = A$, mentre se $A$ è chiuso si ha $\overline{A} = A$. \\ \\ \\
+\textbf{Definizione 1.1.11:} siano $X$ uno spazio topologico, $A \subseteq X$ e $x_0 \in A$. $x_0$ è detto \textit{punto di accumulazione} per $A$ se per ogni $V \in \mathcal{N}(x_0)$ si ha che
+\begin{gather}
+    A \cap (V \setminus \{ x_0 \}) \neq \emptyset \notag
+\end{gather}
+Il \textit{derivato di $A$}, $D(A)$, è l'insieme di tutti i punti di accumulazione di $A$. \\ \\ \\
+\textbf{Proposizione 1.1.4:} siano $X$ uno spazio topologico, $A \subseteq X$, allora $D(A) \subseteq \overline{A}$. \\
+
+\textbf{Dimostrazione:} sia $x \in D(A)$, supponiamo per assurdo che $x \in X \setminus \overline{A}$, poiché $\overline{A}$ è chiuso si ha che $X \setminus \overline{A}$ è aperto, pertanto esiste $V \in \mathcal{N}(x)$ tale che $V \subset X \setminus \overline{A}$, ciò comporta che $\overline{A} \cap (V \setminus \{x_0 \} = \emptyset$ e poiché $\overline{A} \supseteq A$ si ottiene $A \cap (V \setminus \{x_0 \} = \emptyset$, ma è un assurdo. \\ \\ \\
+\textbf{Definizione 1.1.12:} siano $X$ uno spazio topologico, $A \subseteq X$, la \textit{frontiera} (o \textit{bordo}) di $A$ è $\partial A := \overline{X \setminus A} \cap \overline{A}$. \\ \\ 
+\textbf{Osservazione:} vale sempre $\overline{X \setminus A} = X \setminus \mathring{A}$, infatti si ha 
+\begin{gather}
+    X \setminus \mathring{A} = X \setminus \bigcup_{\substack{S \subseteq A \\ S \text{ aperto}}} S = \bigcap_{\substack{S \subseteq A \\ S \text{ aperto}}} (X \setminus S) = \bigcap_{\substack{R \supseteq X \setminus A \\ R \text{ chiuso}}} R = \overline{X \setminus A} \notag
+\end{gather}
+ponendo $R := X \setminus S$, infatti, poiché $S$ è un aperto contenuto in $A$, si ha che $X \setminus S$ è un chiuso che contiene il complementare di $A$ e dunque otteniamo per definizione la chiusura di $X \setminus A$. \\ \\
+Analogamente vale sempre $\mathring{X \setminus A} = X \setminus \overline{A}$, infatti si ha
+\begin{gather}
+    X \setminus \overline{A} = X \setminus \bigcap_{\substack{R \supseteq A \\ R \text{ chiuso}}} R = \bigcup_{\substack{R \supseteq A \\ R \text{ chiuso}}} (X \setminus R) = \bigcap_{\substack{S \subseteq X \setminus A \\ S \text{ aperto}}} S = \mathring{X \setminus A} \notag
+\end{gather}
+avendo posto in questo caso $S := X \setminus R$, un aperto contenuto in $X \setminus A$. \\ \\ \\
+\textbf{Definizione 1.1.13:} siano $X_1, X_2$ spazi topologici, un rettangolo aperto in $X := X_1 \times X_2$ è un insieme della forma $A_1 \times A_2$ dove $A_1$ è aperto in $X_1$ e $A_2$ è aperto in $A_2$. \\
+La \textit{topologia prodotto} è la topologia dove gli aperti sono unione di rettangoli aperti. \\ \\
+Consideriamo infatti la famiglia dei sottoinsiemi di $X$ che sono dati dal prodotto cartesiano di un aperto di $X_1$ con un aperto di $X_2$, cioè
+\begin{gather}
+    \mathcal{B} := \{ A_1 \times A_2 : A_1 \in \tau_1, A_2 \in \tau_2 \} \notag
+\end{gather}
+la famiglia $\mathcal{B}$ è un ricoprimento di $X$ perché $X = X_1 \times X_2$ è un elemento di $\mathcal{B}$. Inoltre se $A_1 \times A_2, B_1 \times B_2 \in \mathcal{B}$, allora
+\begin{gather}
+    (A_1 \times A_2) \cap (B_1 \times B_2) = (A_1 \cap B_1) \times (A_2 \times B_2) \in \mathcal{B} \notag
+\end{gather}
+pertanto, perché $A_1 \cap B_1 \in \tau_1$ e $A_2 \cap B_2 \in \tau_2$, per la \textit{proposizione 1.1.2}, si ottiene che $\mathcal{B}$ è base di un'unica topologia $\tau$ su $X$, detta \textit{topologia prodotto} (delle topologie $\tau_1$ e $\tau_2$). \\ \\
+Per definizione, gli aperti di $X$ sono unione di elementi di $\mathcal{B}$; segue immediatamente che un sottoinsieme $N$ di $X$ è un intorno del punto $(x_1, x_2)$ se e solo se esistono $N_1$ e $N_2$ intorni di $x_1$ e $x_2$ rispettivamente tali che $N \supset N_1 \times N_2$. \\ \\
+Ragionando analogamente si può definire una topologia prodotto per il prodotto cartesiano di un numero finito di spazi topologici. \\ \\ \\
+\textbf{Proposizione 1.1.5:} siano $\mathcal{B}_1$ e $\mathcal{B}_2$ basi degli spazi topologici $X_1$ e $X_2$, rispettivamente. La famiglia di sottoinsiemi
+\begin{gather}
+    \mathcal{B} := \{ B_1 \times B_2 : B_1 \in \mathcal{B}_1, B_2 \in \mathcal{B}_2 \} \notag
+\end{gather}
+è una base per la topologia prodotto di $X = X_1 \times X_2$. \\
+
+\textbf{Dimostrazione:} si verifica immediatamente che gli aperti di $X$ sono unione degli aperti di $\mathcal{B}$. \\ \\ \\
+\textbf{Definizione 1.1.14:} siano $X$ uno spazio topologico, $\{ x_n \}_{n \in \mathbb{N}} \subseteq X$ e $y \in X$. Si dice che $y$ è un limite per $\{ x_n \}_{n \in \mathbb{N}}$ per $n \rightarrow \infty$ se per ogni $V \in \mathcal{N}(y)$ esiste $M \in \mathbb{N}$ tale che $x_n \in V$ per ogni $n \geq M$, in questo caso scriviamo $x_n \rightarrow y$, per $n \rightarrow \infty$. \\ \\
+\textbf{Esempio:} in topologia banale si ha che ogni successione converge ad ogni punto, poiché l'unico intorno è $X$ stesso. \\ \\ \\
+\textbf{Definizione 1.1.15:} siano $X$ uno spazio topologico e $Y \subset X$, $Y$ è detto \textit{denso} se $\overline{Y} = X$. \\ \\ \\
+\textbf{Definizione 1.1.16:} sia $X$ uno spazio topologico, $X$ è detto \textit{separabile} se esiste $Y \subset X$ denso e numerabile (numerabile se esiste biezione con $\mathbb{N}$).
+\subsubsection{Esercizi}
+\textbf{1.} siano $X := \mathbb{R}$, $\tau := \{ \emptyset, X \} \cup \{ [q, +\infty) : q \in \mathbb{R} \}$, verificare se $\tau$ è una topologia su $\mathbb{R}$. \\
+
+\textbf{Soluzione:} siano $q, p \in \mathbb{R}$, allora
+\begin{gather}
+    [q, +\infty) \cap [p, +\infty) = [M, +\infty) \notag
+\end{gather}
+con $M := \max \{q, p\}$, pertanto è ancora un elemento della topologia, dunque $\tau$ è chiusa rispetto all'intersezione finita. \\
+Tuttavia notiamo che
+\begin{gather}
+    \bigcup_{q > 1} [q, +\infty) = (1, +\infty) \not\in \tau \notag
+\end{gather}
+pertanto $\tau$ non è una topologia su $\mathbb{R}$. \\ \\ \\
+\textbf{2.} siano $X$ un insieme non vuoto e $\tau := \{ \emptyset, X \} \cup \{ X \setminus A : A \subseteq X, |A| < +\infty \}$, verificare se $\tau$ è una topologia su $X$. \\
+
+\textbf{Soluzione:} siano $A, B \subseteq X$ di cardinalità finita, si ha che
+\begin{gather}
+    X \setminus A \cap X \setminus B = X \setminus (A \cup B) \in \tau \text{ poiché } |A \cup B| < +\infty \notag
+\end{gather}Consideriamo ora una famiglia infinita di insiemi di cardinalità infinita $\{ A_i \}_{i \in I}$, si ha che
+\begin{gather}
+    \bigcup_{i \in I} (X \setminus A_i) = X \setminus \bigcap_{i \in I} A_i \in \tau \notag
+\end{gather}
+infatti $|\bigcap_{i \in I} A_i| \leq |A_i| < +\infty$ per ogni $i \in I$, concludiamo che $\tau$ è una topologia su $X$, detta \textit{topologia cofinita}. \\ \\ \\
+\textbf{3.} Siano $X := \mathbb{N}$ e $\tau := \{ \emptyset, X \} \cup \{q, q+1, \dots : q \in \mathbb{N} \}$. Determinare l'interno di $Y := \{ 5, 11, 12, 25 \}$. \\
+
+\textbf{Soluzione:} per definizione si ha che $\mathring{Y}$ è dato dal più "grande" aperto contenuto in $Y$. Ovviamente vale $\emptyset \subset Y$, notiamo inoltre che per ogni $p \in \mathbb{N}$ si ha che $\{ p, p+1, \dots \} \not\subset Y$, infatti tutti gli aperti di $\tau$ (eccetto $\emptyset$) sono illimitati. Pertanto concludiamo che $\mathring{Y} = \emptyset$. \\ \\ \\
+\textbf{4.} Siano $X := \mathbb{R}$ e $\tau := \{ \emptyset, X \} \cup \{ (q, +\infty) : q \in \mathbb{R} \}$. Determinare $\overline{\mathbb{Z}}$ come sottoinsieme di $\mathbb{R}$, successivamente determinare $D(\mathbb{\overline{Z}})$. \\
+
+\textbf{Soluzione:} i chiusi per la topologia $\tau$ definita sono della forma $(-\infty, q]$ con $q \in \mathbb{R}$. Per ogni $q < +\infty$ si ha che $\mathbb{Z} \not\subset (-\infty, q]$, pertanto il più "piccolo" chiuso che contiene $\mathbb{Z}$ è $\mathbb{R}$, dunque $\overline{\mathbb{Z}} = \mathbb{R}$. \\ \\
+Sia $x_0 \in \mathbb{R}$, consideriamo un intorno $V \in U(x_0)$, poiché $\overline{\mathbb{Z}} = \mathbb{R}$ si ha che $\overline{\mathbb{Z}} \cap V \setminus \{ x_0 \} \neq \emptyset$, ciò vale per ogni $x_0 \in \mathbb{R}$, dunque $D(\mathbb{Z}) = \mathbb{R}$. \\ \\ \\
+\textbf{5.} Determinare $D([4, 9])$ come sottoinsieme di $\mathbb{R}$ per la topologia definita nell'esercizio precedente. \\
+
+\textbf{Soluzione:} sia $p \leq 9$, per ogni $\varepsilon > 0$ l'aperto $(p - \varepsilon, +\infty) \in U(p)$ e verifica la condizione
+\begin{gather}
+    [4, 9] \cap (p - \varepsilon, +\infty) \setminus \{ p \} \neq \emptyset \notag
+\end{gather}
+pertanto $(-\infty, 9] \subset D([4, 9])$. Sia ora $p > 9$, si ha che esiste $\varepsilon > 0$ tale che l'intorno aperto $(p - \varepsilon, +\infty) \cap [4, 9] = \emptyset$, basta scegliere $\varepsilon = \frac{1}{2}(p - 9)$, pertanto $D([4, 9]) = (-\infty, 9]$. \\
+
+Ovviamente questo risultato può essere generalizzato a qualsiasi intervallo chiuso della retta reale: siano $a, b \in \mathbb{R}$, allora $D([a, b]) = (-\infty, b]$. \\ \\ \\
+\textbf{6.} Siano $X$ uno spazio topologico e $A \subseteq X$. Verificare se è sempre vero che $\overline{A} = \mathring{A} \cup \partial(A)$. \\
+
+\textbf{Soluzione:} per definizione si ha $\partial(A) = \overline{X \setminus A} \cap \overline{A} = (X \setminus \mathring{A}) \cap \overline{A}$. Pertanto otteniamo:
+\begin{gather}
+    \mathring{A} \cup [(X \setminus \mathring{A}) \cap \overline{A}] = X \cap \overline{A} = \overline{A} \notag
+\end{gather}
+che è la tesi. Notiamo inoltre che ciò equivale a $\partial(A) = \overline{A} \setminus \mathring{A}$. \\ \\ \\
+\textbf{7.} Sia $X$ uno spazio topologico, dimostrare che comunque dati due sottoinsiemi $A, B \in X$ si ha: \\
+\textbf{i.} $\partial (A \cap B) \subset \partial (A) \cap \partial (B)$ (N.B. sbagliato sul Sernesi). \\
+\textbf{ii.} $\partial (A \cup B) \subset \partial (A) \cup \partial (B)$. \\
+\textbf{iii.} $\mathring{(A \cap B)} = \mathring{A} \cap \mathring{B}$. \\
+\textbf{iv.} $\mathring{(A \cup B)} \supset \mathring{A} \cup \mathring{B}$. \\
+\textbf{v.} $\overline{A \cup B} = \overline{A} \cup \overline{B}$. \\
+\textbf{vi.} $\overline{A \cap B} \subset \overline{A} \cap \overline{B}$. \\
+
+\textbf{Dimostrazione:} \textbf{iii.} se $x \in \mathring{A} \cap \mathring{B}$ si ha $x \in \mathring{A}$ e $x \in \mathring{B}$, quindi per definizione esistono $S, R \in \tau$ tali che $S \subseteq A$ e $R \subseteq B$ e $x \in S \cap R$. Pertanto, poiché $S \cap R \in \tau$ e $S \cap R \subseteq A \cap B$, si ha, per definizione, che $x \in \mathring{A \cap B}$, dunque $\mathring{A} \cap \mathring{B} \subseteq \mathring{A \cap B}$. Viceversa abbiamo che $\mathring{A \cap B} \subseteq A \cap B$, quindi $\mathring{A \cap B} \subseteq A$ e $\mathring{A \cap B} \subseteq B$. Essendo $\mathring{A}$ e $\mathring{B}$ i più "grandi" aperti contenuti rispettivamente in $A$ e $B$ si ha che $\mathring{A \cap B} \subseteq \mathring{A}$ e $\mathring{A \cap B} \subseteq \mathring{B}$, pertanto $\mathring{A \cap B} \subseteq \mathring{A} \cap \mathring{B}$. Combinando i risultati otteniamo $\mathring{A \cap B} = \mathring{A} \cap \mathring{B}$. \\ \\
+\textbf{iv.} Se $x \in \mathring{A} \cup \mathring{B}$ si ha che esiste, per definizione, $S \subseteq A$ aperto e/o $R \subseteq B$ aperto tale che $x \in S$ e/o $x \in R$, pertanto $x \in S \cup R$. Poiché $S \cup R \subset A \cup B$ ed è aperto si ha, per definizione, che $x \in \mathring{A \cup B}$. \\ \\
+\textbf{v.} Se $x \in \overline{A} \cup \overline{B}$ si ha che $x \in S$ e/o $x \in R$ per ogni $S \supseteq A$ chiuso e/o per ogni $R \supseteq B$ chiuso, pertanto otteniamo che $x \in S \cup R$ per ogni $S, R$. Poiché $S \cup R$ è un chiuso contenente $A \cup B$ per ogni $S, R$ otteniamo, per definizione, che $y \in \overline{A \cup B}$, dunque $\overline{A} \cup \overline{B} \subseteq \overline{A \cup B}$. Viceversa, si ha che $\overline{A \cup B} \supseteq A \cup B$, dunque $\overline{A \cup B} \supseteq A$ e $\overline{A \cup B} \supseteq B$, inoltre, poiché $\overline{A}$ e $\overline{B}$ sono i più "piccoli" chiusi contenenti rispettivamente $A$ e $B$ si ha che $\overline{A \cup B} \supseteq \overline{A}$ e $\overline{A \cup B} \supseteq \overline{B}$, pertanto si ottiene $\overline{A \cup B} \supseteq \overline{A} \cup \overline{B}$. Combinando i risultati si ha la tesi: $\overline{A \cup B} = \overline{A} \cup \overline{B}$. \\ \\
+\textbf{vi.} Se $x \in \overline{A \cap B}$ si ha che $x \in Q$ per ogni $Q \supseteq A \cap B$ chiuso. Dato che $A \cap B \subseteq A$ e $A \cap B \subseteq B$ si ottiene che la classe dei chiusi $Q_A$ che contengono $A$ e la classe dei chiusi $Q_B$ che contengono $B$ sono sottoinsiemi della classe dei chiusi $Q$ che contengono $A \cap B$, pertanto $x \in Q_A$ e $x \in Q_B$ per ogni $Q_A \supseteq A$ e per ogni $Q_B \supseteq B$. Per definizione si ottiene che $x \in \overline{A} \cap \overline{B}$, dunque $\overline{A \cap B} \subset \overline{A} \cap \overline{B}$. \\ \\
+\textbf{i.} Si ha che $\partial (A \cap B) = \overline{A \cap B} \setminus \mathring{A \cap B} \subset (\overline{A} \cap \overline{B}) \setminus (\mathring{A} \cap \mathring{B})$ e si ha che:
+\begin{align}
+    (\overline{A} \cap \overline{B}) \setminus (\mathring{A} \cap \mathring{B}) &= ((\overline{A} \cap \overline{B}) \setminus \mathring{A}) \cup ((\overline{A} \cap \overline{B}) \setminus \mathring{B}) \notag \\
+    &= ((\overline{A} \setminus \mathring{A}) \cap (\overline{B} \setminus \mathring{A})) \cup ((\overline{B} \setminus \mathring{B}) \cap (\overline{A} \setminus \mathring{B})) \notag
+\end{align}
+pertanto si vede facilmente che $((\overline{A} \setminus \mathring{A}) \cap (\overline{B} \setminus \mathring{A})) \cup ((\overline{B} \setminus \mathring{B}) \cap (\overline{A} \setminus \mathring{B})) \subset\\\subset (\overline{A} \setminus \mathring{A}) \cup (\overline{B} \setminus \mathring{B}) = \partial (A) \cup \partial (B)$, che è la tesi. \\ \\
+\textbf{ii.} Si ha che $\partial (A \cup B) = \overline{X \setminus (A \cup B)} \cap \overline{A \cup B}$, dunque:
+\begin{gather}
+    \overline{X \setminus (A \cup B)} \cap \overline{A \cup B} \subset \overline{(X \setminus A) \cap (X \setminus B)} \cap (\overline{A} \cup \overline{B}) \subset \notag \\
+    \subset (\overline{X \setminus A} \cap \overline{X \setminus B}) \cap (\overline{A} \cup \overline{B}) \subset (\overline{X \setminus A} \cap \overline{A}) \cup (\overline{X \setminus B} \cap \overline{B}) \notag
+\end{gather}
+che è la tesi. \\ \\ \\
+\textbf{8.} Siano $X$ uno spazio topologico, $M \subseteq X$. Dimostrare $M$ è chiuso se e solo se $\partial(M) \subset (M)$. \\
+
+\textbf{Dimostrazione:} $(\Rightarrow)$ sia $M$ chiuso, allora $M = \overline{M} = \mathring{M} \cup \partial(M)$, per l'\textit{esercizio 6}, dunque $\partial(M) \subseteq M$. \\ \\
+$(\Leftarrow)$ sia $\partial(M) \subseteq M$, per l'\textit{esercizio 6} si ha che $\partial(M) = \overline{M} \setminus \mathring{M}$, per definizione $\mathring{M} \subset M$, dunque anche $\mathring{M} \cup \partial(M) = \overline{M} \subset M$, cioè $M = \overline{M}$, dunque $M$ è chiuso.  \\ \\ \\
+\textbf{9.} Sia $f : X \longrightarrow Y$ un'applicazione di spazi topologici, $x \in X$ e $\mathcal{B}(f(x))$ un sistema fondamentale di intorni di $f(x)$. Dimostrare che $f$ è continua in $x$ se e solo se per ogni $N \in \mathcal{B}(f(x))$ esiste $M \in \mathcal{N}(x)$ tale che $f(M) \subset N$. \\
+
+\textbf{Dimostrazione:} $(\Rightarrow)$ sia $f$ continua in $x$, per definizione si ha che per ogni $V \in \mathcal{N}(f(x))$ esiste $W \in \mathcal{N}(x)$ tale che $f(W) \subset V$, pertanto, dato che $\mathcal{B}(f(x)) \subseteq \mathcal{N}(f(x))$, ciò vale anche per ogni $N \in \mathcal{B}(f(x))$. \\ \\
+$(\Leftarrow)$ Supponiamo ora che per ogni $N \in \mathcal{B}(f(x))$ esiste $M \in \mathcal{N}(x)$ tale che $f(M) \subset N$. Per ogni $V$ intorno di $f(x)$, per definizione, esiste $W \in \mathcal{B}(f(x))$ tale che $W \subset V$, dunque, per ipotesi, si ha che esiste $M \in \mathcal{N}(x)$ tale che $f(M) \subset W \subset V$, quindi $f$ è continua in $x$.
+
+\newpage
+\subsection{Spazi metrici e proprietà di separazione}
+\textbf{Definizione 1.2.1:} sia $X$ un insieme, sia $d_X : X \times X \longrightarrow [0, + \infty)$, $d_X$ è detta \textit{metrica} (o \textit{distanza}) su $X$ se: \\
+\textbf{1.} $d(x_1, x_2) \geq 0$ per ogni $x_1, x_2 \in X$. \\
+\textbf{2.} $d(x_1, x_2) = 0$ se e solo se $x_1 = x_2$. \\
+\textbf{3.} $d(x_1, x_2) = d(x_2, x_1)$ per ogni $x_1, x_2 \in X$. \\
+\textbf{4.} $d(x_1, x_2) \leq d(x_1, x_3) + d(x_3, x_2)$ per ogni $x_1, x_2, x_3 \in X$. \\ \\
+La coppia $(X, d_X)$ è detta \textit{spazio metrico}. \\ \\ \\
+\textbf{Definizione 1.2.2:} sia $(X, d_X)$ uno spazio metrico, è detta \textit{sfera aperta di raggio $r$ e centro $x_0$} l'insieme $D_r(x_0) := \{ x \in X : d_X(x, x_0) < r \}$. \\ \\ \\
+La metrica induce una topologia sullo spazio, sia infatti $(X, d_X)$ uno spazio metrico, definiamo $\tau$ come segue:
+\begin{gather}
+    A \in \tau \iff \forall x_0 \in A \text{ esiste } \varepsilon > 0 \text{ tale che } B_\varepsilon(x_0) \subseteq A \notag
+\end{gather}
+ovvero se e solo se $A$ è unione di sfere aperte. \\ \\
+\textbf{Esempi:} - sia $X := \mathbb{R}^n$, la metrica $d(x_1, x_2) := \sqrt{\sum_{i = 1}^n (x_1^i - x_2^i)^2}$ per ogni $x_1, x_2 \in \mathbb{R}^n$ è detta \textit{metrica euclidea} e induce la topologia euclidea. \\
+- sia $X := \mathbb{R}^n$, la metrica $d(x_1, x_2) := \sum_{i = 1}^n |x_1^i - x_2^i|$ per ogni $x_1, x_2 \in \mathbb{R}^n$ induce ancora una volta la metrica euclidea (in questo caso gli aperti sono rombi). \\
+- siano $a, b \in \mathbb{R}$, $X := C^0([a, b])$, poniamo $d(f, g) := \max_{t \in [a, b]} |f(t) - g(t)|$ per ogni $f, g \in C^0([a, b])$, si verifica facilmente che $d$ è una metrica e dunque induce una topologia su $C^0([a, b])$. \\ \\ \\
+\textbf{Definizione 1.2.3:} sia $V$ uno spazio vettoriale reale, una funzione $\| \cdot \| : V \times V \longrightarrow [0, +\infty)$ è detta \textit{norma} se: \\
+\textbf{1.} $\| v \| \geq 0$ per ogni $v \in V$ e $\| v \| = 0$ se e solo se $v = \vec{0}$. \\
+\textbf{2.} $\| v + w \| \leq \| v \| + \| w \|$ per ogni $v, w \in V$. \\
+\textbf{3.} $\| \lambda v \| = |\lambda| \| v \|$ per ogni $v \in V$ e per ogni $\lambda \in \mathbb{R}$. \\ \\
+La coppia $(V, \| \cdot \|)$ è detto \textit{spazio normato}. \\ \\
+Notiamo che la norma induce una metrica sullo spazio $V$, infatti ponendo
+\begin{gather}
+    d(v, w) := \|v - w\| \notag
+\end{gather}
+si ottiene una metrica sullo spazio $V$. \\ \\ \\
+\textbf{Definizione 1.2.4:} sia $X$ uno spazio topologico, $X$ è detto $T_2$ (o \textit{separato} o \textit{di Hausdorff}) se per ogni $x, y \in X$ con $x \neq y$ esistono $V \in \mathcal{N}(x)$ e $W \in \mathcal{N}(y)$ tali che $V \cap W = \emptyset$. \\ \\
+Se $X$ è uno spazio metrico segue che $X$ è di Hausdorff, infatti basta porre $\varepsilon := \frac{1}{4}d(x, y)$ e prendere come intorni $V := D_\varepsilon(x)$ e $W := D_\varepsilon(y)$ per ogni $x, y \in X$. \\ \\ \\
+\textbf{Proposizione 1.2.1:} se $Y$ è un sottoinsieme di uno spazio di Hausdorff è uno spazio di Hausdorff. \\
+
+\textbf{Dimostrazione:} siano $p, q \in Y \subset X$, per ipotesi esistono $V \in \mathcal{N}(p)$ e $W \in \mathcal{N}(q)$ tali che $V \cap W = \emptyset$. Pertanto gli insiemi $Y \cap V$ e $Y \cap W$ sono rispettivamente intorni di $p$ e $q$ nella topologia indotta e si ha
+\begin{gather}
+    (Y \cap V) \cap (Y \cap W) = V \cap W \cap Y = \emptyset \cap Y = \emptyset \notag
+\end{gather}
+dunque $Y$ è uno spazio di Hausdorff. \\ \\ \\
+\textbf{Proposizione 1.2.2:} se $X$ è uno spazio di Hausdorff i punti sono chiusi. \\
+
+\textbf{Dimostrazione:} sia $x \in X$, consideriamo l'insieme $X \setminus \{ x \}$ e mostriamo che è aperto. Per ogni $y \in X \setminus \{ x \}$ si ha, per ipotesi, che esistono $V \in \mathcal{N}(x)$ e $W \in \mathcal{N}(y)$ tali che $V \cap W = \emptyset$, allora si ha che $W \subseteq X \setminus V \subseteq X \setminus \{ x \}$. \\ \\ \\
+\textbf{Proposizione 1.2.3:} sia $X$ uno spazio di Hausdorff, allora se il limite di una successione esiste è unico. \\
+
+\textbf{Dimostrazione:} sia $\{ x_n \}_{n \in \mathbb{N}} \subseteq X$ una successione, supponiamo per assurdo che essa converga in due punti $y_1$ e $y_2$ di $X$. Per ipotesi si ha che esistono $V \in \mathcal{N}(y_1)$ e $W \in \mathcal{N}(y_2)$ tali che $V \cap W = \emptyset$. Per definizione di limite esiste $M \in \mathbb{N}$ tale che $x_n \in V$ e $x_n \in W$ per ogni $n \geq M$, ma ciò è un assurdo. \\ \\ \\
+\textbf{Proposizione 1.2.4:} il prodotto topologico di una famiglia qualsiasi $\{ X_\mu \}_{\mu \in M}$ di spazi di Hausdorff è uno spazio di Hausdorff. \\
+
+\textbf{Dimostrazione:} sia
+\begin{gather}
+    X := \prod_{\mu \in M} X_\mu \notag
+\end{gather}
+consideriamo due punti $p, q \in X$, $p \neq q$, allora esiste almeno un indice $\overline{\mu} \in M$ tale che $p(\overline{\mu}) \neq q(\overline{\mu})$. Per ipotesi $X_{\overline{\mu}}$ è uno spazio di Hausdorff, dunque esistono $V_{\overline{\mu}} \in \mathcal{N}(p(\overline{\mu}))$ e $W_{\overline{\mu}} \in \mathcal{N}(q(\overline{\mu}))$ tali che $V_{\overline{\mu}} \cap W_{\overline{\mu}} = \emptyset$. \\
+Consideriamo per ogni $\mu \in M$, $\mu \neq \overline{\mu}$ gli intorni $V_\mu \in \mathcal{N}(p(\mu))$ e $W_\mu \in \mathcal{N}(q(\mu))$, si ha che
+\begin{gather}
+    V_{\overline{\mu}} \times \prod_{\mu \neq \overline{\mu}} V_\mu \in \mathcal{N}(p), \quad W_{\overline{\mu}} \times \prod_{\mu \neq \overline{\mu}} W_\mu \in \mathcal{N}(q) \notag
+\end{gather}
+inoltre
+\begin{align}
+    (V_{\overline{\mu}} \times \prod_{\mu \neq \overline{\mu}} V_\mu) \cap W_{\overline{\mu}} \times (\prod_{\mu \neq \overline{\mu}} W_\mu) &= (V_{\overline{\mu}} \cap W_{\overline{\mu}}) \times \prod_{\mu \neq \overline{\mu}} (V_\mu \cap W_\mu) = \notag \\
+    &= \emptyset \times \prod_{\mu \neq \overline{\mu}} (V_\mu \cap W_\mu) = \emptyset \notag
+\end{align}
+Concludiamo che anche $X$ è uno spazio di Hausdorff. \\ \\ \\
+\textbf{Proposizione 1.2.5:} sia $X$ uno spazio topologico. Allora $X$ è di Hausdorff se e solo se $\Delta(X) := \{ (x_1, x_2) \in X \times X : x_1 = x_2 \}$ è chiuso in $X \times X$. \\
+
+\textbf{Dimostrazione:} $(\Rightarrow)$ Sia $X$ uno spazio di Hausdorff per ipotesi, siano $x, y \in X$, $x \neq y$. Per ipotesi esistono $V_x \in \mathcal{N}(x)$ e $V_y \in \mathcal{N}(y)$ tali che $V_x \cap V_y = \emptyset$. Consideriamo ora $(x, y) \in X \times X$, si ha che $(x, y) \in V_x \times V_y \in \mathcal{N}((x, y))$, inoltre $V_x \times V_y \cap \Delta (X) = \emptyset$ proprio perché $V_x \cap V_y = \emptyset$, pertanto $V_x \times V_y \subseteq X \times X \setminus \Delta (X)$, dunque, per la \textit{proposizione 1.1.1}, si ha che $X \times X \setminus \Delta (X)$ è un aperto. \\ \\
+$(\Leftarrow)$ Sia $\Delta (X)$ un chiuso di $X \times X$ per ipotesi. Allora $X \times X \setminus \Delta (X)$ è un aperto, pertanto per ogni $(x, y) \in X \times X \setminus \Delta (X)$ esistono $V_x \in \mathcal{N}(x)$ e $V_y \in \mathcal{N}(y)$ tali che $(x, y) \in V_x \times V_y \subseteq X \times X \setminus \Delta (X)$, ciò comporta che $V_x \cap V_y = \emptyset$ proprio per come è definito $\Delta (X)$. Poiché ciò vale per ogni $(x, y) \in X \times X \setminus \Delta (X)$ si ottiene la tesi. \\ \\ \\
+\textbf{Definizione 1.2.5:} uno spazio topologico $X$ è detto $T_1$ se i punti sono chiusi. \\ \\ \\
+\textbf{Proposizione 1.2.6:} uno spazio topologico $X$ è $T_1$ se e solo se per ogni coppia di punti distinti $p, q \in X$ esistono $V, W$ aperti tali che $p \in V$ ma $q \not\in V$, $q \in W$ ma $p \not\in W$. \\
+
+\textbf{Dimostrazione:} $(\Rightarrow)$ sia $X$ uno spazio $T_1$, ovvero i punti sono chiusi, allora $X \setminus \{ p \}$ è un aperto e $q \in X \setminus \{ p \}$ ma $p \not\in X \setminus \{ p \}$. Analogamente, $X \setminus \{ q \}$ è un aperto e $p \in X \setminus \{ q \}$ ma $q \not\in X \setminus \{ q \}$. \\ \\
+$(\Leftarrow)$ supponiamo che per ogni coppia di punti distinti $p, q \in X$ esistono $V, W$ aperti tali che $p \in V$ ma $q \not\in V$ e $q \in W$ ma $p \not\in W$. Sia $u \in X$, per ogni $v \in X$ tale che $u \neq v$ esistono $V, W$ aperti tali che $u \in V \subset X \setminus W \subset X \setminus \{ v \}$, pertanto $X \setminus \{ v \}$ è un aperto, quindi i punti sono chiusi. \\ \\ \\
+\textbf{Proposizione 1.2.7:} sia $\{ x_n : n \in \mathbb{N} \}$ una successione di punti in uno spazio $X$ $T_1$ che soddisfa il primo assioma di numerabilità e sia $x \in X$ un punto di accumulazione per $\{ x_n \}$. Allora $\{ x_n \}$ ammette una sottosuccessione convergente in $x$. \\
+
+\textbf{Dimostrazione:} ogni sottoinsieme finito di $\{ x_n \}$ è discreto (i punti sono chiusi), dunque non ammette punti di accumulazione, pertanto $x$ è punto di accumulazione per $\{ x_n : n \geq N \}$ per ogni $N \geq 1$. Sia $U := \{ U_k : k \in \mathbb{N} \}$ un sistema fondamentale di intorni numerabile di $x$ tale che $U_{k + 1} \subset U_k$ per ogni $k \geq 1$. Per ipotesi esiste $n_1 \in \mathbb{N}$ tale che $x_{n_1} \in U_1$. Analogamente esiste $n_2 \in \mathbb{N}$, $n_2 > n_1$, tale che $x_{n_2} \in U_2$. Ragionando per induzione possiamo costruire una sottosuccessione $\{ x_{n_k} : k \in \mathbb{N} \}$ tale che $x_{n_k} \in U_k$ per ogni $k \geq 1$, inoltre è chiaro che $x = \lim_{k \rightarrow \infty} x_{n_k}$. \\ \\ \\
+\textbf{Definizione 1.2.6:} uno spazio \textit{regolare} è uno spazio topologico $X$ che soddisfa le seguenti proprietà: \\
+\textbf{1.} $X$ è $T_1$. \\
+\textbf{2.} Per ogni sottoinsieme chiuso $F$ di $X$ e ogni $x \in X \setminus F$ esistono $V, W$ aperti tali che $x \in V$, $F \subset W$ e $V \cap W = \emptyset$. \\ \\ \\
+\textbf{Proposizione 1.2.8:} ogni spazio regolare è uno spazio di Hausdorff. \\
+
+\textbf{Dimostrazione:} segue direttamente dal fatto che uno spazio regolare è $T_1$, dunque i punti sono sottoinsiemi chiusi. \\ \\ \\
+\textbf{Definizione 1.2.7:} uno spazio \textit{normale} è uno spazio topologico $X$ che soddisfa le seguenti proprietà: \\
+\textbf{1.} $X$ è $T_1$. \\
+\textbf{2.} per ogni coppia di sottoinsiemi chiusi $F_1, F_2$ di $X$ esistono $V_1, V_2$ aperti tali che $F_1 \subset V_1$, $F_2 \subset V_2$ e $V_1 \cap V_2 = \emptyset$. \\ \\ \\
+\textbf{Proposizione 1.2.9:} ogni spazio normale è uno spazio di Hausdorff. \\
+
+\textbf{Dimostrazione:} segue direttamente dal fatto che uno spazio normale è $T_1$, dunque i punti sono sottoinsiemi chiusi. \\ \\ \\
+\textbf{Teorema 1.2.1:} ogni spazio metrizzabile $X$ è uno spazio normale. \\
+
+\textbf{Dimostrazione:} sappiamo che ogni spazio metrizzabile è uno spazio di Hausdorff e dunque $T_1$. Per ogni sottoinsieme non vuoto $F$ di $X$ definiamo
+\begin{gather}
+    d_F(x) = \inf_{y \in F} d(x, y) \notag
+\end{gather}
+Dimostriamo ora un lemma necessario nel seguito. \\ \\
+\textit{Lemma:} siano $X$ uno spazio metrizzabile, $M \subset X$ un insieme non vuoto, $C \subset X$ un chiuso non vuoto tale che $M \cap C = \emptyset$ e $p \in M$ (fissato). Allora $d_C(p) > 0$, ovvero esiste $\varepsilon > 0$ tale che $d(p, q) > \varepsilon$ per ogni $q \in C$. \\
+
+\textit{Dimostrazione:} $C$ è chiuso, dunque $X \setminus C$ è aperto e $M \subset X \setminus C$. Per ipotesi esiste $\delta > 0$ tale che $D_\delta (p) \subset X \setminus C$, ovvero $d(p, q) > \delta$ per ogni $q \in C$, pertanto, scegliendo $\varepsilon = \delta$, si ottiene la tesi. \\ \\
+Sia $x \in F_1$, allora $d_{F_1}(x) = 0$, mentre $d_{F_2}(x) > 0$, poiché $x \not\in F_2$, sia $r := d_{F_2}(x)$. Costruiamo due aperti disgiunti $W_1, W_2$ tali che $F_1 \subset W_1$ e $F_2 \subset W_2$, poniamo
+\begin{gather}
+    W_1 := \{ x \in X : d_{F_1}(x) - d_{F_2}(x) < 0 \} \notag \\
+    W_2 := \{ x \in X : d_{F_1}(x) - d_{F_2}(x) > 0 \} \notag
+\end{gather}
+Si vede immediatamente che $W_1 \cap W_2 = \emptyset$. Inoltre si ha
+\begin{gather}
+    d_{F_1}(x) - d_{F_2}(x) = -d_{F_2}(x) < 0 \quad \forall x \in F_1 \notag
+\end{gather}
+e analogamente
+\begin{gather}
+    d_{F_1}(y) - d_{F_2}(y) = d_{F_1}(y) > 0 \quad \forall y \in F_2 \notag
+\end{gather}
+pertanto $F_1 \subset W_1$ e $F_2 \subset W_2$. Mostriamo ora che sono entrambi aperti, sia $x_0 \in W_1$, si ha che $r := d_{F_2}(x_0) - d_{F_1}(x_0) > 0$. Consideriamo la sfera aperta $D_{\frac{r}{3}}(x_0)$, per ogni $x \in D_{\frac{r}{3}}(x_0)$ si ha che
+\begin{align}
+    d_{F_1}(x) - d_{F_2}(x) &= [d_{F_1}(x) - d_{F_1}(x_0)] + [d_{F_1}(x_0) - d_{F_2}(x_0)] + [d_{F_2}(x_0) - d_{F_2}(x)] \notag \\
+    &= [d_{F_1}(x) - d_{F_1}(x_0)] - r + [d_{F_2}(x_0) - d_{F_2}(x)] \notag \\
+    &< \frac{r}{3} - r + \frac{r}{3} = -\frac{r}{3} < 0 \notag
+\end{align}
+per la disuguaglianza triangolare, dunque $D_{\frac{r}{3}}(x_0) \subset W_1$, poiché ciò vale comunque scelto $x_0 \in W_1$ si ha che $W_1$ è aperto. Analogamente si dimostra per $W_2$, dunque si ottiene la tesi. \\ \\ \\
+Le proprietà di separazione che uno spazio $X$ può avere sono collegate all'esistenza di applicazioni continue su $X$ a valori reali. \\
+Ad esempio, se uno spazio $X$ ha la proprietà che per ogni coppia di punti distinti $p, q \in X$ esiste un'applicazione continua $f : X \longrightarrow \mathbb{R}$ tale che $f(p) \neq f(q)$, si ha che $X$ è uno spazio di Hausdorff, infatti ponendo $r := d(f(p), f(q))$ e
+\begin{gather}
+    V := f^{-1}(f(p) - \frac{r}{2}, f(p) + \frac{r}{2}) \notag \\
+    W := f^{-1}(f(q) - \frac{r}{2}, f(q) + \frac{r}{2}) \notag
+\end{gather}
+$V$ e $W$ sono aperti disgiunti tali che $p \in V$ e $q \in W$.
+\subsubsection{Esercizi}
+\textbf{1.} Dimostrare che essere $T_1$, rispettivamente $T_2$, regolare e normale, è una proprietà topologica. \\
+
+\textbf{Dimostrazione:} siano $X \cong Y$ e $f : X \longrightarrow Y$ un omeomorfismo. Sia $X$ uno spazio $T_1$, siano $p, q \in X$, $p \neq q$, per ipotesi esistono $V, W$ aperti di $X$ tali che $p \in V$, $q \not\in V$ e $q \in W$, $p \not\in W$. Si ha che $f(V), f(W)$ sono aperti in $Y$ (essere aperto è una proprietà topologica) tali che $f(p) \in f(V)$, $f(q) \not\in f(V)$ e $f(Q) \in f(W)$, $f(p) \not\in f(W)$, pertanto si ottiene la tesi. \\ \\
+Ora sia $X$ uno spazio $T_2$, per ipotesi esistono $N \in \mathcal{N}(p)$ e $M \in \mathcal{N}(q)$ tali che $N \cap M = \emptyset$. Si ha che $f(N) \in \mathcal{N}(f(p))$ e $f(M) \in \mathcal{N}(f(q))$ (essere un intorno è una proprietà topologica) e $f(N) \cap f(M) = \emptyset$, per l'iniettività di $f$, pertanto segue la tesi. \\ \\
+Sia ora $X$ uno spazio regolare, consideriamo un sottoinsieme chiuso $F$ di $X$ e un punto $x \in X \setminus F$, per ipotesi esistono $A, B$ aperti disgiunti tali che $F \subset A$ e $x \in B$. Si ha che $f(F) \subset f(A)$, $f(x) \in f(B)$ e $f(A) \cap f(B) = \emptyset$ per l'iniettività di $f$, pertanto segue la tesi. \\ \\
+Sia ora $X$ normale, consideriamo due sottoinsiemi chiusi $F_1, F_2$ di $X$, per ipotesi esistono $U_1, U_2$ aperti disgiunti tali che $F_1 \subset U_1$ e $F_2 \subset U_2$. Si ha che $f(F_1) \subset f(U_1)$, $f(F_2) \subset f(U_2)$ e $f(U_1) \cap f(U_2) = \emptyset$ per l'iniettività di $f$, pertanto segue la tesi. \\ \\ \\
+\textbf{2.} Dimostrare che un insieme $X$ infinito con topologia cofinita non è metrizzabile. \\
+
+\textbf{Dimostrazione:} sia $X$ uno spazio topologico infinito e sia 
+\begin{gather}
+    \tau := \{ \emptyset, X \} \cup \{ X \setminus A : A \subset X, |A| < +\infty \} \notag
+\end{gather}
+Sappiamo che ogni spazio metrizzabile è anche normale e di Hausdorff. Siano $F_1, F_2 \subset X$ chiusi e disgiunti, gli aperti che contengono $F_1$ sono della forma $X \setminus M$ con $M \subset F_1$, analogamente gli aperti che contengono $F_2$ sono della forma $X \setminus N$ con $N \subset F_2$. Si ha che $X \setminus M \cap X \setminus N = X \setminus (M \cup N) = \emptyset$ se e solo se $M \cup N = X$, ma $M$ e $N$ sono insiemi finiti poiché sono contenuti rispettivamente in $F_1$ e $F_2$ che sono chiusi per la topologia cofinita, pertanto sono anch'essi finiti, dunque si ottiene un assurdo. \\ \\ \\
+\textbf{3.} Dimostrare che $X$ è di Hausdorff se e solo se per ogni $x \in X$ si ha $\{ x \} = \bigcap_{M \in \mathcal{N}(x)} \overline{M}$. \\
+
+\textbf{Dimostrazione:} $(\Rightarrow)$ sia $X$ di Hausdorff, sia $p \in X$, per ogni $q \in X$, $q \neq p$, esistono $V_q \in \mathcal{N}(p)$ e $W_q \in \mathcal{N}(q)$ aperti tali che $V_q \cap W_q = \emptyset$. Si ottiene che
+\begin{gather}
+    \{ p \} = X \setminus \bigcup_{q \in X} W_q = \bigcap_{q \in X} (X \setminus W_q) \notag
+\end{gather}
+inoltre $V_q \subset X \setminus W_q$, pertanto $X \setminus W_q \in \mathcal{N}(p)$ ed è un chiuso per ogni $q \in X \setminus \{ p \}$. Dunque, dato che $X \setminus W_q$ sono una classe particolare di intorni chiusi di $p$, si ottiene
+\begin{gather}
+    \{ p \} \subset \bigcap_{M \in \mathcal{N}(p)} \overline{M} \subset \bigcap_{q \in X} (X \setminus W_q) \notag
+\end{gather}
+segue che
+\begin{gather}
+    \{ p \} = \bigcap_{M \in \mathcal{N}(p)} \overline{M} \notag
+\end{gather} \\ \\
+$(\Leftarrow)$ sia $\{ p \} = \bigcap_{M \in \mathcal{N}(p)} \overline{M}$ per ogni $p \in X$, sia $q \in X \setminus \{ p \}$, si ha
+\begin{gather}
+    q \in X \setminus \bigcap_{M \in \mathcal{N}(p)} \overline{M} = \bigcup_{M \in \mathcal{N}(p)} (X \setminus \overline{M}) \notag
+\end{gather}
+ovvero esiste $M^* \in \mathcal{N}(p)$ tale che $q \in X \setminus \overline{M^*}$, che è un aperto, segue che $p \in \overline{M^*}$, dunque esiste un aperto $A^* \subset \overline{M^*}$ tale che $p \in A^*$ e
+\begin{gather}
+    A^* \cap (X \setminus \overline{M^*}) \subset \overline{M^*} \cap (X \setminus \overline{M^*}) = \emptyset \notag
+\end{gather}
+pertanto segue la tesi. \\ \\ \\
+\textbf{4.} sia $f : X \longrightarrow Y$ continua e $Y$ di Hausdorff, dimostrare che il grafico di $f$, ovvero
+\begin{gather}
+    \Gamma_f := \{ (x, f(x)) \in X \times Y : x \in X \} \notag
+\end{gather}
+è chiuso in $X \times Y$. \\
+
+\textbf{Dimostrazione:} sia $(x_0, y_0) \in X \times Y \setminus \Gamma_f$, allora $y_0 \neq f(x_0)$, pertanto esistono $V \in \mathcal{N}(y_0)$ e $W \in \mathcal{N}(f(x_0))$ tali che $V \cap W = \emptyset$, inoltre, per ipotesi di continuità, esiste $M \in \mathcal{N}(x_0)$ aperto tale che $f(M) \subset W$. Dunque si ha $(x_0, y_0) \in M \times V$ aperto in $X \times Y$, inoltre $M \times V \subset X \times Y \setminus \Gamma_f$, infatti se $x_0 \in M$ si ha che $f(x_0) \in f(M)$, ma $V \cap f(M) \subset V \cap W = \emptyset$. Ciò vale per ogni $(x, y) \in X \times Y \setminus \Gamma_f$, pertanto si ottiene la tesi. \\ \\ \\
+\textbf{5.} Dimostrare che se $f, g : X \longrightarrow Y$ sono applicazioni continue, $Y$ di Hausdorff e $D \subset X$ è un denso tale che $f(x) = g(x)$ per ogni $x \in D$ si ha che $f = g$. \\
+
+\textbf{Dimostrazione:} sia $x \in X$ tale che $f(x) \neq g(x)$, per ipotesi segue che $x \in X \setminus D$, inoltre esistono $V \in \mathcal{N}(f(x))$ e $W \in \mathcal{N}(g(x))$ aperti tali che $V \cap W = \emptyset$, ovvero $f^{-1}(V), f^{-1}(W) \subset X \setminus D$ e sono aperti (per la continuità di $f$). Tuttavia $D$ è denso, quindi interseca con ogni aperto non vuoto, pertanto $D \cap f^{-1}(V) \neq \emptyset$ e $D \cap f^{-1}(W) \neq \emptyset$, ma ciò è un assurdo, segue che $f = g$. \\ \\ \\
+\textbf{6.} Siano $(X, d)$ uno spazio metrico, $x \in X$ e $B \subset X$. Dimostrare che $x$ è un punto di accumulazione di $B$ se e solo se esiste una successione $\{x_j : j \in \mathbf{N}\} \subset B\setminus X$ tale che $x_j \rightarrow x$. \\
+
+\textbf{Dimostrazione:} $(\Rightarrow)$ sia $x$ un punto di accumulazione per $B$, allora per definizione si ha che $V \cap B \setminus \{x\} \neq \emptyset$ per ogni $V \in \mathcal{N}(x)$. Consideriamo la seguente famiglia di intorni aperti di $x$
+\begin{align}
+    \mathcal{V} = \{D_{1/n}(x) : n \in \mathbf{N}\} \notag
+\end{align}
+Per ogni $n \in \mathbf{N}$ scegliamo un elemento $x_n \in D_{1/n}(x) \cap B$, abbiamo quindi costruito una successione $\{x_n : n \in \mathbf{N}\} \subset B$ tale che
+\begin{align}
+    d(x_n, x) < \frac{1}{n} \notag
+\end{align}
+per ogni $n \in \mathbf{N}$, ovvero $x_n \rightarrow x$. \\
+$(\Leftarrow)$ Sia $\{x_n : n \in \mathbf{N}\} \subset B$ una successione convergente a $x$. Per definizione, per ogni $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbf{N}$ tale che
+\begin{align}
+    d(x_n, x) < \varepsilon \notag
+\end{align}
+ovvero per ogni $n > N_\varepsilon$ si ha che $x_n \in D_{\varepsilon}(x)$. Sia $V \in \mathcal{N}(x)$, poiché $V$ è aperto esiste $\delta > 0$ tale che $D_\delta(x) \subset V$, ovvero $x$ è interno a $V$, quindi $x_m \in V \cap B \setminus \{x\}$ per ogni $m > N_\delta$.
+
+\newpage
+\subsection{Connessione}
+\textbf{Definizione 1.3.1:} sia $X$ uno spazio topologico, $X$ è detto \textit{sconnesso} se esistono $A, B \subset X$ aperti non vuoti tali che $A \cup B = X$ e $A \cap B = \emptyset$. \\ Altrimenti $X$ è detto \textit{connesso}. \\ \\
+Notiamo che ciò equivale a dire che $X$ è \textit{connesso} se e solo se gli unici insiemi ad essere sia chiusi che aperti sono $\emptyset$ e $X$. Infatti se esistono $A, B$ aperti disgiunti tali che $X = A \cup B$, si ha che $X \setminus A = B$ è sia aperto, per ipotesi, che chiuso, poiché il complementare è aperto. \\ \\ \\
+\textbf{Definizione 1.3.2:} $Y \subset X$ è \textit{sconnesso} se e solo se è sconnesso per la topologia indotta da $X$, ovvero $\tau_Y := \{ Y \cap A : A \text{ aperto in } X \}$. \\ \\
+Ciò equivale a dire che $Y \subset X$ è \textit{sconnesso} se e solo se esistono $(Y \cap A), (Y \cap B) \subset\\\subset Y$ aperti non vuoti tali che $Y = Y \cap (A \cup B)$ e $(Y \cap A) \cap (Y \cap B) = \emptyset$. \\ \\
+\textbf{Osservazione:} $Y \subset X$ è \textit{connesso} se e solo se per ogni $A, B \subset X$ aperti non vuoti e disgiunti tali che $Y \subseteq A \cup B$ si ha che $Y \subseteq A$ oppure $Y \subseteq B$. \\ \\ \\
+\textbf{Proposizione 1.3.1:} siano $Y, Z \subset X$ tali che $Y \subseteq Z \subseteq \overline{Y}$. Allora se $Y$ è connesso anche $Z$ è connesso. \\
+
+\textbf{Dimostrazione:} sia $M$ un sottoinsieme non vuoto, aperto e chiuso di $\overline{Y}$, poiché $\mathring{(\overline{Y} \setminus Y)} = \emptyset$ si ha che $M \cap Y \neq \emptyset$, allora
+\begin{gather}
+    M \cap Y = Y \notag
+\end{gather}
+perché $Y$ è connesso per ipotesi, dunque è l'unico insieme non vuoto, aperto e chiuso contenuto in $Y$ stesso. Ciò comporta $M \supseteq Y$, pertanto, dato che $M$ è chiuso, si ha che
+\begin{gather}
+    M = \overline{Y} \implies M \cap Z = Z \notag
+\end{gather}
+ovvero l'unico insieme non vuoto, aperto e chiuso contenuto in $Z$ è $Z$ stesso, la tesi segue. \\ \\
+Nella dimostrazione si è usato che $\mathring{(\overline{Y} \setminus Y)} = \emptyset$, ciò è di immediata dimostrazione, infatti consideriamo un aperto $A$ contenuto in $\mathring{(\overline{Y} \setminus Y)}$, si ha che $Y \subset \overline{Y} \setminus A$, tuttavia $\overline{Y} \setminus A$ è un chiuso in topologia relativa (rispetto a $\overline{Y})$, pertanto deve valere $\overline{Y} \setminus A = \overline{Y}$, cioè $A = \emptyset$. \\ \\ \\
+\textbf{Proposizione 1.3.2:} siano $Y, Z \subset X$ connessi tali che $Y \cap Z \neq \emptyset$, allora $Y \cup Z$ è connesso. \\
+
+\textbf{Dimostrazione:} supponiamo che $A \neq \emptyset$ sia un sottoinsieme aperto e chiuso di $Y \cup Z$, per fissare le idee poniamo $A \cap Y \neq \emptyset$. $A \cap Y$ è un insieme aperto e chiuso di $Y$, poiché $Y$ è connesso si ha che $Y \cap A = Y$, allora anche $A \cap Z \neq \emptyset$ ed essendo anche $Z$ connesso si ha che $Z \cap A = Z$, pertanto concludiamo che $A = Y \cup Z$, dunque gli unici insiemi aperti e chiusi di $Y \cup Z$ sono $\emptyset$ e $Y \cup Z$ stesso, dunque segue la tesi. \\ \\ \\
+\textbf{Definizione 1.3.3:} due punti di uno spazio topologico $X$ sono detti \textit{connessi} se esiste un sottoinsieme connesso di $X$ che li contiene entrambi. \\ \\ \\
+\textbf{Proposizione 1.3.3:} se comunque scelti due punti $p, q$ di uno spazio topologico $X$ essi sono connessi, allora $X$ è connesso. \\
+
+\textbf{Dimostrazione:} supponiamo che esistono $A, B \in X$ aperti non vuoti e disgiunti tali che $X = A \cup B$. Consideriamo due punti $p \in A$ e $q \in B$, per ipotesi si ha che esiste un sottoinsieme $K$ connesso tale $p, q \in K$, inoltre si ha che $K = K \cap (A \cup B)$ e $(K \cap A) \cap (K \cap B) = \emptyset$, ma ciò è un assurdo perché $K$ è connesso per ipotesi, pertanto si ottiene la tesi. \\ \\ \\
+\textbf{Proposizione 1.3.4:} siano $X$ uno spazio topologico, $Y \subseteq X$ e $\{ Y_\alpha \}_{\alpha \in I}$ una famiglia di sottospazi connessi di $Y$ tali che per ogni $\alpha, \beta \in I$ si ha $Y_\alpha \cap Y_\beta \neq \emptyset$, allora $\bigcup_{\alpha \in I} Y_\alpha$ è connesso. \\
+
+\textbf{Dimostrazione:} siano $p_1, p_2 \in \bigcup_\alpha Y_\alpha$, allora esistono $\alpha_1, \alpha_2 \in I$ tali che $p_1 \in Y_{\alpha_1}$ e $p_2 \in Y_{\alpha_2}$, inoltre per ipotesi si ha $Y_{\alpha_1} \cap Y_{\alpha_2} \neq \emptyset$, pertanto $Y_{\alpha_1} \cup Y_{\alpha_2}$ è connesso per la \textit{proposizione 1.3.1}. Pertanto, poiché ciò vale per ogni coppia di punti $p_1, p_2 \in \bigcup_\alpha Y_\alpha$, segue dalla \textit{proposizione 1.3.2} che $\bigcup_\alpha Y_\alpha$ è connesso. \\ \\
+Notiamo che se esiste $\gamma \in I$ tale che $p_1, p_2 \in Y_\gamma$ il risultato è ancora valido poiché $Y_\gamma$ è connesso per ipotesi. \\ \\ \\
+\textbf{Teorema 1.3.1:} gli intervalli di $\mathbb{R}$, in particolare $\mathbb{R}$ stesso, sono connessi. \\
+
+\textbf{Dimostrazione:} supponiamo che $\mathbf{J}$ sia un intervallo sconnesso, allora esistono $A, B \subset \mathbf{J}$ non vuoti, aperti e chiusi tali che $\mathbf{J} = A \cup B$ e tali che $A \cap B = \emptyset$, siano $a \in A$ e $b \in B$, supponiamo $a < b$. Poiché $\mathbf{J}$ è un intervallo si ha che $[a, b] \subset \mathbf{J}$, inoltre $A \cap [a, b]$ è un chiuso, pertanto contiene il suo estremo superiore, che chiameremo $z$. Inoltre dato che $z = \sup (A \cap [a, b])$ si ha che $(z, b) \subset B$, ma $B$ anche è chiuso, pertanto $z \in B$, ciò è un assurdo. \\ \\ \\
+\textbf{Proposizione 1.3.5:} se $f : X \longrightarrow Y$ un'applicazione continua e $Z$ è un sottoinsieme connesso di $X$, $f(Z)$ è un sottoinsieme connesso di $Y$. \\
+
+\textbf{Dimostrazione:} sia $M$ un sottoinsieme non vuoto, aperto e chiuso di $f(Z)$. Per ipotesi di continuità si ha che $f^{-1}(M)$ è un sottoinsieme non vuoto, aperto e chiuso di $X$ tale che $f^{-1}(M) \cap Z = Z$, perché $Z$ è connesso. Dunque $f^{-1}(M) \supseteq Z$ e ciò comporta che $M = f(f^{-1}(M)) = f(Z)$, la tesi segue.  \\ \\
+Notiamo che la \textit{connessione} è una \textit{proprietà topologica}, infatti se $X \cong Y$ esiste un omeomorfismo $f : X \longrightarrow Y$, per definizione $f$ è continuo e anche $f^{-1}$ lo è, dunque se $X$ è connesso anche $Y = f(X)$ e viceversa se $Y$ è connesso anche $X = f^{-1}(X)$ lo è (ricordiamo $f$ omeomorfismo se è continuo, biettivo e con inversa continua). \\ \\ \\
+In uno spazio topologico $X$ possiamo introdurre una relazione di equivalenza binaria $\rho$ ponendo
+\begin{gather}
+    p \rho q \text{ se e solo se } p,q \text{ sono connessi in } X \notag
+\end{gather}
+Verifichiamo che si tratta effettivamente di una relazione di equivalenza: \\
+\textbf{1.} $p \rho q \iff q \rho p$, segue dalla \textit{prop. 1.3.3}. \\
+\textbf{2.} $p \rho q$ e $q \rho r$ implica $p \rho r$, segue dalle \textit{prop. 1.3.3} e \textit{prop. 1.3.2}, infatti se $p, q$ sono connessi esiste $M$ connesso tale che $p, q \in M$, se $q, r$ sono connessi esiste $N$ connesso tale che $q, r \in N$, pertanto anche $p, r$ sono connessi poiché $M \cup N$ è un connesso (\textit{prop. 1.3.2}) tale che $p, r \in M \cup N$. \\ \\
+Le classi di $\rho$\textit{-equivalenza} sono dette componenti connesse di X. Per ogni $p \in X$ denotiamo con $C(p)$ la \textit{componente connessa di} $p$. \\ \\
+\textbf{Osservazione:} dalla \textit{proposizione 1.3.3} segue che $X$ è connesso se e solo se possiede un'unica componente connessa. \\ \\ \\
+\textbf{Proposizione 1.3.6:} per ogni $p \in X$, $C(p)$ è il più grande sottoinsieme connesso di $X$ contenente $p$. \\
+
+\textbf{Dimostrazione:} $C(p)$ è connesso poiché unione di insiemi connessi. Supponiamo ora che esiste $Z \supset C(p)$ connesso, allora esiste $q \in Z$ tale che $q \not\in C(p)$ e $p, q$ sono connessi, ciò comporterebbe, per definizione, $q \in C(p)$, ma ciò è un assurdo. \\ \\ Notiamo quindi che $C(p)$ è un chiuso per la \textit{proposizione 1.3.1}. \\ \\ \\
+\textbf{Teorema 1.3.2:} il prodotto topologico di una qualsiasi famiglia di spazi connessi è connesso. \\
+
+\textbf{Dimostrazione:} iniziamo con il prodotto topologico di due insiemi connessi $X, Y$. Consideriamo i punti $(x_1, y_1), (x_2, y_2) \in X \times Y$, gli insiemi $X \times \{ y_2 \}$ e $\{ x_1 \} \times Y$ sono omeomorfi a $X$ e $Y$ rispettivamente, infatti $f_X$ e $f_Y$ definite ponendo
+\begin{gather}
+    f_X(x) = (x, y_2) \qquad f_Y(y) = (x_1, y) \notag
+\end{gather}
+sono continue, biettive e con inversa continua. Pertanto $X \times \{ y_2 \}$ e $\{ x_1 \} \times Y$ sono connessi (la connessione è una proprietà topologica), quindi in $X \times Y$ vale
+\begin{gather}
+    (x_1, y_1) \rho (x_1, y_2) \notag \\
+    (x_1, y_1) \rho (x_2, y_1) \notag
+\end{gather}
+e per la transitività si ha
+\begin{gather}
+    (x_1, y_2) \rho (x_2, y_1) \notag
+\end{gather}
+Concludiamo che $X \times Y$ è connesso per la \textit{proposizione 1.3.3}. Ragionando per induzione si ottiene che il prodotto topologico di un numero finito di insiemi connessi è connesso. \\ \\
+Dimostriamo ora il caso generale. Sia $\{ X_\mu : \mu \in M \}$ una famiglia di insiemi connessi e sia 
+\begin{gather}
+    X := \prod_{\mu \in M} X_\mu \notag
+\end{gather}
+vogliamo definire la topologia prodotto in modo tale che renda continue le \textit{proiezioni canoniche} $\pi_j : \prod_{\mu \in M} X_\mu \longrightarrow X_j$. Pertanto imponiamo che per ogni $j \in M$ si ha
+\begin{gather}
+    \pi_j^{-1}(A_j) = \{ x \in X : x(j) \in A_j \} = \prod_{\mu \neq j} X_\mu \times A_j \notag
+\end{gather}
+sia un aperto per ogni aperto $A_j \subset X_j$. Sia $\mu_1, \dots, \mu_k$ un numero finito di indici, segue da quanto detto prima che anche
+\begin{gather}
+    \bigcap_{n = 1}^k \pi_{\mu_n}^{-1}(A_{\mu_n}) = \{ x \in X : x(\mu) \in A_{\mu}, \mu = \mu_1, \dots, \mu_k \} = \prod_{\mu \in M} V_\mu \notag
+\end{gather}
+con $V_\mu = A_\mu$ per $\mu = \mu_1, \dots, \mu_k$ e $V_\mu = X_\mu$ altrimenti, è un aperto. Questo procedimento ci ha permesso di avere una topologia prodotto che ha le stesse proprietà della topologia prodotto per il prodotto cartesiano di un numero finito di spazi topologici. \\
+Consideriamo un punto $p \in X$ e un aperto arbitrario $B$ della base della topologia prodotto, per quanto visto prima esiste un numero finito di indici $\mu_1, \dots, \mu_s \in M$ e di aperti non vuoti $A_1 \in X_{\mu_1}, \dots, A_s \in X_{\mu_s}$ tali che
+\begin{gather}
+    B = \{ x \in X : x(\mu_i) \in A_i, i = 1, \dots, s \} \notag
+\end{gather}
+Fissiamo $a_1 \in A_1, \dots, a_s \in A_s$; denotiamo il punto $q$ di $B$ ponendo
+\begin{gather}
+    q(\mu) = \left\{ \begin{array}{cc} 
+         a_i& \text{ se } \mu = \mu_i \text{ per qualche } i = 1, \dots, s  \\
+         p(\mu)& \text{ altrimenti} \notag
+    \end{array} \right.
+\end{gather}
+Consideriamo poi il sottoinsieme di $X$
+\begin{gather}
+    G := \{ x \in X : x(\mu) = p(\mu), \mu \neq \mu_1, \dots, \mu_s \} \notag
+\end{gather}
+$G$ è connesso poiché omeomorfo a $X_{\mu_1} \times \dots \times X_{\mu_s}$, infatti
+\begin{gather}
+    G = X_{\mu_1} \times \dots \times X_{\mu_s} \times \prod_{\mu \neq \mu_i} p(\mu), \quad i = 1, \dots, s \notag
+\end{gather}
+inoltre si ha $q, p \in G$, pertanto $G \subset C(p)$ e $C(p) \cap B \neq \emptyset$, dunque, essendo $B$ un aperto qualsiasi, si ha che $C(p)$ è denso ed è chiuso per la \textit{proposizione 1.3.6}, otteniamo allora che $C(p) = X$, cioè $X$ è connesso.
+\subsubsection{Esercizi}
+\textbf{1.} Sia $(X, \tau)$ uno spazio topologico, sia $\tau' \subseteq \tau$. Dimostrare che se $(X, \tau)$ è connesso anche $(X, \tau')$ è connesso. \\
+
+\textbf{Dimostrazione:} sia $(X, \tau)$ connesso, per ipotesi non esistono due aperti $A, B \in \tau$ disgiunti e non vuoti tali che $X = A \cup B$, allora in particolare non esistono neanche in $\tau'$, proprio perché ogni aperto di $\tau'$ è anche un aperto di $\tau$. \\ \\ \\
+\textbf{2.} Dimostrare se è sempre vero che uno spazio topologico $X$ è connesso se e solo se $\partial(Y) \neq 0$ per ogni sottoinsieme $Y$, $Y \neq \emptyset, X$. \\
+
+\textbf{Dimostrazione:} $(\Rightarrow)$ Sia $X$ connesso, ciò comporta che gli unici sottoinsiemi chiusi e aperti di $X$ siano $X$ e $\emptyset$, pertanto segue la tesi. \\ \\
+$(\Leftarrow)$ Supponiamo che esista un sottoinsieme $Y$ di $X$, diverso da $X$ stesso e da $\emptyset$, tale che $\partial(Y) = \emptyset$. Allora, poiché $\partial(Y) = \overline{Y} \setminus \mathring{Y}$ si ha che $\overline{Y} = \mathring{Y}$, ovvero $Y$ è sia chiuso che aperto, segue che $X$ non è connesso. \\ \\ \\
+\textbf{3.} Sia $X$ uno spazio topologico $T_2$ e sia $E \subset X$ connesso. Dimostrare se è sempre vero che $|E| \geq 2 \implies |E| = +\infty$. \\
+
+\textbf{Dimostrazione:} supponiamo $|E| = 2$, siano $p, q$ gli elementi di $E$. Per ipotesi esistono $V, W$ intorni aperti tali che
+\begin{gather}
+    p \in V, \quad q \in W, \quad V \cap W = \emptyset \notag
+\end{gather}
+Dunque $V \cap E$ e $W \cap E$ sono due aperti disgiunti non vuoti tali che
+\begin{gather}
+    E = (V \cap E) \cup (W \cap E) \notag
+\end{gather}
+pertanto $E$ non è connesso. \\
+Ragionando per induzione si può generalizzare questo risultato ad un numero finito $n$ di elementi. Infatti, supponiamo $E = \{ x_i : i = 1, \dots, n \}$ e prendiamo $x_1 \in E$. Per ipotesi, per ogni $i = 1, \dots, n$ esistono $V_i, W_i$ intorni aperti tali che
+\begin{gather}
+    x_1 \in V_i, \quad x_i \in W_i, \quad V_i \cap W_i = \emptyset \notag
+\end{gather}
+Allora si ottiene che
+\begin{gather}
+    x_1 \in V := \bigcap_{i = 1}^n V_i, \quad E \setminus \{ x_1 \} \subset W := \bigcup_{i = 1}^n W_i \notag
+\end{gather}
+inoltre
+\begin{gather}
+    V \cap W = \emptyset \notag
+\end{gather}
+ovvero $V, W$ sono due aperti disgiunti tali che
+\begin{gather}
+    E = (V \cap E) \cup (W \cap E) \notag
+\end{gather}
+dunque $V \cap E, W \cap E$ sono sottoinsiemi non vuoti aperti e chiusi di $E$ distinti da $E$ stesso, segue che $E$ non è connesso e quindi la tesi.
+
+\newpage
+\subsection{Connessione per archi}
+Un \textit{arco} (o \textit{cammino}) in uno spazio topologico $X$ è un'applicazione continua $\gamma : \mathbf{I} \longrightarrow X$, con $\mathbf{I} = [0, 1]$. I punti $\gamma(0)$ e $\gamma(1)$ si dicono \textit{estremi} di $\gamma$, e rispettivamente \textit{punto iniziale} e \textit{punto finale} di $\gamma$. \\ \\
+\textbf{Definizione 1.4.1:} se per ogni $p, q \in X$ esiste un arco $\gamma$ tale che $\gamma(0) = p$ e $\gamma(1) = q$, $X$ si dice \textit{connesso per archi}. \\ \\
+La connessione per archi è una proprietà più forte della connessione. \\ \\ \\
+\textbf{Proposizione 1.4.1:} se $X$ è connesso per archi si ha che $X$ è connesso. \\
+
+\textbf{Dimostrazione:} siano $p, q \in X$, per ipotesi esiste $\gamma : \mathbf{I} \longrightarrow X$ continua tale che $\gamma(0) = p$ e $\gamma(1) = q$. Consideriamo l'insieme $\gamma(\mathbf{I})$, per ipotesi di continuità di $\gamma$ si ha che $\gamma(\mathbf{I})$ è connesso (gli intervalli sono connessi), inoltre $p, q \in \gamma(\mathbf{I})$. Concludiamo che per ogni coppia di punti di $X$ esiste un sottoinsieme connesso che li contiene, segue dalla \textit{proposizione 1.3.3} che $X$ è connesso. \\ \\
+Il viceversa non è vero in generale, esistono insiemi connessi, ma non connessi per archi. Inoltre segue che un insieme sconnesso non è connesso per archi. \\ \\ \\
+\textbf{Proposizione 1.4.2:} sia $f : X \longrightarrow Y$ un'applicazione continua, sia $Z$ un sottoinsieme di $X$ connesso per archi, allora $f(Z)$ è connesso per archi. \\ 
+
+\textbf{Dimostrazione:} per ipotesi per ogni coppia di punti $p, q \in Z$ esiste $\gamma : \mathbf{I} \longrightarrow Z$ continua tale che $\gamma(0) = p$ e $\gamma(1) = q$. Consideriamo la restrizione di $f$ a $Z$, ovvero $f_Z : Z \longrightarrow f(Z)$ e la funzione composta $f_Z \cdot \gamma : \mathbf{I} \longrightarrow f(Z)$, per ipotesi di continuità di $\gamma$ e $f_Z$ anche $f_Z \cdot \gamma$ è continua, inoltre $f_Z(\gamma(0)) = f_Z(p) = f(p)$ e $f_Z(\gamma(1)) = f_Z(q) = f(q)$. Pertanto per ogni coppia di punti $f(p), f(q) \in f(Z)$ esiste una funzione continua $f_Z \cdot \gamma : \mathbf{I} \longrightarrow f(Z)$ tale che $f_Z \cdot \gamma (0) = f(p)$ e $f_Z \cdot \gamma (1) = f(q)$, dunque $f(Z)$ è connesso per archi. \\ \\
+Un'analogia tra connessione per archi e connessione si ha anche per il concetto di \textit{componente connessa per archi}. \\
+Sia $X$ uno spazio topologico, introduciamo una relazione binaria $\varepsilon$ ponendo $x \varepsilon y$ se e solo se esiste un arco $\gamma$ in $X$ tale che $\gamma(0) = x$ e $\gamma (1) = y$. \\
+Verifichiamo che si tratta di una relazione di equivalenza. $x \varepsilon x$ per ogni $x \in X$ segue dal fatto che l'applicazione costante $\gamma_x(t) = x$ per ogni $t \in \mathbf{I}$ è un arco. Se $x \varepsilon y$ si ha $y \varepsilon x$, basta considerare l'arco $\alpha = \beta (1 - t)$, dove $\beta$ è un arco da $x$ a $y$. Infine se $x \varepsilon y$ e $y \varepsilon z$ si ha $x \varepsilon z$, infatti per ipotesi esistono $\alpha, \beta$ archi tali che $\alpha(0) = x$, $\alpha(1) = y$, $\beta(0) = y$ e $\beta(1) = z$, pertanto possiamo definire $c : \mathbf{I} \longrightarrow X$ ponendo
+\begin{gather}
+    c(t) = \left\{ \begin{array}{cc}
+         a(2t)& \text{ se } 0 \leq t \leq \frac{1}{2}  \\
+         b(2t - 1)& \text{ se } \frac{1}{2} \leq t \leq 1 \notag
+    \end{array} \right.
+\end{gather}
+dunque si ha che $c$ è continua e $c(0) = x$ e $c(1) = z$.\\ \\ \\
+\textbf{Proposizione 1.4.3:} per ogni $p \in X$ si ha che $C_a(p)$ è il più grande sottoinsieme connesso per archi di $X$ contente $p$. \\
+
+\textbf{Dimostrazione:} se $Y$ è un sottoinsieme connesso per archi di $X$ contenente $p$ e $q \in Y$, per definizione esiste $\gamma$ arco tale che $\gamma(0) = p$ e $\gamma(1) = q$, dunque $q \in C_a(p)$ e $Y \subset C_a(p)$. \\
+Inoltre $C_a(p)$ è connesso per archi, infatti se $q \in C_a(p)$ esiste un arco $\alpha$ in $X$ tale che $\alpha(0) = p$ e $\alpha(1) = q$. Basta dimostrare che $\alpha(\mathbf{I}) \subset C_a(p)$. Sia $s \in \mathbf{I}$, definiamo $\beta_s : \mathbf{I} \longrightarrow X$ ponendo
+\begin{gather}
+    \beta_s(t) = \alpha(ts), \quad t \in \mathbf{I} \notag
+\end{gather}
+$\beta_s$ è un arco in $X$ di estremi $p$ e $\alpha(s)$, quindi $\alpha(s) \in C_a(p)$ per ogni $s \in \mathbf{I}$, pertanto $\alpha(\mathbf{I}) \subset C_a(p)$. \\ \\ \\
+\textbf{Teorema 1.4.1:} il prodotto topologico di una famiglia qualsiasi di spazi connessi per archi è connesso per archi. \\
+
+\textbf{Dimostrazione:} sia $\{ X_\mu \}_{\mu \in M}$ una famiglia di spazi connessi per archi, siano $p, q \in X := \prod_{\mu \in M} X_\mu$. Per ipotesi di connessione di archi, per ogni $\mu \in M$ esiste un arco $\gamma_\mu$ tale che $\gamma_\mu(0) = p(\mu)$ e $\gamma_\mu(1) = q(\mu)$. Definiamo allora $\alpha : \mathbf{I} \longrightarrow X$ ponendo
+\begin{gather}
+    \alpha(t)(\mu) = \alpha_\mu(t) \notag
+\end{gather}
+$\alpha$ è un arco in $X$ tale che $\alpha(0) = p$ e $\alpha(1) = q$, quindi $X$ è connesso per archi.
+\subsection{Compattezza}
+\textbf{Definizione 1.5.1:} uno spazio topologico $X$ è detto compatto se per ogni \textit{ricoprimento aperto} $\{ \mathcal{U}_i \}_{i \in I}$ esiste un \textit{sottoricoprimento finito} $U_1, \dots, U_n$ tale che $X = U_1 \cup \dots \cup U_n$. \\
+Un sottospazio di $X$ si dice compatto se è compatto con la topologia relativa; ciò equivale a dire che un sottoinsieme $K$ di $X$ è compatto se ogni ricoprimento di $K$ con aperti di $X$ possiede un sottoricoprimento finito. \\
+Ogni spazio topologico banale è compatto, infatti l'unico ricoprimento aperto è costituito da $X$ stesso. Inoltre è compatto ogni spazio finito e ogni spazio con la topologia cofinita. \\
+$\mathbb{R}$ non è compatto, infatti la famiglia $\{ (-n, n) \}_{n \geq 1}$ non ammette sottoricoprimenti finiti. \\
+Ogni intervallo aperto $(a, b)$ di $\mathbb{R}$ non è compatto, infatti la famiglia di intervalli
+\begin{gather}
+    \mathcal{U} := \left\{ (a + \varepsilon, b - \varepsilon) : 0 < \varepsilon < \frac{b - a}{2} \right\} \notag
+\end{gather}
+è un ricoprimento aperto di $(a, b)$, tuttavia ogni sottoricoprimento finito di $\mathcal{U}$ ha come unione un intervallo ancora appartenente ad $\mathcal{U}$, pertanto diverso da $(a, b)$. \\ \\ \\
+\textbf{Teorema (di Heine-Borel):} ogni intervallo chiuso e limitato $[a, b]$ di $\mathbb{R}$ è compatto. \\
+
+\textbf{Dimostrazione:} sia $\mathcal{U}$ un ricoprimento di $[a, b]$ con aperti di $\mathbb{R}$ e sia
+\begin{gather}
+    X := \{ x \in X : [a, x] \text{ è ricoperto da un numero finito di aperti} \} \notag
+\end{gather}
+basta dimostrare che $X = [a, b]$. Innanzitutto si ha che $X \neq \emptyset$ perché $a \in X$, infatti esiste $U \in \mathcal{U}$ tale che $a \in U$. \\
+Notiamo inoltre che $X$ è un intervallo contenuto in $[a, b]$, infatti se $x \in X$, esistono finiti $U_1, \dots, U_n \in \mathcal{U}$ tali che $[a, x] \subset U_1 \cup \dots U_n$, pertanto si ha che $[a, t] \subset U_1 \cup \dots \cup U_n$ per ogni $a < t < x$. \\
+$X$ è un aperto in $[a, b]$. Infatti, sia $x \in X$, per ipotesi esistono $U_1, \dots, U_n \in \mathcal{U}$ tali che $[a, x] \subset U_1 \cup \dots \cup U_n$, inoltre, poiché l'unione di una qualsiasi famiglia di aperti è aperta, si ha che esiste $r > 0$ tale che $(x - r, x+ r) \subset U_1 \cup \dots \cup U_n$, in particolare anche $[a, b] \cap (x - r, x + r) \subset U_1 \cup \dots \cup U_n$, ma allora
+\begin{gather}
+    [a, b] \cap (x - r, x + r) \subset X \notag
+\end{gather}
+per come è definito $X$, dunque per ogni $x \in X$ esiste un intorno di $x$ (nella topologia relativa) contenuto in $X$ stesso. \\
+Sia $z := \sup X$, poiché $X \subset [a, b]$ che è chiuso e limitato, si ha $z \in [a, b]$, pertanto esiste $V \in \mathcal{U}$ tale che $z \in V \cap [a, b]$. Sia $s > 0$ tale che $(z - s, z] \subset V \cap [a, b]$, allora $z - s \in X$ (poiché $z$ è l'estremo superiore), pertanto esistono $V_1, \dots, V_m \in \mathcal{U}$ tali che $[a, z - s] \subset V_1 \cup \dots \cup V_m$, ma allora si ha
+\begin{gather}
+    [a, z] \subset V_1 \cup \dots \cup V_m \cup V \Rightarrow z \in X \notag
+\end{gather}
+dunque $X$ è sia chiuso che aperto in $[a, b]$, tuttavia l'unico intervallo chiuso e aperto in $[a, b]$ è $[a, b]$ stesso, perciò $X = [a, b]$, la tesi segue. \\ \\ \\
+\textbf{Proposizione 1.5.1:} $a)$ Ogni sottoinsieme chiuso $K$ di uno spazio compatto $X$ è compatto. \\
+$b)$ Ogni sottoinsieme compatto $K$ di uno spazio di Hausdorff $X$ è chiuso. \\
+
+\textbf{Dimostrazione:} $a)$ Sia $K \subset X$ chiuso e $X$ compatto. Si ha che $X \setminus K$ è un aperto. Sia $\mathcal{A}$ un ricoprimento aperto di $K$, allora $\mathcal{A} \cup \{X \setminus K\}$ è un ricoprimento aperto di $X$, infatti
+\begin{gather}
+    \bigcup_{A \in \mathcal{A}} A \supset K \Rightarrow (X \setminus K) \cup \bigcup_{A \in \mathcal{A}} A = X \notag
+\end{gather}
+Pertanto esiste un sottoricoprimento finito $\{A_i : 1 \leq i \leq n \} \cup \{ X \setminus K \}$ tale che
+\begin{gather}
+    X = A_1 \cup \dots \cup A_n \cup X \setminus K \notag
+\end{gather}
+ma allora
+\begin{gather}
+    K \subseteq A_1 \cup \dots \cup A_n \notag
+\end{gather}
+ovvero $K$ è compatto. \\ \\
+$b)$ Sia $K \subset X$ compatto e $X$ di Hausdorff. Sia $p \in X \setminus K$, per ogni $q \in K$ esistono $V_q \in \mathcal{N}(p)$ e $W_q \in \mathcal{N}(q)$ aperti tali che $V_q \cap W_q = \emptyset$. Allora
+\begin{gather}
+    p \in X \setminus \bigcup_{q \in K} W_q \notag
+\end{gather}
+Inoltre $\{ W_q : q \in K \}$ è un ricoprimento aperto di $K$, pertanto esiste un sottoricoprimento aperto finito $\{ W_{q_\mu} : 1 \leq \mu \leq n \}$ tale che
+\begin{gather}
+    K \subseteq W_{q_1} \cup \dots \cup W_{q_n} \notag
+\end{gather}
+allora si ha che
+\begin{gather}
+    p \in X \setminus \bigcup_{\mu = 1}^n W_{q_\mu} \subset X \setminus K \notag
+\end{gather}
+e
+\begin{gather}
+    V := \bigcap_{\mu = 1}^n V_{q_\mu} \notag
+\end{gather}
+è un intorno aperto di $p$ contenuto in $X \setminus K$. Poiché ciò vale per ogni $p \in X \setminus K$ si ha che $X \setminus K$ è aperto, quindi $K$ è chiuso. \\ \\ \\
+\textbf{Corollario 1.5.1:} un sottoinsieme $K$ di $\mathbb{R}$ è compatto se e solo se è chiuso e limitato. \\
+
+\textbf{Dimostrazione:} $(\Rightarrow)$ Sia $K \subset \mathbb{R}$ compatto e sia $X$ di Hausdorff. Per la \textit{proposizione 1.5.1} si ha che $K$ è chiuso. Inoltre è sicuramente limitato, altrimenti $\{ (-n, n) \}_{n \geq 1}$ sarebbe un ricoprimento aperto che non ammette sottoricoprimento finito. \\ \\
+$(\Leftarrow)$ Sia $K$ chiuso e limitato. Poniamo
+\begin{gather}
+    a := \inf K, \quad b := \sup K \notag
+\end{gather}
+poiché $K$ è chiuso si ha $a, b \in K$, allora $K \subseteq [a, b]$ che è compatto perché è un intervallo chiuso di $\mathbb{R}$, inoltre $K$ è chiuso in $[a, b]$, pertanto $K$ è un sottoinsieme chiuso di uno spazio compatto, per la \textit{proposizione 1.5.1} $K$ è compatto. \\ \\ \\
+\textbf{Proposizione 1.5.2:} $a)$ Ogni sottoinsieme infinito $Z$ di uno spazio compatto $X$ possiede almeno un punto di accumulazione in $X$. \\
+$b)$ Ogni successione di punti di uno spazio compatto e $T_1$ $X$ che soddisfa il primo assioma di numerabilità ammette una sottosuccessione convergente. \\
+
+\textbf{Dimostrazione:} $a)$ Supponiamo che $Z$ non abbia punti di accumulazione, $Z$ è chiuso in $X$ e dunque compatto. Inoltre la topologia relativa di $Z$ è la topologia discreta. Tuttavia uno spazio infinito con la topologia discreta NON può essere compatto, perciò si ottiene un assurdo. Concludiamo che $Z$ ha almeno un punto di accumulazione in $X$. \\ \\
+$b)$ Se la successione ha infiniti numeri uguali, essi formano una sottosuccessione convergente. Se la successione ha infiniti punti distinti, allora possiede un punto di accumulazione in $X$ e, per la \textit{proposizione 1.2.7}, ammette una sottosuccessione convergente. \\ \\ \\
+\textbf{Teorema (di Bolzano - Weierstrass):} ogni successione limitata $\{ x_n : n \in \mathbb{N} \}$ di numeri reali ammette una sottosuccessione convergente. \\
+
+\textbf{Dimostrazione:} poiché $\{ x_n \}$ è limitata esiste $M > 0$ tale che $\{ x_n \} \subset [-M, M]$, ma $[-M, M]$ è un sottoinsieme compatto di $\mathbb{R}$, pertanto, per la \textit{proposizione 1.5.2}, $\{ x_n \}$ ammette una sottosuccessione convergente. \\ \\ \\
+\textbf{Proposizione 1.5.3:} sia $f : X \longrightarrow Y$ un'applicazione continua di spazio topologici e sia $X$ compatto, allora $f(X)$ è compatto in $Y$. \\
+
+\textbf{Dimostrazione:} sia $\mathcal{U}$ un ricoprimento aperto di $f(X)$. La famiglia di sottoinsiemi aperti
+\begin{gather}
+    \mathcal{V} := \{ f^{-1}(U) : U \in \mathcal{U} \} \notag
+\end{gather}
+è un ricoprimento aperto di $X$, pertanto ammette un sottoricoprimento finito
+\begin{gather}
+    \{ f^{-1}(U_i) : U_i \in \mathcal{U}, 1 \leq i \leq n \} \notag
+\end{gather}
+tale che
+\begin{gather}
+    X = f^{-1}(U_1) \cup \dots \cup f^{-1}(U_n) = f^{-1}(U_1 \cup \dots \cup U_n) \notag
+\end{gather}
+Dunque si ha che
+\begin{gather}
+    f(X) = f(f^{-1}(U_1 \cup \dots \cup U_n)) \subset U_1 \cup \dots \cup U_n \notag
+\end{gather}
+(contenuto poiché $f$ potrebbe non essere suriettiva), ovvero $\{ U_1, \dots, U_n\}$ è un ricoprimento aperto finito di $f(X)$. $f(X)$ è compatto. \\ \\
+Dalla \textit{proposizione 1.5.3} segue immediatamente che la compattezza è una proprietà topologica, dunque invariante per omeomorfismi. \\ \\ \\
+\textbf{Corollario 1.5.2:} sia $X$ uno spazio topologico e $f : X \longrightarrow \mathbb{R}$ continua. Se $X$ è compatto $f$ assume un valore massimo ed un valore minimo su $\mathbb{R}$. \\
+
+\textbf{Dimostrazione:} dalla \textit{proposizione 1.5.3} segue che $f(X)$ è compatto, pertanto per il \textit{corollario 1.5.1} è chiuso e limitato, dunque $f(X)$ contiene il suo estremo superiore ed il suo estremo inferiore. \\ \\ \\
+\textbf{Proposizione 1.5.4:} siano $X$ compatto, $Y$ di Hausdorff, $f : X \longrightarrow Y$ continua. Allora $f$ è chiusa; inoltre se $f$ è biunivoca, $f$ è un omeomorfismo. \\
+
+\textbf{Dimostrazione:} sia $C \subset X$ chiuso, allora è compatto (sottoinsieme chiuso di spazio compatto), per ipotesi di continuità $f(C) \subset Y$ è compatto e dunque chiuso (sottoinsieme compatto di spazio di Hausdorff), pertanto $f$ è chiusa. Se $f$ è anche biunivoca segue immediatamente che $f$ è omeomorfismo, poiché $f$ è continua, biunivoca e chiusa. \\ \\ \\
+\textbf{Proposizione 1.5.5:} condizione \textit{necessaria} e \textit{sufficiente} affinché uno spazio $X$ sia compatto è che ogni famiglia $\mathcal{F}$ di sottoinsiemi chiusi di $X$ che ha la proprietà dell'intersezione finita, ovvero $F_1 \cap \dots \cap F_n \neq \emptyset$ per ogni $F_1, \dots, F_n \in \mathcal{F}$, abbia intersezione non vuota, ovvero $\bigcap_{F \in \mathcal{F}} F \neq \emptyset$. \\
+
+\textbf{Dimostrazione:} \textit{(necessità)} Supponiamo che esista una famiglia $\mathcal{F}$ di sottoinsiemi chiusi di $X$ con la proprietà dell'intersezione finita che ha intersezione nulla e dimostriamo che $X$ non può essere compatto. Consideriamo la famiglia di aperti
+\begin{gather}
+    \mathcal{A} := \{ X \setminus F : F \in \mathcal{F} \} \notag
+\end{gather}
+$\mathcal{A}$ è un ricoprimento aperto, infatti
+\begin{gather}
+    \bigcup_{F \in \mathcal{F}} X \setminus F = X \setminus \bigcap_{F \in \mathcal{F}} F = X \setminus \emptyset = X \notag
+\end{gather}
+Tuttavia $\mathcal{A}$ non ammette sottoricoprimento finito, infatti per ogni famiglia finita $\{ F_1, \dots, F_n \} \subset \mathcal{F}$ si ha
+\begin{gather}
+    \bigcup_{i = 1}^n X \setminus F_i = X \setminus \bigcap_{i = 1}^n F_i \neq X \notag 
+\end{gather}
+infatti $F_1 \cap \dots \cap F_n \neq \emptyset$ per ipotesi, pertanto $X$ non è compatto. \\ \\
+\textit{(sufficienza)} Supponiamo che ogni famiglia $\mathcal{F}$ di sottoinsiemi chiusi di $X$ con la proprietà dell'intersezione finita abbia intersezione non nulla. Sia $\mathcal{A}$ un ricoprimento aperto di $X$, consideriamo la famiglia
+\begin{gather}
+    \mathcal{F} := \{ X \setminus A : A \in \mathcal{A} \} \notag
+\end{gather}
+di sottoinsiemi chiusi di $X$. Poiché $\mathcal{A}$ è un ricoprimento di $X$, si ha che
+\begin{gather}
+    \bigcap_{A \in \mathcal{A}} X \setminus A = X \setminus \bigcup_{A \in \mathcal{A}} A = \emptyset \notag
+\end{gather}
+ovvero $\mathcal{F}$ ha intersezione nulla, pertanto non ha la proprietà dell'intersezione finita. Segue che esiste una famiglia finita $\{ A_1, \dots, A_m \} \subset \mathcal{A}$ tale che
+\begin{gather}
+    \bigcap_{i = 1}^m X \setminus A_i = X \setminus \bigcup_{i = 1}^m A_i = \emptyset \notag
+\end{gather}
+ovvero $A_1 \cup \dots \cup A_m = X$, pertanto $\mathcal{A}$ ammette un sottoricoprimento finito, quindi $X$ è compatto. \\ \\ \\
+\textbf{Teorema (di Tichonov):} il prodotto topologico di una qualsiasi famiglia di spazi compatti è compatto. \\
+
+\textbf{Dimostrazione:} partiamo dal prodotto topologico di due spazi compatti $X$ e $Y$. Sia $\{ A_j : j \in J \}$ un ricoprimento aperto di $X \times Y$ (topologia prodotto), allora
+\begin{gather}
+    A_j = \bigcup_{h \in h(j)} V_h \times W_h \notag
+\end{gather}
+con $V_h$ aperto di $X$ e $W_h$ aperto di $X$ per ogni $h \in h(j)$. La famiglia
+\begin{gather}
+    \{ V_h \times W_h : h \in H \}, \quad H = \bigcup_{j \in J} h(j) \notag
+\end{gather}
+è un ricoprimento aperto di $X \times Y$. Sia $x \in X$, lo spazio $\{ x \} \times Y$ è omeomorfo a $Y$, quindi è compatto, pertanto esiste un sottoinsieme finito $h(x) \subset H$ tale che
+\begin{gather}
+    \{ x \} \times Y \subset \bigcup_{h \in h(x)} V_h \times W_h \notag
+\end{gather}
+e tale che $x$ è contenuto in $V_h$ per ogni $h \in h(x)$, infatti se esiste $\overline{h} \in h(x)$ tale che $x \not\in V_{\overline{h}}$, basta rimuoverlo e si ha ancora un ricoprimento di $\{ x \} \times Y$. Per ogni $x \in X$ consideriamo l'intorno aperto
+\begin{gather}
+    V(x) := \bigcap_{h \in h(x)} V_h \notag
+\end{gather}
+allora $\{ V(x) : x \in X \}$ è un ricoprimento aperto di $X$, pertanto, per la compattezza di $X$, esistono $x_1, \dots, x_s \in X$ tali che
+\begin{gather}
+    X = V(x_1) \cup \dots \cup V(x_s) \notag
+\end{gather}
+allora
+\begin{gather}
+    \{ V(x_1) \times W_h : h \in h(x_1) \} \cup \dots \cup \{ V(x_s) \times W_h : h \in h(x_s) \} \notag
+\end{gather}
+è un ricoprimento aperto di $X \times Y$, inoltre per ogni $i = 1 \dots s$ e ogni $h \in h(x_i)$ si ha
+\begin{gather}
+    V(x_i) \times W_h \subset A_{j(i, h)}, \text{ per qualche } j(i, h) \in J \notag
+\end{gather}
+pertanto è un sottoricoprimento finito di $\{ A_j \}_{j \in J}$. Ragionando per induzione si ottiene che il prodotto topologico di una famiglia finita di spazi compatti è compatto. \\ \\
+Dimostriamo ora il caso generale. Sia $\{ X_\mu : \mu \in M \}$ una famiglia di spazi compatti e sia
+\begin{gather}
+    X := \prod_{\mu \in M} X_\mu \notag
+\end{gather}
+Consideriamo una famiglia qualsiasi $\mathcal{B}$ di sottoinsiemi di $X$ con la proprietà dell'intersezione finita e dimostreremo che
+\begin{gather}
+    \bigcap_{B \in \mathcal{B}} \overline{B} \neq \emptyset \notag
+\end{gather}
+da ciò seguirà la compattezza dalla \textit{proposizione 1.5.5}. \\
+Consideriamo la classe $\mathcal{I}$ di tutte le famiglie di sottoinsiemi di $X$ che hanno la proprietà dell'intersezione finita. $\mathcal{I}$ è \textit{parzialmente ordinata} rispetto all'inclusione, ovvero
+\begin{gather}
+    \mathcal{B} \subseteq \mathcal{B} \text{ per ogni } \mathcal{B} \in \mathcal{I} \notag \\
+    \text{ se } \mathcal{B}_1 \subseteq \mathcal{B}_2 \text{ e } \mathcal{B}_2 \subseteq \mathcal{B}_1 \implies \mathcal{B}_1 = \mathcal{B}_2 \notag \\
+    \text{ se } \mathcal{B}_1 \subseteq \mathcal{B}_2 \text{ e } \mathcal{B}_2 \subseteq \mathcal{B}_3 \implies \mathcal{B}_1 \subseteq \mathcal{B}_3 \notag
+\end{gather}
+Se $\Sigma$ è una \textit{catena} (famiglia \textit{totalmente ordinata}, ovvero ogni elemento è \textit{confrontabile}) in $\mathcal{I}$ si ha che
+\begin{gather}
+    F_\Sigma := \bigcup_{F \in \Sigma} F \notag
+\end{gather}
+è contenuto in $\mathcal{I}$ ed è un estremo superiore per $\Sigma$ (rispetto all'inclusione). Segue dal \textit{lemma di Zorn} che $\mathcal{I}$ ammette un \textit{elemento massimale}, ovverlo esiste $\mathcal{B}^* \in \mathcal{I}$ tale che
+\begin{gather}
+    \mathcal{B}^* \subseteq \mathcal{B} \implies \mathcal{B}^* = \mathcal{B} \notag
+\end{gather}
+Dato che siamo interessati al comportamento rispetto a operazioni di intersezione, non è restrittivo supporre che $\mathcal{B}$ sia proprio l'elemento massimale di $\mathcal{I}$. Pertanto segue che: \\
+
+$(a)$ ogni sottoinsieme di $X$ che sia intersezione di un numero finito di elementi di $\mathcal{B}$ appartiene a $\mathcal{B}$.
+
+$(b)$ se un sottoinsieme di $X$ ha intersezione non vuota con ogni elemento di $\mathcal{B}$ appartiene a $\mathcal{B}$ \\ \\
+Sia $\mu \in M$ e $p_\mu : X \longrightarrow X_\mu$ la proiezione canonica, consideriamo la famiglia di sottoinsiemi di $X_\mu$ data da
+\begin{gather}
+    \mathcal{B}_\mu := \{ p_\mu(B) : B \in \mathcal{B} \} \notag
+\end{gather}
+$\mathcal{B}_\mu$ ha la proprietà dell'intersezione finita, infatti
+\begin{gather}
+    p_\mu(B_1) \cap \dots \cap p_\mu(B_n) = p_\mu(B_1 \cap \dots \cap B_n) \neq \emptyset \notag
+\end{gather}
+per ogni famiglia finita $\{ B_1, \dots, B_n \} \subset \mathcal{B}$. Inoltre, poiché $X_\mu$ è compatto si ha
+\begin{gather}
+    I_\mu := \bigcap_{B \in \mathcal{B}} \overline{p_\mu(B)} \neq \emptyset \notag
+\end{gather}
+Scegliamo un punto $x_\mu \in I_\mu$ per ogni $\mu \in M$, sia $x$ il punto di $X$ definito da
+\begin{gather}
+    x(\mu) = x_\mu, \quad \mu \in M \notag
+\end{gather}
+Dimostriamo che $x \in \overline{B}$ per ogni $B \in \mathcal{B}$. Scegliamo arbitrariamente $\mu \in M$ e consideriamo un aperto $U_\mu$ di $X_\mu$ contenente $x_\mu$. Allora si ha
+\begin{gather}
+    U_\mu \cap p_\mu(B) \neq \emptyset \text{ per ogni } B \in \mathcal{B} \notag
+\end{gather}
+Segue che
+\begin{gather}
+    p_\mu^{-1}(U_\mu) \cap B \neq \emptyset \text{ per ogni } B \in \mathcal{B} \notag
+\end{gather}
+dalla $(b)$ segue che $p_\mu^{-1}(U_\mu) \in \mathcal{B}$ per ogni $\mu \in M$. Dalla $(a)$ segue che ogni intersezione $U^*$ di una numero finito di insiemi $p_\mu^{-1}(U_\mu)$, con $\mu \in M$, appartiene a $\mathcal{B}$. Inoltre, dato che $x \in p_\mu^{-1}(U_\mu)$ per ogni $\mu \in M$, si ha che $U^*$ forma un sistema fondamentale di intorni di $x$ che interseca ogni $B \in \mathcal{B}$. Di conseguenza ogni intorno di $x$ interseca ogni $B \in \mathcal{B}$, segue che $x \in \overline{B}$ per ogni $B \in \mathcal{B}$. \\ \\ \\
+\textbf{Corollario 1.5.3:} un sottoinsieme $K$ di $\mathbb{R}^n$ è compatto se e solo se è chiuso e limitato. \\
+
+\textbf{Dimostrazione:} sia $K$ compatto, poiché $\mathbb{R}^n$ è di Hausdorff, si ha che $K$ è chiuso, inoltre è limitato poiché altrimenti la famiglia dei dischi aperti centrati nell'origine di raggio crescente sarebbe un ricoprimento aperto che non ammette un sottoricoprimento finito. \\ \\
+Sia $K$ chiuso e limitato, allora $K \subset \mathbf{I}_1 \times \dots \times \mathbf{I}_1$ ($n$ copie di $\mathbf{I}_1$) che è compatto per il \textit{teorema di Tichonov}, inoltre $K$ è chiuso in $\mathbf{I}_1 \times \dots \times \mathbf{I}_1$ poiché è chiuso in $\mathbb{R}^n$, pertanto $K$ è un sottoinsieme chiuso di uno spazio compatto, segue che $K$ è compatto.
+\subsubsection{Osservazioni e complementi}
+\textbf{1.} Dal \textit{corollario 1.5.1} segue che gli unici intervalli compatti di $\mathbb{R}$ sono gli intervalli chiusi e limitati. Inoltre due intervalli chiusi e limitati qualsiasi sono omeomorfi, pertanto, poiché la compattezza è una proprietà topologica, si ha che se $\mathbf{J}_1, \mathbf{J}_2 \subset \mathbb{R}$ sono intervalli omeomorfi e $\mathbf{J}_1$ è compatto, anche $\mathbf{J}_2$ è compatto. \\ \\
+\textbf{2.} Dal \textit{corollario 1.5.3} segue che $D_r(\mathbf{x})$, $\mathbf{x} \in \mathbb{R}^n$, non è compatto poiché è aperto. Un ricoprimento aperto che non ammette sottoricoprimento finito è
+\begin{gather}
+    \{ D_\rho (\mathbf{x}) : 0 < \rho < r \} \notag
+\end{gather}
+Mentre la $n$-cella $\mathbf{D}^n$ è compatta (chiusa e limitata) e dunque non è omeomorfa a nessun disco aperto. \\ \\
+\textbf{3.} La sfera $\mathbf{S}^n$, $n \geq 1$, è compatta poiché chiusa e limitata in $\mathbf{R}^{n + 1}$. \\
+Il \textit{toro} $n$-dimensionale
+\begin{gather}
+    \mathbf{T}^n = \mathbf{S}^1 \times \dots \times \mathbf{S}^1 \notag
+\end{gather}
+è compatto per il \textit{teorema di Tichonov}. \\ \\
+\textbf{4.} Il gruppo ortogonale $\mathbf{O}_n(\mathbb{R})$ è compatto. Infatti la condizione che definisce le matrici $A = (a_{ij}) \in \mathbf{O}_n(\mathbb{R}^n)$ è $AA^t = \mathbf{I}_n$, cioè:
+\begin{gather}
+    \sum_h a_{hi}a_{jh} = \delta_{ij}, \quad 1 \leq i, j \leq n \notag
+\end{gather}
+In particolare
+\begin{gather}
+    \sum_h a^2_{hi} = 1, \quad i = 1, \dots, n \notag
+\end{gather}
+ovvero
+\begin{gather}
+    \sum_{h, i} a^2_{hi} = n \notag
+\end{gather}
+Pertanto $\mathbf{O}_n(\mathbb{R})$ è un sottoinsieme chiuso di $\mathbb{R}^{n^2}$ contenuto nel disco chiuso $\overline{D}_{\sqrt{n}}(0)$. Pertanto $\mathbf{O}_n(\mathbb{R})$ è chiuso e limitato, cioè compatto. In modo analogo si dimostra per $\mathbf{SO}_n(\mathbb{R})$. \\ \\
+\textbf{5.} Ogni spazio compatto di Hausdorff $X$ è normale. Infatti, siano $A, B$ sottoinsiemi chiusi, non vuoti e disgiunti di $X$, sia $b \in B$, per ogni $a \in A$ esistono aperti disgiunti $V_a, W_a$ tali che $a \in V_a$ e $b \in W_a$. La famiglia
+\begin{gather}
+    \{ V_a : a \in A \} \notag
+\end{gather}
+è un ricoprimento aperto di $A$, che è compatto, pertanto esistono $a_1, \dots, a_s \in A$ tali che
+\begin{gather}
+    A \subset V_{a_1} \cup \dots \cup V_{a_s} \notag
+\end{gather}
+e inoltre, posti $V_b := V_{a_1} \cup \dots \cup V_{a_s}$ e $W_b := W_{a_1} \cap \dots \cap W_{a_s}$, si ha
+\begin{gather}
+    A \subset V_b, \quad b \in W_b, \quad V_b \cap W_b = \emptyset \notag
+\end{gather}
+Analogamente, la famiglia
+\begin{gather}
+    \{ W_b : b \in B \} \notag
+\end{gather}
+è un ricoprimento aperto di $B$, che è compatto, dunque esistono $b_1, \dots, b_k \in B$ tali che
+\begin{gather}
+    B \subset W_{b_1} \cup \dots \cup W_{b_k} \notag
+\end{gather}
+Pertanto, posti $V := V_{b_1} \cap \dots \cap V_{b_k}$ e $W := W_{b_1} \cup \dots \cup W_{b_k}$, si ha
+\begin{gather}
+    A \subset V, \quad B \subset W, \quad V \cap W = \emptyset \notag
+\end{gather}
+ovvero $X$ è uno spazio normale.
+\subsubsection{Esercizi}
+\textbf{1.} Dimostrare che un sottoinsieme $K$ chiuso e discreto di uno spazio compatto $X$ è finito. \\
+
+\textbf{Dimostrazione:} $K$ è compatto poiché sottoinsieme chiuso di uno spazio compatto. Inoltre $K$ è sicuramente finito, altrimenti $\{ \{ x \} : x \in K \}$ sarebbe un ricoprimento aperto che non ammette sottoricoprimento finito. \\ \\ \\
+\textbf{2.} Siano $X$ uno spazio topologico e $K_1, \dots, K_s$ sottoinsiemi compatti. Dimostrare che $K := K_1 \cup \dots \cup K_s$ è compatto. \\
+
+\textbf{Dimostrazione:} sia $\{ A_i : i \in I \}$ un ricoprimento aperto di $K$, ovviamente è un ricoprimento aperto anche per $K_j$, per ogni $j = 1 \dots s$. Pertanto esiste finito $h(j) \subset I$ tale che
+\begin{gather}
+    K_j \subset \bigcup_{h \in h(j)} A_h \notag
+\end{gather}
+segue che
+\begin{gather}
+    K \subset \bigcup_{h \in H} A_h, \quad H = \bigcup_{j = 1}^s h(j) \notag
+\end{gather}
+e $\{ A_h : h \in H \}$ è un sottoricoprimento finito contenuto in $\{ A_i : i \in I \}$. \\ \\ \\
+\textbf{3.} I seguenti sottoinsiemi di $\mathbb{R}^n$, $n \geq 2$, non sono compatti:
+\begin{gather}
+    \mathbf{D}^n \setminus \{ 0 \}, \quad \mathbf{S}^{n - 1} \setminus \{ (1, 0, \dots, 0) \}, \quad \{ x \in \mathbb{R}^n : x_n = 0 \}, \quad \mathring{\mathbf{I}}^n \notag
+\end{gather}
+Esibire per ognuno un ricoprimento aperto che non ammette sottoricoprimento finito. \\
+
+\textbf{Soluzione:} $\mathbb{R}^n$ è uno spazio di Hausdorff. Per ogni $\mathbf{x} \in \mathbf{D}^n \setminus \{ 0 \}$ scegliamo $V_\mathbf{x}, W_\mathbf{x}$ aperti disgiunti tali che
+\begin{gather}
+    0 \in V_\mathbf{x}, \quad \mathbf{x} \in W_\mathbf{x} \notag
+\end{gather}
+Si ha che $\{ W_\mathbf{x} : \mathbf{x} \in \mathbf{D}^n \setminus \{ 0 \} \}$ è un ricoprimento aperto di $\mathbf{D}^n \setminus \{ 0 \}$. Supponiamo che ammetta sottoricoprimento finito, ovvero che esistano $\mathbf{x}_1, \dots, \mathbf{x}_s$ tali che
+\begin{gather}
+    \mathbf{D}^n \setminus \{ 0 \} \subset W_{\mathbf{x}_1} \cup \dots \cup W_{\mathbf{x}_s} \notag
+\end{gather}
+Posti
+\begin{gather}
+    V := V_{\mathbf{x}_1} \cap \dots \cap V_{\mathbf{x}_s}, \quad W := W_{\mathbf{x}_1} \cup \dots \cup W_{\mathbf{x}_s} \notag
+\end{gather}
+si ottiene che $V$ è un intorno aperto di $\{ 0 \}$ tale che
+\begin{gather}
+    V \cap \mathbf{D}^n \setminus \{ 0 \} \neq \emptyset, \quad V \cap W = \emptyset \notag
+\end{gather}
+tuttavia ciò è un assurdo poiché $\mathbf{D}^n \setminus \{ 0 \} \subset W$. \\ \\
+Facendo un ragionamento del tutto analogo è possibile costruire un ricoprimento aperto di $\mathbf{S}^{n - 1} \setminus \{ (1, 0, \dots, 0) \}$ che non ammette sottoricoprimento finito. \\ \\
+Sia $\Sigma := \{ x \in \mathbb{R}^n : x_n = 0 \}$. Si ha che
+\begin{gather}
+    \{ D_r(0) \cap \Sigma : r > 0 \} \notag
+\end{gather}
+sono le proiezioni delle sfere aperte di raggio $r$ centrate nell'origine su $\Sigma$, ovvero sono dischi $(n - 1)$-dimensionali di raggio $r$ centrati nell'origine e giacenti su $\Sigma$ stesso. Si nota subito che esse formano un ricoprimento aperto di $\Sigma$, infatti è come considerare la famiglia dei dischi aperti $(n - 1)$-dimensionali di raggio $r > 0$ centati nell'origine in $\mathbb{R}^{n - 1}$. Tuttavia non ammette un sottoricoprimento finito, infatti per ogni famiglia finita $r_1, \dots, r_s \in \mathbb{R}$, posto $\overline{r} := \sup \{ r_j : j = 1, \dots, s \}$, si ha che
+\begin{gather}
+    (\overline{r}, 0, \dots, 0) \not\in \bigcup_{i = 1}^s (D_{r_i}(0) \cap \Sigma) \notag
+\end{gather}
+ma
+\begin{gather}
+    (\overline{r}, 0, \dots, 0) \in \Sigma \notag
+\end{gather}
+per definizione. \\ \\
+Si ha che $\{ (0 + \varepsilon, 1 - \varepsilon)^n : 0 < \varepsilon < \frac{1}{2} \}$ è un ricoprimento aperto di $\mathring{\mathbf{I}}^n$, tuttavia l'unione di ogni sottofamiglia finita è ancora un elemento di $\{ (0 + \varepsilon, 1 - \varepsilon)^n : 0 < \varepsilon < \frac{1}{2} \}$, pertanto non ricopre $\mathring{\mathbf{I}}^n$. \\ \\ \\
+\textbf{4.} Sia $X$ uno spazio metrizzabile, siano $A, B$ sottoinsieme chiusi, non vuoti e disgiunti di $X$. Posto $d(A, B) := \inf \{ d(a, b) : a \in A, b \in B \}$, dimostrare che se $A$ (oppure $B$) è compatto si ha $d(A,B) = 0$ se e solo se $A \cap B \neq \emptyset$. \\
+
+\textbf{Dimostrazione:} fissiamo $A$ compatto. $(\Rightarrow)$ Sia $d(A, B) = 0$, poniamo
+\begin{gather}
+    d_B(x) = \inf \{ d(x, b) := b \in B \} \notag
+\end{gather}
+Poiché $d_B$ è continua si ha che $d_B(A) \subset \mathbb{R}$ è compatto, ovvero chiuso e limitato, pertanto
+\begin{gather}
+    m := \min d_B(A) \in d_B(A) \notag \implies \overline{a} := d^{-1}_B(m) \in A \notag
+\end{gather}
+Inoltre
+\begin{gather}
+    d_B(\overline{a}) = \inf \{ d(\overline{a}, b) : b \in B \} = d(A,B) = 0 \notag
+\end{gather}
+Mostriamo ora che $\overline{a} \in B$. Supponiamo $A \cap B \neq \emptyset$, allora $A \subset X \setminus B$ che è un aperto, pertanto esiste $\delta > 0$ tale che $D_\delta(\overline{a}) \subset X \setminus B$, cioè $d_B(\overline{a}) > \delta$, ma ciò è un assurdo. \\ \\
+$(\Leftarrow)$ Sia $A \cap B \neq \emptyset$, allora esistono $a \in A$ e $b \in B$ tali che $a = b$, pertanto $d(a, b) = 0$ per definizione, segue $d(A, B) = 0$. \\ \\ \\
+\textbf{5.} sia $G$ un gruppo di matrici compatto. Allora $|\det A| = 1 \ \forall A \in G$. \\
+
+\textbf{Dimostrazione:} siano $A,\, B \in G$, poiché per ipotesi $G$ è un gruppo di matrici si ha che $A \cdot B \in G$, dove $\cdot : G \times G \longrightarrow G$ è il prodotto di matrici, inoltre per il teorema di Binet si ha che $\det (A \cdot B) = (\det A)(\det B)$. \\
+Supponiamo per assurdo che esiste $A \in G$ tale che $|\det A| = a > 1$, ciò implica che
+\begin{gather}
+    \det G := \{ \det A : A \in G \} \subseteq \mathbb{R} \notag
+\end{gather}
+non è compatto. Infatti per ogni $M \in \mathbb{R}$ esiste $n \in \mathbb{N}$ tale che
+\begin{gather}
+    |\det A^n| = a^n > M \notag
+\end{gather}
+basta scegliere $n > \log_a M$, perciò $\det G$ non è limitato e per il teorema di Heine-Borel non è compatto. \\
+Tuttavia $\det : \mathbb{M}_n \longrightarrow \mathbb{R}$ è continua, dunque per la \textit{proposizione 1.5.3} si ha che $\det(G)$ è compatto, ma ciò è un assurdo. \\ \\
+Supponiamo ora che esiste $A \in G$ tale che $|\det A| < 1$, poiché per ipotesi $G$ è un gruppo si ha che $A^{-1} \in G$ e, conseguenza del teorema di Binet, $|\det A^{-1}| = \frac{1}{|\det A|} > 1$, pertanto, procedendo con un ragionamento analogo al precedente, si ottiene la tesi. \\ \\
+\textbf{6.} Sia $X$ uno spazio topologico compatto, $U \subset X$ un aperto e
+\begin{gather}
+    \{ C_i : i \in I \} \notag
+\end{gather}
+una famiglia di sottospazi chiusi di $X$. Dimostrare che esiste un insieme finito di indici $i_1, 1_2, \dots, i_n \in I$ tali che
+\begin{gather}
+    C_{i_1} \cap C_{i_2} \cap \dots C_{i_n} \subset U \notag
+\end{gather} \\
+
+\textbf{Dimostrazione:} consideriamo il ricoprimento aperto
+\begin{gather}
+    U \cup \{ X \setminus C_i : i \in I \} \notag
+\end{gather}
+esso ammette sottoricoprimento finito tale che
+\begin{gather}
+    U \cup X \setminus (C_{i_1} \cap \dots \cap C_{i_n}) = X \notag
+\end{gather}
+Allora si ottiene $C_{i_1} \cap \dots \cap C_{i_n} \subset U$.
+
+\subsection{Generalizzazioni della compattezza}
+\textbf{Definizione 1.6.1:} uno spazio topologico $X$ è detto \textit{localmente compatto} se ogni elemento $p \in X$ ammette un intorno compatto. \\ \\
+Esempi di insiemi localmente compatti sono $\mathbb{R}^n$ per ogni $n \in \mathbb{N}$, gli aperti di $\mathbb{R}^n$ e in generale le varietà topologiche, mentre $\mathbb{Q}^n$ non è localmente compatto per ogni $n \in \mathbb{N}$. \\ \\
+\textbf{Proposizione 1.6.1:} $(a)$ ogni sottospazio chiuso $C$ di uno spazio localmente compatto $X$ è localmente compatto. \\ \\
+$(b)$ sia $X$ uno spazio localmente compatto di Hausdorff. Ogni punto $p \in X$ possiede un sistema fondamentale di intorni relativamente compatti. \\
+
+\textbf{Dimostrazione:} $(a)$ sia $p \in C$, sia $K \subset X$ un intorno compatto di $p$, si ha che $K \cap C$ è un intorno di $p$ in $C$ ed è compatto. \\ \\
+$(b)$ Sia $p \in X$, per ipotesi $p$ possiede un intorno compatto $K \subset X$. Sia $U$ un aperto contenente $p$, si ha che $V := \mathring{K} \cap U$ è un aperto contenente $p$, inoltre $\overline{V} \subset \overline{K} = K$, ovvero $\overline{V}$ è un chiuso contenuto in insieme compatto $K$ di uno spazio di Hausdorff e quindi $\overline{V}$ è compatto. \\ \\
+\textbf{Proposizione 1.6.2:} sia $X$ uno spazio topologico localmente compatto che soddisfa il secondo assioma di numerabilità, allora $X$ è unione di una famiglia numerabile di sottoinsiemi compatti $\{K_i : i \in \mathbb{N}\}$ tale che $K_i \subset \mathring{K}_{i + 1}$ per ogni $i \in \mathbb{N}$. \\
+
+\textbf{Dimostrazione:} sia $x \in X$, sia $U$ un aperto contenente $x$ e sia $K$ un intorno compatto di $x$. Per ipotesi $X$ possiede una base numerabile di aperti $\mathcal{B}$, allora esiste $U_i \in \mathcal{B}$ tale che $U_i \subset \mathring{K} \cap U$. Inoltre per il punto $(b)$ della \textit{proposizione 1.6.1} si ha che $U_i$ è relativamente compatto in $\mathring{K} \cap U$. Dunque per ogni $x \in X$ e ogni aperto $U$ contenente $x$ esiste $U_i \in \mathcal{B}$ relativamente compatto tale che $x \in U_i \subset U$. Allora $\{U_i : i \in \mathbb{N}\}$ è una base numerabile di aperti relativamente compatti di $X$. Per ogni $i \in \mathbb{N}$ si ha che $\overline{U}_i$ è ricoperto da un numero finito di $U_j$, la cui unione ha chiusura compatta $H_i$ dato che si tratta di insiemi relativamente compatti. Pertanto
+\begin{align}
+    \overline{U}_i \subset \mathring{H}_i \notag
+\end{align}
+per ogni $i \in \mathbb{N}$ e quindi
+\begin{align}
+    X = \bigcup_{i \in \mathbb{N}}\mathring{H}_i \notag
+\end{align}
+A questo punto definiamo induttivamente
+\begin{align}
+    K_1 := H_1 \qquad K_{i + 1} := \bigcup_{j \in J(i)}H_j \notag
+\end{align}
+dove $J(i)$ è un sottoinsieme di $\mathbb{N}$ tale che
+\begin{align}
+    K_i \subset \bigcup_{j \in J(i)}\mathring{H}_j \notag
+\end{align}
+La famiglia di sottoinsiemi compatti $\{K_i\}$ soddisfa le proprietà ricercate. \\ \\
+L'esistenza di una famiglia di compatti con le proprietà enunciate nella \textit{proposizione 1.6.2} si può dimostrare direttamente nel caso $X = \mathbb{R}^n$, o più generale nel caso $X = S \subset \mathbb{R}^n$, con $S$ aperto o chiuso. Infatti se $X$ è chiuso basta prendere
+\begin{align}
+    K_i = X \cap \overline{D}_i(p) \notag
+\end{align}
+fissato un punto $p$ di $X$. Mentre se $X$ è aperto basta prendere
+\begin{align}
+    K_i = \{x \in X : \|x\| \leq i, \, d(x, \mathbb{R}^n \setminus X) \geq 1/i\} \notag
+\end{align}
+notiamo che in questo caso $K_i$ è chiuso nella topologia relativa ed è compatto poiché chiuso e limitato in $\mathbb{R}^n$. \\ \\
+\textbf{Definizione:} sia $X$ uno spazio topologico e siano $\mathcal{U}, \mathcal{V}$ ricoprimenti aperti di $X$. $\mathcal{V}$ è detto \textit{raffinamento} di $\mathcal{U}$, o \textit{più fine} di $\mathcal{U}$, se ogni $V \in \mathcal{V}$ è contenuto in qualche aperto di $\mathcal{U}$. \\ \\
+\textbf{Definizione:} una famiglia $\mathcal{F}$ di sottoinsiemi di $X$ si dice \textit{localmente finita} se ogni $x \in X$ possiede un intorno $U_x$ che interseca solo con un numero finito di elementi di $\mathcal{F}$. \\ \\
+\textbf{Definizione:} uno spazio topologico $X$ si dice \textit{paracompatto} se ogni ricoprimento $\mathcal{U}$ di $X$ possiede un raffinamento $\mathcal{V}$ localmente finito. \\ \\
+Ogni spazio $X$ compatto è anche paracompatto, infatti se $X$ è compatto ogni ricoprimento $\mathcal{U}$ di $X$ possiede un sottoricoprimento $\mathcal{V}$ finito, allora $\mathcal{V}$ è più fine di $\mathcal{U}$ (banale) e per ogni $x \in X$ si ha che ogni intorno di $x$ interseca solamente con un numero finito di elementi di $\mathcal{V}$, proprio perché $\mathcal{V}$ è un insieme finito, pertanto $\mathcal{V}$ è localmente finito. \\ \\
+\textbf{Proposizione 1.6.3:} sia $X$ uno spazio topologico localmente compatto di Hausdorff che soddisfa il secondo assioma di numerabilità. Allora ogni ricoprimento aperto $\mathcal{U}$ di $X$ possiede un raffinamento $\mathcal{V}$ localmente finito costituito al più da un'infinità numerabile di aperti. In particolare $X$ è paracompatto. \\
+
+\textbf{Dimostrazione:} sia $x \in X$, allora esiste $U \in \mathcal{U}$ tale che $x \in U$, inoltre, per ipotesi di compattezza locale, esiste $K$ compatto tale che $x \in K$. Consideriamo l'aperto $\mathring{K} \cap U$, per ipotesi $X$ possiede una base numerabile $\mathcal{B}$ di aperti, pertanto esiste $B_i \in \mathcal{B}$ tale che $x \in B_i \subset \mathring{K} \cap U$. Inoltre $B_i$ è relativamente compatto, infatti $\overline{B}_i \subset K$, ovvero la chiusura di $B_i$ è contenuta in $K$ che è compatto. Dunque per ogni $x \in X$ e ogni $U \in \mathcal{U}$ intorno di $x$ esiste $B_i \in \mathcal{B}$ relativamente compatto tale che $x \in B_i \subset U$, allora la famiglia $\{B_i : i \in \mathbb{N}\}$ è un raffinamento di $\mathcal{U}$.
+
+
+\newpage
+\section{Gruppi di matrici}
+\subsection{Appendice sui gruppi}
+\textbf{Definizione A.1:} sia $G$ un insieme, un'operazione binaria è una funzione
+\begin{gather}
+    \cdot : G \times G \longrightarrow G \notag
+\end{gather}
+Siano $a, b \in G$, se $a \cdot b = c$ si dice che $c$ è il \textit{prodotto} di $a$ e $b$. \\ \\ \\
+\textbf{Definizione A.2:} $G$ è detti \textit{gruppo} se è dotato di un'operazione binaria \\ $\cdot : G \times G \longrightarrow G$ tale che: \\
+\textbf{1.} $a \cdot (b \cdot c) = (a \cdot b) \cdot c$ per ogni $a, b, c \in G$. \\
+\textbf{2.} esiste $e \in G$ tale che $a \cdot e = e \cdot a = a$ per ogni $a \in G$. \\
+\textbf{3.} esiste $a^{-1} \in G$ tale che $a \cdot a^{-1} = a^{-1} \cdot a = e$ per ogni $a \in G$. \\ \\ \\
+\textbf{Osservazione:} l'elemento neutro e l'elemento inverso sono unici. \\ \\ \\
+\textbf{Definizione A.3:} sia $G$ un gruppo, $S \subset G$ è detto \textit{sottogruppo} (scritto $S \leq G$) se $S$ è un gruppo rispetto alla stessa operazione binaria definita per $G$. \\ \\ \\
+\textbf{Proposizione A.1:} sia $G$ un gruppo, $S \subset G$ è un sottogruppo se e solo se: \\
+\textbf{1.} $x \cdot y \in S$ per ogni $x, y \in S$. \\
+\textbf{2.} $e \in S$. \\
+\textbf{3.} $x \in S$ implica $x^{-1} \in S$. \\
+
+\textbf{Dimostrazione:} segue immediatamente dalla definizione di gruppo. \\ \\ \\
+\textbf{Definizione A.4:} siano $G, H$ gruppi, una funzione $f : G \longrightarrow H$ è detta \textit{omomorfismo} se $f(a \cdot b) = f(a) \cdot f(b)$ per ogni $a, b \in G$, ovvero se e solo se $f$ \textit{preserva la struttura di gruppo}. Se $f$ è anche biunivoca $f$ è detta \textit{isomorfismo}. \\ \\ \\
+\textbf{Definizione A.5:} sia $n \in \mathbb{N}$. Il gruppo simmetrico (di rango $n$) è
+\begin{gather}
+    S_n := \{ f : [n] \longrightarrow [n] : f \text{ biunivoca} \} \notag
+\end{gather}
+con $[n] = \{1, 2, \dots, n \}$. Ovvero $S_n$ è l'insieme delle permutazioni definite su un insieme ordinato contenente $n$ elementi. \\
+Se $f \in S_n$ scriviamo $f = a_1a_2a_3 \dots a_n$ per dire $f(i) = a_i$ per ogni $i = 1, \dots, n$. \\ \\ \\
+\textbf{Definizione A.6:} siano $f, g \in S_n$, la composizione di $f$ e $g$ è
+\begin{gather}
+    f \cdot g : [n] \longrightarrow [n] \notag
+\end{gather}
+dove $(f \cdot g) (i) := f(g(i))$ per ogni $i \in [n]$. \\ \\ \\
+\textbf{Osservazione:} sfruttando la notazione definita si ha che se $f, g \in S_n$, \\ $f = a_1 \dots a_n$ e $g = b_1 \dots b_n$ si ha che $f \cdot g = a_{b_1} \dots a_{b_n}$. \\ \\ \\
+\textbf{Teorema A.1:} $S_n$ è un gruppo rispetto alla composizione. \\
+
+\textbf{Dimostrazione:} siano $f, g \in S_n$, poiché sono entrambe biunivoche, anche la composizione è biunivoca, pertanto $f \cdot g \in S_n$. \\
+Siano $f, g, h \in S_n$, si ha che
+\begin{gather}
+    f \cdot (g \cdot h)(i) = f((g \cdot h)(i)) = f(g(h(i))) \notag \\
+    (f \cdot g) \cdot h(i) = (f \cdot g)(h(i)) = f(g(h(i))) \notag
+\end{gather}
+pertanto soddisfa l'associatività. \\
+Sia $\mathbf{1}_n$ definita pondendo $\mathbf{1}_n(i) = i$ per ogni $i \in [n]$. $\mathbf{1}_n$ è biunivoca, pertanto $\mathbf{1}_n \in S_n$. Inoltre
+\begin{gather}
+    f \cdot \mathbf{1}_n (i) = f(\mathbf{1}_n(i)) = f(i) = \mathbf{1}_n (f(i)) = \mathbf{1}_n \cdot f (i) \notag
+\end{gather}
+quindi esiste l'elemento neutro. \\
+Infine, sia $f \in S_n$, $f = a_1 \dots a_n$, e sia $g := [n] \longrightarrow [n]$ definita ponendo
+\begin{gather}
+    g(a) = b \text{ tale che } f(b) = a \notag
+\end{gather}
+Dunque, $f \cdot g (i) = f(g(i)) = i$ e $g \cdot f (i) = g(f(i)) = i$ per definizione, pertanto esiste l'inverso per ogni elemento di $S_n$. \\ \\ \\
+\textbf{Osservazione:} sia $f = a_1 \dots a_n$, allora $f^{-1} = b_1 \dots b_n$ dove $b_i$ è la posizione (numerata) di $i$ nella seguenza $a_1 \dots a_n$. \\
+Ad esempio se $f = 614587329$ si ha $f^{-1} = 287341659$. \\ \\ \\
+\textbf{Definizione A.7:} un gruppo $G$ è detto \textit{abeliano} (o \textit{commutativo}) se $ab = ba$ per ogni $a, b \in G$. \\ \\ \\
+\textbf{Definizione A.8:} due gruppi $G, H$ sono detti \textit{isomorfi}, ovvero $G \cong H$, se esiste un isomorfismo $f : G \longrightarrow H$. \\ \\ \\
+\textbf{Teorema (di Cayley):} sia $G$ un gruppo finito, allora esiste $n \in \mathbb{N}$ e $S \leq S_n$ tali che $G$ è isomorfo a $S$. \\
+
+\textbf{Dimostrazione:} omessa.
+\newpage
+\subsection{Gruppi ortogonali}
+Tratteremo i vettori come vettori riga, ovvero
+\begin{gather}
+    x = (x_1, \dots, x_n) \notag
+\end{gather}
+dove $x_i$ per $i = 1, \dots, n$ sono le componenti di $x$. Pertanto la moltiplicazione per matrici sarà sinistra, ovvero
+\begin{gather}
+    xA = \begin{pmatrix}
+        \langle x, A_1 \rangle \\
+        . \\
+        . \\
+        . \\
+        \langle x, A_n \rangle
+    \end{pmatrix} \notag
+\end{gather}
+dove $\langle \cdot, \cdot \rangle : \mathbb{R}^n \times \mathbb{R}^n \longrightarrow \mathbb{R}$ è il prodotto scalare euclideo. \\ \\ \\
+\textbf{Definizione 2.2.1:} sia $n \in \mathbb{N}$, poniamo
+\begin{gather}
+    \mathbf{M}_n(\mathbb{R}) := \{ \text{ matrici $n \times n$ a coefficienti reali} \} \notag
+\end{gather}
+Se $A \in \mathbf{M}_n(\mathbb{R})$ si ha che $a_{ij}$ è l'elemento in riga $i$ e colonna $j$; $A_i$ è l'$i$-esima riga. \\ \\ \\
+\textbf{Definizione 2.2.2:} il \textit{gruppo generale lineare} (di rango $n$) è
+\begin{gather}
+    \mathbf{GL}_n(\mathbb{R}) := \{ A \in \mathbf{M}_n(\mathbb{R}) : A \text{ invertibile} \} \notag
+\end{gather}
+che equivale a
+\begin{gather}
+    \mathbf{GL}_n(\mathbb{R}) := \{ A \in \mathbf{M}_n(\mathbb{R}) : \det A \neq 0 \} \notag
+\end{gather} \\ \\
+\textbf{Definizione 2.2.3:} il \textit{gruppo ortogonale} (di rango $n$) è
+\begin{gather}
+    \mathbf{O}_n(\mathbb{R}) := \{ A \in \mathbf{GL}_n(\mathbb{R}) : \langle x, y \rangle = \langle xA, yA \rangle \text{ per ogni } x, y \in \mathbb{R}^n \} \notag
+\end{gather} \\ \\
+\textbf{Teorema 2.2.1:} sia $A \in \mathbf{GL}_n(\mathbb{R})$, i seguenti punti sono equivalenti: \\
+\textbf{1.} $A \in \mathbf{O}_n(\mathbb{R})$. \\
+\textbf{2.} $\{ v_1A, \dots, v_nA \}$ è una base ortonormale se $\{ v_1, \dots, v_n \}$ lo è. \\
+\textbf{3.} $\{ A_1, \dots, A_n \}$ (righe di $A$) formano una base ortonormale. \\
+\textbf{4.} $AA^t = \mathbf{I}_n$. \\
+
+\textbf{Dimostrazione:} $(1 \implies 2)$ Si ha che
+\begin{gather}
+    \langle v_i, v_j \rangle = 0 \text{ per ogni } i \neq j \notag
+\end{gather}
+per ipotesi segue che
+\begin{gather}
+    \langle v_iA, v_jA \rangle = 0 \text{ per ogni } i \neq j \notag
+\end{gather}
+dunque anche $\{ v_1A, \dots, v_nA \}$ è una base ortonormale. \\ \\
+$(2 \implies 3)$ Consideriamo la base canonica di $\{ \mathbf{e}_1, \dots, \mathbf{e}_n \}$, si ha che
+\begin{gather}
+    A_i = \mathbf{e}_iA \text{ per ogni } i \in [n] \notag
+\end{gather}
+Allora $\{ A_1, \dots, A_n \} = \{ \mathbf{e}_1A, \dots, \mathbf{e}_nA \}$ è una base ortonormale. \\ \\
+$(3 \implies 4)$ Si ha che
+\begin{gather}
+    (AA^t)_{ij} = \langle A_i, A_j \rangle  = \delta_{ij} \notag
+\end{gather}
+ovvero $AA^t = \mathbf{I}_n$. \\ \\
+$(4 \implies 1)$ si ha che
+\begin{gather}
+    \langle vA, wA \rangle = \sum_i \sum_j \lambda_i\mu_j \langle \mathbf{e}_iA, \mathbf{e}_jA \rangle = \sum_i \sum_j \lambda_i\mu_j \langle A_i, A_j \rangle = \sum_i\sum_j \lambda_i\mu_j \delta_{ij} = \notag \\
+    = \langle \sum_i \lambda_i\mathbf{e_i}, \sum_j \mu_i\mathbf{e}_j \rangle = \langle v, w \rangle \notag
+\end{gather}\\
+\textbf{Osservazioni:} $\mathbf{GL}_n(\mathbb{R})$ è un gruppo rispetto al prodotto tra matrici, inoltre $\mathbf{O}_n(\mathbb{R}) \leq \mathbf{GL}_n(\mathbb{R})$. \\ \\ \\
+\textbf{Proposizione 2.2.1:} $\mathbf{O}_n(\mathbb{R}) = \{ A \in \mathbf{GL}_n(\mathbb{R}) : \| x \| = \| xA \| \text{ per ogni } x \in \mathbb{R}^n \}$ \\
+
+\textbf{Dimostrazione:} sia $A \in \mathbf{O}_n(\mathbb{R})$, si ha che
+\begin{gather}
+    \| x \| = \sqrt{\langle x, x \rangle} = \sqrt{\langle xA, xA \rangle} = \| xA \| \notag
+\end{gather}
+per definizione. \\ \\ \\
+\textbf{Definizione 2.2.4:} il \textit{gruppo speciale lineare} è
+\begin{gather}
+    \mathbf{SL}_n(\mathbb{R}) := \{ A \in \mathbf{M}_n(\mathbb{R}) : \det A = 1 \} \notag
+\end{gather}
+Notiamo che si ha $\mathbf{SL}_n(\mathbb{R}) \leq \mathbf{GL}_n(\mathbb{R})$. \\ \\ \\
+\textbf{Proposizione 2.2.2:} sia $A \in \mathbf{O}_n(\mathbb{R})$, allora $|\det A| = 1$. \\
+
+\textbf{Dimostrazione:} vale $\det \mathbf{I}_n = \det (AA^t) = (\det A)^2$. \\ \\ \\
+\textbf{Definizione 2.2.5:} il \textit{gruppo speciale ortogonale} è
+\begin{gather}
+    \mathbf{SO}_n(\mathbb{R}) := \{ A \in \mathbf{O}_n(\mathbb{R}) : \det A = 1 \} \notag
+\end{gather}
+Notiamo subito che $\mathbf{SO}_n(\mathbb{R}) \leq \mathbf{O}_n(\mathbb{R})$. \\ \\ \\
+\textbf{Definizione 2.2.6:} $f : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ si dice \textit{isometria} se $\| x - y \| = \| f(x) - f(y) \|$ per ogni $x, y \in \mathbb{R}^n$. \\ \\ \\
+\textbf{Teorema 2.2.2:} sia $B \in \mathbf{O}_n(\mathbb{R})$ e sia $f$ un'isometria tale che $f(0) = 0$ (fissa l'origine). Allora: \\
+\textbf{1.} $x \hookrightarrow xB$ è un'isometria. \\
+\textbf{2.} esiste $A \in \mathbf{O}_n(\mathbb{R})$ tale che $f(x) = xA$ per ogni $x \in \mathbb{R}^n$. \\
+
+\textbf{Dimostrazione:} $(1)$ si ha che
+\begin{gather}
+    \| x - y \| = \| (x - y)B \| = \| xB - yB \| \notag
+\end{gather}
+dunque $B$ è un'isometria. \\ \\
+$(2)$ sia
+\begin{gather}
+    A = \begin{pmatrix}
+        f(\mathbf{e}_1) \\
+        . \\
+        . \\
+        . \\
+        f(\mathbf{e}_n)
+    \end{pmatrix} \notag
+\end{gather}
+$A \in \mathbf{O}_n(\mathbb{R})$ perché le righe di $A$ sono una base ortonormale, infatti
+\begin{gather}
+    \langle f(\mathbf{e}_i), f(\mathbf{e}_j) \rangle = \langle \mathbf{e}_i, \mathbf{e}_j \rangle = \delta_{ij} \notag
+\end{gather}
+Inoltre per ogni $x \in \mathbb{R}^n$ si ha $x = \sum \lambda_i \mathbf{e}_i$, dunque
+\begin{gather}
+    xA = (\sum_i \lambda_i \mathbf{e}_i)A = \sum_i \lambda_i A_i = \sum_i \lambda_i f(\mathbf{e}_i) \notag
+\end{gather}
+Sia $g$ un'isometria definita ponendo $g(x) = f(x)A^{-1}$ per ogni $x \in \mathbb{R}^n$, mostriamo che $g = \mathbf{I}_n$. Poiché $g$ conserva il prodotto scalare cartesiano si ha che
+\begin{gather}
+    g(\mathbf{e}_i) = f(\mathbf{e}_i)A^{-1} = \mathbf{e}_i \notag
+\end{gather}
+Dunque
+\begin{gather}
+    g(x) = g(\sum_i \lambda_i \mathbf{e}_i) = \sum_i \mu_i \mathbf{e}_i \notag
+\end{gather}
+con $\mu_i = \langle g(x), \mathbf{e}_i \rangle$, inoltre
+\begin{gather}
+    \mu_i = \langle g(x), \mathbf{e}_i \rangle = \langle g(x), g(\mathbf{e}_i) \rangle = \langle x, \mathbf{e}_i \rangle = \lambda_i \notag 
+\end{gather}
+ovvero $g(x) = x$ per ogni $x \in \mathbb{R}^n$, dunque $g = \mathbf{I}_n$. \\ \\ \\
+\textbf{Definizione 2.2.7:} una base ordinata ortonormale $\{ v_1, v_2, v_3 \}$ di $\mathbb{R}^3$ è detta \textit{destra} se $v_3 = v_1 \wedge v_2$. \\ \\ \\
+\textbf{Proposizione 2.2.3:} sia $A \in \mathbf{O}_3(\mathbb{R})$, se $\{ A_1, A_2, A_3 \}$ è una base destra di $\mathbb{R}^3$ si ha che $A \in \mathbf{SO}_n(\mathbb{R})$. \\
+
+\textbf{Dimostrazione:} immediata. \\ \\
+Notiamo che gli elementi di $\mathbf{SO}_3(\mathbb{R})$ sono le isometrie che fissano l'origine e mandano la base canonica di $\mathbb{R}^3$ in una base destra. \\ \\ \\
+Poniamo $Isom(\mathbb{R}^n) := \{ f : \mathbb{R}^n \longrightarrow \mathbb{R}^n : f \text{ isometria} \}$. \\ \\
+Osserviamo che $Isom(\mathbb{R}^n)$ è un gruppo rispetto alla composizione di funzioni. Inoltre $\mathbf{O}_(\mathbb{R}) \leq Isom(\mathbb{R}^n)$, infatti il gruppo ortogonale è composto dalle isometrie che fissano l'origine.  \\
+Tuttavia ponendo $v := f(0)$ si ha che $g(x) := f(x) - v$ è un isometria che fissa l'origine per ogni isometria $f$, pertanto, per il \textit{teorema 2.2.2} esiste $A \in \mathbf{O}_n(\mathbb{R})$ tale che $g(x) = xA$ per ogni $x \in \mathbb{R}^n$, cioè $f(x) = xA + v$. \\
+Pertanto, aggiungendo una dimesione, si ottiene
+\begin{gather}
+    (f(x), 1) = (x, 1) \begin{pmatrix}
+        A & 0 \\
+        v & 1 
+    \end{pmatrix}
+    = (xA + v, 1) \notag
+\end{gather} \\ \\
+\textbf{Teorema 2.2.3:} sia $A \in \mathbf{SO}_3(\mathbb{R})$. Allora esiste une retta $r$ passante per l'origine tale che $x \hookrightarrow xA$ è una rotazione attorno a $r$. \\
+
+\textbf{Dimostrazione:} siano $\lambda_1, \lambda_2, \lambda_3 \in \mathbb{C}$ gli autovalori di $A$, mostriamo che almeno uno di loro è uguale a $1$. Poiché $A$ è a coefficienti reali almeno uno degli autovalori è reale, supponiamo, per fissare le idee, che $\lambda_1 \in \mathbb{R}$. \\
+Notiamo che se $\lambda_1 \in \mathbb{R}$ si ha $|\lambda_1| = 1$ perché si conservano le distanze e i moduli. Infatti, sia $v_1 \in \mathbb{R}^3 \setminus \{ 0 \}$ autovettore corrispondente all'autovalore $\lambda_1$, si ha che
+\begin{gather}
+    \| v_1 \| = \| v_1A \| = \| \lambda_1 v_1 \| = |\lambda_1|\| v_1 \| \notag
+\end{gather}
+perciò $|\lambda_1| = 1$. Inoltre se $\lambda_2 \in \mathbb{C} \setminus \mathbb{R}$ si ha che $\lambda_3 = \overline{\lambda_2}$, quindi $\lambda_2 \cdot \lambda_3 \in \mathbb{R}$. Pertanto si ottiene
+\begin{gather}
+    \det A = \lambda_1 \cdot \lambda_2 \cdot \lambda_3 = \lambda_1 \cdot |\lambda_2|^2 = 1 \notag
+\end{gather}
+ovvero $\lambda_1 > 0 \implies \lambda_1 = 1$. \\
+Consideriamo la retta $r := \langle v_1 \rangle$, dove $v_1$ è sempre l'autovettore corrispondente all'autovalore $\lambda_1 = 1$. Si ha che $vA = v$ per ogni $v \in \langle v_1 \rangle$, ovvero $x \hookrightarrow xA$ lascia fissi tutti i punti di $r$. Ciò comporta che $x \hookrightarrow xA$ lascia fissi anche tutti i punti di $r_\perp$, infatti se $u \in r_\perp$ si ha
+\begin{gather}
+    0 = \langle u, v \rangle = \langle uA, vA \rangle = \langle uA, v \rangle \notag
+\end{gather}
+per ogni $v \in r$. Pertanto $A$ è un'isometria che fissa l'origine e lascia invariate $r$ e $r_\perp$, ovvero $A$ è una rotazione attorno a $r$. \\ \\ \\
+\textbf{Definizione 2.2.8:} sia $X \subset \mathbb{R}^n$, il \textit{gruppo delle simmetrie di $X$} è
+\begin{gather}
+    Symm(X) := \{ f \in Isom(\mathbb{R}^n) : f(X) = X \} \notag
+\end{gather}
+Ad esempio
+\begin{gather}
+    Symm(\mathbf{S}^{n - 1}) = \{ f \in Isom(\mathbb{R}^n) : f(0) = 0 \} = \mathbf{O}_n(\mathbb{R}) \notag
+\end{gather}
+ovvero il gruppo delle simmetrie della sfera centrata nell'origine in $\mathbb{R}^n$ è composto da tutti i movimenti rigidi che fissano l'origine. \\ \\ \\
+Poniamo
+\begin{gather}
+    Symm^+(X) := \{ f \in Symm(X) : \det (f) = 1 \} \notag
+\end{gather}
+e analogamente
+\begin{gather}
+    Symm^-(X) := \{ f \in Symm(X) : \det (f) = -1 \} \notag
+\end{gather}
+dove
+\begin{gather}
+    \det (f) = \det \begin{pmatrix}
+        A & 0 \\
+        v & 1
+    \end{pmatrix}, \text{ se } f(x) = xA + v \notag
+\end{gather} \\ \\
+\textbf{Definizione 2.2.9:} sia $m \in \mathbb{N}$, $m \geq 3$, il \textit{gruppo diedrale} di ordine $2m$ è
+\begin{gather}
+    D_{2m} := Symm(m\text{-gono regolare}) \notag
+\end{gather}
+anche scritto $I_2(m)$. \\ \\ \\
+\textbf{Definizione 2.2.10:} il \textit{gruppo ciclico} di ordine $m$ è
+\begin{gather}
+    \mathbb{Z}_m := Symm^+(m\text{-gono regolare}) \notag
+\end{gather} \\
+Con regolare si intende lati e angoli tutti uguali. \\ \\ \\
+\textbf{Teorema (di Leonardo da Vinci):} sia $X \subset \mathbb{R}^2$ tale che $|Symm(X)| < +\infty$. Allora $Symm(X) \cong \mathbb{Z}_m$ o $Symm(X) \cong I_2(m)$ per qualche $m \geq 2$. \\
+
+\textbf{Dimostrazione:} omessa. \\ \\ \\
+\textbf{Esempio:} $I_2(2)$ sono le simmetrie di un segmento di $\mathbb{R}^2$. \\ \\ \\
+\textbf{Proposizione 2.2.4:} sia $X \subseteq \mathbb{R}^n$, si ha che
+\begin{gather}
+    Symm^+(X) = Symm(X) \notag
+\end{gather}
+oppure
+\begin{gather}
+    Symm(X) = Symm^+(X) \cup \left\{ \begin{pmatrix}
+        -1 & 0 \\
+        0 & \mathbf{I}_{n - 1}
+    \end{pmatrix} A : A \in Symm^+(X) \right\} \notag
+\end{gather} \\
+
+\textbf{Dimostrazione:} omessa. \\ \\ \\
+\textbf{Teorema 2.2.3:} sia $X \subseteq \mathbb{R}^3$ tale che $|Symm^+(X)| < +\infty$, si ha che $Symm^+(X) \cong S_4$ oppure $A_4$ o $A_5$ o $\mathbb{Z}_m$ o $I_2(m)$ per qualche $m \geq 2$, con $A_n := \{ \sigma \in S_n : \sigma \text{ è pari} \}$. \\
+
+\textbf{Dimostrazione:} omessa. \\ \\ \\
+\textbf{Definizione 2.2.11:} sia $X$ un poliedro in $\mathbb{R}^3$. $X$ è detto \textit{regolare} se valgono: \\
+\textbf{1.} Tutte le facce sono congruenti. \\
+\textbf{2.} In ogni vertice si incontrano lo stesso numero di spigoli o di lati. \\ \\ \\
+\textbf{Teorema 2.2.4:} sia $X$ un poliedro regolare, si ha che
+\begin{gather}
+    X \in \{ \text{cubo, tetraedro, ottaedro, dodecaedro, icosaedro} \} \notag
+\end{gather}
+Inoltre $Symm^+(cubo) \cong S_4$, $Symm^+(tetraedro) \cong A_4$ e $Symm^+(icosaedro) \cong A_5$. \\
+
+\textbf{Dimostrazione:} omessa. \\ \\ \\
+Dato $X \subset \mathbb{R}^3$ scriviamo un algoritmo per calcolare $Symm^+(X)$. \\ \\
+\textbf{1.} Posizioniamo $X$ in modo tale che il baricentro corrisponda con l'origine degli assi. Perciò se $f \in Symm^+(X)$ si ha $f(0) = 0$, ovvero $Symm^+(X) \leq \mathbf{SO}_3(\mathbb{R})$. \\ \\
+\textbf{2.} Per il \textit{teorema 2.2.3} si ha che gli elementi di $\mathbf{SO}_3(\mathbb{R})$ sono rotazioni attorno ad una retta $r$ passante per l'origine. Pertanto gli elementi di $Symm^+(X)$ sono rotazioni attorno a qualche retta $r$ passante per l'origine $\underline{0}$ che mandano $X$ in $X$. \\ \\
+\textbf{3.} Determinare quante coppie $(\hat{u}, \theta) \in \mathbf{S}^2 \times \mathbf{S}^1$ ci sono tali che una rotazione di $\theta$ attorno a $\hat{u}$ manda $X$ in $X$. \\ \\
+\textbf{4.} Se le coppie sono infinite si ha che $Symm^+(X)$ è un gruppo di matrici. L'analisi in questo caso viene omessa poiché complessa. \\ \\
+\textbf{5.} Se le coppie sono finite, determinare il numero $n$ di coppie tali che $\theta \neq 0$ e dividerlo per due (infatti una rotazione di $\theta$ attorno a $\hat{u}$ è identica ad una rotazione di $2\pi - \theta$ attorno a $-\hat{u}$). \\ \\
+\textbf{6.} Si ha che $n/2$ può essere $60, 24, 12$ o un numero diverso dai precedenti. Se $n/2 = 60$ si ha $Symm^+(X) \cong \mathbb{Z}_{60}$ (oppure $\cong I_2(30)$, oppure $\cong A_5$). Se $n/2 = 24$ si ha $Symm^+(X) \cong \mathbb{Z}_{24}$ (oppure $\cong I_2(12)$, oppure $\cong S_4$). Se $n/2 = 12$ si ha $Symm^+(X) \cong \mathbb{Z}_{12}$ (oppure $\cong I_2(6)$, oppure $\cong A_4$). Se $n/2 = m$ diverso dai numeri precedenti si ha $Symm^+(X) \cong \mathbb{Z}_m$ (oppure $\cong I_2(m/2)$). \\ \\
+\textbf{7.} Determinare quante coppie $(\hat{u}, \theta)$ sono tali che $\theta = \pi$ (rotazioni che eseguite due volte danno l'identità). Se $n/2 = 60$ possono essere $1 \implies Symm^+(X) \cong \mathbb{Z}_{60}$, $31 \implies Symm^+(X) \cong I_2(30)$ oppure $15 \implies Symm^+(X) \cong A_5$. \\
+Se $n/2 = 24$ possono essere $1 \implies Symm^+(X) \cong \mathbb{Z}_{24}$, $13 \implies Symm^+(X) \cong I_2(12)$ oppure $9 \implies Symm^+(X) \cong S_4$. \\
+Se $n/2 = 12$ possono essere $1 \implies Symm^+(X) \cong \mathbb{Z}_{12}$, $7 \implies Symm^+(X) \cong I_2(6)$ oppure $3 \implies Symm^+(X) \cong A_4$. \\
+Se $n/2 = m$ possono essere $\leq 1 \implies Symm^+(X) \cong \mathbb{Z}_m$ oppure $\geq 2 \implies Symm^+(X) \cong I_2(m/2)$.
+
+\newpage
+\subsection{Topologia dei gruppi di matrici}
+Notiamo che $\mathbf{M}_n(\mathbb{R}) \cong \mathbb{R}^{n^2}$ pertanto possiamo trattare lo spazio delle matrici $n \times n$ come uno spazio topologico euclideo. \\ \\ \\
+\textbf{Definizione 2.3.1:} un \textit{gruppo di matrici} è un sottogruppo $G$ di $\mathbf{GL}_n(\mathbb{R})$ tale che $G$ è chiuso in $\mathbf{GL}_n(\mathbb{R})$ (topologia relativa). \\ \\
+Ovviamente $\mathbf{GL}_n(\mathbb{R})$ è chiuso in se stesso e quindi è un gruppo di matrici. \\ \\ \\
+\textbf{Proposizione 2.3.1:} $\mathbf{O}_n(\mathbb{R}), \mathbf{SO}_n(\mathbb{R})$ e $\mathbf{SL}_n(\mathbb{R})$ sono gruppi di matrici. \\
+
+\textbf{Dimostrazione:} sappiamo che $\mathbf{O}_n(\mathbb{R})$ è un sottogruppo di $\mathbf{GL}_n(\mathbb{R})$, mostriamo che è chiuso nella topologia relativa. Consideriamo la funzione
+\begin{gather}
+    f : \mathbf{M}_n(\mathbb{R}) \longrightarrow \mathbf{M}_n(\mathbb{R}), \quad f(A) = AA^t \notag
+\end{gather}
+ovviamente $f$ è continua (è un polinomio), inoltre $\{ \mathbf{I}_n \}$ è chiuso (per le proprietà di separazione) e
+\begin{gather}
+    f^{-1}(\{ \mathbf{I}_n \}) = \mathbf{O}_n(\mathbb{R}) \notag
+\end{gather}
+dunque $\mathbf{O}_n(\mathbb{R})$ è chiuso in $\mathbb{R}^{n^2}$, pertanto è chiuso anche in $\mathbf{GL}_n(\mathbb{R})$, nella topologia relativa. \\ \\
+Analogamente $\det : \mathbf{M}_n(\mathbb{R}) \longrightarrow \mathbb{R}$ è continua (anch'essa è un polinomio) e
+\begin{gather}
+    \mathrm{det}^{-1}(\{ 1 \}) = \mathbf{SL}_n(\mathbb{R}) \notag
+\end{gather}
+pertanto anche $\mathbf{SL}_n(\mathbb{R})$ è chiuso in $\mathbb{R}^{n^2}$ e quindi anche nella topologia relativa su $\mathbf{GL}_n(\mathbb{R})$. \\ \\
+Infine si ha che $\mathbf{SO}_n(\mathbb{R}) = \mathbf{SL}_n(\mathbb{R}) \cap \mathbf{O}_n(\mathbb{R})$, dunque intersezione di due chiusi e quindi chiuso. \\ \\ \\
+\textbf{Proposizione:} $\mathbf{O}_n(\mathbb{R})$ e $\mathbf{SO}_n(\mathbb{R})$ sono compatti. \\
+
+\textbf{Dimostrazione:} sia $A \in \mathbf{O}_n(\mathbb{R})$, si ha che $AA^t = \mathbf{I}_n$, pertanto
+\begin{gather}
+    AA^t = \mathbf{I}_n \implies \sum_h a_{ih}a_{hj} = \delta_{ij} \notag
+\end{gather}
+ovvero per $i = j$ si ha
+\begin{gather}
+    \sum_h a^2_{ih} = 1, \quad i = 1, \dots, n \notag
+\end{gather}
+quindi si ottiene
+\begin{gather}
+    \sum_{h, i} a^2_{ih} = n \notag
+\end{gather}
+cioè $\mathbf{O}_n(\mathbb{R}) \subset \overline{D_{\sqrt{n}}(0)}$, allora $\mathbf{O}_n(\mathbb{R})$ è un sottoinsieme chiuso e limitato di $\mathbb{R}^{n^2}$ e per il \textit{corollario 1.5.3} è compatto. Inoltre $\mathbf{SO}_n(\mathbb{R})$ è un sottoinsieme chiuso di un insieme compatto e pertanto compatto.
+
+\subsubsection{Esercizi}
+\textbf{1.} Dimostrare se $\mathbf{O}_n(\mathbb{R}) \leq \mathbf{O}_{n + 1}(\mathbb{R})$, cioè se esiste $S \leq \mathbf{O}_{n + 1}(\mathbb{R})$ tale che $\mathbf{O}_n(\mathbb{R}) \cong S$. \\
+
+\textbf{Dimostrazione:} consideriamo $f : \mathbf{O}_n(\mathbb{R}) \longrightarrow S$ definita ponendo
+\begin{gather}
+    f(A) = \begin{pmatrix}
+        A & 0 \\
+        0 & 1
+    \end{pmatrix} \text{ per ogni } A \in \mathbf{O}_n(\mathbb{R}) \notag
+\end{gather}
+con $S := f(\mathbf{O}_n(\mathbb{R}))$. Notiamo immediatamente che $f$ è biettiva e continua e anche $f^{-1}$ lo è. Inoltre $S \leq \mathbf{O}_{n + 1}(\mathbb{R})$, infatti
+\begin{gather}
+    \begin{pmatrix}
+        A & 0 \\
+        0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        A^t & 0 \\
+        0 & 1
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        AA^t & 0 \\
+        0 & 1
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        \mathbf{I}_n & 0 \\
+        0 & 1
+    \end{pmatrix} = \mathbf{I}_{n + 1} \notag
+\end{gather}
+dunque se $M \in S$ si ha $M \in \mathbf{O}_{n + 1}(\mathbb{R})$, inoltre $\mathbf{I}_{n + 1} \in S$, $S$ è chiuso rispetto al prodotto di matrici e per ogni $M \in S$ esiste $M^{-1} \in S$ tale che $MM^{-1} = \mathbf{I}_{n + 1}$, infatti $A^{-1} \in \mathbf{O}_n(\mathbb{R})$, e
+\begin{gather}
+    \begin{pmatrix}
+        A & 0 \\
+        0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        A^{-1} & 0 \\
+        0 & 1
+    \end{pmatrix} = 
+    \mathbf{I}_{n + 1} \notag
+\end{gather}
+per quanto visto prima. \\ \\ \\
+\textbf{2.} Sia
+\begin{gather}
+    \textit{Aff}_n(\mathbb{R}) := \left\{ \begin{pmatrix}
+        A & 0 \\
+        v & 1
+    \end{pmatrix} : A \in \mathbf{O}_n(\mathbb{R}), v \in \mathbb{R} \right\} \notag
+\end{gather}
+detto \textit{gruppo affine} di rango $n$. Dimostrare se $\textit{Aff}_n(\mathbb{R}) \leq \mathbf{GL}_{n + 1}(\mathbb{R})$. \\
+
+\textbf{Dimostrazione:} come nell'\textit{esercizio 1}, dimostriamo che esiste un sottogruppo $S$ di $\mathbf{GL}_{n + 1}(\mathbb{R})$ tale che $\textit{Aff}_n(\mathbb{R}) \cong S$. Sia $\mathbf{1}_{n + 1} : \textit{Aff}_n(\mathbb{R}) \longrightarrow S$ la funzione identità. Ovviamente è un omeomorfismo (ponendo $S = \mathbf{1}_{n + 1}(\textit{Aff}_n(\mathbb{R})$), mostriamo ora che $S$ è un sottogruppo di $\mathbf{GL}_{n + 1}(\mathbb{R})$. Si ha che
+\begin{gather}
+    \det \begin{pmatrix}
+        A & 0 \\
+        v & 1
+    \end{pmatrix} = \det A \neq 0 \text{ per ogni } A \in \mathbf{O}_n(\mathbb{R}) \notag
+\end{gather}
+dunque $S \subseteq \mathbf{GL}_{n + 1}(\mathbb{R})$. Inoltre $\mathbf{I}_{n + 1} \in S$, perché $\mathbf{I}_n \in \mathbf{O}_n(\mathbb{R})$, e per ogni elemento di $S$ esiste l'inverso in $S$ stesso, infatti
+\begin{gather}
+    \begin{pmatrix}
+        A & 0 \\
+        v & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        B & 0 \\
+        w & 1
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        AB & 0 \\
+        vB + w & 1
+    \end{pmatrix} = \mathbf{I}_{n + 1} \notag
+\end{gather}
+se e solo se
+\begin{gather}
+    B = A^t = A^{-1} \in \mathbf{O}_n(\mathbb{R}), \quad w = -vB \in \mathbb{R}^n \notag
+\end{gather}
+pertanto $S \leq \mathbf{GL}_{n + 1}(\mathbb{R})$. \\ \\ \\
+\textbf{3.} Siano $G$ e $H$ gruppi, $f : G \longrightarrow H$ un omomorfismo e $S \leq G$. Allora $f(S) \leq H$. \\
+
+\textbf{Dimostrazione:} sia $e$ l'elemento neutro di $G$, si ha che $e \in S$, inoltre
+\begin{gather}
+    f(a) = f(a \cdot e) = f(a) \cdot f(e) = f(e) \cdot f(a) = f(e \cdot a) = f(a) \notag
+\end{gather}
+per ogni $a \in G$, ovvero $f(e)$ è l'elemento neutro di $H$ e $f(e) \in f(S)$. Inoltre, sia $a^{-1} \in G$ tale che $aa^{-1} = e$, si ha che
+\begin{gather}
+    f(e) = f(a \cdot a^{-1}) = f(a) \cdot f(a^{-1}) = f(a^{-1}) \cdot f(a) = f(a^{-1} \cdot a) = f(e) \notag
+\end{gather}
+ovvero $f(a^{-1}) = f(a)^{-1}$, quindi $f(S)$ contiene l'inverso di ogni suo elemento. Infine siano $a, b \in S$, si ha che
+\begin{gather}
+    f(a) \cdot f(b) = f(a \cdot b) = f(c) \notag
+\end{gather}
+con $c$ prodotto di $a$ e $b$, $c \in S$ per ipotesi. Pertanto concludiamo che $f(S)$ è un sottogruppo di $H$. \\ \\ \\
+\textbf{4.} Dimostrare se $\textit{Aff}_n(\mathbb{R})$ è un gruppo di matrici abeliano. \\
+
+\textbf{Dimostrazione:} si ha che
+\begin{gather}
+    \begin{pmatrix}
+        A & 0 \\
+        v & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        B & 0 \\
+        w & 1
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        AB & 0 \\
+        vB + w & 1
+    \end{pmatrix} \notag
+\end{gather}
+mentre
+\begin{gather}
+    \begin{pmatrix}
+        B & 0 \\
+        w & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        A & 0 \\
+        v & 1
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        BA & 0 \\
+        wA + v & 1
+    \end{pmatrix} \notag
+\end{gather}
+in generale non c'è uguaglianza tra questi due elementi. \\ \\ \\
+\textbf{5.} Dimostrare se $\mathbf{GL}_n(\mathbb{R})$ è compatto. \\
+
+\textbf{Soluzione:} ricordiamo che
+\begin{gather}
+    \mathbf{GL}_n(\mathbb{R}) = \{ A \in \mathbf{M}_n(\mathbb{R}) : \det A \neq 0 \} \notag
+\end{gather}
+Sia $k \in \mathbb{N}$, consideriamo la seguente matrice
+\begin{gather}
+    M(k) = \begin{pmatrix}
+        k & 0 & 0 & \dots & 0 \\
+        0 & k & 0 & \dots & 0 \\
+        . & & & & . \\
+        . & & & & . \\
+        0 & 0 & 0 & \dots & k
+    \end{pmatrix} \notag
+\end{gather}
+per ogni $\rho > 0$ esiste $\Tilde{k} \in \mathbb{N}$ tale che
+\begin{gather}
+    \Tilde{k} > \rho \implies M(\Tilde{k}) \not\subset D_\rho(0) \notag
+\end{gather}
+ovvero $\mathbf{GL}_n(\mathbb{R})$ non è limitato, pertanto per il \textit{teorema di Heine-Borel} non può essere compatto. \\ \\ \\
+\textbf{6.} Dimostrare se $\textbf{SL}_n(\mathbb{R})$ è compatto in $\mathbf{M}_n(\mathbb{R}$). \\
+
+\textbf{Dimostrazione:} sappiamo che $\mathbf{SL}_n(\mathbb{R})$ è un gruppo di matrici e quindi chiuso in $\mathbf{GL}_n(\mathbb{R})$ e pertanto chiuso anche in $\mathbf{M}_n(\mathbb{R})$. Tuttavia non è compatto, infatti sia $k \in \mathbb{N}$, consideriamo la matrice
+\begin{gather} A(k) =
+    \begin{pmatrix}
+        1 & k & 0 & \dots & 0 \\
+        0 & 1 & 0 & \dots & 0 \\
+        . & & & & . \\
+        . & & & & . \\
+        0 & 0 & 0 & \dots & 1
+    \end{pmatrix} \in \mathbf{SL}_n(\mathbb{R}) \notag
+\end{gather}
+per ogni $k \in \mathbb{N}$. Inoltre, analogamente all'esercizio precedente, si ha che per ogni $\rho > 0$ esiste $\Tilde{k} \in \mathbb{N}$ tale che
+\begin{gather}
+    \sqrt{\sum_{i, j = 1}^n a^2_{ij}(\Tilde{k})} = \sqrt{n + \Tilde{k}^2} > \rho \notag
+\end{gather}
+infatti basta scegliere
+\begin{gather}
+    \Tilde{k} > \sqrt{\rho^2 - n} \notag
+\end{gather}
+e si ha
+\begin{gather}
+    A(\Tilde{k}) \not\subset D_\rho(0) \notag
+\end{gather}
+pertanto $\mathbf{SL}_n(\mathbb{R})$ non è limitato e dunque è compatto per il \textit{teorema di Heine-Borel}. \\ \\ \\ \\
+\textbf{7.} Sia $G := \left\{ A \in \mathbf{M}_n(\mathbb{R}) : \det A \in \{ 2^k : k \in \mathbb{Z} \} \right\}$, dimostrare che $G$ è un gruppo di matrici. \\
+
+\textbf{Dimostrazione:} poniamo $2^{\mathbb{Z}} := \{ 2^k : k \in \mathbb{Z} \}$, ovviamente $\mathbf{I}_n \in G$ poiché $\det \mathbf{I}_n = 1 = 2^0 \in 2^{\mathbb{Z}}$. Inoltre se $A \in G$ si ha che $A^{-1} \in G$, infatti
+\begin{gather}
+    \det A^{-1} = \frac{1}{\det A} = \frac{1}{2^{\overline{k}}} \text{ per qualche } \overline{k} \in \mathbb{Z} \notag
+\end{gather}
+pertanto
+\begin{gather}
+    \det A^{-1} = 2^{-\overline{k}} \text{ e } -\overline{k} \in \mathbb{Z} \notag
+\end{gather}
+infatti $Z$ è un gruppo rispetto all'addizione, dunque ogni elemento ha il suo inverso. Siano ora $A, B \in G$, si ha che $A \cdot B \in G$, infatti
+\begin{gather}
+    \det (A \cdot B) = \det A \cdot \det B = 2^p \cdot 2^q = 2^{p + q} \notag
+\end{gather}
+con $p, q \in \mathbb{Z}$, pertanto anche $p + q \in \mathbb{Z}$ perché $\mathbb{Z}$ è un gruppo rispetto all'addizione. \\ \\
+Dunque $G$ è un sottogruppo di $\mathbf{GL}_n(\mathbb{R})$, verifichiamo ora che sia chiuso in $\mathbf{GL}_n(\mathbb{R})$. \\
+Si ha che $2^{\mathbb{Z}}$ è non è chiuso in $\mathbb{R}$, infatti $0$ è un punto di accumulazione per $2^{\mathbb{Z}}$ ma $0 \not\in 2^{\mathbb{Z}}$, tuttavia è chiuso in $\mathbb{R} \setminus \{ 0 \}$ che è sufficiente poiché siamo interessati alle matrici invertibili. Si ha che la funzione
+\begin{gather}
+    \det|_{\mathbf{GL}_n(\mathbb{R})} : \mathbf{GL}_n(\mathbb{R}) \longrightarrow \mathbb{R} \setminus \{ 0 \} \notag
+\end{gather}
+è continua, pertanto
+\begin{gather}
+    \mathrm{det}^{-1}(2^{\mathbb{Z}}) = G \notag
+\end{gather}
+è chiuso in $\mathbf{GL}_n(\mathbb{R})$, infatti $\mathrm{det}^{-1}(\mathbb{R} \setminus \{ 0 \}) = \mathbf{GL}_n(\mathbb{R})$. \\ \\ \\
+\textbf{8.} Dimostrare se $Isom(\mathbb{R}^n)$ è un gruppo di matrici. \\
+
+\textbf{Dimostrazione:} sappiamo che
+\begin{gather}
+    Isom(\mathbb{R}^n) = \left\{ \begin{pmatrix}
+        A & 0 \\
+        v & 1
+    \end{pmatrix} : A \in \mathbf{O}_n(\mathbb{R}), v \in \mathbb{R}^n \right\} \notag
+\end{gather}
+$\mathbf{I}_{n + 1} \in Isom(\mathbb{R}^n)$ perché $\mathbf{I}_n \in \mathbf{O}_n(\mathbb{R})$. Inoltre
+\begin{gather}
+    \begin{pmatrix}
+        A & 0 \\
+        v & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        B & 0 \\
+        u & 1
+    \end{pmatrix} =
+    \begin{pmatrix}
+        AB & 0 \\
+        vB + u & 1
+    \end{pmatrix} =
+    \mathbf{I}_{n + 1} \notag
+\end{gather}
+se e solo se $B = A^{-1} \text{ e } u = -vB$ e poiché $A^{-1} \in \mathbf{O}_n(\mathbb{R})$ e $-vB \in \mathbb{R}^n$ si ha che $Isom(\mathbb{R}^n)$ contiene l'inverso di ogni suo elemento. Notiamo anche che $Isom(\mathbb{R}^n)$ è chiuso rispetto al prodotto di matrici. Dunque è un gruppo. \\ \\
+Dimostriamo ora che è chiuso in $\mathbf{GL}_{n + 1}(\mathbb{R})$. Consideriamo la funzione \\
+$f : Isom(\mathbb{R}^n) \longrightarrow \mathbf{M}_{n + 1}(\mathbb{R})$ definita ponendo
+\begin{gather}
+    f \begin{pmatrix}
+        A & 0 \\
+        v & 1
+    \end{pmatrix} =
+    \begin{pmatrix}
+        A & 0 \\
+        v & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        A^t & 0 \\
+        -vA^t & 1
+    \end{pmatrix} =
+    \begin{pmatrix}
+        AA^t & 0 \\
+        0 & 1
+    \end{pmatrix} \notag
+\end{gather}
+ovviamente $f$ è continua, è un polinomio, inoltre
+\begin{gather}
+    f^{-1}(\{ \mathbf{I}_{n + 1} \} = Isom(\mathbb{R}^n) \notag
+\end{gather}
+ed essendo $\{ \mathbf{I}_{n + 1} \}$ chiuso in $\mathbf{M}_{n + 1}(\mathbb{R})$, poiché è uno spazio $T_1$, si ha che anche $Isom(\mathbb{R}^n)$ è chiuso in $\mathbf{M}_{n + 1}(\mathbb{R})$, inoltre, poiché $\mathbf{GL}_{n + 1} \cap Isom(\mathbb{R}^n) = Isom(\mathbb{R}^n)$ è chiuso nella topologia relativa e quindi è un gruppo di matrici.
+
+
+
+\newpage
+\subsection{Algebre di Lie}
+\textbf{Definizione 2.4.1:} sia $X \subseteq \mathbb{R}^n$ e sia $p \in X$. Lo \textit{spazio tangente} ad $X$ in $p$ è
+\begin{gather}
+    T_p(X) := \{ \gamma'(0) : \gamma : (-\varepsilon, \varepsilon) \longrightarrow X, \gamma \text{ differenziabile}, \gamma(0) = p \} \notag
+\end{gather}
+Non sempre è possibile determinare lo spazio tangente ad un punto di uno spazio $X$ arbitrario. Tale possibilità è determinata dalla geometria locale dello spazio attorno al punto in esame. \\ \\ \\
+\textbf{Definizione 2.4.2:} sia $G$ un gruppo di matrici, l'\textit{algebra di Lie} di $G$ è
+\begin{gather}
+    \mathfrak{g}(G) := T_{\mathbf{I}}(G) \notag
+\end{gather}
+ovvero è lo spazio tangente a $G$ nell'identità $\mathbf{I}$. \\ \\
+Esibire una funzione $\gamma : (-\varepsilon, \varepsilon) \longrightarrow G$ differenziabile significa esibire $n^2$ funzioni scalari differenziabili
+\begin{gather}
+    a_{ij} : (-\varepsilon, \varepsilon) \longrightarrow \mathbb{K} \notag
+\end{gather}
+tali che
+\begin{gather}
+    \begin{pmatrix}
+        a_{11}(t) & \dots & a_{1n}(t) \\
+        . & & . \\
+        . & & . \\
+        a_{n1}(t) & \dots & a_{nn}(t) 
+    \end{pmatrix} \in G \text{ per ogni } t \in (-\varepsilon, \varepsilon) \notag
+\end{gather} \\ \\ \\
+\textbf{Proposizione 2.4.1:} siano $\beta, \gamma : (-\varepsilon, \varepsilon) \longrightarrow \mathbf{M}_n(\mathbb{R})$ differenziabili, definiamo
+\begin{gather}
+    \beta\gamma : (-\varepsilon, \varepsilon) \longrightarrow \mathbf{M}_n(\mathbb{R}) \notag
+\end{gather}
+ponendo
+\begin{gather}
+    (\beta\gamma)(t) = \beta(t) \cdot \gamma(t) \notag
+\end{gather}
+per ogni $t \in (-\varepsilon, \varepsilon)$. Allora $\beta\gamma$ è differenziabile e
+\begin{gather}
+    (\beta\gamma)'(t) = \beta'(t) \cdot \gamma'(t) \notag
+\end{gather} \\
+
+\textbf{Dimostrazione:} si ha che $\beta\gamma$ è differenziabile poiché ogni sua componente è differenziabile dato che è prodotto e somma di funzioni scalari differenziabili, inoltre
+\begin{gather}
+    \left( \beta(t) \cdot \gamma(t) \right)_{ij} = \sum_h \beta_{ih}(t)\gamma_{hj}(t) \notag 
+\end{gather}
+quindi
+\begin{gather}
+    \left( \beta(t) \cdot \gamma(t) \right)'_{ij} = \sum_h \left( \beta'_{ih}(t)\gamma_{hj}(t) + \beta_{ih}(t)\gamma'_{hj}(t) \right) \notag
+\end{gather}
+per la teoria sulle funzioni scalari ad una (o più) variabile. Inoltre, poiché ciò vale per ogni $i, j = 1, \dots, n$ si ha
+\begin{gather}
+    (\beta\gamma)'(t) = \beta'(t)\gamma(t) + \beta(t)\gamma'(t) \notag
+\end{gather} \\ \\
+\textbf{Proposizione 2.4.2:} sia $G$ un gruppo di matrici, allora $\mathfrak{g}(G)$ è uno spazio vettoriale reale. \\
+
+\textbf{Dimostrazione:} sia $A \in \mathfrak{g}(G)$ e sia $\lambda \in \mathbb{R}$, per ipotesi esiste $\gamma$ differenziabile tale che $\gamma'(0) = A$, consideriamo il cammino
+\begin{gather}
+    \Tilde{\gamma} : \left( -\frac{\varepsilon}{|\lambda|}, \frac{\varepsilon}{|\lambda|} \right) \longrightarrow G, \quad \Tilde{\gamma}(t) = \gamma(\lambda t) \notag
+\end{gather}
+per ogni $t \in (\varepsilon, \varepsilon)$. $\Tilde{\gamma}$ è differenziabile, $\Tilde{\gamma}(0) = \mathbf{I}_n$ e inoltre
+\begin{gather}
+    \Tilde{\gamma}'(0) = \lambda \cdot \gamma'(0) = \lambda \cdot A \notag
+\end{gather}
+pertanto $\lambda \cdot A \in \mathfrak{g}(G)$. \\
+Siano $A, B \in \mathfrak{g}(G)$, per ipotesi esistono $\alpha, \beta$ differenziabili tali che $\alpha'(0) = A$ e $\beta'(0) = B$, allora $\alpha\beta$ è differenziabile e
+\begin{gather}
+    (\alpha\beta)'(0) = \alpha'(0)\beta(0) + \alpha(0)\beta'(0) = A + B \in \mathfrak{g}(G) \notag
+\end{gather}
+Infine si ha che la matrice nulla appartiene a $\mathfrak{g}(G)$ poiché la funzione costante $\delta(t) = \mathbf{I}_n$ per ogni $t \in (-\varepsilon, \varepsilon)$ è differenziabile e $\delta'(0) = 0 \in \mathfrak{g}(G)$. \\ \\ \\
+\textbf{Definizione 2.4.3:} sia $G$ un gruppo di matrici. La dimensione di $G$ è $\dim G = \dim \mathfrak{g}(G)$ come spazio vettoriale reale. \\ \\
+Poniamo $\mathfrak{gl}_n(\mathbb{R}) = \mathfrak{g}(\mathbf{GL}_n(\mathbb{R}))$, $\mathfrak{sl}_n(\mathbb{R}) = \mathfrak{g}(\mathbf{SL}_n(\mathbb{R}))$, $\mathfrak{so}_n(\mathbb{R}) = \mathfrak{g}(\mathbf{SO}_n(\mathbb{R}))$. \\ \\ \\
+\textbf{Proposizione 2.4.3:} sia $n \in \mathbb{N}$, si ha che $\mathfrak{gl}_n(\mathbb{R}) = \mathbf{M}_n(\mathbb{R})$. \\
+
+\textbf{Dimostrazione:} ovviamente $\mathfrak{gl}_n(\mathbb{R}) \subset \mathbf{M}_n(\mathbb{R})$. Sia $A \in \mathbf{M}_n(\mathbb{R})$, consideriamo il cammino
+\begin{gather}
+    \gamma : \mathbb{R} \longrightarrow \mathbf{M}_n(\mathbb{R}), \quad \gamma(t) = \mathbf{I}_n + tA \notag
+\end{gather}
+per ogni $A \in \mathbf{M}_n(\mathbb{R})$. Chiaramente $\gamma$ è differenziabile poiché è un polinomio,  $\gamma(0) = \mathbf{I}_n$ e $\gamma'(0) = A$. \\
+Inoltre la funzione $\det$ è continua dunque, per il teorema della permanenza del segno, esiste $\varepsilon > 0$ tale che $\det \gamma(t) > 0$ per ogni $t \in (-\varepsilon, \varepsilon)$, pertanto la tesi segue e $\dim \mathbf{GL}_n(\Bbb{R}) = n^2$. \\ \\ \\
+\textit{Lemma 2.3.1:} sia $\gamma : (-\varepsilon, \varepsilon) \longrightarrow \mathbf{M}_n(\mathbb{R})$ differenziabile tale che $\gamma(0) = \mathbf{I}_n$, si ha che
+\begin{gather}
+    \frac{\mathrm{d}}{\mathrm{d}t} \det \gamma(t) |_{t = 0} = \mathrm{tr}(\gamma'(0)) \notag
+\end{gather} \\
+
+\textit{Dimostrazione:} esplicitando i calcoli so ottiene
+\begin{gather}
+    \frac{\mathrm{d}}{\mathrm{d}t} \det \gamma(t)|_{t = 0} = \frac{\mathrm{d}}{\mathrm{d}t} \left( \sum_{i = 1}^n (-1)^{i - 1} \gamma_{1i}(t) \det(\gamma[1, i](t)) \right)|_{t = 0} = \notag \\
+    = \sum_{i = 1}^n (-1)^{i - 1}\gamma'_{1i}(0) \det(\gamma[1,i](0)) + \sum_{i = 1}^n (-1)^{i - 1} \gamma_{1i}(0) \frac{\mathrm{d}}{\mathrm{d}t} [\det (\gamma[1, i](t))]|_{t = 0} = \notag \\
+    = \gamma'_{11}(0) + \frac{\mathrm{d}}{\mathrm{d}t} \det(\gamma[1, 1](t))|_{t = 0} = \notag \\
+    = \gamma'_{11} + \mathrm{tr}(\gamma'[1,1](0)) = \sum_{i = j} \gamma'_{ij}(0) \notag
+\end{gather}
+dove il penultimo passaggio si ottiene ragionando per induzione. \\ \\ \\
+\textbf{Teorema 2.4.2:} sia $n \in \mathbb{N}$, si ha che
+\begin{gather}
+    \mathfrak{sl}_n(\mathbb{R}) = \{ A \in \mathbf{M}_n(\mathbb{R}) : \mathrm{tr} A = 0 \} \notag
+\end{gather}
+e in particolare $\dim \mathbf{SL}_n(\mathbb{R}) = n^2 - 1$. \\
+
+\textbf{Dimostrazione:} sia $A \in \mathfrak{sl}_n(\mathbb{R})$, per ipotesi esiste $\gamma$ differenziabile tale che $\gamma(0) = \mathbf{I}_n$ e $\gamma'(0) = A$. Inoltre deve soddisfare $\gamma(t) \in \mathbf{SL}_n(\mathbb{R})$ per ogni $t \in (-\varepsilon, \varepsilon)$, pertanto
+\begin{gather}
+    \frac{\mathrm{d}}{\mathrm{d}t} \det \gamma(t) = \mathrm{tr} (\gamma'(0)) = 0 \notag
+\end{gather}
+imponendo $\det \gamma(t) = 1$ per ogni $t \in (-\varepsilon, \varepsilon)$. \\ \\
+Viceversa, sia $\alpha : (-\varepsilon, \varepsilon) \longrightarrow \mathbf{SL}_n(\mathbb{R})$ definita ponendo
+\begin{gather}
+    \alpha(t) = \begin{pmatrix}
+        \frac{\gamma_{11}(t)}{\det \gamma(t)} & \dots & \frac{\gamma_{1n}(t)}{\det \gamma(t)} \\
+        . & & . \\
+        . & & . \\
+        \gamma_{n1}(t) & \dots & \gamma_{nn}(t)
+    \end{pmatrix} \notag
+\end{gather}
+si ha che $\alpha$ è differenziabile (per teoremi generali sulle funzioni scalari), \\$\alpha(t) \in \mathbf{SL}_n(\mathbb{R})$ per ogni $t \in (-\varepsilon, \varepsilon)$, inoltre $\alpha(0) = \mathbf{I}_n$ e
+\begin{gather}
+    \frac{\mathrm{d}}{\mathrm{d}t} \left( \frac{\gamma_{1i}}{\det \gamma(t)} \right)|_{t = 0} = \left( \frac{\gamma'_{1i}(0) \det \gamma(0) - \gamma_{1i}(0) \frac{\mathrm{d}}{\mathrm{d}t} (\det \gamma(t))|_{t = 0}}{(\det \gamma(0))^2} \right) = \notag \\
+    =  \gamma'_{1i}(0) - \gamma_{11}(0)\mathrm{tr}(A) = \gamma'_{1i}(0) \notag
+\end{gather}
+per il \textit{lemma 2.4.1} e poiché, per ipotesi, $\mathrm{tr}(\gamma'(0)) = \mathrm{tr}(A) = 0$. Pertanto $\alpha'(0) = \gamma'(0)$ e quindi si ottiene la tesi. \\ \\
+In particolare si ha che $\dim \mathbf{SO}_n(\mathbb{R}) = n^2 - 1$ poiché la condizione per appartenere all'algebra di Lie è $\mathrm{tr}(A) = 0$, pertanto è una condizione che influisce solamente sugli $n$ elementi della diagonale, in particolare $n - 1$ sono indipendenti mentre l'$n$-esimo è dipendente poiché deve soddisfare la condizione di traccia nulla, ovvero deve soddisfare la seguente equazione:
+\begin{gather}
+    \sum_{1 \leq i = j \leq n - 1} a_{ij} = - a_{nn} \notag
+\end{gather}
+dove sono stati scegli come indipendenti i primi $n - 1$ elementi della diagonale senza perdita di generalità. \\ \\ \\
+\textbf{Proposizione 2.4.4:} sia $A \in \mathbf{M}_n(\mathbb{R})$, si ha che le seguenti sono equivalenti: \\
+\textbf{1.} $A + A^t = 0$. \\
+\textbf{2.} $\langle x, yA \rangle = -\langle xA, y \rangle$ per ogni $x, y \in \mathbb{R}^n$. \\
+\textbf{3.} $\langle x, xA \rangle = 0$ per ogni $x \in \mathbb{R}^n$. \\
+
+\textbf{Dimostrazione:} $(1 \implies 2)$ Notiamo che $(1)$ implica
+\begin{gather}
+    a_{ij} = 0 \text{ per ogni } i = j, 1 \leq i, j \leq n \notag \\
+    a_{ij} = - a_{ji} \text{ per ogni } 1 \leq i, j \leq n \notag
+\end{gather}
+si ha che $x = \sum_i x_i \mathbf{e}_i$ e $y = \sum_j y_j \mathbf{e}_j$, allora
+\begin{gather}
+    \langle x, yA \rangle = \sum_i \sum_j x_iy_j \langle \mathbf{e}_i, \mathbf{e}_jA \rangle = \sum_i \sum_j x_iy_j \langle \mathbf{e}_i, A_j \rangle \notag = \sum_i \sum_j x_iy_jA_{ji} = \notag \\
+    = - \sum_i \sum_j x_iy_j A_{ij} = -\sum_i \sum_j x_iy_j \langle \mathbf{e}_j, \mathbf{e}_iA \rangle = \notag \\
+    = -\langle \sum_j y_j\mathbf{e}_j, \sum_i x_i\mathbf{e}_i A \rangle = -\langle y, xA \rangle \notag
+\end{gather}
+per la bilinearità del prodotto scalare euclideo. \\ \\
+$(2 \implies 3)$ Immediato, basta porre $y = x$ e si ha
+\begin{gather}
+    \langle x, xA \rangle = - \langle xA, x \rangle \implies 2\langle x, xA \rangle = 0 \notag
+\end{gather}
+per la simmetria del prodotto scalare euclideo. \\ \\
+$(3 \implies 2)$ Notiamo che
+\begin{align}
+    0 = \langle x + y, xA + yA \rangle &= \langle x, xA \rangle + \langle y, yA \rangle + \langle x, yA \rangle + \langle y, xA \rangle \notag \\
+    &= \langle x, yA \rangle + \langle y, xA \rangle \notag
+\end{align}
+pertanto la tesi segue. \\ \\
+$(2 \implies 1)$ Come visto prima si ha che
+\begin{gather}
+    \sum_i \sum_j x_iy_j A_{ji} + \sum_i \sum_j x_iy_j A_{ij} = 0 \iff A_{ij} = -A_{ji} \notag
+\end{gather}
+per ogni $1 \leq i, j \leq n$. \\ \\
+Le matrici che soddisfano le proprietà sopra elencate sono dette \textit{matrici antisimmetriche}. \\
+Notiamo che la $(3)$ è equivalente a dire $x \perp xA$ per ogni $A$ antisimmetrica. \\ \\ \\
+\textbf{Teorema 2.4.3:} si ha che
+\begin{gather}
+    \mathfrak{so}_n(\mathbb{R}) = \{ A \in \mathbf{M}_n(\mathbb{R}) : A + A^t = 0 \} \notag
+\end{gather}
+ovvero l'algebra di Lie del gruppo speciale ortogonale è l'insieme della matrici antisimmetriche a coefficienti reali. \\
+
+\textbf{Dimostrazione:} $(\Rightarrow)$ sia $X \in \mathfrak{so}_n(\mathbb{R})$, per ipotesi esiste $\gamma$ differenziabile tale che $\gamma(0) = \mathbf{I}_n$, $\gamma'(0) = X$ e $\gamma(t) \in \mathbf{SO}_n(\mathbb{R})$ per ogni $t \in (-\varepsilon, \varepsilon)$. \\
+Prima di tutto, poiché $\mathbf{SO}_n(\mathbb{R}) \leq \mathbf{O}_n(\mathbb{R})$, deve valere che $\gamma(t) \cdot \gamma(t)^t = \mathbf{I}_n$ per ogni $t \in (-\varepsilon, \varepsilon)$, dunque
+\begin{gather}
+    \frac{\mathrm{d}}{\mathrm{d}t} (\gamma(t) \cdot \gamma(t)^t) = 0 \notag
+\end{gather}
+ovvero
+\begin{gather}
+    \gamma'(t) \cdot \gamma(t)^t + \gamma(t) \cdot \gamma'(t)^t = 0 \notag
+\end{gather}
+in particolare per $t = 0$, pertanto si ottiene
+\begin{gather}
+    \gamma'(0) \cdot \gamma (0)^t + \gamma(0) \cdot \gamma'(0)^t = X + X^t = 0 \notag
+\end{gather}
+quindi $\mathfrak{so}_n(\mathbb{R}) \subset \{ A \in \mathbf{M}_n(\mathbb{R}) : A + A^t = 0 \}$. \\ \\
+$(\Leftarrow)$ Viceversa sia $X \in \mathbf{M}_n(\mathbb{R})$ tale che $X + X^t = 0$, dimostriamo che $X$ appartiene all'algebra di Lie del gruppo speciale ortogonale, ovvero dimostriamo che esiste un cammino differenziabile $\gamma$ tale che $\gamma(0) = \mathbf{I}_n$, $\gamma'(0) = X$ e $\gamma(t) \in \mathbf{SO}_n(\mathbb{R})$ per ogni $t \in (-\varepsilon, \varepsilon)$. \\
+Consideriamo il cammino $\gamma : (-\varepsilon, \varepsilon) \longrightarrow \mathbf{SO}_n(\mathbb{R})$, definito ponendo
+\begin{gather}
+    \gamma(t) = e^{tX} = \sum_{n = 0}^\infty \frac{t^n}{n!}X^n \text{ per ogni } t \in (-\varepsilon, \varepsilon) \notag
+\end{gather}
+ovviamente $\gamma$ è differenziabile, $\gamma(0) = \mathbf{I}_n$ e $\gamma'(0) = X$. Inoltre per ipotesi si ha
+\begin{gather}
+    e^{tX} \cdot (e^{tX})^t = e^{tX} \cdot e^{tX^t} = e^{t(X + X^t)} = \mathbf{I}_n \notag
+\end{gather}
+per ogni $t \in (-\varepsilon, \varepsilon)$, infatti
+\begin{gather}
+    X + X^t = 0 \notag
+\end{gather}
+ciò comporta anche che $X$ è invertibile e che $\det X = 1$, pertanto la tesi segue. \\ \\ \\
+\textbf{Corollario 2.4.1:} si ha che
+\begin{gather}
+    \dim \mathbf{SO}_n(\mathbb{R}) = \dim \mathbf{O}_n(\mathbb{R}) = \begin{pmatrix}
+        n \\
+        2
+    \end{pmatrix} \notag
+\end{gather}
+
+\textbf{Dimostrazione:} si ha che $1 + 2 + \dots (n - 1) = \begin{pmatrix}
+    n \\
+    2
+\end{pmatrix}$, ovvero il numero delle componenti indipendenti. \\ \\ \\
+Questa trattazione può essere eseguita analogamente per matrici a coefficienti complessi, le uniche accortezze sono: \\
+\textbf{1.} $\langle x, y \rangle = \sum_i x_i \overline{y}_i$. \\
+\textbf{2.} al posto di $A^t$ si ha $A^* = (\overline{a}_{ji})_{1 \leq i, j \leq n}$, trasposta coniugata. \\
+\textbf{3.} si ha che $\mathfrak{g}(G)$ è uno spazio vettoriale reale anche se $G$ è un gruppo di matrici a coefficienti complessi. \\
+\textbf{4.} si scrive $\mathbf{U}_n$ e $\mathbf{SU}_n$ al posto di $\mathbf{O}_n(\mathbb{C})$ e $\mathbf{SO}_n(\mathbb{C})$, e sono detti \textit{gruppo unitario} e \textit{gruppo speciale unitario}.
+
+\subsubsection{Esercizi}
+\textbf{1.} Determinare: 
+\begin{equation}
+    \mathfrak{g}(Isom\, \mathbb{R}^n) := \{ \gamma ' (0) : \gamma : (- \varepsilon, \varepsilon) \longrightarrow Isom\, \mathbb{R}^n, \, \gamma \text{ diff.}, \, \gamma(0) = \mathbf{I}_n \} \notag
+\end{equation} 
+dove $\mathbf{I}_n$ è la matrice identità di $\mathbf{M}_n(\mathbb{R})$. \\
+
+\textbf{Soluzione:} sia $\gamma : (- \varepsilon, \varepsilon) \longrightarrow Isom\, \mathbb{R}^n$ definita ponendo:
+\begin{equation} \gamma (t) =
+    \begin{pmatrix}
+        e^{tX} & 0 \\
+        v(t) & 1
+    \end{pmatrix} \notag
+\end{equation}
+dove $X \in \mathbb{M}_n$ e $v(t) \in C^1((-\varepsilon, \varepsilon);\mathbb{R}^n)$ tale che $v(0) = \vec{0}$. Per come è stato definito $Isom\, \mathbb{R}^n$ deve valere che $e^{tX} \in \mathbf{O}_n(\mathbb{R})$ per ogni $t \in (-\varepsilon, \varepsilon)$, cioè è sufficiente che:
+\begin{gather}
+    e^{tX} \cdot (e^{tX})^t = \mathbf{I}_n \iff X + X^t = 0 \notag
+\end{gather}
+Inoltre per continuità della funzione $\det$ e per il teorema della permanenza del segno si ha che:
+\begin{gather}
+    \frac{d}{dt} \det (e^{tX})|_{t=0} = 0 = \mathrm{tr}\, \gamma'(0) = \mathrm{tr}\, X \notag
+\end{gather}
+condizione già implicita in $X + X^t = 0$. Pertanto:
+\begin{equation}
+    \mathfrak{g}(Isom\, \mathbb{R}^n) = \left\{
+    \begin{pmatrix}
+        X & 0 \\
+        v'(0) & 0
+    \end{pmatrix} : X + X^t = 0, \ v \in C^1((-\varepsilon, \varepsilon); \mathbb{R}^n), \ v(0) = 0\right\} \notag
+\end{equation}
+\\ \\ \\
+\textbf{2.} sia $G := \{ A \in \mathbb{M}_n : \det A \in 2^{\mathbb{Z}}\}$, determinare $\mathfrak{g}(G)$. \\
+
+\textbf{Soluzione:} si ha che intorno a $\mathbf{I}_n$ il gruppo di matrici $G$ è localmente identico a $\mathbf{SL}_n(\mathbb{R)}$ e poiché lo spazio tangente è univocamente determinato da caratteristiche locali segue che $\mathfrak{g}(G) = \mathfrak{sl}_n(\mathbb{R})$.
+
+\newpage
+\section{Tensori}
+\subsection{Quoziente di spazi vettoriali}
+\textbf{Definizione 3.1.1:} sia $V$ un $\mathbb{K}$-spazio vettoriale e sia $W \leq V$ (sottospazio vettoriale, lo \textit{spazio vettoriale quoziente} è
+\begin{gather}
+    V/W := \{ W + v : v \in V \} \notag
+\end{gather}
+ovvero, fissato $v \in V$, l'insieme dei sottospazi affini dati da
+\begin{gather}
+    W + v := \{ w + v : w \in W \} \notag
+\end{gather}
+Poniamo
+\begin{gather}
+    (W + v_1) + (W + v_2) = W + (v_1 + v_2), \quad \lambda(W + v) = W + \lambda v \notag
+\end{gather}
+per ogni $v, v_1, v_2 \in V$ e per ogni $\lambda \in \mathbb{K}$. \\ \\
+Osserviamo che $W + v = W + u$ se e solo se $v - u \in W$, infatti $W + w = W$ se e solo se $w \in W$ per le proprietà degli spazi vettoriali. \\ \\ \\
+\textbf{Proposizione 3.1.1:} siano $V$ uno spazio vettoriale di dimensione finita, $W \leq V$, si ha che $\dim V/W = \dim V - \dim W$. \\
+
+\textbf{Dimostrazione:} sia $\dim V = n$ e $\dim W = k$, $k \leq n$, dimostriamo che $n - k$ vettori linearmente indipendenti generano $V/W$. Consideriamo una base di $W$
+\begin{gather}
+    \{ a_1, \dots, a_k \} \notag
+\end{gather}
+completiamola a base di $V$
+\begin{gather}
+    \{ a_1, \dots, a_k, a_{k + 1}, \dots, a_n \} \notag
+\end{gather}
+sia $v \in V$, si ha
+\begin{gather}
+    W + v = W + (\sum_{i = 1}^n \lambda_i a_i) = \sum_{i = 1}^n (W + \lambda_i a_i) = \sum_{i = k + 1}^n (W + \lambda_ia_i) \notag 
+\end{gather}
+poiché $\sum_{i = 1}^k \lambda_i a_i \in W$, dunque
+\begin{gather}
+    W + (\sum_{i = 1}^k \lambda_i a_i) = W \notag
+\end{gather}
+pertanto $\{ W + a_{k + 1}, \dots, W + a_n \}$ è un insieme di vettori linearmente indipendenti che genera $V/W$, ovvero $\dim V/W = n - k$.
+
+\newpage
+\subsection{Prodotti e somme dirette}
+\textbf{Definizione 3.2.1:} sia $\{ V_i : i \in I \}$ una famiglia di spazi vettoriali reali di dimensione finita. La \textit{somma diretta} di $\{ V_i : i \in I \}$ è lo spazio vettoriale
+\begin{gather}
+    \bigoplus_{i \in I} V_i \notag
+\end{gather}
+che ha come elementi famigli di vettori $(x_i)_{i \in I}$ dove $x_i \in V_i$ per ogni $i \in I$ e $x_i = 0$ per quasi tutti gli $i \in I$, ovvero per tutti gli indici $i$ tranne un numero finito. \\ \\
+Definiamo le operazioni
+\begin{gather}
+    (x_i)_{i \in I} + (y_i)_{i \in I} = (x_i + y_i)_{i \in I} \notag
+\end{gather}
+e
+\begin{gather}
+    \lambda \cdot (x_i)_{i \in I} = (\lambda x_i)_{i \in I} \notag
+\end{gather}
+per ogni $(x_i)_{i \in I}, (y_i)_{i \in I} \in \bigoplus_{i \in I} V_i$ e ogni $\lambda \in \mathbb{R}$. \\ \\
+La condizione che le componenti non nulle siano finite serve a mantenere la possibilità di trattare combinazioni lineari come somme finite. \\ \\ \\
+\textbf{Definizione 3.2.2:} sia $\{ V_i : i \in I \}$ una famiglia di spazi vettoriali reali di dimensione finita. Il \textit{prodotto diretto} della famiglia $\{ V_i : i \in I \}$ è lo spazio vettoriale
+\begin{gather}
+    \prod_{i \in I} V_i \notag
+\end{gather}
+che ha come elementi le famiglie $(x_i)_{i \in I}$, dove $x_i \in V_i$ per ogni $i \in I$, con le stesse operazioni definite per la somma diretta di spazi vettoriali reali. \\ \\
+Osserviamo che
+\begin{gather}
+    \bigoplus_{i \in I} V_i \leq \prod_{i \in I} V_i \notag
+\end{gather}
+in particolare
+\begin{gather}
+    \bigoplus_{i \in I} V_i = \prod_{i \in I} V_i \iff |I| < +\infty \notag
+\end{gather}
+uguaglianza per isomorfismo. \\ \\
+\textbf{Proposizione 3.2.1:} siano $V$ e $W$ spazi vettoriali di dimensione finita, si ha che $\dim V \oplus W = \dim V + \dim W$. \\
+Inoltre se $\{ e_i : i = 1, \dots, n \}$ è una base di $V$ e $\{ f_i : i = 1, \dots, m \}$ è una base di $W$ si ha che l'insieme
+\begin{gather}
+    \{ (e_i, 0)_{i = 1, \dots, n} \} \cup \{ (0, f_i)_{i = 1, \dots, m} \} \notag
+\end{gather}
+è una base per $V \oplus W$. \\
+
+\textbf{Dimostrazione:} immediata. \\ \\ \\
+\textbf{Definizione 3.2.3:} sia $S$ un insieme, lo \textit{spazio vettoriale di base} $S$ è
+\begin{gather}
+    \mathbb{R}^S := \bigoplus_{s \in S} \mathbb{R} \notag
+\end{gather}
+per identificare un elemento di $\mathbb{R}^S$ si usa la notazione di somma formale, ovvero
+\begin{gather}
+    (x_s)_{s \in S} = \sum_{s \in S} a_s \cdot s \notag
+\end{gather}
+
+\newpage
+\subsection{Prodotto tensoriale}
+\textbf{Definizione 3.3.1:} siano $V$ e $W$ spazi vettoriali reali, il prodotto tensoriale di $V$ e $W$ è lo spazio vettoriale quoziente
+\begin{gather}
+    V \otimes W = \frac{\mathbb{R}^{V \times W}}{D} \notag
+\end{gather}
+dove $V \times W$ è inteso come insieme delle coppie $(v, w)$ tali che $v \in V$ e $w \in W$, mentre $D$ è l'insieme generato da
+\begin{gather}
+    (x_1 + x_2, y) - (x_1, y) - (x_2, y) \notag \\
+    (x, y_1 + y_2) - (x, y_1) - (x, y_2) \notag \\
+    a \cdot (x, y) - (ax, y) \notag \\
+    a \cdot (x, y) - (x, ay) \notag
+\end{gather}
+per ogni $x, x_1, x_2 \in V$, ogni $y, y_1, y_2 \in W$ e ogni $a \in \mathbb{R}$. \\ \\
+Se $V$ è uno spazio vettoriale e $W \leq V$ si ha che $\pi : V \longrightarrow \frac{V}{W}$ definita ponendo
+\begin{gather}
+    \pi(v) = W + v \notag
+\end{gather}
+è detta \textit{proiezione canonica}. \\ \\
+Siano $x \in V$ e $y \in W$ si scrive $x \otimes y = \pi ((x, y))$, dunque $\pi : \mathbb{R}^{V \times W} \longrightarrow V \otimes W$. \\
+Per quanto visto in precedenza $(x, y)$ è un elemento di
+\begin{gather}
+    \mathbb{R}^{V \times W} = \bigoplus_{(v, w) \in V \times W} \mathbb{R} \notag
+\end{gather}
+ovvero $(x, y) = (x, y, 0)$, cioè ha un numero finito di componenti non nulle. Pertanto $\pi ((x, y))$ trasla il sottospazio vettoriale $D$ di $(x, y)$. \\ \\
+Quindi si ottiene
+\begin{gather}
+    x \otimes y = \pi((x, y)) = D + (x, y) \notag
+\end{gather}
+allora
+\begin{gather}
+    D + ((x_1 + x_2, y) - (x_1, y) - (x_2, y)) = D \notag
+\end{gather}
+cioè
+\begin{gather}
+    D + (x_1 + x_2, y) = D + ((x_1, y) + (x_2, y)) \notag
+\end{gather}
+proprio perché per definizione $(x_1 + x_2, y) - (x_1, y) - (x_2, y) \in D$, per ogni $x_1, x_2 \in V$ e ogni $y \in W$, ovvero
+\begin{gather}
+    (x_1 + x_2) \otimes y = x_1 \otimes y + x_2 \otimes y \notag
+\end{gather}
+Con un ragionamento analogo si ottiene
+\begin{gather}
+    x \otimes (y_1 + y_2) = x \otimes y_1 + x \otimes y_2 \notag \\
+    a \cdot (x \otimes y) = ax \otimes y \notag \\
+    a \cdot (x \otimes y) = x \otimes ay \notag
+\end{gather}
+cioè $\otimes : \mathbb{R}^{V \times W} \longrightarrow V \otimes W$ è una forma bilineare. \\ \\ \\
+\textbf{Teorema (proprietà universale del prodotto tensoriale):} siano $V, W$ spazi vettoriali di dimensione finita, si ha che esiste \underline{unico} $T$ spazio vettoriale e \underline{unica} $g : V \times W \longrightarrow T$ bilineare tali che per ogni spazio vettoriale $U$ e ogni funzione $f : V \times W \longrightarrow U$ bilineare esiste \underline{unica} $h : T \longrightarrow U$ tale che $h \cdot g = f$. \\
+\[
+\begin{tikzcd}
+&V \times W \arrow[r,"f"] \arrow[d,"g", swap] & U \\
+&T \arrow[ur, "h", swap] 
+\end{tikzcd}
+\]
+
+
+\textbf{Dimostrazione:} poniamo
+\begin{gather}
+    T := V \otimes W, \quad g(x, y) := x \otimes y \notag
+\end{gather}
+$g$ è bilineare per quanto visto in precedenza. Sia $U$ uno spazio vettoriale e $f : V \times W \longrightarrow U$ una funzione bilineare. Definiamo la funzione
+\begin{gather}
+    \Tilde{f} : \mathbb{R}^{V \times W} \longrightarrow U \notag
+\end{gather}
+definita ponendo
+\begin{gather}
+    \Tilde{f}(\sum_{(x, y) \in V \times W} a_{x, y} \cdot (x, y)) = \sum_{(x, y) \in V \times W} a_{x, y} \cdot f(x, y) \notag
+\end{gather}
+si ha che, per come è stata costruita, $\Tilde{f}$ è lineare. Inoltre $\Tilde{f}(D) = 0$ proprio per la linearità di $\Tilde{f}$. \\ \\
+Poniamo $h : V \otimes W \longrightarrow U$ definita ponendo
+\begin{gather}
+    h(D + \sum_{(x, y) \in V \times W} a_{x, y} \cdot (x, y)) = \Tilde{f}(\sum_{(x, y) \in V \times W} a_{x, y} \cdot (x, y)) \notag
+\end{gather}
+per ogni $\sum_{(x, y) \in V \times W} a_{x, y} \cdot (x, y) \in \mathbb{R}^{V \times W}$. Notiamo che $D + \alpha = D + \beta$ se e solo se $\alpha - \beta \in D$, pertanto si ottiene
+\begin{gather}
+    h(D + (\alpha - \beta)) = \Tilde{f}(\alpha - \beta) = \Tilde{f}(\alpha) - \Tilde{f}(\beta) = 0 \notag
+\end{gather}
+quindi $\Tilde{f}(\alpha) = \Tilde{f}(\beta)$ e $h$ è lineare. Inoltre, se $(x, y) \in V \times W$ si ha
+\begin{gather}
+    (h \cdot g)(x, y) = h(g(x, y)) = h(x \otimes y) = \Tilde{f}((x, y)) = f(x, y) \notag
+\end{gather}
+pertanto $h \cdot g = f$. \\ \\
+Mostriamo ora che $h$ è unica. Supponiamo che esista $h' : V \otimes W \longrightarrow U$ tale che
+\begin{gather}
+    (h' \cdot g)(x, y) = h'(g(x, y)) = h'(x \otimes y) = \Tilde{f}((x, y)) = f(x, y) \notag
+\end{gather}
+per ogni $(x, y) \in V \times W$, segue che $h = h'$ poiché
+\begin{gather}
+    \{ x \otimes y : x \in V, y \in W \} \notag
+\end{gather}
+genera $V \otimes W$, ovvero sono funzioni lineari che combaciano per ogni elemento di un'insieme generatore, pertanto devono essere uguali. \\ \\
+Mostriamo ora che $T$ e $g$ sono uniche. Supponiamo che esistano $T'$ spazio vettoriale e $g' : V \times W \longrightarrow T'$ che soddisfano le condizioni del teorema. Allora esiste $h : T' \longrightarrow T$ lineare tale che $h \cdot g' = g$ \\
+\[
+\begin{tikzcd}
+&V \times W \arrow[r,"g"] \arrow[d,"g'", swap] & T \\
+&T' \arrow[ur, "h", swap] 
+\end{tikzcd}
+\]
+Analogamente esiste $h' : T \longrightarrow T'$ lineare tale che $h' \cdot g = g'$ \\
+\[
+\begin{tikzcd}
+&V \times W \arrow[r,"g'"] \arrow[d,"g", swap] & T' \\
+&T \arrow[ur, "h'", swap] 
+\end{tikzcd}
+\]
+inoltre esiste $l : T' \longrightarrow T'$ lineare tale che $l \cdot g' = g'$ \\
+\[
+\begin{tikzcd}
+&V \times W \arrow[r,"g'"] \arrow[d,"g'", swap] & T' \\
+&T' \arrow[ur, "l", swap] 
+\end{tikzcd}
+\]
+dunque si ha che $g' = h' \cdot (h \cdot g') = (h' \cdot h) \cdot g'$, ovvero $l = \mathbf{1}_{T'} = h' \cdot h$, pertanto $h$ è invertibile, dunque iniettiva, e suriettiva, ovvero $h$ è un isomorfismo, si ottiene
+\begin{gather}
+    g' \cong g \quad T' \cong T \notag
+\end{gather}
+ovvero sono unici. \\ \\ \\
+Consideriamo ora il seguente diagramma \\
+\[
+\begin{tikzcd}
+&V \times V^* \arrow[r,"f"] \arrow[d,"g", swap] & \mathbb{K} \\
+&V \otimes V^* \arrow[ur, "h", swap] 
+\end{tikzcd}
+\]
+dove $f$ è una funzione bilineare e $V$ è uno spazio vettoriale sul campo $\mathbb{K}$. Per la \textit{proprietà universale del prodotto tensoriale} si ha che
+\begin{gather}
+    \mathrm{Bil}(V \times V^*, \mathbb{K}) \cong \mathrm{Lin}(V \otimes V^*, \mathbb{K}) \notag
+\end{gather}
+ovvero
+\begin{gather}
+    \mathrm{Bil}(V \times V^*, \mathbb{K}) \cong (V \otimes V^*)^* \notag
+\end{gather}
+per definizione di spazio vettoriale duale. Ciò può essere generalizzato al caso di funzioni \textit{multilineari}, ovvero consideriamo $r$ copie di $V$ e $s$ copie di $V^*$, si ha che
+\begin{gather}
+    \mathrm{Mult}(V \times \dots \times V \times V^* \times \dots \times V^*, \mathbb{K}) \cong (V \otimes \dots \otimes V \otimes V^* \otimes \dots \otimes V^*)^* \notag
+\end{gather}
+pertanto, poiché $V \cong (V^*)^*$ si ottiene
+\begin{gather}
+    \mathrm{Mult}(V \times \dots \times V \times V^* \times \dots \times V^*, \mathbb{K}) \cong (V \otimes \dots \otimes V \otimes V^* \otimes \dots \otimes V^*) \notag
+\end{gather}
+ovvero un tensore è una funzione multilineare $t : V^{\otimes r} \otimes (V^*)^{\otimes s} \longrightarrow \mathbb{K}$. \\ \\ \\
+\textbf{Corollario 3.3.1:} dalla \textit{proprietà universale del prodotto tensoriale} si ottiene: \\
+\textbf{1.} $V \otimes W \cong W \otimes V$. \\
+\textbf{2.} $(V \otimes W) \otimes U \cong V \otimes (W \otimes U)$. \\
+\textbf{3.} $V \otimes (W \oplus U) \cong (V \oplus W) \otimes U$. \\
+\textbf{4.} $V \otimes \mathbb{R} \cong V$. \\ \\ \\
+\textbf{Proposizione 3.3.1:} siano $V, W$ spazi vettoriali di dimensione finita, siano $\{ e_i : i = 1, \dots, n \}$ una base di $V$ e $\{ f_j : j = 1, \dots, m \}$ una base di $W$, si ha che
+\begin{gather}
+    \{ e_i \otimes f_j : i = 1, \dots, n; j = 1, \dots, m \} \notag
+\end{gather}
+è una base di $V \otimes W$. In particolare $\dim (V \otimes W) = \dim V \cdot \dim W$. \\
+
+\textbf{Dimostrazione:} siano $v \in W$ e $w \in W$, per ipotesi si ha
+\begin{gather}
+    v = \sum_{i = 1}^n \lambda_i e_i, \quad w = \sum_{j = 1}^m \mu_j f_j \notag
+\end{gather}
+pertanto
+\begin{gather}
+    v \otimes w = \sum_i \sum_j \lambda_i \mu_j  (e_i \otimes f_j) \notag
+\end{gather}
+ovvero
+\begin{gather}
+    \{ e_i \otimes f_j : i = 1, \dots, n; j = 1, \dots, m \} \notag
+\end{gather}
+genera $V \otimes W$. Inoltre
+\begin{gather}
+    V = \bigoplus_{i = 1}^n \mathbb{R} \notag \\
+    W = \bigoplus_{j = 1}^m \mathbb{R} \notag
+\end{gather}
+pertanto, per i punti $(3)$ e $(4)$ del \textit{corollario 3.3.1}
+\begin{gather}
+    V \otimes W \cong \bigoplus_i \bigoplus_j (\mathbb{R} \otimes \mathbb{R}) \cong \bigoplus_i \bigoplus_j \mathbb{R} \notag
+\end{gather}
+ovvero $\dim (V \otimes W) = n \cdot m$. \\ \\
+Ragionando per induzione si può generalizzare la \textit{proposizione 3.3.1} al prodotto tensoriale di una famiglia finita di spazi vettoriali di dimensione finita.
+
+\subsubsection{Esercizi}
+\textbf{1.} Sia $V$ uno spazio vettoriale, sia $W \leq V$, determinare $\ker (\pi)$. \\
+
+\textbf{Soluzione:} si ha che $\ker (\pi) = W$, infatti
+\begin{gather}
+    \pi(w) = W \notag
+\end{gather}
+per ogni $w \in W$, per definizione di spazio vettoriale e proiezione canonica, inoltre $W$ è l'elemento neutro di $V/W$, infatti
+\begin{gather}
+    (W + v) + W = (W + v) + (W + 0) = W + (v + 0) = W + v \notag
+\end{gather}
+pertanto si ottiene la tesi. \\ \\ \\
+\textbf{2.} Siano $V, W$ spazi vettoriali, siano $\{ e_i : i \in I \}$ una base di $V$ e $\{ f_j : j \in J \}$ una base di $W$, determinare una base di $\mathrm{Hom} (V, W)$. \\
+
+\textbf{Soluzione:} si ha che
+\begin{gather}
+    \mathrm{Hom}(V, W) = \{ L : V \longrightarrow W : L \text{ omomorfismo} \} \notag
+\end{gather}
+siano $v \in V$ e $L \in \mathrm{Hom}(V, W)$, si ha che $v = \sum_i \lambda_i e_i$, inoltre
+\begin{gather}
+    L(v) = L( \sum_{i \in I} \lambda_i e_i) = \sum_{i \in I} \lambda_i L(e_i) = \sum_{i \in I} \lambda_i ( \sum_{j \in J} \mu^i_j f_j) = \sum_{i \in I} \sum_{j \in J} \lambda_i \mu^i_j f_j  \notag
+\end{gather}
+pertanto per ogni $k \in I$ la funzione $\phi_{ij} : V \longrightarrow W$ definita ponendo
+\begin{gather}
+    \phi_{ij}(e_k) = \delta_{ik}f_j \notag
+\end{gather}
+è un omomorfismo e l'insieme
+\begin{gather}
+    \{ \phi_{ij} : i \in I, j \in J \} \notag
+\end{gather}
+genera $\mathrm{Hom}(V, W)$, pertanto $\dim \mathrm{Hom}(V, W) = \dim V \cdot \dim W$. \\ \\ \\
+\textbf{3.} Sia $V$ uno spazio vettoriale, dimostrare che $V \otimes \mathbb{R} \cong V$. \\
+
+\textbf{Dimostrazione:} sfruttiamo la \textit{proprietà universale del prodotto tensoriale}, consideriamo il seguente diagramma \\
+\[
+\begin{tikzcd}
+&V \times \mathbb{R} \arrow[r,"f"] \arrow[d,"g", swap] & V \\
+&V \otimes \mathbb{R} \arrow[ur, "\Phi", swap] 
+\end{tikzcd}
+\]
+dunque esibiamo una funzione $f : V \times \mathbb{R} \longrightarrow V$ bilineare e dimostriamo che $\Phi$ è un isomorfismo. Come scelta naturale per $f$ si ha
+\begin{gather}
+    f(v, \lambda) := \lambda \cdot v \notag
+\end{gather}
+Per ogni $(v, \lambda) \in V \times \mathbb{R}$. Per ipotesi sappiamo che esiste unico $\Phi : V \otimes \mathbb{R} \longrightarrow V$ lineare tale che
+\begin{gather}
+    \Phi(v \otimes \lambda) = \lambda \cdot v = f(v, \lambda) \notag
+\end{gather}
+per ogni $(v, \lambda) \in V \times \mathbb{R}$. Esibiamo l'inversa di $\Phi$, consideriamo la funzione $\Psi : V \longrightarrow V \otimes \mathbb{R}$ definita ponendo
+\begin{gather}
+    \Psi (v) = v \otimes 1 \notag
+\end{gather}
+allora si ottiene
+\begin{gather}
+    \Phi \cdot \Psi (v) = \Phi(v \otimes 1) = 1 \cdot v = v \notag
+\end{gather}
+e
+\begin{gather}
+    \Psi \cdot \Phi (v \otimes \lambda) = \Psi (\lambda v) = v \otimes \lambda \notag
+\end{gather}
+dunque $\Phi$ è un isomorfismo e $V \times \mathbb{R} \cong V$. \\ \\
+Notiamo che, nonostante sembrerebbe che è possibile utilizzare la proprietà universale del prodotto tensoriale per dimostrare l'esistenza di un isomorfismo tra una qualsiasi coppia $V, W$ di spazi vettoriali, esibire una funzione bilineare $f : V \longrightarrow W$ non è scontato e in alcuni casi potrebbe anche non esistere, perciò è l'esistenza di $f$ che impone un limite alle applicazioni del teorema. \\ \\ \\
+\textbf{4.} Dimostrare che $\mathbf{M}_{1, n} \otimes \mathbf{M}_{m, 1} \cong \mathbf{M}_{n, m}$. \\
+
+\textbf{Soluzione:} sfruttiamo la \textit{proprietà universale del prodotto tensoriale}. Sia $\{ e_j : j = 1, \dots, n \}$ una base di $\mathbf{M}_{1, n}$ e sia $\{ f_i : i = 1, \dots, m \}$ una base di $\mathbf{M}_{m, 1}$, inoltre sia $\{ m_{ij} : 1 \leq i \leq m, 1 \leq j \leq n \}$ una base di $\mathbf{M}_{m, n}$. Consideriamo la funzione $f : \mathbf{M}_{1, n} \times \mathbf{M}_{m, 1} \longrightarrow \mathbf{M}_{n, m}$ definita ponendo
+\begin{gather}
+    f(e_j, f_i) = m_{ij} \notag
+\end{gather}
+per ogni $1 \leq i \leq m$ e ogni $1 \leq j \leq n$, ovviamente $f$ è bilineare. Per ipotesi esiste unica $\Phi : \mathbf{M}_{1, n} \otimes \mathbf{M}_{m, 1} \longrightarrow \mathbf{M}_{n, m}$ lineare tale che
+\begin{gather}
+    \Phi(e_j \otimes f_i) = m_{ij} = f(e_j, f_i) \notag
+\end{gather}
+per ogni $1 \leq i \leq m$ e ogni $1 \leq j \leq n$. Esibiamo l'inversa di $\Phi$, consideriamo la funzione $\Psi : \mathbf{M}_{m, n} \longrightarrow \mathbf{M}_{1, n} \otimes \mathbf{M}_{m, 1}$ definita ponendo
+\begin{gather}
+    \Psi (m_{ij}) = e_j \otimes f_i \notag
+\end{gather}
+allora si ha
+\begin{gather}
+    \Phi \cdot \Psi (m_{ij}) = \Phi(e_j \otimes f_i) = m_{ij} \notag
+\end{gather}
+e analogamente
+\begin{gather}
+    \Psi \cdot \Phi(e_j \otimes f_i) = \Psi(m_{ij}) = e_j \otimes f_i \notag
+\end{gather}
+ovvero $\Phi$ è un isomorfismo e $\mathbf{M}_{1, n} \otimes \mathbf{M}_{m, 1} \cong \mathbf{M}_{n, m}$.
+
+\newpage
+\textbf{5.} Siano $V, W$ spazi vettoriali di dimensione finita, dimostrare che $\mathrm{Hom}(V, W) \cong V^* \otimes W$. \\
+
+\textbf{Soluzione:} sfruttiamo la \textit{proprietà universale del prodotto tensoriale}. Sia $\{ e_i : i = 1, \dots, n \}$ una base di $V$ e sia $\{ f_j : j = 1, \dots, m \}$ una base di $W$, inoltre sia $\{ h_{ij} : 1 \leq i \leq n, 1 \leq j \leq m \}$ una base di $\mathrm{Hom}(V, W)$. Consideriamo la funzione $f : V^* \times W \longrightarrow \mathrm{Hom}(V, W)$ definita ponendo
+\begin{gather}
+    f(e^i, f_j) = h_{ij} \notag
+\end{gather}
+per ogni $1 \leq i \leq n, 1 \leq j \leq m$. Il resto della dimostrazione è del tutto analogo alla dimostrazione dell'\textit{esercizio 5}.
+
+\newpage
+\subsection{Tensori}
+\textbf{Definizione 3.4.1:} sia $V$ uno spazio vettoriale, il \textit{duale} di $V$ è lo spazio vettoriale
+\begin{gather}
+    V^* := \{ f : V \longrightarrow \mathbb{R} : f \text{ lineare} \} \notag
+\end{gather}
+Inoltre sia $\{ e_i : i = 1, \dots, n \}$ una base di $V$ e sia $e^i \in V^*$ definito ponendo
+\begin{gather}
+    e^i(e_j) = \delta_{ij} \notag
+\end{gather}
+si ha che $\{ e^i : i = 1, \dots, n \}$ è una base di $V^*$ ed è detta \textit{base duale}. \\ \\ \\
+\textbf{Definizione 3.4.2:} siano $V$ uno spazio vettoriale e $p, q$ interi positivi, un \textit{tensore} di tipo $(p, q)$ è un elemento
+\begin{gather}
+    t \in T^p_q(V) := V \otimes \dots \otimes V \otimes V^* \otimes \dots \otimes V^* \notag
+\end{gather}
+$p$ copie di $V$ e $q$ copie di $V^*$. \\ \\
+Un tensore di tipo $(p, 0)$ si dice \textit{controvariante} di grado $p$, un tensore di tipo $(0, q)$ si dice \textit{covariante} di grado $q$. Un tensore di tipo $(1, 0)$ si dice \textit{vettore}, un tensore di tipo $(0, 1)$ si dice \textit{covettore} (o \textit{vettore covariante}). \\ \\ 
+Sia $\{ e_i : i = 1, \dots, n \}$ una base di $V$ e sia $\{ e^i : i = 1, \dots, n \}$ la base duale, per la \textit{proposizione 3.3.1} si ha che esistono unici $a^{i_1, \dots, i_p}_{j_1, \dots, j_q}$ tali che
+\begin{gather}
+    t = \sum_{1 \leq i_1, \dots, i_p \leq n} \sum_{1 \leq j_1, \dots, j_q \leq n} a^{i_1, \dots, i_p}_{j_1, \dots, j_q} e_{i_1} \otimes \dots \otimes e_{i_p} \otimes e^{j_1} \otimes \dots \otimes e^{j_q} \notag
+\end{gather} \\ \\
+\textbf{Proposizione 3.4.1:} sia $V$ uno spazio vettoriale di dimensione finita, sia $\{ f_i : i = 1, \dots, n \}$ una base di $V$ e sia $\{ f^i : i = 1, \dots, n \}$ la base dello spazio duale $V^*$. Consideriamo la base $\{ e_i : i = 1, \dots, n \}$ dello spazio vettoriale $V$ e la rispettiva base duale $\{ e^i : i = 1, \dots, n \}$ tali che
+\begin{gather}
+    t = \sum_{1 \leq i_1, \dots, i_p \leq n} \sum_{1 \leq j_1, \dots, j_q \leq n} a^{i_1, \dots, i_p}_{j_1, \dots, j_q} e_{i_1} \otimes \dots \otimes e_{i_p} \otimes e^{j_1} \otimes \dots \otimes e^{j_q} \notag
+\end{gather}
+si ha che
+\begin{gather}
+    t = \sum_{1 \leq i_1, \dots, i_p \leq n} \sum_{1 \leq j_1, \dots, j_q \leq n} b^{i_1, \dots, i_p}_{j_1, \dots, j_q} f_{i_1} \otimes \dots \otimes f_{i_p} \otimes f^{j_1} \otimes \dots \otimes f^{j_q} \notag
+\end{gather}
+dove
+\begin{gather}
+    b^{k_1, \dots, k_p}_{l_1, \dots, l_q} = \sum_{1 \leq i_1, \dots, i_p \leq n} \sum_{1 \leq j_1, \dots, j_q \leq n} a^{i_1, \dots, i_p}_{j_1, \dots, j_q} \cdot \alpha^{l_1}_{i_1} \cdot \dots \cdot \alpha^{l_p}_{i_p} \cdot \beta^{j_1}_{k_1} \cdot \dots \cdot \beta^{j_q}_{k_q} \notag
+\end{gather}
+e
+\begin{gather}
+    e_i = \sum_{j} \alpha_i^j f_j, \quad e^i = \sum_j \beta^i_j f^j \notag
+\end{gather}
+per ogni $i = 1, \dots, n$. \\
+
+\textbf{Dimostrazione:} per la bilinearità del prodotto tensoriale si ha che
+\begin{gather*}
+    t = \sum_{1 \leq i_1, \dots, i_p \leq n} \sum_{1 \leq j_1, \dots, j_q \leq n} a^{i_1, \dots, i_p}_{j_1, \dots, j_q} e_{i_1} \otimes \dots \otimes e_{i_p} \otimes e^{j_1} \otimes \dots \otimes e^{j_q} = \notag \\
+    = \sum_{1 \leq i_1, \dots, i_p \leq n} \sum_{1 \leq j_1, \dots, j_q \leq n} a^{i_1, \dots, i_p}_{j_1, \dots, j_q} (\sum_{l_1 = 1}^n \alpha_{i_1}^{l_1}f_{l_1}) \otimes \dots \otimes (\sum_{l_p = 1}^n \alpha_{i_p}^{l_p}f_{l_p}) \otimes \notag \\
+    \otimes (\sum_{k_1 = 1}^n \beta^{j_1}_{k_1} f^{k_1}) \otimes \dots \otimes (\sum_{k_q = 1}^n \beta^{j_q}_{k_q} f^{k_q}) \notag = \\
+    = \sum_{1 \leq l_1, \dots, l_p \leq n} \sum_{1 \leq k_1, \dots, k_q \leq n} (\sum_{1 \leq i_1, \dots, i_p \leq n} \sum_{1 \leq j_1, \dots, j_q \leq n} a^{i_1, \dots, i_p}_{j_1, \dots, j_q} \cdot \notag \\ 
+    \cdot \alpha^{l_1}_{i_1} \dots \alpha^{l_p}_{i_p} \cdot \beta^{j_1}_{k_1} \dots \beta^{j_q}_{k_q}) \cdot f_{l_1} \otimes \dots \otimes f_{l_p} \otimes f^{k_1} \otimes \dots \otimes f^{k_q} \notag
+\end{gather*}
+dunque la tesi segue. \\ \\ \\
+\textbf{Proposizione 3.4.2:} siano $V, W$ spazi vettoriali di dimensione finita, poniamo
+\begin{gather}
+    \mathrm{End}(V) := \mathrm{Hom}(V, V) \notag
+\end{gather}
+si ha che $\mathrm{End}(V) \cong V^* \otimes V$. \\
+
+\textbf{Dimostrazione:} sfruttiamo la \textit{proprietà universale del prodotto tensoriale}, consideriamo il seguente diagramma \\
+\[
+\begin{tikzcd}
+&V^* \times V \arrow[r,"f"] \arrow[d,"g", swap] & \mathrm{End}(V) \\
+&V^* \otimes V \arrow[ur, "\Phi", swap] 
+\end{tikzcd}
+\]
+dunque esibiamo $f : V^* \times V \longrightarrow \mathrm{End}(V)$ bilineare e mostriamo che
+$\Phi$ è un isomorfismo. Sia $\{ e_i : i = 1, \dots, n \}$ una base di $V$ e sia $\{ e^i : i = 1, \dots, n \}$ la base duale, inoltre sia $\{ \alpha_{ij} : 1 \leq i, j \leq n \}$ una base di $\mathrm{End}(V)$, poniamo
+\begin{gather}
+    f(e_i, e^j) := \alpha_{ij} \notag
+\end{gather}
+per ogni $1 \leq i, j \leq n$. Per ipotesi esiste unica $\Phi : V^* \otimes V \longrightarrow \mathrm{End}(V)$ lineare tale che
+\begin{gather}
+    \Phi(e_i \otimes e^j) = \alpha_{ij} \notag
+\end{gather}
+Esibiamo l'inversa di $\Phi$, consideriamo la funzione $\Psi : \mathrm{End}(V) \longrightarrow V^* \otimes V$ definita ponendo
+\begin{gather}
+    \Psi (\alpha_{ij}) = e_i \otimes e^j \notag
+\end{gather}
+ovviamente si ha che
+\begin{gather}
+    \Phi \cdot \Psi (\alpha_{ij}) = \Phi (e_i \otimes e^j) = \alpha_{ij} \notag
+\end{gather}
+e analogamente
+\begin{gather}
+    \Psi \cdot \Phi (e_i \otimes e^j) = \Psi(\alpha_{ij}) = e_i \otimes e^j \notag
+\end{gather}
+dunque $\Phi$ è un isomorfismo e $V^* \otimes V \cong \mathrm{End}(V)$.
+
+\newpage
+\section{Varietà}
+\subsection{Varietà topologiche e differenziabili}
+\textbf{Definizione 4.1.1:} sia $X$ uno spazio topologico, $X$ è detto \textit{varietà topologica} se: \\
+\textbf{1.} $X$ è $T_2$. \\
+\textbf{2.} $X$ soddisfa il secondo assioma di numerabilità. \\
+\textbf{3.} per ogni $p \in X$ esiste un intorno aperto $U$ di $p$ tale che $U$ è omeomorfo a $\{ \mathbf{x} \in \mathbb{R}^n : \| \mathbf{x} \| < 1 \}$ per qualche $n$ intero positivo, in tal caso si pone $\dim (p) = n$. \\ \\ \\
+\textbf{Proposizione 4.1.1:} sia $X$ una varietà topologica connessa, si ha che esiste $n$ intero positivo tale che $\dim (p) = n$ per ogni $p \in X$. \\
+
+\textbf{Dimostrazione:} la funzione $\dim : X \longrightarrow \mathbb{R}$ è continua (per come è definita), pertanto $\dim (X) \subset \mathbb{R}$ è connesso, segue che $\dim(X) = \{ n \}$. \\ \\
+Se $X$ è una varietà topologica connessa e $\dim (p) = n$ per qualche $p \in X$, si ha che $\dim (p) = n$ per ogni $p \in X$, dunque poniamo $\dim X = n$. \\ \\
+Se $\dim X = 1$ $X$ è detto \textit{curva}, se $\dim X = 2$ $X$ è detto superficie. \\ \\ \\
+\textbf{Definizione 4.1.2:} sia $X$ uno spazio topologico, $X$ è detto \textit{varietà differenziabile} se esiste $\{ U_\mu, f_\mu \}_{\mu \in M}$ tale che: \\
+\textbf{1.} $\{ U_\mu : \mu \in M \}$ è un ricoprimento aperto di $X$ per ogni $\mu \in M$. \\
+\textbf{2.} per ogni $\mu \in M$ esiste $V_\mu$ aperto di $\mathbb{R}^n$ tale che $f_\mu : U_\mu \longrightarrow V_\mu$ è un omeomorfismo. \\
+\textbf{3.} per ogni $\alpha, \beta \in M$ tali che $U_\alpha \cap U_\beta \neq \emptyset$ si ha che $f_\alpha \cdot f^{-1}_\beta$ e $f_\beta \cdot f^{-1}_\alpha$ sono $C^{\infty}$ (differenziabili). \\
+\textbf{4.} $X$ è $T_2$. \\
+\textbf{5.} $X$ soddisfa il secondo assioma di numerabilità. \\ \\
+$(U_\mu, f_\mu)$ è detta \textit{carta locale}, $\{ U_\mu, f_\mu \}_{\mu \in M}$ è detto \textit{atlante}. \\ \\
+Sia $f : \mathbb{R}^n \longrightarrow \mathbb{R}$ differenziabile, $\Gamma_f$ è una varietà differenziabile con atlante $(X, p)$ dove $X = \Gamma_f$ e $p$ è definita ponendo
+\begin{gather}
+    p(x_1, \dots, x_{n + 1}) = (x_1, \dots, x_n) \notag
+\end{gather} 
+per ogni $(x_1, \dots, x_{n + 1}) \in X$. \\ \\
+Sia $\mathbf{S}^2 = \{ \mathbf{x} \in \mathbb{R}^3 : \| \mathbf{x} \| < 1 \}$, si ha che $\mathbf{S}^2$ è una varietà differenziabile con atlante $\{ U_{ijk}, f_{ijk} \}$, dove
+\begin{gather}
+    U_{100} = \{ \mathbf{x} \in \mathbf{S}^2 : x_1 > 0 \} \dots U_{00-1} = \{ \mathbf{x} \in \mathbf{S}^2 : x_3 < 0 \} \notag
+\end{gather}
+e
+\begin{gather}
+    f_{100}(x_1, x_2, x_3) = (x_2, x_3) \dots f_{00-1}(x_1, x_2, x_3) = (x_1, x_2) \notag
+\end{gather}
+Notiamo che $\{ U_{ijk} \}$ è un ricoprimento aperto di $\mathbf{S}^2$, inoltre $f_{ijk}$ è differenziabile per ogni indice $ijk$. Inoltre
+\begin{gather}
+    f_{100} \cdot f^{-1}(x_1, x_2) = f_{100}(x_1, x_2, \sqrt{1 - x^2_1 - x^2_2}) = (x_2, \sqrt{1 - x^2_1 - x^2_2}) \notag
+\end{gather}
+è differenziabile in $\{ \mathbf{x} \in \mathbb{R}^3 : x^2_1 + x^2_2 < 1 \}$. Ragionando analogamente si dimostra la differenziabilità per tutte le composizioni di funzioni. \\ \\ \\
+\textbf{Definizione 4.1.3:} sia $X$ una varietà differenziabile con atlante $\{ U_\mu, f_\mu \}_{\mu \in M}$, si ha che $f : X \longrightarrow \mathbb{R}$ è differenziabile se $f \cdot f^{-1}_\mu$ è differenziabile per ogni $\mu \in M$. \\ \\
+Analogamente, se $Y$ è una varietà differenziabile con atlante $\{ V_\alpha, g_\alpha \}_{\alpha \in H}$, si ha che $f : X \longrightarrow Y$ è differenziabile se $g_{\alpha} \cdot f \cdot f^{-1}_\mu$ è differenziabile per ogni coppia $(\mu, \alpha) \in M \times H$. \\ \\
+Per $i = 1, \dots, n$ sia $x_i : \mathbb{R}^n \longrightarrow \mathbb{R}$ definita ponendo
+\begin{gather}
+    x_i(y_1, \dots, y_n) = y_i \notag
+\end{gather}
+per ogni $(y_1, \dots, y_n) \in \mathbb{R}^n$. Sia $p \in X$ e sia $\mu \in M$ tale che $p \in U_\mu$, si ha che
+\begin{gather}
+    (x_1(f_\mu(p)), \dots, x_n(f_\mu(p))) \notag
+\end{gather}
+sono dette \textit{coordinate locali} di $X$ rispetto all'atlante $\{ U_\mu, f_\mu \}_{\mu \in M}$. \\ \\ \\
+Questa è l'utilità principale della struttura differenziabile definita in questo paragrafo, infatti se uno spazio $X$ possiede una struttura di varietà differenziabile è possibile applicare gli strumenti e i risultati del calcolo infinitesimale riconducendosi, tramite gli omeomorfismi dell'atlante, allo spazio euclideo. \\ \\ \\
+\textbf{Definizione 4.1.4:} siano $X, Y$ varietà differenziabili, sia $f : X \longrightarrow Y$, $f$ è detto \textit{diffeomorfismo} se $f$ e $f^{-1}$ sono omeomorfismi differenziabili.
+
+\subsubsection{Esercizi}
+\textbf{1.} Sia $V$ uno spazio vettoriale reale di dimensione finita $n$, consideriamo il sottospazio vettoriale
+\begin{gather}
+    \mathbf{P}(V) = \{ W \leq V : \dim W = 1 \} \notag
+\end{gather}
+detto \textit{spazio proiettivo}, dimostrare che $\mathbf{P}(V)$ è una varietà differenziabile. \\
+
+\textbf{Dimostrazione:} esibiamo un atlante differenziabile di $\mathbf{P}(V)$. Consideriamo una base $\{ e_i : i = 1, \dots, n \}$ dello spazio vettoriale $V$, poniamo
+\begin{gather}
+    U_i = \{ W \in \mathbf{P}(V) : \langle w, e_i \rangle \neq 0 \text{ per ogni } w \in W \setminus \{ 0 \} \} \notag
+\end{gather}
+si ha che $\{ U_i : i = 1, \dots, n \}$ è un ricoprimento aperto di $\mathbf{P}(V)$. Inoltre per ogni $i = 1, \dots, n$ consideriamo la funzione $f_i : U_i \longrightarrow \mathbb{R}^{n - 1}$ definita ponendo
+\begin{gather}
+    f_i(\langle \mathbf{x} \rangle) = \left( \frac{x_1}{x_i}, \dots, \frac{x_{i - 1}}{x_i}, \frac{x_{i + 1}}{x_i}, \dots, \frac{x_n}{x_i} \right) \notag
+\end{gather}
+dove con $\langle \mathbf{x} \rangle$ si identifica lo \textit{span} del vettore $\mathbf{x}$ e $x_i = \langle \mathbf{x}, e_i \rangle$. Dunque $\{ (U_i, f_i) : i = 1, \dots, n \}$ è un atlante differenziabile. Inoltre si verifica facilmente che $f_i \cdot f_j^{-1}$ è differenziabile per ogni $1 \leq i, j \leq n$ tali che $U_i \cap U_j \neq \emptyset$.
+
+\newpage
+\subsection{Spazio tangente}
+Diamo ora una definizione di \textit{spazio tangente} ad una varietà differenziabile $X$ in un punto $p \in X$. Per fare ciò generalizzeremo il concetto di \textit{derivata direzionale} definito nello spazio euclideo. \\ \\
+Sia $X = \mathbb{R}^n$, per qualche $n$ intero positivo, e sia $p \in X$, ogni vettore $\mathbf{v}$ di $\mathbb{R}^n$ induce un'operazione sulle funzioni differenziabili $f$ definite in un intorno aperto di $p$ detta derivata direzionale rispetto a $\mathbf{v}$, data da
+\begin{gather}
+    D_{\mathbf{v}}(f)(p) = \lim_{t \rightarrow 0} \frac{f(p + t\mathbf{v}) - f(p)}{t} \notag
+\end{gather}
+nel caso in cui $\mathbf{v} = \mathbf{e}_i$ per qualche $i = 1, \dots, n$, l'operazione viene detta \textit{derivata parziale} rispetto alla $i$-esima componente e si denota con
+\begin{gather}
+    \frac{\partial f}{\partial x_i}(p) = \lim_{t \rightarrow 0} \frac{f(p + t\mathbf{e}_i) - f(p)}{t} \notag
+\end{gather}
+Notiamo immediatamente che l'operazione di derivata è lineare e soddisfa la proprietà di Leibniz. \\ \\
+Nel caso in cui sia possibile determinare una parametrizzazione $\Phi : \mathbb{R}^n \longrightarrow M$ per una determinata varietà differenziabile $M$ si ha che lo spazio tangente a $M$ nel punto $x \in M$ è lo spazio generato dall'insieme
+\begin{gather}
+    \left\{ \frac{\partial \Phi}{\partial x_i} : i = 1, \dots, n \right\} \notag
+\end{gather}
+viene dunque naturale, in assenza di parametrizzazioni, sistemi di coordinate e immersioni, definire lo spazio tangente come segue. \\ \\
+\textbf{Definizione 4.2.1:} sia $X$ una varietà differenziabili, sia $p \in X$, lo \textit{spazio tangente} a $p$ in $X$ è
+\begin{gather}
+    T_pX = \{ L : C^{\infty}(X) \longrightarrow \mathbb{R} : L \text{ lineare }, L(fg) = L(f) \cdot g + L(g) \cdot f \} \notag
+\end{gather}
+Gli elementi di $T_pX$ sono detti \textit{vettori tangenti} o \textit{derivazioni}. \\ \\
+Notiamo che defininendo le seguenti operazioni
+\begin{gather}
+    (L_1 + L_2)(f) = L_1(f) + L_2(f), \quad \lambda \cdot L(f) = L(\lambda f) \notag
+\end{gather}
+per ogni $f \in C^{\infty}(X)$, ogni $L, L_1, L_2 \in T_pX$ e ogni $\lambda \in \mathbb{R}$, si ottiene che $T_pX$ è uno spazio vettoriale.
+\newpage
+\textbf{Teorema 4.2.1:} siano $X$ una varietà differenziabile e $p \in X$, si ha che $\dim T_pX = \dim X$. \\
+
+\textbf{Dimostrazione:} sia $\{ (U_\mu, \varphi_\mu) \}_{\mu \in M}$ un atlante di $X$, sia $\mu \in M$ tale che $p \in U_\mu$ e sia $n$ intero positivo tale che $U_\mu \cong V_\mu$ dove $V_\mu$ aperto di $\mathbb{R}^n$. Consideriamo una base $\{ e_i : i = 1, \dots, n \}$ di $\mathbb{R}^n$ e per ogni $i = 1, \dots, n$ e ogni $f \in C^{\infty}(X; \mathbb{R})$ poniamo
+\begin{gather}
+    L_i(f) = \frac{\partial}{ \partial x_i}(f \cdot \varphi^{-1}_\mu)|_{\varphi_\mu(p)} \notag
+\end{gather}
+ovviamente $L_i$ è lineare e soddisfa la proprietà di Leibniz per ogni $i = 1, \dots, n$, pertanto $L_i \in T_p X$ per ogni $i = 1, \dots, n$. Notiamo che $f \cdot \varphi^{-1}_\mu : V_\mu \longrightarrow \mathbb{R}$, dobbiamo dimostrare che $\{ L_i : i = 1, \dots, n \}$ è un insieme linearmente indipendente di generatori di $T_p X$, ovvero che ogni $L \in T_p X$ può essere scritto come combinazione lineare degli $L_i$ e che
+\begin{gather}
+    \sum_{i = 1}^n \alpha_i L_i = 0 \iff \alpha_i = 0 \text{ per ogni } i = 1, \dots, n \notag
+\end{gather}
+Osserviamo immediatamente che sono linearmente indipendenti, ovvero
+\begin{gather}
+    \sum_i \alpha_i L_i(f) = \sum_i \alpha_i \frac{\partial}{\partial x_i}(f \cdot \varphi^{-1}_\mu)|_{\varphi_\mu(p)} = 0 \notag
+\end{gather}
+per ogni $f \in C^{\infty}(X; \mathbb{R})$ se e solo se $\alpha_i = 0$ per ogni $i = 1, \dots, n$. Sia $L \in T_p X$, poiché $L$ ha come dominio lo spazio delle funzioni di classe $C^{\infty}$ si ha che, per intorni abbastanza piccoli di $\varphi_\mu(p)$, posso scrivere una funzione $f \cdot \varphi^{-1}_\mu$, dove $f \in C^{\infty}(X; \mathbb{R})$, come la sua espansione al primo ordine, ovvero posso applicare $L$ all'espansione al primo ordine di $f$, pertanto
+\begin{gather}
+    L(f) = L \left( f \cdot \varphi^{-1}_\mu(\varphi_\mu(p)) + \sum_{i = 1}^n \frac{\partial}{\partial x_i}(f \cdot \varphi^{-1}_\mu)|_{\varphi_\mu(p)} (x_i - \varphi_\mu(p)) \right) \notag
+\end{gather}
+inoltre poiché $L$ annulla le funzioni costanti (segue dalla proprietà di Leibniz) si ottiene
+\begin{gather}
+    L(f) = \sum_{i = 1}^n L(x_i - \varphi_\mu(p))L_i(f) = \sum_{i = 1}^n \lambda_i L_i(f) \notag
+\end{gather}
+con $\lambda_i = L(x_i)$, pertanto la tesi segue. \\ \\ \\
+\textbf{Definizione 4.2.2:} sia $f \in C^{\infty}(X; Y)$, il \textit{differenziale} di $f$ in $p$ è la funzione lineare
+\begin{gather}
+    \mathrm{d}f_p : T_pX \longrightarrow T_{f(p)}Y \notag
+\end{gather}
+definita ponendo
+\begin{gather}
+    \mathrm{d}f_p(L)[g] = L(g \cdot f) \notag
+\end{gather}
+per ogni $L \in T_pX$ e ogni $g \in C^{\infty}(Y, X)$.
+\end{document}
+
