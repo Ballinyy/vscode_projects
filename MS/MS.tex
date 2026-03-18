@@ -500,7 +500,7 @@ il primo integrale è nullo dato che $x_i(\mathcal{H} - E) = 0$ per $\mathcal{H}
 che è la tesi, dove si è usata la formula di derivazione di funzione integrale rispetto ad un parametro e $T = \left(\frac{\partial S}{\partial E}\right)^{-1}$. \qed
 
 \subsubsection{Esercizi}
-\textbf{1.} Consideriamo un insieme di $N$ siti a due stati, in particolare ogni sito del sistema può avere energia $0$ o energia $\varepsilon$ fissata. Fissata l'energia del sistema siamo interessati a determinare l'espressione dell'entropia al limite termodinamico. \\
+\textbf{1.} Consideriamo un insieme di $N$ siti localizzati a due stati, in particolare ogni sito del sistema può avere energia $0$ o energia $\varepsilon$ fissata. Fissata l'energia del sistema siamo interessati a determinare l'espressione dell'entropia al limite termodinamico. \\
 
 \textbf{Soluzione:} fissiamo l'energia totale del sistema $E = m\varepsilon$, dove $m$ è il numero di stati ad energia $\varepsilon$. Il primo sito con energia $\varepsilon$ ha $N$ possibili opzioni. Fissato il primo, il secondo ha $N - 1$ possibili opzioni e così via fino ad aver assegnato ogni quanto di energia $\varepsilon$. Tuttavia l'ordine di scelta non cambia il sistema finale, finché gli stati con quanto di energia non nullo siano sempre gli stessi. Pertanto
 \begin{align}
@@ -509,11 +509,53 @@ che è la tesi, dove si è usata la formula di derivazione di funzione integrale
 Al limite termidinamico si ha 
 \begin{align}
     S(m, N) &\sim k\left(N\ln N - N - (N - m)\ln(N - m) + (N - m) - m\ln m + m\right) \notag \\
-    &= k\left(N\ln\frac{N}{N - m} - m\ln\frac{m}{N - m}\right) \notag
-\end{align} \\
-\textbf{2.} Consideriamo un sistema composto da $N$ oscillatori armonici quantistici unidimensionali. Fissata l'energia del sistema siamo interessati a determinare l'espressione dell'entropia al limite termodinamico. \\
+    &= k\left(N\ln N - (N - m)\ln(N - m) - m\ln m\right) \notag
+\end{align}
+Notiamo che 
+\begin{align}
+    \frac{1}{T} &= \left(\frac{\partial S}{\partial E}\right)_N \notag \\
+    &= \left(\frac{\partial m}{\partial E}\frac{\partial S}{\partial m}\right)_N \notag \\
+    &= \frac{k}{\varepsilon}\ln 
+    \left(\frac{N}{m} - 1\right) \notag
+\end{align}
+ovvero 
+\begin{align}
+    e^{\frac{\varepsilon}{kT}} &= \frac{N}{m} - 1 \notag
+\end{align}
+quindi 
+\begin{align}
+    m = \frac{N}{e^{\frac{\varepsilon}{kT}} + 1} \tag{1.2.49}
+\end{align}
+Notiamo che per $T \rightarrow \infty$ si ha $m = N/2$, ovvero quando l'energia termica è molto più grande del quanto di energia $\varepsilon$ si osserva la configurazione per la quale $\Gamma$ è massimo. Mentre per $T \rightarrow 0$ si ha $m = 0$, ovvero a basse temperature non ci sono quanti di energia accessibili. \\ \\
+\textbf{2.} Consideriamo un sistema composto da $N$ oscillatori armonici quantistici $3D$. Fissata l'energia del sistema siamo interessati a determinare l'espressione dell'entropia al limite termodinamico. \\
 
-\textbf{Soluzione:}
+\textbf{Soluzione:} limitiamoci per un attimo al caso di oscillatori armonici quantistici unidimensionali. Possiamo pensare a tale sistema come un insieme di $N$ scatole localizzate, ognuna con un numero $n_i$ di quanti di energia. In particolare, fissata l'energia totale del sistema $E$, si ha 
+\begin{align}
+    E = \sum_{i = 1}^N(n_i + \frac{1}{2}) = \sum_{i = 1}^N n_i + \frac{N}{2} \notag
+\end{align}
+dove si è espressa l'energia di ogni oscillatore armonico quantistico in unità di $\hbar\omega$. Il sistema è costruito da una successione (finita) di oggetti, ovvero i quanti di energia e le pareti delle scatole. A parte le pareti "esterne" che sono fissate, ci sono $N - 1$ pareti e $M = E - \frac{N}{2}$ quanti disponibili. Abbiamo quindi un insieme di $M + N - 1$ oggetti, tuttavia non sono tutti indistinguibili, infatti i quanti formano un sottoinsieme composto da oggetti tutti indindistinguibili tra loro e lo stesso vale per le pareti. Concludiamo che il numero totale di configurazioni distinguibili è 
+\begin{align}
+    \Gamma(N, M) &= \frac{(M + N - 1)!}{M!(N - 1)!} \tag{1.2.50}
+\end{align}
+Nel caso $3D$ basta sostituire $N$ con $3N$, infatti l'hamiltoniano dell'oscillatore armonico quantistico $3D$ è la somma di 3 hamiltoniani unidimensionali. Allora si ha 
+\begin{align}
+    \Gamma(N, M) &= \frac{(M + 3N - 1)!}{M!(3N - 1)!} \tag{1.2.51}
+\end{align}
+Al limite termodinamico $3N - 1 \sim 3N$, quindi, usando la formula di Stirling, si ottiene 
+\begin{align}
+    S(N, M) &\sim k\left((M + 3N)\ln(M + 3N) - M\ln M - 3N\ln 3N\right) \notag
+\end{align}
+esplicitando la dipendenza dall'energia totale $E$ e fattorizzando $N$ si ottiene 
+\begin{align}
+    S(N, E) &\sim kN\left(\left(u + \frac{3}{2}\right)\ln N\left(u + \frac{3}{2}\right) - \left(u - \frac{3}{2}\right)\ln N\left(u - \frac{3}{2}\right) - 3\ln 3N\right) \notag \\
+    &= kN\left(u\ln \frac{u + 3/2}{u - 3/2} + \frac{3}{2}\ln\left(u^2 - \frac{9}{4}\right) -3\ln3\right) \notag
+\end{align}
+Notiamo che 
+\begin{align}
+    \frac{1}{T} &= \left(\frac{\partial S}{\partial E}\right)_N \notag \\
+    &= \left(\frac{\partial u}{\partial E}\frac{\partial S}{\partial u}\right)_N \notag \\
+    &=
+\end{align}
 
 
 

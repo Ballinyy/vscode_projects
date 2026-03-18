@@ -406,7 +406,7 @@ dunque, dato che la successione delle somme parziali
 \end{align}
 converge semplicemente, poiché per ipotesi converge assolutamente, si ha che anche la successione $\{x_n : n \in \mathbf{N}\}$ converge, infatti
 \begin{align}
-    \lim_{n \rightarrow \infty}x_n = x_1 + \lim_{n \rightarrow \infty}\sum_{i = 1}^n(x_{i + 1} - x_i) < \infty \notag
+    \lim_{n \rightarrow \infty}x_n = x_1 + \lim_{n \rightarrow \infty}\sum_{i = 1}^n(x_{i + 1} - x_i) \notag
 \end{align}
 Allora segue immediatamente il seguente risultato. \\ \\
 \textbf{Proposizione 1.2.2:} ogni successione a termini reali o complessi a variazione finita è convergente. \\ 
@@ -489,8 +489,8 @@ un'altra isometria, esiste un'isometria suriettiva $\phi : \overline{X} \longrig
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che i seguenti spazi normati sono di Banach: \\
 \begin{align}
-    &a. \quad l^1(\mathbf{N}) := \{\mathbf{x} = \{x_n\}_{n \in \mathbf{N}} : \sum_{i = 1}^\infty |x_i| < \infty\} \text{ rispetto alla norma }\|\cdot\|_1 \notag \\
-    &b. \quad l^2(\mathbf{N}) := \{\mathbf{x} = \{x_n\}_{n \in \mathbf{N}} : \sum_{i = 1}^\infty |x_i|^2 < \infty\} \text{ rispetto alla norma }\|\cdot\|_2 \notag \\
+    &a. \quad l^1(\mathbf{N}) := \{\mathbf{x} = \{x^n\}_{n \in \mathbf{N}} : \sum_{i = 1}^\infty |x^i| < \infty\} \text{ rispetto alla norma }\|\cdot\|_1 \notag \\
+    &b. \quad l^2(\mathbf{N}) := \{\mathbf{x} = \{x^n\}_{n \in \mathbf{N}} : \sum_{i = 1}^\infty |x^i|^2 < \infty\} \text{ rispetto alla norma }\|\cdot\|_2 \notag \\
     &c. \quad \mathcal{B}(X, Y) \text{ se } Y \text{ è di Banach, rispetto alla norma } \|\cdot\|_{op} \notag
 \end{align} \\
 
@@ -506,20 +506,19 @@ per ogni $n, m > N_\varepsilon$. Allora per ogni $k \in \mathbf{N}$ si ha
 \begin{align}
     |x^k_n - x^k_m| < \varepsilon \notag
 \end{align}
-per ogni $n, m > N_\varepsilon$, dunque per ogni $k \in \mathbf{N}$ si ha che $\{x^k_n : n \in \mathbf{N}\}$ è una successione di Cauchy a termini complessi. Per la \textit{proposizione 1.2.4}, per ogni $k \in \mathbf{N}$ esiste $x^k \in \mathbf{C}$ ed esiste $N_l \in \mathbf{N}$ tale che
+per ogni $n, m > N_\varepsilon$, dunque per ogni $k \in \mathbf{N}$ si ha che $\{x^k_n : n \in \mathbf{N}\}$ è una successione di Cauchy a termini complessi. Per la \textit{proposizione 1.2.4}, per ogni $k \in \mathbf{N}$ esiste $x^k \in \mathbf{C}$ tale che 
 \begin{align}
-    |x^k_n - x^k| < \varepsilon2^{-l} \notag
+    x^k = \lim_{n \rightarrow \infty} x^k_n \notag
 \end{align}
-per ogni $n > N_l$. Sia $\mathbf{x} = \{x^k : k \in \mathbf{N}\}$, allora
+Sia $\mathbf{x} = \{x^k : k \in \mathbf{N}\}$, si ha che 
 \begin{align}
-    \|\mathbf{x}_n - \mathbf{x}\|_1 &= \sum_{k = 1}^\infty|x^k_n - x^k| \notag \\
-    &< \varepsilon\sum_{l = 1}^\infty 2^{-l} = \varepsilon \notag
+    \|\mathbf{x}_n - \mathbf{x}\|_1 = \sum_{k = 1}^\infty |x^k_n - x^k| \notag
 \end{align}
-per ogni $n > N_l$. Inoltre, fissato $n > N_l$ si ha
+Per definizione di limite esiste $N_{\varepsilon, k} \in \mathbf{N}$ tale che 
 \begin{align}
-    \|\mathbf{x}\|_1 \leq \|\mathbf{x} - \mathbf{x}_n\|_1 + \|\mathbf{x}_n\|_1 < \infty \notag
-\end{align} 
-ovvero la tesi. \\ \\
+    |x^k_n - x^k| < \varepsilon 2^{-k} \notag
+\end{align}
+per ogni $n > N_{\varepsilon, k}$. \\ \\
 $(b)$ Sia $\{\mathbf{x}_n : n \in \mathbf{N}\} \subset l^2(\mathbf{N})$ una successione di Cauchy. Fissato $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbf{N}$ tale che 
 \begin{align}
     \|\mathbf{x}_n - \mathbf{x}_m\|_2 < \varepsilon \notag
@@ -528,7 +527,7 @@ per ogni $n, m > N_\varepsilon$, ovvero
 \begin{align}
     \sum_{k = 1}^\infty|x^k_n - x^k_m|^2 < \varepsilon^2 \notag
 \end{align}
-per ogni $n, m > N-\varepsilon$. Allora per ogni $k \in \mathbf{N}$ si ha
+per ogni $n, m > N_\varepsilon$. Allora per ogni $k \in \mathbf{N}$ si ha
 \begin{align}
     |x^k_n - x^k_m| < \varepsilon \notag
 \end{align}

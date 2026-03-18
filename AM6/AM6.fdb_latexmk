@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1773691482.11001 "c:/Users/aless/vscode_tex/AM6/AM6.tex" "AM6.pdf" "AM6" 1773691483.87517 0
-  "AM6.aux" 1773691483 568 fd3517e4a9badad9eca9f2a9e3a2d7bc "pdflatex"
-  "AM6.tex" 1773691480 29186 0f254fef8007621e00d2530e755c5b2a ""
-  "AM6.toc" 1773691483 330 1ad6942b88ca17823a7e919728d5883f "pdflatex"
-  "c:/Users/aless/vscode_tex/AM6/AM6.tex" 1773691480 29186 0f254fef8007621e00d2530e755c5b2a ""
+["pdflatex"] 1773847424.38146 "c:/Users/aless/vscode_tex/AM6/AM6.tex" "AM6.pdf" "AM6" 1773847426.1601 0
+  "AM6.aux" 1773847425 568 fd3517e4a9badad9eca9f2a9e3a2d7bc "pdflatex"
+  "AM6.tex" 1773847422 29062 bdd8a328c7e6c3c518d849eb68254bd8 ""
+  "AM6.toc" 1773847425 330 1ad6942b88ca17823a7e919728d5883f "pdflatex"
+  "c:/Users/aless/vscode_tex/AM6/AM6.tex" 1773847422 29062 bdd8a328c7e6c3c518d849eb68254bd8 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1773573954 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1773573954 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
