@@ -902,7 +902,7 @@ Poniamo $\varepsilon_k = 2^{-(k + 1)}$ e definiamo $\nu(0)$ come il minimo natur
 \textbf{Definizione:} uno spazio normato $(X, \|\cdot\|)$ è detto di Banach se è completo rispetto alla metrica indotta dalla norma. \\ \\
 \textbf{Proposizione 2.2.4:} $\mathbf{R}$ e $\mathbf{C}$ sono spazi di Banach. \\
 
-\textbf{Dimostrazione:} per la \textit{proposizione 1.2.3} ogni successione di Cauchy ammette una sottosuccessione a variazione finita, per la \textit{proposizione 1.2.2} ogni successione a termini reali o complessi a variazione finita è convergente e infine per la \textit{proposizione 1.2.1} ogni successione di Cauchy che ammette una sottosuccessione convergente è convergente. \qed \\ \\
+\textbf{Dimostrazione:} per la \textit{proposizione 2.2.3} ogni successione di Cauchy ammette una sottosuccessione a variazione finita, per la \textit{proposizione 2.2.2} ogni successione a termini reali o complessi a variazione finita è convergente e infine per la \textit{proposizione 2.2.1} ogni successione di Cauchy che ammette una sottosuccessione convergente è convergente. \qed \\ \\
 Altrimenti avremmo potuto argomentare come segue. Ogni successione di Cauchy (in uno spazio normato) è limitata, infatti per ipotesi esiste $N \in \mathbf{N}$ tale che
 \begin{align}
     \|x_n - x_m\| < 1 \notag
@@ -942,7 +942,7 @@ per ogni $n, m > N_\varepsilon$. Allora per ogni $t \in S$ si ha
 \begin{align}
     |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \varepsilon \notag
 \end{align}
-per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbf{N}\}$ è una successione di Cauchy a termini complessi per ogni $t \in S$. Per la \textit{proposizione 1.2.4} per ogni $t \in S$ esiste $M_{\varepsilon, t} \in \mathbf{N}$ tale che
+per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbf{N}\}$ è una successione di Cauchy a termini complessi per ogni $t \in S$. Per la \textit{proposizione 2.2.4} per ogni $t \in S$ esiste $M_{\varepsilon, t} \in \mathbf{N}$ tale che
 \begin{align}
     |f_n(t) - f(t)| < \varepsilon \notag
 \end{align}
@@ -1005,7 +1005,39 @@ e definendo metrica $\overline{d}$ come
 \begin{align}
     \overline{d}\left([\{x_n\}_{n \in \mathbf{N}}], [\{y_n\}_{n \in \mathbf{N}}]\right) = \lim_{n \rightarrow \infty}d(x_n, y_n) \notag
 \end{align}
-Si vede facilmente che $+$ e $\cdot$ sono ben definite e soddisfano tutte le proprietà richieste. Resta da controllare che $\overline{d}$ sia ben posta, ovvero che sia indipendente dalla scelta del rappresentante della classe di equivalenza.
+Si vede facilmente che $+$ e $\cdot$ sono ben definite e soddisfano tutte le proprietà richieste. Resta da controllare che $\overline{d}$ sia ben posta, ovvero che sia indipendente dalla scelta del rappresentante della classe di equivalenza. Siano 
+\begin{align}
+    \{y_n\}_{n \in \mathbf{N}}, \{z_n\}_{n \in \mathbf{N}} \in [\{x_n\}_{n \in \mathbf{N}}] \notag \\
+    \{y'_n\}_{n \in \mathbf{N}}, \{z'_n\}_{n \in \mathbf{N}} \in [\{x'_n\}_{n \in \mathbf{N}}] \notag
+\end{align}
+vogliamo mostrare che 
+\begin{align}
+    \lim_{n \rightarrow \infty}\overline{d}(y_n, y'_n) = \lim_{n \rightarrow \infty}\overline{d}(z_n, z'_n) \notag 
+\end{align}
+ovvero 
+\begin{align}
+    \lim_{n \rightarrow \infty}(\overline{d}(y_n, y'_n) - \overline{d}(z_n, z'_n)) = 0 \notag
+\end{align}
+per la disuguaglianza triangolare si ha 
+\begin{align}
+    \lim_{n \rightarrow \infty}\overline{d}(y_n, y'_n) &\leq \lim_{n \rightarrow \infty} (\cancel{\overline{d}(y_n, z_n)} + \overline{d}(z_n, y'_n)) \notag \\
+    &\leq \lim_{n \rightarrow \infty}(\overline{d}(z_n, z'_n) + \cancel{\overline{d}(z'_n, y'_n)}) \notag \\
+    &= \lim_{n \rightarrow \infty}\overline{d}(z_n, z'_n) \notag
+\end{align}
+analogamente vale la disuguaglianza inversa, infatti
+\begin{align}
+    \lim_{n \rightarrow \infty}\overline{d}(z_n, z'_n) &\leq \lim_{n \rightarrow \infty}(\cancel{\overline{d}(z_n, y_n)} + \overline{d}(y_n, z'_n)) \notag \\
+    &\leq \lim_{n \rightarrow \infty}(\overline{d}(y_n, y'_n) + \cancel{\overline{d}(y'_n, z'_n)}) \notag \\
+    &= \lim_{n \rightarrow \infty}\overline{d}(y_n, y'_n) \notag
+\end{align}
+e confrontando le due disuguaglianze si ottiene 
+\begin{align}
+    \lim_{n \rightarrow \infty}\overline{d}(y_n, y'_n) = \lim_{n \rightarrow \infty}\overline{d}(z_n, z'_n) \notag
+\end{align}
+Ora mostriamo che $(\overline{X}, \overline{d})$ è completo. Consideriamo una successione di Cauchy in $\overline{X}$ 
+\begin{align}
+    \{[\{x^m_n\}_{n \in \mathbf{N}}]\}_{m \in \mathbf{N}} \subset \overline{X} \notag
+\end{align}
 
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che i seguenti spazi normati sono di Banach: \\
@@ -1027,7 +1059,7 @@ per ogni $n, m > N_\varepsilon$. Allora per ogni $k \in \mathbf{N}$ si ha
 \begin{align}
     |x^k_n - x^k_m| < \varepsilon \notag
 \end{align}
-per ogni $n, m > N_\varepsilon$, dunque per ogni $k \in \mathbf{N}$ si ha che $\{x^k_n : n \in \mathbf{N}\}$ è una successione di Cauchy a termini complessi. Per la \textit{proposizione 1.2.4}, per ogni $k \in \mathbf{N}$ esiste $x^k \in \mathbf{C}$ tale che 
+per ogni $n, m > N_\varepsilon$, dunque per ogni $k \in \mathbf{N}$ si ha che $\{x^k_n : n \in \mathbf{N}\}$ è una successione di Cauchy a termini complessi. Per la \textit{proposizione 2.2.4}, per ogni $k \in \mathbf{N}$ esiste $x^k \in \mathbf{C}$ tale che 
 \begin{align}
     x^k = \lim_{n \rightarrow \infty} x^k_n \notag
 \end{align}

@@ -15,4 +15,4 @@
 \contentsline {subsection}{\numberline {2.1}Operatori limitati}{25}{}%
 \contentsline {subsubsection}{\numberline {2.1.1}Esercizi}{32}{}%
 \contentsline {subsection}{\numberline {2.2}Completezza}{35}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Esercizi}{40}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Esercizi}{41}{}%
