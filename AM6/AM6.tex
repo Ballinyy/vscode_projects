@@ -37,8 +37,8 @@ In $\mathbf{R}^n$ fissiamo su ogni asse coordinato un numero finito di punti, si
 \begin{equation}
     x_n = a^n_1, \ x_n = a^n_2, \dots , \ x_n = a^n_{k_n} \notag
 \end{equation}
-L'unione di questi $k_1 + k_2 + \dots + k_n$ iperpiani è detto \textbf{reticolato} su $\mathbf{R}^n$. Un reticolato $\mathcal{P}$ suddivide $\mathbf{R}^n$ in un numero finito di intervalli chiusi e limitati, detti \textit{intervalli del reticolato}, più un numero finito di insiemi illimitati. \\ \\
-\textbf{Definizione:} un insieme $X$ è detto \textbf{plurintervallo} di $\mathbf{R}^n$ se esiste un reticolato $\mathcal{P}$ tale che $X$ è unione finita di \textit{intervalli} di $\mathcal{P}$ (anche non tutti). Allora se $I_1, I_2, \dots, I_m$ sono intervalli di $\mathcal{P}$ si ha che:
+L'unione di questi $k_1 + k_2 + \dots + k_n$ iperpiani è detto \textit{reticolato} su $\mathbf{R}^n$. Un reticolato $\mathcal{P}$ suddivide $\mathbf{R}^n$ in un numero finito di intervalli chiusi e limitati, detti \textit{intervalli del reticolato}, più un numero finito di insiemi illimitati. \\ \\
+\textbf{Definizione:} un insieme $X$ è detto \textit{plurintervallo} di $\mathbf{R}^n$ se esiste un reticolato $\mathcal{P}$ tale che $X$ è unione finita di \textit{intervalli} di $\mathcal{P}$ (anche non tutti). Allora se $I_1, I_2, \dots, I_m$ sono intervalli di $\mathcal{P}$ si ha che:
 \begin{equation}
     X = I_1 \cup \dots \cup I_m \implies m(X) = m(I_1) + \dots + m(I_m) \notag
 \end{equation}
@@ -219,7 +219,7 @@ consideriamo solamente la distanza lungo l'asse $\hat{x}_1$ poiché il raggio di
 Estendiamo ora le definizioni e i risultati precedenti agli insiemi di misura infinita.\\ \\
 \textbf{Definizione:} un insieme $E \subset \mathbf{R}^n$ si dice misurabile se per ogni $r > 0$ l'insieme $E \cap B_r(0)$ è misurabile, cioè se per ogni $r > 0$ si ha $\underline{m}(E \cap B_r(0)) = \overline{m}(E \cap B_r(0))$. \\
 Notiamo che questa definizione è ancora valida per gli insiemi di misura finita. \\ \\ \\
-\textit{Proposizione 1.4.1:} sia $E \subset \mathbf{R}^n$ un insieme misurabile, allora $\underline{m}(E) = \overline{m}(E) = \\ = \lim_{r \rightarrow \infty} m(E \cap B_r(0))$. \\
+\textbf{Proposizione 1.4.1:} sia $E \subset \mathbf{R}^n$ un insieme misurabile, allora $\underline{m}(E) = \overline{m}(E) = \\ = \lim_{r \rightarrow \infty} m(E \cap B_r(0))$. \\
 
 \textbf{Dimostrazione:} notiamo che $L := \lim_{r \rightarrow \infty} m(E \cap B_r(0))$ esiste poiché $m(E \cap B_r(0))$ è una funzione crescente di $r$. Per ogni $r$ esiste un compatto $K_r$ tale che $K_r \subset E \cap B_r(0) \subset E$ e $m(K_r) > m(E \cap B_r(0)) - \frac{1}{r}$, ciò comporta:
 \begin{gather}
@@ -251,7 +251,7 @@ dunque confrontando i risultati si ottiene la tesi. \qed \\ \\
     F \cap B_r(0) &= \bigcap_{i \in I} \left(F_i \cap B_r(0) \right) \notag \\
     &= \mathbf{R}^n \setminus \bigcup_{i \in I} \mathbf{R}^n \setminus (F_i \cap B_r(0)) \notag
 \end{align}
-che è unione numerabile di insiemi misurabili e quindi misurabile per il \textbf{teorema 3.1}. \\ \\ \\
+che è unione numerabile di insiemi misurabili e quindi misurabile per il \textit{teorema 1.3.1}. \\ \\ \\
 \textbf{3.} sia $\{ F_i \}_{i \in I}$ una famiglia numerabile di insiemi misurabili con $m(F_1) < + \infty$ e \\ $F_1 \supset F_2 \supset \dots$, sia $F := \bigcap_{i \in I} F_i$. Dimostrare che $m(F) = \lim_{i \rightarrow \infty} m(F_i)$. \\
 
 \textbf{Soluzione:} sappiamo che $F$ è misurabile dall'esercizio precedente. Consideriamo gli insiemi $E_i := F_1 \setminus F_i$, notiamo che sono misurabili e $E_1 \subset E_2 \subset \dots$, si ha:
@@ -370,7 +370,7 @@ infine per ipotesi si ottiene la tesi, ovvero:
 \begin{gather}
     \lim_{i \rightarrow \infty} \int \alpha_i{'} = \lim_{i \rightarrow \infty} \int \beta_{i}^{'} = \int f \notag
 \end{gather} \qed \\
-\textbf{Proposizione 1.6.2:} Condizione sufficiente e necessaria affinché una funzione \\ $f : \mathbb{R}^n \longrightarrow \mathbb{R}$ sia sommabile è che per ogni $\varepsilon > 0$ esistono due funzioni semplici $\alpha \geq f$ e $\beta \leq f$ tali che:
+\textbf{Proposizione 1.6.2:} Condizione sufficiente e necessaria affinché una funzione \\ $f : \mathbf{R}^n \longrightarrow \mathbf{R}$ sia sommabile è che per ogni $\varepsilon > 0$ esistono due funzioni semplici $\alpha \geq f$ e $\beta \leq f$ tali che:
 \begin{gather}
     \int (\alpha - \beta) \mathrm{d} \mathbf{x} < \varepsilon \notag
 \end{gather} \\
@@ -481,14 +481,15 @@ $(5)$ sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$, poniamo $M_i(\mathbf{x}) :=
 
 \textbf{Dimostrazione:} ($\Rightarrow)$ sia $f$ misurabile, per ipotesi abbiamo che $F_t$ è misurabile per ogni $t \in \mathbf{R}$, pertanto anche:
 \begin{gather}
-    \mathcal{F} = \bigcup_{t \in \mathbb{R}} F_t \times (-\infty, t) \notag
+    \mathcal{F} = \bigcup_{t \in \mathbf{R}} F_t \times (-\infty, t) \notag
 \end{gather}
 è misurabile poiché prodotto cartesiano e unione numerabile di insiemi misurabili. \\ \\
 $(\Leftarrow)$ Sia $\mathcal{F}$ misurabile
 
+\newpage
 \section{Spazi di operatori}
 \subsection{Operatori limitati}
-\textbf{Lemma (1.1.1):} sia $(X, \|\cdot\|)$ uno spazio normato, allora si ha
+\textbf{Lemma (2.1.1):} sia $(X, \|\cdot\|)$ uno spazio normato, allora si ha
 \begin{gather}
     |\|u\| - \|v\|| \leq \|u - v\| \notag
 \end{gather}
@@ -598,7 +599,7 @@ per ogni $s \in \mathbf{S}^1$ e poniamo $\lambda = \|s_m\|$, $\lambda \neq 0$ po
 \end{gather}
 e quindi segue la tesi. \qed \\ \\
 \textbf{Definizione:} siano $X, Y$ spazi lineari, un operatore lineare $T : X \longrightarrow Y$ è detto limitato se esiste $M > 0$ tale che $\|T(v)\| \leq M\|v\|$ per ogni $v \in X$. \\ \\
-\textbf{Proposizione (1.1.1):} siano $X, Y$ spazi vettoriali e sia $T : X \longrightarrow Y$ un operatore lineare, allora le seguenti sono equivalenti: \\
+\textbf{Proposizione (2.1.1):} siano $X, Y$ spazi vettoriali e sia $T : X \longrightarrow Y$ un operatore lineare, allora le seguenti sono equivalenti: \\
 \textbf{1.} $T$ è limitato in $X$. \\
 \textbf{2.} $T$ è continuo in $X$. \\
 \textbf{3.} $T$ è continuo in $0 \in X$. \\
@@ -673,7 +674,7 @@ infatti per definizione di norma operatore si ha
 \begin{align}
     \frac{\|T(u)\|}{\|u\|} \leq \|T\|_{op} \notag
 \end{align} \\
-\textbf{Proposizione (1.1.2):} siano $X, Y$ spazi vettoriali, allora $(\mathcal{B}(X, Y), \|\cdot\|_{op})$ è uno spazio normato. \\
+\textbf{Proposizione (2.1.2):} siano $X, Y$ spazi vettoriali, allora $(\mathcal{B}(X, Y), \|\cdot\|_{op})$ è uno spazio normato. \\
 
 \textbf{Dimostrazione:} definiamo le seguenti operazioni di somma $+$ e di prodotto per scalare $\cdot$ su $\mathcal{B}(X, Y)$
 \begin{align}
@@ -744,7 +745,7 @@ pertanto ponendo $M_\lambda = \lambda M$ si ha
     \|\lambda T\|_{op} \leq M_\lambda \notag
 \end{align}
 ovvero $\lambda T$ limitato. \qed \\ \\
-\textbf{Proposizione (1.1.3):} la norma $\|\cdot\|_{op}$ è submoltiplicativa, ovvero
+\textbf{Proposizione (2.1.3):} la norma $\|\cdot\|_{op}$ è submoltiplicativa, ovvero
 \begin{align}
     \|T_1 \cdot T_2\|_{op} \leq \|T_1\|_{op}\|T_2\|_{op} \notag
 \end{align}
@@ -847,7 +848,7 @@ per ogni $n, m > N_\varepsilon$. \\ \\
     d(x_n, x_m) &\leq d(x_n, x) + d(x, x_m) < 2\varepsilon \notag
 \end{align}
 per ogni $n, m > N_\varepsilon$, per definizione di convergenza di successione in uno spazio metrico. \\ \\
-\textbf{Proposizione 1.2.1:} ogni successione di Cauchy che ammette una sottosuccessione convergente è convergente. \\
+\textbf{Proposizione 2.2.1:} ogni successione di Cauchy che ammette una sottosuccessione convergente è convergente. \\
 
 \textbf{Dimostrazione:} sia $\{x_n : n \in \mathbf{N}\} \subset X$ una successione di Cauchy e sia $\{x_{\nu(k)} : \nu : \mathbf{N} \longrightarrow \mathbf{N}\}$ una sottosuccessione convergente a $x \in X$. Fissiamo $\varepsilon > 0$, per definizione esiste $N_\varepsilon \in \mathbf{N}$ tale che
 \begin{align}
@@ -884,10 +885,10 @@ converge semplicemente, poiché per ipotesi converge assolutamente, si ha che an
     \lim_{n \rightarrow \infty}x_n = x_1 + \lim_{n \rightarrow \infty}\sum_{i = 1}^n(x_{i + 1} - x_i) \notag
 \end{align}
 Allora segue immediatamente il seguente risultato. \\ \\
-\textbf{Proposizione 1.2.2:} ogni successione a termini reali o complessi a variazione finita è convergente. \\ 
+\textbf{Proposizione 2.2.2:} ogni successione a termini reali o complessi a variazione finita è convergente. \\ 
 
 \textbf{Dimostrazione:} immediata. \qed  \\ \\
-\textbf{Proposizione 1.2.3:} ogni successione di Cauchy ammette una sottosuccessione a variazione finita. \\
+\textbf{Proposizione 2.2.3:} ogni successione di Cauchy ammette una sottosuccessione a variazione finita. \\
 
 \textbf{Dimostrazione:} sia $\{x_n : n \in \mathbf{N}\}$ una successione di Cauchy, possiamo costruire induttivamente $\nu : \mathbf{N} \longrightarrow \mathbf{N}$ strettamente crescente tale che
 \begin{align}
@@ -899,7 +900,7 @@ Poniamo $\varepsilon_k = 2^{-(k + 1)}$ e definiamo $\nu(0)$ come il minimo natur
 \end{align} \qed \\ \\
 \textbf{Definizione:} sia $(X, d)$ uno spazio metrico, $X$ è detto completo se e solo se ogni successione di Cauchy contenuta in $X$ è anche convergente. \\ \\
 \textbf{Definizione:} uno spazio normato $(X, \|\cdot\|)$ è detto di Banach se è completo rispetto alla metrica indotta dalla norma. \\ \\
-\textbf{Proposizione 1.2.4:} $\mathbf{R}$ e $\mathbf{C}$ sono spazi di Banach. \\
+\textbf{Proposizione 2.2.4:} $\mathbf{R}$ e $\mathbf{C}$ sono spazi di Banach. \\
 
 \textbf{Dimostrazione:} per la \textit{proposizione 1.2.3} ogni successione di Cauchy ammette una sottosuccessione a variazione finita, per la \textit{proposizione 1.2.2} ogni successione a termini reali o complessi a variazione finita è convergente e infine per la \textit{proposizione 1.2.1} ogni successione di Cauchy che ammette una sottosuccessione convergente è convergente. \qed \\ \\
 Altrimenti avremmo potuto argomentare come segue. Ogni successione di Cauchy (in uno spazio normato) è limitata, infatti per ipotesi esiste $N \in \mathbf{N}$ tale che
@@ -915,7 +916,7 @@ per ogni $n > N$, ovvero
     \sup_{n \in \mathbf{N}}\|x_n\| < \infty \notag
 \end{align}
 A questo punto dimostriamo il seguente risultato. \\ \\
-\textbf{Proposizione 1.2.5:} ogni successione limitata a termini complessi ammette una sottosuccessione convergente. \\
+\textbf{Proposizione 2.2.5:} ogni successione limitata a termini complessi ammette una sottosuccessione convergente. \\
 
 \textbf{Dimostrazione:} sia $\{z_n : n \in \mathbf{N}\}$ una successione limitata a termini complessi. Poniamo $z_n = x_n + iy_n$, dove $x_n, y_n \in \mathbf{R}$ per ogni $n \in \mathbf{N}$. Poiché $|z_n| = \sqrt{x^2_n + y^2_n}$, si ha che se $\{z_n : n \in \mathbf{N}\}$ è limitata anche $\{x_n : n \in \mathbf{N}\}$ e $\{y_n : n \in \mathbf{N}\}$ sono limitate. Dimostriamo allora che ogni successione limitata a termini reali ammette una sottosuccessione convergente. \\
 Sia $\{a_n : n \in \mathbf{N}\}$ a termini reali e limitata. Sia
@@ -928,7 +929,7 @@ Allora
 \end{align}
 Uno tra gli intervalli $[-M, 0]$ e $[0, M]$ contiene infiniti termini della successione. Supponiamo senza perdita di generalità che sia $[0, M]$ e definiamo $n_1$ come il minimo interno $n$ tale che $a_n$ è contenuto in $[0, M]$. Analogamente uno degli intervalli tra $[0, M/2]$ e $[M/2, M]$ contiene infiniti termini della successione, supponiamo che sia $[M/2, M]$ e poniamo $n_2$ come il minimo interno $n$, strettamente maggiore di $n_1$, tale che $a_n \in [M/2, M]$. Ragionando per induzione, si ottiene un intervallo $I_k$ di diametro $M2^{1 - k}$ che contiene infiniti termini della successione e definiamo $n_k$ come il minimo intero $n$, strettamente maggiore di $n_{k - 1}$, tale che $a_k \in I_k$. Si vede immediatamente che la sottosuccessione $\{a_{n_k} : k \in \mathbf{N}\}$ è convergente. \\
 Allora $\{x_n : n \in \mathbf{N}\}$ ammette una sottosuccessione convergente $\{x_{\nu(k)} : k \in \mathbf{N}\}$. Tuttavia, in generale, $\{y_{\nu(k)} : k \in \mathbf{N}\}$ non è convergente, ma essendo ancora limitata ammette una sottosuccessione convergente $\{y_{\nu(k(l))} : l \in \mathbf{N}\}$ e ovviamente anche $\{x_{\nu(k(l))} : l \in \mathbf{N}\}$ è convergente, pertanto $\{z_{\nu(k(l))} : l \in \mathbf{N}\}$ è una sottosuccessione convergente di $\{z_n : n \in \mathbf{N}\}$. \qed \\ \\
-\textbf{Corollario 1.2.1:} $\mathbf{R}^n$ e $\mathbf{C}^n$ sono spazi di Banach per ogni $n \in \mathbf{N}$. \\ \\
+\textbf{Corollario 2.2.1:} $\mathbf{R}^n$ e $\mathbf{C}^n$ sono spazi di Banach per ogni $n \in \mathbf{N}$. \\ \\
 \textbf{Esempio:} sia $S$ un insieme, un esempio non banale di spazio di Banach è
 \begin{align}
     l^\infty(S) := \{f : S \longrightarrow \mathbf{C} : \|f\|_\infty < \infty\} \notag
