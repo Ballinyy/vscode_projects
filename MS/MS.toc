@@ -7,3 +7,4 @@
 \contentsline {subsubsection}{\numberline {1.2.4}Sistema di $N$ siti a due stati}{18}{}%
 \contentsline {subsubsection}{\numberline {1.2.5}Sistema di $N$ oscillatori armonici quantistici 3D}{19}{}%
 \contentsline {section}{\numberline {2}Ensemble canonico}{22}{}%
+\contentsline {subsection}{\numberline {2.1}Energia libera}{22}{}%

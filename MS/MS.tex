@@ -587,7 +587,50 @@ ovvero $E = \frac{3}{2}N\hbar\omega$ (in unità di $\hbar\omega$), quindi ogni o
 
 \newpage
 \section{Ensemble canonico}
+Siamo interessati a descivere statisticamente un sistema a contatto con un reservoir. Possiamo immaginare un reservoir come un sistema ad energia e volume molto maggiori rispetto al sistema in esame, che quindi resta imperturbato nonostante l'interazione esterna.
 
+\subsection{Energia libera}
+Consideriamo un sistema microcanonico $X$ descritto dalla terna $(E, N, V)$ e consideriamo un sottoinsieme $X_1$ di $X$ descritto dalla terna $(E_1, N_1, V_1)$. Poniamo $X_2 = X \setminus X_1$, il complementare di $X_1$, descritto dalla terna $(E_2, N_2, V_2)$ e supponiamo che $X_2$ sia molto più grande di $X_1$. Sotto tali ipotesi, l'interazione tra $X_1$ e $X_2$, che è essenzialmente limitata ad una regione limitrofa al bordo di $X_1$, diventa infinitesima, e quindi trascurabile, al limite termidinamico, ovvero $V_1$ molto grande e $V >> V_1$, possiamo dunque trattare $X_1$ come un sistema isolato. \\
+Fissate l'energia totale $E$ e l'energia $E_1$ di $X_1$, l'energia $E_2$ di $X_2$ deve soddisfare 
+\begin{align}
+    E_2 = E - E_1 \notag
+\end{align}
+Per ipotesi $X$ è un sistema microcanonico, dunque la densità di probabilità $\rho$ associata a $X$ è costante sull'ipersuperficie identificata da $\mathcal{H}(\mathbf{p}, \mathbf{q}) = E$ e nulla altrimenti. In particolare 
+\begin{align}
+    \rho(\mathbf{p}, \mathbf{q}) = \begin{cases}
+        \frac{1}{\Gamma(E)} \qquad &\mathcal{H}(\mathbf{p}, \mathbf{q}) = E \\
+        0 \qquad &\text{altrimenti}
+    \end{cases} \notag
+\end{align}
+La probabilità di misurare energia $E_1$ in $X_1$ è proporzionale al numero di microstati di $X_2$ compatibili con il vincolo $E = E_1 + E_2$, ovvero 
+\begin{align}
+    \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) \propto \Gamma_2(E - E_1) \tag{2.1.1}
+\end{align}
+Poiché $E_1 << E$ possiamo sviluppare in serie di Taylor 
+\begin{align}
+    \Gamma_2(E - E_1) \sim \Gamma_2(E) - E_1\frac{\partial \Gamma_2}{\partial E_2} \tag{2.1.2}
+\end{align}
+e dalla definizione statistica dell'entropia del sistema si ottiene  
+\begin{align}
+    \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) &\propto \exp\left(\frac{S_2(E)}{k}-\frac{E_1}{kT}\right) \notag
+\end{align}
+dove si è usato $\frac{\partial S_2}{\partial E_2} = \frac{1}{T_2} \sim \frac{1}{T}$. In particolare il termine $S_2(E)$ non dipende dalle variabili microscopiche del sottosistema $X_1$, pertanto si ottiene 
+\begin{align}
+    \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) &\propto \exp\left(-\frac{\mathcal{H}_{N_1}(\mathbf{p}^{(1)}, \mathbf{q}^{(1)})}{kT}\right) \tag{2.1.3}
+\end{align}
+dove si è esplicitata la dipendenza dall'hamiltoniana dal numero di particelle. \\ \\
+In generale, dato un sistema descritto da $(E, N, V)$ posto a contatto con un reservoir si ha 
+\begin{align}
+    \rho(\mathbf{p}, \mathbf{q}) \propto \exp\left(-\frac{\mathcal{H}_N(\mathbf{p}, \mathbf{q})}{kT}\right) \tag{2.1.4}
+\end{align}
+resta da determinare la costante di normalizzazione, che poi, come nel paragrafo precedente, determinerà il potenziale termodinamico associato alla descrizione del sistema. Definiamo 
+\begin{align}
+    Q_N = \frac{1}{h^{3N}}\int \exp\left(-\frac{\mathcal{H}_N(\mathbf{p}, \mathbf{q})}{kT}\right) \, d\mathbf{p}d\mathbf{q} \tag{2.1.5}
+\end{align}
+Allora 
+\begin{align}
+    \frac{1}{h^{3N}Q_N}\int \rho(\mathbf{p}, \mathbf{q}) \, d\mathbf{p}d\mathbf{q} = 1 \tag{2.1.6}
+\end{align}
 
 
 
