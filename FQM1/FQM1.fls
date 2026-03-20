@@ -108,6 +108,7 @@ INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT FQM1.aux
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
@@ -119,5 +120,6 @@ INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb

@@ -1,5 +1,7 @@
 \documentclass{article}
 \usepackage{graphicx, amsfonts, amsmath, amssymb, amsthm, float, cancel, braket} % Required for inserting images
+\setcounter{secnumdepth}{3} % Numera solo fino alle subsection (livello 2)
+\setcounter{tocdepth}{3}    % Mostra nell'indice fino alle subsubsection (livello 3)
 
 \title{Struttura della Materia}
 \author{Alessandro Ballini}
@@ -300,6 +302,107 @@ mentre $H'_\mu$ è la perturbarzione introdotta con il parametro $\mu$, ovvero
 
 \newpage
 \section*{Appendice}
+\subsection*{Equazioni di Maxwell}
+Le equazioni di Maxwell nel vuoto sono 
+\begin{align}
+    \begin{cases}
+        \nabla \cdot \mathbf{E} &= \frac{\rho}{\varepsilon_0} \\
+        \nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \\
+        \nabla \cdot \mathbf{B} &= 0 \\
+        \nabla \times \mathbf{B} &= \mu_0\mathbf{j} + \mu_0\varepsilon_0\frac{\partial \mathbf{E}}{\partial t} \\
+    \end{cases} \notag
+\end{align}
+dove $\rho$ è la distribuzione spaziale di carica e $\mathbf{j}$ è la densità di corrente. Poiché $\mathbf{B}$ ha divergenza nulla esiste un potenziale vettore $\mathbf{A}$ che identifica $\mathbf{B}$ tramite 
+\begin{align}
+    \mathbf{B} = \nabla \times \mathbf{A} \notag
+\end{align}
+infatti 
+\begin{align}
+    \nabla \cdot (\nabla \times \mathbf{A}) = 0 \notag
+\end{align}
+se $\mathbf{A}$ è sufficientemente regolare (in particolare di classe $C^2$). Notiamo che 
+\begin{align}
+    \nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \notag \\
+    &= -\frac{\partial}{\partial t}(\nabla \times \mathbf{A}) \notag \\
+    &= \nabla \times \frac{\partial \mathbf{A}}{\partial t} \notag
+\end{align}
+(sempre supponendo sufficiente regolarità per invertire l'ordine di derivazione, pertanto 
+\begin{align}
+    \nabla \times \left(\mathbf{E} + \frac{\partial \mathbf{A}}{\partial t}\right) = 0 \notag
+\end{align}
+ovvero $\mathbf{E} + \frac{\partial \mathbf{A}}{\partial t}$ è un campo vettoriale irrotazionale. Questo comporta che su un opportuno sottoinsieme di $\mathbf{R}^3$ tale campo può essere espresso come il gradiente di una campo scalare $\phi : \mathbf{R}^3 \longrightarrow \mathbf{R}$, cioè 
+\begin{align}
+    \mathbf{E} + \frac{\partial \mathbf{A}}{\partial t} = -\nabla\phi \notag
+\end{align}
+Pertanto $\mathbf{A}$ e $\phi$ identificano il campo elettromagnetico 
+\begin{align}
+    \mathbf{E} = -\nabla\phi - \frac{\partial \mathbf{A}}{\partial t} \notag 
+\end{align}
+Tuttavia il potenziale vettore ed il potenziale scalare non sono determinati univocamente, infatti se consideriamo $\mathbf{A}'$ e $\phi'$ definiti da 
+\begin{align}
+    \begin{cases}
+        \mathbf{A}' &= \mathbf{A} + \nabla\chi \\
+    \phi' &= \phi - \frac{\partial\chi}{\partial t} 
+    \end{cases} \notag
+\end{align}
+con $\chi : \mathbf{R}^3 \times \mathbf{R} \longrightarrow \mathbf{R}$ qualsiasi funzione scalare delle coordinate e del tempo sufficientemente regolare si ottiene 
+\begin{align}
+    \nabla\phi' + \frac{\partial \mathbf{A}'}{\partial t} &= \nabla\left(\phi - \frac{\partial\chi}{\partial t}\right) + \frac{\partial}{\partial t}(\mathbf{A} + \nabla\chi) \notag \\
+    &= \nabla\phi + \frac{\partial \mathbf{A}}{\partial t} + \cancel{\left(\frac{\partial}{\partial t}\nabla\chi - \frac{\partial}{\partial t}\nabla\chi\right)} \notag \\
+    &= \nabla\phi + \frac{\partial\mathbf{A}}{\partial t} \notag
+\end{align}
+\subsubsection*{Gauge di Coulomb}
+La gauge di Coulomb è la scelta di $\chi$ che soddisfa 
+\begin{align}
+    \nabla \cdot \mathbf{A} = 0 \notag
+\end{align}
+in tal caso basta scegliere $\chi$ tale che 
+\begin{align}
+    \nabla^2\chi = - \nabla \cdot \mathbf{A} \notag
+\end{align}
+Scegliendo la gauge di Coulomb si ottiene 
+\begin{align}
+    \nabla \cdot \mathbf{E} = - \nabla^2\phi \notag
+\end{align}
+e quindi il potenziale (ridefinito) $\phi$ soddisfa 
+\begin{align}
+    \nabla^2\phi = -\frac{\rho}{\varepsilon_0} \notag
+\end{align}
+Inoltre, sostituendo $\mathbf{B} = \nabla \times \mathbf{A}$ si ottiene l'equazione differenziale per determinare $\mathbf{A}$, ovvero 
+\begin{align}
+    \nabla \times (\nabla \times \mathbf{A}) &= \mu_0\mathbf{j} + \mu_0\varepsilon_0\frac{\partial}{\partial t}\left(-\nabla\phi - \frac{\partial \mathbf{A}}{\partial t}\right) \notag
+\end{align}
+usando l'identità $\nabla \times (\nabla \times \mathbf{A}) = \nabla(\nabla \cdot \mathbf{A}) - \nabla^2\mathbf{A}$ si ottiene
+\begin{align}
+    \nabla^2\mathbf{A} - \mu_0\varepsilon_0\frac{\partial^2\mathbf{A}}{\partial t^2} = -\mu_0\mathbf{j} + \mu_0\varepsilon_0\nabla\left(\frac{\partial\phi}{\partial t}\right) \notag
+\end{align}
+In particolare, in assenza di cariche ($\rho = 0$) e di densità di corrente ($\mathbf{j} = 0$), il potenziale vettore soddisfa l'equazione delle onde di D'Alambert 
+\begin{align}
+    \nabla^2\mathbf{A} - \mu_0\varepsilon_0\frac{\partial^2\mathbf{A}}{\partial t^2} = 0 \notag
+\end{align}
+\subsubsection*{Gauge di Lorenz}
+La gauge di Lorenz è la scelta di $\chi$ che soddisfa 
+\begin{align}
+    \nabla \cdot \mathbf{A} = -\mu_0\varepsilon_0\frac{\partial\phi}{\partial t} \notag
+\end{align}
+per semplificare la quarta delle equazioni di Maxwell, ovvero 
+\begin{align}
+    \nabla \times (\nabla \times \mathbf{A}) = \mu_0\mathbf{j} + \mu_0\varepsilon_0\frac{\partial}{\partial t}\left(-\nabla\phi - \frac{\partial \mathbf{A}}{\partial t}\right) \notag 
+\end{align}
+diventa 
+\begin{align}
+    \nabla^2\mathbf{A} - \mu_0\varepsilon_0\frac{\partial^2\mathbf{A}}{\partial t^2} = -\mu_0\mathbf{j} \notag
+\end{align}
+mentre l'equazione differenziale per determinare $\phi$ diventa 
+\begin{align}
+    \nabla^2\phi - \mu_0\varepsilon_0\frac{\partial^2\phi}{\partial t^2} = -\frac{\rho}{\varepsilon_0} \notag
+\end{align}
+
+
+
+\newpage
+\section*{Formulario}
+\subsection*{Integrali pseudo-gaussiani}
 Per ogni $k \in \mathbf{N}$ si ha
 \begin{align}
     \int_0^\infty x^{2k + 1}e^{-ax^2} \, dx &= \frac{k!}{2a^{k + 1}} \notag \\
