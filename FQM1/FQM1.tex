@@ -299,6 +299,24 @@ mentre $H'_\mu$ è la perturbarzione introdotta con il parametro $\mu$, ovvero
 \begin{align}
     H'_\mu = \left(1 - \frac{1}{\mu}\right)\frac{\nabla^2}{2} \notag
 \end{align}
+$H'_\mu$ commuta con l'hamiltoniana imperturbata, dato che è proporzionale all'energia cinetica, pertanto non "mischia" gli stati degeneri. La correzione al primo ordine dell'energia dello stato $1s$ è data da 
+\begin{align}
+    \braket{H'_\mu}_{1s} &= {}\left(1 - \frac{1}{\mu}\right)\braket{100|\frac{\nabla^2}{2}|100} \notag \\
+    &= -\left(1 - \frac{1}{\mu}\right)\braket{T}_{1s} \notag
+\end{align}
+Possiamo applicare il teorema del viriale, dato che dobbiamo calcolare il valor medio rispetto ad un autostato di $H_1$, quindi $2\braket{T}_{1s} = -\braket{V}_{1s}$. In particolare
+\begin{align}
+    \braket{V}_{1s} &= 4\pi\int_0^\infty r^{\cancel{2}}\cancel{\frac{1}{r}}\frac{1}{\pi}e^{-2r} \, dr \notag \\
+    &= -1 \notag
+\end{align}
+pertanto 
+\begin{align}
+    \braket{T}_{1s} &= \frac{1}{2} \notag
+\end{align}
+e \begin{align}
+    \Delta E_{1s} = -\frac{1}{2}\left(1 - \frac{1}{\mu}\right) \notag
+\end{align}
+Possiamo applicare il metodo variazionale lineare usando come funzione di prova le autofunzioni $\psi_{1s}, \psi_{2s}$ e diagonalizzando rispetto a quest'ultime la perturbazione $H'_\mu$. In tal caso la correzione all'energia dello stato $1s$ è l'autovalore associato a $\psi_{1s}$.
 
 \newpage
 \section*{Appendice}
