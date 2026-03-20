@@ -948,9 +948,11 @@ per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbf{N}\}$ è una s
 \end{align}
 per ogni $n > M_{\varepsilon, t}$. Resta da dimostrare che $\|f_n - f\|_\infty \rightarrow 0$ per $n \rightarrow \infty$ e che $f \in l^\infty(S)$. Per ipotesi, fissato $m > N_\varepsilon$
 \begin{align}
-    \|f_n - f\|_\infty \leq \|f_n - f_m\|_\infty + \|f_m - f\|_\infty < 2\varepsilon \notag
+    \|f_n - f\|_\infty &\leq \|f_n - f_m\|_\infty + \|f_m - f\|_\infty \notag \\
+    &= \|f_n - f_m\|_\infty + \lim_{n \rightarrow \infty}\|f_m - f_n\|_{\infty} \notag \\
+    &< 2\varepsilon \notag
 \end{align}
-per ogni $n > N_\varepsilon$. Notiamo che esiste $N_1 \in \mathbf{N}$ tale che fissato $n > N_1$ si ha
+per continuità della norma, per ogni $n > N_\varepsilon$. Notiamo che esiste $N_1 \in \mathbf{N}$ tale che fissato $n > N_1$ si ha
 \begin{align}
     \|f\|_\infty &\leq \|f - f_n\|_\infty + \|f_n\|_\infty \notag \\
     &< 1 + \|f_n\|_\infty \notag
@@ -993,7 +995,7 @@ ovvero $\sim$ è transitiva. Definiamo $\overline{X}$ come l'insieme quoziente $
 \begin{align}
     \overline{X} = \left\{\left[\{x_n\}_{n \in \mathbf{N}}\right] : \{x_n\}_{n \in \mathbf{N}} \text{ è di Cauchy}\right\} \notag
 \end{align}
-ovvero l'insieme delle classi di equivalenza tra successioni di Cauchy in $X$ rispetto a $\sim$. Su $\overline{X}$ introduciamo struttura di spazio metrico defininendo come operazione di somma $+$ la seguente 
+l'insieme delle classi di equivalenza tra successioni di Cauchy in $X$ rispetto a $\sim$. Su $\overline{X}$ introduciamo struttura di spazio metrico defininendo come operazione di somma $+$ la seguente 
 \begin{align}
     [\{x_n\}_{n \in \mathbf{N}}] + [\{y_n\}_{n \in \mathbf{N}}] = [\{x_n + y_n\}_{n \in \mathbf{N}}] \notag
 \end{align}
@@ -1012,32 +1014,55 @@ Si vede facilmente che $+$ e $\cdot$ sono ben definite e soddisfano tutte le pro
 \end{align}
 vogliamo mostrare che 
 \begin{align}
-    \lim_{n \rightarrow \infty}\overline{d}(y_n, y'_n) = \lim_{n \rightarrow \infty}\overline{d}(z_n, z'_n) \notag 
-\end{align}
-ovvero 
-\begin{align}
-    \lim_{n \rightarrow \infty}(\overline{d}(y_n, y'_n) - \overline{d}(z_n, z'_n)) = 0 \notag
+    \lim_{n \rightarrow \infty}{d}(y_n, y'_n) = \lim_{n \rightarrow \infty}{d}(z_n, z'_n) \notag 
 \end{align}
 per la disuguaglianza triangolare si ha 
 \begin{align}
-    \lim_{n \rightarrow \infty}\overline{d}(y_n, y'_n) &\leq \lim_{n \rightarrow \infty} (\cancel{\overline{d}(y_n, z_n)} + \overline{d}(z_n, y'_n)) \notag \\
-    &\leq \lim_{n \rightarrow \infty}(\overline{d}(z_n, z'_n) + \cancel{\overline{d}(z'_n, y'_n)}) \notag \\
+    \lim_{n \rightarrow \infty}{d}(y_n, y'_n) &\leq \lim_{n \rightarrow \infty} (\cancel{{d}(y_n, z_n)} + {d}(z_n, y'_n)) \notag \\
+    &\leq \lim_{n \rightarrow \infty}({d}(z_n, z'_n) + \cancel{{d}(z'_n, y'_n)}) \notag \\
     &= \lim_{n \rightarrow \infty}\overline{d}(z_n, z'_n) \notag
 \end{align}
 analogamente vale la disuguaglianza inversa, infatti
 \begin{align}
-    \lim_{n \rightarrow \infty}\overline{d}(z_n, z'_n) &\leq \lim_{n \rightarrow \infty}(\cancel{\overline{d}(z_n, y_n)} + \overline{d}(y_n, z'_n)) \notag \\
-    &\leq \lim_{n \rightarrow \infty}(\overline{d}(y_n, y'_n) + \cancel{\overline{d}(y'_n, z'_n)}) \notag \\
-    &= \lim_{n \rightarrow \infty}\overline{d}(y_n, y'_n) \notag
+    \lim_{n \rightarrow \infty}{d}(z_n, z'_n) &\leq \lim_{n \rightarrow \infty}(\cancel{{d}(z_n, y_n)} + {d}(y_n, z'_n)) \notag \\
+    &\leq \lim_{n \rightarrow \infty}({d}(y_n, y'_n) + \cancel{{d}(y'_n, z'_n)}) \notag \\
+    &= \lim_{n \rightarrow \infty}{d}(y_n, y'_n) \notag
 \end{align}
 e confrontando le due disuguaglianze si ottiene 
 \begin{align}
-    \lim_{n \rightarrow \infty}\overline{d}(y_n, y'_n) = \lim_{n \rightarrow \infty}\overline{d}(z_n, z'_n) \notag
+    \lim_{n \rightarrow \infty}d(y_n, y'_n) = \lim_{n \rightarrow \infty}d(z_n, z'_n) \notag
 \end{align}
 Ora mostriamo che $(\overline{X}, \overline{d})$ è completo. Consideriamo una successione di Cauchy in $\overline{X}$ 
 \begin{align}
-    \{[\{x^m_n\}_{n \in \mathbf{N}}]\}_{m \in \mathbf{N}} \subset \overline{X} \notag
+    \{[\{x^m_n\}_{n \in \mathbf{N}}]\}_{m \in \mathbf{N}} \notag
 \end{align}
+fissato $\varepsilon > 0$ esiste $M_\varepsilon \in \mathbf{N}$ tale che 
+\begin{align}
+    \overline{d}([\{x^{m_1}_n\}_{n \in \mathbf{N}}], [\{x^{m_2}_n\}_{n \in \mathbf{N}}]) &= \lim_{n \rightarrow \infty}d(x^{m_1}_n, x^{m_2}_n) < \varepsilon \notag
+\end{align}
+per ogni $m_1, m_2 > M_\varepsilon$. Consideriamo la classe di equivalenza della successione "diagonale" 
+\begin{align}
+    [\{x^n_n\}_{n \in \mathbf{N}}] \notag
+\end{align}
+allora si ha 
+\begin{align}
+    \overline{d}([\{x^m_n\}_{n \in \mathbf{N}}], [\{x^n_n\}_{n \in \mathbf{N}}]) &= \lim_{n \rightarrow \infty}d(x^m_n, x^n_n) \notag \\
+    &\leq \lim_{n \rightarrow \infty}d(x^m_n, x^m_m) + \lim_{n \rightarrow \infty}d(x^m_m, x^n_n) \notag
+\end{align}
+Fissato $m$, la successione di $\{x^m_k\}_{k \in \mathbf{N}}$ è di Cauchy poiché è un elemento di $S$. Inoltre anche $\{x^k_k\}_{k \in \mathbf{N}}$ è di Cauchy, infatti 
+\begin{align}
+    d(x^{n_1}_{n_1}, x^{n_2}_{n_2}) &\leq d(x^{n_1}_{n_1}, x^{n_1}_{n_2}) + d(x^{n_1}_{n_2}, x^{n_2}_{n_2}) < 2\varepsilon \notag
+\end{align}
+definitivamente, per ipotesi di Cauchy su entrambi gli indici. Pertanto, fissato $n$ abbastanza grande, si ottiene 
+\begin{align}
+    \overline{d}([\{x^m_n\}_{n \in \mathbf{N}}], [\{x^n_n\}_{n \in \mathbf{N}}]) < 2\varepsilon \notag
+\end{align}
+definitivamente rispetto a $m$, ovvero $(\overline{X}, \overline{d})$ completo. \\
+Ora dobbiamo definire l'inclusione $j$. Dato $x \in X$ poniamo 
+\begin{align}
+    j(x) := [\{x\}_{n \in \mathbf{N}}] \notag
+\end{align}
+ovvero $j$ mappa ogni $x \in X$ nella classe di equivalenza delle successioni costanti a valore $x$. Ovviamente ogni successione costante è di Cauchy.
 
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che i seguenti spazi normati sono di Banach: \\
@@ -1063,15 +1088,13 @@ per ogni $n, m > N_\varepsilon$, dunque per ogni $k \in \mathbf{N}$ si ha che $\
 \begin{align}
     x^k = \lim_{n \rightarrow \infty} x^k_n \notag
 \end{align}
-Sia $\mathbf{x} = \{x^k : k \in \mathbf{N}\}$, si ha che 
+Sia $\mathbf{x} = \{x^k : k \in \mathbf{N}\}$, fissato $m > N_\varepsilon$ si ha
 \begin{align}
-    \|\mathbf{x}_n - \mathbf{x}\|_1 = \sum_{k = 1}^\infty |x^k_n - x^k| \notag
+    \|\mathbf{x}_n - \mathbf{x}\|_1 &\leq \|\mathbf{x}_n - \mathbf{x}_m\|_1 + \|\mathbf{x}_m - \mathbf{x}\|_1 \notag \\
+    &= \|\mathbf{x}_n - \mathbf{x}_m\|_1 + \lim_{n \rightarrow \infty}\|\mathbf{x}_m - \mathbf{x}_n\|_1 \notag \\
+    &< 2\varepsilon \notag
 \end{align}
-Per definizione di limite esiste $N_{\varepsilon, k} \in \mathbf{N}$ tale che 
-\begin{align}
-    |x^k_n - x^k| < \varepsilon 2^{-k} \notag
-\end{align}
-per ogni $n > N_{\varepsilon, k}$. \\ \\
+per continuità della norma, per ogni $n > N_\varepsilon$. \\ \\
 $(b)$ Sia $\{\mathbf{x}_n : n \in \mathbf{N}\} \subset l^2(\mathbf{N})$ una successione di Cauchy. Fissato $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbf{N}$ tale che 
 \begin{align}
     \|\mathbf{x}_n - \mathbf{x}_m\|_2 < \varepsilon \notag
@@ -1100,9 +1123,11 @@ allora la successione $\{T_n(v) : n \in \mathbf{N}\}$ è una successione converg
 \end{align}
 per ogni $v \in X$. Resta da mostrare che $\|T_n - T\|_{op} \rightarrow 0$ per $n \rightarrow \infty$ e che $T \in \mathcal{B}(X, Y)$. Fissato $m > N_\varepsilon$ si ha
 \begin{align}
-    \|T_n - T\|_{op} &\leq \|T_n - T_m\|_{op} + \|T_m - T\|_{op} < 2\varepsilon \notag
+    \|T_n - T\|_{op} &\leq \|T_n - T_m\|_{op} + \|T_m - T\|_{op} \notag \\
+    &= \|T_n - T_m\|_{op} + \lim_{n \rightarrow \infty}\|T_m - T_n\|_{op} \notag \\
+    &< 2\varepsilon \notag
 \end{align}
-per ogni $n > N_\varepsilon$. Notiamo che esiste $N_1 \in \mathbf{N}$ tale che fissato $n > N_1$ si ha
+per continuità della norma, per ogni $n > N_\varepsilon$. Notiamo che esiste $N_1 \in \mathbf{N}$ tale che fissato $n > N_1$ si ha
 \begin{align}
     \|T\|_{op} &\leq \|T - T_n\|_{op} + \|T_n\|_{op} \notag \\
     &< 1 + \|T_n\|_{op} < \infty \notag
