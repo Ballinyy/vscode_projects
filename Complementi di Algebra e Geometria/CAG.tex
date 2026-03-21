@@ -987,51 +987,6 @@ esso ammette sottoricoprimento finito tale che
 \end{gather}
 Allora si ottiene $C_{i_1} \cap \dots \cap C_{i_n} \subset U$.
 
-\subsection{Generalizzazioni della compattezza}
-\textbf{Definizione 1.6.1:} uno spazio topologico $X$ è detto \textit{localmente compatto} se ogni elemento $p \in X$ ammette un intorno compatto. \\ \\
-Esempi di insiemi localmente compatti sono $\mathbb{R}^n$ per ogni $n \in \mathbb{N}$, gli aperti di $\mathbb{R}^n$ e in generale le varietà topologiche, mentre $\mathbb{Q}^n$ non è localmente compatto per ogni $n \in \mathbb{N}$. \\ \\ \\
-\textbf{Proposizione 1.6.1:} $(a)$ ogni sottospazio chiuso $C$ di uno spazio localmente compatto $X$ è localmente compatto. \\ \\
-$(b)$ sia $X$ uno spazio localmente compatto di Hausdorff. Ogni punto $p \in X$ possiede un sistema fondamentale di intorni relativamente compatti. \\
-
-\textbf{Dimostrazione:} $(a)$ sia $p \in C$, sia $K \subset X$ un intorno compatto di $p$, si ha che $K \cap C$ è un intorno di $p$ in $C$ ed è compatto. \\ \\
-$(b)$ Sia $p \in X$, per ipotesi $p$ possiede un intorno compatto $K \subset X$. Sia $U$ un aperto contenente $p$, si ha che $V := \mathring{K} \cap U$ è un aperto contenente $p$, inoltre $\overline{V} \subset \overline{K} = K$, ovvero $\overline{V}$ è un chiuso contenuto in insieme compatto $K$ di uno spazio di Hausdorff e quindi $\overline{V}$ è compatto. \qed \\ \\ \\
-\textbf{Proposizione 1.6.2:} sia $X$ uno spazio topologico localmente compatto che soddisfa il secondo assioma di numerabilità, allora $X$ è unione di una famiglia numerabile di sottoinsiemi compatti $\{K_i : i \in \mathbb{N}\}$ tale che $K_i \subset \mathring{K}_{i + 1}$ per ogni $i \in \mathbb{N}$. \\
-
-\textbf{Dimostrazione:} sia $x \in X$, sia $U$ un aperto contenente $x$ e sia $K$ un intorno compatto di $x$. Per ipotesi $X$ possiede una base numerabile di aperti $\mathcal{B}$, allora esiste $U_i \in \mathcal{B}$ tale che $U_i \subset \mathring{K} \cap U$. Inoltre per il punto $(b)$ della \textit{proposizione 1.6.1} si ha che $U_i$ è relativamente compatto in $\mathring{K} \cap U$. Dunque per ogni $x \in X$ e ogni aperto $U$ contenente $x$ esiste $U_i \in \mathcal{B}$ relativamente compatto tale che $x \in U_i \subset U$. Allora $\{U_i : i \in \mathbb{N}\}$ è una base numerabile di aperti relativamente compatti di $X$. Per ogni $i \in \mathbb{N}$ si ha che $\overline{U}_i$ è ricoperto da un numero finito di $U_j$, la cui unione ha chiusura compatta $H_i$ dato che si tratta di insiemi relativamente compatti. Pertanto
-\begin{align}
-    \overline{U}_i \subset \mathring{H}_i \notag
-\end{align}
-per ogni $i \in \mathbb{N}$ e quindi
-\begin{align}
-    X = \bigcup_{i \in \mathbb{N}}\mathring{H}_i \notag
-\end{align}
-A questo punto definiamo induttivamente
-\begin{align}
-    K_1 := H_1 \qquad K_{i + 1} := \bigcup_{j \in J(i)}H_j \notag
-\end{align}
-dove $J(i)$ è un sottoinsieme di $\mathbb{N}$ tale che
-\begin{align}
-    K_i \subset \bigcup_{j \in J(i)}\mathring{H}_j \notag
-\end{align}
-La famiglia di sottoinsiemi compatti $\{K_i\}$ soddisfa le proprietà ricercate. \\ \\
-L'esistenza di una famiglia di compatti con le proprietà enunciate nella \textit{proposizione 1.6.2} si può dimostrare direttamente nel caso $X = \mathbb{R}^n$, o più generale nel caso $X = S \subset \mathbb{R}^n$, con $S$ aperto o chiuso. Infatti se $X$ è chiuso basta prendere
-\begin{align}
-    K_i = X \cap \overline{D}_i(p) \notag
-\end{align}
-fissato un punto $p$ di $X$. Mentre se $X$ è aperto basta prendere
-\begin{align}
-    K_i = \{x \in X : \|x\| \leq i, \, d(x, \mathbb{R}^n \setminus X) \geq 1/i\} \notag
-\end{align}
-notiamo che in questo caso $K_i$ è chiuso nella topologia relativa ed è compatto poiché chiuso e limitato in $\mathbb{R}^n$. \qed \\ \\ \\
-\textbf{Definizione:} sia $X$ uno spazio topologico e siano $\mathcal{U}, \mathcal{V}$ ricoprimenti aperti di $X$. $\mathcal{V}$ è detto \textit{raffinamento} di $\mathcal{U}$, o \textit{più fine} di $\mathcal{U}$, se ogni $V \in \mathcal{V}$ è contenuto in qualche aperto di $\mathcal{U}$. \\ \\ \\
-\textbf{Definizione:} una famiglia $\mathcal{F}$ di sottoinsiemi di $X$ si dice \textit{localmente finita} se ogni $x \in X$ possiede un intorno $U_x$ che interseca solo con un numero finito di elementi di $\mathcal{F}$. \\ \\ \\
-\textbf{Definizione:} uno spazio topologico $X$ si dice \textit{paracompatto} se ogni ricoprimento $\mathcal{U}$ di $X$ possiede un raffinamento $\mathcal{V}$ localmente finito. \\ \\
-Ogni spazio $X$ compatto è anche paracompatto, infatti se $X$ è compatto ogni ricoprimento $\mathcal{U}$ di $X$ possiede un sottoricoprimento $\mathcal{V}$ finito, allora $\mathcal{V}$ è più fine di $\mathcal{U}$ (banale) e per ogni $x \in X$ si ha che ogni intorno di $x$ interseca solamente con un numero finito di elementi di $\mathcal{V}$, proprio perché $\mathcal{V}$ è un insieme finito, pertanto $\mathcal{V}$ è localmente finito. \\ \\ \\
-\textbf{Proposizione 1.6.3:} sia $X$ uno spazio topologico localmente compatto di Hausdorff che soddisfa il secondo assioma di numerabilità. Allora ogni ricoprimento aperto $\mathcal{U}$ di $X$ possiede un raffinamento $\mathcal{V}$ localmente finito costituito al più da un'infinità numerabile di aperti. In particolare $X$ è paracompatto. \\
-
-\textbf{Dimostrazione:} sia $x \in X$, allora esiste $U \in \mathcal{U}$ tale che $x \in U$, inoltre, per ipotesi di compattezza locale, esiste $K$ compatto tale che $x \in K$. Consideriamo l'aperto $\mathring{K} \cap U$, per ipotesi $X$ possiede una base numerabile $\mathcal{B}$ di aperti, pertanto esiste $B_i \in \mathcal{B}$ tale che $x \in B_i \subset \mathring{K} \cap U$. Inoltre $B_i$ è relativamente compatto, infatti $\overline{B}_i \subset K$, ovvero la chiusura di $B_i$ è contenuta in $K$ che è compatto. Dunque per ogni $x \in X$ e ogni $U \in \mathcal{U}$ intorno di $x$ esiste $B_i \in \mathcal{B}$ relativamente compatto tale che $x \in B_i \subset U$, allora la famiglia $\{B_i : i \in \mathbb{N}\}$ è un raffinamento di $\mathcal{U}$.
-
-
 \newpage
 \section{Gruppi di matrici}
 \subsection{Appendice sui gruppi}
