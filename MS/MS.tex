@@ -641,10 +641,45 @@ pertanto
     &= dE - SdT -dE - PdV + \mu dN \notag \\
     &= -SdT - PdV + \mu dN \tag{2.1.7}
 \end{align}
-Pertanto diamo come definizione statistica dell'energia libera la seguente 
+Pertanto, facendo riferimento all'espressione $(2.1.5)$, diamo come definizione statistica dell'energia libera la seguente 
 \begin{align}
-    G(N, V, T) = k\ln Q_N(V, T) \tag{2.1.8}
+    G(N, V, T) = -kT\ln Q_N(V, T) \tag{2.1.8}
 \end{align}
+Verifichiamo che sia correttamente estensiva. Poiché per ipotesi $X_1$ e $X_2$ sono debolmente interagenti si ha che $\mathcal{H}_{tot} = \mathcal{H}_1 + \mathcal{H}_2$, pertanto 
+\begin{align}
+    Q_N &= \left(\int\frac{d\mathbf{p}^{(1)}d\mathbf{q}^{(1)}}{h^{3N_1}}e^{-\frac{\mathcal{H}_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)})}{kT}}\right)\left(\int\frac{d\mathbf{p}^{(2)}d\mathbf{q}^{(2)}}{h^{3N_2}}e^{-\frac{\mathcal{H}_2(\mathbf{p}^{(2)}, \mathbf{q}^{(2)})}{kT}}\right) \notag \\
+    &= Q^{(1)}_{N_1}Q^{(2)}_{N_2} \notag
+\end{align}
+pertanto 
+\begin{align}
+    G_{tot} &= k\ln Q_N \notag \\
+    &= k\ln(Q^{(1)}_{N_1}Q^{(2)}_{N_2}) \notag \\
+    &= G_1 + G_2 \tag{2.1.9}
+\end{align}
+ovvero $G$ correttamente estensiva (al limite termodinamico di sottosistemi debolmente interagenti). \\
+Osserviamo che il termine $E$ nella definizione dell'energia libera non è l'energia del sistema, infatti quest'ultima è una variabile stocastica per gli ensemble canonici. La corretta definizione di $G$ è 
+\begin{align}
+    G = \braket{\mathcal{H}_N} - TS \tag{2.1.10}
+\end{align}
+Per mostrarlo poniamo $\beta = \frac{1}{kT}$, si ha che 
+\begin{align}
+    e^{\beta G}Q_N &= e^{\beta G}\int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{-\beta\mathcal{H}_N} = 1 \notag
+\end{align}
+ovvero 
+\begin{align}
+    \int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{\beta(G - \mathcal{H}_N)} = 1 \notag
+\end{align}
+allora 
+\begin{align}
+    \frac{\partial}{\partial \beta}\int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{\beta(G - \mathcal{H})} &= \int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}\left(G - \mathcal{H}_N + \beta\left(\frac{\partial G}{\partial \beta}\right)_{N, V}\right)e^{\beta(G - \mathcal{H}_N)} \notag \\
+    &= \left(G + \beta\left(\frac{\partial G}{\partial \beta}\right)_{N, V}\right) - \frac{1}{Q_N}\int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}\mathcal{H}_Ne^{-\beta\mathcal{H}_N} \notag \\
+    &= \left(G - T\left(\frac{\partial G}{\partial T}\right)_{N, V}\right) - \braket{\mathcal{H}_N} = 0 \notag
+\end{align}
+inoltre da $(2.1.7)$ notiamo
+\begin{align}
+    -T\left(\frac{\partial G}{\partial T}\right)_{N, V} = TS \notag 
+\end{align}
+pertanto concludiamo che la corretta definizione di $G$ per ensemble canonici è la $(2.1.10)$.
 
 
 

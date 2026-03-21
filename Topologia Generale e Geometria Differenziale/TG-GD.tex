@@ -1023,13 +1023,13 @@ fissato un punto $p$ di $X$. Mentre se $X$ è aperto basta prendere
     K_i = \{x \in X : \|x\| \leq i, \, d(x, \mathbb{R}^n \setminus X) \geq 1/i\} \notag
 \end{align}
 notiamo che in questo caso $K_i$ è chiuso nella topologia relativa ed è compatto poiché chiuso e limitato in $\mathbb{R}^n$. \qed \\ \\ \\
-\textbf{Definizione:} sia $X$ uno spazio topologico e siano $\mathcal{U}, \mathcal{V}$ ricoprimenti aperti di $X$. $\mathcal{V}$ è detto \textit{raffinamento} di $\mathcal{U}$, o \textit{più fine} di $\mathcal{U}$, se ogni $V \in \mathcal{V}$ è contenuto in qualche aperto di $\mathcal{U}$. \\ \\ \\
-\textbf{Definizione:} una famiglia $\mathcal{F}$ di sottoinsiemi di $X$ si dice \textit{localmente finita} se ogni $x \in X$ possiede un intorno $U_x$ che interseca solo con un numero finito di elementi di $\mathcal{F}$. \\ \\ \\
-\textbf{Definizione:} uno spazio topologico $X$ si dice \textit{paracompatto} se ogni ricoprimento $\mathcal{U}$ di $X$ possiede un raffinamento $\mathcal{V}$ localmente finito. \\ \\
+\textbf{Definizione 1.6.2:} sia $X$ uno spazio topologico e siano $\mathcal{U}, \mathcal{V}$ ricoprimenti aperti di $X$. $\mathcal{V}$ è detto \textit{raffinamento} di $\mathcal{U}$, o \textit{più fine} di $\mathcal{U}$, se ogni $V \in \mathcal{V}$ è contenuto in qualche aperto di $\mathcal{U}$. \\ \\ \\
+\textbf{Definizione 1.6.3:} una famiglia $\mathcal{F}$ di sottoinsiemi di $X$ si dice \textit{localmente finita} se ogni $x \in X$ possiede un intorno $U_x$ che interseca solo con un numero finito di elementi di $\mathcal{F}$. \\ \\ \\
+\textbf{Definizione 1.6.4:} uno spazio topologico $X$ si dice \textit{paracompatto} se ogni ricoprimento $\mathcal{U}$ di $X$ possiede un raffinamento $\mathcal{V}$ localmente finito. \\ \\
 Ogni spazio $X$ compatto è anche paracompatto, infatti se $X$ è compatto ogni ricoprimento $\mathcal{U}$ di $X$ possiede un sottoricoprimento $\mathcal{V}$ finito, allora $\mathcal{V}$ è più fine di $\mathcal{U}$ (banale) e per ogni $x \in X$ si ha che ogni intorno di $x$ interseca solamente con un numero finito di elementi di $\mathcal{V}$, proprio perché $\mathcal{V}$ è un insieme finito, pertanto $\mathcal{V}$ è localmente finito. \\ \\ \\
 \textbf{Proposizione 1.6.3:} sia $X$ uno spazio topologico localmente compatto di Hausdorff che soddisfa il secondo assioma di numerabilità. Allora ogni ricoprimento aperto $\mathcal{U}$ di $X$ possiede un raffinamento $\mathcal{V}$ localmente finito costituito al più da un'infinità numerabile di aperti. In particolare $X$ è paracompatto. \\
 
-\textbf{Dimostrazione:} sia $x \in X$, allora esiste $U \in \mathcal{U}$ tale che $x \in U$, inoltre, per ipotesi di compattezza locale, esiste $K$ compatto tale che $x \in K$. Consideriamo l'aperto $\mathring{K} \cap U$, per ipotesi $X$ possiede una base numerabile $\mathcal{B}$ di aperti, pertanto esiste $B_i \in \mathcal{B}$ tale che $x \in B_i \subset \mathring{K} \cap U$. Inoltre $B_i$ è relativamente compatto, infatti $\overline{B}_i \subset K$, ovvero la chiusura di $B_i$ è contenuta in $K$ che è compatto. Dunque per ogni $x \in X$ e ogni $U \in \mathcal{U}$ intorno di $x$ esiste $B_i \in \mathcal{B}$ relativamente compatto tale che $x \in B_i \subset U$, allora la famiglia $\{B_i : i \in \mathbb{N}\}$ è un raffinamento di $\mathcal{U}$.
+\textbf{Dimostrazione:} per la \textit{proposizione 1.6.2} $X$ è unione di una famiglia numerabile $\{K_i\}_{i \in I}$ di insiemi compatti.
 
 
 \newpage
