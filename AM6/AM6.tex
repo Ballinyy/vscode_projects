@@ -486,6 +486,18 @@ $(5)$ sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$, poniamo $M_i(\mathbf{x}) :=
 è misurabile poiché prodotto cartesiano e unione numerabile di insiemi misurabili. \\ \\
 $(\Leftarrow)$ Sia $\mathcal{F}$ misurabile
 
+\subsubsection{Esercizi}
+\textbf{1.} Sia $(X, \mathcal{M}, \mu)$ uno spazio di misura e sia $A \in \mathcal{M}$. Poniamo 
+\begin{align}
+    \chi_A(x) = \begin{cases}
+        1 \qquad &x \in A \\
+        0 \qquad &x \in X \setminus A
+    \end{cases} \notag
+\end{align}
+Dimostrare che se $\chi_A$ è misurabile $A$ è misurabile. \\
+
+\textbf{Soluzione:} per ipotesi $\chi^{-1}_A(S)$ è misurabile per ogni sottoinsieme $S \subset \mathbf{R}$ misurabile. Notiamo che $\{1\}$ è un sottoinsieme di $\mathbf{R}$ misurabile (con misura nulla), pertanto $A = \chi^{-1}_A(\{1\})$ è misurabile.
+
 \newpage
 \section{Spazi di operatori}
 \subsection{Operatori limitati}
@@ -958,9 +970,9 @@ per continuità della norma, per ogni $n > N_\varepsilon$. Notiamo che esiste $N
     &< 1 + \|f_n\|_\infty \notag
 \end{align}
  ovvero la tesi. \qed \\ \\
-\textbf{Teorema (di completamento di spazi metrici):} sia $(X, d)$ uno spazio metrico, allora esiste uno spazio metrico completo $(\overline{X}, \overline{d})$ detto completamento di $(X, d)$ e un'isometria $j : X \longrightarrow \overline{X}$
-tale che $\overline{j(X)} = \overline{X}$, ovvero $j(X)$ è denso in $\overline{X}$. Inoltre il completamento è unico, nel senso che se $(\tilde{X}, \tilde{d})$ è un altro completamento di $(X, d)$ e $k : X \longrightarrow \tilde{X}$
-un'altra isometria, esiste un'isometria suriettiva $\phi : \overline{X} \longrightarrow \tilde{X}$ tale che $\phi \circ j = k$. \\
+\textbf{Teorema (di completamento di spazi metrici):} sia $(X, d)$ uno spazio metrico, allora esiste uno spazio metrico completo $(\overline{X}, \overline{d})$ detto completamento di $(X, d)$ e un'isometria $i : X \longrightarrow \overline{X}$
+tale che $\overline{i(X)} = \overline{X}$, ovvero $i(X)$ è denso in $\overline{X}$. Inoltre il completamento è unico, nel senso che se $(\tilde{X}, \tilde{d})$ è un altro completamento di $(X, d)$ e $j : X \longrightarrow \tilde{X}$
+un'altra isometria, esiste un'isometria suriettiva $\phi : \overline{X} \longrightarrow \tilde{X}$ tale che $\phi \circ i = j$. \\
 
 \textbf{Dimostrazione:} consideriamo l'insieme $S$ delle successione di Cauchy contenute in $X$, ovvero 
 \begin{align}
@@ -1007,7 +1019,23 @@ e definendo metrica $\overline{d}$ come
 \begin{align}
     \overline{d}\left([\{x_n\}_{n \in \mathbf{N}}], [\{y_n\}_{n \in \mathbf{N}}]\right) = \lim_{n \rightarrow \infty}d(x_n, y_n) \notag
 \end{align}
-Si vede facilmente che $+$ e $\cdot$ sono ben definite e soddisfano tutte le proprietà richieste. Resta da controllare che $\overline{d}$ sia ben posta, ovvero che sia indipendente dalla scelta del rappresentante della classe di equivalenza. Siano 
+Si vede facilmente che $+$ e $\cdot$ sono ben definite e soddisfano tutte le proprietà richieste. Mostriamo che il limite che definisce $\overline{d}$ esiste, in particolare, fissato $m$ abbastanza grande, si ha 
+\begin{align}
+    d(x_n, y_n) &\leq d(x_n, x_m) + d(x_m, y_m) + d(y_m, y_n) \notag
+\end{align}
+ovvero 
+\begin{align}
+    d(x_n, y_n) - d(x_m, y_m) \leq d(x_n, x_m) + d(y_m, y_n) \notag
+\end{align}
+Con un ragionamento analogo si arriva a 
+\begin{align}
+    d(x_m, y_m) - d(x_n, y_n) \leq d(x_n, x_m) + d(y_m, y_n) \notag 
+\end{align}
+pertanto 
+\begin{align}
+    |d(x_n, y_n) - d(x_m, y_m)| \leq d(x_n, x_m) + d(y_m, y_n) < \varepsilon \notag
+\end{align}
+per $n \rightarrow \infty$, allora $\{d(x_n, y_n)\}_{n \in \mathbf{N}}$ è una successione di Cauchy a termini reali e quindi convergente per la \textit{proposizione 2.2.4}. Resta da controllare che $\overline{d}$ sia ben posta, ovvero che sia indipendente dalla scelta del rappresentante della classe di equivalenza. Siano 
 \begin{align}
     \{y_n\}_{n \in \mathbf{N}}, \{z_n\}_{n \in \mathbf{N}} \in [\{x_n\}_{n \in \mathbf{N}}] \notag \\
     \{y'_n\}_{n \in \mathbf{N}}, \{z'_n\}_{n \in \mathbf{N}} \in [\{x'_n\}_{n \in \mathbf{N}}] \notag
@@ -1058,11 +1086,48 @@ definitivamente, per ipotesi di Cauchy su entrambi gli indici. Pertanto, fissato
     \overline{d}([\{x^m_n\}_{n \in \mathbf{N}}], [\{x^n_n\}_{n \in \mathbf{N}}]) < 2\varepsilon \notag
 \end{align}
 definitivamente rispetto a $m$, ovvero $(\overline{X}, \overline{d})$ completo. \\
-Ora dobbiamo definire l'inclusione $j$. Dato $x \in X$ poniamo 
+Ora dobbiamo definire l'inclusione $i$. Dato $x \in X$ poniamo 
 \begin{align}
-    j(x) := [\{x\}_{n \in \mathbf{N}}] \notag
+    i(x) := [\{x\}_{n \in \mathbf{N}}] \notag
 \end{align}
-ovvero $j$ mappa ogni $x \in X$ nella classe di equivalenza delle successioni costanti a valore $x$. Ovviamente ogni successione costante è di Cauchy e quindi $j(X) \subset \overline{X}$. Mostriamo che $j(X)$ è denso in $\overline{X}$, per fare ciò mostriamo che $j(X)$ interseca con ogni aperto in $\overline{X}$.
+ovvero $i$ mappa ogni $x \in X$ nella classe di equivalenza delle successioni costanti a valore $x$. Ovviamente ogni successione costante è di Cauchy e quindi $i(X) \subset \overline{X}$, inoltre si vede immediatamente che $i$ è lineare e isometrica. \\
+Mostriamo ora che $i(X)$ è denso in $\overline{X}$, per fare ciò mostreremo che interseca con ogni aperto di $\overline{X}$. Sia $\{x_n\}_{n \in \mathbf{N}}$ un rappresentante di una classe di equivalenza in $\overline{X}$, fissato $\varepsilon > 0$ esiste $N \in \mathbf{N}$ tale che 
+\begin{align}
+    d(x_n, x_N) < \varepsilon \notag
+\end{align}
+per ogni $n > N$. Sia $\{x_N\}_{n \in \mathbf{N}}$ la successione a termini costanti $x_N$, ovviamente $\{x_N\}_{n \in \mathbf{N}} \subset X$. Allora otteniamo che 
+\begin{align}
+    \overline{d}([\{x_N\}_{n \in \mathbf{N}}], [\{x_n\}_{n \in \mathbf{N}}]) &= \lim_{n \rightarrow \infty}d(x_N, x_n) < \varepsilon \notag
+\end{align}
+per costruzione, ovvero $\{x_N\}_{n \in \mathbf{N}}$ interseca con ogni disco aperto di raggio arbitrariamente piccolo in $\overline{X}$, pertanto $i(X)$ denso. \\
+Mostriamo ora l'unicità, a meno di isometrie suriettive, di $(\overline{X}, \overline{d})$. Sia $(\tilde{X}, \tilde{d})$ un altro completamento di $(X, d)$.
+Per ipotesi esiste $j : X \longrightarrow \tilde{X}$ isometria lineare tale che $j(X)$ è denso in $\tilde{X}$, mostriamo che esiste $\phi : \overline{X} \longrightarrow \tilde{X}$ isometria suriettiva tale che $\phi \circ i = j$. Per ogni $x \in X$ definiamo 
+\begin{align}
+    (\phi \circ i)(x) = j(x) \notag
+\end{align}
+notiamo immediatamente che $\phi$ è un'isometria in $i(X)$, infatti dati $x_1, x_2 \in X$ si ha 
+\begin{align}
+    d(\phi(i(x_1)), \phi(i(x_2))) &= d(j(x_1), j(x_2)) \notag \\
+    &= d(x_1, x_2) \notag
+\end{align}
+poiché per ipotesi $j$ è un'isometria. Dobbiamo estendere $\phi$ a $\overline{X}$, sia $w \in \overline{X}$ e sia $\{i(v_n)\}_{n \in \mathbf{N}} \subset \overline{X}$ tale che 
+\begin{align}
+    w = \lim_{n \rightarrow \infty}i(v_n) \notag
+\end{align}
+allora poniamo 
+\begin{align}
+    \phi(w) = \lim_{n \rightarrow \infty}\phi(i(v_n)) \notag
+\end{align}
+verifichiamo che $\phi(w)$ sia ben posta, ovvero che non dipenda dalla scelta della successione approssimante. Sia $\{i(v'_n)\}_{n \in \mathbf{N}} \subset \overline{X}$ tale che 
+\begin{align}
+    w = \lim_{n \rightarrow \infty}i(v'_n) \notag
+\end{align}
+si ha che 
+\begin{align}
+    \lim_{n \rightarrow \infty}\|\phi(i(v_n)) - \phi(i(v'_n))\| \notag &= \lim_{n \rightarrow \infty}\|j(v_n) - j(v'_n)\| \notag \\
+    &= \lim_{n \rightarrow \infty}\|v_n - v'_n\| = 0 \notag
+\end{align}
+dato che $j$ è un'isometria.
 
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che i seguenti spazi normati sono di Banach: \\

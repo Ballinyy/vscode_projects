@@ -11,8 +11,9 @@
 \contentsline {subsection}{\numberline {1.6}L'integrale di Lebesgue}{18}{}%
 \contentsline {subsubsection}{\numberline {1.6.1}Esercizi}{21}{}%
 \contentsline {subsection}{\numberline {1.7}Funzioni misurabili}{23}{}%
-\contentsline {section}{\numberline {2}Spazi di operatori}{25}{}%
-\contentsline {subsection}{\numberline {2.1}Operatori limitati}{25}{}%
-\contentsline {subsubsection}{\numberline {2.1.1}Esercizi}{32}{}%
-\contentsline {subsection}{\numberline {2.2}Completezza}{35}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Esercizi}{41}{}%
+\contentsline {subsubsection}{\numberline {1.7.1}Esercizi}{25}{}%
+\contentsline {section}{\numberline {2}Spazi di operatori}{26}{}%
+\contentsline {subsection}{\numberline {2.1}Operatori limitati}{26}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}Esercizi}{33}{}%
+\contentsline {subsection}{\numberline {2.2}Completezza}{36}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Esercizi}{43}{}%
