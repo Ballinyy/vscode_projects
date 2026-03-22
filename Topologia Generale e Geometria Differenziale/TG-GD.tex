@@ -1029,7 +1029,60 @@ notiamo che in questo caso $K_i$ è chiuso nella topologia relativa ed è compat
 Ogni spazio $X$ compatto è anche paracompatto, infatti se $X$ è compatto ogni ricoprimento $\mathcal{U}$ di $X$ possiede un sottoricoprimento $\mathcal{V}$ finito, allora $\mathcal{V}$ è più fine di $\mathcal{U}$ (banale) e per ogni $x \in X$ si ha che ogni intorno di $x$ interseca solamente con un numero finito di elementi di $\mathcal{V}$, proprio perché $\mathcal{V}$ è un insieme finito, pertanto $\mathcal{V}$ è localmente finito. \\ \\ \\
 \textbf{Proposizione 1.6.3:} sia $X$ uno spazio topologico localmente compatto di Hausdorff che soddisfa il secondo assioma di numerabilità. Allora ogni ricoprimento aperto $\mathcal{U}$ di $X$ possiede un raffinamento $\mathcal{V}$ localmente finito costituito al più da un'infinità numerabile di aperti. In particolare $X$ è paracompatto. \\
 
-\textbf{Dimostrazione:} per la \textit{proposizione 1.6.2} $X$ è unione di una famiglia numerabile $\{K_i\}_{i \in I}$ di insiemi compatti.
+\textbf{Dimostrazione:} sia $\mathcal{U}$ un ricoprimento aperto di $X$, per la \textit{proposizione 1.6.2} $X$ è unione di una famiglia numerabile $\{K_i\}_{i \in I}$ di insiemi compatti tali che $K_i \subset \mathring{K}_{i + 1}$. Per ogni $i \in I$ la famiglia 
+\begin{align}
+    \mathcal{V}_i = \{[\mathring{K}_{i + 2} \setminus K_{i - 1}] \cap U : U \in \mathcal{U}\} \notag
+\end{align}
+dove si pone $K_j = \emptyset$ per $j \leq 0$, costituisce un ricoprimento aperto di $K_{i + 1} \setminus \mathring{K}_i$ che è chiuso in $K_{i + 1}$ e quindi compatto. Allora esiste un sottoricoprimento finito $V_{i, 1}, \dots, V_{i, \alpha(i)}$ tale che 
+\begin{align}
+    K_{i + 1} \setminus \mathring{K}_i \subset V_{i, 1} \cup \dots \cup V_{i, \alpha(i)} \notag
+\end{align}
+Poiché 
+\begin{align}
+    \bigcup_{i \in I}(K_{i + 1} \setminus \mathring{K}_i) = X \notag
+\end{align}
+si ha che la famiglia $\mathcal{V} = \{V_{i, j} : i \in I, j = 1, \dots, \alpha(i)\}$ è un ricoprimento aperto di $X$ composta da al più un'infinità numerabile di elementi. Inoltre $\mathcal{V}$ è più fine di $\mathcal{U}$ per costruzione. Sia $x \in X$, esiste $i \in I$ tale che $x \in K_i$, l'aperto $\mathring{K}_{i + 1}$ è un intorno aperto di $x$ tale che 
+\begin{align}
+    \mathring{K}_{i + 1} \cap V_{j, h} = \emptyset \notag
+\end{align}
+per ogni $j \geq  i + 2$, ovvero $\mathring{V}$ paracompatto. \qed \\ \\ \\
+\textbf{Corollario 1.6.1:} ogni aperto o chiuso di $\mathbb{R}^n$ è paracompatto, ogni varietà topologica è paracompatta. \\ \\ \\
+\textbf{Definizione 1.6.5:} uno spazio topologico $X$ è detto \textit{numerabilmente compatto} se ogni sottoinsieme infinito $Z \subset X$ possiede un punto di accumulazione. Uno spazio topologico $X$ è detto \textit{compatto per successioni} se ogni successione di punti in $X$ ammette una sottosuccessione convergente in $X$. \\ \\ \\
+Ogni spazio compatto per successioni è anche numerabilmente compatto, inoltre per la \textit{proposizione 1.5.2} ogni spazio compatto è anche numerabilmente compatto. \\ \\ \\
+\textbf{Definizione 1.6.6:} sia $X$ uno spazio metrizzabile e sia $\mathcal{U}$ un ricoprimento aperto di $X$. Se esiste $\varepsilon > 0$ tale che il ricoprimento aperto costituito dai dischi aperti di raggio $\varepsilon$ è un raffinamento di $\mathcal{U}$, $\varepsilon$ è detto numero di Lebesgue del ricoprimento $\mathcal{U}$. \\ \\ \\
+\textbf{Proposizione 1.6.4:} sia $X$ uno spazio metrizzabile compatto per successioni, allora ogni ricoprimento aperto $\mathcal{U}$ di $X$ ammette numero di Lebesgue. \\
+
+\textbf{Dimostrazione:} sia $\mathcal{U}$ un ricoprimento aperto di $X$. Per ogni $x \in X$ poniamo 
+\begin{align}
+    \varepsilon(x) = \sup\{\delta > 0 : D_\delta(x) \subset U, U \in \mathcal{U}\} \notag
+\end{align}
+inoltre sia 
+\begin{align}
+    \varepsilon_0 = \inf_{x \in X}\varepsilon(x) \notag
+\end{align}
+mostriamo che $\varepsilon_0 > 0$. Supponiamo per assurdo $\varepsilon_0 = 0$, allora esiste una successione $\{x_n : n  \in \mathbf{N}\}$ tale che 
+\begin{align}
+    \lim_{n \rightarrow \infty}\varepsilon(x_n) = 0 \notag
+\end{align}
+Per ipotesi di compattezza per successioni, a meno di sostituire $\{x_n\}$ con una sottosuccessione, esiste $x_0 \in X$ tale che 
+\begin{align}
+    x_0 = \lim_{n \rightarrow \infty}x_n \notag
+\end{align}
+Per definizione esiste $N \in \mathbf{N}$ tale che $d(x_0, x_n) < \frac{1}{4}\varepsilon(x_0)$ per ogni $n > N$. Allora si ha 
+\begin{align}
+    D_{\varepsilon(x_0)/4}(x_n) \subset D_{\varepsilon(x_0)/2}(x_0) \notag
+\end{align}
+per ogni $n > N$, quindi $\varepsilon(x_n) \geq \frac{1}{4}\varepsilon(x_0)$ per ogni $n > N$ (per definizione di numero di Lebesgue). Allora 
+\begin{align}
+    \lim_{n \rightarrow \infty}\varepsilon(x_n) \geq \frac{1}{4}\varepsilon(x_0) > 0 \notag
+\end{align}
+pertanto si ottiene un assurdo. \qed \\ \\ \\
+\textbf{Teorema 1.6.1:} sia $X$ uno spazio metrizzabile, allora le seguenti sono equivalenti: \\
+\textbf{1.} $X$ è compatto. \\
+\textbf{2.} $X$ è numerabilmente compatto. \\
+\textbf{3.} $X$ è compatto per successioni. \\
+
+\textbf{Dimostrazione:} $(1 \rightarrow 2)$
 
 
 \newpage
@@ -1040,7 +1093,7 @@ Ogni spazio $X$ compatto è anche paracompatto, infatti se $X$ è compatto ogni 
     \cdot : G \times G \longrightarrow G \notag
 \end{gather}
 Siano $a, b \in G$, se $a \cdot b = c$ si dice che $c$ è il \textit{prodotto} di $a$ e $b$. \\ \\ \\
-\textbf{Definizione A.2:} $G$ è detti \textit{gruppo} se è dotato di un'operazione binaria \\ $\cdot : G \times G \longrightarrow G$ tale che: \\
+\textbf{Definizione A.2:} $G$ è detto \textit{gruppo} se è dotato di un'operazione binaria \\ $\cdot : G \times G \longrightarrow G$ tale che: \\
 \textbf{1.} $a \cdot (b \cdot c) = (a \cdot b) \cdot c$ per ogni $a, b, c \in G$. \\
 \textbf{2.} esiste $e \in G$ tale che $a \cdot e = e \cdot a = a$ per ogni $a \in G$. \\
 \textbf{3.} esiste $a^{-1} \in G$ tale che $a \cdot a^{-1} = a^{-1} \cdot a = e$ per ogni $a \in G$. \\ \\ \\
