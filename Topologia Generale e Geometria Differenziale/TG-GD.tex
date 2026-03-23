@@ -1060,7 +1060,7 @@ inoltre sia
 \begin{align}
     \varepsilon_0 = \inf_{x \in X}\varepsilon(x) \notag
 \end{align}
-mostriamo che $\varepsilon_0 > 0$. Supponiamo per assurdo $\varepsilon_0 = 0$, allora esiste una successione $\{x_n : n  \in \mathbf{N}\}$ tale che 
+mostriamo che $\varepsilon_0 > 0$. Supponiamo per assurdo $\varepsilon_0 = 0$, allora esiste una successione $\{x_n : n  \in \mathbb{N}\}$ tale che 
 \begin{align}
     \lim_{n \rightarrow \infty}\varepsilon(x_n) = 0 \notag
 \end{align}
@@ -1068,7 +1068,7 @@ Per ipotesi di compattezza per successioni, a meno di sostituire $\{x_n\}$ con u
 \begin{align}
     x_0 = \lim_{n \rightarrow \infty}x_n \notag
 \end{align}
-Per definizione esiste $N \in \mathbf{N}$ tale che $d(x_0, x_n) < \frac{1}{4}\varepsilon(x_0)$ per ogni $n > N$. Allora si ha 
+Per definizione esiste $N \in \mathbb{N}$ tale che $d(x_0, x_n) < \frac{1}{4}\varepsilon(x_0)$ per ogni $n > N$. Allora si ha 
 \begin{align}
     D_{\varepsilon(x_0)/4}(x_n) \subset D_{\varepsilon(x_0)/2}(x_0) \notag
 \end{align}
@@ -1082,7 +1082,24 @@ pertanto si ottiene un assurdo. \qed \\ \\ \\
 \textbf{2.} $X$ è numerabilmente compatto. \\
 \textbf{3.} $X$ è compatto per successioni. \\
 
-\textbf{Dimostrazione:} $(1 \rightarrow 2)$
+\textbf{Dimostrazione:} $(1 \rightarrow 2)$ segue dalla \textit{proposizione 1.5.2}. \\ \\
+$(2 \rightarrow 3)$ Poiché $X$ è uno spazio metrizzabile è anche $T_1$ e soddisfa il primo assioma di numerabilità, pertanto per la \textit{proposizione 1.2.7} ogni successione che ha un punto di accumulazione ammette una sottosuccessione convergente, segue che $X$ è compatto per successioni. \\ \\
+$(3 \rightarrow 1)$ Sia $\mathcal{U}$ un ricoprimento aperto di $X$, per la \textit{proposizione 1.6.4} $\mathcal{U}$ ammette un numero di Lebesgue $\varepsilon > 0$ tale che la famiglia $\mathcal{V}_\varepsilon$ dei dischi aperti di raggio $\varepsilon$ è un raffinamento di $\mathcal{U}$. Supponiamo per assurdo che $\mathcal{U}$ non ammetta sottoricoprimento finito, allora neanche $\mathcal{V}_\varepsilon$ ammette sottoricoprimento finito. Sia $x_1 \in X$, allora esiste $x_2 \in X$ tale che $x_2 \not\in D_\varepsilon(x_1)$. Analogamente, dato che $\{D_\varepsilon(x_1), D_\varepsilon(x_2)\}$ non è un ricoprimento, esiste $x_3 \in X$ tale che $x_3 \not\in D_\varepsilon(x_2) \cup D_\varepsilon(x_1)$. Ragionando per induzione, esiste $x_k \in X$ tale che
+\begin{align}
+    x_k \not\in \bigcup_{i = 1}^{k - 1}D_\varepsilon(x_k) \notag
+\end{align}
+Abbiamo costruito una successione di punti $\{x_n\}$ in $X$ tale che $d(x_k, x_j) > \varepsilon$ per ogni $k \neq j$. Per ipotesi $X$ è compatto per successioni, quindi $\{x_n\}$ ammette una sottosuccesione $\{x_{\nu(k)}\}$ convergente ad un opportuno punto $x \in X$, segue che esiste $N_{\varepsilon/2} \in \mathbb{N}$ tale che $d(x_{\nu(k)}, x) < \varepsilon$ per ogni $k > N_{\varepsilon/2}$. Allora, fissati $k_1, k_2 > N_{\varepsilon/2}$ si ha 
+\begin{align}
+    d(x_{\nu(k_1)}, x_{\nu(k_2)}) \leq d(x_{\nu(k_1)}, x) + d(x, x_{\nu(k_2)}) < \varepsilon \notag
+\end{align}
+ma ciò è assurdo. \qed \\ \\ \\
+Un'altra caratterizzazione degli spazi compatti viene data attraverso la proprietà di completezza degli spazi metrici. \\ \\
+\textbf{Definizione 1.6.7:} sia $X$ uno spazio metrico, una successione $\{x_n\}_{n \in \mathbb{N}}$ è detta di Cauchy se per ogni $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbb{N}$ tale che $d(x_n, x_m) < \varepsilon$ per ogni $n, m > N_\varepsilon$. \\ \\ \\
+\textbf{Osservazione:} ogni successione convergente è anche di Cauchy. Infatti data $\{x_n\}_{n \in \mathbb{N}}$ convergente a $x \in X$, per ogni $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbb{N}$ tale che $d(x_n, x_m) \leq d(x_n, x) + d(x, x_m) < 2\varepsilon$ per ogni $n, m > N_\varepsilon$, per la disuguaglianza triangolare. \\ \\ \\
+\textbf{Definizione 1.6.8:} uno spazio metrico è detto \textit{completo} se ogni successione di Cauchy è anche convergente. \\ \\ \\
+Dai corsi di Analisi Matematica sappiamo che $\mathbb{R}^n, \mathbb{C}^n$ sono spazi metrici completi rispetto alla metrica indotta dalla norma per ogni $n \geq 1$ (partendo dal caso $n = 1$ e usando successioni a variazione finita, poi generalizzando al caso $n \geq 1$). \\ \\
+La completezza non è una proprietà topologica, ovvero non si conserva rispetto a omeomorfismi. Ad esempio $\mathbb{R} \cong (0, 1)$, tuttavia $\mathbb{R}$ è completo, mentre $(0, 1)$ no, infatti $\{1/n\}_{n \in \mathbb{N}}$ è una successione di Cauchy in $(0, 1)$ ma non è ivi convergente.
+
 
 
 \newpage
@@ -1743,7 +1760,7 @@ Poniamo $\mathfrak{gl}_n(\mathbb{R}) = \mathfrak{g}(\mathbf{GL}_n(\mathbb{R}))$,
     \gamma : \mathbb{R} \longrightarrow \mathbf{M}_n(\mathbb{R}), \quad \gamma(t) = \mathbf{I}_n + tA \notag
 \end{gather}
 per ogni $A \in \mathbf{M}_n(\mathbb{R})$. Chiaramente $\gamma$ è differenziabile poiché è un polinomio,  $\gamma(0) = \mathbf{I}_n$ e $\gamma'(0) = A$. \\
-Inoltre la funzione $\det$ è continua dunque, per il teorema della permanenza del segno, esiste $\varepsilon > 0$ tale che $\det \gamma(t) > 0$ per ogni $t \in (-\varepsilon, \varepsilon)$, pertanto la tesi segue e $\dim \mathbf{GL}_n(\Bbb{R}) = n^2$. \qed \\ \\ \\
+Inoltre la funzione $\det$ è continua dunque, per il teorema della permanenza del segno, esiste $\varepsilon > 0$ tale che $\det \gamma(t) > 0$ per ogni $t \in (-\varepsilon, \varepsilon)$, pertanto la tesi segue e $\dim \mathbf{GL}_n(\\mathbb{R}) = n^2$. \qed \\ \\ \\
 \textit{Lemma 2.3.1:} sia $\gamma : (-\varepsilon, \varepsilon) \longrightarrow \mathbf{M}_n(\mathbb{R})$ differenziabile tale che $\gamma(0) = \mathbf{I}_n$, si ha che
 \begin{gather}
     \frac{\mathrm{d}}{\mathrm{d}t} \det \gamma(t) |_{t = 0} = \mathrm{tr}(\gamma'(0)) \notag
