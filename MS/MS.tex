@@ -652,8 +652,8 @@ Verifichiamo che sia correttamente estensiva. Poiché per ipotesi $X_1$ e $X_2$ 
 \end{align}
 pertanto 
 \begin{align}
-    G_{tot} &= k\ln Q_N \notag \\
-    &= k\ln(Q^{(1)}_{N_1}Q^{(2)}_{N_2}) \notag \\
+    G_{tot} &= -kT\ln Q_N \notag \\
+    &= -kT\ln(Q^{(1)}_{N_1}Q^{(2)}_{N_2}) \notag \\
     &= G_1 + G_2 \tag{2.1.9}
 \end{align}
 ovvero $G$ correttamente estensiva (al limite termodinamico di sottosistemi debolmente interagenti). \\
@@ -667,7 +667,7 @@ Per mostrarlo poniamo $\beta = \frac{1}{kT}$, si ha che
 \end{align}
 ovvero 
 \begin{align}
-    \int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{\beta(G - \mathcal{H}_N)} = 1 \notag
+    \int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{\beta(G - \mathcal{H}_N)} = 1 \tag{2.1.11}
 \end{align}
 allora 
 \begin{align}
@@ -679,8 +679,60 @@ inoltre da $(2.1.7)$ notiamo
 \begin{align}
     -T\left(\frac{\partial G}{\partial T}\right)_{N, V} = TS \notag 
 \end{align}
-pertanto concludiamo che la corretta definizione di $G$ per ensemble canonici è la $(2.1.10)$.
-
+pertanto concludiamo che la corretta definizione di $G$ per ensemble canonici è la $(2.1.10)$. \\ \\
+Vediamo ora come si comportano le fluttuazioni dell'energia rispetto alla media. Notiamo che la definizione di momento di ordine due (rispetto a $\rho$) dell'hamiltoniana $\mathcal{H}$ è legata al concetto di varianza della distribuzione dell'energia, infatti si ha 
+\begin{align}
+    \Delta \mathcal{H} = \sqrt{\braket{\mathcal{H}^2} - \braket{\mathcal{H}}^2} \tag{2.1.12}
+\end{align}
+Consideriamo la media statistica sull'ensemble dell'hamiltoniana 
+\begin{align}
+    \braket{\mathcal{H}} &= \frac{1}{h^{3N}Q_N}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} \notag \\
+    &= \frac{1}{h^{3N}}e^{\beta G}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} \notag
+\end{align}
+l'energia libera $G$ non dipende dalle variabili microscopiche del sistema $(\mathbf{p}, \mathbf{q})$, pertanto 
+\begin{align}
+    \braket{\mathcal{H}} = \frac{1}{h^{3N}}e^{\beta G}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} = \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{\beta(G - \mathcal{H})} \tag{2.1.13}
+\end{align}
+per $(2.1.11)$ si ha 
+\begin{align}
+    \braket{\mathcal{H}} = 1 \cdot \braket{\mathcal{H}} = \left(\frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{\beta(G - \mathcal{H})}\right)\braket{\mathcal{H}} \notag
+\end{align}
+inoltre, dato che il valor medio dell'hamiltoniana non dipende dalle variabili microscopiche $(\mathbf{p}, \mathbf{q})$ si ottiene 
+\begin{align}
+    \braket{\mathcal{H}} = \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \braket{\mathcal{H}}e^{\beta(G - \mathcal{H})} \tag{2.1.14}
+\end{align}
+confrontando $(2.1.13)$ e $(2.1.14)$ si ottiene 
+\begin{align}
+    \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, (\braket{\mathcal{H}} - \mathcal{H})e^{\beta(G - \mathcal{H})} = 0 \tag{2.1.15}
+\end{align}
+ricaviamo un vincolo sulla varianza derivando rispetto a $\beta$, infatti 
+\begin{align}
+    0 &= \frac{\partial}{\partial \beta}\left(\frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, (\braket{\mathcal{H}} - \mathcal{H})e^{\beta(G - \mathcal{H})}\right) \notag \\
+    &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \left(\frac{\partial \braket{\mathcal{H}}}{\partial \beta} + (\braket{\mathcal{H}} - \mathcal{H})\left(G - \mathcal{H} + \beta\left(\frac{\partial G}{\partial \beta}\right)_{N, V}\right)\right)e^{\beta(G - \mathcal{H})} \tag{2.1.16}
+\end{align}
+il termine $\frac{\partial \braket{\mathcal{H}}}{\partial \beta}$ non dipende dalle variabili microscopiche $(\mathbf{p}, \mathbf{q})$, quindi può essere fattorizzato fuori dall'integrale (che fa 1). Inoltre, da $(2.1.10)$ notiamo che 
+\begin{align}
+    G + \beta\left(\frac{\partial G}{\partial \beta}\right)_{N, V} &= G - T\left(\frac{\partial G}{\partial T}\right)_{N, V} \notag \\
+    &= G + TS \notag \\
+    &= \braket{\mathcal{H}} \tag{2.1.17}
+\end{align}
+e sostituendo in $(2.1.16)$ si ha 
+\begin{align}
+    \frac{\partial \braket{\mathcal{H}}}{\partial \beta} + \braket{(\braket{\mathcal{H}} - \mathcal{H})^2} = 0 \tag{2.1.18}
+\end{align}
+ponendo $U = \braket{\mathcal{H}}$ si ha 
+\begin{align}
+    -kT^2U + \braket{(U - \mathcal{H})^2} = 0 \notag
+\end{align}
+ovvero 
+\begin{align}
+    \braket{(U - \mathcal{H})^2} = kT^2U \tag{2.1.19}
+\end{align}
+Consideriamo un gas libero e supponiamo che valga il teorema di equipartizione dell'energia anche per l'ensemble canonico (che dimostreremo in seguito), allora $U \sim N$, ciò comporta che 
+\begin{align}
+    \frac{\sqrt{\braket{(U - \mathcal{H})^2}}}{U} \sim \frac{1}{\sqrt{N}} \rightarrow 0 \tag{2.1.10}
+\end{align}
+per $N \rightarrow \infty$, quindi l'ensemble canonico si comporta come l'ensemble microcanonico al limite termodinamico, infatti le fluttuazioni dell'energia diventano trascurabili rispetto al valore medio.
 
 
 
