@@ -1201,8 +1201,8 @@ ovvero la tesi. \qed
 
 \newpage
 \section*{Appendice}
-\subsection*{Disuaguaglianze fondamentali}
-\textbf{Lemma:} siano $x, y \geq 0$ tali che almeno uno dei due è non nullo e sia $\alpha \in (0, 1)$, allora 
+\subsection*{Disuguaglianze fondamentali}
+\textbf{Lemma A.1.1:} siano $x, y \geq 0$ tali che almeno uno dei due è non nullo e sia $\alpha \in (0, 1)$, allora 
 \begin{align}
     x^\alpha y^{1 - \alpha} \leq \alpha x + (1 - \alpha)y \notag
 \end{align} \\
@@ -1228,12 +1228,12 @@ ovvero
     x^{\alpha}y^{1 - \alpha} \leq \alpha x + (1 - \alpha)y \notag
 \end{align}
 che è la tesi. \qed \\ \\
-\textbf{Lemma:} sia $(X, \mathcal{M}, \mu)$ uno spazio di misura e siano $f, g : X \longrightarrow [0, +\infty]$ funzioni positive integrabili, fissato $\alpha \in (0, 1)$ si ha 
+\textbf{Lemma A.1.2:} sia $(X, \mathcal{M}, \mu)$ uno spazio di misura e siano $f, g : X \longrightarrow [0, +\infty]$ funzioni positive integrabili, fissato $\alpha \in (0, 1)$ si ha 
 \begin{align}
     \int_X f^\alpha g^{1 - \alpha} \, d\mu \leq \left(\int_X f \, d\mu\right)^\alpha\left(\int_X g \, d\mu\right)^{1 - \alpha} \notag
 \end{align} \\
 
-\textbf{Dimostrazione:} se $f$ (0 $g$) è nulla quasi ovunque in $X$ la disuguaglianza è ovvia. Analogamente se $\int f$ (o $\int g$) è infinito la disuguaglianza è ovvia. Supponiamo allora 
+\textbf{Dimostrazione:} se $f$ (o $g$) è nulla quasi ovunque in $X$ la disuguaglianza è ovvia. Analogamente se $\int f$ (o $\int g$) è infinito la disuguaglianza è ovvia. Supponiamo allora 
 \begin{align}
     0 < \int_X f \, d\mu < +\infty \notag \\
     0 < \int_X g \, d\mu < +\infty \notag
@@ -1243,19 +1243,77 @@ e definiamo
     \psi(x) = \frac{f(x)}{\int_X f \, d\mu} \notag \\
     \varphi(x) = \frac{g(x)}{\int_X g \, d\mu} \notag
 \end{align}
-\textbf{Definizione:} sia $p \in \mathbf{N}$, esiste unico $q \in \mathbf{N}$ tale che 
+$\psi, \varphi < +\infty$ quasi ovunque su $X$. Per il \textit{lemma A.1.2}, fissato $\alpha \in (0, 1)$ si ha 
+\begin{align}
+    \psi^\alpha \varphi^{1 - \alpha} \leq \alpha\psi + (1 - \alpha)\varphi \notag
+\end{align}
+Integrando ambo i membri su $X$ si ottiene 
+\begin{align}
+    \int_X \psi^\alpha\varphi^{1 - \alpha} \, d\mu &\leq \alpha\int_X \psi \, d\mu + (1 - \alpha)\int_X \varphi \, d\mu \notag \\
+    &= \alpha + 1 - \alpha = 1 \notag
+\end{align}
+ovvero
+\begin{align}
+    \int_X f^\alpha g^{1 - \alpha} \, d\mu \leq \left(\int_X f \, d\mu\right)^\alpha\left(\int_X g \, d\mu\right)^{1 - \alpha} \notag
+\end{align}
+cioè la tesi. \qed \\ \\
+\textbf{Definizione:} sia $p > 1$, esiste unico $q \in \mathbf{R}$ tale che 
 \begin{align}
     \frac{1}{p} + \frac{1}{q} = 1 \notag
 \end{align}
-$q$ è detto \textit{Holder coniugato di} $p$. \\ \\
-\textbf{Proposizione (disuaguaglianza di Holder):} siano $p, q \in \mathbf{N}$ Holder coniugati, sia $(X, \mathcal{M}, \mu)$ uno spazio di misura e siano $f, q : X \longrightarrow \mathbf{C}$ funzioni integrabili, allora si ha 
+$q$ è detto \textit{Holder coniugato} di $p$. \\ \\
+\textbf{Proposizione (disuguaglianza di Holder):} siano $p, q > 1$ Holder coniugati, sia $(X, \mathcal{M}, \mu)$ uno spazio di misura e siano $f, q : X \longrightarrow \mathbf{C}$ funzioni integrabili, allora si ha 
 \begin{align}
     \int_X |fg| \, d\mu \leq \left(\int_X |f|^{p} \, d\mu\right)^{1/p}\left(\int_X |g|^{q} \, d\mu\right)^{1/q} \notag
 \end{align} \\
 
-\textbf{Dimostrazione:}
+\textbf{Dimostrazione:} siano $p, q > 1$ Holder coniugati, per definizione 
+\begin{align}
+    \frac{1}{q} = 1 - \frac{1}{p} \notag
+\end{align}
+Le funzioni $|f|^p$ e $|g|^q$ sono positive e integrabili, scegliendo $\alpha = \frac{1}{p}$, per il \textit{lemma A.1.2}, si ha 
+\begin{align}
+    \int_X (|f|^p)^{1/p}(|g|^q)^{1/q} \, d\mu \leq \left(\int_X |f|^p \, d\mu\right)^{1/p}\left(\int_X |g|^q \, d\mu\right)^{1/q} \notag
+\end{align}
+ovvero 
+\begin{align}
+    \int_X |fg| \, d\mu \leq \left(\int_X |f|^p \, d\mu\right)^{1/p}\left(\int_X |g|^q \, d\mu\right)^{1/q} \notag
+\end{align}
+che è la tesi. \qed \\ \\
+\textbf{Proposizione (disuguaglianza di Minkowski):} sia $(X, \mathcal{M}, \mu)$ uno spazio di misura e siano $f, g : X \longrightarrow \mathbf{C}$ funzioni integrabili, allora 
+\begin{align}
+    \left(\int_X |f + g|^p\right)^{1/p} \, d\mu \leq \left(\int_X |f|^p \, d\mu\right)^{1/p} + \left(\int_X |g|^p \, d\mu\right)^{1/p} \notag
+\end{align}
+per ogni $p \in (1, +\infty)$. \\
 
-
+\textbf{Dimostrazione:} posto $q$ Holder coniugato di $p$ si ha 
+\begin{align}
+    \int_X |f + g|^p \, d\mu &= \int_X |f + g|^{p - 1}|f + g| \, d\mu \notag \\
+    &\leq \int_X |f + g|^{p - 1}|f| \, d\mu + \int_X |f + g|^{p - 1}|g| \, d\mu \notag
+\end{align}
+per la \textit{subadditività} della norma in $\mathbf{C}$, inoltre per la \textit{disuguaglianza di Holder} si ha
+\begin{align}
+    \int_X |f + g|^{p - 1}|f| \, d\mu &\leq \left(\int_X |f + g|^{(p - 1)q}\right)^{1/q}\left(\int_X |f|^p \, d\mu\right)^{1/p} \notag \\
+    \int_X |f + g|^{p - 1}|g| \, d\mu &\leq \left(\int_X |f + g|^{(p - 1)q}\right)^{1/q}\left(\int_X |g|^p \, d\mu\right)^{1/p} \notag
+\end{align}
+Notiamo che 
+\begin{align}
+    (p - 1)q = pq - q = p \notag
+\end{align}
+dato che per ipotesi sono $p$ e $q$ Holder coniugati, pertanto si ha 
+\begin{align}
+    \int_X |f + g|^{p - 1}|f| \, d\mu &\leq \left(\int_X |f + g|^p\right)^{1/q}\left(\int_X |f|^p \, d\mu\right)^{1/p} \notag \\
+    \int_X |f + g|^{p - 1}|g| \, d\mu &\leq \left(\int_X |f + g|^p\right)^{1/q}\left(\int_X |g|^p \, d\mu\right)^{1/p} \notag
+\end{align}
+segue che 
+\begin{align}
+    \int_X |f + g|^p \, d\mu \leq \left(\int_X |f + g|^p\right)^{1/q}\left(\left(\int_X |f|^p \, d\mu\right)^{1/p} + \left(\int_X |g|^p \, d\mu\right)^{1/p}\right) \notag
+\end{align}
+ricordando che $\frac{1}{p} = 1 - \frac{1}{q}$ e dividendo entrambi i membri per $\left(\int_X |f + g|^p\right)^{1/q}$ si ottiene 
+\begin{align}
+    \left(\int_X |f + g|^p\right)^{1/p} \, d\mu \leq \left(\int_X |f|^p \, d\mu\right)^{1/p} + \left(\int_X |g|^p \, d\mu\right)^{1/p} \notag
+\end{align}
+ovvero la tesi. \qed
 
 
 
