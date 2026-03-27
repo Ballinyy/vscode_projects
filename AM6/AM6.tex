@@ -460,31 +460,31 @@ ${(4 \rightarrow 5)}$ infatti $F_t^{(4)} = F_t^{(3)} \setminus F_t$ ed è pertan
 \textbf{Lemma 1.7.1:} siano $f, g$ funzioni misurabili, allora $E := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) > g(\mathbf{x}) \}$ è misurabile. \\
 
 \textbf{Dimostrazione:} per ipotesi si ha $F_t$ e $G_t^{'}$ sono misurabili, pertanto anche $E = F_t \cap G_t^{'}$ è misurabile poiché intersezione di insiemi misurabili. \qed \\ \\
-\textbf{Teorema 1.7.1 (proprietà delle funzioni misurabili):} sia $\mathcal{M} := \{ f : f \text{ è misurabile } \}$. Allora: \\
-\textbf{1.} sia $f \in \mathcal{M}$ e $c \in \mathbf{R}$, $f + c$ e $c \cdot f$ sono misurabili. \\
-\textbf{2.} siano $f, g \in \mathcal{M}$, allora $f + g$, $f \cdot g$ e $f^2$ sono misurabili. \\
-\textbf{3.} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$, allora $M(\mathbf{x}) := \sup_{i \in I} f_i(\mathbf{x})$ e $m(\mathbf{x}) := \inf_{i \in I} f_i(\mathbf{x})$ sono misurabili. \\
-\textbf{4.} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$ tale che $f_1 \leq f_2 \leq f_3 \leq \dots$, allora $f(\mathbf{x}) := \lim_{i \rightarrow \infty} f_i(\mathbf{x})$ è misurabile. \\
-\textbf{5.} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$ allora le funzioni $f(\mathbf{x}) := \max \lim_{i \rightarrow \infty} f_i(\mathbf{x})$ e $g(\mathbf{x}) := \min \lim_{i \rightarrow \infty} f_i(\mathbf{x})$ sono misurabili. \\
-In particolare se $\{ f_i \}_{i \in I} \subset \mathcal{M}$ converge puntualmente a $f$ allora $f$ è misurabile. \\
+\textbf{Teorema 1.7.1 (proprietà delle funzioni misurabili):} sia $\mathcal{F} := \{ f : f \text{ è misurabile } \}$. Allora: \\
+\textbf{1.} sia $f \in \mathcal{F}$ e $c \in \mathbf{R}$, $f + c$ e $c \cdot f$ sono misurabili. \\
+\textbf{2.} siano $f, g \in \mathcal{F}$, allora $f + g$, $f \cdot g$ e $f^2$ sono misurabili. \\
+\textbf{3.} sia $\{ f_i \}_{i \in I} \subset \mathcal{F}$, allora $M(\mathbf{x}) := \sup_{i \in I} f_i(\mathbf{x})$ e $m(\mathbf{x}) := \inf_{i \in I} f_i(\mathbf{x})$ sono misurabili. \\
+\textbf{4.} sia $\{ f_i \}_{i \in I} \subset \mathcal{F}$ tale che $f_1 \leq f_2 \leq f_3 \leq \dots$, allora $f(\mathbf{x}) := \lim_{i \rightarrow \infty} f_i(\mathbf{x})$ è misurabile. \\
+\textbf{5.} sia $\{ f_i \}_{i \in I} \subset \mathcal{F}$ allora le funzioni $f(\mathbf{x}) := \max \lim_{i \rightarrow \infty} f_i(\mathbf{x})$ e $g(\mathbf{x}) := \min \lim_{i \rightarrow \infty} f_i(\mathbf{x})$ sono misurabili. \\
+In particolare se $\{ f_i \}_{i \in I} \subset \mathcal{F}$ converge puntualmente a $f$ allora $f$ è misurabile. \\
 
 \textbf{Dimostrazione:} $(1)$ sia $f$ misurabile, allora $F_t$ è misurabile per ogni $t \in \mathbf{R}$, pertanto anche $F_{t - c}$ e $F_{\frac{t}{c}}$ sono misurabili. \\ \\
 $(2)$ siano $f, g$ misurabili, allora per il \textit{lemma 1.7.1} l'insieme \\ $E_t := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) + g(\mathbf{x}) > t \}$ è misurabile (a meno di ridefinire una funzione $h := t - g$ che è misurabile per il punto $(1)$). \\ \\
-$(3)$ sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$, si ha che $\{ \mathbf{x} \in \mathbf{R}^n : M(\mathbf{x}) > t \} = \bigcup_{i \in I} F_{i;t}$, pertanto misurabile poiché unione numerabile di insiemi misurabili. Analogamente si ha che $\{ \mathbf{x} \in \mathbf{R}^n : m(\mathbf{x}) < t \} = \bigcup_{i \in I} F_{i;t}^{''}$, pertanto anch'esso misurabile. \\ \\
-$(4)$ sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$ tale che $f_1 \leq f_2 \leq \dots$, allora $\{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) > t \} = \bigcup_{i \in I} F_t$ ed è dunque misurabile. \\ \\
-$(5)$ sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$, poniamo $M_i(\mathbf{x}) := \sup_{j \geq i} f_j(\mathbf{x})$ e $m_i(\mathbf{x}) := \inf_{j \geq i} f_i(\mathbf{x})$, otteniamo che $M_i$ e $m_i$ sono rispettivamente decrescente e crescente e sono misurabili per quanto visto nel punto $(3)$ per ogni $i \in I$, pertanto anche il limite per $i \rightarrow \infty$ è misurabile per quanto visto nel punto $(4)$ e si ottiene la tesi. \qed \\ \\
+$(3)$ sia $\{ f_i \}_{i \in I} \subset \mathcal{F}$, si ha che $\{ \mathbf{x} \in \mathbf{R}^n : M(\mathbf{x}) > t \} = \bigcup_{i \in I} F_{i;t}$, pertanto misurabile poiché unione numerabile di insiemi misurabili. Analogamente si ha che $\{ \mathbf{x} \in \mathbf{R}^n : m(\mathbf{x}) < t \} = \bigcup_{i \in I} F_{i;t}^{''}$, pertanto anch'esso misurabile. \\ \\
+$(4)$ sia $\{ f_i \}_{i \in I} \subset \mathcal{F}$ tale che $f_1 \leq f_2 \leq \dots$, allora $\{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) > t \} = \bigcup_{i \in I} F_t$ ed è dunque misurabile. \\ \\
+$(5)$ sia $\{ f_i \}_{i \in I} \subset \mathcal{F}$, poniamo $M_i(\mathbf{x}) := \sup_{j \geq i} f_j(\mathbf{x})$ e $m_i(\mathbf{x}) := \inf_{j \geq i} f_i(\mathbf{x})$, otteniamo che $M_i$ e $m_i$ sono rispettivamente decrescente e crescente e sono misurabili per quanto visto nel punto $(3)$ per ogni $i \in I$, pertanto anche il limite per $i \rightarrow \infty$ è misurabile per quanto visto nel punto $(4)$ e si ottiene la tesi. \qed \\ \\
 \textbf{Definizione:} sia $f : \mathbf{R}^n \longrightarrow \mathbf{R}$, è detto \textit{sottografico} di $f$ l'insieme
 \begin{gather}
-    \mathcal{F} := \{ (\mathbf{x}, y) \in \mathbf{R}^n \times \mathbf{R} : y < f(\mathbf{x}) \} \notag
+    \mathcal{G} := \{ (\mathbf{x}, y) \in \mathbf{R}^n \times \mathbf{R} : y < f(\mathbf{x}) \} \notag
 \end{gather} \\
-\textbf{Teorema 1.7.2:} una funzione $f$ è misurabile se e solo se il suo sottografico $\mathcal{F}$ è misurabile. \\
+\textbf{Teorema 1.7.2:} una funzione $f$ è misurabile se e solo se il suo sottografico $\mathcal{G}$ è misurabile. \\
 
 \textbf{Dimostrazione:} ($\Rightarrow)$ sia $f$ misurabile, per ipotesi abbiamo che $F_t$ è misurabile per ogni $t \in \mathbf{R}$, pertanto anche:
 \begin{gather}
-    \mathcal{F} = \bigcup_{t \in \mathbf{R}} F_t \times (-\infty, t) \notag
+    \mathcal{G} = \bigcup_{t \in \mathbf{R}} F_t \times (-\infty, t) \notag
 \end{gather}
 è misurabile poiché prodotto cartesiano e unione numerabile di insiemi misurabili. \\ \\
-$(\Leftarrow)$ Sia $\mathcal{F}$ misurabile
+$(\Leftarrow)$ Sia $\mathcal{G}$ misurabile
 
 \subsubsection{Esercizi}
 \textbf{1.} Sia $(X, \mathcal{M}, \mu)$ uno spazio di misura e sia $A \in \mathcal{M}$. Poniamo 
@@ -1198,6 +1198,63 @@ per continuità della norma, per ogni $n > N_\varepsilon$. Notiamo che esiste $N
     &< 1 + \|T_n\|_{op} < \infty \notag
 \end{align}
 ovvero la tesi. \qed
+
+\newpage
+\section*{Appendice}
+\subsection*{Disuaguaglianze fondamentali}
+\textbf{Lemma:} siano $x, y \geq 0$ tali che almeno uno dei due è non nullo e sia $\alpha \in (0, 1)$, allora 
+\begin{align}
+    x^\alpha y^{1 - \alpha} \leq \alpha x + (1 - \alpha)y \notag
+\end{align} \\
+
+\textbf{Dimostrazione:} fissiamo $\alpha \in (0, 1)$ e sia $\phi : (0, +\infty) \longrightarrow (0, +\infty)$ la funzione $t \mapsto t^\alpha$. Per il \textit{teorema di Taylor con resto di Lagrange} attorno a $t_0 = 1$ si ha
+\begin{align}
+    \phi(t) = 1 + \alpha(t - 1) + \frac{1}{2}\phi''(\tilde{t})(t - 1)^2 \notag
+\end{align}
+per qualche $\tilde{t} > 0$. Notiamo che $\phi''(\tilde{t}) = \alpha(\alpha - 1)\tilde{t}^{\alpha - 2} > 0$, pertanto si ha 
+\begin{align}
+    t^\alpha \leq 1 + \alpha(t - 1) \notag
+\end{align}
+Supponiamo (senza perdità di generalità) che $y > 0$ e poniamo $t = x/y$, segue che 
+\begin{align}
+    \frac{x^\alpha}{y^\alpha} &\leq 1 + \alpha\frac{x}{y} - \alpha \notag
+\end{align}
+moltiplicando ambo i membri per $y$ si ottiene 
+\begin{align}
+    \frac{x^\alpha}{y^{\alpha - 1}} \leq y + \alpha x - \alpha y \notag
+\end{align}
+ovvero 
+\begin{align}
+    x^{\alpha}y^{1 - \alpha} \leq \alpha x + (1 - \alpha)y \notag
+\end{align}
+che è la tesi. \qed \\ \\
+\textbf{Lemma:} sia $(X, \mathcal{M}, \mu)$ uno spazio di misura e siano $f, g : X \longrightarrow [0, +\infty]$ funzioni positive integrabili, fissato $\alpha \in (0, 1)$ si ha 
+\begin{align}
+    \int_X f^\alpha g^{1 - \alpha} \, d\mu \leq \left(\int_X f \, d\mu\right)^\alpha\left(\int_X g \, d\mu\right)^{1 - \alpha} \notag
+\end{align} \\
+
+\textbf{Dimostrazione:} se $f$ (0 $g$) è nulla quasi ovunque in $X$ la disuguaglianza è ovvia. Analogamente se $\int f$ (o $\int g$) è infinito la disuguaglianza è ovvia. Supponiamo allora 
+\begin{align}
+    0 < \int_X f \, d\mu < +\infty \notag \\
+    0 < \int_X g \, d\mu < +\infty \notag
+\end{align}
+e definiamo 
+\begin{align}
+    \psi(x) = \frac{f(x)}{\int_X f \, d\mu} \notag \\
+    \varphi(x) = \frac{g(x)}{\int_X g \, d\mu} \notag
+\end{align}
+\textbf{Definizione:} sia $p \in \mathbf{N}$, esiste unico $q \in \mathbf{N}$ tale che 
+\begin{align}
+    \frac{1}{p} + \frac{1}{q} = 1 \notag
+\end{align}
+$q$ è detto \textit{Holder coniugato di} $p$. \\ \\
+\textbf{Proposizione (disuaguaglianza di Holder):} siano $p, q \in \mathbf{N}$ Holder coniugati, sia $(X, \mathcal{M}, \mu)$ uno spazio di misura e siano $f, q : X \longrightarrow \mathbf{C}$ funzioni integrabili, allora si ha 
+\begin{align}
+    \int_X |fg| \, d\mu \leq \left(\int_X |f|^{p} \, d\mu\right)^{1/p}\left(\int_X |g|^{q} \, d\mu\right)^{1/q} \notag
+\end{align} \\
+
+\textbf{Dimostrazione:}
+
 
 
 
