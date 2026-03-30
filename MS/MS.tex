@@ -461,7 +461,7 @@ ovvero
     E = 3NkT \tag{1.2.44}
 \end{align}
 in questo caso il fattore $\frac{1}{2}$ non è presente perché l'hamiltoniana non è quadratica. \\ \\
-\textbf{Teorema (di equipartizione dell'energia):} sia $\mathcal{H}$ un'hamiltoniana associata ad un ensemble microcanonico, sia $x_i$, con $i = 1, \dots, 6N$, uno qualsiasi tra $(p_1, \dots, p_{3N}, q_1, \dots, q_{3N})$, allora si ha 
+\textbf{Teorema (di equipartizione dell'energia per ensemble microcanonico):} sia $\mathcal{H}$ un'hamiltoniana associata ad un sistema microcanonico, sia $x_i$, con $i = 1, \dots, 6N$, uno qualsiasi tra $(p_1, \dots, p_{3N}, q_1, \dots, q_{3N})$, allora si ha 
 \begin{align}
     \braket{x_i\frac{\partial \mathcal{H}}{\partial x_j}} = \delta_{ij}kT \tag{1.2.45}
 \end{align}
@@ -734,7 +734,22 @@ Dalla termodinamica ricordiamo che
 \begin{align}
     \frac{\partial U}{\partial T} = c_V \tag{2.2.9}
 \end{align}
-dove $c_V$ è la funzione di risposta capacità termica (a volume costante), deduciamo quindi che le fluttuazioni dell'energia sono strettamente legata alla capacità termica.
+dove $c_V$ è la funzione di risposta capacità termica (a volume costante), deduciamo quindi che le fluttuazioni dell'energia sono strettamente legata alla capacità termica. \\ \\
+\textbf{Teorema (di equipartizione dell'energia per ensemble canonico):} sia $\mathcal{H}$ un'hamiltoniana associata ad un sistema canonico, sia $x_i$, $i = 1, \dots, 6N$, uno qualsiasi tra $(p_1, p_2, \dots, p_{3N}, q_1, q_2, \dots, q_{3N})$, allora si ha 
+\begin{align}
+    \braket{x_i\frac{\partial\mathcal{H}}{\partial x_j}} = \delta_{ij}kT \tag{2.2.10}
+\end{align}
+per ogni $i, j = 1, \dots, 6N$. \\
+
+\textbf{Dimostrazione:} per l'ensemble canonico si ha 
+\begin{align}
+    \braket{x_i\frac{\partial\mathcal{H}}{\partial x_j}} &= \frac{1}{Q_Nh^{3N}}\int d\mathbf{p}d\mathbf{q} \, x_i\frac{\partial\mathcal{H}}{\partial x_j}e^{-\beta\mathcal{H}} \notag \\
+    &= \frac{1}{Q_Nh^{3N}\beta}\int d\mathbf{p}d\mathbf{q} \, x_i\frac{\partial}{\partial x_j}e^{-\beta\mathcal{H}} \notag \\
+    &= \frac{1}{Q_Nh^{3N}\beta}\cancel{\int \prod_{\tilde{x}_j \in (\mathbf{p}, \mathbf{q}) \setminus x_j}d\tilde{x}_j \, x_i e^{-\beta\mathcal{H}}|_{x_j^{(1)}}^{x_j^{(2)}}} + \frac{1}{Q_Nh^{3N}\beta}\int d\mathbf{p}d\mathbf{q} \, \frac{\partial x_i}{\partial x_j}e^{-\beta\mathcal{H}} \notag \\
+    &= \delta_{ij}kT \notag
+\end{align}
+poiché la prima funzione integranda si annulla agli estremi.
+
 \subsubsection{Esempio: gas libero}
 Consideriamo un gas libero e supponiamo che valga il teorema di equipartizione dell'energia anche per l'ensemble canonico (che dimostreremo in seguito), allora $U \sim N$, ciò comporta che 
 \begin{align}

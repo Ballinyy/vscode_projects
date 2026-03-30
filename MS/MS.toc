@@ -10,4 +10,4 @@
 \contentsline {subsection}{\numberline {2.1}Energia libera}{22}{}%
 \contentsline {subsection}{\numberline {2.2}Fluttuazioni dell'energia}{24}{}%
 \contentsline {subsubsection}{\numberline {2.2.1}Esempio: gas libero}{26}{}%
-\contentsline {subsection}{\numberline {2.3}Entropia canonica}{26}{}%
+\contentsline {subsection}{\numberline {2.3}Entropia canonica}{27}{}%
