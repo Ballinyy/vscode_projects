@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1774876398.76805 "c:/Users/aless/vscode_tex/MS/MS.tex" "MS.pdf" "MS" 1774876400.6058 0
-  "MS.aux" 1774876400 1660 7ac4aad085520382913730ab8fdc68c9 "pdflatex"
-  "MS.tex" 1774876397 63714 3297997d6e008542798db46cbc2776e2 ""
-  "MS.toc" 1774876400 1094 0ad7f7f08e90b8bf4e3cf8f735a9e132 "pdflatex"
-  "c:/Users/aless/vscode_tex/MS/MS.tex" 1774876397 63714 3297997d6e008542798db46cbc2776e2 ""
+["pdflatex"] 1774976621.01988 "c:/Users/aless/vscode_tex/MS/MS.tex" "MS.pdf" "MS" 1774976622.96046 0
+  "MS.aux" 1774976622 1980 6cf6d127cbd772c7b9a832a82c7e0ee3 "pdflatex"
+  "MS.tex" 1774976619 69485 41ce8c1fcaf76676bde25f106163ced1 ""
+  "MS.toc" 1774976622 1332 95eab65e1c2f5cc1613027746a13cf9f "pdflatex"
+  "c:/Users/aless/vscode_tex/MS/MS.tex" 1774976619 69485 41ce8c1fcaf76676bde25f106163ced1 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1773573954 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1773573954 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -49,6 +49,8 @@
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1773573954 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb" 1773573954 11493 4f5ed183a47d3197cf8cd322325db6de ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1773573954 34694 870c211f62cb72718a00e353f14f254d ""
+  "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb" 1773573954 35457 884c5a936fbb3fae6a4c18058662d654 ""
+  "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1773573954 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "c:/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1773582138 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "c:/texlive/2026/texmf-dist/tex/latex/amscls/amsthm.sty" 1773573948 12594 0d51ac3a545aaaa555021326ff22a6cc ""
   "c:/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1773573954 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
