@@ -1127,7 +1127,53 @@ si ha che
     \lim_{n \rightarrow \infty}\|\phi(i(v_n)) - \phi(i(v'_n))\| \notag &= \lim_{n \rightarrow \infty}\|j(v_n) - j(v'_n)\| \notag \\
     &= \lim_{n \rightarrow \infty}\|v_n - v'_n\| = 0 \notag
 \end{align}
-dato che $j$ è un'isometria.
+dato che $j$ è un'isometria. \qed \\ \\
+\textbf{Teorema (di Riesz-Fischer):} sia $(X, \mathcal{M}, \mu)$ uno spazio di misura, allora $L^p(X, \mu)$ è uno spazio normato completo rispetto a $\|\cdot\|_p$ per ogni $1 \leq p < +\infty$. \\
+
+\textbf{Dimostrazione:} sia $\{f_n\}_{n \in \mathbf{N}} \subset L^p(X, \mu)$ una successione di Cauchy. Per ogni $k \in \mathbf{N}$ esiste $n_k \in \mathbf{N}$ tale che 
+\begin{align}
+    \|f_n - f_m\|_p < \frac{1}{2^k} \notag
+\end{align}
+per ogni $n, m \geq n_k$, in particolare la successione $\{n_k\}_{k \in \mathbf{N}}$ può essere scelta strettamente crescente. Allora si ha 
+\begin{align}
+    \|f_{n_{k + 1}} - f_{n_k}\|_p < \frac{1}{2^k} \notag
+\end{align}
+per ogni $k \in \mathbf{N}$. Per ogni $x \in X$ poniamo 
+\begin{align}
+    g_s(x) := \sum_{k = 1}^s |f_{n_{k + 1}}(x) - f_{n_k}(x)| \notag
+\end{align}
+e definiamo
+\begin{align}
+    g(x) := \lim_{s \rightarrow \infty}g_s(x) \notag
+\end{align}
+Notiamo che $g$ è una funzione positiva, pertanto il limite esiste sicuramente, inoltre è misurabile dato che è somma numeribile di funzioni misurabili, per ogni $x \in X$. Per la \textit{disuguaglianza di Minkowski} si ha 
+\begin{align}
+    \|g_s\|_p \leq \sum_{k = 1}^s\|f_{n_{k + 1}} - f_{n_k}\|_p < \sum_{k = 1}^\infty \frac{1}{2^k} = 1 \notag
+\end{align}
+inoltre per il \textit{lemma di Fatou} si ha 
+\begin{align}
+    (\|g\|_p)^p = \int_X g^p \, d\mu = \int_X \lim_{s \rightarrow \infty} g^p_s \leq \liminf_{s \rightarrow \infty}\int_X g^p_s \, d\mu < 1 \notag
+\end{align}
+dove si è usato che se il limite esiste coincide con il limite inferiore, segue che $g < +\infty$ quasi ovunque su $X$. Come candidato limite scegliamo 
+\begin{align}
+    f(x) := \begin{cases}
+        f_{n_1} + \sum_{k = 1}^\infty f_{n_{k + 1}}(x) - f_{n_k}(x) \qquad &g(x) < +\infty \\
+        0 \qquad &g(x) = +\infty 
+    \end{cases} \notag
+\end{align}
+allora $f(x) = \lim_{k \rightarrow \infty}f_{n_k}(x)$. Mostriamo che $f_n \rightarrow f$ per $n \rightarrow \infty$ e che $f \in L^p(X, \mu)$. Si ha che 
+\begin{align}
+    \|f - f_n\|^p_p &= \int_X |f - f_n|^p \, d\mu \notag \\
+    &= \int_X \lim_{k \rightarrow \infty}|f_{n_k} - f_n|^p \, d\mu \notag \\
+    &\leq \liminf_{k \rightarrow \infty}|f_{n_k} - f_n|^p \, d\mu \notag \\
+    &\leq \liminf_{k \rightarrow \infty}\|f_{n_k} - f_n\|^p_p < \varepsilon^p \notag
+\end{align}
+per ogni $n > n_\varepsilon$. Inoltre
+\begin{align}
+    \|f\|_p \leq \|f - f_m\| + \|f_m\| < +\infty \notag
+\end{align}
+per ogni $m \in \mathbf{N}$ per ipotesi di convergenza, ovvero $f \in L^p(X, \mu)$. \qed
+
 
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che i seguenti spazi normati sono di Banach: \\
