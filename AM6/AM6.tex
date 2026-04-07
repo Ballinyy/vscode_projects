@@ -1329,8 +1329,15 @@ distanza tra $x$ e $V$. Sia $\{v_n\}_{n \in \mathbf{N}}$ una successione in $V$ 
 Mostriamo che $\{v_n\}_{n \in \mathbf{N}}$ è di Cauchy, si ha 
 \begin{align}
     \|v_n - v_m\|^2 &= \|(v_n - x) - (v_m - x)\|^2 \notag \\
-    &\leq \left(\|v_n - x\| + \|v_m - x\|\right)^2 \notag 
+    &= 2(\|v_n - x\|^2 + \|v_m - x\|^2) - \|(v_n - x) + (v_m - x)\|^2 \notag \\
+    &= 2(\|v_n - x\|^2 + \|v_m - x\|^2) - 4\left\|\frac{v_n + v_m}{4} - x\right\|^2 \notag
 \end{align}
+dove si è usata l'identità del parallelogramma al secondo passaggio. Dato che $\frac{v_n + v_m}{2} \in V$ si ha 
+\begin{align}
+    \|v_n - v_m\|^2 &\leq 2(\|v_n - x\|^2 + \|v_m - x\|^2) - 2\left(d^2 + \frac{1}{n} + d^2 + \frac{1}{m}\right) - 4d^2 \notag \\
+    &= \frac{1}{n} + \frac{1}{m} \rightarrow 0 \notag
+\end{align}
+per $n, m \rightarrow \infty$, ovvero $\{v_n\}_{n \in \mathbf{N}}$ di Cauchy. Per ipotesi di completezza di $\mathcal{H}$ esiste $\overline{x} \in V$ tale che $v_n \rightarrow \overline{x}$ per $n \rightarrow \infty$.
 
 
 \newpage
