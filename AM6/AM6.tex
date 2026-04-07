@@ -1318,7 +1318,19 @@ $S^\perp$ è detto sottoinsieme ortogonale a $S$. \\ \\
 \textbf{Dimostrazione:} immediata. \qed \\ \\
 \textbf{Teorema (della proiezione ortogonale):} sia $\mathcal{H}$ uno spazio di Hilbert, sia $V$ un sottospazio vettoriale chiuso di $\mathcal{H}$ e sia $x \in \mathcal{H}$, esistono unici $\overline{x}, x^\perp$ tali che $x = \overline{x} + x^\perp$, con $\overline{x} \in V$ e $x^\perp \in V^\perp$. \\
 
-\textbf{Dimostrazione:}
+\textbf{Dimostrazione:} sia $x \in \mathcal{H}$, poniamo 
+\begin{align}
+    d = \inf_{v \in V}\|v - x\| \notag
+\end{align}
+distanza tra $x$ e $V$. Sia $\{v_n\}_{n \in \mathbf{N}}$ una successione in $V$ tale che 
+\begin{align}
+    d^2 \leq \|v_n - x\|^2 \leq d^2 + \frac{1}{n} \notag
+\end{align}
+Mostriamo che $\{v_n\}_{n \in \mathbf{N}}$ è di Cauchy, si ha 
+\begin{align}
+    \|v_n - v_m\|^2 &= \|(v_n - x) - (v_m - x)\|^2 \notag \\
+    &\leq \left(\|v_n - x\| + \|v_m - x\|\right)^2 \notag 
+\end{align}
 
 
 \newpage
