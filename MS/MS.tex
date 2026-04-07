@@ -14,7 +14,7 @@
 \newpage
 
 \section*{Introduzione}
-In particolare ci occuperemo di sistemi termodinamici all'equilibrio (termico, meccanico e chimico), dunque l'hamiltoniana che descrive i sistemi in esame non dipenderà esplicitamente dal tempo. Lo scopo è quello di ricavare leggi generali a partire dallo studio microscopico di sistemi con un numero molto elevato di gradi di libertà. Inizialmente seguiremo un approccio classico per la descrizione dei fenomeni microscopici.
+In particolare ci occuperemo di sistemi termodinamici all'equilibrio (termico, meccanico e chimico), dunque l'hamiltoniana che descrive i sistemi in esame non dipenderà esplicitamente dal tempo (altrimenti anche il valor medio di una qualsiasi osservabile ne dipenderà, in contrasto con l'ipotesi di equilibrio termodinamico). Lo scopo è quello di ricavare leggi generali a partire dallo studio microscopico di sistemi con un numero molto elevato di gradi di libertà. Inizialmente seguiremo un approccio classico per la descrizione dei fenomeni microscopici.
 
 \newpage
 \section{Ensemble microcanonici}
@@ -873,7 +873,7 @@ e
 come segue dal \textit{teorema di equipartizione dell'energia}.
 
 \subsubsection{Sistema di $N$ siti a due stati}
-Consideriamo un sistema composto da $N$ siti localizzati a due stati, in particolare ogni sito può avere energia $E_+ = +\varepsilon$ o $E_- = -\varepsilon$ (con $\varepsilon > 0)$. Se l'energia è fissata (ensemble microcanonico) sappiamo come è fatta la funzione $Gamma(E)$ e quindi sappiamo determinare l'espressione dell'entropia microcanonica, ovvero, posto $N_+$ il numero di siti con energia $+\varepsilon$ e $N_-$ il numero di siti con energia $-\varepsilon$ si ha 
+Consideriamo un sistema composto da $N$ siti localizzati a due stati, in particolare ogni sito può avere energia $E_+ = +\varepsilon$ o $E_- = -\varepsilon$ (con $\varepsilon > 0)$. Se l'energia è fissata (ensemble microcanonico) sappiamo come è fatta la funzione $\Gamma(E)$ e quindi sappiamo determinare l'espressione dell'entropia microcanonica, ovvero, posto $N_+$ il numero di siti con energia $+\varepsilon$ e $N_-$ il numero di siti con energia $-\varepsilon$ si ha 
 \begin{align}
     \Gamma(E) = \frac{N!}{N_+!N_-!} \tag{2.1.38}
 \end{align}
@@ -886,12 +886,31 @@ dove $N_+$ e $N_-$ soddisfano $N = N_+ + N_-$. Inoltre noti $E, N$ possiamo espr
 \end{align}
 e quindi esprimere $\Gamma$ in funzione di $N, E$ 
 \begin{align}
-    \Gamma_N(E) = \frac{N!}{\left(\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\right)!\left(\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\right)!} \notag
+    \Gamma(E) = \frac{N!}{\left(\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\right)!\left(\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\right)!} \notag
 \end{align}
 Usando la formula di Stirling al limite termidinamico si ha 
 \begin{align}
-    \Gamma_N(E) \sim \frac{N^{N + \frac{1}{2}}}{\left(\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\right)^{\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) + \frac{1}{2}}\left(\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\right)^{\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) + \frac{1}{2}}} \tag{2.1.40}
+    \Gamma(E) \sim \frac{N^{N + \frac{1}{2}}}{\left(\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\right)^{\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) + \frac{1}{2}}\left(\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\right)^{\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) + \frac{1}{2}}} \tag{2.1.40}
 \end{align}
+segue che 
+\begin{align}
+    S(E) &\sim o(\ln N) + k\left(N\ln N - \frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\ln\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) +\right. \notag \\
+    &-\left.\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\ln\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) - N\ln\frac{1}{2}\right) \tag{2.1.41}
+\end{align}
+dove 
+\begin{align}
+    o(\ln N) &= \frac{k}{2}\ln N - \frac{k}{2}\ln\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) - \frac{k}{2}\ln\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) \notag \\
+    &= \frac{k}{2}\ln\frac{N}{\frac{1}{4}\left(N^2 - \frac{E^2}{\varepsilon^2}\right)} \notag \\
+    &= \frac{k}{2}\ln\frac{4\varepsilon^2}{kT^2c_V} \tag{2.1.42}
+\end{align}
+Studiando lo stesso sistema come ensemble canonico possiamo determinare l'energia libera $G$ (e quindi l'entropia canonica) passando per la funzione di partizione canonica
+\begin{align}
+    Q_N &= \sum_n e^{-\beta E_n} \notag \\
+    &= \sum_{N_+ + N_- = N}\frac{N!}{N_+!N_-!}e^{-\beta(N_+\varepsilon - N_-\varepsilon)} \notag \\
+    &= \left(e^{{\beta E} - e^{-\beta E}}\right)^N = Q^N_1 \tag{2.1.43}
+\end{align}
+per definizioni di binomio di Newton.
+
 
 \subsection{Entropia canonica}
 Facendo un cambio di variabili opportuno si ha 

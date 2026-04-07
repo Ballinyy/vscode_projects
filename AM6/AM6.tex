@@ -499,7 +499,7 @@ Dimostrare che se $\chi_A$ è misurabile $A$ è misurabile. \\
 \textbf{Soluzione:} per ipotesi $\chi^{-1}_A(S)$ è misurabile per ogni sottoinsieme $S \subset \mathbf{R}$ misurabile. Notiamo che $\{1\}$ è un sottoinsieme di $\mathbf{R}$ misurabile (con misura nulla), pertanto $A = \chi^{-1}_A(\{1\})$ è misurabile.
 
 \newpage
-\section{Spazi di operatori}
+\section{Spazi di Banach e Hilbert}
 \subsection{Operatori limitati}
 \textbf{Lemma (2.1.1):} sia $(X, \|\cdot\|)$ uno spazio normato, allora si ha
 \begin{gather}
@@ -849,7 +849,7 @@ Dall'arbitrarietà di $v$ segue che
 che è la tesi.
 
 \newpage
-\subsection{Completezza}
+\subsection{Spazi di Banach}
 \textbf{Definizione:} sia $(X, d)$ uno spazio metrico, sia $\{x_n : n \in \mathbf{N}\}$ una successione contenuta in $X$. $\{x_n : n \in \mathbf{N}\}$ è detta di Cauchy se per ogni $\varepsilon > 0$ esiste $N_\varepsilon > 0$ tale che
 \begin{align}
     d(x_n, x_m) < \varepsilon \notag
@@ -1244,6 +1244,82 @@ per il \textit{lemma 2.1.1}, per ogni $n > N_\varepsilon$. Notiamo che esiste $N
     &< 1 + \|T_n\|_{op} < \infty \notag
 \end{align}
 ovvero la tesi. \qed
+
+\newpage
+\subsection{Spazi di Hilbert}
+\textbf{Definizione:} uno $H$ spazio vettoriale complesso dotato di forma sesquilineare $(\cdot, \cdot) : H \times H \longrightarrow \mathbf{C}$ è detto spazio pre-hilbertiano. \\ \\
+\textbf{Proposizione (disuguaglianza di Cauchy-Schwartz):} sia $H$ uno spazio pre-hilbertiano, allora si ha 
+\begin{align}
+    |(x, y)|^2 \leq (x, x)(y, y) \notag
+\end{align}
+per ogni $x, y \in H$. \\
+
+\textbf{Dimostrazione:} sia $\lambda \in \mathbf{C}$, per semi-definizione positiva della norma, per ogni $x, y \in H$ si ha 
+\begin{align}
+    0 \leq (x + \lambda y, x + \lambda y) \notag
+\end{align}
+ovvero 
+\begin{align}
+    0 \leq (x, x) + |\lambda|^2(y, y) + 2\mathrm{Re}\lambda(x, y) \notag
+\end{align}
+Poniamo $\lambda = t(y, x)$, con $t \in \mathbf{R}$, in modo tale da ottenere un espressione reale, allora si ha 
+\begin{align}
+    0 \leq (x, x) + t^2|(x, y)|^2(y, y) + 2t|(x, y)|^2 \notag
+\end{align}
+pertanto il discriminante del polinomio in esame deve essere strettamente minore di zero, ovvero 
+\begin{align}
+    \Delta = 4|(x, y)|^4 - 4|(x, y)|^2(x, x)(y, y) \leq 0 \notag
+\end{align}
+e quindi 
+\begin{align}
+    |(x, y)|^2 \leq (x, x)(y, y) \notag
+\end{align}
+che è la tesi. \qed \\ \\
+\textbf{Osservazione:} notiamo che vale l'uguaglianza se e solo se $x = \mu y$ per qualche $\mu \in \mathbf{C}$. \\ \\
+\textbf{Definizione:} uno spazio pre-hilbertiano completo è detto spazio di Hilbert. \\ \\
+\textbf{Identità di polarizzazione:} sia $H$ uno spazio pre-hilbertiano, sia $k = 0, 1, 2, 3$, per ogni $x, y \in H$ si ha
+\begin{align}
+    \|x + i^ky\|^2 &= (x + i^ky, x + i^ky) \notag \\
+    &= \|x\|^2 + \|y\|^2 + i^k(x, y) + (-i)^k(y, x) \notag
+\end{align} 
+per le proprietà del prodotto sesquilineare e della norma da esso definita, allora
+\begin{align}
+    \sum_{k = 0}^3 (-i)^k\|x + i^ky\|^2 &= 4(x, y) \notag
+\end{align}
+che equivale a 
+\begin{align}
+    (x, y) &= \frac{1}{4}\sum_{k = 0}^3 (-i)^k\|x + i^ky\|^2 \notag
+\end{align}
+ovvero basta aver noto il comportamento della norma su due assi ortogonali (identificati per rotazioni di $\pi/2$ di $y$) per conoscere anche il prodotto scalare. \\ \\
+\textbf{Identità del parallelogramma:} sia $H$ uno spazio pre-hilbertiano, per ogni $x, y \in H$ si ha 
+\begin{align}
+    \|x + y\|^2 + \|x - y\|^2 = \left(\|x\| + \|y\|\right)^2 \notag
+\end{align}
+in particolare se $\|x + y\| = \|x - y\|$ si ottiene l'identità di pitagora. \\ \\
+\textbf{Proposizione 3.1.1:} se uno spazio normato complesso $V$ soddisfa l'identità del parallelogramma definendo il prodotto scalare per polarizzazione si ottiene una forma sesquilineare e dunque si introduce struttura di spazio pre-hilbertiano su $V$. \\ \\
+\textbf{Teorema 3.1.1:} sia $1 \leq p < +\infty$, $p \neq 2$, allora si ha che 
+\begin{align}
+    \{f : \mathbf{R}^n \longrightarrow \mathbf{C} : f \text{ continua e a supp. compatto}\} \subset L^p(\mathbf{R}^n, m) \notag
+\end{align}
+dove $m$ è la misura di Lebesgue. \\
+
+\textbf{Dimostrazione:} omessa. \qed \\ \\
+\textbf{Definizione:} sia $\mathcal{H}$ uno spazio di Hilbert e sia $S \subset \mathcal{H}$ poniamo
+\begin{align}
+    S^\perp = \{x \in \mathcal{H} : (x, y) = 0\} \notag
+\end{align}
+$S^\perp$ è detto sottoinsieme ortogonale a $S$. \\ \\
+\textbf{Lemma:} $S^\perp$ soddisfa: \\
+\textbf{1.} $S \cap S^\perp = \{0\}$. \\
+\textbf{2.} $S^\perp = \braket{S^\perp} = \overline{S^\perp}^{\|\cdot\|}$. \\
+\textbf{3.} $S^\perp = \left(\braket{S}\right)^\perp = \left(\overline{\braket{S}}^{\|\cdot\|}\right)^\perp$ \\
+\textbf{4.} $S_1 \subset S_2 \implies S^\perp_1 \subset S^\perp_2$. \\
+
+\textbf{Dimostrazione:} immediata. \qed \\ \\
+\textbf{Teorema (della proiezione ortogonale):} sia $\mathcal{H}$ uno spazio di Hilbert, sia $V$ un sottospazio vettoriale chiuso di $\mathcal{H}$ e sia $x \in \mathcal{H}$, esistono unici $\overline{x}, x^\perp$ tali che $x = \overline{x} + x^\perp$, con $\overline{x} \in V$ e $x^\perp \in V^\perp$. \\
+
+\textbf{Dimostrazione:}
+
 
 \newpage
 \section*{Appendice}
