@@ -907,9 +907,26 @@ Studiando lo stesso sistema come ensemble canonico possiamo determinare l'energi
 \begin{align}
     Q_N &= \sum_n e^{-\beta E_n} \notag \\
     &= \sum_{N_+ + N_- = N}\frac{N!}{N_+!N_-!}e^{-\beta(N_+\varepsilon - N_-\varepsilon)} \notag \\
-    &= \left(e^{{\beta E} - e^{-\beta E}}\right)^N = Q^N_1 \tag{2.1.43}
+    &= \sum_{k = 0}^N\frac{N!}{k!(N - k)!}e^{-\beta\varepsilon k}e^{\beta\varepsilon(N - k)} \notag \\
+    &= \left(e^{\beta E} + e^{-\beta E}\right)^N = Q^N_1 \tag{2.1.43}
 \end{align}
-per definizioni di binomio di Newton.
+per definizioni di binomio di Newton. A questo punto possiamo determinare l'espressione dell'energia libera 
+\begin{align}
+    G &= -NkT\ln(e^{\beta E} + e^{-\beta E}) \notag \\
+    &= -NkT\ln(2\cosh \beta E) \tag{2.1.44}
+\end{align}
+segue che 
+\begin{align}
+    U &= -NE\frac{e^{\beta E} - e^{-\beta E}}{e^{\beta E} + e^{-\beta E}} \notag \\
+    &= -NE\tanh \beta E \tag{2.1.45}
+\end{align}
+A questo punto possiamo determinare l'entropia canonica del sistema, si ha 
+\begin{align}
+    S_{can} &= -\left(\frac{\partial G}{\partial T}\right)_{N, V} \notag \\
+    &= \frac{\partial}{\partial T}\left(NkT\ln\left(2\cosh \frac{E}{kT}\right)\right) \notag \\
+    &= Nk\ln\left(2\cosh \frac{E}{kT}\right) - \frac{NE}{T}\tanh\frac{E}{kT} \notag \\
+    &= Nk\ln\left(2\cosh \beta E\right) - N\beta kE\tanh \beta E \tag{2.1.46}
+\end{align}
 
 
 \subsection{Entropia canonica}

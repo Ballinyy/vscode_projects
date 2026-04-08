@@ -1330,14 +1330,32 @@ Mostriamo che $\{v_n\}_{n \in \mathbf{N}}$ è di Cauchy, si ha
 \begin{align}
     \|v_n - v_m\|^2 &= \|(v_n - x) - (v_m - x)\|^2 \notag \\
     &= 2(\|v_n - x\|^2 + \|v_m - x\|^2) - \|(v_n - x) + (v_m - x)\|^2 \notag \\
-    &= 2(\|v_n - x\|^2 + \|v_m - x\|^2) - 4\left\|\frac{v_n + v_m}{4} - x\right\|^2 \notag
+    &= 2(\|v_n - x\|^2 + \|v_m - x\|^2) - 4\left\|\frac{v_n + v_m}{2} - x\right\|^2 \notag
 \end{align}
 dove si è usata l'identità del parallelogramma al secondo passaggio. Dato che $\frac{v_n + v_m}{2} \in V$ si ha 
 \begin{align}
-    \|v_n - v_m\|^2 &\leq 2(\|v_n - x\|^2 + \|v_m - x\|^2) - 2\left(d^2 + \frac{1}{n} + d^2 + \frac{1}{m}\right) - 4d^2 \notag \\
+    \|v_n - v_m\|^2 &\leq 2\left(d^2 + \frac{1}{n} + d^2 + \frac{1}{m}\right) - 4d^2 \notag \\
     &= \frac{1}{n} + \frac{1}{m} \rightarrow 0 \notag
 \end{align}
-per $n, m \rightarrow \infty$, ovvero $\{v_n\}_{n \in \mathbf{N}}$ di Cauchy. Per ipotesi di completezza di $\mathcal{H}$ esiste $\overline{x} \in V$ tale che $v_n \rightarrow \overline{x}$ per $n \rightarrow \infty$.
+per $n, m \rightarrow \infty$, ovvero $\{v_n\}_{n \in \mathbf{N}}$ di Cauchy. Per ipotesi di completezza di $\mathcal{H}$ e chiusura di $V$ esiste $\overline{x} \in V$ tale che $v_n \rightarrow \overline{x}$ per $n \rightarrow \infty$. \\
+Dimostriamo ora che $x^\perp := x - \overline{x}$ è un elemento di $V^\perp$. Osserviamo che, per costruzione, si ha $\|x - \overline{x}\| = d^2$, dunque per ogni $y \in V$ la funzione 
+\begin{align}
+    \lambda \in \mathbf{R} \mapsto \|x - (\overline{x} + \lambda y)\| \notag
+\end{align}
+ha un minimo per $\lambda = 0$. In particolare si ha 
+\begin{align}
+    \|x - (\overline{x} + \lambda y)\|^2 = \|x - \overline{x}\|^2 + \lambda^2\|y\|^2 + 2\lambda\mathrm{Re}(x - \overline{x}, y) \notag
+\end{align}
+segue che affinché il polinomio abbia un minimo in $\lambda = 0$ deve valere $\mathrm{Re}(x - \overline{x}, y) = 0$ per ogni $y \in V$. Ripetendo lo stesso ragionamento per $iy \in V$ si ottiene $\mathrm{Im}(x - \overline{x}, y) = -\mathrm{Re}(x - \overline{x}, iy) = 0$ per ogni $y \in V$, ovvero $x^\perp \in V^\perp$. \\ \\
+Resta da mostrare l'unicità, supponiamo che esistano $\overline{y} \in V$ e $y^\perp \in V$ tali che 
+\begin{align}
+    \overline{x} + x^\perp = \overline{y} + y^\perp \notag
+\end{align}
+allora si ha 
+\begin{align}
+    \overline{x} - \overline{y} = y^\perp - x^\perp \notag
+\end{align}
+ovvero $\overline{x} - \overline{y} \in V \cap V^\perp$. Dal \textit{lemma 3.1.1} segue che $\overline{x} - \overline{y} = 0$ e quindi anche $x^\perp - y^\perp = 0$, pertanto $\overline{x} = \overline{y}$ e $x^\perp = y^\perp$, che è la tesi. \qed
 
 
 \newpage

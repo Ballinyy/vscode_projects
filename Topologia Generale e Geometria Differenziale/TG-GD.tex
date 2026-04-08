@@ -1098,7 +1098,22 @@ Un'altra caratterizzazione degli spazi compatti viene data attraverso la proprie
 \textbf{Osservazione:} ogni successione convergente è anche di Cauchy. Infatti data $\{x_n\}_{n \in \mathbb{N}}$ convergente a $x \in X$, per ogni $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbb{N}$ tale che $d(x_n, x_m) \leq d(x_n, x) + d(x, x_m) < 2\varepsilon$ per ogni $n, m > N_\varepsilon$, per la disuguaglianza triangolare. \\ \\ \\
 \textbf{Definizione 1.6.8:} uno spazio metrico è detto \textit{completo} se ogni successione di Cauchy è anche convergente. \\ \\ \\
 Dai corsi di Analisi Matematica sappiamo che $\mathbb{R}^n, \mathbb{C}^n$ sono spazi metrici completi rispetto alla metrica indotta dalla norma per ogni $n \geq 1$ (partendo dal caso $n = 1$ e usando successioni a variazione finita, poi generalizzando al caso $n \geq 1$). \\ \\
-La completezza non è una proprietà topologica, ovvero non si conserva rispetto a omeomorfismi. Ad esempio $\mathbb{R} \cong (0, 1)$, tuttavia $\mathbb{R}$ è completo, mentre $(0, 1)$ no, infatti $\{1/n\}_{n \in \mathbb{N}}$ è una successione di Cauchy in $(0, 1)$ ma non è ivi convergente.
+La completezza non è una proprietà topologica, ovvero non si conserva rispetto a omeomorfismi. Ad esempio $\mathbb{R} \cong (0, 1)$, tuttavia $\mathbb{R}$ è completo, mentre $(0, 1)$ no, infatti $\{1/n\}_{n \in \mathbb{N}}$ è una successione di Cauchy in $(0, 1)$ ma non è ivi convergente. \\ \\ \\
+\textbf{Definizione 1.6.9:} uno spazio metrico è detto \textit{totalmente limitato} se per ogni $\varepsilon > 0$ esiste un ricoprimento finito costituito da dischi chiusi di raggio $\varepsilon$. \\ \\ \\
+Ovviamente ogni spazio metrico totalmente limitato è anche limitato dato che l'unione finita di insiemi limitati è ancora limitato. Tuttavia in generale il viceversa non è vero, esistono spazi metrici limitati che non sono totalmente limitati. \\ \\ \\
+\textbf{Teorema 1.6.2:} uno spazio metrico è compatto se e solo se è completo e totalmente limitato. \\
+
+\textbf{Dimostrazione:} $(\rightarrow)$ sia $(X, d)$ uno spazio metrico compatto. Per il \textit{teorema 1.6.1} $(X, d)$ è compatto per successioni, pertanto ogni successione in $X$ ammette una sottosuccessione convergente ad un opportuno punto di $X$. Sia $\{x_n\}_{n \in \mathbf{N}}$ una successione di Cauchy in $X$. $\{x_n\}_{n \in \mathbf{N}}$ ammette una sottosuccessione $\{x_{\nu(k)}\}_{k \in \mathbf{N}}$ convergente ad un opportuno $x \in X$. Fissato $k$ abbastanza grande segue che 
+\begin{align}
+    d(x_n, x) \leq d(x_n, x_{\nu(k)}) + d(x_{\nu(k)}, x) < 2\varepsilon \notag
+\end{align}
+per ogni $n > N_\varepsilon$ (per ipotesi di Cauchy), ovvero $\{x_n\}_{n \in \mathbf{N}}$ converge a $x$, pertanto $(X, d)$ è completo. Inoltre $X$ è totalmente limitato, infatti ogni ricoprimento aperto ammette sottoricoprimento finito, in particolare anche il ricoprimento aperto costituito dai dischi di raggio $\varepsilon$ per ogni $\varepsilon > 0$. \\ \\
+$(\leftarrow)$ Sia $(X, d)$ completo e totalmente limitato. Dimostriamo che $X$ è compatto per successioni e dal \textit{teorema 1.6.1} seguirà la tesi. Fissiamo $\varepsilon > 0$, per ipotesi esiste un numero finito di punti $\{x_1, \dots, x_n\} \subset X$ tale che 
+\begin{align}
+    X = \overline{D_\varepsilon(x_1)} \cup \dots \cup \overline{D_\varepsilon(x_n)} \notag
+\end{align}
+Sia $\{x_n\}_{n \in \mathbf{N}}$ una successione di punti in $X$. Se $\{x_n\}_{n \in \mathbf{N}}$ ha un numero finito di punti distinti esiste certamente una sottosuccessione convergente. Supponiamo allora che $\{x_n\}_{n \in \mathbf{N}}$ abbia un numero infinito di punti distinti e costruiamo per induzione una sottosuccessione convergente. 
+
 
 
 
