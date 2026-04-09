@@ -973,6 +973,53 @@ e, dato che $U \sim \overline{E}$, si ottiene
     S_{can} \sim S_{mic} + \frac{kT}{2}\ln\left(2\pi kT^2c_V\right) \tag{2.2.8}
 \end{align}
 
+\newpage
+\section{Ensemble gran canonico}
+\subsection{Legge di stato}
+Siamo ora interessati a studiare un sistema in cui $E, N$ non sono fissate. Consideriamo un sistema identificato dalle grandezze $N, V$ termalizzato a temperatura $T$ per contatto con un reservoir. Suddividiamo questo sistema in due sottosistemi identificati dalle grandezze $N_1, V_1$ e $N_2, V_2$, che soddisfano 
+\begin{align}
+    N &= N_1 + N_2 \notag \\
+    V &= V_1 + V_2 \notag
+\end{align}
+Al limite in cui $V$ è molto grande il contributo di interazione tra il sistema $1$ e il sistema $2$, che è pressoché limitato al bordo, è trascurabile rispetto al contributo dovuto alle interazioni interne, ovvero i due sistemi sono debolmente interagenti e quindi si ha 
+\begin{align}
+    \mathcal{H}_N(\mathbf{p}, \mathbf{q}) = \mathcal{H}_{N_1}(\mathbf{p}_1, \mathbf{q}_1) + \mathcal{H}_{N_2}(\mathbf{p}_2, \mathbf{q}_2) \notag
+\end{align}
+Per definizione
+\begin{align}
+    Q_N &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\mathcal{H}_N} \notag
+\end{align}
+Cerchiamo un modo per poter scrivere la funzione di partizione canonica come segue 
+\begin{align}
+    Q_N = \sum_{N_1}\frac{1}{h^{3N_1}}\int d\mathbf{p}_1d\mathbf{q}_1 \, (\dots) \tag{3.1.1}
+\end{align}
+Dato un sistema costituito da $N$ particelle indistinguibili vale la seguente identità 
+\begin{align}
+    \int d\mathbf{p}d\mathbf{q} \, (\dots) = \sum_{N_1 = 0}^N \frac{N!}{N_1!N_2!}\int d\mathbf{p}_1d\mathbf{q}_1 \, (\dots) \tag{3.1.2}
+\end{align}
+notiamo che il termine $(\dots)$ non è lo stesso in entrambi i membri. $(3.1.2)$ dice essenzialmente che nota la configurazione del sistema $1$ conosciamo direttamente anche la configurazione del sistema $2$ grazie ai vincoli su $N_1, N_2; V_1, V_2$. Sostituendo nella definizione di funzione di partizione canonica si ottiene 
+\begin{align}
+    Q_N &= \sum_{N_1 = 0}^N \frac{N!}{N_1!N_2!}\frac{1}{h^{3N_1}}\int d\mathbf{p}_1d\mathbf{q}_1 \, e^{-\beta\mathcal{H}_{N_1}}\left(\frac{1}{h^{3N_2}}\int d\mathbf{p}_2d\mathbf{q}_2 \, e^{-\beta\mathcal{H}_{N_2}}\right) \notag \\
+    &= \sum_{N_1 = 0}^N \frac{N!}{N_1!(N - N_1)!}Q_{N_1}Q_{N - N_1} \tag{3.1.3}
+\end{align}
+Poniamo allora 
+\begin{align}
+    \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) &= \frac{N!}{Q_N}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \cdot \frac{1}{N_2!h^{3N_2}}\int d\mathbf{p}_2d\mathbf{q}_2 \, e^{-\beta\mathcal{H}_{N_2}} \notag \\
+    &= N!\frac{Q_{N_2}}{Q_N}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \notag \\
+    &= N!e^{-\beta(G_{N_2}(V_2, T) - G_N(V, T))}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \tag{3.1.4}
+\end{align}
+Supponiamo ora che $N_2 << N$ e $V_2 << V$, si ha 
+\begin{align}
+    G_{N_2}(V_2, T) - G_N(V, T) &\sim -\underbrace{\left(\frac{\partial G}{\partial N}\right)_{V, T}}_{\mu}N_1 - \underbrace{\left(\frac{\partial G}{\partial V}\right)_{N, T}}_{-P}V_1 \notag \\
+    &= -\mu N_1 + PV_1 \tag{3.1.5}
+\end{align}
+sostituendo in $(3.1.4)$ si ottiene 
+\begin{align}
+    \rho_{N_1}(\mathbf{p}, \mathbf{q}) \sim N!e^{-\beta(PV_1 -\mu N_1)} \tag{3.1.6}
+\end{align}
+
+
+
 
 
 \newpage
