@@ -440,13 +440,13 @@ pertanto, essendo sia $f_+$ che $f_-$ misurabili, anche $|f|$ è misurabile poic
 \end{gather}
 segue direttamente dalla definizione di integrale per una funzione sommabile. \newpage
 \subsection{Funzioni misurabili}
-\textbf{Definizione:} una funzione $f : \mathbf{R}^n \longrightarrow \mathbf{R}$ è detta \textbf{misurabile} se l'insieme:
+\textbf{Definizione:} una funzione $f : \mathbf{R}^n \longrightarrow \mathbf{R}$ è detta \textit{misurabile} se l'insieme:
 \begin{gather}
     F_t := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) > t \} \notag
 \end{gather}
 è misurabile per ogni $t \in \mathbf{R}$. \\ \\
 Notiamo che se $f \in C^0 (\mathbf{R}^n)$ segue dal teorema della permanenza del segno che $f$ è misurabile. Infatti se $f(\mathbf{x}_0) > t$ per qualche $\mathbf{x}_0 \in \mathbf{R}^n$ allora esiste un intorno $V \in U(\mathbf{x}_0)$ tale che $f(\mathbf{x}) > t$ per ogni $\mathbf{x} \in V$, pertanto $F_t$ è un aperto e quindi misurabile. \\ \\ \\
-\textbf{Proposizione 7.1:} le seguenti proprietà sono equivalenti: \\
+\textbf{Proposizione 1.7.1:} le seguenti proprietà sono equivalenti: \\
 \textbf{1.} $f$ è misurabile. \\
 \textbf{2.} $F_t^{(1)} := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) \leq t \}$ è misurabile. \\
 \textbf{3.} $F_t^{(2)} := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) < t \}$ è misurabile. \\
@@ -1276,6 +1276,26 @@ e quindi
 \end{align}
 che è la tesi. \qed \\ \\
 \textbf{Osservazione:} notiamo che vale l'uguaglianza se e solo se $x = \mu y$ per qualche $\mu \in \mathbf{C}$. \\ \\
+\textbf{Lemma 2.3.1:} sia $H$ uno spazio pre-hilbertiano, fissato $y \in H$ la funzione 
+\begin{align}
+    x \mapsto (x, y) \notag
+\end{align}
+è continua in $H$. \\
+
+\textbf{Dimostrazione:} sia $x_0 \in H$, dalla disuguaglianza di Cauchy-Schwartz segue che 
+\begin{align}
+    |(x_0, y) - (x, y)| &= |(x - x_0, y)| \notag \\
+    \leq \|x - x_0\|\|y\| \notag
+\end{align}
+per ogni $x \in H$. Fissato $\varepsilon > 0$ si ha che 
+\begin{align}
+    \|x - x_0\|\|y\| < \varepsilon \notag
+\end{align}
+se $\|x - x_0\| < \delta_\varepsilon$, dove 
+\begin{align}
+    \delta_\varepsilon = \frac{\varepsilon}{2\|y\|}\ \notag
+\end{align}
+Dall'arbitrarietà di $x_0$ segue la continuità su tutto $H$ e quindi la tesi. \qed \\ \\
 \textbf{Definizione:} uno spazio pre-hilbertiano completo è detto spazio di Hilbert. \\ \\
 \textbf{Identità di polarizzazione:} sia $H$ uno spazio pre-hilbertiano, sia $k = 0, 1, 2, 3$, per ogni $x, y \in H$ si ha
 \begin{align}
@@ -1296,8 +1316,8 @@ ovvero basta aver noto il comportamento della norma su due assi ortogonali (iden
     \|x + y\|^2 + \|x - y\|^2 = \left(\|x\| + \|y\|\right)^2 \notag
 \end{align}
 in particolare se $\|x + y\| = \|x - y\|$ si ottiene l'identità di pitagora. \\ \\
-\textbf{Proposizione 3.1.1:} se uno spazio normato complesso $V$ soddisfa l'identità del parallelogramma definendo il prodotto scalare per polarizzazione si ottiene una forma sesquilineare e dunque si introduce struttura di spazio pre-hilbertiano su $V$. \\ \\
-\textbf{Teorema 3.1.1:} sia $1 \leq p < +\infty$, $p \neq 2$, allora si ha che 
+\textbf{Proposizione 2.3.1:} se uno spazio normato complesso $V$ soddisfa l'identità del parallelogramma definendo il prodotto scalare per polarizzazione si ottiene una forma sesquilineare e dunque si introduce struttura di spazio pre-hilbertiano su $V$. \\ \\
+\textbf{Teorema 2.3.1:} sia $1 \leq p < +\infty$, $p \neq 2$, allora si ha che 
 \begin{align}
     \{f : \mathbf{R}^n \longrightarrow \mathbf{C} : f \text{ continua e a supp. compatto}\} \subset L^p(\mathbf{R}^n, m) \notag
 \end{align}
@@ -1309,13 +1329,24 @@ dove $m$ è la misura di Lebesgue. \\
     S^\perp = \{x \in \mathcal{H} : (x, y) = 0\} \notag
 \end{align}
 $S^\perp$ è detto sottoinsieme ortogonale a $S$. \\ \\
-\textbf{Lemma:} $S^\perp$ soddisfa: \\
+\textbf{Lemma 2.3.2:} $S^\perp$ soddisfa: \\
 \textbf{1.} $S \cap S^\perp = \{0\}$. \\
-\textbf{2.} $S^\perp = \braket{S^\perp} = \overline{S^\perp}^{\|\cdot\|}$. \\
-\textbf{3.} $S^\perp = \left(\braket{S}\right)^\perp = \left(\overline{\braket{S}}^{\|\cdot\|}\right)^\perp$ \\
-\textbf{4.} $S_1 \subset S_2 \implies S^\perp_1 \supset S^\perp_2$. \\
+\textbf{2.} $S^\perp$ è un sottospazio chiuso di $\mathcal{H}$. \\
+\textbf{3.} $S_1 \subset S_2 \implies S^\perp_1 \supset S^\perp_2$. \\
+\textbf{4.} $S^\perp = \braket{S}^\perp = \overline{\braket{S}}^\perp$ \\
 
-\textbf{Dimostrazione:} immediata. \qed \\ \\
+\textbf{Dimostrazione:} $(1)$ se $x \in S \cap S^\perp$ si ha $\|x\|^2 = (x, x) = 0$ e per la fedeltà della norma segue $x = 0$. \\
+$(2)$ Si vede immediatamente che $S^\perp$ è un sottospazio vettoiale (per sesquilinearità del prodotto scalare). Inoltre data $\{x_n\}_{n \in \mathbf{N}} \subset S^\perp$ convergente a $x \in H$ e $y \in S$ si ha 
+\begin{align}
+    (x, y) = \lim_{n \rightarrow \infty}(x_n, y) = 0 \notag
+\end{align}
+per continuità del prodotto scalare a $y$ fissato, ovvero $x \in S^\perp$ e quindi $S^\perp$ chiuso. \\
+$(3)$ Dato $x \in S^\perp_2$ e $y \in S_1$ si ha $y \in S_2$ e quindi $(x, y) = 0$, ovvero $x \in S^\perp_1$. \\
+$(4)$ Per il punto $(3)$ si ha $S^\perp \supset \braket{S}^\perp \supset \overline{\braket{S}}^\perp$, dunque basta dimostrare che $S^\perp \subset \overline{\braket{S}}^\perp$. Sia $x \in S^\perp$ e sia $y \in \overline{\braket{S}}$. Per definizione esiste $\{y_n\}_{n \in \mathbf{N}} \subset \braket{S}$ tale che $y_n \rightarrow y$ per $n \rightarrow \infty$. Dunque per continuità del prodotto scalare a $x$ fissato si ha 
+\begin{align}
+    (x, y) = \lim_{n \rightarrow \infty}(x, y_n) = 0 \notag
+\end{align}
+quindi segue la tesi. \qed \\ \\
 \textbf{Teorema (della proiezione ortogonale):} sia $\mathcal{H}$ uno spazio di Hilbert, sia $V$ un sottospazio vettoriale chiuso di $\mathcal{H}$ e sia $x \in \mathcal{H}$, esistono unici $\overline{x}, x^\perp$ tali che $x = \overline{x} + x^\perp$, con $\overline{x} \in V$ e $x^\perp \in V^\perp$. \\
 
 \textbf{Dimostrazione:} sia $x \in \mathcal{H}$, poniamo 

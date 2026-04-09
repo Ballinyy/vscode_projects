@@ -999,14 +999,18 @@ Dato un sistema costituito da $N$ particelle indistinguibili vale la seguente id
 \end{align}
 notiamo che il termine $(\dots)$ non è lo stesso in entrambi i membri. $(3.1.2)$ dice essenzialmente che nota la configurazione del sistema $1$ conosciamo direttamente anche la configurazione del sistema $2$ grazie ai vincoli su $N_1, N_2; V_1, V_2$. Sostituendo nella definizione di funzione di partizione canonica si ottiene 
 \begin{align}
-    Q_N &= \sum_{N_1 = 0}^N \frac{N!}{N_1!N_2!}\frac{1}{h^{3N_1}}\int d\mathbf{p}_1d\mathbf{q}_1 \, e^{-\beta\mathcal{H}_{N_1}}\left(\frac{1}{h^{3N_2}}\int d\mathbf{p}_2d\mathbf{q}_2 \, e^{-\beta\mathcal{H}_{N_2}}\right) \notag \\
-    &= \sum_{N_1 = 0}^N \frac{N!}{N_1!(N - N_1)!}Q_{N_1}Q_{N - N_1} \tag{3.1.3}
+    Q_N &= \sum_{N_1 = 0}^N \frac{1}{N_1!N_2!}\frac{1}{h^{3N_1}}\int d\mathbf{p}_1d\mathbf{q}_1 \, e^{-\beta\mathcal{H}_{N_1}}\left(\frac{1}{h^{3N_2}}\int d\mathbf{p}_2d\mathbf{q}_2 \, e^{-\beta\mathcal{H}_{N_2}}\right) \notag \\
+    &= \sum_{N_1 = 0}^N \frac{1}{N_1!(N - N_1)!}Q_{N_1}Q_{N - N_1} \tag{3.1.3}
 \end{align}
-Poniamo allora 
+Il fattore $1/N!$ non appare più poiché l'indistinguibilità classica delle particelle ci costringe a introdurre il fattore di Gibbs a mano. Poniamo allora 
 \begin{align}
-    \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) &= \frac{N!}{Q_N}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \cdot \frac{1}{N_2!h^{3N_2}}\int d\mathbf{p}_2d\mathbf{q}_2 \, e^{-\beta\mathcal{H}_{N_2}} \notag \\
-    &= N!\frac{Q_{N_2}}{Q_N}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \notag \\
-    &= N!e^{-\beta(G_{N_2}(V_2, T) - G_N(V, T))}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \tag{3.1.4}
+    \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) &= \frac{1}{Q_N}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \cdot \frac{1}{N_2!h^{3N_2}}\int d\mathbf{p}_2d\mathbf{q}_2 \, e^{-\beta\mathcal{H}_{N_2}} \notag \\
+    &= \frac{Q_{N_2}}{Q_N}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \notag \\
+    &= e^{-\beta(G_{N_2}(V_2, T) - G_N(V, T))}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \tag{3.1.4}
+\end{align}
+Notiamo che $\rho$ è correttamente normalizzata sullo spazio delle fasi associato al sistema $1$, in particolare 
+\begin{align}
+    1 = \sum_{N_1 = 0}\int d\mathbf{p}_1d\mathbf{q}_1 \, \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) \notag
 \end{align}
 Supponiamo ora che $N_2 << N$ e $V_2 << V$, si ha 
 \begin{align}
@@ -1015,8 +1019,9 @@ Supponiamo ora che $N_2 << N$ e $V_2 << V$, si ha
 \end{align}
 sostituendo in $(3.1.4)$ si ottiene 
 \begin{align}
-    \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) \sim N!e^{-\beta(PV_1 -\mu N_1)} \tag{3.1.6}
+    \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) \sim e^{-\beta(PV_1 -\mu N_1)}\frac{e^{-\beta \mathcal{H}_{N_1}}}{N_1|h^{3N_1}} \tag{3.1.6}
 \end{align}
+
 
 
 
