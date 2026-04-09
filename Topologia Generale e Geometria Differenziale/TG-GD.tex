@@ -1108,12 +1108,17 @@ Ovviamente ogni spazio metrico totalmente limitato è anche limitato dato che l'
     d(x_n, x) \leq d(x_n, x_{\nu(k)}) + d(x_{\nu(k)}, x) < 2\varepsilon \notag
 \end{align}
 per ogni $n > N_\varepsilon$ (per ipotesi di Cauchy), ovvero $\{x_n\}_{n \in \mathbf{N}}$ converge a $x$, pertanto $(X, d)$ è completo. Inoltre $X$ è totalmente limitato, infatti ogni ricoprimento aperto ammette sottoricoprimento finito, in particolare anche il ricoprimento aperto costituito dai dischi di raggio $\varepsilon$ per ogni $\varepsilon > 0$. \\ \\
-$(\leftarrow)$ Sia $(X, d)$ completo e totalmente limitato. Dimostriamo che $X$ è compatto per successioni e dal \textit{teorema 1.6.1} seguirà la tesi. Fissiamo $\varepsilon > 0$, per ipotesi esiste un numero finito di punti $\{x_1, \dots, x_n\} \subset X$ tale che 
+$(\leftarrow)$ Sia $(X, d)$ completo e totalmente limitato. Dimostriamo che $X$ è compatto per successioni e dal \textit{teorema 1.6.1} seguirà la tesi. Sia $\{x_n\}_{n \in \mathbf{N}}$ una successione di punti in $X$. Se $\{x_n\}_{n \in \mathbf{N}}$ ha un numero finito di punti distinti esiste certamente una sottosuccessione convergente. Supponiamo allora che $\{x_n\}_{n \in \mathbf{N}}$ abbia un numero infinito di punti distinti e costruiamo per induzione una sottosuccessione convergente. Per ogni $k \in \mathbf{N}$ consideriamo un ricoprimento chiuso di $X$ composto da un numero finito di dischi di raggio $\frac{1}{2^k}$. Sia $k = 1$, per ipotesi uno dei dischi contiene un numero infinito di termini della successione, chiamiamo $D_1$ tale disco ed indichiamo con $I_1$ l'insieme (infinito) degli indici che identificano i termini della successione contenuti in $D_1$. Sia $k = 2$, poiché $\{x_n\}_{n \in I_1}$ ha sempre infiniti termini distinti esiste un disco, che chiamiamo $D_2$, che contiene un numero infinito di termini della successione ed indichiamo con $I_2$ l'insieme degli indici che li identificano, ovviamente si ha $I_2 \subset I_1$. Per ogni $k \geq 2$ possiamo costruire induttivamente $I_k$ in modo analogo. Costruiamo una sottosuccessione $\{x_{n_k}\}_{k \in \mathbf{N}}$ con $n_1 < n_2 < \dots$ tale che $n_k \in I_k$ per ogni $k \in \mathbf{N}$. Allora per ogni $i, j > k$ si ha 
 \begin{align}
-    X = \overline{D_\varepsilon(x_1)} \cup \dots \cup \overline{D_\varepsilon(x_n)} \notag
+    d(x_{n_i}, x_{n_j}) < \frac{1}{2^{k - 1}} \notag
 \end{align}
-Sia $\{x_n\}_{n \in \mathbf{N}}$ una successione di punti in $X$. Se $\{x_n\}_{n \in \mathbf{N}}$ ha un numero finito di punti distinti esiste certamente una sottosuccessione convergente. Supponiamo allora che $\{x_n\}_{n \in \mathbf{N}}$ abbia un numero infinito di punti distinti e costruiamo per induzione una sottosuccessione convergente. 
+ovvero $\{x_{n_k}\}_{k \in \mathbf{N}}$ è di Cauchy. Per la completezza di $X$ la sottosuccessione $\{x_{n_k}\}$ convergente ad un opportuno punto in $X$ e quindi $X$ è compatto per successioni. \qed \\ \\ \\
+\textbf{Teorema 1.6.3:} sia $(X, d)$ uno spazio metrico completo. Per ogni successione $\{D_n = \overline{{D}_{r_n}(x_n)}\}$ tale che $D_1 \supset D_2 \supset \dots$ e $\lim_n r_n = 0$ si ha 
+\begin{align}
+    \bigcap_{n}D_n \neq \emptyset \notag
+\end{align} \\
 
+\textbf{Dimostrazione:} poiché per ipotesi $D_1 \supset D_2 \supset \dots$ si ha che $d(x_n, x_m) < |r_n - r_m|$ per ogni $n, m \in \mathbf{N}$. Allora $\{x_n\}_{n \in \mathbf{N}}$ è di Cauchy e quindi convergente 
 
 
 
