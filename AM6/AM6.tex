@@ -875,7 +875,7 @@ per ogni $n, m > M_\varepsilon$. Allora, per subadditività della metrica $d$, f
     d(x_n, x) \leq d(x_n, x_{\nu(k)}) + d(x_{\nu(k)}, x) < 2\varepsilon \notag
 \end{align}
 per ogni $n > \max\{N_\varepsilon, M_\varepsilon\}$. \qed \\ \\
-\textbf{Definizione:} sia $(X, d)$ uno spazio metrico e sia $\{x_n : n \in \mathbf{N}\}$ una successione contenuta in $X$. Chiamiamo variazione della successione la somma
+\textbf{Definizione:} sia $(X, d)$ uno spazio metrico e sia $\{x_n : n \in \mathbf{N}\}$ una successione contenuta in $X$. Chiamiamo \textit{variazione} della successione la somma
 \begin{align}
     d(x_0, x_1) + d(x_1, x_2) + \dots + d(x_{n - 1}, x_n) + \dots \notag
 \end{align}
@@ -911,7 +911,7 @@ Poniamo $\varepsilon_k = 2^{-(k + 1)}$ e definiamo $\nu(0)$ come il minimo natur
     \sum_{k = 1}^\infty d(x_{\nu(k + 1)}, x_{\nu(k)}) < \sum_{k = 1}^\infty \frac{1}{2^{k + 1}} < \infty \notag
 \end{align} \qed \\ \\
 \textbf{Definizione:} sia $(X, d)$ uno spazio metrico, $X$ è detto completo se e solo se ogni successione di Cauchy contenuta in $X$ è anche convergente. \\ \\
-\textbf{Definizione:} uno spazio normato $(X, \|\cdot\|)$ è detto di Banach se è completo rispetto alla metrica indotta dalla norma. \\ \\
+\textbf{Definizione:} uno spazio normato $(X, \|\cdot\|)$ è detto di \textit{Banach} se è completo rispetto alla metrica indotta dalla norma. \\ \\
 \textbf{Proposizione 2.2.4:} $\mathbf{R}$ e $\mathbf{C}$ sono spazi di Banach. \\
 
 \textbf{Dimostrazione:} per la \textit{proposizione 2.2.3} ogni successione di Cauchy ammette una sottosuccessione a variazione finita, per la \textit{proposizione 2.2.2} ogni successione a termini reali o complessi a variazione finita è convergente e infine per la \textit{proposizione 2.2.1} ogni successione di Cauchy che ammette una sottosuccessione convergente è convergente. \qed \\ \\
@@ -1247,7 +1247,7 @@ ovvero la tesi. \qed
 
 \newpage
 \subsection{Spazi di Hilbert}
-\textbf{Definizione:} uno $H$ spazio vettoriale complesso dotato di forma sesquilineare $(\cdot, \cdot) : H \times H \longrightarrow \mathbf{C}$ è detto spazio pre-hilbertiano. \\ \\
+\textbf{Definizione:} uno $H$ spazio vettoriale complesso dotato di forma sesquilineare $(\cdot, \cdot) : H \times H \longrightarrow \mathbf{C}$ è detto \textit{spazio pre-hilbertiano}. \\ \\
 \textbf{Proposizione (disuguaglianza di Cauchy-Schwartz):} sia $H$ uno spazio pre-hilbertiano, allora si ha 
 \begin{align}
     |(x, y)|^2 \leq (x, x)(y, y) \notag
@@ -1296,7 +1296,7 @@ se $\|x - x_0\| < \delta_\varepsilon$, dove
     \delta_\varepsilon = \frac{\varepsilon}{2\|y\|}\ \notag
 \end{align}
 Dall'arbitrarietà di $x_0$ segue la continuità su tutto $H$ e quindi la tesi. \qed \\ \\
-\textbf{Definizione:} uno spazio pre-hilbertiano completo è detto spazio di Hilbert. \\ \\
+\textbf{Definizione:} uno spazio pre-hilbertiano completo è detto \textit{spazio di Hilbert}. \\ \\
 \textbf{Identità di polarizzazione:} sia $H$ uno spazio pre-hilbertiano, sia $k = 0, 1, 2, 3$, per ogni $x, y \in H$ si ha
 \begin{align}
     \|x + i^ky\|^2 &= (x + i^ky, x + i^ky) \notag \\
@@ -1386,7 +1386,63 @@ allora si ha
 \begin{align}
     \overline{x} - \overline{y} = y^\perp - x^\perp \notag
 \end{align}
-ovvero $\overline{x} - \overline{y} \in V \cap V^\perp$. Dal \textit{lemma 3.1.1} segue che $\overline{x} - \overline{y} = 0$ e quindi anche $x^\perp - y^\perp = 0$, pertanto $\overline{x} = \overline{y}$ e $x^\perp = y^\perp$, che è la tesi. \qed
+ovvero $\overline{x} - \overline{y} \in V \cap V^\perp$. Dal \textit{lemma 3.1.1} segue che $\overline{x} - \overline{y} = 0$ e quindi anche $x^\perp - y^\perp = 0$, pertanto $\overline{x} = \overline{y}$ e $x^\perp = y^\perp$, che è la tesi. \qed \\ \\
+\textbf{Corollario 2.3.1:} dato un sottospazio chiuso $K$ di uno spazio di Hilbert $\mathcal{H}$ esiste unico $P \in \mathcal{B}(\mathcal{H})$, detto \textit{proiettore ortogonale} su $K$, tale che $Px \in K$ e $(\mathbf{1} - P)x \in K^\perp$ per ogni $x \in \mathcal{H}$. \\
+
+\textbf{Dimostrazione:} per ogni $x \in \mathcal{H}$ per il \textit{teorema della proiezione ortogonale} si ha che esistono unici $\overline{x} \in K$ e $x^\perp \in K^\perp$ tali che $x = \overline{x} + x^\perp$. Poniamo
+\begin{align}
+    Px := \overline{x} \in K \notag
+\end{align}
+segue immediatamente che 
+\begin{align}
+    (\mathbf{1} - P)x = x - \overline{x} = x^\perp \in K^\perp \notag
+\end{align}
+Notiamo che $P$ è lineare, infatti dati $x_1, x_2 \in \mathcal{H}$ e $\alpha_1, \alpha_2 \in \mathbf{C}$ esistono unici $\overline{x}_1, \overline{x}_2 \in K$ e $x^\perp_1, x^\perp_2 \in K^\perp$ tali che 
+\begin{align}
+    x_1 &= \overline{x}_1 + x^\perp_1 \notag \\
+    x_2 &= \overline{x}_2 + x^\perp_2 \notag
+\end{align}
+inoltre
+\begin{align}
+    \alpha_1x_1 &= \alpha_1\overline{x_1} + \alpha_1x^\perp_1 \notag \\
+    \alpha_2x_2 &= \alpha_2\overline{x_2} + \alpha_2x^\perp_2 \notag
+\end{align}
+quindi segue che 
+\begin{align}
+    \alpha_1x_1 + \alpha_2x_2 = \overbrace{\alpha_1\overline{x}_1 + \alpha_1\overline{x}_2}^{\in K} + \overbrace{\alpha_1x^\perp_1 + \alpha_2x^\perp_2}^{\in K^\perp} \notag
+\end{align}
+pertanto 
+\begin{align}
+    P(\alpha_1x_1 + \alpha_2x_2) &= \alpha_1\overline{x}_1 + \alpha_2\overline{x}_2 \notag \\
+    &= \alpha_1Px_1 + \alpha_2Px_2 \notag
+\end{align}
+Infine $P$ è limitato, infatti 
+\begin{align}
+    \|x\|^2 = (x, x) = (Px + (\mathbf{1} - P)x, Px + (\mathbf{1} - P)x) = \|Px\|^2 + \|(\mathbf{1} - P)x\|^2 \notag
+\end{align}
+ovvero $\|Px\| \leq \|x\|$ per ogni $x \in \mathcal{H}$, quindi $P$ limitato e $\|P\| \leq 1$. \qed \\ \\
+\textbf{Corollario 2.3.2:} un operatore $P \in \mathcal{B}(\mathcal{H})$ è il proiettore ortogonale su $K$ se e solo se $P^2 = P$, ovvero è \textit{nilpotente}, e $(Px, y) = (x, Py)$ per ogni $x, y \in \mathcal{H}$. \\
+
+\textbf{Dimostrazione:} $(\rightarrow)$ sia $P$ il proiettore ortogonale su $K$. Per definizione di proiettore ortogonale $\mathrm{Im}P \subset K$. Inoltre, dato $x \in K$ possiamo scrivere $x = x + 0$, con $0 \in K^\perp$ e per unicità della proiezione ortogonale si ha $x \in \mathrm{Im}P$, ovvero $\mathrm{Im}P = K$. Segue che
+\begin{align}
+    P^2x = P(Px) = Px \notag
+\end{align}
+per ogni $x \in \mathcal{H}$, ovvero $P^2 = P$. Inoltre, dati $x, y \in \mathcal{H}$ si ha 
+\begin{align}
+    (Px, y) = (Px, Py + (\mathbf{1} - P)y) = (Px, Py) \notag
+\end{align}
+dove si è usato $Px \perp (\mathbf{1} - P)y$. Analogamente si ha 
+\begin{align}
+    (x, Py) = (Px + (\mathbf{1} - P)x, Py) = (Px, Py) \notag
+\end{align}
+dove si è usato $(\mathbf{1} - P)x \perp Py$. \\ \\
+$(\leftarrow)$ Poniamo $K = \mathrm{Im}P$, dunque $Px \in K$ per ogni $x \in \mathcal{H}$ per definizione. Mostriamo ora che $(\mathbf{1} - P)x \in K^\perp$ per ogni $x \in\mathcal{H}$. Sia $y \in K$, si ha
+\begin{align}
+    ((\mathbf{1} - P)x, y) = (x, y) - (Px, y) = (x, y) - (x, Py) = (x, y) - (x, y) = 0 \notag
+\end{align}
+dove si è usata l'ipotesi $(Px, y) = (x, Py)$ per ogni $x, y \in \mathcal{H}$. \qed \\ \\
+\textbf{Teorema (della rappresentazione di Riesz):}
+
 
 
 \newpage
