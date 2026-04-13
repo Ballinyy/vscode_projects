@@ -1441,7 +1441,42 @@ $(\leftarrow)$ Poniamo $K = \mathrm{Im}P$, dunque $Px \in K$ per ogni $x \in \ma
     ((\mathbf{1} - P)x, y) = (x, y) - (Px, y) = (x, y) - (x, Py) = (x, y) - (x, y) = 0 \notag
 \end{align}
 dove si è usata l'ipotesi $(Px, y) = (x, Py)$ per ogni $x, y \in \mathcal{H}$. \qed \\ \\
-\textbf{Teorema (della rappresentazione di Riesz):}
+\textbf{Teorema (della rappresentazione di Riesz):} sia $\mathcal{H}$ uno spazio di Hilbert e sia $f \in \mathcal{H}^*$, esiste unico $\eta \in \mathcal{H}$ tale che $f = f_\eta$, dove $f_\eta$ è il funzionale lineare 
+\begin{align}
+    x \mapsto (\eta, x) \notag
+\end{align}
+per ogni $x \in \mathcal{H}$. Inoltre $\|f_\eta\| = \|\eta\|$. \\
+
+\textbf{Dimostrazione:} sia $K := \ker f$. $K$ è un sottospazio chiuso in quanto vale $K = f^{-1}(\{0\})$, ovvero $K$ controimmagine di un chiuso in $\mathbf{R}$. \\
+Se $K = \mathcal{H}$ basta scegliere $\eta = 0$ per ottenere la tesi. Supponiamo allora che $K \subsetneq \mathcal{H}$. Sia $z \in K^\perp$, per il \textit{teorema della proiezione ortogonale} ogni $x \in \mathcal{H}$ si scrive in modo unico come 
+\begin{align}
+    x = y + \alpha z \notag
+\end{align}
+per opportuni $\alpha \in \mathbf{C}$ e $y \in K$, infatti $\dim K^\perp = 1$ per il \textit{teorema rango-nullità}. Segue che
+\begin{align}
+    f(x) = \alpha f(z) \notag
+\end{align}
+per linearità di $f$ e 
+\begin{align}
+    (z, x) = \alpha\|z\|^2 \notag
+\end{align}
+per sesquilinearità del prodotto interno e poiché per ipotesi $(z, y) = 0$. Pertanto 
+\begin{align}
+    \frac{f(x)}{f(z)} = \frac{(z, x)}{\|z\|^2} \notag
+\end{align}
+ovvero 
+\begin{align}
+    f(x) &= \left(\frac{z^*f(z)^*}{\|z\|^2}, x\right) \notag
+\end{align}
+e ponendo $\eta = \frac{z^*f(z)^*}{\|z\|^2}$ si ottiene $f(x) = (\eta, x)$ per ogni $x \in \mathcal{H}$, ovvero $f = f_\eta$. Supponiamo che esista $\eta'$ tale che $f = f_{\eta'}$, allora deve valere 
+\begin{align}
+    (\eta - \eta', x) = 0 \notag
+\end{align}
+per ogni $x \in \mathcal{H}$ per sesquilinearità del prodotto interno. Quindi $\eta - \eta' = 0$ e in particolare $\eta = \eta'$, che dimostra l'unicità. Infine notiamo che 
+\begin{align}
+    \|f_\eta\| &= \sup_{\|x\| = 1}|f_\eta(x)| = \sup_{\|x\| = 1}|(\eta, x)| \leq \sup_{\|x\| = 1}\|\eta\|\|x\| = \|\eta\| \notag
+\end{align}
+per la \textit{disuguaglianza di Cauchy-Schwartz}. Inoltre $|f_\eta(\eta)| = |(\eta, \eta)| = \|\eta\|^2$, pertanto concludiamo che $\|f_\eta\| = \|\eta\|$. \qed
 
 
 
