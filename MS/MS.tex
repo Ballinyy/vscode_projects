@@ -528,7 +528,7 @@ quindi
     m = \frac{N}{e^{\frac{\varepsilon}{kT}} + 1} \tag{1.2.49}
 \end{align}
 Notiamo che per $T \rightarrow \infty$ si ha $m = N/2$, ovvero quando l'energia termica è molto più grande del quanto di energia $\varepsilon$ si osserva la configurazione per la quale $\Gamma$ è massimo. Mentre per $T \rightarrow 0$ si ha $m = 0$, ovvero a basse temperature non ci sono quanti di energia accessibili.
-\subsubsection{Sistema di $N$ oscillatori armonici quantistici 3D} Consideriamo un sistema composto da $N$ oscillatori armonici quantistici $3D$. Fissata l'energia del sistema siamo interessati a determinare l'espressione dell'entropia al limite termodinamico. \\ \\
+\subsubsection{Sistema di $N$ oscillatori armonici quantistici} Consideriamo un sistema composto da $N$ oscillatori armonici quantistici $3D$. Fissata l'energia del sistema siamo interessati a determinare l'espressione dell'entropia al limite termodinamico. \\ \\
 Limitiamoci per un attimo al caso di oscillatori armonici quantistici unidimensionali. Possiamo pensare a tale sistema come un insieme di $N$ scatole localizzate, ognuna con un numero $n_i$ di quanti di energia. In particolare, fissata l'energia totale del sistema $E$, si ha 
 \begin{align}
     E = \sum_{i = 1}^N(n_i + \frac{1}{2}) = \sum_{i = 1}^N n_i + \frac{N}{2} \notag
@@ -1047,7 +1047,50 @@ e quindi otteniamo
 \begin{align}
     PV = ZQ_1kT \tag{3.1.13}
 \end{align}
-Per ensemble gran canonico il numero di particelle è una variabile stocastica, a causa del potenziale chimico $\mu$. Tuttavia, come già visto nel caso dell'ensemble canonico, è ragionevole aspettarsi che $ZQ_1 = \braket{N}$.
+Per ensemble gran canonico il numero di particelle è una variabile stocastica, a causa del potenziale chimico $\mu$. Tuttavia, come già visto nel caso dell'ensemble canonico, è ragionevole aspettarsi che $ZQ_1 = \braket{N}$. \\ \\
+Notiamo che
+\begin{align}
+    \braket{N} &= \sum_{N = 0}^\infty \frac{1}{\tilde{Q}}\frac{Z^N}{N!h^{3N}}\int d\mathbf{p}d\mathbf{q} \, Ne^{-\beta \mathcal{H}_N} \notag \\
+    &= \frac{1}{\tilde{Q}}\sum_{N = 0}^\infty NZ^NQ_N \notag \\
+    &= Z\left(\frac{\partial}{\partial Z}\ln \tilde{Q}\right)_{V, T} \tag{3.1.14}
+\end{align}
+dove nel secondo passaggio si è usata l'identità $(3.1.10)$. Pertanto, sempre nel contesto di particelle indipendenti e indistinguibili, si ha 
+\begin{align}
+    \braket{N} &= Z\frac{\partial}{\partial Z}\left(\ln \tilde{Q}\right) \notag \\
+    &= Z\frac{\partial}{\partial Z}\left(\ln \sum_{N = 0}^\infty Z^NQ_N\right) \notag \\
+    &= Z\frac{\partial}{\partial Z}\left(\ln \sum_{N = 0}^\infty \frac{(ZQ_1)^N}{N!}\right) \notag \\
+    &= Z\frac{\partial}{\partial Z}ZQ_1 = ZQ_1 \tag{3.1.15}
+\end{align}
+dove si è usato $(3.1.12)$ nel quarto passaggio. Quindi, come ci si aspettava si ha 
+\begin{align}
+    PV = \braket{N}kT \tag{3.1.16}
+\end{align}
+Inoltre, grazie alla $(3.1.15)$ siamo in grado di ottenere un'espressione per il potenziale chimico a cui è soggetto il sistema passando per la definizione di fugacità, in particolare si ha 
+\begin{align}
+    \mu = -kT\ln \frac{Q}{\braket{N}} \tag{3.1.17}
+\end{align}
+
+\subsubsection{Particelle libere in una scatola}
+Consideriamo un sistema di $N$ particelle libere indistinguibili in una scatola di volume $V$. In questo caso sappiamo che vale $Q_N = \frac{Q^N_1}{N!}$, inoltre 
+\begin{align}
+    Q_1 = cVT^{3/2} \tag{3.1.18}
+\end{align}
+dove $c$ è un termine costante. Come fatto per $\braket{N}$, usando la definizione di media per l'ensemble gran canonico, possiamo scrivere 
+\begin{align}
+    \braket{E} = -\left(\frac{\partial}{\partial \beta}\ln\tilde{Q}\right)_{Z, V} \tag{3.1.19}
+\end{align}
+Allora si ottiene 
+\begin{align}
+    \braket{E} &= -\left(\frac{\partial}{\partial \beta}ZQ_1(V, T)\right)_{Z, V} \notag \\
+    &= -Z\frac{\partial T}{\partial \beta} \left(\frac{\partial}{\partial T}Q_1(V, T)\right)_{Z, V} \notag \\
+    &= \frac{3}{2}\overbrace{cZVT^{3/2}}^{\braket{N}}kT = \frac{3}{2}\braket{N}kT \tag{3.1.20}
+\end{align}
+Mentre ricordiamo che per l'ensemble canonico si ha $\braket{E}_{can} = \frac{3}{2}NkT$ con $N$ costante del sistema. Successivamente studieremo come si comportano le fluttuazioni del numero di particelle rispetto alla media al limite termodinamico per capire se in tal caso l'ensemble gran canonico si riconduce approssimativamente all'ensemble canonico.
+
+\subsubsection{Fluttuazioni del numero di particelle}
+Poniamoci sempre nel contesto di particelle indipendenti e indistinguibili. Come già visto la funzione di partizione canonica si fattorizza. Supponiamo che $Q_1 = Vf(T)$, con $f$ una qualsiasi funzione della temperatura sufficientemente regolare.
+
+
 
 
 
