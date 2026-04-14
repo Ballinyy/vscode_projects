@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  13 APR 2026 10:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  13 APR 2026 15:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1127,43 +1127,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 1447--1449
 
  []
 
-[52] [53]
-Underfull \hbox (badness 10000) in paragraph at lines 1489--1490
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 1482--1485
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1510--1513
+Underfull \hbox (badness 10000) in paragraph at lines 1482--1485
+
+ []
+
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1501
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1515--1516
+Underfull \hbox (badness 10000) in paragraph at lines 1521--1524
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1526--1527
 
  []
 
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 1539--1542
+Underfull \hbox (badness 10000) in paragraph at lines 1550--1553
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1544--1547
+Underfull \hbox (badness 10000) in paragraph at lines 1555--1558
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1549--1550
+Underfull \hbox (badness 10000) in paragraph at lines 1560--1561
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1562--1565
+Underfull \hbox (badness 10000) in paragraph at lines 1573--1576
 
  []
 
 [55]
-Underfull \hbox (badness 10000) in paragraph at lines 1567--1569
+Underfull \hbox (badness 10000) in paragraph at lines 1578--1580
 
  []
 
@@ -1182,7 +1192,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,18n,65p,1023b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on AM6.pdf (56 pages, 359473 bytes).
+Output written on AM6.pdf (56 pages, 360548 bytes).
 PDF statistics:
  276 PDF objects out of 1000 (max. 8388607)
  180 compressed objects within 2 object streams

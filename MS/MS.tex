@@ -989,11 +989,11 @@ Per definizione
 \begin{align}
     Q_N &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\mathcal{H}_N} \notag
 \end{align}
-Cerchiamo un modo per poter scrivere la funzione di partizione canonica come segue 
+Cerchiamo un modo per poter scrivere la funzione di partizione canonica come segue (costruzione marginale (?))
 \begin{align}
     Q_N = \sum_{N_1}\frac{1}{h^{3N_1}}\int d\mathbf{p}_1d\mathbf{q}_1 \, (\dots) \tag{3.1.1}
 \end{align}
-Dato un sistema costituito da $N$ particelle indistinguibili vale la seguente identità 
+Dato un sistema costituito da $N$ particelle identiche e indistinguibili vale la seguente identità 
 \begin{align}
     \int d\mathbf{p}d\mathbf{q} \, (\dots) = \sum_{N_1 = 0}^N \frac{N!}{N_1!N_2!}\int d\mathbf{p}_1d\mathbf{q}_1 \, (\dots) \tag{3.1.2}
 \end{align}
@@ -1010,17 +1010,44 @@ Il fattore $1/N!$ non appare più poiché l'indistinguibilità classica delle pa
 \end{align}
 Notiamo che $\rho$ è correttamente normalizzata sullo spazio delle fasi associato al sistema $1$, in particolare 
 \begin{align}
-    1 = \sum_{N_1 = 0}\int d\mathbf{p}_1d\mathbf{q}_1 \, \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) \notag
+    1 = \sum_{N_1 = 0}\int d\mathbf{p}_1d\mathbf{q}_1 \, \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) \tag{3.1.5}
 \end{align}
 Supponiamo ora che $N_2 << N$ e $V_2 << V$, si ha 
 \begin{align}
     G_{N_2}(V_2, T) - G_N(V, T) &\sim -\underbrace{\left(\frac{\partial G}{\partial N}\right)_{V, T}}_{\mu}N_1 - \underbrace{\left(\frac{\partial G}{\partial V}\right)_{N, T}}_{-P}V_1 \notag \\
-    &= -\mu N_1 + PV_1 \tag{3.1.5}
+    &= -\mu N_1 + PV_1 \tag{3.1.6}
 \end{align}
 sostituendo in $(3.1.4)$ si ottiene 
 \begin{align}
-    \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) \sim e^{-\beta(PV_1 -\mu N_1)}\frac{e^{-\beta \mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \tag{3.1.6}
+    \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) \sim e^{-\beta(PV_1 -\mu N_1)}\frac{e^{-\beta \mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \tag{3.1.7}
 \end{align}
+A questo punto possiamo abbandonare il pedice che caratterizza il sottosistema $1$ e lo trattiamo come il sistema generale. Pertanto per un insieme di particelle indipendenti e indistinguibili studite come ensemble gran canonico si ha 
+\begin{align}
+    \rho_N(\mathbf{p}, \mathbf{q}) = e^{-\beta(PV + \mathcal{H}_N)}\frac{Z^N}{N!h^{3N}} \tag{3.1.8}
+\end{align}
+dove si è posto $Z = e^{\beta\mu}$ detta \textit{fugacità}. Sostituendo l'espressione $(3.1.7)$ in $(3.1.5)$ otteniamo 
+\begin{align}
+    1 &= \sum_{N = 0}^{\overbrace{\infty}^{\text{lim. termodin.}}}e^{-\beta PV}Z^N\frac{1}{N!h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\mathcal{H}_N} \notag \\
+    &= \sum_{N = 0}^\infty e^{-\beta PV}Z^NQ_N \tag{3.1.9}
+\end{align}
+ovvero 
+\begin{align}
+    e^{\beta PV} &= \sum_{N = 0}^\infty Z^NQ_N \tag{3.1.10}
+\end{align}
+Poniamo 
+\begin{align}
+    \tilde{Q}(Z, V, T) = \sum_{N = 0}^\infty Z^NQ_N \tag{3.1.11}
+\end{align}
+detta funzione di partizione gran canonica (costante che determina la normalizzazione della funzione distribuzione di probabilità $\rho$ associata all'ensemble gran canonico). \\
+Per particelle indipendenti e indistinguibili sappiamo che vale $Q_N = \frac{Q^N_1}{N!}$. Sostituendo in $(3.1.10)$ si ottiene 
+\begin{align}
+    e^{\beta PV} = \sum_{N = 0}^\infty \frac{(ZQ_1)^N}{N!} = e^{ZQ_1} \tag{3.1.12}
+\end{align}
+e quindi otteniamo 
+\begin{align}
+    PV = ZQ_1kT \tag{3.1.13}
+\end{align}
+Per ensemble gran canonico il numero di particelle è una variabile stocastica, a causa del potenziale chimico $\mu$. Tuttavia, come già visto nel caso dell'ensemble canonico, è ragionevole aspettarsi che $ZQ_1 = \braket{N}$.
 
 
 
