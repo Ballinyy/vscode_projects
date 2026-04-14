@@ -17,4 +17,4 @@
 \contentsline {section}{\numberline {3}Ensemble gran canonico}{34}{}%
 \contentsline {subsection}{\numberline {3.1}Legge di stato}{34}{}%
 \contentsline {subsubsection}{\numberline {3.1.1}Particelle libere in una scatola}{37}{}%
-\contentsline {subsubsection}{\numberline {3.1.2}Fluttuazioni del numero di particelle}{37}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}Fluttuazioni del numero di particelle (spettro discreto)}{37}{}%

@@ -1087,8 +1087,20 @@ Allora si ottiene
 \end{align}
 Mentre ricordiamo che per l'ensemble canonico si ha $\braket{E}_{can} = \frac{3}{2}NkT$ con $N$ costante del sistema. Successivamente studieremo come si comportano le fluttuazioni del numero di particelle rispetto alla media al limite termodinamico per capire se in tal caso l'ensemble gran canonico si riconduce approssimativamente all'ensemble canonico.
 
-\subsubsection{Fluttuazioni del numero di particelle}
-Poniamoci sempre nel contesto di particelle indipendenti e indistinguibili. Come già visto la funzione di partizione canonica si fattorizza. Supponiamo che $Q_1 = Vf(T)$, con $f$ una qualsiasi funzione della temperatura sufficientemente regolare.
+\subsubsection{Fluttuazioni del numero di particelle (spettro discreto)}
+Poniamoci sempre nel contesto di particelle indipendenti e indistinguibili. Come già visto la funzione di partizione canonica si fattorizza. Supponiamo che $Q_1 = Vf(T)$, con $f$ una qualsiasi funzione della temperatura sufficientemente regolare. \\ \\
+Nel caso di spettro discreto si ha 
+\begin{align}
+    \tilde{Q} &= \sum_{N = 0}^\infty Z^NQ_N = \sum_{N, E_N} Z^Nd(E_N)e^{-\beta E_N} \tag{3.1.21}
+\end{align}
+dove $d(E_N)$ rappresenta la degenerazione del livello energetico $E_N$. Possiamo quindi definire una distribuzione di probabilità $P$ ponendo 
+\begin{align}
+    P(E_N) = \frac{Z^Nd(E_N)e^{-\beta E_N}}{\sum_{N, E_N}Z^Nd(E_N)e^{-\beta E_N}} \tag{3.1.22}
+\end{align}
+ben normalizzata. A questo punto, per costruzione, si ha 
+\begin{align}
+    \braket{E} = \sum_{N, E_N} E_NP(E_N) \notag
+\end{align}
 
 
 
