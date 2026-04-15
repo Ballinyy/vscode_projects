@@ -386,7 +386,7 @@ dove si è trascurato il termine quadratico $\mathbf{A}^2$ per campi elettromagn
 \begin{align}
     \nabla \cdot (\mathbf{A}\psi) = \psi\cancel{\nabla \cdot \mathbf{A}} + \mathbf{A}\nabla\phi \tag{1.4.3}
 \end{align}
-In $(1.4.2)$ $\nabla \cdot \mathbf{A}$ è da intendere come operatore che agisce sui vettori dello spazio di Hilbert in esame. \\ \\
+Dato che in gauge di Coulomb si ha $\nabla \cdot \mathbf{A} = 0$. In $(1.4.2)$ $\nabla \cdot \mathbf{A}$ è da intendere come operatore che agisce sui vettori dello spazio di Hilbert in esame. \\ \\
 Ricordiamo che l'intensità dell'onda elettromagnetica (che sappiamo essere proporzionale al numero di fotoni) è definita come il valor medio del vettore di Poynting $\mathbf{S} = \mathbf{E} \times \mathbf{H}$, in particolare si ha 
 \begin{align}
     I &= \braket{\mathbf{S}} \notag \\
@@ -414,11 +414,24 @@ hannp valore medio non nullo (per $t \rightarrow \infty)$ se e solo se si ha $\o
 \begin{align}
     \int_0^t dt' \, e^{i\tilde{\omega}_{fi}t} &= \frac{e^{i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}} \tag{1.4.8}
 \end{align}
-studiamo come si comporta il modulo 
+studiamo come si comporta la rate associata alla probabilità di transizione $i \rightarrow f$ (data da $|\alpha_{fi}|^2$)
 \begin{align}
-    \left(\frac{e^{i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}}\right)\left(-\frac{e^{-i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}}\right) &= \frac{2(1 - \cos(\tilde{\omega}_{fi}t))}{\tilde{\omega}^2_{fi}} \notag \\
-    &= \frac{\sin^2(\tilde{\omega}_{fi}t)}{\tilde{\omega}^2_{fi}} = F(t, \tilde{\omega}_{fi}) \tag{1.4.9}
+    \frac{1}{t}\left(\frac{e^{i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}}\right)\left(-\frac{e^{-i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}}\right) &= \frac{2(1 - \cos(\tilde{\omega}_{fi}t))}{\tilde{\omega}^2_{fi}t} \notag \\
+    &= \frac{\sin^2(\tilde{\omega}_{fi}t)}{\tilde{\omega}^2_{fi}t} = F(t, \tilde{\omega}_{fi}) \tag{1.4.9}
 \end{align}
+siamo interessati a come si comporta per tempi molto lunghi, pertanto prendiamo $t \rightarrow \infty$
+\begin{align}
+    \lim_{t \rightarrow \infty}F(t, \tilde{\omega}_{fi}) = \delta_{\tilde{\omega}_{fi}} \tag{1.4.10}
+\end{align}
+infatti se $\tilde{\omega}_{fi} \neq 0$ si ha 
+\begin{align}
+    0 \leq \lim_{t \rightarrow \infty}\frac{\sin^2(\tilde{\omega}_{fi}t)}{\tilde{\omega}^2_{fi}t} \leq \lim_{t \rightarrow \infty}\frac{1}{\tilde{\omega}^2_{fi}t} = 0 \tag{1.4.11}
+\end{align}
+mentre per $\tilde{\omega}_{fi} = 0$ si ha 
+\begin{align}
+    F(t, \tilde{\omega}_{fi} = 0) = t \rightarrow \infty \tag{1.4.12}
+\end{align}
+per $t \rightarrow \infty$. Pertanto per avere probabilità di transizione non nulla deve valere $\omega_{fi} = \pm \omega$, ovvero la radiazione deve avere esattamente l'energia che separa i due stati per far sì che avvenga la transizione.
 
 \newpage
 \section*{Appendice}
