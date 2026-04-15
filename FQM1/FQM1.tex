@@ -365,13 +365,14 @@ e
 per $r < r_0$ e ovviamente $V(r) = - \frac{Z}{r}$ per $r > r_0$. Ricordiamo che questo vale solamente per gli stati con $l = 0$ che hanno probabilità non nulla di trovarsi all'interno del nucleo.
 
 \subsection{Interazione radiazione-materia}
+Studiamo i fenomeni di emissione (spontanea e non) e assorbimento della materia soggetta a radiazione elettromagnetica attraverso la teoria delle perturbazioni dipendenti dal tempo, in particolare determinando le rate alle quali avvengono tali fenomeni. \\ \\
 Scegliendo gauge di Coulomb, dalle equazione di Maxwell otteniamo 
 \begin{align}
     \begin{cases}
         \mathbf{E}(\omega, \mathbf{r}, t) &= -\omega_0A_0(\omega)\sin(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)\hat{\epsilon} \\
         \mathbf{B}(\omega, \mathbf{r}, t) &= -A_0(\omega)\sin(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)(\mathbf{k} \times \hat{\mathbf{\epsilon}}) \\
         \mathbf{A}(\omega, \mathbf{r}, t) &= \hat{\mathbf{\epsilon}}\int_0^\infty d\omega \, A_0(\omega)\cos(\mathbf{k} \cdot \mathbf{r} - \omega t -\delta_\omega)
-    \end{cases} \tag{1.3.1}
+    \end{cases} \tag{1.4.1}
 \end{align}
 dove $\hat{\epsilon}$ è il versore che identifica la polarizzazione del campo elettromagnetico. \\ \\
 Ricordiamo che l'hamiltoniano di una particella con carica $q$ soggetta ad un campo elettromagnetico è data dall'accoppiamento minimo, ovvero $\mathbf{p} \rightarrow \mathbf{p} - q\mathbf{A}$, allora in unità atomiche
@@ -379,9 +380,45 @@ Ricordiamo che l'hamiltoniano di una particella con carica $q$ soggetta ad un ca
     H &= \frac{(\mathbf{p} + \mathbf{A})^2}{2m} - \frac{Z}{r} \notag \\
     &= \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{A}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} \notag \\
     &= \frac{\mathbf{p}^2}{2m} - \frac{Z}{r} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} + \cancel{\left[\frac{\mathbf{A}^2}{2m}\right]} \notag \\
-    &\sim H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} = H_0 + \frac{i\hbar}{m}\nabla \cdot \mathbf{A} \tag{1.3.2}
+    &\sim H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} = H_0 + \frac{i\hbar}{m}\mathbf{A} \cdot \nabla \tag{1.4.2}
 \end{align} 
-dove si è trascurato il termine quadratico $\mathbf{A}^2$ per campi elettromagnetici poco intensi. Notiamo che $\nabla \cdot \mathbf{A}$ è da intendere come operatore che agisce sullo spazio di Hilbert in esame.
+dove si è trascurato il termine quadratico $\mathbf{A}^2$ per campi elettromagnetici poco intensi e si è usato il fatto che $\nabla$ e $\mathbf{A}$ commutano, infatti 
+\begin{align}
+    \nabla \cdot (\mathbf{A}\psi) = \psi\cancel{\nabla \cdot \mathbf{A}} + \mathbf{A}\nabla\phi \tag{1.4.3}
+\end{align}
+In $(1.4.2)$ $\nabla \cdot \mathbf{A}$ è da intendere come operatore che agisce sui vettori dello spazio di Hilbert in esame. \\ \\
+Ricordiamo che l'intensità dell'onda elettromagnetica (che sappiamo essere proporzionale al numero di fotoni) è definita come il valor medio del vettore di Poynting $\mathbf{S} = \mathbf{E} \times \mathbf{H}$, in particolare si ha 
+\begin{align}
+    I &= \braket{\mathbf{S}} \notag \\
+    &= \braket{\mathbf{E} \times \mathbf{H}} \notag \\
+    &= \braket{\mathbf{E} \times \frac{\mathbf{B}}{\mu_0}} \notag \\
+    &= -\omega_0A^2_0(\omega)k\braket{\sin^2(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)} \notag \\
+    &= \frac{1}{2}c\varepsilon_0\omega^2A^2_0(\omega) \tag{1.4.4}
+\end{align}
+dove si è usato $\frac{1}{\mu_0} = c^2\varepsilon_0$ e $k = \frac{\omega}{c}$. Da $(1.4.3)$ segue che 
+\begin{align}
+    A^2_0(\omega) = \frac{2I}{c\varepsilon_0\omega^2} \tag{1.4.5}
+\end{align}
+ovvero possiamo determinare l'ampiezza dell'onda in funzione della sua intensità, il che è molto comodo dato che l'intensità è un parametro facilmente controllabile praticamente. \\ \\
+A questo punto applichiamo la teoria delle perturbazioni dipendenti dal tempo sulla perturbazione $H' = \frac{i\hbar}{m}\nabla \cdot \mathbf{A}$ per determinare le rate di transizione dei vari stati. Si ha 
+\begin{align}
+    \alpha_{fi} &= -\frac{1}{m}\int_0^t dt' \, \braket{f|\mathbf{A} \cdot \nabla|i}e^{i\omega_{fi}t'} \notag \\
+    &= -\frac{1}{2m}\int_0^\infty d\omega \, A_0(\omega)\left(e^{i\delta_\omega}\braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\hat{\epsilon} \cdot \nabla|i}\int_0^\infty dt' \, e^{i(\omega_{fi} - \omega)t'} +\right. \notag \\
+    &+ \left.e^{-i\delta_\omega}\braket{f|e^{-i\mathbf{k} \cdot \mathbf{r}}\hat{\epsilon} \cdot \nabla|i}\int_0^t dt' \, e^{i(\omega_{fi} + \omega)t}\right) \tag{1.4.6}
+\end{align}
+dove si è espresso il coseno in termini di esponenziali complessi. I termini integrali 
+\begin{align}
+    \int_0^t dt' \, e^{i(\omega_{fi} \pm \omega)t} \tag{1.4.7}
+\end{align}
+hannp valore medio non nullo (per $t \rightarrow \infty)$ se e solo se si ha $\omega_{fi} \pm \omega = 0$. Infatti possiamo verificarlo direttamente, poniamo $\tilde{\omega}_{fi} = \omega_{fi} \pm \omega$ (ovvero uno tra i due), si ha
+\begin{align}
+    \int_0^t dt' \, e^{i\tilde{\omega}_{fi}t} &= \frac{e^{i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}} \tag{1.4.8}
+\end{align}
+studiamo come si comporta il modulo 
+\begin{align}
+    \left(\frac{e^{i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}}\right)\left(-\frac{e^{-i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}}\right) &= \frac{2(1 - \cos(\tilde{\omega}_{fi}t))}{\tilde{\omega}^2_{fi}} \notag \\
+    &= \frac{\sin^2(\tilde{\omega}_{fi}t)}{\tilde{\omega}^2_{fi}} = F(t, \tilde{\omega}_{fi}) \tag{1.4.9}
+\end{align}
 
 \newpage
 \section*{Appendice}

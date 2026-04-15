@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1776267829.04405 "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" "FQM1.pdf" "FQM1" 1776267830.46977 0
-  "FQM1.aux" 1776267830 957 ee6a9a57a7f79f1c2505a077d3852e04 "pdflatex"
-  "FQM1.tex" 1776267827 27262 076d980bf57effb067cd259ea9db3ae7 ""
-  "FQM1.toc" 1776267830 596 aafbf35873a9f6c41d072eb028fcd21a "pdflatex"
-  "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" 1776267827 27262 076d980bf57effb067cd259ea9db3ae7 ""
+["pdflatex"] 1776274266.71126 "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" "FQM1.pdf" "FQM1" 1776274268.01871 0
+  "FQM1.aux" 1776274267 957 b24675f5dc62c2af952b3e2aa3f7a579 "pdflatex"
+  "FQM1.tex" 1776274265 30458 24b096746036af13bcf7392c44a15805 ""
+  "FQM1.toc" 1776274267 596 aafbf35873a9f6c41d072eb028fcd21a "pdflatex"
+  "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" 1776274265 30458 24b096746036af13bcf7392c44a15805 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1773573954 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1773573954 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -41,6 +41,7 @@
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1773573954 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1773573954 32762 7fee39e011c23b3589931effd97b9702 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1773573954 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1773573954 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1773573954 32716 08e384dc442464e7285e891af9f45947 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb" 1773573954 11493 4f5ed183a47d3197cf8cd322325db6de ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1773573954 34694 870c211f62cb72718a00e353f14f254d ""
