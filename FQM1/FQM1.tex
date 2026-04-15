@@ -82,30 +82,30 @@ Inoltre si ottiene dal fatto che la costante di struttura affine $\alpha = 1/137
 \subsection{Approccio semiclassico}
 Consideriamo un atomo idrogenoide con numero atomico $Z$. L'elettrone, a distanza $r$ dal nucleo, è soggetto alla forza di Coulomb e alla forza centripeta. Affinché l'elettrone resti in orbita la risultante delle forze deve essere identicamente nulla, ovvero deve valere
 \begin{gather}
-    \frac{m_ev^2}{r} = \frac{Ze^2}{4\pi\varepsilon_0r^2} \notag
+    \frac{m_ev^2}{r} = \frac{Ze^2}{4\pi\varepsilon_0r^2} \tag{1.1.1}
 \end{gather}
 dunque si ottiene
 \begin{gather}
-    m_ev^2 = \frac{Ze^2}{4\pi\varepsilon_0r} \notag
+    m_ev^2 = \frac{Ze^2}{4\pi\varepsilon_0r} \tag{1.1.2}
 \end{gather}
 Questo ci permette di ricavare un'espressione per l'energia cinetica $T$ dell'elettrone
 \begin{gather}
-    T = \frac{1}{2}m_ev^2 = \frac{1}{2}\frac{m_eZe^2}{4\pi\varepsilon_0r} \notag
+    T = \frac{1}{2}m_ev^2 = \frac{1}{2}\frac{m_eZe^2}{4\pi\varepsilon_0r} \tag{1.1.3}
 \end{gather}
 Inoltre, l'energia potenziale a cui è sottoposto l'elettrone è nota, infatti
 \begin{gather}
-    V = -\frac{Ze^2}{4\pi\varepsilon_0r} \notag
+    V = -\frac{Ze^2}{4\pi\varepsilon_0r} \tag{1.1.4}
 \end{gather}
 notiamo che $V = -2T$. Esprimendo l'energia totale dell'elettrone si ha
 \begin{gather}
-    \mathcal{E} = T + V = -T = -\frac{1}{2}\frac{m_eZe^2}{4\pi\varepsilon_0r} \notag
+    \mathcal{E} = T + V = -T = -\frac{1}{2}\frac{m_eZe^2}{4\pi\varepsilon_0r} \tag{1.1.5}
 \end{gather}
-Questo modello non può essere corretto, infatti l'elettrone irradia energia durante il moto e dovrebbe cadere, in un tempo dell'ordine di $10^{-11} \, s$, nel nucleo. Tuttavia questo contraddice la realtà, infatti gli atomi sono stabili e l'elettrone non cade nel nucleo. Niels Bohr ipotizzò che il momento angolare dell'elettrone non potesse assumere valori arbitrari ma fosse vincolato ad essere un multiplo intero di $\hbar$ per spiegare le osservazioni sperimentali. Dunque viene aggiunta un'altra condizione, in particolare
+Questo modello non può essere corretto, infatti l'elettrone irradia energia durante il moto e dovrebbe cadere in un tempo dell'ordine di $10^{-11} \, s$, nel nucleo. Tuttavia questo contraddice la realtà, infatti gli atomi sono stabili e l'elettrone non cade nel nucleo. Niels Bohr ipotizzò che il momento angolare dell'elettrone non potesse assumere valori arbitrari ma fosse vincolato ad essere un multiplo intero di $\hbar$ per spiegare le osservazioni sperimentali. Dunque viene aggiunta un'altra condizione, ovvero la quantizzazione del momento angolare
 \begin{gather}
     \begin{cases}
         m_ev^2_n &= \frac{Ze^2}{4\pi\varepsilon_or_n} \\
         mv_nr_n &= n\hbar
-    \end{cases} \notag
+    \end{cases} \tag{1.1.6}
 \end{gather}
 questo introduce dei vincoli anche su $v$ e $r$, dunque anch'essi ora dipendono da $n$. Risolvendo il sistema si ottiene
 \begin{gather}
@@ -116,113 +116,120 @@ questo introduce dei vincoli anche su $v$ e $r$, dunque anch'essi ora dipendono 
     \begin{cases}
         r_n &= \frac{4\pi\varepsilon_0}{Ze^2}\frac{n^2\hbar^2}{m_e} \\
         v_n &= \frac{Ze^2}{4\pi\varepsilon_0}\frac{1}{n\hbar}
-    \end{cases} \notag
+    \end{cases} \tag{1.1.7}
 \end{gather}
-Usando la relazione prima ricavata, $\mathcal{E} = -T$,  si ottengono i corretti livelli energetici dell'elettrone, i raggi delle orbite per le quali si ha moto stabile (niente irraggiamento) e la velocità dell'elettrone in tale orbita. In particolare
+Usando $(1.1.5)$ si ottengono i corretti livelli energetici dell'elettrone, i raggi delle orbite per le quali si ha moto stabile (niente irraggiamento) e la velocità dell'elettrone in tale orbita. In particolare
 \begin{align}
-    \mathcal{E}^H_n = -\frac{1}{2}m_e\left(\frac{Ze^2}{4\pi\varepsilon_0}\right)^2\frac{1}{n^2\hbar^2} \notag
+    \mathcal{E}^H_n = -\frac{1}{2}m_e\left(\frac{Ze^2}{4\pi\varepsilon_0}\right)^2\frac{1}{n^2\hbar^2} \tag{1.1.8}
 \end{align}
 inoltre $r^H_{n = 1} = a_0$ e $v^H_{n = 1} = 2.2 \cdot 10^6 m/s$.
 
 \subsection{Correzioni relativistiche}
+\subsubsection{Energia cinetica}
 L'energia relativistica dell'elettrone in un atomo idrogenoide è
 \begin{align}
     E_{rel} &= \sqrt{p^2c^2 + m^2_ec^4} \notag \\
-    &= m_ec^2\sqrt{1 + \frac{p^2}{m^2_ec^2}} \notag
+    &= m_ec^2\sqrt{1 + \frac{p^2}{m^2_ec^2}} \tag{1.2.1}
 \end{align}
 dunque usando l'approssimazione $\sqrt{1 + \varepsilon} \sim 1 + \frac{1}{2}\varepsilon - \frac{1}{8}\varepsilon^2$ si ottiene
 \begin{align}
     E_{rel} &\sim m_ec^2\left(1 + \frac{p^2}{2m^2_ec^2} - \frac{p^4}{8m^4_ec^4}\right) \notag \\
-    &= m_ec^2 + \frac{p^2}{2m_e} - \frac{p^4}{8m^3_ec^2} \notag
+    &= m_ec^2 + \frac{p^2}{2m_e} - \frac{p^4}{8m^3_ec^2} \tag{1.2.2}
 \end{align}
 pertanto, trascurando il termine costante $m_ec^2$ che è l'energia a riposo dell'elettrone libero, si ha che, in prima approssimazione, la correzione all'hamiltoniana è data dal termine
 \begin{align}
     H'_{k} &= -\frac{p^4}{8m^3_2c^2} \notag \\
     &= -\frac{1}{2m_ec^2}T^2 \notag \\
-    &= -\frac{\alpha^2}{2}T^2 \qquad (u.a.) \notag
+    &= -\frac{\alpha^2}{2}T^2 \qquad (u.a.) \tag{1.2.3}
 \end{align}
 dove $T$ è l'operatore energia cinetica. Possiamo allora applicare i metodi della teoria delle perturbazioni sull'hamiltoniano perturbato in termini di $\alpha$. Notiamo che, nonostante il fatto che l'atomo idrogenoide presenti degenerazione, possiamo applicare il metodo delle perturbazioni indipendenti dal tempo nel caso non degenere, infatti la perturbazione commuta con l'hamiltoniano imperturbato e quindi è già diagonale nella base iniziale (non "mischia" gli autostati del sottospazio degenere). Allora si ha
 \begin{align}
-    \Delta E^k_{nlm} &= \braket{\psi^{(0)}_{nlm}|-\frac{\alpha^2}{2}T^2|\psi^{(0)}_{nlm}} \notag
+    \Delta E^k_{nlm} &= \braket{\psi^{(0)}_{nlm}|-\frac{\alpha^2}{2}T^2|\psi^{(0)}_{nlm}} \tag{1.2.4}
 \end{align}
 In particolare $T = H + \frac{Z}{r}$ per l'atomo idrogenoide, quindi
 \begin{align}
-    T^2 = H^2 + \frac{Z^2}{r^2} + 2H\frac{Z}{r} \notag
+    T^2 = H^2 + \frac{Z^2}{r^2} + 2H\frac{Z}{r} \tag{1.2.5}
 \end{align}
-e sostituendo si ottiene
+e sostituendo in $(1.2.4)$ si ottiene
 \begin{align}
-    \Delta E^k_{nlm} &= -\frac{\alpha^2}{2}(E^2_n + Z^2\braket{1/r^2}_{nlm} + 2E_nZ\braket{1/r}_{nlm}) \notag
+    \Delta E^k_{nlm} &= -\frac{\alpha^2}{2}(E^2_n + Z^2\braket{1/r^2}_{nlm} + 2E_nZ\braket{1/r}_{nlm}) \tag{1.2.6}
 \end{align}
 dove
 \begin{align}
     \braket{1/r}_{nlm} &= \int_0^\infty rR(r)_{nl} \, dr \notag \\
-    \braket{1/r^2}_{nlm} &= \int_0^\infty R(r)_{nl} \, dr \notag
+    \braket{1/r^2}_{nlm} &= \int_0^\infty R(r)_{nl} \, dr \tag{1.2.7}
 \end{align}
 dunque in unità atomiche si ha
 \begin{align}
     \Delta E^k_{nlm} &= -\frac{\alpha^2}{2}\left(\frac{Z^4}{4n^4} - \frac{Z^5}{2n^4} + \frac{Z^4}{n^3\left(l + \frac{1}{2}\right)}\right) \notag \\
-    &= -E_n\left(\frac{Z\alpha}{n}\right)^2\left(\frac{3}{4} - \frac{n}{l - \frac{1}{2}}\right) \leq 0 \notag
-\end{align} \\
+    &= -E_n\left(\frac{Z\alpha}{n}\right)^2\left(\frac{3}{4} - \frac{n}{l - \frac{1}{2}}\right) \leq 0 \tag{1.2.8}
+\end{align}
+\subsubsection{Interazione spin-orbita}
 La seconda correzione è dovuta al moto del nucleo del sistema di riferimento dell'elettrone, infatti si osserva una densità di corrente non nulla dovuta al moto relativo del nucleo e dunque un campo magnetico. In particolare si ha 
 \begin{align}
-    \mathbf{j} = -Ze\mathbf{v} \notag
+    \mathbf{j} = -Ze\mathbf{v} \tag{1.2.9}
 \end{align}
 Il campo magnetico osservato è dato da
 \begin{align}
-    \mathbf{B} = \frac{\mu_0}{4\pi}\frac{\mathbf{j} \times \mathbf{u}_r}{r^2} = -\frac{\mu_0}{4\pi}Ze\frac{\mathbf{v} \times \mathbf{u}_r}{r^2} \notag
+    \mathbf{B} = \frac{\mu_0}{4\pi}\frac{\mathbf{j} \times \mathbf{u}_r}{r^2} = -\frac{\mu_0}{4\pi}Ze\frac{\mathbf{v} \times \mathbf{u}_r}{r^2} \tag{1.2.10}
 \end{align}
 ponendo
 \begin{align}
-    \mathbf{E} = \frac{Ze^2}{4\pi\varepsilon_0r^2}\mathbf{u}_r \notag
+    \mathbf{E} = \frac{Ze^2}{4\pi\varepsilon_0r^2}\mathbf{u}_r \tag{1.2.11}
 \end{align}
 possiamo scrivere
 \begin{align}
-    \mathbf{B} = -\frac{1}{c^2}\mathbf{v} \times \mathbf{E} \notag
+    \mathbf{B} = -\frac{1}{c^2}\mathbf{v} \times \mathbf{E} \tag{1.2.12}
 \end{align}
 inoltre, per simmetria radiale, si ha
 \begin{align}
-    \mathbf{E} = \frac{1}{r}\frac{dV}{dr}\mathbf{u}_r \notag
+    \mathbf{E} = \frac{1}{r}\frac{dV}{dr}\mathbf{u}_r \tag{1.2.13}
 \end{align}
 pertanto la correzione all'hamiltoniana diventa
 \begin{align}
     H'_{so} &= -\mathbf{\mu}_S \cdot \mathbf{B} \notag \\
     &= -\frac{g_s\mu_B}{\hbar}\mathbf{S} \cdot \mathbf{B} \notag \\
-    &= \frac{\alpha^2}{2}\frac{1}{r}\frac{dV}{dr}\mathbf{L} \cdot \mathbf{S} \notag
+    &= \frac{\alpha^2}{2}\frac{1}{r}\frac{dV}{dr}\mathbf{L} \cdot \mathbf{S} \tag{1.2.14}
 \end{align}
 in unità atomiche. Allora 
 \begin{align}
     \Delta E^{so}_{nlm} &= \frac{\alpha^2}{2}\braket{\psi^{(0)}_{nlm}|\frac{1}{r}\frac{dV}{dr}\mathbf{L} \cdot \mathbf{S}|\psi^{(0)}_{nlm}} \notag \\
-    &= \frac{\alpha^2\hbar^2}{4}\braket{Z/r^3}_{nlm} \cdot (j(j + 1) - l(l + 1) - s(s + 1)) \notag
-\end{align} \\
+    &= \frac{\alpha^2\hbar^2}{4}\braket{Z/r^3}_{nlm} \cdot (j(j + 1) - l(l + 1) - s(s + 1)) \tag{1.2.15}
+\end{align}
+\subsubsection{Termine di Darwin (stato 1s)}
 Infine abbiamo la correzione per lo stato $1s$ dovuta al fatto che la probabilità di trovare lo stato $l = 0$ nel nucleo è non nulla, ovvero $|R_{10}(0)|^2 \neq 0$. Sia $U(r)$ il potenziale di interzione tra il nucleo e l'elettrone dello stato $1s$ nel sistema di riferimento dell'elettrone. Per il principio di indeterminazione l'orbita dell'elettrone non è ben identificata, si ha 
 \begin{align}
-    \delta r \sim \frac{\hbar}{\delta p} \sim \alpha \notag
+    \delta r \sim \frac{\hbar}{\delta p} \sim \alpha \tag{1.2.16}
 \end{align}
 allora 
 \begin{align}
-    U(r + \delta r) &\sim U(r) + \delta r \nabla U + \sum_{i, j}\delta x_i \delta x_j \frac{\partial^2 U}{\partial x_i \partial x_j} \notag
+    U(r + \delta r) &\sim U(r) + \delta r \nabla U + \sum_{i, j}\delta x_i \delta x_j \frac{\partial^2 U}{\partial x_i \partial x_j} \tag{1.2.17}
 \end{align}
 ovvero 
 \begin{align}
-    dU \sim \frac{\alpha^2}{6}\nabla^2 U \notag
+    dU \sim \frac{\alpha^2}{6}\nabla^2 U \tag{1.2.18}
 \end{align}
 dove si è usato $\delta x_i \delta x_j = \delta_{ij}\frac{\delta r^2}{3}$. Inoltre $V(r) = - U(r)$ e quindi, poiché $\nabla^2V = 4\pi\rho(r) \sim 4\pi\delta(r)$ (l'approssimazione è dovuta al fatto che le dimensioni del nucleo sono molto più piccole rispetto alla distanza media dell'elettrone dal nucleo stesso), si ottiene $\nabla^2U \sim -4\pi\delta(r)$, ovvero
 \begin{align}
-    dU \sim \frac{2}{3}\alpha^2\pi\delta(r) \notag
+    dU \sim \frac{2}{3}\alpha^2\pi\delta(r) \tag{1.2.20}
 \end{align}
 e quindi
 \begin{align}
     \Delta E^{D}_{nlm} &\sim \braket{\psi^{(0)}_{n00}|\frac{2}{3}Z\alpha^2\pi\delta(r)|\psi^{(0)}_{n00}} \notag \\
     &= \frac{2}{3}Z\alpha^2\pi|\psi^{(0)}_{n00}(0)|^2 \notag \\
-    &= -E_n\frac{4}{3}\frac{(Z\alpha)^2}{n} \notag
+    &= -E_n\frac{4}{3}\frac{(Z\alpha)^2}{n} \tag{1.2.21}
 \end{align}
 In realtà la correzione giusta, applicando la QCD, sarebbe
 \begin{align}
     H'_D &= \frac{Z\alpha^2}{2}\pi\delta(r) \notag \\
-    \Delta E^D_{nlm} &= -E_n\frac{(Z\alpha)^2}{n} \notag
+    \Delta E^D_{nlm} &= -E_n\frac{(Z\alpha)^2}{n} \tag{1.2.22}
+\end{align}
+Considerando tutti e tre i contributi calcolati si ha una rottura parziale della degenerazione, in particolare l'energia dipende anche dal numero quantico $j$ e si ha 
+\begin{align}
+    E_{n, j} = E_n\left(1 - \frac{(Z\alpha)^2}{n^2}\left(\frac{n}{j + \frac{1}{2}} - \frac{3}{4}\right)\right) \tag{1.2.23}
 \end{align}
 
-\subsubsection{Esercizi}
+\subsection{Esercizi}
 \textbf{1.} Determinare l'errore che si compie sul calcolo dell'energia dello stato fondamentale dell'atomo di idrogeno se si sceglie come autofunzione dello stato fondamentale la seguente
 \begin{align}
     \psi(r, \theta, \varphi) = Ne^{-cr^2} \notag
@@ -316,7 +323,65 @@ pertanto
 e \begin{align}
     \Delta E_{1s} = -\frac{1}{2}\left(1 - \frac{1}{\mu}\right) \notag
 \end{align}
-Possiamo applicare il metodo variazionale lineare usando come funzione di prova le autofunzioni $\psi_{1s}, \psi_{2s}$ e diagonalizzando rispetto a quest'ultime la perturbazione $H'_\mu$. In tal caso la correzione all'energia dello stato $1s$ è l'autovalore associato a $\psi_{1s}$.
+Possiamo applicare il metodo variazionale lineare usando come funzione di prova le autofunzioni $\psi_{1s}, \psi_{2s}$ e diagonalizzando rispetto a quest'ultime la perturbazione $H'_\mu$. In tal caso la correzione all'energia dello stato $1s$ è l'autovalore associato a $\psi_{1s}$. \\ \\
+\textbf{3.} Calcolare il potenzile a cui è soggetto l'elettrone di un atomo idrogenoide tenendo conto delle dimensione finite del nucleo ($r_0 \sim 10^{-15} \, m$). \\
+
+\textbf{Soluzione:} per definizione si ha 
+\begin{align}
+    V(r) = \int_\infty^r \mathbf{E}(r) \cdot d\mathbf{r} \notag
+\end{align}
+Calcoliamo il campo elettrico generato dal nucleo usando la legge di Gauss. In particolare, in unità atomiche, si ha 
+\begin{align}
+    \phi(\mathbf{E}) = 4\pi Q_{int} = 4\pi r^2E(r) \notag
+\end{align}
+dove il flusso è inteso calcolato su una sfera di raggio $r < r_0$ concentrica al nucleo. Allora si ha 
+\begin{align}
+    \mathbf{E}(r) = \frac{Q_{int}}{r^2}\mathbf{u}_r \notag
+\end{align}
+Dobbiamo dunque determinare la carica interna alla sfera di raggio $r < r_0$ 
+\begin{align}
+    Q_{int} &= \frac{\frac{4}{3}\pi r^3}{\frac{4}{3}\pi r^3_0}Z = \left(\frac{r}{r_0}\right)^3Z \notag
+\end{align}
+segue che 
+\begin{align}
+    \mathbf{E}(r) = \frac{r}{r^3_0}Z\mathbf{u}_r \notag
+\end{align}
+quindi
+\begin{align}
+    V(r) = \frac{1}{2}\frac{r^2}{r^3_0}Z + c \notag
+\end{align}
+con $c$ costante da determinare imponendo la condizione al contorno 
+\begin{align}
+    V(r_0) = \frac{1}{2}\frac{Z}{r_0} + c = -\frac{Z}{r_0} \notag
+\end{align}
+pertanto si ottiene 
+\begin{align}
+    c = -\frac{3}{2}\frac{Z}{r_0} \notag
+\end{align}
+e 
+\begin{align}
+    V(r) = -\frac{Z}{r_0}\left(\frac{3}{2} - \frac{1}{2}\left(\frac{r}{r_0}\right)^2\right) \notag
+\end{align}
+per $r < r_0$ e ovviamente $V(r) = - \frac{Z}{r}$ per $r > r_0$. Ricordiamo che questo vale solamente per gli stati con $l = 0$ che hanno probabilità non nulla di trovarsi all'interno del nucleo.
+
+\subsection{Interazione radiazione-materia}
+Scegliendo gauge di Coulomb, dalle equazione di Maxwell otteniamo 
+\begin{align}
+    \begin{cases}
+        \mathbf{E}(\omega, \mathbf{r}, t) &= -\omega_0A_0(\omega)\sin(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)\hat{\epsilon} \\
+        \mathbf{B}(\omega, \mathbf{r}, t) &= -A_0(\omega)\sin(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)(\mathbf{k} \times \hat{\mathbf{\epsilon}}) \\
+        \mathbf{A}(\omega, \mathbf{r}, t) &= \hat{\mathbf{\epsilon}}\int_0^\infty d\omega \, A_0(\omega)\cos(\mathbf{k} \cdot \mathbf{r} - \omega t -\delta_\omega)
+    \end{cases} \tag{1.3.1}
+\end{align}
+dove $\hat{\epsilon}$ è il versore che identifica la polarizzazione del campo elettromagnetico. \\ \\
+Ricordiamo che l'hamiltoniano di una particella con carica $q$ soggetta ad un campo elettromagnetico è data dall'accoppiamento minimo, ovvero $\mathbf{p} \rightarrow \mathbf{p} - q\mathbf{A}$, allora in unità atomiche
+\begin{align}
+    H &= \frac{(\mathbf{p} + \mathbf{A})^2}{2m} - \frac{Z}{r} \notag \\
+    &= \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{A}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} \notag \\
+    &= \frac{\mathbf{p}^2}{2m} - \frac{Z}{r} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} + \cancel{\left[\frac{\mathbf{A}^2}{2m}\right]} \notag \\
+    &\sim H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} = H_0 + \frac{i\hbar}{m}\nabla \cdot \mathbf{A} \tag{1.3.2}
+\end{align} 
+dove si è trascurato il termine quadratico $\mathbf{A}^2$ per campi elettromagnetici poco intensi. Notiamo che $\nabla \cdot \mathbf{A}$ è da intendere come operatore che agisce sullo spazio di Hilbert in esame.
 
 \newpage
 \section*{Appendice}
@@ -426,6 +491,10 @@ Per ogni $k \in \mathbf{N}$ si ha
     \int_0^\infty x^{2k + 1}e^{-ax^2} \, dx &= \frac{k!}{2a^{k + 1}} \notag \\
     \int_{-\infty}^\infty x^{2k}e^{-ax^2} \, dx &= \frac{(2k - 1)!!}{(2a)^k}\sqrt{\frac{\pi}{a}} \notag \\
     \int_0^\infty x^{2k}e^{-ax^2} \, dx &= \frac{(2k - 1)!!}{2(2a)^k}\sqrt{\frac{\pi}{a}} \notag
+\end{align}
+\subsection*{Regole di selezione}
+\begin{align}
+    \Delta l = \pm 1 \quad \Delta j = 0, \pm 1 \quad \Delta m_j = 0, \pm 1 \notag
 \end{align}
 
 
