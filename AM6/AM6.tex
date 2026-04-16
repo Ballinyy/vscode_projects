@@ -1476,16 +1476,111 @@ per ogni $x \in \mathcal{H}$ per sesquilinearità del prodotto interno. Quindi $
 \begin{align}
     \|f_\eta\| &= \sup_{\|x\| = 1}|f_\eta(x)| = \sup_{\|x\| = 1}|(\eta, x)| \leq \sup_{\|x\| = 1}\|\eta\|\|x\| = \|\eta\| \notag
 \end{align}
-per la \textit{disuguaglianza di Cauchy-Schwartz}. Inoltre $|f_\eta(\eta)| = |(\eta, \eta)| = \|\eta\|^2$, pertanto concludiamo che $\|f_\eta\| = \|\eta\|$. \qed
+per la \textit{disuguaglianza di Cauchy-Schwartz}. Inoltre $|f_\eta(\eta)| = |(\eta, \eta)| = \|\eta\|^2$, pertanto concludiamo che $\|f_\eta\| = \|\eta\|$. \qed \\ \\
+\textbf{Definizione:} data $\{\cdot, \cdot\} : \mathcal{H} \times \mathcal{H} \longrightarrow \mathbf{C}$ definiamo 
+\begin{align}
+    \|\{\cdot, \cdot\}\| = \sup_{x, y \neq 0}\frac{|\{x, y\}|}{\|x\|\|y\|} \notag
+\end{align}
+Notiamo che 
+\begin{align}
+    \sup_{x, y \neq 0}\frac{|\{x, y\}|}{\|x\|\|y\|} = \sup_{x, y \in \mathbf{S}^1}\frac{|\{x, y\}|}{\|x\|\|y\|} \notag
+\end{align}
+come accade per la norma in $\mathcal{B}(\mathcal{H})$. \\ \\
+\textbf{Corollario:} sia $\mathcal{H}$ uno spazio di Hilbert, data $\{\cdot, \cdot\} : \mathcal{H} \times \mathcal{H} \longrightarrow \mathbf{C}$ forma sesquilineare limitata, ovvero tale che esiste $M > 0$ tale che 
+\begin{align}
+    |\{x, y\}| \leq M\|x\|\|y\| \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}$, esiste unico $T \in \mathcal{B}(\mathcal{H})$ tale che 
+\begin{align}
+    \{x, y\} = (x, Ty) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}$. Inoltre $\|\{\cdot, \cdot\}\| = \|T\|$. \\
+
+\textbf{Dimostrazione:} per le proprietà della forma sesquilineare, fissato $x \in \mathcal{H}$ si ha 
+\begin{align}
+    y \mapsto \{y, x\}^* \notag
+\end{align}
+è un funzionale lineare, inoltre è limitato per la \textit{disuguaglianza di Cauhcy-Schwartz}. Per il \textit{teorema della rappresentazione di Riesz} esiste unico $\eta \in \mathcal{H}$ tale che 
+\begin{align}
+    \{y, x\}^* = (\eta, y) \notag
+\end{align}
+per ogni $y \in \mathcal{H}$, ovvero 
+\begin{align}
+    \{y, x\} = (y, \eta) \notag
+\end{align}
+In questo caso $\eta$ è fissato, tuttavia dipende ovviamente dalla variabile $x$. Tale definizione induce una mappa $S : \mathcal{H} \longrightarrow \mathcal{H}$ definita da 
+\begin{align}
+    Sx = \eta \notag
+\end{align}
+dove $\eta = \eta_x$. Pertanto si ottiene 
+\begin{align}
+    \{x, y\} = (Sx, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}$. Notiamo che $S$ è lineare, infatti dati $x_1, x_2 \in \mathcal{H}$ si ha 
+\begin{align}
+    \{x_1 + x_2, y\}^* &= \{x_1, y\}^* + \{x_2, y\}^* \notag \\
+    &= (\eta_1, y) + (\eta_2, y) \notag \\
+    &= (\eta_1 + \eta_2, y) \notag
+\end{align}
+ovvero $S(x_1 + x_2) = \eta_1 + \eta_2 = Sx_1 + Sx_2$. $S$ è limitato, infatti 
+\begin{align}
+    \|\{\cdot, \cdot\}\| = \sup_{x, y \neq 0}\frac{|(Sx, y)|}{\|x\|\|y\|} \leq \sup_{x \neq 0}\frac{\|Sx\|\|y\|}{\|x\|\|y\|} = \|S\| \notag
+\end{align}
+Infine notiamo che $S$ è unico, infatti supponiamo che esiste $S'$ lineare e limitato tale che 
+\begin{align}
+    \{x, y\} = (S'x, y) \notag 
+\end{align}
+per ogni $x, y \in \mathcal{H}$, allora deve valere 
+\begin{align}
+    (Sx, y) = (S'x, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}$, ovvero 
+\begin{align}
+    (Sx - S'x, y) = 0 \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}$, quindi $Sx = S'x$ per ogni $x \in \mathcal{H}$ che comporta $S = S'$. \qed
 
 \subsection{Sistemi ortogonali}
 \textbf{Definizione:} sia $\mathcal{H}$ uno spazio di Hilbert, un \textit{sistema ortogonale} è una famiglia $(e_\alpha)_{\alpha} \subset \mathcal{H}$ tale che $(e_\alpha, e_\beta) = \delta_{\alpha\beta}$. \\ \\
-Nell'insieme dei sistemi ortogonali è possibile introdurre una relazione di ordinamento tramite inclusione. A questo punto chiamiamo \textit{base ortonormale} il sistema ortogonale massimale rispetto all'ordinamento introdotto. \\ \\
+Nell'insieme dei sistemi ortogonali è possibile introdurre una relazione di ordinamento tramite inclusione. Chiamiamo \textit{base ortonormale} il sistema ortogonale massimale rispetto all'ordinamento introdotto. \\ \\
 \textbf{Esempio:} sia $\mathcal{H} = L^2([0, 2\pi])$, una base ortonormale è costituita dall'insieme delle onde piane (normalizzate)
 \begin{align}
     e_n(x) = \frac{1}{\sqrt{2\pi}}e^{inx} \notag
 \end{align}
-per $x \in [0, 2\pi]$ e $n \in \mathbf{Z}$.
+per $x \in [0, 2\pi]$ e $n \in \mathbf{Z}$. \\ \\
+\textbf{Definizione:} data una famiglia di elementi $\{x_\alpha\}_{\alpha \in I} \subset \mathcal{H}$ si dice che $\sum_\alpha y_\alpha$ converge a $x \in \mathcal{H}$ se per ogni $\varepsilon > 0$ esiste $F_\varepsilon \subset I$ insieme finito tale che
+\begin{align}
+    \left\|\sum_\alpha y_\alpha - y\right\| < \varepsilon \notag
+\end{align} \\
+\textbf{Teorema (di caratterizzazione delle basi ortonormali):} dato un sistema ortonormale $\{e_\alpha\}_{\alpha \in I} \subset \mathcal{H}$ le seguenti sono equivalenti: \\
+\textbf{1.} $\{e_\alpha\}_{\alpha \in I}$ è una base ortonormale. \\
+\textbf{2.} Per ogni $x \in \mathcal{H}$ si ha $x = \sum_\alpha e_\alpha(e_\alpha, x)$. \\
+\textbf{3.} La mappa 
+\begin{align}
+    \{x_\alpha\}_{\alpha \in I} \in l^2(I) \mapsto \sum_{\alpha}x_\alpha e_\alpha \notag
+\end{align}
+è un operatore unitario. \\
+\textbf{4.} Per ogni $x, y \in \mathcal{H}$ si ha 
+\begin{align}
+    (x, y) = \sum_{\alpha}(x, e_\alpha)(e_\alpha, y) \notag
+\end{align} \\
+\textbf{5.} Per ogni $x \in \mathcal{H}$ si ha 
+\begin{align}
+    \|x\|^2 = \sum_{\alpha}|(e_\alpha, x)|^2 \notag
+\end{align} \\
+\textbf{6.} Se $(e_\alpha, x) = 0$ per ogni $\alpha \in I$ si ha $x = 0$. \\
+
+\textbf{Dimostrazione:} omessa. \qed \\ \\
+\textbf{Teorema (di esistenza della base ortonormale):} ogni spazio di Hilbert ammette una base ortonormale. \\
+
+\textbf{Dimostrazione:} omessa (basata su \textit{assioma della scelta}). \qed \\ \\
+\textbf{Definizione:} uno spazio di Hilbert è detto \textit{separabile} se ammette una successione numerabile di vettori densa in topologia della norma. \\ \\
+\textbf{Teorema (2.3.2):} uno spazio di Hilbert è separabile se e solo se ammette una base ortonormale numerabile. \\
+
+\textbf{Dimostrazione:} omessa. \qed
+
+\newpage
+\subsection{Aggiunto di un operatore e operatori autoaggiunti}
 
 
 

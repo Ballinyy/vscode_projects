@@ -1241,7 +1241,29 @@ si ottiene
     \frac{dj}{d\alpha} &= \lim_{h \rightarrow 0}\frac{1}{h}\left(\int_{\alpha_0}^{\alpha + h}(f(x, \alpha + h) - f(x, \alpha)) \, dx + \int_{\alpha}^{\alpha + h}f(x, \alpha) \, dx\right) \notag \\
     &= \int_{\alpha_0}^\alpha \frac{\partial f}{\partial \alpha} \, dx + f(\alpha, \alpha) \notag
 \end{align}
-dove si è applicato il \textit{teorema della media integrale} per entrambi i termini.
+dove si è applicato il \textit{teorema della media integrale} per entrambi i termini. 
+
+\subsection*{Limite gaussiano della distribuzione di Poisson}
+La distribuzione di Poisson è data da 
+\begin{align}
+    P(x) = e^{-\lambda}\frac{\lambda^x}{x!} \notag
+\end{align}
+per qualche opportuno $\lambda \in \mathbf{R}$ e per ogni $x$ nell'insieme di definizione. Supponiamo 
+\begin{align}
+    \Delta = x - \lambda >> 1 \qquad \frac{\Delta}{\lambda} << 1 \notag
+\end{align}
+Per la formula di Stirling possiamo scrivere 
+\begin{align}
+    x! \sim \sqrt{2\pi}e^{-x}x^{x + 1/2} \notag
+\end{align}
+pertanto 
+\begin{align}
+    P(x) \sim \frac{1}{\sqrt{2\pi}}e^{-\lambda}\frac{\lambda^x}{e^{-x}x^{x + 1/2}} = \frac{1}{\sqrt{2\pi}}e^{-\lambda + x\ln \lambda + x + (x + 1/2)\ln x} \notag
+\end{align}
+Consideriamo solamente l'esponente, sostituendo $x = \lambda + \Delta$ si ha 
+\begin{align}
+    \cancel{-\lambda} + (\lambda + \Delta)\ln \lambda + (\cancel{\lambda} + \Delta) + (\lambda + \Delta + 1/2)\ln(\lambda + \Delta) \notag
+\end{align}
 
 
 \end{document}
