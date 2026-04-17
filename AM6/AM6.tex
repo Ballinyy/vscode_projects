@@ -1486,7 +1486,7 @@ Notiamo che
     \sup_{x, y \neq 0}\frac{|\{x, y\}|}{\|x\|\|y\|} = \sup_{x, y \in \mathbf{S}^1}\frac{|\{x, y\}|}{\|x\|\|y\|} \notag
 \end{align}
 come accade per la norma in $\mathcal{B}(\mathcal{H})$. \\ \\
-\textbf{Corollario:} sia $\mathcal{H}$ uno spazio di Hilbert, data $\{\cdot, \cdot\} : \mathcal{H} \times \mathcal{H} \longrightarrow \mathbf{C}$ forma sesquilineare limitata, ovvero tale che esiste $M > 0$ tale che 
+\textbf{Corollario (2.3.3):} sia $\mathcal{H}$ uno spazio di Hilbert, data $\{\cdot, \cdot\} : \mathcal{H} \times \mathcal{H} \longrightarrow \mathbf{C}$ forma sesquilineare limitata, ovvero tale che esiste $M > 0$ tale che 
 \begin{align}
     |\{x, y\}| \leq M\|x\|\|y\| \notag
 \end{align}
@@ -1540,6 +1540,7 @@ per ogni $x, y \in \mathcal{H}$, ovvero
 \end{align}
 per ogni $x, y \in \mathcal{H}$, quindi $Sx = S'x$ per ogni $x \in \mathcal{H}$ che comporta $S = S'$. \qed
 
+\newpage
 \subsection{Sistemi ortogonali}
 \textbf{Definizione:} sia $\mathcal{H}$ uno spazio di Hilbert, un \textit{sistema ortogonale} è una famiglia $(e_\alpha)_{\alpha} \subset \mathcal{H}$ tale che $(e_\alpha, e_\beta) = \delta_{\alpha\beta}$. \\ \\
 Nell'insieme dei sistemi ortogonali è possibile introdurre una relazione di ordinamento tramite inclusione. Chiamiamo \textit{base ortonormale} il sistema ortogonale massimale rispetto all'ordinamento introdotto. \\ \\
@@ -1575,12 +1576,93 @@ per $x \in [0, 2\pi]$ e $n \in \mathbf{Z}$. \\ \\
 
 \textbf{Dimostrazione:} omessa (basata su \textit{assioma della scelta}). \qed \\ \\
 \textbf{Definizione:} uno spazio di Hilbert è detto \textit{separabile} se ammette una successione numerabile di vettori densa in topologia della norma. \\ \\
-\textbf{Teorema (2.3.2):} uno spazio di Hilbert è separabile se e solo se ammette una base ortonormale numerabile. \\
+\textbf{Teorema (2.4.1):} uno spazio di Hilbert è separabile se e solo se ammette una base ortonormale numerabile. \\
 
 \textbf{Dimostrazione:} omessa. \qed
 
 \newpage
-\subsection{Aggiunto di un operatore e operatori autoaggiunti}
+\subsection{Aggiunto di un operatore}
+\textbf{Teorema (2.5.1):} siano $\mathcal{H}_1, \mathcal{H}_2$ spazi di Hilbert e sia $T \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$, esiste unico $T^* \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ tale che 
+\begin{align}
+    (x, Ty) = (T^*x, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}_1$. $T^*$ è detto \textit{aggiunto} di $T$. \\
+
+\textbf{Dimostrazione:} fissato $T \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ consideriamo la forma sesquilineare
+\begin{align}
+    x, y \in \mathcal{H}_1 \mapsto (x, Ty) \in \mathbf{C} \notag
+\end{align}
+per il \textit{corollario 2.3.3} esiste unico $T^* \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ tale che 
+\begin{align}
+    (x, Ty) = (Sx, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}_1$. \qed \\ \\
+\textbf{Proposizione (proprietà dell'operatore aggiunto):} siano $T, S \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ e $\alpha, \beta \in \mathbf{C}$, si ha: \\
+\textbf{1.} antilinearità $(\alpha T + \beta S)^* = \alpha^*T^* + \beta^*S^*$. \\
+\textbf{2.} antimoltiplicatività $(TS)^* = S^*T^*$. \\
+\textbf{3.} involutività $(T^*)^* = T$. \\
+\textbf{4.} isometria $\|T^*\| = \|T\|$. \\
+\textbf{5.} identità $C^*$ $\|T^*T\| = \|T\|^2$. \\
+
+\textbf{Dimostrazione:} $(1)$ per sesquilinearità del prodotto interno si ha 
+\begin{align}
+    (x, (\alpha T + \beta S)y) &= (x, \alpha T y) + (x, \beta S y) \notag \\
+    &= \alpha(x, Ty) + \beta(x, Sy) \notag \\
+    &= \alpha(T^*x, y) + \beta(S^*x, y) \notag \\
+    &= (\alpha^*T^*x, y) + (\beta^*S^*, y) \notag \\
+    &= ((\alpha^*T^* + \beta^*T^*)x, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}_1$, ovvero la tesi. \\ \\
+$(2)$ Si ha 
+\begin{align}
+    (x, TSy) &= (x, T(Sy)) \notag \\
+    &= (T^*x, Sy) \notag \\
+    &= (S^*(T^*x), y) \notag \\
+    &= (S^*T^*x, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}_1$, ovvero la tesi. \\ \\
+$(3)$ Per definizione si ha 
+\begin{align}
+    (x, T^*y) = ((T^*)^*x, y) \notag
+\end{align}
+Inoltre si ha 
+\begin{align}
+    (x, T^*y) &= (y, Tx)^* \notag \\
+    &= (Tx, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}_1$ per sesquilinearità del prodotto interno. Pertanto concludiamo che 
+\begin{align}
+    (Tx, y) = ((T^*)^*x, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}_1$ e quindi $(T^*)^* = T$. \\ \\
+$(4)$ Per definizione di norma su $\mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ si ha 
+\begin{align}
+    \|T^*\|^2 &= \sup_{x \neq 0}\frac{\|T^*x\|^2}{\|x\|^2} \notag \\
+    &= \sup_{x \neq 0}\frac{(T^*x, T^*x)}{\|x\|^2} \notag \\
+    &= \sup_{x \neq 0}\frac{(TT^*x, x)}{\|x\|^2} \notag \\
+    &\leq \sup_{x \neq 0}\frac{\|TT^*x\|}{\|x\|} \notag \\
+    &= \sup_{x \neq 0}\frac{\|TT^*x\|}{\|T^*x\|}\frac{\|T^*x\|}{\|x\|} \notag \\
+    &\leq \|T\|\|T^*\| \notag
+\end{align}
+ovvero $\|T^*\| \leq \|T\|$. Proviamo ora il viceversa, analogamente si ha
+\begin{align}
+    \|T\|^2 &= \sup_{x \neq 0}\frac{\|Tx\|^2}{\|x\|^2} \notag \\
+    &= \sup_{x \neq 0}\frac{(Tx, Tx)}{\|x\|^2} \notag \\
+    &= \sup_{x \neq 0}\frac{(T^*Tx, x)}{\|x\|^2} \notag \\
+    &\leq \sup_{x \neq 0}\frac{\|T^*Tx\|}{\|x\|} \notag \\
+    &= \sup_{x \neq 0}\frac{\|T^*Tx\|}{\|Tx\|}\frac{\|Tx\|}{\|x\|} \notag \\
+    &\leq \|T^*\|\|T\| \notag
+\end{align}
+ovvero $\|T\| \leq \|T^*\|$, pertanto concludiamo $\|T\| = \|T^*\|$. \\ \\
+$(5)$ Per submoltiplicatività della norma si ha 
+\begin{align}
+    \|T^*T\| \leq \|T^*\|\|T\| = \|T\|^2 \notag
+\end{align}
+dove si è usato il risultato del punto $(4)$. Mentre, come trovato nel punto $(4)$ si ha 
+\begin{align}
+    \|T\|^2 \leq \|T^*\|\|T\| \notag
+\end{align}
+pertanto concludiamo che $\|T^*T\| = \|T\|^2$. \qed
 
 
 
