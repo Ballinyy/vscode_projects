@@ -1664,7 +1664,59 @@ dove si è usato il risultato del punto $(4)$. Mentre, come trovato nel punto $(
 \end{align}
 pertanto concludiamo che $\|T^*T\| = \|T\|^2$. \qed
 
+\newpage
+\subsection{Operatori autoaggiunti}
+\textbf{Definizione:} un operatore $T \in \mathcal{B}(\mathcal{H})$ è detto \textit{autoaggiunto} se $T = T^*$. \\ \\
+\textbf{Definizione:} un operatore $T \in \mathcal{B}(\mathcal{H})$ è detto \textit{normale} se $TT^* = T^*T$. \\ \\
+\textbf{Osservazione:} ogni operatore $V \in \mathcal{B}(\mathcal{H})$ autoaggiunto è anche normale. \\ \\
+\textbf{Definizione:} un operatore $V \in \mathcal{B}(\mathcal{H})$ è detto isometrico se $\|Vx\| = \|x\|$ per ogni $x \in \mathcal{H}$, ovvero se $(Vx, Vy) = (x, y)$ per ogni $x, y \in \mathcal{H}$. \\ \\
+\textbf{Osservazione:} sia $V \in \mathcal{B}(\mathcal{H})$ isometrico, si ha 
+\begin{align}
+    (Vx, Vy) = (V^*Vx, y) = (x, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}$, dove nel primo passaggio si è usata la definizione di aggiunto di un operatore. Notiamo che deve valere $V^*V = \mathbf{1}$, ovvero $V^*$ è un inverso a sinistra di $V$. \\
+Inoltre notiamo che l'esistenza dell'inverso a sinistra comporta l'iniettività, infatti 
+\begin{align}
+    Vx = 0 \implies V^*Vx = 0 \implies \mathbf{1}x = x = 0 \notag
+\end{align}
+ovvero $Vx = 0$ se e solo se $x = 0$. Tuttavia in dimensione infinita l'iniettività non comporta la suriettività, pertanto ancora non possiamo affermare che $V$ sia invertibile (bilateralmente). \\ \\
+\textbf{Esempio:} poniamo $\mathcal{H} = l^2(\mathbf{N})$, sia $\{e_i\}_{i \in \mathbf{N}}$ la base ortonormale canonica definita su $l^2(\mathbf{N})$. Definiamo $V$ ponendo 
+\begin{align}
+    Ve_n = e_{n + 1} \notag
+\end{align}
+ed estesa per linearità. Si vede facilmente che $V$ è isometrica e quindi iniettiva, tuttavia $V$ non è suriettiva, infatti non esiste $x \in l^2(\mathbf{N})$ tale che $Vx = e_1$. \\ \\
+\textbf{Definizione:} un operatore $V \in \mathcal{B}(\mathcal{H})$ è detto \textit{unitario} se è isometrico e suriettivo. In tal caso si ha 
+\begin{align}
+    V^*V = \mathbf{1} = VV^* \notag
+\end{align}
+ovvero $V^*$ è l'inverso bilatero di $V$. \\ \\
+\textbf{Osservazione:} l'esistenza dell'inverso a destra comporta la suriettività. Sia $V \in \mathcal{B}(\mathcal{H})$ e sia $y \in \mathcal{H}$, poniamo $x = V^{-1}y$, allora si ha $Vx = y$. Data l'arbitrarietà di $y$ segue che $V$ è suriettivo, ovvero dato $y \in \mathcal{H}$ esiste $x \in \mathcal{H}$ tale che $Vx = y$. \\ \\
+\textbf{Lemma (2.6.1):} un operatore $V \in \mathcal{B}(\mathcal{H})$ è unitario se e solo se $VV^* = \mathbf{1} = V^*V$. \\
 
+\textbf{Dimostrazione:} $(\rightarrow)$ se $V^*$ è l'inverso bilatero di $V$ si ha che $V$ è isometrico e suriettivo, quindi unitario, per quanto sopra osservato.  \\ \\
+$(\leftarrow)$ Analogente, segue immediatamente dall osservazioni sopra citate. \qed \\ \\
+\textbf{Lemma (2.6.2):} sia $T \in \mathcal{B}(\mathcal{H})$, si ha 
+\begin{align}
+    \ker(T^*) = \mathrm{Im}(T)^\perp \notag
+\end{align} \\
+
+\textbf{Dimostrazione:} sia $y \in \ker(T^*)$, si ha 
+\begin{align}
+    (Tx, y) = (x, T^*y) = 0 \notag
+\end{align}
+quindi, per l'arbitrarietà di $x$, si ha $y \in \mathrm{Im}(T)^\perp$. Analogamente, sia $y \in \mathrm{Im}(T)^\perp$, si ha 
+\begin{align}
+    0 = (Tx, y) = (x, T^*y) \notag
+\end{align}
+per ogni $x \in \mathcal{H}$, pertanto deve valere $T^*y = 0$, quindi $y \in \ker(T^*)$. \qed \\ \\
+\textbf{Proposizione (2.6.1):} sia $T \in \mathcal{B}(\mathcal{H})$, le seguenti sono equivalenti: \\
+\textbf{1.} $T$ è invertibile in $\mathcal{B}(\mathcal{H})$. \\
+\textbf{2.} $T^*$ è invertibile in $\mathcal{B}(\mathcal{H})$. \\
+\textbf{3.} $T$ e $T^*$ sono \textit{lontani da zero}, ovvero esiste $\varepsilon > 0$ tale che $\|Tx\| \geq \varepsilon\|x\|$ per ogni $x \in \mathcal{H}$ ed esiste $\mu > 0$ tale che $\|T^*x\| \geq \mu\|x\|$ per ogni $x \in \mathcal{H}$. \\
+\textbf{4.} $T$ e $T^*$ sono iniettive e hanno immagine chiusa (in norma). \\
+\textbf{5.} $T$ è biettiva. \\
+
+\textbf{Dimostrazione:} $(1 \rightarrow 2)$
 
 
 
