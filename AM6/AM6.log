@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  22 APR 2026 10:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  22 APR 2026 18:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1303,51 +1303,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 1728--1731
  []
 
 [61]
-Underfull \hbox (badness 10000) in paragraph at lines 1745--1748
-
- []
-
-[62]
-Underfull \hbox (badness 10000) in paragraph at lines 1758--1759
+Underfull \hbox (badness 10000) in paragraph at lines 1763--1767
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1779--1782
+Underfull \hbox (badness 10000) in paragraph at lines 1763--1767
+
+ []
+
+[62] [63]
+Underfull \hbox (badness 10000) in paragraph at lines 1770--1772
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1784--1785
-
- []
-
-[63]
-Underfull \hbox (badness 10000) in paragraph at lines 1808--1811
+Underfull \hbox (badness 10000) in paragraph at lines 1774--1778
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1813--1816
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1818--1819
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1831--1834
+Underfull \hbox (badness 10000) in paragraph at lines 1774--1778
 
  []
 
 [64]
-Underfull \hbox (badness 10000) in paragraph at lines 1836--1838
+Underfull \hbox (badness 10000) in paragraph at lines 1800--1801
 
  []
 
-[65] (./AM6.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1821--1824
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1826--1827
+
+ []
+
+[65]
+Underfull \hbox (badness 10000) in paragraph at lines 1850--1853
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1855--1858
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1860--1861
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1873--1876
+
+ []
+
+[66]
+Underfull \hbox (badness 10000) in paragraph at lines 1878--1880
+
+ []
+
+[67] (./AM6.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1362,10 +1382,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,18n,65p,1023b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on AM6.pdf (65 pages, 376623 bytes).
+Output written on AM6.pdf (67 pages, 381217 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
+ 312 PDF objects out of 1000 (max. 8388607)
+ 204 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

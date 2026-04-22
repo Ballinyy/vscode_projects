@@ -126,7 +126,7 @@ Osserviamo che per una coppia di insiemi misurabili vale sempre $m(E) + m(F) = m
 \subsubsection{Esercizi}
 \textbf{1.} Sia $W$ un plurintervallo, si dimostri che per ogni $\varepsilon > 0$ esiste $Z$ plurintervallo tale che $W \subset \mathring{Z}$ e $m(Z) < m(W) + \varepsilon$. Analogamente si dimostri che per ogni $\varepsilon > 0$ esiste $Y$ plurintervallo tale che $Y \subset \mathring{W}$ e $m(Y) > m(W) - \varepsilon$. \\
 
-\textbf{Soluzione:} siano $I_1, I_2, \dots , I_N$ gli intervalli di un reticolato $\mathcal{P}$, con $I_k := [a_{k_1}, b_{k_1}] \times \dots \times [a_{k_n}, b_{k_n}]$ dove $a_{k_l}, b_{k_l} \in \mathbb{R} \ \forall k = 1, ... , N, \ \forall l = 1, ... , n$; sia $W := \bigcup_{j = 1}^N I_j$. Sia $\varepsilon > 0$, consideriamo ora gli intervalli $J_k := [a_{k_1} - \frac{\delta}{2}, b_{k_1} + \frac{\delta}{2}] \times \dots \times [a_{k_n} - \frac{\delta}{2}, b_{k_n} + \frac{\delta}{2}]$, con $\delta = \delta_\varepsilon > 0$, sia $Z := \bigcup_{i = 1}^N J_i$. Per come sono stati costruiti abbiamo che $W \subset \mathring{Z}$ e $m(Z) = m(W) + \sigma(\delta)$, dove $\sigma(\delta)$ è un polinomio di grado $n$ senza termine noto, pertanto basta scegliere $\delta$ tale che $\sigma(\delta) < \varepsilon$ e si ha $m(Z) < m(W) + \varepsilon$, ciò è possibile poiché $\sigma(0) = 0$ e per $\delta \in [0, + \infty)$ $\sigma(\delta)$ è continua. \\
+\textbf{Soluzione:} siano $I_1, I_2, \dots , I_N$ gli intervalli di un reticolato $\mathcal{P}$, con $I_k := [a_{k_1}, b_{k_1}] \times \dots \times [a_{k_n}, b_{k_n}]$ dove $a_{k_l}, b_{k_l} \in \mathbf{R} \ \forall k = 1, ... , N, \ \forall l = 1, ... , n$; sia $W := \bigcup_{j = 1}^N I_j$. Sia $\varepsilon > 0$, consideriamo ora gli intervalli $J_k := [a_{k_1} - \frac{\delta}{2}, b_{k_1} + \frac{\delta}{2}] \times \dots \times [a_{k_n} - \frac{\delta}{2}, b_{k_n} + \frac{\delta}{2}]$, con $\delta = \delta_\varepsilon > 0$, sia $Z := \bigcup_{i = 1}^N J_i$. Per come sono stati costruiti abbiamo che $W \subset \mathring{Z}$ e $m(Z) = m(W) + \sigma(\delta)$, dove $\sigma(\delta)$ è un polinomio di grado $n$ senza termine noto, pertanto basta scegliere $\delta$ tale che $\sigma(\delta) < \varepsilon$ e si ha $m(Z) < m(W) + \varepsilon$, ciò è possibile poiché $\sigma(0) = 0$ e per $\delta \in [0, + \infty)$ $\sigma(\delta)$ è continua. \\
 Consideriamo ora gli intervalli $H_k := [a_{k_1} + \frac{\delta}{2}, b_{k_1} - \frac{\delta}{2}] \times \dots \times [a_{k_n} + \frac{\delta}{2}, b_{k_n} - \frac{\delta}{2}]$, sia $Y := \bigcup_{s = 1}^N H_s$, analogamente si ha che $Y \subset \mathring{W}$ e $m(Y) = m(W) - \sigma(\delta)$, pertanto basta scegliere $\varepsilon > \sigma(\delta)$ per ottenere $m(Y) > m(W) - \varepsilon$. \\ \\
 \textbf{2.} Dimostrare che se $E, F, G$ sono misurabili, allora $m(E \cup F \cup G) = m(E) + m(F) + m(G) - m(E \cap F) - m(E \cap G) - m(F \cap G) + m( E \cap F \cap G)$. \\
 
@@ -1726,12 +1726,12 @@ per ogni $x \in \mathcal{H}$, pertanto deve valere $T^*y = 0$, quindi $y \in \ke
     &= (T^*x, T^{-1}) \notag \\
     &= ((T^{-1})^*T^*x, y) \notag
 \end{align}
-per ogni $x, y \in \mathcal{H}$, pertanto $(T^{-1})^*T^* = \mathbf{1}$. Con un ragionamento analogo si ottiene $T^*(T^{-1})^* = \mathbf{1}$. Pertanto concludiamo che $(T^*)^{-1} = (T^{-1})^*$. \\ \\
+per ogni $x, y \in \mathcal{H}$, pertanto $(T^{-1})^*T^* = \mathbf{1}$. Con un ragionamento analogo si ottiene $T^*(T^{-1})^* = \mathbf{1}$, pertanto concludiamo che $(T^*)^{-1} = (T^{-1})^*$, inoltre dato che $T^{-1} \in \mathcal{B}(\mathcal{H})$ segue che anche $(T^{-1})^* \in \mathcal{B}(\mathcal{H})$ per le \textit{proprietà dell'aggiunto}. \\ \\
 $(2 \rightarrow 3)$ Notiamo che per un operatore $T$ essere lontano da zero comporta l'esistenza di $\varepsilon > 0$ tale che 
 \begin{align}
     \inf_{x \neq 0}\frac{\|Tx\|}{\|x\|} \geq \varepsilon \notag
 \end{align}
-La tesi segue immediatamente dal fatto che $T^*$ è invertibile (bilatelarmente) e quindi iniettivo, pertanto $T^*x = 0$ se e solo se $x = 0$, inoltre la funzione 
+Per ipotesi $T^*$ è invertibile (bilatelarmente) e quindi iniettivo, pertanto $T^*x = 0$ se e solo se $x = 0$, inoltre la funzione 
 \begin{align}
     x \in \mathcal{H} \mapsto \|T^*x\| \in \mathbf{R} \notag
 \end{align}
@@ -1739,13 +1739,55 @@ La tesi segue immediatamente dal fatto che $T^*$ è invertibile (bilatelarmente)
 \begin{align}
     \inf_{x \neq 0}\frac{\|T^*x\|}{\|x\|} = \inf_{x \in \mathbf{S}^1}\|T^*x\| \notag
 \end{align}
-Essendo $\mathbf{S}^1$ compatto, per il \textit{teorema di Weierstrass}, la funzione $x \mapsto \|T^*x\|$ ammette massimo e minimo in $\mathbf{S}^1$, segue che esiste $x_0 \in \mathbf{S}^1$ tale che $\|T^*x_0\| \leq \|T^*x\|$ per ogni $x \in \mathbf{S}^1$, ovvero 
+Poiché $\mathbf{S}^1$ è compatto, per il \textit{teorema di Weierstrass}, la funzione $x \mapsto \|T^*x\|$ ammette massimo e minimo in $\mathbf{S}^1$, dunque esiste $x_0 \in \mathbf{S}^1$ tale che 
+\begin{align}
+    \|T^*x_0\| \leq \|T^*x\| \notag
+\end{align}
+per ogni $x \in \mathbf{S}^1$, ovvero 
 \begin{align}
     \inf_{x \in \mathbf{S}^1}\|T^*x\| = \|T^*x_0\| \notag
 \end{align}
-quindi $T^*$ lontano da zero. Analogamente si può dimostrare per $T$. \\ \\
-$(3 \rightarrow 4)$
+quindi $T^*$ lontano da zero. \\
+Altrimenti, usando la submoltiplicatività della norma 
+\begin{align}
+    \|x\| = \|(T^{-1})^*T^*x\| \leq \|(T^{-1})^*\|\|T^*x\| \notag
+\end{align}
+per ogni $x \in \mathcal{H}$, quindi ponendo $\varepsilon = \frac{1}{\|(T^{-1})^*\|}$ si ottiene 
+\begin{align}
+    \inf_{x \neq 0}\frac{\|T^*x\|}{\|x\|} \leq \varepsilon \notag
+\end{align}
+cioè $T^*$ lontano da zero. \\
+Per il \textit{lemma 2.6.2}
+\begin{align}
+    \ker(T^*) = \mathrm{Im}(T)^\perp \notag
+\end{align}
+quindi dall'iniettività di $T^*$ segue che $\mathrm{Im}(T)^\perp = \{0\}$. Per il \textit{teorema della proiezione ortogonale} per ogni $x \in \mathcal{H}$ esistono $y \in \mathrm{Im}(T)$ e $z \in \mathrm{Im}(T)^\perp$ tali che $x = y + z$ (dato che $\mathrm{Im}(T)$ è un sottospazio chiuso). Tuttavia, $z = 0$ dato che è l'unico elemento contenuto in $\mathrm{Im}(T)^\perp$, segue che $T$ è suriettiva. Mentre con un ragionamento analogo al punto precedente si ottiene che $T$ è invertibile bilatelarmente in $\mathcal{B}(\mathcal{H})$ e quindi anche iniettiva (per l'esistenza dell'inverso a sinistra). A questo punto, con ragionamenti a quelli svolti per $T^*$ si dimostra che $T$ è lontano da zero. \\ \\
+$(3 \rightarrow 4)$ Per ipotesi esiste $\varepsilon > 0$ tale che $\|Tx\| \geq \varepsilon\|x\|$ per ogni $x \in \mathcal{H}$, segue che $\|Tx\| = 0$ se e solo se $\|x\| = 0$, ovvero se e solo se $x = 0$, pertanto $T$ iniettiva. Analogamente si dimostra per $T^*$. Il fatto che l'immagine di $T$ e $T^*$ segue dal \textit{lemma 2.6.2} usando l'involutività dell'aggiunto. \\ \\
+$(4 \rightarrow 5)$ Segue dal \textit{lemma 2.6.2}. \qed 
 
+\newpage
+\subsection{Teoria spettrale}
+In dimensioni finita lo spettro di un operatore è essenzialmente l'insieme dei suoi autovalori. Per gli operatori definiti su spazi di Hilbert a dimensione infinita lo spettro non è più solamente l'insieme degli autovalori, come vedremo, ma riguarda più correttamente una condizione di invertibilità (puramente algebrica). \\ \\
+\textbf{Definizione:} sia $\mathcal{H}$ uno spazio di Hilbert e sia $T \in \mathcal{B}(\mathcal{H})$, lo \textit{spettro} di $T$ è l'insieme $\sigma(T)$ definito da 
+\begin{align}
+    \sigma(T) = \{\lambda \in \mathbf{C} : (\lambda\mathbf{1} - T) \text{ è invertibile}\} \notag
+\end{align}
+denotiamo con $\rho(T)$ il complementare in $\mathbf{C}$ dello spettro di $T$, detto \textit{spettro risolvente}. Mentre indichiamo con $\sigma_p(T)$ l'insieme degli autovalori di $T$, detto \textit{spettro puntuale}. \\ \\
+\textbf{Osservazione:} per ogni $T \in \mathcal{B}(\mathcal{H})$ si ha $\sigma_p(T) \subset \sigma(T)$. \\ \\
+\textbf{Esempio:} sia $\mathcal{H} = L^2([0, 1])$ e prendiamo $T = q$ l'operatore definito da 
+\begin{align}
+    q\psi(t) = t\psi(t) \notag
+\end{align}
+per ogni $\psi \in L^2([0, 1])$ e $t \in [0, 1]$. Supponiamo che esista $\lambda \in \mathbf{C}$ tale che 
+\begin{align}
+    q\psi(t) = \lambda\psi(t) \notag
+\end{align}
+per ogni $t \in [0, 1]$. Allora deve valere 
+\begin{align}
+    (\lambda - t)\psi(t) = 0 \notag
+\end{align}
+per ogni $t \in [0, 1]$, ovvero $\psi(t) = 0$ quasi ovunque in $[0, 1]$, pertanto $\lambda$ non soddisfa la definizione di autovalore. \\
+Mostriamo ora che $\sigma(T) = [0, 1]$. Sia $\lambda \in \mathbf{C} \setminus [0, 1]$
 
 
 

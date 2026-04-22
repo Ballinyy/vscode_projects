@@ -21,3 +21,4 @@
 \contentsline {subsection}{\numberline {2.4}Sistemi ortogonali}{55}{}%
 \contentsline {subsection}{\numberline {2.5}Aggiunto di un operatore}{57}{}%
 \contentsline {subsection}{\numberline {2.6}Operatori autoaggiunti}{60}{}%
+\contentsline {subsection}{\numberline {2.7}Teoria spettrale}{64}{}%
