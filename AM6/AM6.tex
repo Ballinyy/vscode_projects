@@ -1693,8 +1693,12 @@ ovvero $V^*$ è l'inverso bilatero di $V$. \\ \\
 \textbf{Osservazione:} l'esistenza dell'inverso a destra comporta la suriettività. Sia $V \in \mathcal{B}(\mathcal{H})$ e sia $y \in \mathcal{H}$, poniamo $x = V^{-1}y$, allora si ha $Vx = y$. Data l'arbitrarietà di $y$ segue che $V$ è suriettivo, ovvero dato $y \in \mathcal{H}$ esiste $x \in \mathcal{H}$ tale che $Vx = y$. \\ \\
 \textbf{Lemma (2.6.1):} un operatore $V \in \mathcal{B}(\mathcal{H})$ è unitario se e solo se $VV^* = \mathbf{1} = V^*V$. \\
 
-\textbf{Dimostrazione:} $(\rightarrow)$ se $V^*$ è l'inverso bilatero di $V$ si ha che $V$ è isometrico e suriettivo, quindi unitario, per quanto sopra osservato.  \\ \\
-$(\leftarrow)$ Analogente, segue immediatamente dall osservazioni sopra citate. \qed \\ \\
+\textbf{Dimostrazione:} $(\rightarrow)$ sia $V^*$ l'inverso bilatero di $V$ in $\mathcal{B}(\mathcal{H})$, per quanto sopra osservato si ha che $V$ è iniettivo e suriettivo, inoltre è ovviamente isometrico e quindi unitario.  \\ \\
+$(\leftarrow)$ Sia $V$ unitario, ovvero isometrico e suriettivo. Per quanto sopra osservato $V$ è anche iniettivo, quindi è biettivo. Pertanto esiste l'inverso insiemistico $V^{-1}$ di $V$. Mostriamo che $V^{-1} \in \mathcal{B}(\mathcal{H})$ e che $V^{-1} = V^*$, si ha 
+\begin{align}
+    V^{-1} = \mathbf{1}V^{-1} = (V^*V)V^{-1} = V^*(VV^{-1}) = V^* \notag
+\end{align}
+e per le \textit{proprietà dell'aggiunto} si ha che $V^*$ è lineare e limitato. \qed \\ \\
 \textbf{Lemma (2.6.2):} sia $T \in \mathcal{B}(\mathcal{H})$, si ha 
 \begin{align}
     \ker(T^*) = \mathrm{Im}(T)^\perp \notag
@@ -1711,12 +1715,37 @@ quindi, per l'arbitrarietà di $x$, si ha $y \in \mathrm{Im}(T)^\perp$. Analogam
 per ogni $x \in \mathcal{H}$, pertanto deve valere $T^*y = 0$, quindi $y \in \ker(T^*)$. \qed \\ \\
 \textbf{Proposizione (2.6.1):} sia $T \in \mathcal{B}(\mathcal{H})$, le seguenti sono equivalenti: \\
 \textbf{1.} $T$ è invertibile in $\mathcal{B}(\mathcal{H})$. \\
-\textbf{2.} $T^*$ è invertibile in $\mathcal{B}(\mathcal{H})$. \\
+\textbf{2.} $T^*$ è invertibile in $\mathcal{B}(\mathcal{H})$ e $(T^*)^{-1} = (T^{-1})^*$. \\
 \textbf{3.} $T$ e $T^*$ sono \textit{lontani da zero}, ovvero esiste $\varepsilon > 0$ tale che $\|Tx\| \geq \varepsilon\|x\|$ per ogni $x \in \mathcal{H}$ ed esiste $\mu > 0$ tale che $\|T^*x\| \geq \mu\|x\|$ per ogni $x \in \mathcal{H}$. \\
 \textbf{4.} $T$ e $T^*$ sono iniettive e hanno immagine chiusa (in norma). \\
 \textbf{5.} $T$ è biettiva. \\
 
-\textbf{Dimostrazione:} $(1 \rightarrow 2)$
+\textbf{Dimostrazione:} $(1 \rightarrow 2)$ per ipotesi esiste $T^{-1} \in \mathcal{B}(\mathcal{H})$ tale che $T^{-1}T = \mathbf{1} = TT^{-1}$. Si ha 
+\begin{align}
+    (x, y) &= (x, TT^{-1}y) \notag \\
+    &= (T^*x, T^{-1}) \notag \\
+    &= ((T^{-1})^*T^*x, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}$, pertanto $(T^{-1})^*T^* = \mathbf{1}$. Con un ragionamento analogo si ottiene $T^*(T^{-1})^* = \mathbf{1}$. Pertanto concludiamo che $(T^*)^{-1} = (T^{-1})^*$. \\ \\
+$(2 \rightarrow 3)$ Notiamo che per un operatore $T$ essere lontano da zero comporta l'esistenza di $\varepsilon > 0$ tale che 
+\begin{align}
+    \inf_{x \neq 0}\frac{\|Tx\|}{\|x\|} \geq \varepsilon \notag
+\end{align}
+La tesi segue immediatamente dal fatto che $T^*$ è invertibile (bilatelarmente) e quindi iniettivo, pertanto $T^*x = 0$ se e solo se $x = 0$, inoltre la funzione 
+\begin{align}
+    x \in \mathcal{H} \mapsto \|T^*x\| \in \mathbf{R} \notag
+\end{align}
+è continua. Osserviamo che 
+\begin{align}
+    \inf_{x \neq 0}\frac{\|T^*x\|}{\|x\|} = \inf_{x \in \mathbf{S}^1}\|T^*x\| \notag
+\end{align}
+Essendo $\mathbf{S}^1$ compatto, per il \textit{teorema di Weierstrass}, la funzione $x \mapsto \|T^*x\|$ ammette massimo e minimo in $\mathbf{S}^1$, segue che esiste $x_0 \in \mathbf{S}^1$ tale che $\|T^*x_0\| \leq \|T^*x\|$ per ogni $x \in \mathbf{S}^1$, ovvero 
+\begin{align}
+    \inf_{x \in \mathbf{S}^1}\|T^*x\| = \|T^*x_0\| \notag
+\end{align}
+quindi $T^*$ lontano da zero. Analogamente si può dimostrare per $T$. \\ \\
+$(3 \rightarrow 4)$
+
 
 
 
