@@ -1787,7 +1787,87 @@ per ogni $t \in [0, 1]$. Allora deve valere
     (\lambda - t)\psi(t) = 0 \notag
 \end{align}
 per ogni $t \in [0, 1]$, ovvero $\psi(t) = 0$ quasi ovunque in $[0, 1]$, pertanto $\lambda$ non soddisfa la definizione di autovalore. \\
-Mostriamo ora che $\sigma(T) = [0, 1]$. Sia $\lambda \in \mathbf{C} \setminus [0, 1]$
+Mostriamo ora che $\sigma(T) = [0, 1]$. Sia $\lambda \in \mathbf{C} \setminus [0, 1]$, l'operatore $\lambda\mathbf{1} - q$ è iniettivo e suriettivo. Dato $\psi \in L^2([0, 1])$ poniamo 
+\begin{align}
+    \phi(t) = \frac{\psi(t)}{\lambda - t} \notag
+\end{align}
+per ogni $t \in [0, 1]$. Allora si ha 
+\begin{align}
+    (\lambda\mathbf{1} - q)\phi(t) = \psi(t) \notag
+\end{align}
+ovvero esiste l'inverso di $\lambda\mathbf{1} - q$, segue che $\sigma(T) \subset [0, 1]$. Mostriamo ora che $[0, 1] \subset \sigma(T)$. Scegliamo $\psi \in L^2([0, 1])$ con $\phi(t) = 1$ per ogni $t \in [0, 1]$, supponiamo per assurdo che esiste $\psi \in L^2([0, 1])$ tale che 
+\begin{align}
+    (\lambda\mathbf{1} - q)\psi = \psi \notag
+\end{align}
+allora deve valere 
+\begin{align}
+    (\lambda - t)\psi(t) = 1 \notag
+\end{align}
+per ogni $t \in [0, 1]$. Ma allora 
+\begin{align}
+    \psi(t) = \frac{1}{\lambda - t} \notag
+\end{align}
+il che è assurdo poiché $\psi$ così definita non sarebbe quadrato sommabile in $[0, 1]$. \\ \\
+\textbf{Lemma (serie di Neumann):} sia $S \in \mathcal{B}(\mathcal{H})$ tale che $\|S\| < 1$, allora si ha
+\begin{align}
+    \sum_{n = 0}^\infty S^n = (\mathbf{1} - S)^{-1} \notag
+\end{align}
+in particolare si ha convergenza assoluta. \\
+
+\textbf{Dimostrazione:} consideriamo la successione delle somme parziali 
+\begin{align}
+    s_n = \sum_{k = 0}^n S^k \notag
+\end{align}
+Per subadditività e submoltiplicatività della norma si ha 
+\begin{align}
+    \left\|\sum_{k = 0}^n S^k\right\| \leq \sum_{k = 0}^n \|S\|^k \notag
+\end{align}
+Mostriamo ora che la successione delle somme parziali è di Cauchy. Poiché per ipotesi $\|S\| < 1$ si ha $\|S\|^k < 1$ per ogni $1 \leq k \leq n$, quindi è di Cauchy per confronto la serie geometrica di ragione $q$ con $\|S\| < |q| < 1$. Dato che $\mathcal{B}(\mathcal{H})$ è uno spazio di Hilbert, quindi completo, esiste $T \in \mathcal{B}(\mathcal{H})$ tale che 
+\begin{align}
+    \lim_{n \rightarrow \infty}\sum_{k = 0}^n S^k = T \notag
+\end{align}
+Dimostriamo che $T = (1 - S)^{-1}$. La serie numerica soddisfa 
+\begin{align}
+    \sum_{k = 0}^\infty \|S\|^k = (1 - \|S\|)^{-1} \notag
+\end{align}
+Si ha che 
+\begin{align}
+    \lim_{n \rightarrow \infty}\left\|\sum_{k = 0}^n S^k - (\mathbf{1} - S)^{-1}\right\| &= \lim_{n \rightarrow \infty}\left\|(\mathbf{1} - S)^{-1}\left((\mathbf{1} - S)\sum_{k = 0}^nS^k - \mathbf{1}\right)\right\| \notag \\
+    &\leq \lim_{n \rightarrow \infty}\|(\mathbf{1} - S)^{-1}\|\left\|(\mathbf{1} - S)\sum_{k = 0}^n S^k - \mathbf{1}\right\| \notag \\
+    &= \|(\mathbf{1} - S)^{-1}\|\lim_{n \rightarrow \infty}\|S^{n + 1}\| \notag \\
+    &\leq \|(\mathbf{1} - S)^{-1}\|\lim_{n \rightarrow \infty}\|S\|^{n + 1} = 0 \notag
+\end{align}
+ovvero la serie converge in norma operatoriale a $(\mathbf{1} - S)^{-1}$. \qed \\ \\
+\textbf{Lemma (2.7.2):} sia $T \in \mathcal{B}(\mathcal{H})$, si ha: \\
+\textbf{1.} $\sigma(T)$ è chiuso in $\mathbf{C}$ ($\rho(T)$ è aperto). \\
+\textbf{2.} $\sigma(T) \subset D_r(0)$ con $r = \|T\|$. \\
+\textbf{3.} $\sigma(T) \neq \emptyset$ per ogni $T \neq \mathcal{O}$. \\
+
+\textbf{Dimostrazione:} $(1)$ dimostriamo che $\rho(T)$ è aperto facendo vedere che per ogni elemento in $\rho(T)$ esiste un suo intorno contenuto in $\rho(T)$. Sia $\lambda \in \rho(T)$, allora $(\lambda\mathbf{1} - T)$ è invertibile. 
+
+
+\subsubsection{Esercizi}
+\textbf{1.} Dimostrare che se $P \in \mathcal{B}(\mathcal{H})$ è un proiettore non banale ($P \neq \mathcal{O}, \mathbf{1}$), ovvero $P = P^2$ e $P = P^*$, si ha $\sigma(P) = \{0, 1\}$. \\
+
+\textbf{Dimostrazione:} se $\lambda = 0$ si ha 
+\begin{align}
+    \lambda\mathbf{1} - P = -P \notag
+\end{align}
+che non è invertibile poiché non è iniettivo né suriettivo. Se $\lambda = 1$ si ha 
+\begin{align}
+    (\lambda\mathbf{1} - P) = \mathbf{1} - P = P_{\perp} \notag
+\end{align}
+ovvero il proiettore ortogonale a $P$, pertanto non è iniettivo né suriettivo. Concludiamo che $\{0, 1\} \subset \sigma(P)$. \\
+Sia $V$ il sottospazio vettoriale su cui $P$ proietta, sia $\lambda \in \rho(P)$ e prendiamo $x \in V$, $x \neq 0$. Si ha 
+\begin{align}
+    (\lambda\mathbf{1} - P)x = \lambda x - x = (\lambda - 1)x \notag
+\end{align}
+Per ipotesi $(\lambda\mathbf{1} - P)$ è invertibile e quindi in particolare iniettiva e suriettiva, pertanto deve valere $\lambda - 1 \neq 0$, ovvero $\lambda \neq 1$. Analogamente, prendiamo $y \in V^\perp$, $y \neq 0$, si ha 
+\begin{align}
+    (\lambda\mathbf{1} - P)y = \lambda y \notag
+\end{align}
+segue che $\lambda \neq 0$. \qed
+
 
 
 
