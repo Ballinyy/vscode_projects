@@ -1808,6 +1808,11 @@ per ogni $t \in [0, 1]$. Ma allora
     \psi(t) = \frac{1}{\lambda - t} \notag
 \end{align}
 il che è assurdo poiché $\psi$ così definita non sarebbe quadrato sommabile in $[0, 1]$. \\ \\
+\textbf{Definizione:} dato $T \in \mathcal{B}(\mathcal{H})$ chiamiamo \textit{funzione risolvente} la funzione 
+\begin{align}
+    \lambda \in \rho(T) \mapsto (\lambda\mathbf{1} - T) \in \mathcal{B}(\mathcal{H}) \notag
+\end{align}
+e la indichiamo con $R_T(\lambda)$. \\ \\
 \textbf{Lemma (serie di Neumann):} sia $S \in \mathcal{B}(\mathcal{H})$ tale che $\|S\| < 1$, allora si ha
 \begin{align}
     \sum_{n = 0}^\infty S^n = (\mathbf{1} - S)^{-1} \notag
@@ -1843,7 +1848,89 @@ ovvero la serie converge in norma operatoriale a $(\mathbf{1} - S)^{-1}$. \qed \
 \textbf{2.} $\sigma(T) \subset D_r(0)$ con $r = \|T\|$. \\
 \textbf{3.} $\sigma(T) \neq \emptyset$ per ogni $T \neq \mathcal{O}$. \\
 
-\textbf{Dimostrazione:} $(1)$ dimostriamo che $\rho(T)$ è aperto facendo vedere che per ogni elemento in $\rho(T)$ esiste un suo intorno contenuto in $\rho(T)$. Sia $\lambda \in \rho(T)$, allora $(\lambda\mathbf{1} - T)$ è invertibile. 
+\textbf{Dimostrazione:} $(1)$ dimostriamo che $\rho(T)$ è aperto facendo vedere che per ogni elemento in $\rho(T)$ esiste un suo intorno contenuto in $\rho(T)$. Sia $\lambda_0 \in \rho(T)$, allora $(\lambda_0\mathbf{1} - T)$ è invertibile. Dato $\lambda \in \mathbf{C}$ si ha 
+\begin{align}
+    (\lambda\mathbf{1} - T) &= (\lambda\mathbf{1} + \lambda_0\mathbf{1} - \lambda_0\mathbf{1} - T) \notag \\
+    &= ((\lambda - \lambda_0)\mathbf{1} + \lambda_0\mathbf{1} - T) \notag \\
+    &= (\lambda_0\mathbf{1} - T)(\mathbf{1} - (\lambda_0 - \lambda)R_T(\lambda_0)) \notag
+\end{align}
+Se si ha 
+\begin{align}
+    \|(\lambda_0 - \lambda)R_T(\lambda_0)\| < 1 \notag
+\end{align}
+ovvero 
+\begin{align}
+    |\lambda - \lambda_0| < \frac{1}{\|R_T(\lambda_0)\|} \notag
+\end{align}
+usando la \textit{serie di Neumann} possiamo scrivere 
+\begin{align}
+    R_T(\lambda) = \sum_{n = 0}^\infty (\lambda_0 - \lambda)^nR_T(\lambda_0)^{n + 1} \notag
+\end{align}
+ovvero esiste l'inverso per $\lambda\mathbf{1} - T$. \\ \\
+$(2)$ Sia $|\lambda| > \|T\|$, allora si ha $\lambda \in \rho(T)$, infatti si ha 
+\begin{align}
+    (\lambda\mathbf{1} - T) = \lambda\left(\mathbf{1} - \frac{1}{\lambda}T\right) \notag
+\end{align}
+e 
+\begin{align}
+    \left\|\frac{T}{\lambda}\right\| = \frac{1}{|\lambda|}\|T\| < 1 \notag
+\end{align}
+pertanto per la \textit{serie di Neumann} esiste l'inverso. \\ \\
+$(3)$ Supponiamo $\sigma(T) = \emptyset$, allora $|\lambda| \geq \|T\|$ per ogni $\lambda \in \mathbf{C} \setminus \{0\}$, pertanto 
+\begin{align}
+    R_T(\lambda) &= \lambda\sum_{n = 0}^\infty \frac{T^n}{\lambda^n} \notag
+\end{align}
+quindi 
+\begin{align}
+    \|(\lambda\mathbf{1} - T)\| \leq |\lambda|\sum_{n = 0}^\infty \frac{\|T\|^n}{|\lambda|^n} = \frac{1}{|\lambda| - \|T\|} \rightarrow 0 \notag
+\end{align}
+per $\lambda \rightarrow \infty$. La funzione $\lambda \mapsto \|R_T(\lambda)\|$ è limitata su $D_{\|T\|}(0)$, quindi costante per il \textit{teorema di Liouville}. Allora $\|R_T(\lambda)\| = 0$ per ogni $\lambda \in \mathbf{C}$, ma ciò è un assurdo. \qed \\ \\
+\textbf{Lemma (2.7.3):} dato $S \in \mathcal{B}(\mathcal{H})$ tale che $\|S\| < 1$ si ha 
+\begin{align}
+    \|\mathbf{1} - \sum_{n = 0}^\infty S^n\| \leq \frac{\|S\|}{1 - \|S\|} \notag
+\end{align} \\
+
+\textbf{Dimostrazione:} per la \textit{serie di Neumann} si ha 
+\begin{align}
+    \mathbf{1} - \sum_{n = 0}^\infty S^n &= -\sum_{n = 1}^\infty S^n \notag \\
+    &= -\sum_{n = 0}^\infty S^{n + 1} \notag \\
+    &= -S\sum_{n = 0}^\infty S^n \notag \\
+    &= -S(\mathbf{1} - S)^{-1} \notag
+\end{align}
+la tesi segue per submoltiplicatività della norma. \qed \\ \\
+\textbf{Lemma (2.7.4):} definiamo l'insieme 
+\begin{align}
+    \mathcal{B}^{-1}(\mathcal{H}) = \{T \in \mathcal{B}(\mathcal{H}) : T \text{ invertibile in } \mathcal{B}(\mathcal{H})\} \notag
+\end{align}
+La funzione $T \in \mathcal{B}^{-1}(\mathcal{H}) \mapsto T^{-1} \in \mathcal{B}^{-1}(\mathcal{H})$ è continua. \\
+
+\textbf{Dimostrazione:} sia $S \in \mathcal{B}^{-1}(\mathcal{H})$, mostriamo che 
+\begin{align}
+    (T + S)^{-1} \rightarrow T^{-1} \notag
+\end{align}
+per $\|S \| \rightarrow 0$. Si ha 
+\begin{align}
+    T + S = T(\mathbf{1} + T^{-1}S) \notag
+\end{align}
+pertanto per $\|S\| \rightarrow 0$ e per la \textit{serie di Neumann} si ha
+\begin{align}
+    \|(T + S)^{-1} - T^{-1}\| &= \|((\mathbf{1} - T^{-1}S) - \mathbf{1})T^{-1}\| \notag \\
+    &= \|T^{-1}S\|\|T^{-1}\| \notag \\
+    &= \|T^{-1}\|\left\|\sum_{n = 0}^\infty (T^{-1}S)^n\right\| \notag \\
+    &\leq \|T^{-1}\|\frac{\|T^{-1}S\|}{1 - \|T^{-1}S\|} \rightarrow 0 \notag
+\end{align}
+quindi si ottiene la tesi. \qed \\ \\
+\textbf{Corollario (2.7.1):} $R_T(\lambda)$ è continua in $\rho(T)$. \\ \\
+\textbf{Corollario (2.7.2):} $R_T(\lambda)$ è olomorfa in $\rho(T)$. \\
+
+\textbf{Dimostrazione:} dato $\lambda \in \rho(T)$ si ha 
+\begin{align}
+    \frac{R_T(\lambda + h) - R_T(\lambda)}{h} &= \frac{1}{h}\left(R_T(\lambda + h)(\lambda\mathbf{1} - T - (\lambda + h)\mathbf{1} + T)R_T(\lambda)\right) \notag \\
+    &= -R_T(\lambda + h)R_T(\lambda) \rightarrow -R_T(\lambda)^2 \notag
+\end{align}
+per $h \rightarrow 0$ per continuità della funzione risolvente in $\rho(T)$ (\textit{lemma 2.7.1}). \qed \\ \\
+Osserviamo che la funzione risolvente si comporta essenzialmente come un funzione razionale quando si tratta di differenziazione.
+
 
 
 \subsubsection{Esercizi}
