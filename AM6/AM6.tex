@@ -2119,13 +2119,31 @@ ricordando che $\frac{1}{p} = 1 - \frac{1}{q}$ e dividendo entrambi i membri per
 ovvero la tesi. \qed
 
 \subsection*{Risultati classici di AM}
-\textbf{Teorema (di Stone-Weierstrass):} sia $Pol([0, 1])$ lo spazio delle funzioni polinomiali a coefficienti complessi definite sull'intervallo $[0, 1]$. Si ha che $Pol([0, 1])$ è denso (in norma $\|\cdot\|_\infty$) in $C([0, 1], \mathbf{C})$. \\
+\textbf{Teorema (di Stone-Weierstrass):} sia $Pol([a, b])$ lo spazio delle funzioni polinomiali a coefficienti complessi definite sull'intervallo $[a, b]$. Si ha che $Pol([a, b])$ è denso (in norma $\|\cdot\|_\infty$) in $C([a, b], \mathbf{C})$. \\
 
-\textbf{Dimostrazione:} vogliamo costruire una successione di polinomi $\{q_n\}_{n \in \mathbf{N}}$ che approssima la delta di Dirac. Data $f \in C([0, 1], \mathbf{C})$ poniamo 
+\textbf{Dimostrazione:} possiamo assumere senza perdità di generalità che $[a, b] = [0, 1]$, dato che la densità è una proprietà topologica. Inoltre data $f \in C([0, 1])$ possiamo assumere che $f(0) = 0 = f(1)$, infatti se così non fosse basterebbe definire
+\begin{align}
+    g(x) = f(x) - f(0) - (f(1) - f(0))x \notag
+\end{align} 
+per ogni $x \in [0, 1]$, che soddisfa $g(0) = 0 = g(1)$ ed è continua ed è immediato notare che se il teorema è valido per $g$ è valido anche per $f$. \\
+Vogliamo costruire una successione di funzioni polinomiali $\{q_n\}_{n \in \mathbf{N}}$ che approssima la delta di Dirac. Data $f \in C([0, 1], \mathbf{C})$, per ogni $n \in \mathbf{N}$ poniamo 
 \begin{align}
     p_n(x) = \int_0^1 q_n(t - x)f(t) \, dt \notag
 \end{align}
-Notiamo che se $q_n \in Pol([0, 1])$ allora anche $p_n \in Pol([0, 1])$.
+con $x \in [0, 1]$. Notiamo che se $q_n \in Pol([0, 1])$ allora anche $p_n \in Pol([0, 1])$. Scegliamo 
+\begin{align}
+    q_n(x) = c_n(1 - x^2)^n \notag
+\end{align}
+dove $c_n$ è una costante che garantisce la normalizzazione su $[-1, 1]$. Ponendo $s = t - x$ si ha 
+\begin{align}
+    p_n(x) = \int_{-1}^1 q_n(s)f(s + x) \, ds \notag
+\end{align}
+Allora 
+\begin{align}
+    |p_n(x) - f(x)| &= \left|\int_{-1}^1 q_n(s)(f(s + x) - f(x)) \, ds\right| \notag \\
+    &\leq \int_{-1}^1 q_n(s)|f(s + x) - f(x)| \, ds \notag
+\end{align}
+Poiché $f$ è continua su un compatto ($[0, 1]$) segue dal \textit{teorema di Heine-Cantor} che per ogni $\varepsilon > 0$ esiste $\delta > 0$ tale che se $|x - y| < \delta$ si ha $|f(x) - f(y)| < \varepsilon$ per ogni $x, y \in [0, 1]$.
 
 
 
