@@ -1939,6 +1939,8 @@ Per il punto $(2)$ del \textit{lemma 2.7.2} osserviamo che $r \leq \|T\|$. \\ \\
 \textbf{1.} se $\lambda \in \sigma(T)$ si ha $\lambda^* \in \sigma(T^*)$. \\
 \textbf{2.} se $T$ è invertibile in $\mathcal{B}(\mathcal{H})$ e $\lambda \in \sigma(T)$ si ha $\lambda^{-1} \in \sigma(T^{-1})$. \\
 \textbf{3.} se $T$ è normale $r(T) = \|T\|$. \\
+\textbf{4.} se $U \in \mathcal{B}(\mathcal{H})$ è unitario si ha $\sigma(U) \subset \mathbf{S}^1$. \\
+\textbf{5.} se $A = A^*$ si ha $\sigma(A) \subset \mathbf{R}$. \\
 
 \textbf{Dimostrazione:} $(1)$ sia $\lambda \in \sigma(T)$, si ha 
 \begin{align}
@@ -1952,7 +1954,11 @@ $(2)$ Sia $\lambda \in \sigma(T)$, si ha
     &= -\lambda T\left(\frac{1}{\lambda}\mathbf{1} - T^{-1}\right) \notag
 \end{align}
 Essendo $T$ invertibile, deve valere $\left(\frac{1}{\lambda}\mathbf{1} - T^{-1}\right)$ non invertibile, ovvero $\frac{1}{\lambda} \in \sigma(T^{-1})$. \\ \\
-$(3)$
+$(3)$ sia $TT^* = T^*T$, allora per l'\textit{identità} $C^*$ si ha 
+\begin{align}
+    \|T^*T\|^2 = \|(T^*T)(T^*T)\| = \|(T^*)^2(T)^2\| = \|T^2\|^2 \notag
+\end{align}
+ovvero
 
 
 
