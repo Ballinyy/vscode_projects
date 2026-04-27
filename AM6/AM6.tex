@@ -1854,7 +1854,7 @@ ovvero la serie converge in norma operatoriale a $(\mathbf{1} - S)^{-1}$. \qed \
     &= ((\lambda - \lambda_0)\mathbf{1} + \lambda_0\mathbf{1} - T) \notag \\
     &= (\lambda_0\mathbf{1} - T)(\mathbf{1} - (\lambda_0 - \lambda)R_T(\lambda_0)) \notag
 \end{align}
-Se si ha 
+Se vale
 \begin{align}
     \|(\lambda_0 - \lambda)R_T(\lambda_0)\| < 1 \notag
 \end{align}
@@ -1866,7 +1866,7 @@ usando la \textit{serie di Neumann} possiamo scrivere
 \begin{align}
     R_T(\lambda) = \sum_{n = 0}^\infty (\lambda_0 - \lambda)^nR_T(\lambda_0)^{n + 1} \notag
 \end{align}
-ovvero esiste l'inverso per $\lambda\mathbf{1} - T$. \\ \\
+pertanto, dato che $\mathcal{B}(\mathcal{H})$ è uno spazio di Banach, esiste l'inverso per $\lambda\mathbf{1} - T$. \\ \\
 $(2)$ Sia $|\lambda| > \|T\|$, allora si ha $\lambda \in \rho(T)$, infatti si ha 
 \begin{align}
     (\lambda\mathbf{1} - T) = \lambda\left(\mathbf{1} - \frac{1}{\lambda}T\right) \notag
@@ -1929,7 +1929,30 @@ quindi si ottiene la tesi. \qed \\ \\
     &= -R_T(\lambda + h)R_T(\lambda) \rightarrow -R_T(\lambda)^2 \notag
 \end{align}
 per $h \rightarrow 0$ per continuità della funzione risolvente in $\rho(T)$ (\textit{lemma 2.7.1}). \qed \\ \\
-Osserviamo che la funzione risolvente si comporta essenzialmente come un funzione razionale quando si tratta di differenziazione.
+Osserviamo che la funzione risolvente si comporta essenzialmente come un funzione razionale quando si tratta di differenziazione. \\ \\
+\textbf{Definizione:} dato $T \in \mathcal{B}(\mathcal{H})$ chiamiamo \textit{raggio spettrale} il numero 
+\begin{align}
+    r(T) := \sup_{\lambda \in \sigma(T)}|\lambda| \notag
+\end{align}
+Per il punto $(2)$ del \textit{lemma 2.7.2} osserviamo che $r \leq \|T\|$. \\ \\
+\textbf{Teorema (2.7.1):} dato $T \in \mathcal{B}(\mathcal{H})$ si ha: \\
+\textbf{1.} se $\lambda \in \sigma(T)$ si ha $\lambda^* \in \sigma(T^*)$. \\
+\textbf{2.} se $T$ è invertibile in $\mathcal{B}(\mathcal{H})$ e $\lambda \in \sigma(T)$ si ha $\lambda^{-1} \in \sigma(T^{-1})$. \\
+\textbf{3.} se $T$ è normale $r(T) = \|T\|$. \\
+
+\textbf{Dimostrazione:} $(1)$ sia $\lambda \in \sigma(T)$, si ha 
+\begin{align}
+    (\lambda\mathbf{1}- T)^* &= (\lambda^*\mathbf{1} - T^*) \notag
+\end{align}
+e per le \textit{proprietà dell'aggiunto} segue che $(\lambda^*\mathbf{1} - T^*)$ non è invertibile, ovvero $\lambda^* \in \sigma(T^*)$. \\ \\
+$(2)$ Sia $\lambda \in \sigma(T)$, si ha 
+\begin{align}
+    (\lambda\mathbf{1} - T) &= \lambda\left(\mathbf{1} - \frac{1}{\lambda}T\right) \notag \\
+    &= \lambda T\left(T^{-1} - \frac{1}{\lambda}\mathbf{1}\right) \notag \\
+    &= -\lambda T\left(\frac{1}{\lambda}\mathbf{1} - T^{-1}\right) \notag
+\end{align}
+Essendo $T$ invertibile, deve valere $\left(\frac{1}{\lambda}\mathbf{1} - T^{-1}\right)$ non invertibile, ovvero $\frac{1}{\lambda} \in \sigma(T^{-1})$. \\ \\
+$(3)$
 
 
 
