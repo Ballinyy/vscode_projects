@@ -22,4 +22,4 @@
 \contentsline {subsection}{\numberline {2.5}Aggiunto di un operatore}{57}{}%
 \contentsline {subsection}{\numberline {2.6}Operatori autoaggiunti}{60}{}%
 \contentsline {subsection}{\numberline {2.7}Teoria spettrale}{64}{}%
-\contentsline {subsubsection}{\numberline {2.7.1}Esercizi}{69}{}%
+\contentsline {subsubsection}{\numberline {2.7.1}Esercizi}{70}{}%

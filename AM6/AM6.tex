@@ -1939,7 +1939,7 @@ Per il punto $(2)$ del \textit{lemma 2.7.2} osserviamo che $r \leq \|T\|$. \\ \\
 \textbf{1.} se $\lambda \in \sigma(T)$ si ha $\lambda^* \in \sigma(T^*)$. \\
 \textbf{2.} se $T$ è invertibile in $\mathcal{B}(\mathcal{H})$ e $\lambda \in \sigma(T)$ si ha $\lambda^{-1} \in \sigma(T^{-1})$. \\
 \textbf{3.} se $T$ è normale $r(T) = \|T\|$. \\
-\textbf{4.} se $U \in \mathcal{B}(\mathcal{H})$ è unitario si ha $\sigma(U) \subset \mathbf{S}^1$. \\
+\textbf{4.} se $V \in \mathcal{B}(\mathcal{H})$ è unitario si ha $\sigma(V) \subset \mathbf{S}^1$. \\
 \textbf{5.} se $A = A^*$ si ha $\sigma(A) \subset \mathbf{R}$. \\
 
 \textbf{Dimostrazione:} $(1)$ sia $\lambda \in \sigma(T)$, si ha 
@@ -1958,8 +1958,23 @@ $(3)$ sia $TT^* = T^*T$, allora per l'\textit{identità} $C^*$ si ha
 \begin{align}
     \|T^*T\|^2 = \|(T^*T)(T^*T)\| = \|(T^*)^2(T)^2\| = \|T^2\|^2 \notag
 \end{align}
-ovvero
-
+pertanto abbiamo dimostrato che $\|T^2\| = \|T\|^2$. Iterando il ragionamento si dimostra che $\|T^{2^n}\| = \|T\|^{2^n}$ con $n \in \mathbf{N}$. A questo punto applicando il teorema di Gelfand si ottiene la tesi. \\ \\
+$(4)$ Sia $V$ un operatore unitario, allora $V^*$ è l'inverso bilatero di $V$. Per il punto $(2)$ si ha che se $\lambda \in \sigma(V)$ allora $\lambda^{-1} \in \sigma(V^{-1})$. Inoltre per il punto $(3)$ si ha $\sigma(V) \overline{\subset D_r(0)}$ e $\sigma(V^{-1}) \subset \overline{D_r(0)}$ con $r = \|V\|$. Segue dall'identità $C^*$ che $\|V\| = 1$ per $V$ unitario. Pertanto se $\lambda \in \sigma(V)$ si ha $|\lambda| \leq 1$ e $\frac{1}{|\lambda|} \leq 1$, ovvero $|\lambda| = 1$ e quindi $\lambda \in \mathbf{S}^1$. \\ \\
+$(5)$ Sia $A$ autoaggiunto, mostriamo che se $\lambda \in \mathbf{C} \setminus \mathbf{R}$ si ha $(\lambda\mathbf{1} - A)$ invertibile. Definiamo 
+\begin{align}
+    e^{iA} = \sum_{n = 0}^\infty \frac{(iA)^n}{n!} \notag
+\end{align}
+L'operatore $e^{iA}$ è unitario, infatti
+\begin{align}
+    (e^{iA})^* &= \sum_{n = 0}^\infty \frac{(-iA)^n}{n!} = e^{-iA} \notag
+\end{align}
+e per il \textit{teorema di Backer-Campbell-Hausdorff} si ha $e^{iA}e^{-iA} = e^{i(A - A)} = \mathbf{1}$. Se $\lambda \in \mathbf{C} \setminus \mathbf{R}$ si ha che $e^{i\lambda} \not\in \mathbf{S}^1$, infatti compare un termine reale all'esponente che influisce sulla norma Segue dal punto $(4)$ che $e^{i\lambda} \in \rho(e^{iA})$, ovvero $(e^{i\lambda}\mathbf{1} - e^{iA})$ è invertibile. Notiamo che 
+\begin{align}
+    (e^{i\lambda}\mathbf{1} - e^{iA}) &= e^{i\lambda}(\mathbf{1} - e^{i(A - \lambda\mathbf{1})}) \notag \\
+    &= e^{i\lambda}\sum_{n = 1}^\infty \frac{i^n(A - \lambda\mathbf{1})^n}{n!} \notag \\
+    &= e^{i\lambda}(A - \lambda\mathbf{1})\sum_{n = 1}^\infty \frac{i^n(A - \lambda\mathbf{1})^{n - 1}}{n!} \notag
+\end{align}
+ovvero lo possiamo esprimere come il prodotto di due operatori commutanti, di cui uno sappiamo essere invertibile (per la \textit{serie di Neumann}), segue che anche $(A - \lambda\mathbf{1})$ è invertibile, ovvero $\lambda \in \rho(A)$. \qed
 
 
 \subsubsection{Esercizi}
@@ -2102,6 +2117,15 @@ ricordando che $\frac{1}{p} = 1 - \frac{1}{q}$ e dividendo entrambi i membri per
     \left(\int_X |f + g|^p\right)^{1/p} \, d\mu \leq \left(\int_X |f|^p \, d\mu\right)^{1/p} + \left(\int_X |g|^p \, d\mu\right)^{1/p} \notag
 \end{align}
 ovvero la tesi. \qed
+
+\subsection*{Risultati classici di AM}
+\textbf{Teorema (di Stone-Weierstrass):} sia $Pol([0, 1])$ lo spazio delle funzioni polinomiali a coefficienti complessi definite sull'intervallo $[0, 1]$. Si ha che $Pol([0, 1])$ è denso (in norma $\|\cdot\|_\infty$) in $C([0, 1], \mathbf{C})$. \\
+
+\textbf{Dimostrazione:} vogliamo costruire una successione di polinomi $\{q_n\}_{n \in \mathbf{N}}$ che approssima la delta di Dirac. Data $f \in C([0, 1], \mathbf{C})$ poniamo 
+\begin{align}
+    p_n(x) = \int_0^1 q_n(t - x)f(t) \, dt \notag
+\end{align}
+Notiamo che se $q_n \in Pol([0, 1])$ allora anche $p_n \in Pol([0, 1])$.
 
 
 
