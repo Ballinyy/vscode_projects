@@ -2116,35 +2116,69 @@ ricordando che $\frac{1}{p} = 1 - \frac{1}{q}$ e dividendo entrambi i membri per
 \begin{align}
     \left(\int_X |f + g|^p\right)^{1/p} \, d\mu \leq \left(\int_X |f|^p \, d\mu\right)^{1/p} + \left(\int_X |g|^p \, d\mu\right)^{1/p} \notag
 \end{align}
-ovvero la tesi. \qed
+ovvero la tesi. \qed \\ \\
+\textbf{Proposizione (disuguaglianza di Bernoulli):} sia $x \in (0, 1)$, allora si ha $(1 - x^2)^n \geq 1 - nx^2$. \\
 
+\textbf{Dimostrazione:} consideriamo la funzione $f : \mathbf{R} \longrightarrow \mathbf{R}$ definita ponendo
+\begin{align}
+    f(x) = (1 - x^2)^n - 1 - nx^2 \notag
+\end{align}
+per ogni $x \in \mathbf{R}$. Notiamo che $f(0) = 0$, inoltre 
+\begin{align}
+    f'(x) = -2nx(1 - x^2)^{n - 1} - 2nx = - 2nx(1 + (1 - x^2)^{n - 1}) < 0 \notag
+\end{align}
+per ogni $x \in (0, 1)$, segue che $f(x) \geq 0$ per ogni $x \in (0, 1)$, ovvero la tesi. \qed
+
+\newpage
 \subsection*{Risultati classici di AM}
 \textbf{Teorema (di Stone-Weierstrass):} sia $Pol([a, b])$ lo spazio delle funzioni polinomiali a coefficienti complessi definite sull'intervallo $[a, b]$. Si ha che $Pol([a, b])$ è denso (in norma $\|\cdot\|_\infty$) in $C([a, b], \mathbf{C})$. \\
 
-\textbf{Dimostrazione:} possiamo assumere senza perdità di generalità che $[a, b] = [0, 1]$, dato che la densità è una proprietà topologica. Inoltre data $f \in C([0, 1])$ possiamo assumere che $f(0) = 0 = f(1)$, infatti se così non fosse basterebbe definire
+\textbf{Dimostrazione:} dato che la densità è una proprietà topologica, possiamo assumere $[a, b] = [0, 1]$ senza perdita di generalità. Inoltre, data $f \in C([0, 1])$ possiamo assumere $f(0) = 0 = f(1)$, infatti se così non fosse basterebbe definire
 \begin{align}
     g(x) = f(x) - f(0) - (f(1) - f(0))x \notag
 \end{align} 
-per ogni $x \in [0, 1]$, che soddisfa $g(0) = 0 = g(1)$ ed è continua ed è immediato notare che se il teorema è valido per $g$ è valido anche per $f$. \\
-Vogliamo costruire una successione di funzioni polinomiali $\{q_n\}_{n \in \mathbf{N}}$ che approssima la delta di Dirac. Data $f \in C([0, 1], \mathbf{C})$, per ogni $n \in \mathbf{N}$ poniamo 
+per ogni $x \in [0, 1]$, che soddisfa $g(0) = 0 = g(1)$ ed è continua, ed è immediato notare che se il teorema è valido per $g$ è valido anche per $f$. \\
+Vogliamo costruire una successione di funzioni polinomiali $\{q_n\}_{n \in \mathbf{N}}$ che approssima la delta di Dirac. Data $f \in C([0, 1], \mathbf{C})$ possiamo estenderla per continuità in modo tale che sia identicamente nulla fuori da $[0, 1]$. Per ogni $n \in \mathbf{N}$ definiamo 
 \begin{align}
-    p_n(x) = \int_0^1 q_n(t - x)f(t) \, dt \notag
+    q_n = c_n(1 - x^2)^n \notag
 \end{align}
-con $x \in [0, 1]$. Notiamo che se $q_n \in Pol([0, 1])$ allora anche $p_n \in Pol([0, 1])$. Scegliamo 
+dove $c_n$ è una costante (fissato $n$) che garantisce la normalizzazione di $q_n$ sull'intervallo $[-1, 1]$, ovvero 
 \begin{align}
-    q_n(x) = c_n(1 - x^2)^n \notag
+    \int_{-1}^1 c_n(1 - x^2)^n \, dx = 1 \notag
 \end{align}
-dove $c_n$ è una costante che garantisce la normalizzazione su $[-1, 1]$. Ponendo $s = t - x$ si ha 
+Cerchiamo una stima per $c_n$. Per la \textit{disuguaglianza di Bernoulli} si ha 
 \begin{align}
-    p_n(x) = \int_{-1}^1 q_n(s)f(s + x) \, ds \notag
+    \int_{-1}^1 (1 - x^2)^n \, dx &= 2\int_0^1 (1 - x^2)^n \, dx \notag \\
+    &\geq 2\int_0^{1/\sqrt{n}} (1 - x^2)^n \, dx \notag \\
+    &\geq 2\int_0^{1/\sqrt{n}} (1 - nx^2) \, dx \notag \\
+    &= 2\left(x - \frac{nx^3}{3}\right)_0^{1/\sqrt{n}} \notag \\
+    &= \frac{4}{3\sqrt{n}} \geq \frac{1}{\sqrt{n}} \notag
 \end{align}
-Allora 
+Pertanto concludiamo che $c_n \leq \sqrt{n}$. Segue che dato $\delta > 0$ si ha 
 \begin{align}
-    |p_n(x) - f(x)| &= \left|\int_{-1}^1 q_n(s)(f(s + x) - f(x)) \, ds\right| \notag \\
-    &\leq \int_{-1}^1 q_n(s)|f(s + x) - f(x)| \, ds \notag
+    q_n(x) \leq \sqrt{n}(1 - \delta^2)^n \notag
 \end{align}
-Poiché $f$ è continua su un compatto ($[0, 1]$) segue dal \textit{teorema di Heine-Cantor} che per ogni $\varepsilon > 0$ esiste $\delta > 0$ tale che se $|x - y| < \delta$ si ha $|f(x) - f(y)| < \varepsilon$ per ogni $x, y \in [0, 1]$.
-
+per ogni $x \in [\delta, 1]$. Per ogni $n \in \mathbf{N}$ poniamo 
+\begin{align}
+    p_n(x) = \int_{-1}^1 q_n(t)f(x + t) \, dt \notag
+\end{align}
+per ogni $x \in [0, 1]$. Notiamo immediatamente che $\{p_n\}_{n \in \mathbf{N}} \subset Pol([0, 1])$. Mostriamo che $p_n(x) \rightarrow f(x)$ in norma $\|\cdot\|_\infty$ per $n \rightarrow \infty$. Fissato $0 < \delta < 1$ si ha
+\begin{align}
+    |p_n(x) - f(x)| &= \left|\int_{-1}^1 q_n(t)f(x + t) \, dt - f(x)\right| \notag \\
+    &= \left|\int_{-1}^1 q_n(x)(f(x + t) - f(x)) \, dt\right| \notag \\
+    &\leq \int_{-1}^1 q_n(x)|f(x + t) - f(x)| \, dt \notag \\
+    &= \int_{-1}^\delta (\dots) \, dt + \int_{-\delta}^\delta (\dots) \, dt  + \int_{\delta}^1 (\dots)  \, dt \notag \\
+    &\leq 2\int_{\delta}^1 q_n(x)\|f\|_\infty \, dt + \int_{-\delta}^\delta q_n(x)|f(x + t) - f(x)| \, dt \notag
+\end{align}
+dove nel secondo passaggio si è usato il fatto che $q_n$ è normalizzata su $[-1, 1]$, nel terzo la subadditività dell'integrale, quinto il fatto che $q_n$ è pari. A questo punto, dato che $f$ è continua su un compatto ($[-1, 1]$) possiamo applicare il \textit{teorema di Heine-Cantor}, segue che $f$ è uniformemente continua su $[-1, 1]$ e quindi anche su $[-\delta, \delta]$. Pertanto per ogni $\varepsilon > 0$ esiste $\delta > 0$ tale che se $|(x + t) - x| = |t| < \delta$ si ha $|f(x + t) - f(x)| < \varepsilon$ per ogni $x \in [-\delta, \delta]$. Quindi (a meno di ridefinire $\delta$) si ha
+\begin{align}
+    |p_n(x) - f(x)| \leq 2\|f\|_\infty\sqrt{n}(1 - \delta^2)^n(1 - \delta) + 2\varepsilon\delta\sqrt{n}(1 - \delta^2)^n \rightarrow 0 \notag
+\end{align}
+per $n \rightarrow \infty$, inoltre lo fa unifermemente, infatti la condizione per l'uniforme continuità dipende solamente da $|t|$ e non da $x$. Concludiamo quindi che 
+\begin{align}
+    \|p_n - f\|_{\infty} \rightarrow 0 \notag
+\end{align}
+per $n \rightarrow \infty$. \qed
 
 
 \end{document}
