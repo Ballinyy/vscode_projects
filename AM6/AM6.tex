@@ -1988,7 +1988,7 @@ Notiamo che la definizione è ben posta, infatti noto $A$ sappiamo come determin
 Vediamo come estendere questa definizione a funzioni continue generiche. \\ \\
 \textbf{Teorma (calcolo funzionale continuo):} sia $A \in \mathcal{B}(\mathcal{H})$ un operatore autoaggiunto, esiste unica $\phi : C(\sigma(A)) \longrightarrow \mathcal{B}(\mathcal{H})$ che ad ogni funzione $f$ continua su $\sigma(A)$ associa $f(A) \in \mathcal{B}(\mathcal{H})$ tale che: \\
 \textbf{1.} $(\alpha f + \beta g)(A) = \alpha f(A) + \beta g(A)$ per ogni $\alpha, \beta \in \mathbf{C}$ e ogni $f, g \in C(\sigma(A))$ ($\phi$ lineare). \\
-\textbf{2.} $(fg)(A) = f(A)g(A)$ e $(\overline{f}^{\mathbf{C}})(A) = f(A)^*$ per ogni $f, g \in C(\sigma(A))$ ($\phi$ *-omomorfismo unitale). \\
+\textbf{2.} $(fg)(A) = f(A)g(A)$ e $(\overline{f}^{\mathbf{C}})(A) = f(A)^*$ per ogni $f, g \in C(\sigma(A))$ ($\phi$ $*$-omomorfismo unitale). \\
 \textbf{3.} $\|f(A)\|_{\mathcal{B}(\mathcal{H})} = \|f\|_{\infty}$ ($\phi$ isomorfismo). \\
 \textbf{4.} $id(A) = A$ dove con $id$ si intende la funzione $\lambda \in \sigma(A) \mapsto \lambda \in \mathbf{C}$. \\
 \textbf{5.} $\sigma(f(A)) = f(\sigma(A))$ per ogni $f \in C(\sigma(A))$. \\
@@ -2005,10 +2005,27 @@ non è invertibile. Consideriamo la funzione polinomiale $p(\lambda) - p(x)$, pe
 \end{align}
 Notiamo immediatamente che $x = \lambda$ è una radice, infatti $p(\lambda) - p(x = \lambda) = 0$. Consideriamo ora la stessa funzione polinomiale calcolata in $A$, per definizione si ha 
 \begin{align}
-    p(\lambda)\mathbf{1} - p(A) = a(A - \mu_1\mathbf{1}) \cdot \dots \cdot (A - \mu_n\mathbf{1}) \notag
+    p(\lambda)\mathbf{1} - p(A) = a(A - \lambda_1\mathbf{1}) \cdot \dots \cdot (A - \lambda_n\mathbf{1}) \notag
 \end{align}
-Dato che $\lambda$ è una radice, esiste $1 \leq i \leq n$ tale che $\mu_i = \lambda$, pertanto l'operatore al membro di destra non è invertibile, segue che anche $p(\lambda)\mathbf{1} - p(A)$ non è invertibile, ovvero $p(\lambda) \in \sigma(p(A))$. \\
-Viceversa se $\lambda \in \sigma(p(A))$ 
+per un opportuno $a \in \mathbf{C}$. Dato che $\lambda$ è una radice, esiste $1 \leq i \leq n$ tale che $\lambda_i = \lambda$, pertanto l'operatore al membro di destra non è invertibile, segue che anche $p(\lambda)\mathbf{1} - p(A)$ non è invertibile, ovvero $p(\lambda) \in \sigma(p(A))$. \\
+Viceversa, mostriamo che se $\mu \in \sigma(p(A))$ esiste $\lambda \in \sigma(A)$ tale che $\mu = p(\lambda)$. Consideriamo la funzione polinomiale $\mu - p(x)$, si ha che 
+\begin{align}
+    \mu - p(x) = b(x - \mu_1) \cdot \dots \cdot (x - \mu_k) \notag
+\end{align}
+per un opportuno $b \in \mathbf{C}$ e $\mu_1, \dots, \mu_k \in \mathbf{C}$. Calcolando in $A$ si ottiene 
+\begin{align}
+    \mu\mathbf{1} - p(A) = b(A - \mu_1\mathbf{1}) \cdot \dots \cdot (A - \mu_k\mathbf{1}) \notag
+\end{align}
+L'operatore al membro di sinistra è non invertibile per ipotesi, mentre l'operatore al membro di destra è prodotto di $n$ operatore commutanti, pertanto esiste $0 \leq j \leq k$ tale che 
+\begin{align}
+    \mu_j\mathbf{1} - A \notag
+\end{align}
+non è invertibile. Inoltre dato che $\mu_j$ è una radice di $\mu - p(x)$ si ha $\mu - p(\mu_j) = 0$, ovvero $\mu = p(\mu_j)$, pertanto $\mu_j \in \sigma(A)$ e $p(\mu_j) \in \sigma(p(A))$. \\ \\
+Il secondo risultato è dimostrare che $\phi$ è isomorfa per funzioni polinomiali, ovvero che data $p \in C(\sigma(A))$ si ha che $\|p(A)\|_{\mathcal{B}(\mathcal{H})} = \|p\|_\infty$. \\
+Dato che $p$ è definita su $\sigma(A)$ si ha
+\begin{align}
+    \|p\|_\infty = \sup_{\lambda \in \sigma(A)}|p(\lambda)| \notag
+\end{align}
 
 
 \subsubsection{Esercizi}
