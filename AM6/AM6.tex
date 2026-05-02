@@ -1421,7 +1421,7 @@ Infine $P$ è limitato, infatti
     \|x\|^2 = (x, x) = (Px + (\mathbf{1} - P)x, Px + (\mathbf{1} - P)x) = \|Px\|^2 + \|(\mathbf{1} - P)x\|^2 \notag
 \end{align}
 ovvero $\|Px\| \leq \|x\|$ per ogni $x \in \mathcal{H}$, quindi $P$ limitato e $\|P\| \leq 1$. \qed \\ \\
-\textbf{Corollario 2.3.2:} un operatore $P \in \mathcal{B}(\mathcal{H})$ è il proiettore ortogonale su $K$ se e solo se $P^2 = P$, ovvero è \textit{nilpotente}, e $(Px, y) = (x, Py)$ per ogni $x, y \in \mathcal{H}$. \\
+\textbf{Corollario 2.3.2:} un operatore $P \in \mathcal{B}(\mathcal{H})$ è il proiettore ortogonale su $K$ se e solo se $P^2 = P$, ovvero è \textit{idempotente}, e $(Px, y) = (x, Py)$ per ogni $x, y \in \mathcal{H}$. \\
 
 \textbf{Dimostrazione:} $(\rightarrow)$ sia $P$ il proiettore ortogonale su $K$. Per definizione di proiettore ortogonale $\mathrm{Im}P \subset K$. Inoltre, dato $x \in K$ possiamo scrivere $x = x + 0$, con $0 \in K^\perp$ e per unicità della proiezione ortogonale si ha $x \in \mathrm{Im}P$, ovvero $\mathrm{Im}P = K$. Segue che
 \begin{align}
@@ -2048,7 +2048,60 @@ Per ipotesi $(\lambda\mathbf{1} - P)$ è invertibile e quindi in particolare ini
 \begin{align}
     (\lambda\mathbf{1} - P)y = \lambda y \notag
 \end{align}
-segue che $\lambda \neq 0$. \qed
+segue che $\lambda \neq 0$. \qed \\ \\
+\textbf{2.} Dimostrare che se $P, Q \in \mathcal{B}(\mathcal{H})$ sono proiettori ortogonali si ha $\mathrm{Im}(P) \perp \mathrm{Im}(Q)$ se e solo se $PQ = \mathcal{O} = QP$. \\
+
+\textbf{Dimostrazione:} $(\rightarrow)$ si ha che 
+\begin{align}
+    0 = (Px, Qy) = (QPx, y) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}$, ovvero $QP = \mathcal{O}$. Analogamente si dimostra $PQ = \mathcal{O}$. \\ \\
+$(\leftarrow)$ Sia $PQ = \mathcal{O} = QP$, allora 
+\begin{align}
+    0 = (PQx, y) = (Qx, Py) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}$, ovvero $\mathrm{Im}(P) \perp \mathrm{Im}(Q)$. \qed \\ \\
+\textbf{3.} Dimostrare che se $\{P_\lambda\}_{\lambda \in \mathbf{R}}$ è una risoluzione dell'identità si ha che $P_\mu \geq P_\nu$ se e solo se $P_\mu - P_\nu \geq \mathcal{O}$. \\
+
+\textbf{Dimostrazione:} per il \textit{lemma 2.6.2} si ha $\ker(P_\lambda) = \mathrm{Im}(P_\lambda)^\perp$ per ogni $\lambda \in \mathbf{R}$, dato che ogni proiettore è autoaggiunto. \\ \\
+$(\rightarrow)$ Sia $P_\mu \geq P_\nu$, ovvero $\mathrm{Im}(P_\nu) \subset \mathrm{Im}(P_\mu)$ e quindi per il \textit{lemma 2.3.2} si ha $\ker(P_\nu) \supset \ker(P_\mu)$. Per il \textit{teorema della proiezione ortogonale}, per ogni $x \in \mathcal{H}$ esistono unici $y_\mu \in \mathrm{Im}(P_\mu)$ e $z_\mu \in \ker(P_\mu)$ tali che $x = y_\mu + z_\mu$. Allora si ha 
+\begin{align}
+    (x, (P_\mu - P_\nu)x) &= (x, P_\mu x) - (x, P_\nu x) \notag \\
+    &= (y_\mu, y_\mu) - (y_\mu + z_\mu, P_\nu y_\mu) \notag \\
+    &= (y_\mu, (\mathbf{1} - P_\nu)y_\mu) - (z_\mu, P_\nu y_\mu) \notag \\
+    &= (y_\mu, (\mathbf{1} - P_\nu)y_\mu) - \cancel{(P_\nu z_\mu, y_\mu)} \notag \\
+    &= (y_\mu, (\mathbf{1} - P_\nu)y_\nu) \geq 0 \notag
+\end{align}
+dato che $(\mathbf{1} - P_\nu)$ è autoaggiunto e quindi positivo. \\ \\
+$(\leftarrow)$ Sia $P_\mu - P_\nu \geq \mathcal{O}$. Supponiamo per assurdo che esiste $x \in \mathrm{Im}(P_\nu)$ tale che $x \not\in \mathrm{Im}(P_\mu)$. Per il \textit{teorema della proiezione ortogonale} esistono unici $y_\mu \in \mathrm{Im}(P_\mu)$ e $z_\mu \in \ker(P_\mu)$ tali che $x = y_\mu + z_\mu$, con $z_\mu \neq 0$. Allora si ha
+\begin{align}
+    (x, (P_\mu - P_\nu)x) &= (x, P_\mu x) - (x, P_\nu x) \notag \\
+    &= (y_\mu, y_\mu) - (x, x) \notag \\
+    &= (y_\mu, y_\mu) - (y_\mu + z_\mu, y_\mu + z_\mu) \notag \\
+    &= (y_\mu, y_\mu) - (y_\mu, y_\mu) - (z_\mu, z_\mu) \notag \\
+    &= -\|z_\mu\|^2 < 0 \notag
+\end{align}
+dove nella seconda uguaglianza si è usato il fatto che i proiettori sono idempotenti. Ma ciò è un assurdo. \qed \\ \\
+\textbf{4.} Dimostrare che se $\{P_\lambda\}_{\lambda \in \mathbf{R}}$ è una risoluzione dell'identità si ha che $P_\mu \geq P_\nu$ se e solo se $P_\mu P_\nu = P_\nu = P_\nu P_\mu$. \\
+
+\textbf{Dimostrazione:} $(\rightarrow)$ sia $P_\mu \geq P_\nu$, ovvero $\mathrm{Im}(P_\nu) \subset \mathrm{Im}(P_\mu)$. Allora se $P_\nu x \in \mathrm{Im}(P_\nu)$ si ha
+\begin{align}
+    P_\nu x = P_\mu P_\nu x \notag
+\end{align}
+dato che $\mathrm{Im}(P_\nu) \subset \mathrm{Im}(P_\mu)$ e i proiettori sono idempotenti. Inoltre l'uguaglianza vale ancora se $x \in \ker(P_\nu)$, ovviamente. \\
+Mostriamo ora che $P_\mu P_\nu = P_\nu P_\mu$. Per ogni $x, y \in \mathcal{H}$ si ha 
+\begin{align}
+    (x, P_\nu P_\mu y) &= (P_\mu P_\nu x, y) \notag \\
+    &= (P_\nu x, y) \notag \\
+    &= (x, P_\nu y) \notag
+\end{align}
+ovvero $P_\nu P_\mu = P_\nu$ e quindi $P_\nu P_\mu = P_\mu P_\nu$. \\ \\
+$(\leftarrow)$ Sia $P_\mu P_\nu = P_\nu = P_\nu P_\mu$ e sia $y \in \mathrm{Im}(P_\nu)$. Per definizione esiste $x \in \mathcal{H}$ tale che $P_\nu x = y$. Allora si ha 
+\begin{align}
+    y = P_\nu x = P_\mu (P_\nu x) \notag
+\end{align}
+ovvero $y \in \mathrm{Im}(P_\mu)$ e quindi $\mathrm{Im}(P_\nu) \subset \mathrm{Im}(P_\mu)$. \qed
+
 
 
 
