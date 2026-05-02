@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  2 MAY 2026 18:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  2 MAY 2026 18:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1443,112 +1443,112 @@ Underfull \hbox (badness 10000) in paragraph at lines 1976--1980
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1986--1996
+Underfull \hbox (badness 10000) in paragraph at lines 1990--2000
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1986--1996
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1997--1999
+Underfull \hbox (badness 10000) in paragraph at lines 1990--2000
 
  []
 
 [70]
-Overfull \hbox (0.50061pt too wide) in paragraph at lines 2018--2020
+Underfull \hbox (badness 10000) in paragraph at lines 2001--2003
+
+ []
+
+
+Overfull \hbox (0.50061pt too wide) in paragraph at lines 2022--2024
 \OT1/cmr/m/n/10 L'operatore al mem-bro di sin-is-tra ^^Re non in-vert-ibile per ipotesi, men-tre l'operatore
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2022--2026
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2032--2033
+Underfull \hbox (badness 10000) in paragraph at lines 2026--2030
 
  []
 
 [71]
-Underfull \hbox (badness 10000) in paragraph at lines 2050--2053
+Underfull \hbox (badness 10000) in paragraph at lines 2040--2043
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2050--2053
+Overfull \hbox (11.8191pt too wide) in paragraph at lines 2040--2043
+\OT1/cmr/m/n/10 Data $\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^[\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ))$ per il \OT1/cmr/m/it/10 teo-rema di Stone-Weierstrass \OT1/cmr/m/n/10 es-iste $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 p[]\OMS/cmsy/m/n/10 g[] ^^Z \OML/cmm/m/it/10 Pol\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^[\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ))$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2050--2051
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2057--2060
+Underfull \hbox (badness 10000) in paragraph at lines 2068--2071
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2062--2065
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2062--2065
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2066--2068
+Underfull \hbox (badness 10000) in paragraph at lines 2068--2071
 
  []
 
 [72]
-Underfull \hbox (badness 10000) in paragraph at lines 2074--2077
+Underfull \hbox (badness 10000) in paragraph at lines 2075--2078
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2083--2086
+Underfull \hbox (badness 10000) in paragraph at lines 2080--2083
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2083--2086
+Underfull \hbox (badness 10000) in paragraph at lines 2080--2083
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2097--2100
-
- []
-
-[73] [74]
-Underfull \hbox (badness 10000) in paragraph at lines 2115--2116
+Underfull \hbox (badness 10000) in paragraph at lines 2084--2086
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2136--2139
+Underfull \hbox (badness 10000) in paragraph at lines 2092--2095
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2141--2142
+Underfull \hbox (badness 10000) in paragraph at lines 2101--2104
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2101--2104
+
+ []
+
+[73]
+Underfull \hbox (badness 10000) in paragraph at lines 2115--2118
+
+ []
+
+[74]
+Underfull \hbox (badness 10000) in paragraph at lines 2133--2134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2154--2157
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2159--2160
 
  []
 
 [75]
-Underfull \hbox (badness 10000) in paragraph at lines 2165--2168
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2170--2173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2175--2176
+Underfull \hbox (badness 10000) in paragraph at lines 2183--2186
 
  []
 
@@ -1557,23 +1557,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 2188--2191
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 2193--2194
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2206--2209
+
+ []
+
 [76]
-Underfull \hbox (badness 10000) in paragraph at lines 2193--2195
+Underfull \hbox (badness 10000) in paragraph at lines 2211--2213
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2222--2225
+Underfull \hbox (badness 10000) in paragraph at lines 2240--2243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2222--2225
+Underfull \hbox (badness 10000) in paragraph at lines 2240--2243
 
  []
 
 [77] [78]
-Underfull \hbox (badness 10000) in paragraph at lines 2238--2239
+Underfull \hbox (badness 10000) in paragraph at lines 2256--2257
 
  []
 
@@ -1592,7 +1602,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,18n,65p,1023b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on AM6.pdf (80 pages, 413341 bytes).
+Output written on AM6.pdf (80 pages, 414097 bytes).
 PDF statistics:
  354 PDF objects out of 1000 (max. 8388607)
  233 compressed objects within 3 object streams

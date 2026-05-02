@@ -1984,7 +1984,11 @@ per un opportuno $n \in \mathbf{N}$ e con $a_0, \dots, a_n \in \mathbf{C}$. Defi
 \begin{align}
     p(A) = a_0\mathbf{1} + a_1A + \dots a_nA^n \notag
 \end{align}
-Notiamo che la definizione è ben posta, infatti noto $A$ sappiamo come determinare potenze di $A$, inoltre $p(A)$ è ancora un elemento di $\mathcal{B}(\mathcal{H})$ dato che è combinazione lineare di elementi di $\mathcal{B}(\mathcal{H})$. \\
+e 
+\begin{align}
+    p(A)^* = a_0^*\mathbf{1} + a_1^*A + \dots + a_n^*A^n \notag
+\end{align}
+Notiamo che la definizione è ben posta, infatti noto $A$ sappiamo come determinare potenze arbitrarie di $A$, inoltre $p(A)$ è ancora un elemento di $\mathcal{B}(\mathcal{H})$ dato che è combinazione lineare di elementi di $\mathcal{B}(\mathcal{H})$. \\
 Vediamo come estendere questa definizione a funzioni continue generiche. \\ \\
 \textbf{Teorma (calcolo funzionale continuo):} sia $A \in \mathcal{B}(\mathcal{H})$ un operatore autoaggiunto, esiste unica $\phi : C(\sigma(A)) \longrightarrow \mathcal{B}(\mathcal{H})$ che ad ogni funzione $f$ continua su $\sigma(A)$ associa $f(A) \in \mathcal{B}(\mathcal{H})$ tale che: \\
 \textbf{1.} $(\alpha f + \beta g)(A) = \alpha f(A) + \beta g(A)$ per ogni $\alpha, \beta \in \mathbf{C}$ e ogni $f, g \in C(\sigma(A))$ ($\phi$ lineare). \\
@@ -2026,6 +2030,20 @@ Dato che $p$ è definita su $\sigma(A)$ si ha
 \begin{align}
     \|p\|_\infty = \sup_{\lambda \in \sigma(A)}|p(\lambda)| \notag
 \end{align}
+Dato che $p(A)$ è un operatore normale (potenze di $A$ commutano tra loro), per il \textit{teorema 2.7.1} si ha che $\|p(A)\|_{\mathcal{B}(\mathcal{H})} = r(p(A))$, dove
+\begin{align}
+    r(p(A)) = \sup_{\lambda \in \sigma(p(A))} |\lambda| \notag
+\end{align}
+Per quanto appena dimostrato si ha che $\sigma(p(A)) = p(\sigma(A))$, quindi 
+\begin{align}
+    r(p(A)) = \sup_{\lambda \in \sigma(A)} |p(\lambda)| = \|p\|_\infty \notag
+\end{align}
+ovvero $\|p(A)\|_{\mathcal{B}(\mathcal{H})} = \|p\|_{\infty}$. \\ \\
+Data $f \in C(\sigma(A))$ per il \textit{teorema di Stone-Weierstrass} esiste $\{p_n\}_{n \in \mathbf{N}} \subset Pol(\sigma(A))$ tale che $p_n$ converge uniformemente a $f$ in $\sigma(A)$. Allora poniamo 
+\begin{align}
+    f(A) := \lim_{n \rightarrow \infty}p_n(A) \notag
+\end{align}
+limite in norma $\|\cdot\|_{\mathcal{B}(\mathcal{H})}$.
 
 
 \subsubsection{Esercizi}
