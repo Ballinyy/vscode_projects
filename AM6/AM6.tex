@@ -1990,7 +1990,7 @@ e
 \end{align}
 Notiamo che la definizione è ben posta, infatti noto $A$ sappiamo come determinare potenze arbitrarie di $A$, inoltre $p(A)$ è ancora un elemento di $\mathcal{B}(\mathcal{H})$ dato che è combinazione lineare di elementi di $\mathcal{B}(\mathcal{H})$. \\
 Vediamo come estendere questa definizione a funzioni continue generiche. \\ \\
-\textbf{Teorma (calcolo funzionale continuo):} sia $A \in \mathcal{B}(\mathcal{H})$ un operatore autoaggiunto, esiste unica $\phi : C(\sigma(A)) \longrightarrow \mathcal{B}(\mathcal{H})$ che ad ogni funzione $f$ continua su $\sigma(A)$ associa $f(A) \in \mathcal{B}(\mathcal{H})$ tale che: \\
+\textbf{Teorema (calcolo funzionale continuo):} sia $A \in \mathcal{B}(\mathcal{H})$ un operatore autoaggiunto, esiste unica $\phi : C(\sigma(A)) \longrightarrow \mathcal{B}(\mathcal{H})$ che ad ogni funzione $f$ continua su $\sigma(A)$ associa $f(A) \in \mathcal{B}(\mathcal{H})$ tale che: \\
 \textbf{1.} $(\alpha f + \beta g)(A) = \alpha f(A) + \beta g(A)$ per ogni $\alpha, \beta \in \mathbf{C}$ e ogni $f, g \in C(\sigma(A))$ ($\phi$ lineare). \\
 \textbf{2.} $(fg)(A) = f(A)g(A)$ e $(\overline{f}^{\mathbf{C}})(A) = f(A)^*$ per ogni $f, g \in C(\sigma(A))$ ($\phi$ $*$-omomorfismo unitale). \\
 \textbf{3.} $\|f(A)\|_{\mathcal{B}(\mathcal{H})} = \|f\|_{\infty}$ ($\phi$ isomorfismo). \\
@@ -2038,12 +2038,14 @@ Per quanto appena dimostrato si ha che $\sigma(p(A)) = p(\sigma(A))$, quindi
 \begin{align}
     r(p(A)) = \sup_{\lambda \in \sigma(A)} |p(\lambda)| = \|p\|_\infty \notag
 \end{align}
-ovvero $\|p(A)\|_{\mathcal{B}(\mathcal{H})} = \|p\|_{\infty}$. \\ \\
+ovvero $\|p(A)\|_{\mathcal{B}(\mathcal{H})} = \|p\|_{\infty}$. \\
+Notiamo che il punto $(4)$ segue prendendo come funzione polinomiale $f(x) = 1$ per ogni $x \in \mathcal{H}$. \\ \\
 Data $f \in C(\sigma(A))$ per il \textit{teorema di Stone-Weierstrass} esiste $\{p_n\}_{n \in \mathbf{N}} \subset Pol(\sigma(A))$ tale che $p_n$ converge uniformemente a $f$ in $\sigma(A)$. Allora poniamo 
 \begin{align}
     f(A) := \lim_{n \rightarrow \infty}p_n(A) \notag
 \end{align}
-limite in norma $\|\cdot\|_{\mathcal{B}(\mathcal{H})}$.
+limite in norma $\|\cdot\|_{\mathcal{B}(\mathcal{H})}$. \\
+Data questa definizione per $f(A)$ seguono immediatamente i punti $(1)$ e $(2)$, dato che l'operazione di limite preserva la struttura algebrica.
 
 
 \subsubsection{Esercizi}
