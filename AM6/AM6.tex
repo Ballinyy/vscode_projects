@@ -1998,7 +1998,7 @@ Vediamo come estendere questa definizione a funzioni continue generiche. \\ \\
 \textbf{5.} $\sigma(f(A)) = f(\sigma(A))$ per ogni $f \in C(\sigma(A))$. \\
 \textbf{6.} se $f \geq 0$ allora $f(A) \geq \mathcal{O}$, ovvero $(x, f(A)x) \geq 0$ per ogni $x \in \mathcal{H}$. \\
 
-\textbf{Dimostrazione:} trattiamo prima il caso di funzioni polinomiali, successivamente applicando il \textit{teorema di Stone-Weierstrass} ci ricondurremo al caso di funzioni continue (questo è possibile perché sappiamo che lo spettro di un operatore limitato è un sottoinsieme compatto di $\mathbf{C}$). \\ \\
+\textbf{Dimostrazione:} trattiamo prima il caso di funzioni polinomiali, defininendo $\phi(p) = p(A)$ per ogni funzione polinomiale $p \in Pol(\sigma(A))$, successivamente applicando il \textit{teorema di Stone-Weierstrass} ci ricondurremo al caso di funzioni continue (questo è possibile perché sappiamo che lo spettro di un operatore limitato è un sottoinsieme compatto di $\mathbf{C}$). \\ \\
 Il primo risultato è verificare che se $p \in C(\sigma(A))$ è una funzione polinomiale si ha $\sigma(p(A)) = p(\sigma(A))$. Pertanto verifichiamo che se $\lambda \in \sigma(A)$ si ha che 
 \begin{align}
     p(\lambda)\mathbf{1} - p(A) \notag
@@ -2044,9 +2044,23 @@ Data $f \in C(\sigma(A))$ per il \textit{teorema di Stone-Weierstrass} esiste $\
 \begin{align}
     f(A) := \lim_{n \rightarrow \infty}p_n(A) \notag
 \end{align}
-limite in norma $\|\cdot\|_{\mathcal{B}(\mathcal{H})}$. \\
-Data questa definizione per $f(A)$ seguono immediatamente i punti $(1)$ e $(2)$, dato che l'operazione di limite preserva la struttura algebrica.
-
+limite in norma $\|\cdot\|_{\mathcal{B}(\mathcal{H})}$, sappiamo che il limite è unico dato che $\mathcal{B}(\mathcal{H})$ è di Hausdorff. \\
+Dimostriamo che $f(A)$ non dipende dalla scelta della successione approssimante di polinomi. Siano $\{p_n\}_{n \in \mathbf{N}}$ e $\{q_n\}_{n \in \mathbf{N}}$ due successioni di polinomi in $Pol(\sigma(A))$ tali che $q_n \rightarrow f$ e $p_n \rightarrow f$ per $n \rightarrow \infty$. Allora per ogni $\varepsilon > 0$ esiste $N_\varepsilon \in \mathbf{N}$ tale che 
+\begin{align}
+    \|p_n(A) - q_n(A)\|_{\mathcal{B}(\mathcal{H})} &= \|p_n - q_n\|_\infty \notag \\
+    &\leq \|p_n - f\|_\infty + \|f - q_n\|_\infty < 2\varepsilon \notag
+\end{align}
+per ogni $n \geq N_\varepsilon$ per definizione di limite. \\
+Data questa definizione per $f(A)$ seguono immediatamente i punti $(1)$ e $(2)$, dato che l'operazione di limite preserva la struttura algebrica. \\
+Dimostriamo ora che $\|f(A)\|_{\mathcal{B}(\mathcal{H})} = \|f\|_\infty$. Per continuità della norma si ha che 
+\begin{align}
+    \|f(A)\|_{\mathcal{B}(\mathcal{H})} = \lim_{n \rightarrow \infty}\|p_n(A)\|_{\mathcal{B}(\mathcal{H})} \notag
+\end{align}
+e
+\begin{align}
+    \|f\|_{\infty} = \lim_{n \rightarrow \infty}\|p_n\|_\infty \notag
+\end{align}
+Per le funzioni polinomiali sappiamo che vale $\|p(A)\|_{\mathcal{B}(\mathcal{H})} = \|p\|_\infty$, pertanto $\|p_n(A)\|_{\mathcal{B}(\mathcal{H})} = \|p_n\|_\infty$ per ogni $n \in \mathbf{N}$. Segue che $\|f(A)\|_{\mathcal{B}(\mathcal{H})} = \|f\|_\infty$.
 
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che se $P \in \mathcal{B}(\mathcal{H})$ è un proiettore non banale ($P \neq \mathcal{O}, \mathbf{1}$), ovvero $P = P^2$ e $P = P^*$, si ha $\sigma(P) = \{0, 1\}$. \\
@@ -2120,7 +2134,23 @@ $(\leftarrow)$ Sia $P_\mu P_\nu = P_\nu = P_\nu P_\mu$ e sia $y \in \mathrm{Im}(
 \begin{align}
     y = P_\nu x = P_\mu (P_\nu x) \notag
 \end{align}
-ovvero $y \in \mathrm{Im}(P_\mu)$ e quindi $\mathrm{Im}(P_\nu) \subset \mathrm{Im}(P_\mu)$. \qed
+ovvero $y \in \mathrm{Im}(P_\mu)$ e quindi $\mathrm{Im}(P_\nu) \subset \mathrm{Im}(P_\mu)$. \qed \\ \\
+\textbf{5.} Sia $\{A_n\}_{n \in \mathbf{N}} \subset \mathcal{B}(\mathcal{H})$ una successione decrescente di operatori positivi e sia $A := \inf_n A_n$, ovvero $A = \lim_n A_n$. Dimostrare che $A$ è limitato e positivo. \\
+
+\textbf{Dimostrazione:} per ipotesi la successione di numeri reali $\{(x, A_n x)\}_{n \in \mathbf{N}}$ è positiva. Per continuità del prodotto interno si ha che 
+\begin{align}
+    \lim_{n \rightarrow \infty}(x, A_n x) = (x, \lim_{n \rightarrow \infty} A_n x) = (x, A x) \notag
+\end{align}
+Supponiamo per assurdo che $(x, A x) = -\varepsilon$ per qualche $\varepsilon > 0$, allora per defizione di limite esiste $N_\varepsilon \in \mathbf{N}$ tale che 
+\begin{align}
+    |(x, Ax) - (x, A_n x)| < \frac{\varepsilon}{2} \notag
+\end{align}
+per ogni $n \geq N_\varepsilon$. Tuttavia ciò comporta $(x, A_n x) < 0$ per ogni $n \geq N_\varepsilon$, ovvero $A_n < \mathcal{O}$ per ogni $n \geq N_\varepsilon$, che è assurdo. \\ \\
+Infine $A$ è limitato, infatti per ipotesi si ha $(x, Ax) \leq (x, A_n x)$ per ogni $n \in \mathbf{N}$, allora si ha
+\begin{align}
+    (x, An) \leq \|x\|\|Ax\| \leq \|x\|^2\|A\| \leq \|x\|^2\|A_n\| \notag
+\end{align}
+ovvero $\|A\| \leq \|A_n\|$ per ogni $n \in \mathbf{N}$, quindi $A$ limitato. \qed
 
 
 
