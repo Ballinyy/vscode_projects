@@ -1968,7 +1968,7 @@ L'operatore $e^{iA}$ è unitario, infatti
 \begin{align}
     (e^{iA})^* &= \sum_{n = 0}^\infty \frac{(-iA)^n}{n!} = e^{-iA} \notag
 \end{align}
-e per il \textit{teorema di Backer-Campbell-Hausdorff} si ha $e^{iA}e^{-iA} = e^{i(A - A)} = \mathbf{1}$. Se $\lambda \in \mathbf{C} \setminus \mathbf{R}$ si ha che $e^{i\lambda} \not\in \mathbf{S}^1$, infatti compare un termine reale all'esponente che influisce sulla norma Segue dal punto $(4)$ che $e^{i\lambda} \in \rho(e^{iA})$, ovvero $(e^{i\lambda}\mathbf{1} - e^{iA})$ è invertibile. Notiamo che 
+e per il \textit{teorema di Backer-Campbell-Hausdorff} si ha $e^{iA}e^{-iA} = e^{i(A - A)} = \mathbf{1}$. Se $\lambda \in \mathbf{C} \setminus \mathbf{R}$ si ha che $e^{i\lambda} \not\in \mathbf{S}^1$, infatti compare un termine reale all'esponente che influisce sulla norma. Segue dal punto $(4)$ che $e^{i\lambda} \in \rho(e^{iA})$, ovvero $(e^{i\lambda}\mathbf{1} - e^{iA})$ è invertibile. Notiamo che 
 \begin{align}
     (e^{i\lambda}\mathbf{1} - e^{iA}) &= e^{i\lambda}(\mathbf{1} - e^{i(A - \lambda\mathbf{1})}) \notag \\
     &= e^{i\lambda}\sum_{n = 1}^\infty \frac{i^n(A - \lambda\mathbf{1})^n}{n!} \notag \\
@@ -2060,7 +2060,16 @@ e
 \begin{align}
     \|f\|_{\infty} = \lim_{n \rightarrow \infty}\|p_n\|_\infty \notag
 \end{align}
-Per le funzioni polinomiali sappiamo che vale $\|p(A)\|_{\mathcal{B}(\mathcal{H})} = \|p\|_\infty$, pertanto $\|p_n(A)\|_{\mathcal{B}(\mathcal{H})} = \|p_n\|_\infty$ per ogni $n \in \mathbf{N}$. Segue che $\|f(A)\|_{\mathcal{B}(\mathcal{H})} = \|f\|_\infty$.
+Per le funzioni polinomiali sappiamo che vale $\|p(A)\|_{\mathcal{B}(\mathcal{H})} = \|p\|_\infty$, pertanto $\|p_n(A)\|_{\mathcal{B}(\mathcal{H})} = \|p_n\|_\infty$ per ogni $n \in \mathbf{N}$. Segue che $\|f(A)\|_{\mathcal{B}(\mathcal{H})} = \|f\|_\infty$. \\
+Il punto $(5)$ è conseguenza del \textit{teorema della mappa spettrale}, pertanto omettiamo la dimostrazione. \\
+Infine dimostriamo il punto $(5)$. Se $f \geq 0$ esiste $g \in C(\sigma(A))$ tale che $f = g^2$. Allora si ha 
+\begin{align}
+    (x, f(A)x) &= (x, g(A)^2x) \notag \\
+    &= (g(A)^*x, g(A)x) \notag \\
+    &= (g(A)x, g(A)x) \geq 0 \notag
+\end{align}
+dove si è usato $g = g^*$ dato che $g$ è reale. \qed
+
 
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che se $P \in \mathcal{B}(\mathcal{H})$ è un proiettore non banale ($P \neq \mathcal{O}, \mathbf{1}$), ovvero $P = P^2$ e $P = P^*$, si ha $\sigma(P) = \{0, 1\}$. \\
