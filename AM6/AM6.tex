@@ -2089,7 +2089,40 @@ Infine dimostriamo il punto $(5)$. Se $f \geq 0$ esiste $g \in C(\sigma(A))$ tal
     &= (g(A)^*x, g(A)x) \notag \\
     &= (g(A)x, g(A)x) \geq 0 \notag
 \end{align}
-dove si è usato $g = g^*$ dato che $g$ è reale. \qed
+dove si è usato $g = g^*$ dato che $g$ è reale. \qed \\ \\
+\textbf{Corollario (2.7.3):} dato $A \in \mathcal{B}(\mathcal{H})$ si ha che $A \geq \mathcal{O}$ se e solo se $A = A^*$ e $\sigma(A) \subset [0, +\infty)$. \\
+
+\textbf{Dimostrazione:} $(\rightarrow)$ sia $A \geq \mathcal{O}$. Allora 
+\begin{align}
+    0 \leq (x, Ax) = (A^*x, x) = (A^*x, x)^* = (x, A^*x) \notag
+\end{align}
+ovvero $(x, Ax) = (x, A^*x)$ per ogni $x \in \mathcal{H}$, pertanto per l'\textit{identità di polarizzazione} si ottiene che $A = A^*$. Inoltre $\sigma(A) \subset [0, +\infty)$, infatti dato $\lambda < 0$ si ha che 
+\begin{align}
+    \|(A - \lambda\mathbf{1})x\|^2 = \|Ax\|^2 + \lambda^2\|x\|^2 - 2\lambda(x, Ax) \geq \lambda^2\|x\|^2 \notag
+\end{align}
+ovvero 
+\begin{align}
+    \frac{\|(A - \lambda\mathbf{1})x\|}{\|x\|} \geq \lambda \notag
+\end{align}
+e quindi $A - \lambda\mathbf{1}$ è lontano da zero. Segue dalla \textit{proposizione 2.6.1} che $A - \lambda\mathbf{1}$ è invertibile e $\lambda \in \rho(A)$. \\ \\
+$(\leftarrow)$ Sia $A = A^*$, per il \textit{teorema del calcolo funzionale continuo} esiste $B \in \mathcal{B}(\mathcal{H})$ tale che $\sqrt{A} = B$. Allora 
+\begin{align}
+    (x, Ax) = (x, B^2x) = (B^*x, Bx) = (Bx, Bx) \geq 0 \notag
+\end{align}
+ovvero $A \geq \mathcal{O}$. \qed \\ \\
+\textbf{Corollario (2.7.4):} $A \geq \mathcal{O}$ se e solo se $A = B^*B$ per qualche $B \in \mathcal{B}(\mathcal{H})$. \\ \\
+\textbf{Definizione:} una famiglia $\{P_\lambda\}_{\lambda \in \mathbf{R}} \subset \mathcal{B}(\mathcal{H})$ è detta \textit{risoluzione dell'identità} se: \\
+\textbf{1.} $P_\lambda$ è un proiettore ortogonale per ogni $\lambda \in \mathbf{R}$. \\
+\textbf{2.} $\{P_\lambda\}_{\mathbf{R}}$ è una famiglia monotona crescente, ovvero se $\mu \geq \nu$ si ha $P_\mu \geq P_\nu$, ovvero $\mathrm{Im}(P_\nu) \subset \mathrm{Im}(P_\nu)$. \\
+\textbf{3.} La funzione $\lambda \mapsto P_\lambda$ è continua da destra. \\
+\textbf{4.} Esistono $a, b \in \mathbf{R}$ tali che
+\begin{align}
+    \begin{cases}
+        P_\lambda = \mathcal{O} \qquad &\lambda \leq a \\
+        P_\lambda = \mathbf{1} \qquad &\lambda \geq b
+    \end{cases} \notag
+\end{align}
+in particolare si dice che $\{P_\lambda\}_{\lambda \in \mathbf{R}}$ è \textit{supportata} su $[a, b]$.
 
 
 \subsubsection{Esercizi}
