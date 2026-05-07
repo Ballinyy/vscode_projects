@@ -1099,8 +1099,47 @@ dove $d(E_N)$ rappresenta la degenerazione del livello energetico $E_N$. Possiam
 \end{align}
 ben normalizzata. A questo punto, per costruzione, si ha 
 \begin{align}
-    \braket{E} = \sum_{N, E_N} E_NP(E_N) \notag
+    \braket{E} = \sum_{N, E_N} E_NP(E_N) = -\left(\frac{\partial}{\partial\beta}\ln \tilde{Q}\right) _{Z, V}\notag
 \end{align}
+per $(3.1.12)$ si ha che 
+\begin{align}
+    -\left(\frac{\partial}{\partial\beta}\ln \tilde{Q}\right)_{Z, V} = -ZV\frac{\partial}{\partial\beta}f(T) = ZVf'(T)kT^2 \tag{3.1.23}
+\end{align}
+dove si è usata l'ipotesi $\tilde{Q} = Vf(T)$. A questo punto possiamo calcolare il calore specifico a volume costante $c_V$ usando la definizione termodinamica 
+\begin{align}
+    c_V &= \left(\frac{\partial}{\partial T}\braket{E}\right)_{Z, V} \notag \\
+    &= \left(\frac{\partial}{\partial T}\frac{f'(T)}{f(T)}\braket{N}kT^2\right)_{Z, V} \notag \\
+    &= \braket{N}kT\frac{2f(T)f'(T) + Tf(T)f''(T) - T(f'(T))^2}{(f(T))^2} \tag{3.1.24}
+\end{align}
+dove si è usato $\braket{N} = ZVf(T)$ e quindi $Z = \frac{\braket{N}}{Vf(T)}$. Questa espressione tornerà molto utile quando la dipendenza di $f$ da $T$ è della forma $T^\alpha$ per qualche $\alpha \in \mathbf{R}$. \\ \\
+Per $(3.1.12)$ si ha che 
+\begin{align}
+    P(E_N) &= \frac{Z^Nd(E_N)e^{-\beta E_N}}{\sum_{N, E_N}Z^Nd(E_N)e^{-\beta E_N}} \notag \\
+    &= \frac{Z^NQ_N}{\sum_N Z^NQ_N} \notag \\
+    &= \frac{Z^NQ^N_1}{N!}e^{-ZQ_1} \notag \\
+    &= \frac{\braket{N}}{N!}e^{-\braket{N}} \tag{3.1.25}
+\end{align}
+ovvero $P(E_N)$ è una distribuzione poissoniana. Nell'appendice si dimostra che per $\braket{N} \rightarrow \infty$ la distribuzione poissoniana si comporta come una distribuzione gaussiana. \\ \\
+A questo punto studiamo come si comportano le fluttuazioni del numero di particelle. Per definizione 
+\begin{align}
+    \braket{N^2} &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} \notag
+\end{align}
+e 
+\begin{align}
+    \braket{(\Delta N)^2} &= \braket{N^2} - \braket{N}^2 \notag \\
+    &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} - \left(\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right) \tag{3.1.26}
+\end{align}
+Verifichiamo che vale la seguente relazione 
+\begin{align}
+    \braket{(\Delta N)^2} = Z\left(\frac{\partial}{\partial Z}\braket{N}\right)_{V, T} \tag{3.1.27}
+\end{align}
+Si ha che 
+\begin{align}
+    Z\left(\frac{\partial}{\partial Z}\braket{N}\right)_{V, T} &= Z\left(\frac{\partial}{\partial Z}\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)_{V, T} \notag \\
+    &= Z\left(\frac{\sum_{N}N^2Z^{N - 1}Q_N}{\sum_{N}Z^NQ_N} - \frac{\sum_{N}NZ^{N - 1}Q_N\sum_{N}NZ^NQ_N}{\left(\sum_N Z^NQ_N\right)^2}\right) \notag \\
+    &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} - \left(\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right) \tag{3.1.28}
+\end{align}
+ovvero $(3.1.27)$ è dimostrata.
 
 
 
@@ -1258,7 +1297,7 @@ Per la formula di Stirling possiamo scrivere
 \end{align}
 pertanto 
 \begin{align}
-    P(x) \sim \frac{1}{\sqrt{2\pi}}e^{-\lambda}\frac{\lambda^x}{e^{-x}x^{x + 1/2}} = \frac{1}{\sqrt{2\pi}}e^{-\lambda + x\ln \lambda + x + (x + 1/2)\ln x} \notag
+    P(x) \sim \frac{1}{\sqrt{2\pi}}e^{-\lambda}\frac{\lambda^x}{e^{-x}x^{x + 1/2}} = \frac{1}{\sqrt{2\pi}}e^{-\lambda + x\ln \lambda + x - (x + 1/2)\ln x} \notag
 \end{align}
 Consideriamo solamente l'esponente, sostituendo $x = \lambda + \Delta$ si ha 
 \begin{align}

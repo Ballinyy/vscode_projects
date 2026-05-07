@@ -1540,6 +1540,27 @@ per ogni $x, y \in \mathcal{H}$, ovvero
 \end{align}
 per ogni $x, y \in \mathcal{H}$, quindi $Sx = S'x$ per ogni $x \in \mathcal{H}$ che comporta $S = S'$. \qed
 
+\subsubsection{Esercizi}
+\textbf{1.} Dimostrare che dato $T \in \mathcal{B}(\mathcal{H})$ l'\textit{identità di polarizzazione} è valida anche per il prodotto sesquilineare definito da  
+\begin{align}
+    \{x, y\} := (x, Ty) \notag
+\end{align}
+per ogni $x, y \in \mathcal{H}$. \\
+
+\textbf{Dimostrazione:} si ha che 
+\begin{align}
+    (x + i^kTy, x + i^kTy) &= \|x\|^2 + \|Ty\|^2 + i^k(x, Ty) + (-i)^k(Ty, x) \notag
+\end{align}
+Sommando per $k = 0, 1, 2, 3$ i termini reali si cancellano, pertanto si ottiene
+\begin{align}
+    \sum_{k = 0}^3 (-i)^k(x + i^kTy, x + i^kTy) &= 4(x, Ty) \notag
+\end{align}
+quindi 
+\begin{align}
+    \{x, y\} = (x, Ty) = \frac{1}{4}\sum_{k = 0}^3(-i)^k(x + i^kTy, x + i^kTy) \notag
+\end{align}
+pertanto noto $(x, Tx)$ per ogni $x \in \mathcal{H}$ è noto anche $(x, Ty)$ per ogni $x, y \in \mathcal{H}$ e quindi è noto $T$. \qed
+
 \newpage
 \subsection{Sistemi ortogonali}
 \textbf{Definizione:} sia $\mathcal{H}$ uno spazio di Hilbert, un \textit{sistema ortogonale} è una famiglia $(e_\alpha)_{\alpha} \subset \mathcal{H}$ tale che $(e_\alpha, e_\beta) = \delta_{\alpha\beta}$. \\ \\
@@ -1958,7 +1979,7 @@ $(3)$ sia $TT^* = T^*T$, allora per l'\textit{identità} $C^*$ si ha
 \begin{align}
     \|T^*T\|^2 = \|(T^*T)(T^*T)\| = \|(T^*)^2(T)^2\| = \|T^2\|^2 \notag
 \end{align}
-pertanto abbiamo dimostrato che $\|T^2\| = \|T\|^2$. Iterando il ragionamento si dimostra che $\|T^{2^n}\| = \|T\|^{2^n}$ con $n \in \mathbf{N}$. A questo punto applicando il teorema di Gelfand si ottiene la tesi. \\ \\
+pertanto abbiamo dimostrato che $\|T^2\| = \|T\|^2$. Iterando il ragionamento si dimostra che $\|T^{2^n}\| = \|T\|^{2^n}$ con $n \in \mathbf{N}$. A questo punto applicando il \textit{teorema di Gelfand} si ottiene la tesi. \\ \\
 $(4)$ Sia $V$ un operatore unitario, allora $V^*$ è l'inverso bilatero di $V$. Per il punto $(2)$ si ha che se $\lambda \in \sigma(V)$ allora $\lambda^{-1} \in \sigma(V^{-1})$. Inoltre per il punto $(3)$ si ha $\sigma(V) \overline{\subset D_r(0)}$ e $\sigma(V^{-1}) \subset \overline{D_r(0)}$ con $r = \|V\|$. Segue dall'identità $C^*$ che $\|V\| = 1$ per $V$ unitario. Pertanto se $\lambda \in \sigma(V)$ si ha $|\lambda| \leq 1$ e $\frac{1}{|\lambda|} \leq 1$, ovvero $|\lambda| = 1$ e quindi $\lambda \in \mathbf{S}^1$. \\ \\
 $(5)$ Sia $A$ autoaggiunto, mostriamo che se $\lambda \in \mathbf{C} \setminus \mathbf{R}$ si ha $(\lambda\mathbf{1} - A)$ invertibile. Definiamo 
 \begin{align}

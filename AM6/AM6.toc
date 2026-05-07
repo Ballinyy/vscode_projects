@@ -18,6 +18,7 @@
 \contentsline {subsection}{\numberline {2.2}Spazi di Banach}{36}{}%
 \contentsline {subsubsection}{\numberline {2.2.1}Esercizi}{45}{}%
 \contentsline {subsection}{\numberline {2.3}Spazi di Hilbert}{47}{}%
+\contentsline {subsubsection}{\numberline {2.3.1}Esercizi}{54}{}%
 \contentsline {subsection}{\numberline {2.4}Sistemi ortogonali}{55}{}%
 \contentsline {subsection}{\numberline {2.5}Aggiunto di un operatore}{57}{}%
 \contentsline {subsection}{\numberline {2.6}Operatori autoaggiunti}{60}{}%
