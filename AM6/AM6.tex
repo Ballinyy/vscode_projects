@@ -113,7 +113,7 @@ Questa definizione serve a selezionare gli insiemi che si comportano regolarment
 \textbf{Proposizione 1.2.3:} siano $E, F \subset \mathbf{R}^n$, allora $\overline{m}(E \cup F) \leq \overline{m}(E) + \overline{m}(F)$, inoltre se $E \cap F = \emptyset$ si ha $\underline{m}(E \cup F) \geq \underline{m}(E) + \underline{m}(F)$. \\
 
 \textbf{Dimostrazione:} siano $A, B$ aperti tali che $E \subset A$ e $F \subset B$, allora $E \cup F \subset A \cup B$, pertanto $\overline{m}(E \cup F) \leq m(A \cup B)$, inoltre per il \textit{lemma 1.2.2} si ha $m(A \cup B) \leq m(A) + m(B)$, quindi $\overline{m}(E \cup F) \leq m(A) + m(B)$, possiamo concludere che $\overline{m}(E \cup F) \leq \overline{m}(E) + \overline{m}(F)$ dalla definizione di misura esterna. \\
-Siano ora $E, F$ disgiunti, $K, L \subset \mathbb{R}^n$ chiusi tali che $K \subset E$ e $L \subset F$, allora $K \cup L \subset E \cup F$, pertanto $\underline{m}(E \cup F) \geq m(K \cup L)$. Inoltre anche $K$ e $L$ sono disgiunti, quindi per il \textit{lemma 1.2.3} si ha $m(K \cup L) \geq m(K) + m(L)$, ciò comporta $\underline{m}(E \cup F) \geq m(K) + m(L)$, possiamo concludere $\underline{m}(E \cup F) \geq \underline{m}(E) + \underline{m}(F)$ dalla definizione di misura interna. \qed \\
+Siano ora $E, F$ disgiunti, $K, L \subset \mathbb{R}^n$ chiusi tali che $K \subset E$ e $L \subset F$, allora $K \cup L \subset E \cup F$, pertanto $\underline{m}(E \cup F) \geq m(K \cup L)$. Inoltre anche $K$ e $L$ sono disgiunti, quindi per il \textit{lemma 1.2.3} si ha $m(K \cup L) \geq m(K) + m(L)$, ciò comporta $\underline{m}(E \cup F) \geq m(K) + m(L)$, possiamo concludere $\underline{m}(E \cup F) \geq \underline{m}(E) + \underline{m}(F)$ dalla definizione di misura interna. \qed \\ \\
 Notiamo che se $E$ e $F$ sono disgiunti e misurabili si ha $m(E \cup F) = m(E) + m(F)$. Ciò vale anche per un numero $N$ finito di insiemi misurabili a due a due disgiunti: $m(F_1 \cup F_2 \cup \dots \cup F_N) = m(F_1) + m(F_2) + \dots + m(F_N)$. \\ \\
 \textbf{Lemma 1.2.5:} siano $A$ un aperto misurabile e $B$ un compatto misurabile tali che $B \subset A$. Allora $m(A \setminus B) = m(A) - m(B)$. \\
 
@@ -2206,8 +2206,29 @@ pertanto per ottenere
 \begin{align}
     \frac{d}{d\mu}h_{\lambda, m} = -m \leq 2\mu n^2 - 2\lambda n - 2n = \frac{d}{d\mu}(h_{\lambda, n}(\mu))^2 \notag
 \end{align}
-basta prendere $m \geq 2n$.
-
+basta prendere $m \geq 2n$. Dunque per $m \geq 2n$ si ha 
+\begin{align}
+    (x, h_{\lambda, m}(A)x) \leq (x, (h_{\lambda, n}(A))^2x) \leq (x, h_{\lambda, n}(A)x) \notag
+\end{align}
+ovvero 
+\begin{align}
+    (x, h_{\lambda, m}(A)x) \leq (h_{\lambda, n}(A)x, h_{\lambda, n}(A)x) \leq (x, h_{\lambda, n}(A)x) \notag
+\end{align}
+Per $n \rightarrow \infty$ (e quindi $m \rightarrow \infty$) si ottiene 
+\begin{align}
+    (x, P^A_\lambda x) \leq (P^A_\lambda x, P^A_\lambda x) \leq (x, P^A_\lambda x) \notag \\
+    (x, P^A_\lambda x) \leq (x, (P^A_\lambda)^2x) \leq (x, P^A_\lambda x) \notag
+\end{align}
+per continuità del prodotto scalare su entrambe le entrate. Per l'\textit{identità di polarizzazione} concludiamo che $(P^A_\lambda)^2 = P^A_\lambda$ per ogni $\lambda \in \mathbf{R}$. \\
+Infine mostriamo la continuità da destra. Per ogni $\mu, \lambda \in \mathbf{R}$ si ha
+\begin{align}
+    \|P^A_\mu x - P^A_\lambda x\|^2 = ((P^A_\mu - P^A_\lambda)x, (P^A_\mu - P^A_\lambda)x) = (x, (P^A_\mu - P^A_\lambda)x) \notag
+\end{align}
+Sia $\{\mu_n\}_{n \in \mathbf{N}} \subset \mathbf{R}$ tale che $\mu_n \rightarrow \mu$ per $n \rightarrow \infty$ da destra, ovvero $\mu_n \geq \mu$ per ogni $n \in \mathbf{N}$. Consideriamo la seguente successione di funzioni $\{h_{\mu_n, n}\}_{n \in \mathbf{N}}$ e poniamo 
+\begin{align}
+    Q = \lim_{n \rightarrow \infty} h_{\mu, n}(A) \notag
+\end{align}
+Il limite esiste ed è ben definito in $S.O.T.$ dato che $\{h_{\mu_n, n}(A)\}_{n \in \mathbf{N}}$ è una famiglia decrescente di operatori. Mostriamo che $Q = P^A_\mu$.
 
 
 \subsubsection{Esercizi}
