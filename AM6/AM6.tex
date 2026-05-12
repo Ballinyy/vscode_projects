@@ -2168,7 +2168,7 @@ Nel senso che $A \leq A_n$ per ogni $n \in \mathbf{N}$. Inoltre $A \geq \mathcal
 \end{align}
 Per ipotesi la successione $\{(x, A_nx)\}_{n \in \mathbf{N}}$ è positiva decrescente in $\mathbf{R}$, pertanto ammette limite e quindi è di Cauchy, segue che anche $\{A_nx\}_{n \in \mathbf{N}}$ è di Cauchy. Poiché $\mathcal{H}$ è completo esiste $Ax \in \mathcal{H}$ tale che $A_nx \rightarrow Ax$ per $n \rightarrow \infty$. \\
 Il resto è dimostrato nell'\textit{esercizio 5}. \qed \\ \\
-Dato $A \in \mathcal{B}(\mathcal{H})$ autoaggiunto siamo interessati a costruire una risoluzione dell'identità associata $\{P^A_\lambda\}_{\lambda \in \mathbf{R}}$ in modo tale da poter definire una misura associata. Siano $\lambda \in \mathbf{R}$ e $n \in \mathbf{N}$, poniamo 
+Dato $A \in \mathcal{B}(\mathcal{H})$ autoaggiunto, siamo ora interessati a costruire una risoluzione dell'identità $\{P^A_\lambda\}_{\lambda \in \mathbf{R}}$ associata ad $A$ in modo tale da poter definire una misura. Siano $\lambda \in \mathbf{R}$ e $n \in \mathbf{N}$, poniamo 
 \begin{align}
     h_{\lambda, n}(\mu) = \begin{cases}
         1 \qquad &\mu \leq \lambda \\
@@ -2176,11 +2176,37 @@ Dato $A \in \mathcal{B}(\mathcal{H})$ autoaggiunto siamo interessati a costruire
         0 \qquad &\mu \geq \lambda + \frac{1}{n}
     \end{cases} \notag
 \end{align}
+con $h_{\lambda, n} = 0$ se $\lambda \leq a$ e $h_{\lambda, n} = 1$ se $\lambda \geq b$ per qualche $a, b \in \mathbf{R}$ e per ogni $n \in \mathbf{N}$. \\
 Notiamo subito che $h_{\lambda, n}$ è continua e positiva per ogni $\lambda \in \mathbf{R}$ e ogni $n \in \mathbf{N}$. Per il \textit{calcolo funzionale continuo} si ha che $h_{\lambda, n}(A) \geq \mathcal{O}$ per ogni $\lambda \in \mathbf{R}$ e ogni $n \in \mathbf{N}$. Inoltre $h_{\lambda, n + 1} \leq h_{\lambda, n}$ per ogni $\lambda \in \mathbf{R}$ e ogni $n \in \mathbf{N}$, pertanto per l'\textit{esistenza dell'inf in $\mathcal{B}(\mathcal{H})$ in S.O.T.} è ben definito 
 \begin{align}
     P^A_\lambda = \lim_{n \rightarrow \infty}h_{\lambda, n}(A) \notag
 \end{align}
-Mostriamo ora che $\{P^A_\lambda\}_{\lambda \in \mathbf{R}}$ è una risoluzione dell'identità.
+Mostriamo ora che $\{P^A_\lambda\}_{\lambda \in \mathbf{R}}$ è una risoluzione dell'identità. Dato che $\{h_{\lambda, n}\}_{\lambda \in \mathbf{R}}$ è una famiglia monotona crescente segue che anche $\{P^A_\lambda\}_{\lambda \in \mathbf{R}}$ è una famiglia monotona crescente. \\ 
+$(P^A_\lambda)^* = P^A_\lambda$ per ogni $\lambda \in \mathbf{R}$, infatti $h_{\lambda, n}$ è una funzione reale per ogni $\lambda \in \mathbf{R}$ e $n \in \mathbf{N}$ e l'operazione di limite preserva l'algebra. \\
+Notiamo che $\{P^A_\lambda\}_{\lambda \in \mathbf{R}}$ è supportata sull'intervallo $[a, b]$ per costruzione di della famiglia di funzioni $\{h_{\lambda, n}\}_{\lambda, n}$. \\
+Resta da dimostrare che sono idempotenti (e quindi proiettori) e che la famiglia $\{P^A_\lambda\}_{\lambda \in \mathbf{R}}$ è continua da destra. Notiamo che 
+\begin{align}
+    (h_{\lambda, n})^2 \leq h_{\lambda, n} \notag
+\end{align}
+per ogni $\lambda \in \mathbf{R}$ e ogni $n \in \mathbf{N}$. Mostriamo che fissato $m$ abbstanza grande (che dipende dall'indice $n$) si ha 
+\begin{align}
+    h_{\lambda, m} \leq (h_{\lambda, n})^2 \leq h_{\lambda, n} \notag
+\end{align}
+una volta fatto ciò possiamo svolgere il limite per $n \rightarrow \infty$, che vedremo comporta anche $m \rightarrow \infty$, e otterremo $(P^A_\lambda)^2 = P^A_\lambda$ per ogni $n \in \mathbf{N}$. \\
+Per $\mu \in (\lambda, \lambda + 1/n)$ si ha 
+\begin{align}
+    (h_{\lambda, n}(\mu))^2 &= (-\mu n + \lambda n + 1)^2 \notag \\
+    &= \mu^2n^2 + \lambda^2n^2 + 1 - 2\mu\lambda n - 2\mu n + 2\lambda n \notag
+\end{align}
+quindi 
+\begin{align}
+    \frac{d}{d\mu}(h_{\lambda, n}(\mu))^2 = 2\mu n^2 - 2\lambda n - 2n \notag
+\end{align}
+pertanto per ottenere 
+\begin{align}
+    \frac{d}{d\mu}h_{\lambda, m} = -m \leq 2\mu n^2 - 2\lambda n - 2n = \frac{d}{d\mu}(h_{\lambda, n}(\mu))^2 \notag
+\end{align}
+basta prendere $m \geq 2n$.
 
 
 
