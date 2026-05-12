@@ -2160,9 +2160,28 @@ dove si è usato $(\sqrt{A})^* = \sqrt{A}$, dato che il calcolo funzionale conti
 \begin{align}
     A = \inf_{n \in \mathbf{N}} A_n \notag
 \end{align}
-Inoltre $A \geq \mathcal{O}$ e $A \leq A_n$ per ogni $n \in \mathbf{N}$. \\
+Nel senso che $A \leq A_n$ per ogni $n \in \mathbf{N}$. Inoltre $A \geq \mathcal{O}$ e $A_nx \rightarrow Ax$ per $n \rightarrow \infty$ per ogni $x \in \mathcal{H}$, ovvero $\{A_n\}_{n \in \mathbf{N}}$ converge ad $A$ in S.O.T. (\textit{strong operator topology}). \\
 
-\textbf{Dimostrazione:} 
+\textbf{Dimostrazione:} dato $x \in \mathcal{H}$ e posto $n \geq m$, per il \textit{lemma 2.7.5, 2.7.6, 2.7.7} si ha che
+\begin{align}
+    \|A_nx - A_mx\|^2 \leq \|A_n - A_m\|(x, (A_n - A_m)x) \leq 2\|A_1\|(x, (A_n - A_m)x) \notag
+\end{align}
+Per ipotesi la successione $\{(x, A_nx)\}_{n \in \mathbf{N}}$ è positiva decrescente in $\mathbf{R}$, pertanto ammette limite e quindi è di Cauchy, segue che anche $\{A_nx\}_{n \in \mathbf{N}}$ è di Cauchy. Poiché $\mathcal{H}$ è completo esiste $Ax \in \mathcal{H}$ tale che $A_nx \rightarrow Ax$ per $n \rightarrow \infty$. \\
+Il resto è dimostrato nell'\textit{esercizio 5}. \qed \\ \\
+Dato $A \in \mathcal{B}(\mathcal{H})$ autoaggiunto siamo interessati a costruire una risoluzione dell'identità associata $\{P^A_\lambda\}_{\lambda \in \mathbf{R}}$ in modo tale da poter definire una misura associata. Siano $\lambda \in \mathbf{R}$ e $n \in \mathbf{N}$, poniamo 
+\begin{align}
+    h_{\lambda, n}(\mu) = \begin{cases}
+        1 \qquad &\mu \leq \lambda \\
+        -n\mu + n\lambda + 1 \qquad &\lambda < \mu < \lambda + \frac{1}{n} \\
+        0 \qquad &\mu \geq \lambda + \frac{1}{n}
+    \end{cases} \notag
+\end{align}
+Notiamo subito che $h_{\lambda, n}$ è continua e positiva per ogni $\lambda \in \mathbf{R}$ e ogni $n \in \mathbf{N}$. Per il \textit{calcolo funzionale continuo} si ha che $h_{\lambda, n}(A) \geq \mathcal{O}$ per ogni $\lambda \in \mathbf{R}$ e ogni $n \in \mathbf{N}$. Inoltre $h_{\lambda, n + 1} \leq h_{\lambda, n}$ per ogni $\lambda \in \mathbf{R}$ e ogni $n \in \mathbf{N}$, pertanto per l'\textit{esistenza dell'inf in $\mathcal{B}(\mathcal{H})$ in S.O.T.} è ben definito 
+\begin{align}
+    P^A_\lambda = \lim_{n \rightarrow \infty}h_{\lambda, n}(A) \notag
+\end{align}
+Mostriamo ora che $\{P^A_\lambda\}_{\lambda \in \mathbf{R}}$ è una risoluzione dell'identità.
+
 
 
 \subsubsection{Esercizi}
@@ -2251,7 +2270,7 @@ Supponiamo per assurdo che $(x, A x) = -\varepsilon$ per qualche $\varepsilon > 
 per ogni $n \geq N_\varepsilon$. Tuttavia ciò comporta $(x, A_n x) < 0$ per ogni $n \geq N_\varepsilon$, ovvero $A_n < \mathcal{O}$ per ogni $n \geq N_\varepsilon$, che è assurdo. \\ \\
 Infine $A$ è limitato, infatti per ipotesi si ha $(x, Ax) \leq (x, A_n x)$ per ogni $n \in \mathbf{N}$, allora si ha
 \begin{align}
-    (x, An) \leq \|x\|\|Ax\| \leq \|x\|^2\|A\| \leq \|x\|^2\|A_n\| \notag
+    (x, Ax) \leq \|x\|\|Ax\| \leq \|x\|^2\|A\| \leq \|x\|^2\|A_n\| \notag
 \end{align}
 ovvero $\|A\| \leq \|A_n\|$ per ogni $n \in \mathbf{N}$, quindi $A$ limitato. \qed
 
