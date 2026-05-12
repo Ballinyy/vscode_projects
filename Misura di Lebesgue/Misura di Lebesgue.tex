@@ -3,7 +3,7 @@
 \usepackage[italian]{babel}
 \usepackage{amsfonts, amsmath, amssymb, amsthm, float}
 
-\title{Misura di Lebesgue in $\mathbb{R}^n$}
+\title{Misura di Lebesgue in $\mathbf{R}^n$}
 \author{Alessandro Ballini}
 \date{}
 
@@ -15,15 +15,15 @@
 \newpage
 
 \section{Intervalli e plurintervalli}
-Iniziamo dando una definizione di misura per gli insiemi più semplici di $\mathbb{R}^n$: gli intervalli.\\ \\
-\textbf{Definizione 1.1}: un insieme $Q$ è detto \textbf{intervallo} di $\mathbb{R}^n$ se è della forma
+Iniziamo dando una definizione di misura per gli insiemi più semplici di $\mathbf{R}^n$: gli intervalli.\\ \\
+\textbf{Definizione 1.1}: un insieme $Q$ è detto \textbf{intervallo} di $\mathbf{R}^n$ se è della forma
 \begin{equation}
     Q = (a_1,b_1) \times (a_2,b_2) \times ... \times (a_n, b_n) \notag
 \end{equation}
-ovvero prodotto cartesiano di intervalli di $\mathbb{R}$. Può essere scritto anche $Q = \{ \vec{x} \in \mathbb{R}^n: a_1 \leq x_1 \leq b_1,..., a_n \leq x_n \leq b_n \}$ con $\vec{x} = (x_1,x_2,x_3,...,x_n)$.\\ \\
-\textbf{Definizione 1.2}: la misura di un intervallo $Q \in \mathbb{R}^n$ è definita da $m(Q) := \prod_{i \leq n}(b_i - a_i)$.\\ \\
-A questo punto possiamo dare una definizione di misura per insiemi più generici detti \textbf{plurintervalli}, le proprietà della misura definita sui plurintervalli saranno poi "ereditate" dagli insiemi detti misurabili di $\mathbb{R}^n$.\\
-In $\mathbb{R}^n$ fissiamo su ogni asse coordinato un numero finito di punti, siano $a^1_1, a^1_2, ... , a^1_{k_1}$ sull'asse $x_1$, $a^2_1, a^2_2, ... , a^2_{k_2}$ sull'asse $x_2$, analogamente fino a $a^n_1, a^n_2, ... , a^n_{k_n}$ sull'asse $x_n$. Consideriamo ora gli iperpiani di equazioni:
+ovvero prodotto cartesiano di intervalli di $\mathbf{R}$. Può essere scritto anche $Q = \{ \vec{x} \in \mathbf{R}^n: a_1 \leq x_1 \leq b_1,..., a_n \leq x_n \leq b_n \}$ con $\vec{x} = (x_1,x_2,x_3,...,x_n)$.\\ \\
+\textbf{Definizione 1.2}: la misura di un intervallo $Q \in \mathbf{R}^n$ è definita da $m(Q) := \prod_{i \leq n}(b_i - a_i)$.\\ \\
+A questo punto possiamo dare una definizione di misura per insiemi più generici detti \textbf{plurintervalli}, le proprietà della misura definita sui plurintervalli saranno poi "ereditate" dagli insiemi detti misurabili di $\mathbf{R}^n$.\\
+In $\mathbf{R}^n$ fissiamo su ogni asse coordinato un numero finito di punti, siano $a^1_1, a^1_2, ... , a^1_{k_1}$ sull'asse $x_1$, $a^2_1, a^2_2, ... , a^2_{k_2}$ sull'asse $x_2$, analogamente fino a $a^n_1, a^n_2, ... , a^n_{k_n}$ sull'asse $x_n$. Consideriamo ora gli iperpiani di equazioni:
 \begin{equation}
     x_1 = a^1_1, \ x_1 = a^1_2, \dots , \ x_1 = a^1_{k_1} \notag
 \end{equation}
@@ -37,20 +37,20 @@ In $\mathbb{R}^n$ fissiamo su ogni asse coordinato un numero finito di punti, si
 \begin{equation}
     x_n = a^n_1, \ x_n = a^n_2, \dots , \ x_n = a^n_{k_n} \notag
 \end{equation}
-L'unione di questi $k_1 + k_2 + \dots + k_n$ iperpiani è detto \textbf{reticolato} su $\mathbb{R}^n$. Un reticolato $\mathcal{P}$ suddivide $\mathbb{R}^n$ in un numero finito di intervalli chiusi e limitati, detti \textbf{intervalli del reticolato}, più un numero finito di insiemi illimitati. \\ \\
-\textbf{Definizione 1.3:} un insieme $X$ è detto \textbf{plurintervallo} di $\mathbb{R}^n$ se esiste un reticolato $\mathcal{P}$ tale che $X$ è unione finita di \textit{intervalli} di $\mathcal{P}$ (anche non tutti). Allora se $I_1, I_2, \dots, I_m$ sono intervalli di $\mathcal{P}$ si ha che:
+L'unione di questi $k_1 + k_2 + \dots + k_n$ iperpiani è detto \textbf{reticolato} su $\mathbf{R}^n$. Un reticolato $\mathcal{P}$ suddivide $\mathbf{R}^n$ in un numero finito di intervalli chiusi e limitati, detti \textbf{intervalli del reticolato}, più un numero finito di insiemi illimitati. \\ \\
+\textbf{Definizione 1.3:} un insieme $X$ è detto \textbf{plurintervallo} di $\mathbf{R}^n$ se esiste un reticolato $\mathcal{P}$ tale che $X$ è unione finita di \textit{intervalli} di $\mathcal{P}$ (anche non tutti). Allora se $I_1, I_2, \dots, I_m$ sono intervalli di $\mathcal{P}$ si ha che:
 \begin{equation}
     X = I_1 \cup \dots \cup I_m \implies m(X) = m(I_1) + \dots + m(I_m) \tag{1.1}
 \end{equation}
 Poiché un plurintervallo è rappresentabile utilizzando reticolati differenti dobbiamo dimostrare che la misura di un plurintervallo, definita da \textbf{1.1.1}, è indipendente dalla rappresentazione scelta. \\
-Sia $\mathcal{P}'$ un reticolato di $\mathbb{R}^n$, $\mathcal{P}'$ è detto \textbf{raffinamento} di $\mathcal{P}$ se vale $\mathcal{P} \subseteq \mathcal{P}'$, quindi, a parole, se $\mathcal{P}'$ contiene tutti gli iperpiani di $\mathcal{P}$ più qualche altro. Notiamo che aggiungendo un iperpiano la misura di $X$ non varia, per come è stata definita, al più varia come è distribuita tra gli intervalli del reticolato. Pertanto, ragionando per induzione, si verifica immediatamente che la misura di $X$ è indipendente dalla rappresentazione scelta. \\ \\
+Sia $\mathcal{P}'$ un reticolato di $\mathbf{R}^n$, $\mathcal{P}'$ è detto \textbf{raffinamento} di $\mathcal{P}$ se vale $\mathcal{P} \subseteq \mathcal{P}'$, quindi, a parole, se $\mathcal{P}'$ contiene tutti gli iperpiani di $\mathcal{P}$ più qualche altro. Notiamo che aggiungendo un iperpiano la misura di $X$ non varia, per come è stata definita, al più varia come è distribuita tra gli intervalli del reticolato. Pertanto, ragionando per induzione, si verifica immediatamente che la misura di $X$ è indipendente dalla rappresentazione scelta. \\ \\
 Siano ora $\mathcal{P}_1$ e $\mathcal{P}_2$ reticolati tali che $X$ si possa rappresentare sia come unione di intervalli di $\mathcal{P}_1$ che come unione di intervalli di $\mathcal{P}_2$; notiamo che $\mathcal{P}_1 \cup \mathcal{P}_2$ è un raffinamento per entrambi, perciò si ha che $m(X)$ calcolata usando intervalli di $\mathcal{P}_1$ combacia con $m(X)$ calcolata usando intervalli di $\mathcal{P}_2$ poiché entrambe combaciano con $m(X)$ calcolata usando intervalli del raffinamento $\mathcal{P}_1 \cup \mathcal{P}_2$, per quanto visto prima. \\ \\
 Analogamente si può mostrare che due plurintervalli $X$ e $Y$ possono essere rappresentati come unione di intervalli dello stesso reticolato. Infatti se $X$ è rappresentabile come unione di intervalli di un reticolato $\mathcal{P}$ e $X \subset Y$, o viceversa, è sufficiente raffinare abbastanza $\mathcal{P}$ per poter rappresentare anche $Y$. Mentre se sono uguali è possibile utilizzare lo stesso reticolato. \\
 Pertanto segue che $X \cup Y$ è ancora un plurintervallo, poiché unione di intervalli di un reticolato, e che $m(X \cup Y) \leq m(X) + m(Y)$, in particolare se $X \cap Y = \emptyset$ si ha che $m(X \cup Y) = m(X) + m(Y)$.
 \subsection{Esercizi}
 \textbf{1.} Siano $I$ e $J$ intervalli. Dimostrare che se $I$ e $J$ hanno punti interni in comune si ha che $I \cap J$ è un intervallo. \\ \\
 \textbf{Soluzione:} per ipotesi $\mathring{I} \cap \mathring{J} \neq \emptyset$. Poiché $I = [a_1, b_1] \times \dots \times [a_n, b_n]$ e $J = [c_1, d_1] \times \dots \times [c_n, d_n]$ segue che $(a_i, b_i) \cap (c_i, d_i) \neq \emptyset \ \ \forall i = 1, \dots, n$. Sappiamo che se due aperti hanno intersezione non nulla allora hanno un numero infinito di punti in comune, quindi definiamo $\mathcal{G}_i := [a_i, b_i] \cap [c_i, d_i] \ \ i = 1, \dots, n$, allora si ottiene $I \cap J = \mathcal{G}_1 \times \dots \times \mathcal{G}_n$ ed è perciò un intervallo. \\ \\ \\
-\textbf{2.} Siano $Y = I_1 \cup \dots \cup I_N$ e $Z = J_1 \cup \dots \cup J_M, \ N, M \in \mathbb{N}$, plurintervalli. Supponiamo che per $h = 1, \dots, N$ e per $k = 1, \dots, M$ l'insieme $I_h \cap J_k = \emptyset$ oppure $I_h \cap J_k = [s_1, t_1] \times \dots \times [s_n, t_n], \ s_i, t_i \in \mathbb{R}, \ i = 1, \dots, n$. Dimostrare che $Y \cap Z$ è un intervallo. \\ \\
+\textbf{2.} Siano $Y = I_1 \cup \dots \cup I_N$ e $Z = J_1 \cup \dots \cup J_M, \ N, M \in \mathbf{N}$, plurintervalli. Supponiamo che per $h = 1, \dots, N$ e per $k = 1, \dots, M$ l'insieme $I_h \cap J_k = \emptyset$ oppure $I_h \cap J_k = [s_1, t_1] \times \dots \times [s_n, t_n], \ s_i, t_i \in \mathbf{R}, \ i = 1, \dots, n$. Dimostrare che $Y \cap Z$ è un intervallo. \\ \\
 \textbf{Soluzione:} si ha che $I \cap J = \bigcup_i \left( \bigcup_j \left[ I_i \cap J_j \right] \right)$ che è unione di intervalli $n$-dimensionali e di insiemi vuoti, i quali non contribuiscono all'unione, perciò anche $I \cap J$ è un plurintervallo, infatti è intersezione di intervalli compatti e quindi sicuramente esiste un reticolato che lo rappresenta. \\ \\ \\
 \textbf{3.} Sia $I$ un intervallo. Dimostrare che $\exists J$ intervallo tale che  $I \subset \mathring{J}$ e che $\forall \varepsilon > 0 \ m(J) < m(I) + \varepsilon$. \\ \\
 \textbf{Soluzione:} sia $\varepsilon > 0$ e sia $\delta > 0$. Siano $I := [a_1, b_1] \times \dots \times [a_n, b_n]$ e \\$J := [a_1 - \frac{\delta}{2}, b_1 + \frac{\delta}{2}] \times \dots \times [a_n - \frac{\delta}{2}, b_n + \frac{\delta}{2}]$, allora è immediato che $I \subset \mathring{J}$. Sia ora $\delta = \delta(\varepsilon)$, si ha:
@@ -60,7 +60,7 @@ Pertanto segue che $X \cup Y$ è ancora un plurintervallo, poiché unione di int
 \end{align*}
 con $\sigma(\delta)$ continua per $\delta \in (0, + \infty)$ e $\sigma(\delta) \rightarrow 0$ per $\delta \rightarrow 0$. Pertanto basta scegliere $\delta$ tale che $\sigma(\delta) < \varepsilon$ e si ottiene la tesi. \newpage
 \section{Insiemi misurabili}
-Diamo ora una definizione di misura per insiemi \textit{aperti} e insiemi \textit{chiusi} \textbf{limitati }di $\mathbb{R}^n$ (topologia euclidea sottintesa). \\ \\
+Diamo ora una definizione di misura per insiemi \textit{aperti} e insiemi \textit{chiusi} \textbf{limitati }di $\mathbf{R}^n$ (topologia euclidea sottintesa). \\ \\
 \textbf{Definizione 2.1:} sia $A$ un aperto, si definisce la misura di $A$, scritto $m(A)$ (o $m_n(A)$ per specificare la dimensione), la quantità:
 \begin{equation}
     m(A) := \sup \left\{ m(Z) : Z \text{ plurintervallo}, \ Z \subset A \right\} \tag{2.1}
@@ -82,33 +82,33 @@ per come è stato definito e per le proprietà topologiche degli aperti si ha ch
 
 \subsection{Esercizi}
 \textbf{1.} Sia $W$ un plurintervallo, si dimostri che per ogni $\varepsilon > 0$ esiste $Z$ plurintervallo tale che $W \subset \mathring{Z}$ e $m(Z) < m(W) + \varepsilon$. Analogamente si dimostri che per ogni $\varepsilon > 0$ esiste $Y$ plurintervallo tale che $Y \subset \mathring{W}$ e $m(Y) > m(W) - \varepsilon$. \\ \\
-\textbf{Soluzione:} siano $I_1, I_2, \dots , I_N$ gli intervalli di un reticolato $\mathcal{P}$, con $I_k := [a_{k_1}, b_{k_1}] \times \dots \times [a_{k_n}, b_{k_n}]$ dove $a_{k_l}, b_{k_l} \in \mathbb{R} \ \forall k = 1, ... , N, \ \forall l = 1, ... , n$; sia $W := \bigcup_{j = 1}^N I_j$. Sia $\varepsilon > 0$, consideriamo ora gli intervalli $J_k := [a_{k_1} - \frac{\delta}{2}, b_{k_1} + \frac{\delta}{2}] \times \dots \times [a_{k_n} - \frac{\delta}{2}, b_{k_n} + \frac{\delta}{2}]$, con $\delta = \delta_\varepsilon > 0$, sia $Z := \bigcup_{i = 1}^N J_i$. Per come sono stati costruiti abbiamo che $W \subset \mathring{Z}$ e $m(Z) = m(W) + \sigma(\delta)$, dove $\sigma(\delta)$ è un polinomio di grado $n$ senza termine noto, pertanto basta scegliere $\delta$ tale che $\sigma(\delta) < \varepsilon$ e si ha $m(Z) < m(W) + \varepsilon$, ciò è possibile poiché $\sigma(0) = 0$ e per $\delta \in [0, + \infty)$ $\sigma(\delta)$ è continua. \\
+\textbf{Soluzione:} siano $I_1, I_2, \dots , I_N$ gli intervalli di un reticolato $\mathcal{P}$, con $I_k := [a_{k_1}, b_{k_1}] \times \dots \times [a_{k_n}, b_{k_n}]$ dove $a_{k_l}, b_{k_l} \in \mathbf{R} \ \forall k = 1, ... , N, \ \forall l = 1, ... , n$; sia $W := \bigcup_{j = 1}^N I_j$. Sia $\varepsilon > 0$, consideriamo ora gli intervalli $J_k := [a_{k_1} - \frac{\delta}{2}, b_{k_1} + \frac{\delta}{2}] \times \dots \times [a_{k_n} - \frac{\delta}{2}, b_{k_n} + \frac{\delta}{2}]$, con $\delta = \delta_\varepsilon > 0$, sia $Z := \bigcup_{i = 1}^N J_i$. Per come sono stati costruiti abbiamo che $W \subset \mathring{Z}$ e $m(Z) = m(W) + \sigma(\delta)$, dove $\sigma(\delta)$ è un polinomio di grado $n$ senza termine noto, pertanto basta scegliere $\delta$ tale che $\sigma(\delta) < \varepsilon$ e si ha $m(Z) < m(W) + \varepsilon$, ciò è possibile poiché $\sigma(0) = 0$ e per $\delta \in [0, + \infty)$ $\sigma(\delta)$ è continua. \\
 Consideriamo ora gli intervalli $H_k := [a_{k_1} + \frac{\delta}{2}, b_{k_1} - \frac{\delta}{2}] \times \dots \times [a_{k_n} + \frac{\delta}{2}, b_{k_n} - \frac{\delta}{2}]$, sia $Y := \bigcup_{s = 1}^N H_s$, analogamente si ha che $Y \subset \mathring{W}$ e $m(Y) = m(W) - \sigma(\delta)$, pertanto basta scegliere $\varepsilon > \sigma(\delta)$ per ottenere $m(Y) > m(W) - \varepsilon$. \\ \\ \\
-Diamo ora una definizione di misura per insiemi più generici di $\mathbb{R}^n$ a partire dalla definizione di misura data per gli insiemi aperti e chiusi limitati. \\ \\
-\textbf{Definizione 2.3:} sia $E \subset \mathbb{R}^n$
+Diamo ora una definizione di misura per insiemi più generici di $\mathbf{R}^n$ a partire dalla definizione di misura data per gli insiemi aperti e chiusi limitati. \\ \\
+\textbf{Definizione 2.3:} sia $E \subset \mathbf{R}^n$
 \begin{equation}
     \overline{m}(E) := \inf\left\{ m(A) : A \text{ aperto}, \ E \subset A \right\} \notag
 \end{equation}
 è detta \textbf{misura esterna} di $E$. \\ \\
 Analogamente possiamo definire una misura interna. \\ \\
-\textbf{Definizione 2.4:} sia $E \subset \mathbb{R}^n$
+\textbf{Definizione 2.4:} sia $E \subset \mathbf{R}^n$
 \begin{equation}
     \underline{m}(E) := \inf\left\{ m(C) : C \text{ chiuso}, \ C \subset E \right\} \notag
 \end{equation}
 è detta \textbf{misura interna} di $E$. \\ \\ \\
 \textbf{Lemma 2.3:} sia $A$ un aperto e $K \subset A$ un compatto. Allora esiste un plurintervallo $W$ tale che $K \subset W \subset A$. \\ \\
-\textbf{Dimostrazione:} sia $W \subset A$ un plurintervallo, la funzione $d(x, \mathbb{R}^n \setminus A)|_K$ è positiva e continua, pertanto, essendo $K$ compatto, essa ha un minimo positivo $r$ in $K$ stesso. Con un raffinamento $\mathcal{P}'$ del reticolato $\mathcal{P}$ possiamo ottenere un plurintervallo $W'$ tale che $\min_{W'} \, d(x, \mathbb{R}^n \setminus A) = \frac{r}{3}$ e $\max_{W'} \, d(x, \mathbb{R}^n \setminus A) = \frac{r}{2}$, allora si ha $K \subset W' \subset A$. \\ \\ \\
-\textbf{Proposizione 2.1:} per ogni $E \subset \mathbb{R}^n$ si ha che $\overline{m}(E) \geq \underline{m}(E)$. \\ \\
+\textbf{Dimostrazione:} sia $W \subset A$ un plurintervallo, la funzione $d(x, \mathbf{R}^n \setminus A)|_K$ è positiva e continua, pertanto, essendo $K$ compatto, essa ha un minimo positivo $r$ in $K$ stesso. Con un raffinamento $\mathcal{P}'$ del reticolato $\mathcal{P}$ possiamo ottenere un plurintervallo $W'$ tale che $\min_{W'} \, d(x, \mathbf{R}^n \setminus A) = \frac{r}{3}$ e $\max_{W'} \, d(x, \mathbf{R}^n \setminus A) = \frac{r}{2}$, allora si ha $K \subset W' \subset A$. \\ \\ \\
+\textbf{Proposizione 2.1:} per ogni $E \subset \mathbf{R}^n$ si ha che $\overline{m}(E) \geq \underline{m}(E)$. \\ \\
 \textbf{Dimostrazione:} siano $A \supset E$ un aperto e $K \subset E$ un compatto, segue che $K \subset A$. Per il \textbf{lemma 2.3} esiste un plurintervallo $W$ tale che $K \subset W \subset A$. Poiché ciò vale per ogni aperto $A$ e compatto $K$ si ha che $m(K) \leq m(A)$, pertanto segue dalle definizioni di misura esterna e interna che $\overline{m}(E) \geq \underline{m}(E)$. \\ \\
 Osserviamo che se $A$ è un aperto allora $\overline{m}(A) = m(A)$ e se $K$ è un compatto allora $\underline{m}(K) = m(K)$, inoltre poiché i plurintervalli sono una classe particolare di compatti si ha che $m(A) \leq \underline{m}(A)$, quindi per la \textbf{proposizione 2.1} si ha $\overline{m}(A) = \underline{m}(A) = m(A)$. \\
 Analogamente si conclude che se $K$ è un compatto si ha $\overline{m}(K) = \underline{m}(K) = m(K)$. Infatti, sfruttando il risultato dell'\textbf{esercizio 2.1.1}, $\underline{m}(K) = m(K)$ e $m(K) \leq \overline{m}(K)$. \\ \\ \\
-\textbf{Definizione 2.5:} sia $E \subset \mathbb{R}^n$, $E$ è detto \textbf{misurabile} (secondo Lebesgue) se $\overline{m}(E) = \underline{m}(E)$. \\ \\
+\textbf{Definizione 2.5:} sia $E \subset \mathbf{R}^n$, $E$ è detto \textbf{misurabile} (secondo Lebesgue) se $\overline{m}(E) = \underline{m}(E)$. \\ \\
 Questa definizione serve a selezionare gli insiemi che si comportano regolarmente rispetto alle definizioni di misura esterna e interna, proprio come gli insiemi aperti e chiusi (limitati). \\ \\
-\textbf{Proposizione 2.2:} un insieme $E \subset \mathbb{R}^n$ è misurabile se e solo se per ogni $\varepsilon > o$ esistono un aperto $A$ e un compatto $K$ tali che $K \subset E \subset A$ e $m(A) - m(K) < \varepsilon$. \\ \\
+\textbf{Proposizione 2.2:} un insieme $E \subset \mathbf{R}^n$ è misurabile se e solo se per ogni $\varepsilon > o$ esistono un aperto $A$ e un compatto $K$ tali che $K \subset E \subset A$ e $m(A) - m(K) < \varepsilon$. \\ \\
 \textbf{Dimostrazione:} segue direttamente dalla definizione e dalle proprietà dell'estremo inferiore e superiore di un insieme. \\ \\ \\
-\textbf{Proposizione 2.3:} siano $E, F \subset \mathbb{R}^n$, allora $\overline{m}(E \cup F) \leq \overline{m}(E) + \overline{m}(F)$, inoltre se $E \cap F = \emptyset$ si ha $\underline{m}(E \cup F) \geq \underline{m}(E) + \underline{m}(F)$. \\ \\
+\textbf{Proposizione 2.3:} siano $E, F \subset \mathbf{R}^n$, allora $\overline{m}(E \cup F) \leq \overline{m}(E) + \overline{m}(F)$, inoltre se $E \cap F = \emptyset$ si ha $\underline{m}(E \cup F) \geq \underline{m}(E) + \underline{m}(F)$. \\ \\
 \textbf{Dimostrazione:} siano $A, B$ aperti tali che $E \subset A$ e $F \subset B$, allora $E \cup F \subset A \cup B$, pertanto $\overline{m}(E \cup F) \leq m(A \cup B)$, inoltre per il \textbf{lemma 2.2} si ha $m(A \cup B) \leq m(A) + m(B)$, quindi $\overline{m}(E \cup F) \leq m(A) + m(B)$, possiamo concludere che $\overline{m}(E \cup F) \leq \overline{m}(E) + \overline{m}(F)$ dalla definizione di misura esterna. \\
-Siano ora $E, F$ disgiunti, $K, L \subset \mathbb{R}^n$ chiusi tali che $K \subset E$ e $L \subset F$, allora $K \cup L \subset E \cup F$, pertanto $\underline{m}(E \cup F) \geq m(K \cup L)$. Inoltre anche $K$ e $L$ sono disgiunti, quindi per il \textbf{lemma 2.3} si ha $m(K \cup L) \geq m(K) + m(L)$, ciò comporta $\underline{m}(E \cup F) \geq m(K) + m(L)$, possiamo concludere $\underline{m}(E \cup F) \geq \underline{m}(E) + \underline{m}(F)$ dalla definizione di misura interna. \\ \\
+Siano ora $E, F$ disgiunti, $K, L \subset \mathbf{R}^n$ chiusi tali che $K \subset E$ e $L \subset F$, allora $K \cup L \subset E \cup F$, pertanto $\underline{m}(E \cup F) \geq m(K \cup L)$. Inoltre anche $K$ e $L$ sono disgiunti, quindi per il \textbf{lemma 2.3} si ha $m(K \cup L) \geq m(K) + m(L)$, ciò comporta $\underline{m}(E \cup F) \geq m(K) + m(L)$, possiamo concludere $\underline{m}(E \cup F) \geq \underline{m}(E) + \underline{m}(F)$ dalla definizione di misura interna. \\ \\
 Notiamo che se $E$ e $F$ sono disgiunti e misurabili si ha $m(E \cup F) = m(E) + m(F)$. Ciò vale anche per un numero $N$ finito di insiemi misurabili a due a due disgiunti: $m(F_1 \cup F_2 \cup \dots \cup F_N) = m(F_1) + m(F_2) + \dots + m(F_N)$. \\ \\ \\
 \textbf{Lemma 2.4:} siano $A$ un aperto misurabile e $B$ un compatto misurabile tali che $B \subset A$. Allora $m(A \setminus B) = m(A) - m(B)$. \\ \\
 \textbf{Dimostrazione:} per ipotesi $A = B \cup (A \setminus B)$ unione disgiunta, inoltre $A \setminus B$ è un aperto e pertanto misurabile, per la \textbf{proposizione 2.3} si ha $m(A) = m(B) + m(A \setminus B)$ e quindi $m(A \setminus B) = m(A) - m(B)$. \\ \\ \\
@@ -120,23 +120,23 @@ Osserviamo che per una coppia di insiemi misurabili vale sempre $m(E) + m(F) = m
 \textbf{1.} Dimostrare che se $E, F, G$ sono misurabili, allora $m(E \cup F \cup G) = m(E) + m(F) + m(G) - m(E \cap F) - m(E \cap G) - m(F \cap G) + m( E \cap F \cap G)$. \\ \\
 \textbf{Dimostrazione:} dal \textbf{lemma 2.4} e dal \textbf{teorema 2.1} segue che se $E, F$ sono insiemi misurabili tali che $F \subset E$ allora $m(E \setminus F) = m(E) - m(F)$. \\
 Per una coppia insiemi misurabili $M, N$ si ha $m(M \cup N) = m(M) + m(N) - m(M \cap N)$, pertanto $m(E \cup (F \cup G)) = m(E) + m(F \cup G) - m(E \cap (F \cup G)) = m(E) + m(F) + m(G) - m(F \cap G) - m((E \cap F) \cup (E \cap G)) =  m(E) + m(F) + m(G) - m(F \cap G) - m(E \cap F) - m(E \cap G) + m(E \cap F \cap G)$. \\ \\ \\
-\textbf{2.} Sia $S \subset \mathbb{R}^2$ il segmento $S := \{ (x, y) \in \mathbb{R}^2 : y = 0, \ 0 \leq x \leq 1 \}$, dimostrare che $S$ è misurabile e che $m_2(S) = 0$. \\ \\
-\textbf{Dimostrazione:} $S$ è un compatto (il complementare è un aperto), siano $\varepsilon > 0$ e $\delta = \delta_\varepsilon > 0$, consideriamo il compatto $K_\varepsilon := \{ (x, y) \in \mathbb{R}^2 : y = 0, \ \frac{\delta}{2} \leq x \leq 1 - \frac{\delta}{2} \}$ e l'aperto $A_\varepsilon := \{ (x, y) \in \mathbb{R}^2 : -\frac{\delta}{2} < y < \frac{\delta}{2}, \ -\frac{\delta}{2} < x < 1 + \frac{\delta}{2} \}$, si ha $K_\varepsilon \subset S \subset A_\varepsilon$. Inoltre $K_\varepsilon$ e $A_\varepsilon$ sono plurintervalli, possiamo dunque calcolarne la misura a partire dalla definizione, pertanto $m(K_\varepsilon) = 0$ e $m(A_\varepsilon) = \delta(1 + \delta)$, per $\delta \in \left( 0, \frac{-1 + \sqrt{1 + 4\varepsilon}}{2} \right)$ si ottiene $m(A_\varepsilon) - m(K_\varepsilon) < \varepsilon$, quindi per la \textbf{proposizione 2.2} si ha che $S$ è misurabile. \\
+\textbf{2.} Sia $S \subset \mathbf{R}^2$ il segmento $S := \{ (x, y) \in \mathbf{R}^2 : y = 0, \ 0 \leq x \leq 1 \}$, dimostrare che $S$ è misurabile e che $m_2(S) = 0$. \\ \\
+\textbf{Dimostrazione:} $S$ è un compatto (il complementare è un aperto), siano $\varepsilon > 0$ e $\delta = \delta_\varepsilon > 0$, consideriamo il compatto $K_\varepsilon := \{ (x, y) \in \mathbf{R}^2 : y = 0, \ \frac{\delta}{2} \leq x \leq 1 - \frac{\delta}{2} \}$ e l'aperto $A_\varepsilon := \{ (x, y) \in \mathbf{R}^2 : -\frac{\delta}{2} < y < \frac{\delta}{2}, \ -\frac{\delta}{2} < x < 1 + \frac{\delta}{2} \}$, si ha $K_\varepsilon \subset S \subset A_\varepsilon$. Inoltre $K_\varepsilon$ e $A_\varepsilon$ sono plurintervalli, possiamo dunque calcolarne la misura a partire dalla definizione, pertanto $m(K_\varepsilon) = 0$ e $m(A_\varepsilon) = \delta(1 + \delta)$, per $\delta \in \left( 0, \frac{-1 + \sqrt{1 + 4\varepsilon}}{2} \right)$ si ottiene $m(A_\varepsilon) - m(K_\varepsilon) < \varepsilon$, quindi per la \textbf{proposizione 2.2} si ha che $S$ è misurabile. \\
 Poiché $S$ è misurabile si ha $m(S) = \underline{m}(S) = \overline{m}(S)$, allora $m(S) = 0$. \\ \\ \\
 \textbf{3.} Dimostrare che un insieme costituito da un solo punto ha misura nulla. \\ \\
-\textbf{Dimostrazione:} sia $\mathbf{x}_0 \in \mathbb{R}^n$, $\{ \mathbf{x}_0 \}$ è un chiuso (il complementare è un aperto) pertanto è misurabile, $m(\{ \mathbf{x}_0 \}) = \overline{m}(\{ \mathbf{x}_0 \})$. Sia $\varepsilon > 0$, consideriamo l'ipercubo $C_\varepsilon := [-\frac{\varepsilon}{2} + x_{0,1}, x_{0, 1} + \frac{\varepsilon}{2}] \times \dots \times [-\frac{\varepsilon}{2} + x_{0, n}, x_{0, n} + \frac{\varepsilon}{2}]$, allora $m(C_\varepsilon) = \varepsilon^n$, inoltre per definizione si ha $\overline{m}(\{ \mathbf{x}_0 \}) = \inf_\varepsilon \{m(C_\varepsilon)\} = 0$. \newpage
+\textbf{Dimostrazione:} sia $\mathbf{x}_0 \in \mathbf{R}^n$, $\{ \mathbf{x}_0 \}$ è un chiuso (il complementare è un aperto) pertanto è misurabile, $m(\{ \mathbf{x}_0 \}) = \overline{m}(\{ \mathbf{x}_0 \})$. Sia $\varepsilon > 0$, consideriamo l'ipercubo $C_\varepsilon := [-\frac{\varepsilon}{2} + x_{0,1}, x_{0, 1} + \frac{\varepsilon}{2}] \times \dots \times [-\frac{\varepsilon}{2} + x_{0, n}, x_{0, n} + \frac{\varepsilon}{2}]$, allora $m(C_\varepsilon) = \varepsilon^n$, inoltre per definizione si ha $\overline{m}(\{ \mathbf{x}_0 \}) = \inf_\varepsilon \{m(C_\varepsilon)\} = 0$. \newpage
 \section{Additività e subadditività numerabile della misura}
 Estendiamo i risultati precedenti ad un infinità numerabile di insiemi. \\ \\
 \textbf{Lemma 3.1:} sia $\{ A_i \}_{i \in I}$ una famiglia numerabile di insiemi aperti e sia $A := \bigcup_{i \in I} A_i$. Allora $m(A) \leq \sum_{i \in I} m(A_i)$; inoltre se $A_1 \subset A_2 \subset \dots$ risulta $m(A) = \lim_{i \rightarrow \infty} m(A_i)$. \\ \\
 \textbf{Dimostrazione:} Sia $W \subset A$ un plurintervallo, poiché $W$ è compatto e $\{ A_i \}_{i \in I}$ è un ricoprimento di $A$, esiste un numero finito $k$ di insiemi $A_{i1}, A_{i2}, \dots, A_{ik}$ tali che $W \subset A_{i1} \cup A_{i2} \cup \dots \cup A_{ik}$, allora $m(W) \leq m(A_{i1} \cup A_{i2} \cup \dots \cup A_{ik}) \leq \sum_{j = 1}^k m(A_{ij}) \leq \sum_{i \in I} m(A_i)$. Ciò vale per ogni plurintervallo $W \subset A$, pertanto dalla definizione di misura sugli aperti concludiamo $m(A) \leq \sum_{i \in I}m(A_i)$. \\
 Siano ora $A_1 \subset A_2 \subset \dots$, allora $W \subset A_j$ per qualche $j \in I$, pertanto $m(W) \leq m(A_j) \leq \sup_i m(A_i) = \lim_{i \rightarrow \infty} m(A_i)$, essendo la successione $\{ m(A_i) \}_{i \in I}$ crescente, dunque si ha $m(A) \leq \lim_{i \rightarrow \infty} m(A_i)$. Dimostriamo ora l'inverso, abbiamo che $A \supset A_j$ per ogni $j \in I$, allora $m(A) \geq m(A_j) \ \forall j \in I \rightarrow m(A) \geq \sup_i m(A_i) = \lim_{i \rightarrow \infty} m(A_i)$. \\ \\ \\
-\textbf{Proposizione 3.1:} sia $\{ E_i \}_{i \in I}$ una famiglia numerabile di insiemi di $\mathbb{R}^n$ e sia $E := \bigcup_{i \in I} E_i$, allora $\overline{m}(E) \leq \sum_{i \in I} \overline{m}(E_i)$; inoltre se $E_j \cap E_k = \emptyset \ \forall j \neq k$ si ha $\underline{m}(E) \geq \sum_{i \in I} \underline{m}(E_i)$. \\ \\
+\textbf{Proposizione 3.1:} sia $\{ E_i \}_{i \in I}$ una famiglia numerabile di insiemi di $\mathbf{R}^n$ e sia $E := \bigcup_{i \in I} E_i$, allora $\overline{m}(E) \leq \sum_{i \in I} \overline{m}(E_i)$; inoltre se $E_j \cap E_k = \emptyset \ \forall j \neq k$ si ha $\underline{m}(E) \geq \sum_{i \in I} \underline{m}(E_i)$. \\ \\
 \textbf{Dimostrazione:} Siano $\varepsilon > 0$ e $A_i$ aperto tale che $E_i \subset A_i$ e $m(A_i) < \overline{m}(E_i) + \varepsilon2^{-i} \ \ \forall i \in I$, pertanto $E \subset A := \bigcup_{i \in I} A_i$. Per definizione $\overline{m}(E_i) \leq m(A_i)$ e $\overline{m}(E) \leq m(A)$, ciò comporta:
 \begin{equation}
     \overline{m}(E) \leq m(A) \leq \sum_{i \in I} m(A_i) < \sum_{i \in I} (\overline{m}(E_i) + \varepsilon2^{-i}) \iff \overline{m}(E) \leq \sum_{i \in I} \overline{m}(E_i) \notag
 \end{equation}
 Ora siano gli insiemi $E_i$ due a due disgiunti, abbiamo che $E \supset \bigcup_{i = 1}^k E_i \ \forall k \in I$, pertanto $\underline{m}(E) \geq \sum_{i = 1}^k \underline{m}(E_i)$ per quanto visto nella \textbf{proposizione 2.3}, dunque passando al limite si ha $\underline{m}(E) \geq \sum_{i \in I} \underline{m}(E_i)$. \\ \\ \\
-\textbf{Proposizione 3.2;} sia $\{ E_i \}_{i \in I}$ una famiglia numerabile di insiemi di $\mathbb{R}^n$ tali che $E_1 \subset E_2 \subset E_3 \subset \dots$, sia $E := \bigcup_{i \in I} E_i$. Allora $\overline{m}(E) = \lim_{i \rightarrow \infty} \overline{m}(E_i)$. \\ \\
+\textbf{Proposizione 3.2;} sia $\{ E_i \}_{i \in I}$ una famiglia numerabile di insiemi di $\mathbf{R}^n$ tali che $E_1 \subset E_2 \subset E_3 \subset \dots$, sia $E := \bigcup_{i \in I} E_i$. Allora $\overline{m}(E) = \lim_{i \rightarrow \infty} \overline{m}(E_i)$. \\ \\
 \textbf{Dimostrazione:} sia $A_i \supset E_i$ aperto tale che $m(A_i) < \overline{m}(E_i) + \varepsilon2^{-i} \ \forall i \in I$, in questo caso gli insiemi $\{ A_i \}_{i \in I}$ non sono in genere contenuti uno nell'altro, pertanto non si può applicare il risultato del \textbf{lemma 3.1}. Consideriamo allora $B_k := A_1 \cup A_2 \cup \dots \cup A_k$ e mostriamo che $m(B_k) < \overline{m}(E_k) + \varepsilon \sum_{i = 1}^k 2^{-i} \ \forall k \in I$. Per $k = 1$ è vero per ipotesi, supponiamo sia vero per un certo $k$, dimostriamo ora che è vero per $k + 1$, sappiamo che $m(B_{k + 1}) = m(B_k) + m(A_{k + 1}) - m(B_k \cap A_{k + 1})$, osserviamo che $E_k \subset B_k \cap A_{k + 1}$ pertanto $\overline{m}(E_k) \leq m(B_k \cap A_{k + 1})$, dunque otteniamo:
 \begin{align}
     m(B_{k + 1}) &\leq \overline{m}(E_k) + \varepsilon \sum_{i = 1}^k 2^{-i} + \overline{m}(E_{k + 1}) + \varepsilon2^{-k - 1} - \overline{m}(E_k) \notag \\
@@ -162,9 +162,9 @@ ciò combacia con la definizione di misurabilità di un insieme. \\ \\ \\
     m(E) &\leq \sum_{i \in I} m(E_i) \notag
 \end{align}
 \\ \\
-\textbf{Osservazioni:} abbiamo mostrato che l'unione numerabile di insiemi misurabili è misurabile, ciò comporta che l'unione numerabile di insiemi di misura nulla ha ancora misura nulla. Nell'\textbf{esercizio 2.2.3} si è mostrato che un punto ha misura nulla, pertanto insiemi come $\mathbb{N}$ o $\mathbb{Q}$ hanno misura nulla essendo numerabili.
+\textbf{Osservazioni:} abbiamo mostrato che l'unione numerabile di insiemi misurabili è misurabile, ciò comporta che l'unione numerabile di insiemi di misura nulla ha ancora misura nulla. Nell'\textbf{esercizio 2.2.3} si è mostrato che un punto ha misura nulla, pertanto insiemi come $\mathbf{N}$ o $\mathbf{Q}$ hanno misura nulla essendo numerabili.
 \subsection{Esercizi}
-\textbf{1.} Sia $E_0 := B_1(0) \subset \mathbb{R}^2$ e per $k > 0$ sia $\mathbf{x}_k = (1 - 4^{-k}, 0)$ e $E_k := B(\mathbf{x}_k, 4^{-k-1})$, sia inoltre $E := E_0 \setminus \bigcup_{k = 1}^\infty E_k$. Si determini la misura di $E$. \\ \\
+\textbf{1.} Sia $E_0 := B_1(0) \subset \mathbf{R}^2$ e per $k > 0$ sia $\mathbf{x}_k = (1 - 4^{-k}, 0)$ e $E_k := B(\mathbf{x}_k, 4^{-k-1})$, sia inoltre $E := E_0 \setminus \bigcup_{k = 1}^\infty E_k$. Si determini la misura di $E$. \\ \\
 \textbf{Soluzione:} si ha:
 \begin{align}
     d(\mathbf{x}_{k + 1}, \mathbf{x}_k) &= | 4^{-k - 1} - 4^{-k} | \notag \\
@@ -173,7 +173,7 @@ ciò combacia con la definizione di misurabilità di un insieme. \\ \\ \\
 \end{align}
 pertanto $E_k \cap E_j = \emptyset \ \forall k \neq j$, inoltre si ha $E_k \subset E_0 \ \forall k > 0$, infatti:
 \begin{align}
-    d(\mathbf{x}_k, \mathbb{R}^2 \setminus E_0) = 4^{-k} > 4^{-k - 1} \notag
+    d(\mathbf{x}_k, \mathbf{R}^2 \setminus E_0) = 4^{-k} > 4^{-k - 1} \notag
 \end{align}
 consideriamo solamente la distanza lungo l'asse $\hat{x}_1$ poiché il raggio di curvatura dei dischi $E_k$ è minore del raggio di curvatura del disco $E_0$ per ogni $k > 0$. Otteniamo:
 \begin{align}
@@ -184,9 +184,9 @@ consideriamo solamente la distanza lungo l'asse $\hat{x}_1$ poiché il raggio di
 \end{align}
 \\ \\
 \textbf{2.} Dimostrare che se $E \subset F$ e $m(F) = 0$ allora anche $m(E) = 0$. \\ \\
-\textbf{Soluzione:} per ogni insieme $M \subset \mathbb{R}^n$ vale $m(M) \geq 0$. Poiché $E \subset F$ si ha $\overline{m}(E) \leq \overline{m}(F) = m(F) = 0$, pertanto deve valere $\overline{m}(E) = 0$ e dunque $\overline{m}(E) = \underline{m}(E) = m(E) = 0$. Osserviamo che è possibile affermare $\overline{m}(E) \leq \overline{m}(F)$ per come è definita la misura esterna (analogamente si può mostrare per la misura interna). \\ \\ \\
+\textbf{Soluzione:} per ogni insieme $M \subset \mathbf{R}^n$ vale $m(M) \geq 0$. Poiché $E \subset F$ si ha $\overline{m}(E) \leq \overline{m}(F) = m(F) = 0$, pertanto deve valere $\overline{m}(E) = 0$ e dunque $\overline{m}(E) = \underline{m}(E) = m(E) = 0$. Osserviamo che è possibile affermare $\overline{m}(E) \leq \overline{m}(F)$ per come è definita la misura esterna (analogamente si può mostrare per la misura interna). \\ \\ \\
 \textbf{3.} Sia $\{ K_i \}_{i \in I}$ una successione numerabile di compatti tali che $K_1 \supset K_2 \supset \dots$, sia $K := \bigcap_{i \in I} K_i$. Dimostrare che $m(K) = \lim_{i \rightarrow \infty} m(K_i)$. \\ \\
-\textbf{Soluzione:} sia $A \subset \mathbb{R}^n$ aperto tale che $A \supset K_1$, consideriamo gli insiemi $A_i := A \setminus K_i \\ \forall i \in I$, notiamo che $A_1 \subset A_2 \subset \dots$, inoltre:
+\textbf{Soluzione:} sia $A \subset \mathbf{R}^n$ aperto tale che $A \supset K_1$, consideriamo gli insiemi $A_i := A \setminus K_i \\ \forall i \in I$, notiamo che $A_1 \subset A_2 \subset \dots$, inoltre:
 \begin{align}
     K &= A \setminus \bigcup_{i \in I} A_i \notag \\
     m(K) &= m(A) - \lim_{i \rightarrow \infty} m(A_i) \notag \\
@@ -195,9 +195,9 @@ consideriamo solamente la distanza lungo l'asse $\hat{x}_1$ poiché il raggio di
 \end{align} \newpage
 \section{Insiemi di misura infinita}
 Estendiamo ora le definizioni e i risultati precedenti agli insiemi di misura infinita.\\ \\
-\textbf{Definizione 4.1:} un insieme $E \subset \mathbb{R}^n$ si dice misurabile se per ogni $r > 0$ l'insieme $E \cap B_r(0)$ è misurabile, cioè se per ogni $r > 0$ si ha $\underline{m}(E \cap B_r(0)) = \overline{m}(E \cap B_r(0))$. \\
+\textbf{Definizione 4.1:} un insieme $E \subset \mathbf{R}^n$ si dice misurabile se per ogni $r > 0$ l'insieme $E \cap B_r(0)$ è misurabile, cioè se per ogni $r > 0$ si ha $\underline{m}(E \cap B_r(0)) = \overline{m}(E \cap B_r(0))$. \\
 Notiamo che questa definizione è ancora valida per gli insiemi di misura finita. \\ \\ \\
-\textbf{Proposizione 4.1:} sia $E \subset \mathbb{R}^n$ un insieme misurabile, allora $\underline{m}(E) = \overline{m}(E) = \\ = \lim_{r \rightarrow \infty} m(E \cap B_r(0))$. \\ \\
+\textbf{Proposizione 4.1:} sia $E \subset \mathbf{R}^n$ un insieme misurabile, allora $\underline{m}(E) = \overline{m}(E) = \\ = \lim_{r \rightarrow \infty} m(E \cap B_r(0))$. \\ \\
 \textbf{Dimostrazione:} notiamo che $L := \lim_{r \rightarrow \infty} m(E \cap B_r(0))$ esiste poiché $m(E \cap B_r(0))$ è una funzione crescente di $r$. Per ogni $r$ esiste un compatto $K_r$ tale che $K_r \subset E \cap B_r(0) \subset E$ e $m(K_r) > m(E \cap B_r(0)) - \frac{1}{r}$, ciò comporta:
 \begin{gather}
     K_r \subset E \Rightarrow \underline{m}(E) > m(E \cap B_r(0)) - \frac{1}{r} \notag \\
@@ -211,9 +211,9 @@ notiamo inoltre che $E = \bigcup_r (E \cap B_r(0))$ pertanto per il \textbf{teor
 dunque confrontando i risultati si ottiene la tesi. \\ \\ \\
 \textbf{Teorema 4.1:} sia $\{ E_i \}_{i \in I}$ una famiglia numerabile di insiemi misurabili, sia $E := \bigcup_{i \in I} E_i$. Allora $E$ è misurabile e si ha $m(E) \leq \sum_{i \in I} m(E_i)$. Inoltre se $E_1 \subset E_2 \subset \dots$ si ha $m(E) = \lim_{i \rightarrow \infty} m(E_i)$. \\ \\
 \textbf{Dimostrazione:} notiamo che $E$ è misurabile, infatti per ogni $r > 0$ si ha $E \cap B_r(0) = \bigcup_{i \in I} (E_i \cap B_r(0))$ che è unione numerabile di insiemi misurabili e pertanto misurabile per il \textbf{teorema 3.1}, inoltre verificano $\overline{m}(E \cap B_r(0)) \leq m(B_r(0)) < + \infty$. La tesi segue direttamente dal \textbf{teorema 3.2}. \\ \\
-\textbf{Osservazione:} la doppia definizione è necessaria, infatti sia $F$ un insieme NON misurabile, l'insieme $E := F \cup (\mathbb{R}^n \setminus B_1(0))$ sarebbe misurabile poiché $\underline{m}(E) = \overline{m}(E) = + \infty$, tuttavia l'insieme $E \cap B_1(0)$ non sarebbe misurabile, infatti $F = E \cap B_1(0)$.
+\textbf{Osservazione:} la doppia definizione è necessaria, infatti sia $F$ un insieme NON misurabile, l'insieme $E := F \cup (\mathbf{R}^n \setminus B_1(0))$ sarebbe misurabile poiché $\underline{m}(E) = \overline{m}(E) = + \infty$, tuttavia l'insieme $E \cap B_1(0)$ non sarebbe misurabile, infatti $F = E \cap B_1(0)$.
 \subsection{Esercizi}
-\textbf{1.} Dimostrare che se $E, F \subset \mathbb{R}^n$ sono misurabili e $F \subset E$ si ha $m(E \setminus F) = m(E) - m(F)$. \\ \\
+\textbf{1.} Dimostrare che se $E, F \subset \mathbf{R}^n$ sono misurabili e $F \subset E$ si ha $m(E \setminus F) = m(E) - m(F)$. \\ \\
 \textbf{Soluzione:} si ha $E = (E \setminus F) \cup F$ unione disgiunta di insiemi misurabili, pertanto:
 \begin{gather}
     m(E) = m(E \setminus F) + m(F) \Rightarrow m(E \setminus F) = m(E) - m(F) \notag
@@ -223,7 +223,7 @@ dunque confrontando i risultati si ottiene la tesi. \\ \\ \\
 \textbf{Soluzione:} sia $r > 0$, si ha:
 \begin{align}
     F \cap B_r(0) &= \bigcap_{i \in I} \left(F_i \cap B_r(0) \right) \notag \\
-    &= \mathbb{R}^n \setminus \bigcup_{i \in I} \mathbb{R}^n \setminus (F_i \cap B_r(0)) \notag
+    &= \mathbf{R}^n \setminus \bigcup_{i \in I} \mathbf{R}^n \setminus (F_i \cap B_r(0)) \notag
 \end{align}
 che è unione numerabile di insiemi misurabili e quindi misurabile per il \textbf{teorema 3.1}. \\ \\ \\
 \textbf{3.} sia $\{ F_i \}_{i \in I}$ una famiglia numerabile di insiemi misurabili con $m(F_1) < + \infty$ e \\ $F_1 \supset F_2 \supset \dots$, sia $F := \bigcap_{i \in I} F_i$. Dimostrare che $m(F) = \lim_{i \rightarrow \infty} m(F_i)$. \\ \\
@@ -235,8 +235,8 @@ che è unione numerabile di insiemi misurabili e quindi misurabile per il \textb
 \end{align}
 per quanto visto nel \textbf{teorema 3.2} e nell'\textbf{esercizio 4.1.1}. \newpage
 \section{Misura nei prodotti cartesiani}
-\textbf{Teorema 5.1} siano $E \subset \mathbb{R}^n$ e $F \subset \mathbb{R}^m$ insiemi misurabili, allora $E \times F \subset \mathbb{R}^{n + m}$ è misurabile e $m(E \times F) = m(E) \cdot m(F)$.\\ \\
-\textbf{Dimostrazione:} la tesi è ovvia per i plurintervalli (per definizione di misura su un plurintervallo). Mostriamolo per aperti e chiusi, siano $A \subset \mathbb{R}^n$ e $B \subset \mathbb{R}^m$ aperti, consideriamo una successione di plurintervalli $\{ P_j \}_{j \in J}$ tale che $P_1 \subset P_2 \subset \dots$ e $A = \bigcup_{j \in J} P_j$, sia poi $\{ Q_j \}_{j \in J}$ una successione che abbiamo le stesse proprietà precedenti per $B$. Definiamo $R_j := P_j \times Q_j$, notiamo $R_1 \subset R_2 \subset \dots$, allora $A \times B = \bigcup_{j \in J} R_j$, pertanto:
+\textbf{Teorema 5.1} siano $E \subset \mathbf{R}^n$ e $F \subset \mathbf{R}^m$ insiemi misurabili, allora $E \times F \subset \mathbf{R}^{n + m}$ è misurabile e $m(E \times F) = m(E) \cdot m(F)$.\\ \\
+\textbf{Dimostrazione:} la tesi è ovvia per i plurintervalli (per definizione di misura su un plurintervallo). Mostriamolo per aperti e chiusi, siano $A \subset \mathbf{R}^n$ e $B \subset \mathbf{R}^m$ aperti, consideriamo una successione di plurintervalli $\{ P_j \}_{j \in J}$ tale che $P_1 \subset P_2 \subset \dots$ e $A = \bigcup_{j \in J} P_j$, sia poi $\{ Q_j \}_{j \in J}$ una successione che abbiamo le stesse proprietà precedenti per $B$. Definiamo $R_j := P_j \times Q_j$, notiamo $R_1 \subset R_2 \subset \dots$, allora $A \times B = \bigcup_{j \in J} R_j$, pertanto:
 \begin{align}
     m(A \times B) &= \lim_{j \rightarrow \infty} m(R_j) \notag \\
     &= \lim_{j \rightarrow \infty} m(P_j) \cdot m(Q_j) \notag \\
@@ -244,8 +244,8 @@ per quanto visto nel \textbf{teorema 3.2} e nell'\textbf{esercizio 4.1.1}. \newp
 \end{align}
 analogamente si dimostra per i compatti.\\
 Dimostriamolo ora per insiemi misurabili generici $E, F$. Siano $\{ A_i \}_{i \in I}$ e $\{ B_i \}_{i \in I}$ successioni di aperti tali che $A_i \supset E$ e $B_i \supset F$ per ogni $i \in I$ per le quali vale $m(A_1) \rightarrow m(E)$ e $m(B_i) \rightarrow m(F)$ per $i \rightarrow \infty$. Abbiamo che $E \times F \subset A_i \times B_i$ per ogni $i \in I$, pertanto $\overline{m}(E \times F) \leq m(A_i \times B_i)$ per ogni $i \in I$; passando al limite $i \rightarrow \infty$ si ottiene $\overline{m}(E \times F) \leq m(E) \cdot m(F)$. Con un procedimento analogo, usando successioni di insiemi compatti, si ottiene $\underline{m}(E \times F) \geq m(E) \cdot m(F)$, dunque combinando i risultati si ottiene che $E \times F$ è misurabile e $m(E \times F) = m(E) \cdot m(F)$. \\ \\ \\
-\textbf{Proposizione 5.1:} siano $E \subset \mathbb{R}^n$ e $F \subset \mathbb{R}^m$, si ha che $\overline{m}(E)\underline{m}(F) \leq \overline{m}(E \times F)$. \\ \\
-\textbf{Dimostrazione:} siano $C \subset F$ un compatto e $A \supset E \times F$ un aperto tale che $m(A) < \overline{m}(E \times F) + \varepsilon$. Poniamo $B := \{ x \in \mathbb{R}^n : \{ x \} \times C \subset A \}$, poiché $\{ x \} \times C$ è un compatto contenuto in $A$ per ogni $x \in B$, esiste un intorno $U$ di $x$ tale che $U \times C \subset A$ per ogni $x \in C$ (ciò è possibile per le proprietà topologiche degli aperti in $\mathbb{R}^n$). Pertanto $B \supset E$ e $B \times C \subset A$ per come sono stati costruiti, allora:
+\textbf{Proposizione 5.1:} siano $E \subset \mathbf{R}^n$ e $F \subset \mathbf{R}^m$, si ha che $\overline{m}(E)\underline{m}(F) \leq \overline{m}(E \times F)$. \\ \\
+\textbf{Dimostrazione:} siano $C \subset F$ un compatto e $A \supset E \times F$ un aperto tale che $m(A) < \overline{m}(E \times F) + \varepsilon$. Poniamo $B := \{ x \in \mathbf{R}^n : \{ x \} \times C \subset A \}$, poiché $\{ x \} \times C$ è un compatto contenuto in $A$ per ogni $x \in B$, esiste un intorno $U$ di $x$ tale che $U \times C \subset A$ per ogni $x \in C$ (ciò è possibile per le proprietà topologiche degli aperti in $\mathbf{R}^n$). Pertanto $B \supset E$ e $B \times C \subset A$ per come sono stati costruiti, allora:
 \begin{gather}
     m(A) \geq m(B \times C) = m(B) \cdot m(C) \geq \overline{m}(E) \cdot m(C) \notag
 \end{gather}
@@ -260,7 +260,7 @@ Dimostriamolo ora per insiemi misurabili generici $E, F$. Siano $\{ A_i \}_{i \i
     \underline{m}(E \times F) \geq \underline{m}(E) \cdot \underline{m}(F) \notag
 \end{gather} \newpage
 \section{L'integrale di Lebesgue}
-\textbf{Definizione 6.1:} una \textbf{funzione semplice} è una combinazione lineare di \textit{funzioni caratteristiche} di insiemi limitati e disgiunti di $\mathbb{R}^n$:
+\textbf{Definizione 6.1:} una \textbf{funzione semplice} è una combinazione lineare di \textit{funzioni caratteristiche} di insiemi limitati e disgiunti di $\mathbf{R}^n$:
 \begin{gather}
     \varphi(\mathbf{x}) = \sum_{i = 1}^N \lambda_i \varphi_{E_i}(\mathbf{x}); \quad
     \varphi_{E_i}(\mathbf{x}) = \begin{cases}
@@ -281,7 +281,7 @@ con $\{ F_j \}_{j \in J}$ famiglia di insiemi misurabili e limitati, si ha che:
 \begin{align}
     \varphi(\mathbf{x}) = \sum_{i = 1}^N \sum_{j = 1}^M \lambda_i \varphi_{E_i \cap F_j} = \sum_{i = 1}^N \sum_{j = 1}^M \mu_i \varphi_{E_i \cap F_j} \notag
 \end{align}
-Consideriamo infatti il caso unidimensionale, sia $\varphi$ una funzione semplice e siano \\ $x_1, x_2, \dots, x_N \in \mathbb{R}$ i suoi punti di discontinuità, allora in $I_h := [x_h, x_{h + 1})$ con $h \geq 1$ si ha che $\varphi$ è costante, pertanto possiamo scrivere:
+Consideriamo infatti il caso unidimensionale, sia $\varphi$ una funzione semplice e siano \\ $x_1, x_2, \dots, x_N \in \mathbf{R}$ i suoi punti di discontinuità, allora in $I_h := [x_h, x_{h + 1})$ con $h \geq 1$ si ha che $\varphi$ è costante, pertanto possiamo scrivere:
 \begin{align}
     \varphi(x) = \sum_{h = 1}^{N - 1} \lambda_h \varphi_{I_h} \notag
 \end{align}
@@ -299,13 +299,13 @@ tali che gli insiemi $\{ J_k \}_{k \in K}$ sono due a due disgiunti. Ciò compor
 \end{align}
 Nel caso multidimensionale i punti di discontinuità diventano i bordi delle \textit{curve di livello}, il procedimento per dimostrare l'invarianza rispetto alla rappresentazione scelta è analogo. \\ \\
 Si dimostra facilmente che se $\alpha$ e $\beta$ sono funzioni semplici allora anche $\alpha + \beta$ è una funzione semplice e che $\int (\alpha + \beta) = \int \alpha + \int \beta$; inoltre se $\alpha \leq \beta$ si ha $\int \alpha \leq \int \beta$, in particolare allora $\int \alpha \leq \int |\alpha|$. \\ \\ \\
-Sia $f : \mathbb{R}^n \longrightarrow \mathbb{R}$ limitata e nulla al di fuori di un compatto. Definiamo:
+Sia $f : \mathbf{R}^n \longrightarrow \mathbf{R}$ limitata e nulla al di fuori di un compatto. Definiamo:
 \begin{gather}
-    \mathcal{P} := \{ \varphi : \varphi \text{ funzione semplice di } \mathbb{R}^n \} \notag \\
+    \mathcal{P} := \{ \varphi : \varphi \text{ funzione semplice di } \mathbf{R}^n \} \notag \\
     \mathcal{P}_+(f) := \{ \alpha \in \mathcal{P} : \alpha \geq f \}; \quad \mathcal{P}_-(f) := \{ \beta \in \mathcal{P} : \beta \leq f \} \notag
 \end{gather}
 Notiamo che $\mathcal{P}_+$ e $\mathcal{P}_-$ non sono vuoti, infatti se $f$ è nulla al di fuori di un compatto $K$ e $|f(\mathbf{x})| \leq M$ per ogni $\mathbf{x} \in K$ si ha che $\alpha(\mathbf{x}) = M\varphi_{K}$ e $\beta(\mathbf{x}) := -M\varphi_{K}$ sono rispettivamente elementi di $\mathcal{P}_+$ e $\mathcal{P}_-$. \\ \\ \\
-\textbf{Definizione 6.2:} sia $f : \mathbb{R}^n \longrightarrow \mathbb{R}$ una funzione limitata e nulla al di fuori di un compatto. Definiamo
+\textbf{Definizione 6.2:} sia $f : \mathbf{R}^n \longrightarrow \mathbf{R}$ una funzione limitata e nulla al di fuori di un compatto. Definiamo
 \begin{gather}
     \overline{\int} f := \inf \left\{ \int \alpha : \alpha \in \mathcal{P}_+(f) \right\}, \quad \underline{\int} f := \sup \left\{ \int \beta : \beta \in \mathcal{P}_-(f) \right\} \notag
 \end{gather}
@@ -315,7 +315,7 @@ Se $\overline{\int} f = \underline{\int} f$ allora $f$ è detta \textbf{sommabil
     \int f := \overline{\int} f = \underline{\int} f \notag
 \end{gather}
 \\ \\ \\
-\textbf{Proposizione 6.1:} sia $f : \mathbb{R}^n \longrightarrow \mathbb{R}$ limitata e nulla al di fuori di un compatto. Condizione necessaria e sufficiente affinché $f$ sia sommabile è che esistono due successioni di funzioni semplici:
+\textbf{Proposizione 6.1:} sia $f : \mathbf{R}^n \longrightarrow \mathbf{R}$ limitata e nulla al di fuori di un compatto. Condizione necessaria e sufficiente affinché $f$ sia sommabile è che esistono due successioni di funzioni semplici:
 \begin{gather}
     \{ \alpha_i \}_{i \in I} \subset \mathcal{P}_+(f) \quad \{ \beta_i \}_{i \in I} \subset \mathcal{P}_-(f) \notag
 \end{gather}
@@ -342,7 +342,7 @@ infine per ipotesi si ottiene la tesi, ovvero:
 \begin{gather}
     \lim_{i \rightarrow \infty} \int \alpha_i{'} = \lim_{i \rightarrow \infty} \int \beta_{i}^{'} = \int f \notag
 \end{gather}
-\textbf{Proposizione 6.2:} Condizione sufficiente e necessaria affinché una funzione \\ $f : \mathbb{R}^n \longrightarrow \mathbb{R}$ sia sommabile è che per ogni $\varepsilon > 0$ esistono due funzioni semplici $\alpha \geq f$ e $\beta \leq f$ tali che:
+\textbf{Proposizione 6.2:} Condizione sufficiente e necessaria affinché una funzione \\ $f : \mathbf{R}^n \longrightarrow \mathbf{R}$ sia sommabile è che per ogni $\varepsilon > 0$ esistono due funzioni semplici $\alpha \geq f$ e $\beta \leq f$ tali che:
 \begin{gather}
     \int (\alpha - \beta) \mathrm{d} \mathbf{x} < \varepsilon \notag
 \end{gather} \\ \\
@@ -378,7 +378,7 @@ per ogni $\varepsilon > 0$, pertanto si ottiene la tesi. \\ \\ \\
 \begin{gather}
     f + g, \quad c \cdot f, \quad | f | \notag
 \end{gather}
-con $c \in \mathbb{R}$, sono funzioni misurabili e che:
+con $c \in \mathbf{R}$, sono funzioni misurabili e che:
 \begin{gather}
     \int (f + g) = \int f + \int g, \qquad \int (c \cdot f) = c \int f, \qquad \int f \leq \int |f| \notag
 \end{gather}\\ \\
@@ -391,7 +391,7 @@ allora ottieniamo:
     \int (\alpha + \gamma - \beta - \delta) = \int (\alpha - \beta) + \int (\gamma - \delta) < \varepsilon \notag
 \end{gather}
 pertanto, poiché $\alpha + \gamma$ e $\beta + \delta$ sono rispettivamente funzioni semplici maggioranti e minoranti per $f + g$, otteniamo che $f + g$ è sommabile per la \textbf{proposizione 6.2}. \\ \\
-Siano $c \in \mathbb{R}$ e $\varepsilon > 0$, siano $\varphi \geq f$ e $\psi \leq f$ funzioni semplici tali che:
+Siano $c \in \mathbf{R}$ e $\varepsilon > 0$, siano $\varphi \geq f$ e $\psi \leq f$ funzioni semplici tali che:
 \begin{gather}
     \int (\varphi - \psi) < \frac{\varepsilon}{c} \notag
 \end{gather}
@@ -409,45 +409,45 @@ pertanto, essendo sia $f_+$ che $f_-$ misurabili, anche $|f|$ è misurabile poic
 \end{gather}
 segue direttamente dalla definizione di integrale per una funzione sommabile. \newpage
 \section{Funzioni misurabili}
-\textbf{Definizione 7.1:} una funzione $f : \mathbb{R}^n \longrightarrow \mathbb{R}$ è detta \textbf{misurabile} se l'insieme:
+\textbf{Definizione 7.1:} una funzione $f : \mathbf{R}^n \longrightarrow \mathbf{R}$ è detta \textbf{misurabile} se l'insieme:
 \begin{gather}
-    F_t := \{ \mathbf{x} \in \mathbb{R}^n : f(\mathbf{x}) > t \} \notag
+    F_t := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) > t \} \notag
 \end{gather}
-è misurabile per ogni $t \in \mathbb{R}$. \\ \\
-Notiamo che se $f \in C^0 (\mathbb{R}^n)$ segue dal teorema della permanenza del segno che $f$ è misurabile. Infatti se $f(\mathbf{x}_0) > t$ per qualche $\mathbf{x}_0 \in \mathbb{R}^n$ allora esiste un intorno $V \in U(\mathbf{x}_0)$ tale che $f(\mathbf{x}) > t$ per ogni $\mathbf{x} \in V$, pertanto $F_t$ è un aperto e quindi misurabile. \\ \\ \\
+è misurabile per ogni $t \in \mathbf{R}$. \\ \\
+Notiamo che se $f \in C^0 (\mathbf{R}^n)$ segue dal teorema della permanenza del segno che $f$ è misurabile. Infatti se $f(\mathbf{x}_0) > t$ per qualche $\mathbf{x}_0 \in \mathbf{R}^n$ allora esiste un intorno $V \in U(\mathbf{x}_0)$ tale che $f(\mathbf{x}) > t$ per ogni $\mathbf{x} \in V$, pertanto $F_t$ è un aperto e quindi misurabile. \\ \\ \\
 \textbf{Proposizione 7.1:} le seguenti proprietà sono equivalenti: \\
 \textbf{1.} $f$ è misurabile. \\
-\textbf{2.} $F_t^{'} := \{ \mathbf{x} \in \mathbb{R}^n : f(\mathbf{x}) \leq t \}$ è misurabile. \\
-\textbf{3.} $F_t^{''} := \{ \mathbf{x} \in \mathbb{R}^n : f(\mathbf{x}) < t \}$ è misurabile. \\
-\textbf{4.} $F_t^{'''} := \{ \mathbf{x} \in \mathbb{R}^n : f(\mathbf{x}) \geq t \}$ è misurabile. \\
-\textbf{5.} $F_t^{(4)} := \{ \mathbf{x} \in \mathbb{R}^n : f(\mathbf{x}) = t \}$ è misurabile. \\ \\
-\textbf{Dimostrazione:} $\mathbf{(1 \rightarrow 2)}$ sia $f$ misurabile, allora per ogni $t \in \mathbb{R}$ l'insieme $F_t$ è misurabile, pertanto anche $F_t^{'} = \mathbb{R}^n \setminus F_t$ è misurabile poiché differenza di insiemi misurabili. \\ \\
+\textbf{2.} $F_t^{'} := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) \leq t \}$ è misurabile. \\
+\textbf{3.} $F_t^{''} := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) < t \}$ è misurabile. \\
+\textbf{4.} $F_t^{'''} := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) \geq t \}$ è misurabile. \\
+\textbf{5.} $F_t^{(4)} := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) = t \}$ è misurabile. \\ \\
+\textbf{Dimostrazione:} $\mathbf{(1 \rightarrow 2)}$ sia $f$ misurabile, allora per ogni $t \in \mathbf{R}$ l'insieme $F_t$ è misurabile, pertanto anche $F_t^{'} = \mathbf{R}^n \setminus F_t$ è misurabile poiché differenza di insiemi misurabili. \\ \\
 $\mathbf{(2 \rightarrow 3)}$ sia $F_t^{'}$ misurabile, notiamo che $F_t{''} = \bigcup_{k = 1}^\infty F_{t - \frac{1}{k}}^{'}$ ed è pertanto misurabile poiché unione numerabile di insiemi misurabili. \\ \\
-$\mathbf{(3 \rightarrow 4)}$ sia $F_t^{''}$ misurabile, allora anche $F_t^{'''} = \mathbb{R}^n \setminus F_t^{''}$ è misurabile poiché differenza di insiemi misurabili. \\ \\
+$\mathbf{(3 \rightarrow 4)}$ sia $F_t^{''}$ misurabile, allora anche $F_t^{'''} = \mathbf{R}^n \setminus F_t^{''}$ è misurabile poiché differenza di insiemi misurabili. \\ \\
 $\mathbf{(4 \rightarrow 1)}$ sia $F_t^{'''}$ misurabile, notiamo che $F_t = \bigcup_{k = 1}^\infty F_{t + \frac{1}{k}}^{'''}$ ed è pertanto misurabile poiché unione numerabile di insiemi misurabili. \\ \\
 $\mathbf{(4 \rightarrow 5)}$ infatti $F_t^{(4)} = F_t^{'''} \setminus F_t$ ed è pertanto misurabile poiché differenza di insiemi misurabili. \\ \\ \\
-\textbf{Lemma 7.1:} siano $f, g$ funzioni misurabili, allora $E := \{ \mathbf{x} \in \mathbb{R}^n : f(\mathbf{x}) > g(\mathbf{x}) \}$ è misurabile. \\ \\
+\textbf{Lemma 7.1:} siano $f, g$ funzioni misurabili, allora $E := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) > g(\mathbf{x}) \}$ è misurabile. \\ \\
 \textbf{Dimostrazione:} per ipotesi si ha $F_t$ e $G_t^{'}$ sono misurabili, pertanto anche $E = F_t \cap G_t^{'}$ è misurabile poiché intersezione di insiemi misurabili. \\ \\ \\
 \textbf{Teorema 7.1 (proprietà delle funzioni misurabili):} sia $\mathcal{M} := \{ f : f \text{ è misurabile } \}$. Allora: \\
-\textbf{1.} sia $f \in \mathcal{M}$ e $c \in \mathbb{R}$, $f + c$ e $c \cdot f$ sono misurabili. \\
+\textbf{1.} sia $f \in \mathcal{M}$ e $c \in \mathbf{R}$, $f + c$ e $c \cdot f$ sono misurabili. \\
 \textbf{2.} siano $f, g \in \mathcal{M}$, allora $f + g$, $f \cdot g$ e $f^2$ sono misurabili. \\
 \textbf{3.} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$, allora $M(\mathbf{x}) := \sup_{i \in I} f_i(\mathbf{x})$ e $m(\mathbf{x}) := \inf_{i \in I} f_i(\mathbf{x})$ sono misurabili. \\
 \textbf{4.} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$ tale che $f_1 \leq f_2 \leq f_3 \leq \dots$, allora $f(\mathbf{x}) := \lim_{i \rightarrow \infty} f_i(\mathbf{x})$ è misurabile. \\
 \textbf{5.} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$ allora le funzioni $f(\mathbf{x}) := \max \lim_{i \rightarrow \infty} f_i(\mathbf{x})$ e $g(\mathbf{x}) := \min \lim_{i \rightarrow \infty} f_i(\mathbf{x})$ sono misurabili. \\
 In particolare se $\{ f_i \}_{i \in I} \subset \mathcal{M}$ converge puntualmente a $f$ allora $f$ è misurabile. \\ \\
 \textbf{Dimostrazione:} \textbf{(1)} sia $f$ misurabile, allora $F_t$ è misurabile per ogni $t \in \mathbf{R}$, pertanto anche $F_{t - c}$ e $F_{\frac{t}{c}}$ sono misurabili. \\ \\ \\
-\textbf{(2)} siano $f, g$ misurabili, allora per il \textbf{lemma 7.1} l'insieme \\ $E_t := \{ \mathbf{x} \in \mathbb{R}^n : f(\mathbf{x}) + g(\mathbf{x}) > t \}$ è misurabile (a meno di ridefinire una funzione $h := t - g$ che è misurabile per il punto \textbf{(1)}). \\ \\
-\textbf{(3)} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$, si ha che $\{ \mathbf{x} \in \mathbb{R}^n : M(\mathbf{x}) > t \} = \bigcup_{i \in I} F_{i;t}$, pertanto misurabile poiché unione numerabile di insiemi misurabili. Analogamente si ha che $\{ \mathbf{x} \in \mathbb{R}^n : m(\mathbf{x}) < t \} = \bigcup_{i \in I} F_{i;t}^{''}$, pertanto anch'esso misurabile. \\ \\
-\textbf{(4)} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$ tale che $f_1 \leq f_2 \leq \dots$, allora $\{ \mathbf{x} \in \mathbb{R}^n : f(\mathbf{x}) > t \} = \bigcup_{i \in I} F_t$ ed è dunque misurabile. \\ \\
+\textbf{(2)} siano $f, g$ misurabili, allora per il \textbf{lemma 7.1} l'insieme \\ $E_t := \{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) + g(\mathbf{x}) > t \}$ è misurabile (a meno di ridefinire una funzione $h := t - g$ che è misurabile per il punto \textbf{(1)}). \\ \\
+\textbf{(3)} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$, si ha che $\{ \mathbf{x} \in \mathbf{R}^n : M(\mathbf{x}) > t \} = \bigcup_{i \in I} F_{i;t}$, pertanto misurabile poiché unione numerabile di insiemi misurabili. Analogamente si ha che $\{ \mathbf{x} \in \mathbf{R}^n : m(\mathbf{x}) < t \} = \bigcup_{i \in I} F_{i;t}^{''}$, pertanto anch'esso misurabile. \\ \\
+\textbf{(4)} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$ tale che $f_1 \leq f_2 \leq \dots$, allora $\{ \mathbf{x} \in \mathbf{R}^n : f(\mathbf{x}) > t \} = \bigcup_{i \in I} F_t$ ed è dunque misurabile. \\ \\
 \textbf{(5)} sia $\{ f_i \}_{i \in I} \subset \mathcal{M}$, poniamo $M_i(\mathbf{x}) := \sup_{j \geq i} f_j(\mathbf{x})$ e $m_i(\mathbf{x}) := \inf_{j \geq i} f_i(\mathbf{x})$, otteniamo che $M_i$ e $m_i$ sono rispettivamente decrescente e crescente e sono misurabili per quanto visto nel punto \textbf{(3)} per ogni $i \in I$, pertanto anche il limite per $i \rightarrow \infty$ è misurabile per quanto visto nel punto\textbf{(4)} e si ottiene la tesi. \\ \\ \\
-\textbf{Definizione 7.2:} sia $f : \mathbb{R}^n \longrightarrow \mathbb{R}$, è detto \textbf{sottografico} di $f$ l'insieme
+\textbf{Definizione 7.2:} sia $f : \mathbf{R}^n \longrightarrow \mathbf{R}$, è detto \textbf{sottografico} di $f$ l'insieme
 \begin{gather}
-    \mathcal{F} := \{ (\mathbf{x}, y) \in \mathbb{R}^n \times \mathbb{R} : y < f(\mathbf{x}) \} \notag
+    \mathcal{F} := \{ (\mathbf{x}, y) \in \mathbf{R}^n \times \mathbf{R} : y < f(\mathbf{x}) \} \notag
 \end{gather} \\ \\
 \textbf{Teorema 7.2:} una funzione $f$ è misurabile se e solo se il suo sottografico $\mathcal{F}$ è misurabile. \\ \\
-\textbf{Dimostrazione:} ($\Rightarrow)$ sia $f$ misurabile, per ipotesi abbiamo che $F_t$ è misurabile per ogni $t \in \mathbb{R}$, pertanto anche:
+\textbf{Dimostrazione:} ($\Rightarrow)$ sia $f$ misurabile, per ipotesi abbiamo che $F_t$ è misurabile per ogni $t \in \mathbf{R}$, pertanto anche:
 \begin{gather}
-    \mathcal{F} = \bigcup_{t \in \mathbb{R}} F_t \times (-\infty, t) \notag
+    \mathcal{F} = \bigcup_{t \in \mathbf{R}} F_t \times (-\infty, t) \notag
 \end{gather}
 è misurabile poiché prodotto cartesiano e unione numerabile di insiemi misurabili. \\ \\
 $(\Leftarrow)$ Sia $\mathcal{F}$ misurabile

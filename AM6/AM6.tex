@@ -2122,7 +2122,47 @@ ovvero $A \geq \mathcal{O}$. \qed \\ \\
         P_\lambda = \mathbf{1} \qquad &\lambda \geq b
     \end{cases} \notag
 \end{align}
-in particolare si dice che $\{P_\lambda\}_{\lambda \in \mathbf{R}}$ è \textit{supportata} su $[a, b]$.
+in particolare si dice che $\{P_\lambda\}_{\lambda \in \mathbf{R}}$ è \textit{supportata} su $[a, b]$. \\ \\
+Data una risoluzione dell'identità $\{P_\lambda\}_{\lambda \in \mathbf{R}}$ vogliamo definire una misura analoga alla misura di Lebesgue-Stiltjes. Per ogni $x \in \mathcal{H}$ poniamo
+\begin{align}
+    f_x(\lambda) = (x, P_\lambda x) \notag
+\end{align}
+per ogni $\lambda \in \mathbf{R}$. Per monotona crescenza dei proiettori della risoluzione dell'identità segue che $f_x$ è crescente in $\lambda$ (\textit{esercizio 3}). Inoltre, per continuità del funzionale lineare $y \in \mathcal{H} \mapsto (x, y)$ e per definizione di risoluzione dell'identità, si ha che $f_x$ è continua da destra per ogni $x \in \mathcal{H}$. Infine si ha che $f_x = 0$ per $\lambda \leq a$ e per $\lambda \geq b$. \\ \\
+Per ogni coppia di punti $\lambda, \mu \in \mathbf{R}$ poniamo
+\begin{align}
+    m_{f_x}((\lambda, \mu]) &= f_x(\mu) - f_x(\lambda) \notag \\
+    m_{f_x}([\lambda, \mu)) &= f_x(\mu) - f_x(\lambda^-) \notag \\
+    m_{f_x}((\lambda, \mu)) &= m_{f_x}([\lambda, \mu]) \notag
+\end{align}
+Possiamo applicare il \textit{teorema di estensione di Lebesgue} a ogni misura $m_{f_x}$ ottenendo una misura $\sigma$-additiva su una $\sigma$-algebra che contiene quella dei boreliani. \\ \\
+\textbf{Lemma (2.7.5):} sia $A \in \mathcal{B}(\mathcal{H})$ positivo, allora $A \leq \|A\|\mathbf{1}$ \\
+
+\textbf{Dimostrazione:} si ha che 
+\begin{align}
+    (x, (\|A\|\mathbf{1} - A)x) = \|A\|\|x\|^2 - (x, Ax) \geq \|A\|\|x\|^2 - \|A\|\|x\|^2 = 0 \notag
+\end{align}
+dove si è usato $(x, Ax) \leq \|A\|\|x\|^2$. \qed \\ \\
+\textbf{Lemma (2.7.6):} siano $A, B \in \mathcal{B}(\mathcal{H})$ tali che $\mathcal{O} \leq A \leq B$, allora $\|A\| \leq \|B\|$. \\
+
+\textbf{Dimostrazione:} per la \textit{disuguaglianza di Cauchy-Schwartz} si ha che 
+\begin{align}
+    |(x, Ay)| \leq \|x\|_A\|y\|_A = \sqrt{(x, Ax)(y, Ay)} \leq \sqrt{(x, Bx)(y, By)} \leq \|B\|\|x\|\|y\| \notag
+\end{align}
+Per il \textit{teorema di Riesz} sappiamo che $\|(\cdot, \cdot)_A\| = \|A\|$, segue che $\|A\| \leq \|B\|$. \qed \\ \\
+\textbf{Lemma (2.7.7):} sia $A \in \mathcal{B}(\mathcal{H})$ positivo, allora $\|Ax\|^2 \leq \|A\|(x, Ax)$ per ogni $x \in \mathcal{H}$. \\
+
+\textbf{Dimostrazione:} per il \textit{calcolo funzionale continuo} si ha che $A = (\sqrt{A})^2$, inoltre $A = A^*$ per il \textit{corollario 2.7.3}. Segue che 
+\begin{align}
+    \|Ax\|^2 = (Ax, Ax) = (\sqrt{A}x, A\sqrt{A}x) \leq \|A\|(\sqrt{A}x, \sqrt{A}x) = \|A\|(x, Ax) \notag
+\end{align}
+dove si è usato $(\sqrt{A})^* = \sqrt{A}$, dato che il calcolo funzionale continuo preserva lo $*$.  \qed \\ \\
+\textbf{Proposizione (esistenza dell'estremo inferiore in $\mathcal{B}(\mathcal{H})$ rispetto alla S.O.T.):} sia $\{A_n\}_{n \in \mathbf{N}} \subset \mathcal{B}(\mathcal{H})$ tale che $A_n \geq \mathcal{O}$ e $A_{n + 1} \leq A_n$ per ogni $n \in \mathbf{N}$. Allora esiste 
+\begin{align}
+    A = \inf_{n \in \mathbf{N}} A_n \notag
+\end{align}
+Inoltre $A \geq \mathcal{O}$ e $A \leq A_n$ per ogni $n \in \mathbf{N}$. \\
+
+\textbf{Dimostrazione:} 
 
 
 \subsubsection{Esercizi}

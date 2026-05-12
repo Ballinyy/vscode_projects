@@ -213,10 +213,10 @@ INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 OUTPUT TG-GD.toc
 OUTPUT TG-GD.pdf
 INPUT c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT c:/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -244,4 +244,3 @@ INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
-INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb
