@@ -366,15 +366,15 @@ per $r < r_0$ e ovviamente $V(r) = - \frac{Z}{r}$ per $r > r_0$. Ricordiamo che 
 
 \subsection{Interazione radiazione-materia}
 Studiamo i fenomeni di emissione (spontanea e non) e assorbimento della materia soggetta a radiazione elettromagnetica attraverso la teoria delle perturbazioni dipendenti dal tempo, in particolare determinando le rate alle quali avvengono tali fenomeni. \\ \\
-Scegliendo gauge di Coulomb, dalle equazione di Maxwell otteniamo 
+Scegliendo la gauge di Coulomb, dalle equazione di Maxwell otteniamo 
 \begin{align}
     \begin{cases}
-        \mathbf{E}(\omega, \mathbf{r}, t) &= -\omega_0A_0(\omega)\sin(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)\hat{\epsilon} \\
-        \mathbf{B}(\omega, \mathbf{r}, t) &= -A_0(\omega)\sin(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)(\mathbf{k} \times \hat{\mathbf{\epsilon}}) \\
-        \mathbf{A}(\omega, \mathbf{r}, t) &= \hat{\mathbf{\epsilon}}\int_0^\infty d\omega \, A_0(\omega)\cos(\mathbf{k} \cdot \mathbf{r} - \omega t -\delta_\omega)
+        \mathbf{E}(\omega, \mathbf{r}, t) &= -\omega_0A_0(\omega)\sin(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)\mathbf{u} \\
+        \mathbf{B}(\omega, \mathbf{r}, t) &= -A_0(\omega)\sin(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)(\mathbf{k} \times \mathbf{u}) \\
+        \mathbf{A}(\omega, \mathbf{r}, t) &= \int_0^\infty d\omega \, A_0(\omega)\cos(\mathbf{k} \cdot \mathbf{r} - \omega t -\delta_\omega)\mathbf{u}
     \end{cases} \tag{1.4.1}
 \end{align}
-dove $\hat{\epsilon}$ è il versore che identifica la polarizzazione del campo elettromagnetico. \\ \\
+dove $\mathbf{u}$ è il versore che identifica la polarizzazione del campo elettromagnetico. \\ \\
 Ricordiamo che l'hamiltoniano di una particella con carica $q$ soggetta ad un campo elettromagnetico è data dall'accoppiamento minimo, ovvero $\mathbf{p} \rightarrow \mathbf{p} - q\mathbf{A}$, allora in unità atomiche
 \begin{align}
     H &= \frac{(\mathbf{p} + \mathbf{A})^2}{2m} - \frac{Z}{r} \notag \\
@@ -386,7 +386,7 @@ dove si è trascurato il termine quadratico $\mathbf{A}^2$ per campi elettromagn
 \begin{align}
     \nabla \cdot (\mathbf{A}\psi) = \psi\cancel{\nabla \cdot \mathbf{A}} + \mathbf{A}\nabla\phi \tag{1.4.3}
 \end{align}
-Dato che in gauge di Coulomb si ha $\nabla \cdot \mathbf{A} = 0$. In $(1.4.2)$ $\nabla \cdot \mathbf{A}$ è da intendere come operatore che agisce sui vettori dello spazio di Hilbert in esame. \\ \\
+dato che in gauge di Coulomb si ha $\nabla \cdot \mathbf{A} = 0$. In $(1.4.2)$ $\nabla \cdot \mathbf{A}$ è da intendere come operatore che agisce sui vettori dello spazio di Hilbert in esame. \\ \\
 Ricordiamo che l'intensità dell'onda elettromagnetica (che sappiamo essere proporzionale al numero di fotoni) è definita come il valor medio del vettore di Poynting $\mathbf{S} = \mathbf{E} \times \mathbf{H}$, in particolare si ha 
 \begin{align}
     I &= \braket{\mathbf{S}} \notag \\
@@ -403,14 +403,14 @@ ovvero possiamo determinare l'ampiezza dell'onda in funzione della sua intensit�
 A questo punto applichiamo la teoria delle perturbazioni dipendenti dal tempo sulla perturbazione $H' = \frac{i\hbar}{m}\nabla \cdot \mathbf{A}$ per determinare le rate di transizione dei vari stati. Si ha 
 \begin{align}
     \alpha_{fi} &= -\frac{1}{m}\int_0^t dt' \, \braket{f|\mathbf{A} \cdot \nabla|i}e^{i\omega_{fi}t'} \notag \\
-    &= -\frac{1}{2m}\int_0^\infty d\omega \, A_0(\omega)\left(e^{i\delta_\omega}\braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\hat{\epsilon} \cdot \nabla|i}\int_0^\infty dt' \, e^{i(\omega_{fi} - \omega)t'} +\right. \notag \\
-    &+ \left.e^{-i\delta_\omega}\braket{f|e^{-i\mathbf{k} \cdot \mathbf{r}}\hat{\epsilon} \cdot \nabla|i}\int_0^t dt' \, e^{i(\omega_{fi} + \omega)t}\right) \tag{1.4.6}
+    &= -\frac{1}{2m}\int_0^\infty d\omega \, A_0(\omega)\left(e^{i\delta_\omega}\braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i}\int_0^\infty dt' \, e^{i(\omega_{fi} - \omega)t'} +\right. \notag \\
+    &+ \left.e^{-i\delta_\omega}\braket{f|e^{-i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i}\int_0^t dt' \, e^{i(\omega_{fi} + \omega)t}\right) \tag{1.4.6}
 \end{align}
 dove si è espresso il coseno in termini di esponenziali complessi. I termini integrali 
 \begin{align}
     \int_0^t dt' \, e^{i(\omega_{fi} \pm \omega)t} \tag{1.4.7}
 \end{align}
-hannp valore medio non nullo (per $t \rightarrow \infty)$ se e solo se si ha $\omega_{fi} \pm \omega = 0$. Infatti possiamo verificarlo direttamente, poniamo $\tilde{\omega}_{fi} = \omega_{fi} \pm \omega$ (ovvero uno tra i due), si ha
+hanno valore medio non nullo (per $t \rightarrow \infty)$ se e solo se si ha $\omega_{fi} \pm \omega = 0$. Infatti possiamo verificarlo direttamente, poniamo $\tilde{\omega}_{fi} = \omega_{fi} \pm \omega$ (ovvero uno tra i due), si ha
 \begin{align}
     \int_0^t dt' \, e^{i\tilde{\omega}_{fi}t} &= \frac{e^{i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}} \tag{1.4.8}
 \end{align}
@@ -431,7 +431,57 @@ mentre per $\tilde{\omega}_{fi} = 0$ si ha
 \begin{align}
     F(t, \tilde{\omega}_{fi} = 0) = t \rightarrow \infty \tag{1.4.12}
 \end{align}
-per $t \rightarrow \infty$. Pertanto per avere probabilità di transizione non nulla deve valere $\omega_{fi} = \pm \omega$, ovvero la radiazione deve avere esattamente l'energia che separa i due stati per far sì che avvenga la transizione.
+per $t \rightarrow \infty$. Pertanto per avere probabilità di transizione non nulla deve valere $\omega_{fi} = \pm \omega$, ovvero la radiazione deve avere esattamente l'energia che separa stato finale e iniziale. \\ \\
+Il modo in cui gli stati, iniziale e finale, vengono popolati segue la distribuzione di Maxwell, pertanto a basse temperature ci si aspetta di vedere lo stato ad energia minore molto più popolati. \\
+Inoltre i fotoni che vengono emessi, spontaneamente o a causa di interazione con onda elettromagnetica, hanno esattamente energia $\hbar\omega_{fi}$, pertanto anch'essi possono essere assorbiti. \\ \\
+In realtà il potenziale vettore $\mathbf{A}$ corretto può essere ottenuto applicando la $Q.E.D.$ (\textit{quantum electrodynamics}) ed è 
+\begin{align}
+    \mathbf{A} = \frac{2\hbar(N(\omega) + 1)}{\varepsilon_0\omega V}\frac{1}{r}e^{-i(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)}\mathbf{u} \tag{1.4.13}
+\end{align}
+dove il termine $+1$ tiene conto della fluttuazioni quantistiche nel vuoto. \\ \\
+Calcoliamo l'elemento di matrice 
+\begin{align}
+    M_{fi} = \braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i} \tag{1.4.14}
+\end{align}
+in approssimazione di dipolo, ovvero supponendo che $\mathbf{k} \cdot \mathbf{r} \sim 0$ e quindi $e^{i\mathbf{k} \cdot \mathbf{r}} \sim 1$. Tale approssimazione ha senso, infatti $r \sim 10^{-10} \, m$ (ordine di grandezza della distanza dell'elettrone dal nucleo), mentre $k = \frac{2\pi}{\lambda} \sim 10^8 \, m^{-1}$, pertanto $\mathbf{k} \cdot \mathbf{r} \leq kr \sim 10^{-2}$. \\
+In particolare si ha 
+\begin{align}
+    M_{fi} &= \braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i} \notag \\
+    &\sim \frac{i}{\hbar}\braket{f|\mathbf{u} \cdot \mathbf{p}|i} \tag{1.4.15}
+\end{align}
+Inoltre $\mathbf{p} = \frac{m}{i\hbar}[\mathbf{r}, H_0]$, infatti 
+\begin{align}
+    [\mathbf{r}, H_0] &= [\mathbf{r}, \frac{\mathbf{p}^2}{2m} + \cancel{V(r)}] \notag \\
+    &= \frac{1}{2m}[\mathbf{r}, \mathbf{p}^2] = \frac{i\hbar}{m}\mathbf{p} \tag{1.4.16}
+\end{align}
+dove si è usato $[\mathbf{r}, f(\mathbf{p})] = i\hbar\frac{df}{d\mathbf{p}}$. Pertanto sostituendo $(1.4.16)$ in $(1.4.15)$ si ottiene 
+\begin{align}
+    M_{fi} &\sim \frac{m}{\hbar^2}(\braket{f|\mathbf{r}H_0|i} - \braket{f|H_0\mathbf{r}|i}) \cdot \mathbf{u} \notag \\
+    &= \frac{m}{\hbar^2}(E_i - E_f)\braket{f|\mathbf{r}|i} \cdot \mathbf{u} \notag \\
+    &= \frac{m\omega_{fi}}{\hbar}\mathbf{r}_{fi} \cdot \mathbf{u} \tag{1.4.17}
+\end{align}
+Se il termine $D_{fi} = \mathbf{r}_{fi} \cdot \mathbf{u}$ è non nullo la transizione è permessa, mentre se $D_{fi} = 0$ la transizione non è permessa. \\
+Facciamo un cambio di coordinare opportuno per calcolare comodamente il prodotto scalare $\mathbf{r}_{fi} \cdot \mathbf{u}$. Poniamo 
+\begin{align}
+    \begin{cases}
+        u_1 &= \frac{1}{\sqrt{2}}(u_x + iu_y) \\
+        u_0 &= u_z \\
+        u_{-1} &= \frac{1}{\sqrt{2}}(u_x - iu_y) 
+    \end{cases} \qquad 
+    \begin{cases}
+        r_1 &= \frac{1}{\sqrt{2}}(r_x + ir_y) = \sqrt{\frac{4\pi}{3}}rY_{11} \\
+        r_0 &= r_z = \sqrt{\frac{4\pi}{3}}rY_{10} \\
+        r_{-1} &= \frac{1}{\sqrt{2}}(r_x - ir_y) = \sqrt{\frac{4\pi}{3}}rY_{1-1}
+    \end{cases} \tag{1.4.18}
+\end{align}
+Allora 
+\begin{align}
+    \braket{f|\mathbf{r}_{fi} \cdot \mathbf{u}|i} = \sum_{q = -1}^1 u_q\braket{f|r_q|i} \tag{1.4.19}
+\end{align}
+In particolare 
+\begin{align}
+    \braket{f|r_q|i} &= \sqrt{\frac{4\pi}{3}}\int_0^\infty dr \, R_{nlm}R_{n'l'm'}r^3 \int_0^{2\pi}d\varphi \int_0^\pi \sin\theta d\theta \, Y_{nlm}Y_{1q}Y_{n'l'm'} \tag{1.4.20}
+\end{align}
 
 \newpage
 \section*{Appendice}

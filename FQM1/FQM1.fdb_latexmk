@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1776280133.73092 "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" "FQM1.pdf" "FQM1" 1776280135.1029 0
-  "FQM1.aux" 1776280134 957 1d3dfc68fb5cf181e923adaee43a4568 "pdflatex"
-  "FQM1.tex" 1776280132 31501 67fa696fe6a557b92c6b67d557755b11 ""
-  "FQM1.toc" 1776280134 596 aafbf35873a9f6c41d072eb028fcd21a "pdflatex"
-  "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" 1776280132 31501 67fa696fe6a557b92c6b67d557755b11 ""
+["pdflatex"] 1778687958.73139 "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" "FQM1.pdf" "FQM1" 1778687960.12962 0
+  "FQM1.aux" 1778687959 957 156f64f5283a7239ade5e12e5aaed45f "pdflatex"
+  "FQM1.tex" 1778687957 34881 6e62d72a1683aa4a54bcfc064d964ff2 ""
+  "FQM1.toc" 1778687959 596 aafbf35873a9f6c41d072eb028fcd21a "pdflatex"
+  "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" 1778687957 34881 6e62d72a1683aa4a54bcfc064d964ff2 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1773573954 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1773573954 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -28,6 +28,7 @@
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1773576307 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1773576307 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1773576307 1120 8b7d695260f3cff42e636090a8002094 ""
+  "c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1773576307 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1773573954 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1773573954 32080 340ef9bf63678554ee606688e7b5339d ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb" 1773573954 32007 e8fa0078355f39467039935974716569 ""
@@ -43,6 +44,7 @@
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1773573954 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1773573954 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1773573954 32716 08e384dc442464e7285e891af9f45947 ""
+  "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1773573954 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb" 1773573954 11493 4f5ed183a47d3197cf8cd322325db6de ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1773573954 34694 870c211f62cb72718a00e353f14f254d ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1773573954 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
