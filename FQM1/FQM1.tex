@@ -229,7 +229,7 @@ Considerando tutti e tre i contributi calcolati si ha una rottura parziale della
     E_{n, j} = E_n\left(1 - \frac{(Z\alpha)^2}{n^2}\left(\frac{n}{j + \frac{1}{2}} - \frac{3}{4}\right)\right) \tag{1.2.23}
 \end{align}
 
-\subsection{Esercizi}
+\subsubsection{Esercizi}
 \textbf{1.} Determinare l'errore che si compie sul calcolo dell'energia dello stato fondamentale dell'atomo di idrogeno se si sceglie come autofunzione dello stato fondamentale la seguente
 \begin{align}
     \psi(r, \theta, \varphi) = Ne^{-cr^2} \notag
@@ -366,6 +366,15 @@ per $r < r_0$ e ovviamente $V(r) = - \frac{Z}{r}$ per $r > r_0$. Ricordiamo che 
 
 \subsection{Interazione radiazione-materia}
 Studiamo i fenomeni di emissione (spontanea e non) e assorbimento della materia soggetta a radiazione elettromagnetica attraverso la teoria delle perturbazioni dipendenti dal tempo, in particolare determinando le rate alle quali avvengono tali fenomeni. \\ \\
+Riportiamo immediatamente i risultati
+\begin{align}
+    \begin{cases}
+        W^{ass}_{fi} &= \frac{4\pi^2}{m^2c}\frac{e^2}{4\pi\varepsilon_0}\frac{I(\omega_{fi})}{\omega^2_{fi}}|M_{fi}(\omega_{fi})|^2 \\
+        W^{emiss}_{if} &= \frac{4\pi^2}{m^2c}\frac{e^2}{4\pi\varepsilon_0}\frac{I(\omega_{fi})}{\omega^2_{fi}}|\overline{M}_{if}(\omega_{fi})|^2 \\
+        W^{spont}_{if} &= \frac{\hbar}{2\pi m^2c^3}\frac{e^2}{4\pi\varepsilon_0}\omega_{fi}|M_{fi}(\omega_{fi})|^2 \, d\Omega
+    \end{cases} \notag
+\end{align}
+Dove $|M_{fi}|^2 = |\overline{M}_{if}|^2$, ovvero la rate di emmissione e assorbimento sono uguali. \\ \\
 Scegliendo la gauge di Coulomb, dalle equazione di Maxwell otteniamo 
 \begin{align}
     \begin{cases}
@@ -482,6 +491,32 @@ In particolare
 \begin{align}
     \braket{f|r_q|i} &= \sqrt{\frac{4\pi}{3}}\int_0^\infty dr \, R_{nlm}R_{n'l'm'}r^3 \int_0^{2\pi}d\varphi \int_0^\pi \sin\theta d\theta \, Y_{nlm}Y_{1q}Y_{n'l'm'} \tag{1.4.20}
 \end{align}
+Poiché l'operatore $\mathbf{A} \cdot \nabla$ è invariante per scambio $\theta \rightarrow \pi - \theta$ e $\varphi \rightarrow \pi - \varphi$, deve valere anche per il termine $\braket{f|r_q|i}$ per ogni $q = -1, 0, 1$. Allora, dato che le armoniche sferiche hanno simmetria $(-1)^{l}$ deve valere $(-1)^{l + l' + 1} = 1$, ovvero $l + l' + 1$ deve essere pari, ciò comporta $\Delta l = \pm 1$. \\
+Inoltre 
+\begin{align}
+    \int_0^{2\pi}d\varphi \, e^{i(m - m' + q)\varphi} \neq 0 \notag
+\end{align}
+se e solo se $m - m' + q = 0$ (per $t \rightarrow \infty$), allora $\Delta m = 0$ o $\Delta m = \pm 1$. \\
+Pertanto concludiamo che le regole di selezione per verificare se una transizione è ammessa (in approssimazione di dipolo) sono $\Delta l = \pm 1$ e $\Delta m = 0, \pm 1$. \\ \\
+Definiamo la \textit{forza dell'oscillatore} associata alla transizione $j \rightarrow i$
+\begin{align}
+    f_{ij} = \frac{2m\omega_{ij}}{3\hbar}|\mathbf{r}_{ij}|^2 \notag
+\end{align}
+Notiamo che il segno del termine $f_{ij}$ dipende solamente da $\omega_{ij}$. In particolare se $f_{ij} > 0$ è relativo ad un processo di emissione, mentre se $f_{ij} < 0$ è relativo ad un processo di assorbimento. \\
+I termini $f_{ij}$ soddisfano 
+\begin{align}
+    \sum_{k} f_{ik} = Z \tag{1.4.21}
+\end{align}
+dove $Z$ è il numero atomico. \\ \\
+Uno stato eccitato $b$ decadrà dopo un tempo finito in uno stato ammesso ad energia inferiore. Definiamo il \textit{tempo di vita} di tale stato eccitato essere
+\begin{align}
+    (\tau_b)^{-1} = \sum_{k : E_k < E_b}W^{spont}_{BK} \tag{1.4.22}
+\end{align}
+Il numero di particelle che popola tale stato eccitato ha la seguente forma 
+\begin{align}
+    N(t) = N(0)e^{-t/\tau_b} \tag{1.4.23}
+\end{align}
+ovvero il numero decrescente esponenzialmente con rapidità dettata dal tempo di vita.
 
 \newpage
 \section*{Appendice}
