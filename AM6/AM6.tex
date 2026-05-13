@@ -2196,17 +2196,17 @@ una volta fatto ciò possiamo svolgere il limite per $n \rightarrow \infty$, che
 Per $\mu \in (\lambda, \lambda + 1/n)$ si ha 
 \begin{align}
     (h_{\lambda, n}(\mu))^2 &= (-\mu n + \lambda n + 1)^2 \notag \\
-    &= \mu^2n^2 + \lambda^2n^2 + 1 - 2\mu\lambda n - 2\mu n + 2\lambda n \notag
+    &= \mu^2n^2 + \lambda^2n^2 + 1 - 2\mu\lambda n^2 - 2\mu n + 2\lambda n \notag
 \end{align}
 quindi 
 \begin{align}
-    \frac{d}{d\mu}(h_{\lambda, n}(\mu))^2 = 2\mu n^2 - 2\lambda n - 2n \notag
+    \frac{d}{d\mu}(h_{\lambda, n}(\mu))^2 = 2\mu n^2 - 2\lambda n^2 - 2n \notag
 \end{align}
 pertanto per ottenere 
 \begin{align}
-    \frac{d}{d\mu}h_{\lambda, m} = -m \leq 2\mu n^2 - 2\lambda n - 2n = \frac{d}{d\mu}(h_{\lambda, n}(\mu))^2 \notag
+    \frac{d}{d\mu}h_{\lambda, m} = -m \leq 2\mu n^2 - 2\lambda n^2 - 2n = \frac{d}{d\mu}(h_{\lambda, n}(\mu))^2 \notag
 \end{align}
-basta prendere $m \geq 2n$. Dunque per $m \geq 2n$ si ha 
+basta prendere $m \geq 2n$, infatti $\frac{d^2}{d\mu^2}(h_{\lambda, n}(\mu))^2 \geq 0$, pertanto possiamo ottenere subito una stima ponendo $\mu = \lambda$ dato che ci troviamo in $[\lambda, \lambda + 1/n]$. Dunque per $m \geq 2n$ si ha 
 \begin{align}
     (x, h_{\lambda, m}(A)x) \leq (x, (h_{\lambda, n}(A))^2x) \leq (x, h_{\lambda, n}(A)x) \notag
 \end{align}
@@ -2226,7 +2226,7 @@ Infine mostriamo la continuità da destra. Per ogni $\mu, \lambda \in \mathbf{R}
 \end{align}
 Sia $\{\mu_n\}_{n \in \mathbf{N}} \subset \mathbf{R}$ tale che $\mu_n \rightarrow \mu$ per $n \rightarrow \infty$ da destra, ovvero $\mu_n \geq \mu$ per ogni $n \in \mathbf{N}$. Consideriamo la seguente successione di funzioni $\{h_{\mu_n, n}\}_{n \in \mathbf{N}}$ e poniamo 
 \begin{align}
-    Q = \lim_{n \rightarrow \infty} h_{\mu, n}(A) \notag
+    Q = \lim_{n \rightarrow \infty} h_{\mu_n, n}(A) \notag
 \end{align}
 Il limite esiste ed è ben definito in $S.O.T.$ dato che $\{h_{\mu_n, n}(A)\}_{n \in \mathbf{N}}$ è una famiglia decrescente di operatori. Mostriamo che $Q = P^A_\mu$.
 
