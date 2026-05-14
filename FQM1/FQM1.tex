@@ -381,7 +381,7 @@ Scegliendo la gauge di Coulomb, dalle equazione di Maxwell otteniamo
         \mathbf{E}(\omega, \mathbf{r}, t) &= -\omega_0A_0(\omega)\sin(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)\mathbf{u} \\
         \mathbf{B}(\omega, \mathbf{r}, t) &= -A_0(\omega)\sin(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)(\mathbf{k} \times \mathbf{u}) \\
         \mathbf{A}(\omega, \mathbf{r}, t) &= \int_0^\infty d\omega \, A_0(\omega)\cos(\mathbf{k} \cdot \mathbf{r} - \omega t -\delta_\omega)\mathbf{u}
-    \end{cases} \tag{1.4.1}
+    \end{cases} \tag{1.3.1}
 \end{align}
 dove $\mathbf{u}$ è il versore che identifica la polarizzazione del campo elettromagnetico. \\ \\
 Ricordiamo che l'hamiltoniano di una particella con carica $q$ soggetta ad un campo elettromagnetico è data dall'accoppiamento minimo, ovvero $\mathbf{p} \rightarrow \mathbf{p} - q\mathbf{A}$, allora in unità atomiche
@@ -389,11 +389,11 @@ Ricordiamo che l'hamiltoniano di una particella con carica $q$ soggetta ad un ca
     H &= \frac{(\mathbf{p} + \mathbf{A})^2}{2m} - \frac{Z}{r} \notag \\
     &= \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{A}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} \notag \\
     &= \frac{\mathbf{p}^2}{2m} - \frac{Z}{r} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} + \cancel{\left[\frac{\mathbf{A}^2}{2m}\right]} \notag \\
-    &\sim H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} = H_0 + \frac{i\hbar}{m}\mathbf{A} \cdot \nabla \tag{1.4.2}
+    &\sim H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} = H_0 + \frac{i\hbar}{m}\mathbf{A} \cdot \nabla \tag{1.3.2}
 \end{align} 
 dove si è trascurato il termine quadratico $\mathbf{A}^2$ per campi elettromagnetici poco intensi e si è usato il fatto che $\nabla$ e $\mathbf{A}$ commutano, infatti 
 \begin{align}
-    \nabla \cdot (\mathbf{A}\psi) = \psi\cancel{\nabla \cdot \mathbf{A}} + \mathbf{A}\nabla\phi \tag{1.4.3}
+    \nabla \cdot (\mathbf{A}\psi) = \psi\cancel{\nabla \cdot \mathbf{A}} + \mathbf{A}\nabla\phi \tag{1.3.3}
 \end{align}
 dato che in gauge di Coulomb si ha $\nabla \cdot \mathbf{A} = 0$. In $(1.4.2)$ $\nabla \cdot \mathbf{A}$ è da intendere come operatore che agisce sui vettori dello spazio di Hilbert in esame. \\ \\
 Ricordiamo che l'intensità dell'onda elettromagnetica (che sappiamo essere proporzionale al numero di fotoni) è definita come il valor medio del vettore di Poynting $\mathbf{S} = \mathbf{E} \times \mathbf{H}$, in particolare si ha 
@@ -402,72 +402,72 @@ Ricordiamo che l'intensità dell'onda elettromagnetica (che sappiamo essere prop
     &= \braket{\mathbf{E} \times \mathbf{H}} \notag \\
     &= \braket{\mathbf{E} \times \frac{\mathbf{B}}{\mu_0}} \notag \\
     &= -\omega_0A^2_0(\omega)k\braket{\sin^2(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)} \notag \\
-    &= \frac{1}{2}c\varepsilon_0\omega^2A^2_0(\omega) \tag{1.4.4}
+    &= \frac{1}{2}c\varepsilon_0\omega^2A^2_0(\omega) \tag{1.3.4}
 \end{align}
 dove si è usato $\frac{1}{\mu_0} = c^2\varepsilon_0$ e $k = \frac{\omega}{c}$. Da $(1.4.3)$ segue che 
 \begin{align}
-    A^2_0(\omega) = \frac{2I}{c\varepsilon_0\omega^2} \tag{1.4.5}
+    A^2_0(\omega) = \frac{2I}{c\varepsilon_0\omega^2} \tag{1.3.5}
 \end{align}
 ovvero possiamo determinare l'ampiezza dell'onda in funzione della sua intensità, il che è molto comodo dato che l'intensità è un parametro facilmente controllabile praticamente. \\ \\
 A questo punto applichiamo la teoria delle perturbazioni dipendenti dal tempo sulla perturbazione $H' = \frac{i\hbar}{m}\nabla \cdot \mathbf{A}$ per determinare le rate di transizione dei vari stati. Si ha 
 \begin{align}
     \alpha_{fi} &= -\frac{1}{m}\int_0^t dt' \, \braket{f|\mathbf{A} \cdot \nabla|i}e^{i\omega_{fi}t'} \notag \\
     &= -\frac{1}{2m}\int_0^\infty d\omega \, A_0(\omega)\left(e^{i\delta_\omega}\braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i}\int_0^\infty dt' \, e^{i(\omega_{fi} - \omega)t'} +\right. \notag \\
-    &+ \left.e^{-i\delta_\omega}\braket{f|e^{-i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i}\int_0^t dt' \, e^{i(\omega_{fi} + \omega)t}\right) \tag{1.4.6}
+    &+ \left.e^{-i\delta_\omega}\braket{f|e^{-i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i}\int_0^t dt' \, e^{i(\omega_{fi} + \omega)t}\right) \tag{1.3.6}
 \end{align}
 dove si è espresso il coseno in termini di esponenziali complessi. I termini integrali 
 \begin{align}
-    \int_0^t dt' \, e^{i(\omega_{fi} \pm \omega)t} \tag{1.4.7}
+    \int_0^t dt' \, e^{i(\omega_{fi} \pm \omega)t} \tag{1.3.7}
 \end{align}
 hanno valore medio non nullo (per $t \rightarrow \infty)$ se e solo se si ha $\omega_{fi} \pm \omega = 0$. Infatti possiamo verificarlo direttamente, poniamo $\tilde{\omega}_{fi} = \omega_{fi} \pm \omega$ (ovvero uno tra i due), si ha
 \begin{align}
-    \int_0^t dt' \, e^{i\tilde{\omega}_{fi}t} &= \frac{e^{i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}} \tag{1.4.8}
+    \int_0^t dt' \, e^{i\tilde{\omega}_{fi}t} &= \frac{e^{i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}} \tag{1.3.8}
 \end{align}
 studiamo come si comporta la rate associata alla probabilità di transizione $i \rightarrow f$ (data da $|\alpha_{fi}|^2$)
 \begin{align}
     \frac{1}{t}\left(\frac{e^{i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}}\right)\left(-\frac{e^{-i\tilde{\omega}_{fi}t} - 1}{i\tilde{\omega}_{fi}}\right) &= \frac{2(1 - \cos(\tilde{\omega}_{fi}t))}{\tilde{\omega}^2_{fi}t} \notag \\
-    &= \frac{\sin^2(\tilde{\omega}_{fi}t)}{\tilde{\omega}^2_{fi}t} = F(t, \tilde{\omega}_{fi}) \tag{1.4.9}
+    &= \frac{\sin^2(\tilde{\omega}_{fi}t)}{\tilde{\omega}^2_{fi}t} = F(t, \tilde{\omega}_{fi}) \tag{1.3.9}
 \end{align}
 siamo interessati a come si comporta per tempi molto lunghi, pertanto prendiamo $t \rightarrow \infty$
 \begin{align}
-    \lim_{t \rightarrow \infty}F(t, \tilde{\omega}_{fi}) = \delta_{\tilde{\omega}_{fi}} \tag{1.4.10}
+    \lim_{t \rightarrow \infty}F(t, \tilde{\omega}_{fi}) = \delta_{\tilde{\omega}_{fi}} \tag{1.3.10}
 \end{align}
 infatti se $\tilde{\omega}_{fi} \neq 0$ si ha 
 \begin{align}
-    0 \leq \lim_{t \rightarrow \infty}\frac{\sin^2(\tilde{\omega}_{fi}t)}{\tilde{\omega}^2_{fi}t} \leq \lim_{t \rightarrow \infty}\frac{1}{\tilde{\omega}^2_{fi}t} = 0 \tag{1.4.11}
+    0 \leq \lim_{t \rightarrow \infty}\frac{\sin^2(\tilde{\omega}_{fi}t)}{\tilde{\omega}^2_{fi}t} \leq \lim_{t \rightarrow \infty}\frac{1}{\tilde{\omega}^2_{fi}t} = 0 \tag{1.3.11}
 \end{align}
 mentre per $\tilde{\omega}_{fi} = 0$ si ha 
 \begin{align}
-    F(t, \tilde{\omega}_{fi} = 0) = t \rightarrow \infty \tag{1.4.12}
+    F(t, \tilde{\omega}_{fi} = 0) = t \rightarrow \infty \tag{1.3.12}
 \end{align}
 per $t \rightarrow \infty$. Pertanto per avere probabilità di transizione non nulla deve valere $\omega_{fi} = \pm \omega$, ovvero la radiazione deve avere esattamente l'energia che separa stato finale e iniziale. \\ \\
 Il modo in cui gli stati, iniziale e finale, vengono popolati segue la distribuzione di Maxwell, pertanto a basse temperature ci si aspetta di vedere lo stato ad energia minore molto più popolati. \\
 Inoltre i fotoni che vengono emessi, spontaneamente o a causa di interazione con onda elettromagnetica, hanno esattamente energia $\hbar\omega_{fi}$, pertanto anch'essi possono essere assorbiti. \\ \\
 In realtà il potenziale vettore $\mathbf{A}$ corretto può essere ottenuto applicando la $Q.E.D.$ (\textit{quantum electrodynamics}) ed è 
 \begin{align}
-    \mathbf{A} = \frac{2\hbar(N(\omega) + 1)}{\varepsilon_0\omega V}\frac{1}{r}e^{-i(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)}\mathbf{u} \tag{1.4.13}
+    \mathbf{A} = \frac{2\hbar(N(\omega) + 1)}{\varepsilon_0\omega V}\frac{1}{r}e^{-i(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)}\mathbf{u} \tag{1.3.13}
 \end{align}
 dove il termine $+1$ tiene conto della fluttuazioni quantistiche nel vuoto. \\ \\
 Calcoliamo l'elemento di matrice 
 \begin{align}
-    M_{fi} = \braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i} \tag{1.4.14}
+    M_{fi} = \braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i} \tag{1.3.14}
 \end{align}
 in approssimazione di dipolo, ovvero supponendo che $\mathbf{k} \cdot \mathbf{r} \sim 0$ e quindi $e^{i\mathbf{k} \cdot \mathbf{r}} \sim 1$. Tale approssimazione ha senso, infatti $r \sim 10^{-10} \, m$ (ordine di grandezza della distanza dell'elettrone dal nucleo), mentre $k = \frac{2\pi}{\lambda} \sim 10^8 \, m^{-1}$, pertanto $\mathbf{k} \cdot \mathbf{r} \leq kr \sim 10^{-2}$. \\
 In particolare si ha 
 \begin{align}
     M_{fi} &= \braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i} \notag \\
-    &\sim \frac{i}{\hbar}\braket{f|\mathbf{u} \cdot \mathbf{p}|i} \tag{1.4.15}
+    &\sim \frac{i}{\hbar}\braket{f|\mathbf{u} \cdot \mathbf{p}|i} \tag{1.3.15}
 \end{align}
 Inoltre $\mathbf{p} = \frac{m}{i\hbar}[\mathbf{r}, H_0]$, infatti 
 \begin{align}
     [\mathbf{r}, H_0] &= [\mathbf{r}, \frac{\mathbf{p}^2}{2m} + \cancel{V(r)}] \notag \\
-    &= \frac{1}{2m}[\mathbf{r}, \mathbf{p}^2] = \frac{i\hbar}{m}\mathbf{p} \tag{1.4.16}
+    &= \frac{1}{2m}[\mathbf{r}, \mathbf{p}^2] = \frac{i\hbar}{m}\mathbf{p} \tag{1.3.16}
 \end{align}
 dove si è usato $[\mathbf{r}, f(\mathbf{p})] = i\hbar\frac{df}{d\mathbf{p}}$. Pertanto sostituendo $(1.4.16)$ in $(1.4.15)$ si ottiene 
 \begin{align}
     M_{fi} &\sim \frac{m}{\hbar^2}(\braket{f|\mathbf{r}H_0|i} - \braket{f|H_0\mathbf{r}|i}) \cdot \mathbf{u} \notag \\
     &= \frac{m}{\hbar^2}(E_i - E_f)\braket{f|\mathbf{r}|i} \cdot \mathbf{u} \notag \\
-    &= \frac{m\omega_{fi}}{\hbar}\mathbf{r}_{fi} \cdot \mathbf{u} \tag{1.4.17}
+    &= \frac{m\omega_{fi}}{\hbar}\mathbf{r}_{fi} \cdot \mathbf{u} \tag{1.3.17}
 \end{align}
 Se il termine $D_{fi} = \mathbf{r}_{fi} \cdot \mathbf{u}$ è non nullo la transizione è permessa, mentre se $D_{fi} = 0$ la transizione non è permessa. \\
 Facciamo un cambio di coordinare opportuno per calcolare comodamente il prodotto scalare $\mathbf{r}_{fi} \cdot \mathbf{u}$. Poniamo 
@@ -481,15 +481,15 @@ Facciamo un cambio di coordinare opportuno per calcolare comodamente il prodotto
         r_1 &= \frac{1}{\sqrt{2}}(r_x + ir_y) = \sqrt{\frac{4\pi}{3}}rY_{11} \\
         r_0 &= r_z = \sqrt{\frac{4\pi}{3}}rY_{10} \\
         r_{-1} &= \frac{1}{\sqrt{2}}(r_x - ir_y) = \sqrt{\frac{4\pi}{3}}rY_{1-1}
-    \end{cases} \tag{1.4.18}
+    \end{cases} \tag{1.3.18}
 \end{align}
 Allora 
 \begin{align}
-    \braket{f|\mathbf{r}_{fi} \cdot \mathbf{u}|i} = \sum_{q = -1}^1 u_q\braket{f|r_q|i} \tag{1.4.19}
+    \braket{f|\mathbf{r}_{fi} \cdot \mathbf{u}|i} = \sum_{q = -1}^1 u_q\braket{f|r_q|i} \tag{1.3.19}
 \end{align}
 In particolare 
 \begin{align}
-    \braket{f|r_q|i} &= \sqrt{\frac{4\pi}{3}}\int_0^\infty dr \, R_{nlm}R_{n'l'm'}r^3 \int_0^{2\pi}d\varphi \int_0^\pi \sin\theta d\theta \, Y_{nlm}Y_{1q}Y_{n'l'm'} \tag{1.4.20}
+    \braket{f|r_q|i} &= \sqrt{\frac{4\pi}{3}}\int_0^\infty dr \, R_{nlm}R_{n'l'm'}r^3 \int_0^{2\pi}d\varphi \int_0^\pi \sin\theta d\theta \, Y_{nlm}Y_{1q}Y_{n'l'm'} \tag{1.3.20}
 \end{align}
 Poiché l'operatore $\mathbf{A} \cdot \nabla$ è invariante per scambio $\theta \rightarrow \pi - \theta$ e $\varphi \rightarrow \pi + \varphi$, deve valere anche per il termine $\braket{f|r_q|i}$ per ogni $q = -1, 0, 1$. Allora, dato che le armoniche sferiche hanno simmetria $(-1)^{l}$ deve valere $(-1)^{l + l' + 1} = 1$, ovvero $l + l' + 1$ deve essere pari, ciò comporta $\Delta l = \pm 1$. \\
 Inoltre 
@@ -505,16 +505,16 @@ Definiamo la \textit{forza dell'oscillatore} associata alla transizione $j \righ
 Notiamo che il segno del termine $f_{ij}$ dipende solamente da $\omega_{ij}$. In particolare se $f_{ij} > 0$ è relativo ad un processo di assorbimento, mentre se $f_{ij} < 0$ è relativo ad un processo di emissione (il primo indice rappresenta lo stato finale). \\
 I termini $f_{ij}$ soddisfano 
 \begin{align}
-    \sum_{k} f_{ik} = Z \tag{1.4.21}
+    \sum_{k} f_{ik} = Z \tag{1.3.21}
 \end{align}
 dove $Z$ è il numero atomico. \\ \\
 Uno stato eccitato $b$ decadrà dopo un tempo finito in uno stato ammesso ad energia inferiore. Definiamo il \textit{tempo di vita} di tale stato eccitato essere
 \begin{align}
-    (\tau_b)^{-1} = \sum_{k : E_k < E_b}W^{spont}_{KB} \tag{1.4.22}
+    (\tau_b)^{-1} = \sum_{k : E_k < E_b}W^{spont}_{KB} \tag{1.3.22}
 \end{align}
 Il numero di particelle che popola tale stato eccitato ha la seguente forma 
 \begin{align}
-    N(t) = N(0)e^{-t/\tau_b} \tag{1.4.23}
+    N(t) = N(0)e^{-t/\tau_b} \tag{1.3.23}
 \end{align}
 ovvero decresce esponenzialmente con rapidità dettata dal tempo di vita.
 
@@ -522,18 +522,18 @@ ovvero decresce esponenzialmente con rapidità dettata dal tempo di vita.
 \subsection{Atomo idrogenoide soggetto a campo elettromagnetico}
 Consideriamo un campo magnetico uniforme $\mathbf{B} = (0, 0, B)$. L'hamiltoniano di una particella soggetta al campo $\mathbf{B}$ (in unità atomiche) è 
 \begin{align}
-    H = \frac{(\mathbf{p} + \mathbf{A})^2}{2m} - \frac{Z}{r} \tag{1.5.1}
+    H = \frac{(\mathbf{p} + \mathbf{A})^2}{2m} - \frac{Z}{r} \tag{1.4.1}
 \end{align}
 per \textit{accoppiamento minimale}, dove $\mathbf{A} = \frac{1}{2}\mathbf{B} \times \mathbf{r}$ in questo caso. Se supponiamo che il campo magnetico sia poco intenso possiamo trascurare il termine $\mathbf{A}^2$, pertanto si ottiene 
 \begin{align}
     H &= \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{A}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} \notag \\
-    &\sim \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} = H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} \tag{1.5.2}
+    &\sim \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} = H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} \tag{1.4.2}
 \end{align}
 dove $H_0$ è l'hamiltoniana dell'atomo idrogenoide (che sappiamo risolvere). In particolare 
 \begin{align}
     \mathbf{p} \cdot \mathbf{A} &= \mathbf{p} \cdot \frac{1}{2}(\mathbf{B} \times \mathbf{r}) \notag \\
     &= -\frac{1}{2}(\mathbf{p} \times \mathbf{r}) \cdot \mathbf{B} \notag \\
-    &= \frac{1}{2}\mathbf{L} \cdot \mathbf{B} \tag{1.5.3}
+    &= \frac{1}{2}\mathbf{L} \cdot \mathbf{B} \tag{1.4.3}
 \end{align}
 Notiamo immediatamente che tale termine non ha effetto sugli stati a $l = 0$, pertanto in tal caso non può essere trascurato il termine quadratico $\mathbf{A}^2$. \\
 Determiniamo l'ordine di grandezza del termine quadratico. Si ha
@@ -543,12 +543,12 @@ Determiniamo l'ordine di grandezza del termine quadratico. Si ha
     &= \frac{1}{8}\mathbf{B}^2\mathbf{r}^2(1 - \cos^2\theta) \notag \\
     &= \frac{1}{8}\mathbf{B}^2\mathbf{r}^2 - \frac{1}{8}(\mathbf{B} \cdot \mathbf{r})^2 \notag \\
     &= \frac{1}{8}\mathbf{B}^2(\mathbf{r}^2 - \mathbf{z}^2) \notag \\
-    &= \frac{1}{8}\mathbf{B}^2\left(1 - \frac{1}{3}\right)\braket{\mathbf{r}^2}_{n00} \tag{1.5.4} 
+    &= \frac{1}{8}\mathbf{B}^2\left(1 - \frac{1}{3}\right)\braket{\mathbf{r}^2}_{n00} \tag{1.4.4} 
 \end{align}
 dove si è usato $\braket{\mathbf{r}^2}_{nlm} = \frac{1}{3}\braket{\mathbf{z}^2}_{nlm}$ per simmetria sferica del problema. Il termine $\braket{\mathbf{r}^2}_{n00}$ va come $n^4$. Pertanto per $n = 1$ si ha $\frac{1}{2}\mathbf{A}^2 \sim \mathbf{B}^2$ e il termine quadratico è trascurabile, mentre per $n$ abbastanza grandi ha un contributo che non può essere più tralasciato. \\ \\
 Sappiamo che, in prima approssimazione, il termine di interazione può essere scritto come $-\mathbf{m} \cdot \mathbf{B}$, dove $\mathbf{m}$ è il momento di dipolo. Allora deve valere 
 \begin{align}
-    -\mathbf{m} \cdot \mathbf{B} = \mathbf{p} \cdot \mathbf{A} \tag{1.5.5}
+    -\mathbf{m} \cdot \mathbf{B} = \mathbf{p} \cdot \mathbf{A} \tag{1.4.5}
 \end{align}
 Se supponiamo che l'elettrone compie un'orbita circolare attorno al nucleo ed indichiamo con $\Sigma$ la superficie racchiusa dall'orbita, otteniamo 
 \begin{align}
@@ -556,11 +556,11 @@ Se supponiamo che l'elettrone compie un'orbita circolare attorno al nucleo ed in
 \end{align}
 dove $i = -\frac{e}{T} = -\frac{e\omega}{2\pi}$, $\hat{n}$ è il versore perpendicolare alla superficie $\Sigma$ e $\Sigma = \pi R^2$ con $R$ raggio dell'orbita. Allora 
 \begin{align}
-    -\mathbf{m} = -\frac{e\omega}{2\pi}\pi R^2 \hat{n} = \frac{e\omega R^2}{2}\hat{n} = \frac{e\mathbf{L}}{2m} = -\frac{\mu_B}{\hbar}\mathbf{L} \tag{1.5.6}
+    -\mathbf{m} = -\frac{e\omega}{2\pi}\pi R^2 \hat{n} = \frac{e\omega R^2}{2}\hat{n} = \frac{e\mathbf{L}}{2m} = -\frac{\mu_B}{\hbar}\mathbf{L} \tag{1.4.6}
 \end{align}
 dove $\mu_B$ è il magnetone di Bohr e si è usato $\mathbf{L} = m\omega R^2\hat{n}$. Se consideriamo anche lo spin $\mathbf{S}$ si ottiene 
 \begin{align}
-    -\mathbf{m} = -\frac{\mu_B}{\hbar}(\mathbf{L} + g\mathbf{S}) \tag{1.5.7}
+    -\mathbf{m} = -\frac{\mu_B}{\hbar}(\mathbf{L} + g\mathbf{S}) \tag{1.4.7}
 \end{align}
 dove $g$ è detto \textit{fattore giromagnetico} e tiene conto di quanto spin è necessario per generare un magnetone di Bohr. \\ \\
 Delle correzioni relativistiche ci interessa solamente l'interazione spin-orbita, dato che è l'unica che rompe la degenerazione. Studiamo il suo effetto in relazione all'intensità del campo magnetico.
@@ -568,35 +568,74 @@ Delle correzioni relativistiche ci interessa solamente l'interazione spin-orbita
 \subsubsection*{Effetto Zeeman}
 Se il campo magnetico è abbastanza intenso da trascurare l'interazione spin-orbita si ha 
 \begin{align}
-    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B \tag{1.5.8}
+    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B \tag{1.4.8}
 \end{align}
 per $\mathbf{B} = (0, 0, B)$, $g = 2$ per l'elettrone. Allora l'energia corretta al primo ordine è 
 \begin{align}
     E^{(1)} &= \braket{nlm|H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B|nlm} \notag \\
-    &= E_n + \frac{\mu_BB}{\hbar}(m_l + 2m_s) \tag{1.5.9}
+    &= E_n + \frac{\mu_BB}{\hbar}(m_l + 2m_s) \tag{1.4.9}
 \end{align}
 Notiamo che viene rotta la degenerazione in $m_l$ e $m_s$.
 
 \subsubsection*{Effetto Pachen-Back}
 Se il campo megnetico non è abbastanza intenso dobbiamo considerare anche il termine dovuto all'interazione spin-orbita, ovvero 
 \begin{align}
-    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B + f(r)\mathbf{L} \cdot \mathbf{S} \tag{1.5.10}
+    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B + f(r)\mathbf{L} \cdot \mathbf{S} \tag{1.4.10}
 \end{align}
 In particolare possiamo scrivere
 \begin{align}
-    \mathbf{L} \cdot \mathbf{S} = \frac{1}{2}(\mathbf{J}^2 - \mathbf{L}^2 - \mathbf{S}^2) \tag{1.5.11}
+    \mathbf{L} \cdot \mathbf{S} = \frac{1}{2}(\mathbf{J}^2 - \mathbf{L}^2 - \mathbf{S}^2) \tag{1.4.11}
 \end{align}
 e sostituendo $(1.5.11)$ in $(1.5.10)$ si ottiene 
 \begin{align}
-    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B + \frac{1}{2}f(r)(\mathbf{J}^2 - \mathbf{L}^2 - \mathbf{S}^2) \tag{1.5.12}
+    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B + \frac{1}{2}f(r)(\mathbf{J}^2 - \mathbf{L}^2 - \mathbf{S}^2) \tag{1.4.12}
 \end{align}
 Trattiamo il termine dovuto all'interazione spin-orbita come una perturbazione rispetto al caso dell'effetto Zeeman. In particolare $f(r) = \frac{\alpha^2}{2}\frac{1}{r}\frac{dV}{dr}$, pertanto 
 \begin{align}
-    \Delta E^{(1)} &= \braket{f(r)}\braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
-    &= \int_0^\infty dr \, R_{nl}(r)f(r)R_{nl}(r) \cdot \braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
-    &= \int_0^\infty dr \, |R_{nl}(r)|^2\frac{\alpha^2}{2}\frac{1}{r}\frac{dV}{dr} \cdot \braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
-    &=
+    \Delta E^{(1)} &= \frac{1}{2}\braket{f(r)}\braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
+    &= \frac{1}{2}\int_0^\infty dr \, R_{nl}(r)f(r)R_{nl}(r) \cdot \braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
+    &= \frac{1}{2}\int_0^\infty dr \, |R_{nl}(r)|^2\frac{\alpha^2}{2}\frac{1}{r}\frac{dV}{dr} \cdot \braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
+    &= \frac{\alpha^2Z}{4}\int_0^\infty dr \, |R_{nl}(r)|^2\frac{1}{r^3} \cdot (m_lm_s) \notag \\
+    &= \frac{\alpha^2Z}{4}(m_lm_s)\braket{\frac{1}{r^3}}_{nl} \notag \\
+    &= \frac{\alpha^2Z}{4}\frac{Z^3}{n^2l(l + 1/2)(l + 1)}(m_lm_s) = \lambda_{nl}m_lm_s \tag{1.4.13}
 \end{align}
+Notiamo che il termine di interazione spin-orbita non rompe nessuna degenerazione. \\ \\
+Per il \textit{teorema di Wigner-Eckart}, data la simmetria radiale del potenziale, si ha che $\mathbf{L}$ e $\mathbf{S}$ sono proporzionali a $\mathbf{J}$, pertanto possiamo scrivere 
+\begin{align}
+    H &= H_0 + H_{SO} + \mu_BB(L_z + 2S_z) \notag \\
+    &= H_0 + H_{SO} + \mu_BB(J_z + S_z) \notag \\
+    &= H_0 + H_{SO} + \mu_BB(1 + k)J_z \tag{1.4.14}
+\end{align}
+con $k$ da determinare imponendo che $\braket{\mathbf{S}}_{nlm} = k\braket{\mathbf{J}}_{nlm}$. Allora 
+\begin{align}
+    \braket{\mathbf{S} \cdot \mathbf{J}}_{nlm} &= k\braket{\mathbf{J}^2}_{nlm} \notag
+\end{align}
+segue che 
+\begin{align}
+    k = \frac{1}{2}\frac{j(j + 1) - (l(l + 1) - s(s + 1))}{j(j + 1)} \tag{1.4.15}
+\end{align}
+ovviamente $s = \frac{1}{2}$ per l'elettrone. Concludiamo che 
+\begin{align}
+    \Delta E^{(1)}_{PB} = \mu_BB(1 + k)m_j \tag{1.4.16}
+\end{align}
+dove $(1 + k)$ è detto \textit{fattore di Landé} e vedremo che non è altro che il \textit{fattore giromagnetico} $g$.
+
+\newpage
+\subsection{Approssimazione del potenziale in armoniche sferiche}
+Il potenziale di interazione tra due elettroni (in unità atomiche) è dato da 
+\begin{align}
+    \frac{1}{r_{12}} = \frac{1}{|r_1 - r_2|} \tag{1.5.1}
+\end{align}
+Tale potenziale può essere approssimato in serie usando le armoniche sferiche, in particolare 
+\begin{align}
+    \frac{1}{r_{12}} \sim \sum_{l = 0}^{n - 1}\sum_{m = -l}^l \frac{4\pi}{2l + 1}\frac{r^l_<}{r^{l + 1}_>}Y^*_{lm}(\theta_1, \varphi_1)Y_{lm}(\theta_2, \varphi_2) \tag{1.5.2}
+\end{align}
+dove $r_<$ indica il minore tra $r_1$ e $r_2$ e $r_>$ indica il maggiore tra $r_1$ e $r_2$. Questa forma è utile per sfruttare l'ortonormalità delle armoniche sferiche e semplificare i calcoli. \\
+Per determina $r_<$ e $r_>$ è utile spezzare l'integrale in due termini a estremi opportuni, ad esempio 
+\begin{align}
+    \int_0^\infty dr_2 \rightarrow \int_0^{r_1} dr_2 + \int_{r_1}^\infty dr_2 \tag{1.5.3}
+\end{align}
+in questo modo è semplice determinare $r_<$ e $r_>$ nei singoli intervalli.
 
 
 \newpage
