@@ -125,7 +125,7 @@ Usando $(1.1.5)$ si ottengono i corretti livelli energetici dell'elettrone, i ra
 inoltre $r^H_{n = 1} = a_0$ e $v^H_{n = 1} = 2.2 \cdot 10^6 m/s$.
 
 \subsection{Correzioni relativistiche}
-\subsubsection{Energia cinetica}
+\subsubsection*{Energia cinetica}
 L'energia relativistica dell'elettrone in un atomo idrogenoide è
 \begin{align}
     E_{rel} &= \sqrt{p^2c^2 + m^2_ec^4} \notag \\
@@ -164,7 +164,7 @@ dunque in unità atomiche si ha
     \Delta E^k_{nlm} &= -\frac{\alpha^2}{2}\left(\frac{Z^4}{4n^4} - \frac{Z^5}{2n^4} + \frac{Z^4}{n^3\left(l + \frac{1}{2}\right)}\right) \notag \\
     &= -E_n\left(\frac{Z\alpha}{n}\right)^2\left(\frac{3}{4} - \frac{n}{l - \frac{1}{2}}\right) \leq 0 \tag{1.2.8}
 \end{align}
-\subsubsection{Interazione spin-orbita}
+\subsubsection*{Interazione spin-orbita}
 La seconda correzione è dovuta al moto del nucleo del sistema di riferimento dell'elettrone, infatti si osserva una densità di corrente non nulla dovuta al moto relativo del nucleo e dunque un campo magnetico. In particolare si ha 
 \begin{align}
     \mathbf{j} = -Ze\mathbf{v} \tag{1.2.9}
@@ -196,7 +196,7 @@ in unità atomiche. Allora
     \Delta E^{so}_{nlm} &= \frac{\alpha^2}{2}\braket{\psi^{(0)}_{nlm}|\frac{1}{r}\frac{dV}{dr}\mathbf{L} \cdot \mathbf{S}|\psi^{(0)}_{nlm}} \notag \\
     &= \frac{\alpha^2\hbar^2}{4}\braket{Z/r^3}_{nlm} \cdot (j(j + 1) - l(l + 1) - s(s + 1)) \tag{1.2.15}
 \end{align}
-\subsubsection{Termine di Darwin (stato 1s)}
+\subsubsection*{Termine di Darwin (stato 1s)}
 Infine abbiamo la correzione per lo stato $1s$ dovuta al fatto che la probabilità di trovare lo stato $l = 0$ nel nucleo è non nulla, ovvero $|R_{10}(0)|^2 \neq 0$. Sia $U(r)$ il potenziale di interzione tra il nucleo e l'elettrone dello stato $1s$ nel sistema di riferimento dell'elettrone. Per il principio di indeterminazione l'orbita dell'elettrone non è ben identificata, si ha 
 \begin{align}
     \delta r \sim \frac{\hbar}{\delta p} \sim \alpha \tag{1.2.16}
@@ -374,7 +374,7 @@ Riportiamo immediatamente i risultati
         W^{spont}_{if} &= \frac{\hbar}{2\pi m^2c^3}\frac{e^2}{4\pi\varepsilon_0}\omega_{fi}|M_{fi}(\omega_{fi})|^2 \, d\Omega
     \end{cases} \notag
 \end{align}
-Dove $|M_{fi}|^2 = |\overline{M}_{if}|^2$, ovvero la rate di emmissione e assorbimento sono uguali. \\ \\
+Dove $|M_{fi}|^2 = |\overline{M}_{if}|^2$, ovvero la rate di emissione e assorbimento sono uguali. \\ \\
 Scegliendo la gauge di Coulomb, dalle equazione di Maxwell otteniamo 
 \begin{align}
     \begin{cases}
@@ -491,18 +491,18 @@ In particolare
 \begin{align}
     \braket{f|r_q|i} &= \sqrt{\frac{4\pi}{3}}\int_0^\infty dr \, R_{nlm}R_{n'l'm'}r^3 \int_0^{2\pi}d\varphi \int_0^\pi \sin\theta d\theta \, Y_{nlm}Y_{1q}Y_{n'l'm'} \tag{1.4.20}
 \end{align}
-Poiché l'operatore $\mathbf{A} \cdot \nabla$ è invariante per scambio $\theta \rightarrow \pi - \theta$ e $\varphi \rightarrow \pi - \varphi$, deve valere anche per il termine $\braket{f|r_q|i}$ per ogni $q = -1, 0, 1$. Allora, dato che le armoniche sferiche hanno simmetria $(-1)^{l}$ deve valere $(-1)^{l + l' + 1} = 1$, ovvero $l + l' + 1$ deve essere pari, ciò comporta $\Delta l = \pm 1$. \\
+Poiché l'operatore $\mathbf{A} \cdot \nabla$ è invariante per scambio $\theta \rightarrow \pi - \theta$ e $\varphi \rightarrow \pi + \varphi$, deve valere anche per il termine $\braket{f|r_q|i}$ per ogni $q = -1, 0, 1$. Allora, dato che le armoniche sferiche hanno simmetria $(-1)^{l}$ deve valere $(-1)^{l + l' + 1} = 1$, ovvero $l + l' + 1$ deve essere pari, ciò comporta $\Delta l = \pm 1$. \\
 Inoltre 
 \begin{align}
     \int_0^{2\pi}d\varphi \, e^{i(m - m' + q)\varphi} \neq 0 \notag
 \end{align}
-se e solo se $m - m' + q = 0$ (per $t \rightarrow \infty$), allora $\Delta m = 0$ o $\Delta m = \pm 1$. \\
+se e solo se $m - m' + q = 0$, allora $\Delta m = 0, \pm 1$. \\
 Pertanto concludiamo che le regole di selezione per verificare se una transizione è ammessa (in approssimazione di dipolo) sono $\Delta l = \pm 1$ e $\Delta m = 0, \pm 1$. \\ \\
 Definiamo la \textit{forza dell'oscillatore} associata alla transizione $j \rightarrow i$
 \begin{align}
     f_{ij} = \frac{2m\omega_{ij}}{3\hbar}|\mathbf{r}_{ij}|^2 \notag
 \end{align}
-Notiamo che il segno del termine $f_{ij}$ dipende solamente da $\omega_{ij}$. In particolare se $f_{ij} > 0$ è relativo ad un processo di emissione, mentre se $f_{ij} < 0$ è relativo ad un processo di assorbimento. \\
+Notiamo che il segno del termine $f_{ij}$ dipende solamente da $\omega_{ij}$. In particolare se $f_{ij} > 0$ è relativo ad un processo di assorbimento, mentre se $f_{ij} < 0$ è relativo ad un processo di emissione (il primo indice rappresenta lo stato finale). \\
 I termini $f_{ij}$ soddisfano 
 \begin{align}
     \sum_{k} f_{ik} = Z \tag{1.4.21}
@@ -510,13 +510,94 @@ I termini $f_{ij}$ soddisfano
 dove $Z$ è il numero atomico. \\ \\
 Uno stato eccitato $b$ decadrà dopo un tempo finito in uno stato ammesso ad energia inferiore. Definiamo il \textit{tempo di vita} di tale stato eccitato essere
 \begin{align}
-    (\tau_b)^{-1} = \sum_{k : E_k < E_b}W^{spont}_{BK} \tag{1.4.22}
+    (\tau_b)^{-1} = \sum_{k : E_k < E_b}W^{spont}_{KB} \tag{1.4.22}
 \end{align}
 Il numero di particelle che popola tale stato eccitato ha la seguente forma 
 \begin{align}
     N(t) = N(0)e^{-t/\tau_b} \tag{1.4.23}
 \end{align}
-ovvero il numero decrescente esponenzialmente con rapidità dettata dal tempo di vita.
+ovvero decresce esponenzialmente con rapidità dettata dal tempo di vita.
+
+\newpage
+\subsection{Atomo idrogenoide soggetto a campo elettromagnetico}
+Consideriamo un campo magnetico uniforme $\mathbf{B} = (0, 0, B)$. L'hamiltoniano di una particella soggetta al campo $\mathbf{B}$ (in unità atomiche) è 
+\begin{align}
+    H = \frac{(\mathbf{p} + \mathbf{A})^2}{2m} - \frac{Z}{r} \tag{1.5.1}
+\end{align}
+per \textit{accoppiamento minimale}, dove $\mathbf{A} = \frac{1}{2}\mathbf{B} \times \mathbf{r}$ in questo caso. Se supponiamo che il campo magnetico sia poco intenso possiamo trascurare il termine $\mathbf{A}^2$, pertanto si ottiene 
+\begin{align}
+    H &= \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{A}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} \notag \\
+    &\sim \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} = H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} \tag{1.5.2}
+\end{align}
+dove $H_0$ è l'hamiltoniana dell'atomo idrogenoide (che sappiamo risolvere). In particolare 
+\begin{align}
+    \mathbf{p} \cdot \mathbf{A} &= \mathbf{p} \cdot \frac{1}{2}(\mathbf{B} \times \mathbf{r}) \notag \\
+    &= -\frac{1}{2}(\mathbf{p} \times \mathbf{r}) \cdot \mathbf{B} \notag \\
+    &= \frac{1}{2}\mathbf{L} \cdot \mathbf{B} \tag{1.5.3}
+\end{align}
+Notiamo immediatamente che tale termine non ha effetto sugli stati a $l = 0$, pertanto in tal caso non può essere trascurato il termine quadratico $\mathbf{A}^2$. \\
+Determiniamo l'ordine di grandezza del termine quadratico. Si ha
+\begin{align}
+    \frac{1}{2}\mathbf{A}^2 &= \frac{1}{8}(\mathbf{B} \times \mathbf{r})^2 \notag \\
+    &= \frac{1}{8}\mathbf{B}^2\mathbf{r}^2\sin^2\theta \notag \\
+    &= \frac{1}{8}\mathbf{B}^2\mathbf{r}^2(1 - \cos^2\theta) \notag \\
+    &= \frac{1}{8}\mathbf{B}^2\mathbf{r}^2 - \frac{1}{8}(\mathbf{B} \cdot \mathbf{r})^2 \notag \\
+    &= \frac{1}{8}\mathbf{B}^2(\mathbf{r}^2 - \mathbf{z}^2) \notag \\
+    &= \frac{1}{8}\mathbf{B}^2\left(1 - \frac{1}{3}\right)\braket{\mathbf{r}^2}_{n00} \tag{1.5.4} 
+\end{align}
+dove si è usato $\braket{\mathbf{r}^2}_{nlm} = \frac{1}{3}\braket{\mathbf{z}^2}_{nlm}$ per simmetria sferica del problema. Il termine $\braket{\mathbf{r}^2}_{n00}$ va come $n^4$. Pertanto per $n = 1$ si ha $\frac{1}{2}\mathbf{A}^2 \sim \mathbf{B}^2$ e il termine quadratico è trascurabile, mentre per $n$ abbastanza grandi ha un contributo che non può essere più tralasciato. \\ \\
+Sappiamo che, in prima approssimazione, il termine di interazione può essere scritto come $-\mathbf{m} \cdot \mathbf{B}$, dove $\mathbf{m}$ è il momento di dipolo. Allora deve valere 
+\begin{align}
+    -\mathbf{m} \cdot \mathbf{B} = \mathbf{p} \cdot \mathbf{A} \tag{1.5.5}
+\end{align}
+Se supponiamo che l'elettrone compie un'orbita circolare attorno al nucleo ed indichiamo con $\Sigma$ la superficie racchiusa dall'orbita, otteniamo 
+\begin{align}
+    \mathbf{m} = i\Sigma \hat{n} \notag
+\end{align}
+dove $i = -\frac{e}{T} = -\frac{e\omega}{2\pi}$, $\hat{n}$ è il versore perpendicolare alla superficie $\Sigma$ e $\Sigma = \pi R^2$ con $R$ raggio dell'orbita. Allora 
+\begin{align}
+    -\mathbf{m} = -\frac{e\omega}{2\pi}\pi R^2 \hat{n} = \frac{e\omega R^2}{2}\hat{n} = \frac{e\mathbf{L}}{2m} = -\frac{\mu_B}{\hbar}\mathbf{L} \tag{1.5.6}
+\end{align}
+dove $\mu_B$ è il magnetone di Bohr e si è usato $\mathbf{L} = m\omega R^2\hat{n}$. Se consideriamo anche lo spin $\mathbf{S}$ si ottiene 
+\begin{align}
+    -\mathbf{m} = -\frac{\mu_B}{\hbar}(\mathbf{L} + g\mathbf{S}) \tag{1.5.7}
+\end{align}
+dove $g$ è detto \textit{fattore giromagnetico} e tiene conto di quanto spin è necessario per generare un magnetone di Bohr. \\ \\
+Delle correzioni relativistiche ci interessa solamente l'interazione spin-orbita, dato che è l'unica che rompe la degenerazione. Studiamo il suo effetto in relazione all'intensità del campo magnetico.
+
+\subsubsection*{Effetto Zeeman}
+Se il campo magnetico è abbastanza intenso da trascurare l'interazione spin-orbita si ha 
+\begin{align}
+    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B \tag{1.5.8}
+\end{align}
+per $\mathbf{B} = (0, 0, B)$, $g = 2$ per l'elettrone. Allora l'energia corretta al primo ordine è 
+\begin{align}
+    E^{(1)} &= \braket{nlm|H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B|nlm} \notag \\
+    &= E_n + \frac{\mu_BB}{\hbar}(m_l + 2m_s) \tag{1.5.9}
+\end{align}
+Notiamo che viene rotta la degenerazione in $m_l$ e $m_s$.
+
+\subsubsection*{Effetto Pachen-Back}
+Se il campo megnetico non è abbastanza intenso dobbiamo considerare anche il termine dovuto all'interazione spin-orbita, ovvero 
+\begin{align}
+    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B + f(r)\mathbf{L} \cdot \mathbf{S} \tag{1.5.10}
+\end{align}
+In particolare possiamo scrivere
+\begin{align}
+    \mathbf{L} \cdot \mathbf{S} = \frac{1}{2}(\mathbf{J}^2 - \mathbf{L}^2 - \mathbf{S}^2) \tag{1.5.11}
+\end{align}
+e sostituendo $(1.5.11)$ in $(1.5.10)$ si ottiene 
+\begin{align}
+    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B + \frac{1}{2}f(r)(\mathbf{J}^2 - \mathbf{L}^2 - \mathbf{S}^2) \tag{1.5.12}
+\end{align}
+Trattiamo il termine dovuto all'interazione spin-orbita come una perturbazione rispetto al caso dell'effetto Zeeman. In particolare $f(r) = \frac{\alpha^2}{2}\frac{1}{r}\frac{dV}{dr}$, pertanto 
+\begin{align}
+    \Delta E^{(1)} &= \braket{f(r)}\braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
+    &= \int_0^\infty dr \, R_{nl}(r)f(r)R_{nl}(r) \cdot \braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
+    &= \int_0^\infty dr \, |R_{nl}(r)|^2\frac{\alpha^2}{2}\frac{1}{r}\frac{dV}{dr} \cdot \braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
+    &=
+\end{align}
+
 
 \newpage
 \section*{Appendice}
