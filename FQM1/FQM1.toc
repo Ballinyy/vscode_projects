@@ -6,3 +6,7 @@
 \contentsline {subsection}{\numberline {1.4}Atomo idrogenoide soggetto a campo elettromagnetico}{18}{}%
 \contentsline {subsection}{\numberline {1.5}Approssimazione del potenziale in armoniche sferiche}{21}{}%
 \contentsline {subsubsection}{\numberline {1.5.1}Esercizi}{21}{}%
+\contentsline {subsection}{\numberline {1.6}Effetto Stark}{23}{}%
+\contentsline {subsubsection}{\numberline {1.6.1}Esercizi}{24}{}%
+\contentsline {subsection}{\numberline {1.7}Metalli alcalini}{26}{}%
+\contentsline {subsubsection}{\numberline {1.7.1}Esercizi}{26}{}%

@@ -665,10 +665,122 @@ A questo punto possiamo sfruttare le proprietà di ortogonalità delle armoniche
 \begin{align}
     \braket{\frac{1}{|\mathbf{r} - \mathbf{r}_e|}}_{1s} &\sim \int_0^\infty \frac{1}{\pi}drr^2 \, e^{-2r}\frac{4\pi}{r_>}\cancel{\frac{Y_{00}(\theta_{\mathbf{r}_e}, \varphi_{\mathbf{r}_e})}{Y_{00}(\theta_\mathbf{r}, \varphi_{\mathbf{r}})}} \notag \\
     &= 4\left(\int_0^R drr^2 \, \frac{e^{-2r}}{r_>} + \int_{R}^\infty drr^2 \, \frac{e^{-2r}}{r_>}\right) \notag \\
-    &= 4\left(\int_0^R drr^2 \, \frac{e^{-2r}}{R} + \int_R^\infty drr^2 \, \frac{e^{-2r}}{r}\right) \notag
+    &= 4\left(\int_0^R drr^2 \, \frac{e^{-2r}}{R} + \int_R^\infty drr^{\cancel{2}} \, \frac{e^{-2r}}{\cancel{r}}\right) \notag
 \end{align}
-dove si è decomposto l'intervallo $[0, \infty)$ in $[0, R] \cup (R, \infty)$ per determinare $r_>$.
+dove si è decomposto l'intervallo $[0, \infty)$ in $[0, R] \cup (R, \infty)$ per determinare $r_>$. A questo punto possiamo calcolare gli integrali usando i risultati del formulario.
 
+\newpage
+\subsection{Effetto Stark}
+Consideriamo un atomo idrogenoide soggetto ad un campo elettrico uniforme $\mathbf{E} = (0, 0, E)$. In prima approssimazione possiamo scrivere l'energia di interazione tra elettrone e campo elettrico come segue 
+\begin{align}
+    E_{int} = -\boldsymbol{\mu}_{dip} \cdot \mathbf{E} \tag{1.6.1}
+\end{align}
+dove $\mu_{dip} = -e\mathbf{r}$, allora
+\begin{align}
+    E_{int} = -zE \tag{1.6.2}
+\end{align}
+Il campo elettrico generato dall'elettrone è dell'ordine $\frac{e}{a^2_0} \sim 10^8 \, V/cm$, mentre il campo elettrico esterno può raggiungere intensità dell'ordine di $10^5 \div 10^7 \, V/cm$, pertanto è giustificato l'approccio perturbativo. \\
+Notiamo che per lo stato $1s$ si ha $\boldsymbol{\mu}_{dip} = 0$, infatti lo stato $1s$ ha simmetria sferica (carica distribuita uniformemente attorno al nucleo). \\
+Inoltre, ricordando che $[L_z, z] = 0$, concludiamo che 
+\begin{align}
+    0 &= \braket{nlm|[L_z, z]|n'l'm'} \notag \\
+    &= \braket{nlm|L_zz - zL_z|n'l'm'} \notag \\
+    &= (m - m')\braket{nlm|z|n'l'm'} \tag{1.6.3}
+\end{align}
+pertanto gli elementi di matrice della perturbazione (che è $zE$) possono essere non nulli se e solo se $m = m'$. \\
+Allora gli unici elementi di matrice non nulli, per $n = 2$, sono $\braket{210|zE|200}$ e $\braket{200|zE|210}$, che sono uguali dato che le autofunzioni dell'atomo idrogenoide sono reali. In particolare
+\begin{align}
+    \braket{210|zE|200} &= \frac{1}{16\pi}\int_0^\infty drr^3 \, \left(1 - \frac{r}{2}\right)e^{-r}\int_0^{2\pi}d\varphi\int_0^\pi\sin\theta d\theta \, zE\cos\theta \notag \\
+    &= -\frac{E}{8}\int_0^\infty \left(r^4 - \frac{r^5}{2}\right)e^{-r}\int_0^\pi d(\cos\theta) \, \cos^2\theta = -3E \tag{1.6.4}
+\end{align}
+La matrice da diagonalizzare è 
+\begin{align}
+    \begin{pmatrix}
+        0 & 0 & -3E & 0 \\
+        0 & 0 & 0 & 0 \\
+        -3E & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix} \notag
+\end{align}
+Una volta diagonalizzata si nota che la perturbazione rompe la degenerazione per gli stati $\ket{210}$ e $\ket{200}$
+\begin{align}
+    \begin{cases}
+        \frac{1}{\sqrt{2}}(\ket{200} - \ket{210}) \longrightarrow +3E \\
+        \frac{1}{\sqrt{2}}(\ket{200} + \ket{210}) \longrightarrow -3E 
+    \end{cases} \tag{1.6.5}
+\end{align}
+questo comporta che per tali stati $\boldsymbol{\mu}_{dip} = \pm 3 \, u.a.$. Mentre per $\ket{21\pm1}$ si ha $\boldsymbol{\mu}_{dip} \perp \mathbf{E}$, il che ha senso dato che si tratta di stati $p_x$ e $p_y$ (ovvero ortogonali a $z$). \\ \\
+Per lo stato $1s$ la perturbazione è nulla, pertanto è necessario considerare la seconda approssimazione. Possiamo stimare la correzione usando la completezza della base $\{\ket{nlm}\}_{nlm}$
+\begin{align}
+    \Delta E^{(2)}_{1s} &= \sum_{n = 2}^\infty \sum_{l = 0}^{n - 1}\sum_{m = -l}^l \frac{|\braket{nlm|zE|100}|^2}{E_1 - E_n} \notag \\
+    &> -\frac{E^2}{E_2 - E_1}\sum_{nlm} \braket{100|z|nlm}\braket{nlm|z|100} \notag \\
+    &= -\frac{E^2}{E_2 - E_1}\braket{100|z^2|100} \notag \\
+    &= -\frac{E^2}{E_2 - E_1}\frac{\braket{r^2}_{100}}{3} = -\frac{8}{3}E^2 \tag{1.6.6}
+\end{align}
+Allora $\boldsymbol{\mu}_{dip} = -\frac{\partial E}{\partial \mathbf{E}} \sim \mathbf{E}$.
+
+\subsubsection{Esercizi}
+\textbf{1.} Consideriamo un atomo idrogenoide soggetto ad un campo magnetico $\mathbf{B} = B(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0)$. Calcolare $\mu = \frac{\partial E}{\partial B}$ e $\chi = \frac{\partial^2E}{\partial B^2}$. \\
+
+\textbf{Soluzione:} sappiamo che in prima approssimazione si ha 
+\begin{align}
+    E_{int} = -\mathbf{m} \cdot \mathbf{B} \notag
+\end{align}
+dove $\mathbf{m} = -\mu_B(\mathbf{L} + 2\cancel{\mathbf{S}})$, dato che trascuriamo lo spin. Allora 
+\begin{align}
+    E_{int} = \frac{1}{2}\mathbf{L} \cdot \mathbf{B} = 0 \notag
+\end{align}
+per gli stati a $l = 0$. Dobbiamo considerare il termine quadratico $\frac{1}{2}\mathbf{A}^2$ 
+\begin{align}
+    E_{int} &= \frac{1}{2}\mathbf{A}^2 \notag \\
+    &= \frac{1}{8}(\mathbf{B} \times \mathbf{r})^2 \notag \\
+    &= \frac{1}{16}\left(Bz\mathbf{i} + By\mathbf{k} - Bx\mathbf{k} - Bz\mathbf{j}\right)^2 \notag \\
+    &= \frac{B^2}{16}\left(z(\mathbf{i} - \mathbf{j}) + (y - x)\mathbf{k}\right)^2 \notag \\
+    &= \frac{B^2}{16}(2z^2 + (x - y)^2) \notag \\
+    &= \frac{B^2}{16}(z^2 + r^2 - 2xy) \notag
+\end{align}
+Segue che 
+\begin{align}
+    \Delta E^{(1)} &= \braket{1s|\frac{B^2}{16}(z^2 + r^2 - 2xy)|1s} \notag \\
+    &= \frac{B^2}{16}(\braket{z}^2_{1s} + \braket{r^2}_{1s} - 2\braket{xy}_{1s}) \notag \\
+    &= \frac{B^2}{16}(\frac{4}{3}\braket{r^2}_{1s} - 2\braket{xy}_{1s}) \notag
+\end{align}
+dove 
+\begin{align}
+    \braket{xy}_{1s} &= \int_0^\infty dr \, \frac{1}{\pi}r^4e^{-r}\int_0^{2\pi}d\varphi \int_0^\pi \sin\theta d\theta \, \cos\theta = 0 \notag
+\end{align}
+dato che è nullo l'integrale in $d\theta$. Concludiamo che $Delta E^{(1)} = \frac{B^2}{4}$, allora 
+\begin{align}
+    \mu = \frac{B}{2} \qquad \chi = \frac{1}{2} \notag
+\end{align}
+Notiamo che se il campo avesse avuto solamente componente $z$ il risultato sarebbe stato comunque lo stesso per simmetria sferica dello stato $1s$.
+
+\newpage
+\subsection{Metalli alcalini}
+Sono detti \textit{metalli alcalini} tutti quegli elementi che hanno come shell finale una della forma $ns^1$ per qualche $n \in \mathbf{N}$, ovvero l'elettrone ottico si trova nello stato $ns^1$. \\
+I metalli alcalini hanno energia di prima ionizzazione molto bassa (dato che la prima ionizzazione comporta la completezza dell'ottetto), mentre hanno energia di seconda ionizzazione molto alta (poiché una volta ionizzati si trovano in una configurazione molto stabile). \\
+Inoltre, l'elettrone ottico vede (guardando verso il nucleo) una shell chiusa, pertanto si ritrova, in prima approssimazione, simmetria sferica, come nel caso dell'atomo idrogenoide. \\
+Il potenziale a cui è soggetto l'elettrone ottico è della forma $-\frac{\alpha}{r}$, con $\alpha = \alpha(r)$. In particolare $\alpha(r)$ varia con continuità in modo tale da avere i seguenti comportamenti asintotici
+\begin{align}
+    V(r) = \begin{cases}
+        -\frac{Z}{r} \qquad &r \rightarrow 0 \\
+        -\frac{1}{r} \qquad &r \rightarrow \infty
+    \end{cases} \tag{1.7.1}
+\end{align}
+La presenza della shell interna rompe la degenerazione in $l$ e si ottiene 
+\begin{align}
+    E_{nl} = \frac{R}{(n - \Delta_{nl})^2} \tag{1.7.2}
+\end{align}
+dove $R = \frac{1}{2}$, mentre $\Delta_{nl}$ è detto \textit{difetto quantico}. Il difetto quantico dipende fortemente da $l$ (e debolmente da $n$), pertanto è valida la seguente approssimazione 
+\begin{align}
+    \Delta_{nl} \sim \Delta_l \tag{1.7.3}
+\end{align}
+Inoltre, $\Delta_{nl} \rightarrow 0$ per $n \rightarrow \infty$.
+
+\subsubsection{Esercizi}
+\textbf{Problema 1.79:} lo spettro di emissione del sodio ($Z = 11$, con elettrone ottico in $3s^1$) a transizioni verso lo stato $3p$ ha come righe di emissione $\lambda_1 = 11381.5 \, \mathring{A}$ e $\lambda_2 = 8184.4 \, \mathring{A}$. Assegnare $\lambda_1$ e $\lambda_2$ e determinare l'energia di prima ionizzazione per $3s^1$ sapendo che l'energia del livello $3d$ è $E_{3d} = -1.52 \, eV$. \\
+
+\textbf{Soluzione:} ricordiamo le regole di selezione in approssimazione di dipolo $\Delta l = \pm 1$ e $\Delta m = 0, \pm 1$. Pertanto le uniche transizioni possibili (in emissione) verso il livello $3p$ sono $3d \rightarrow 3p$ e $4s \rightarrow 3p$. Poiché $E_{4s} < E_{3d}$ concludiamo che $\lambda_1$ corrisponde alla transizione $4s \rightarrow 3p$ e $\lambda_2$ corrisponde alla transizione $3d \rightarrow 3p$.
 
 \newpage
 \section*{Appendice}
@@ -785,6 +897,11 @@ Per ogni $k \in \mathbf{N}$ si ha
 \subsection*{Regole di selezione}
 \begin{align}
     \Delta l = \pm 1 \quad \Delta j = 0, \pm 1 \quad \Delta m_j = 0, \pm 1 \notag
+\end{align}
+\subsection*{Momenti di r}
+\begin{align}
+    \braket{r} &= \frac{1}{2}a_0(3n^2 - l(l + 1)) \notag \\
+    \braket{r^2} &= \frac{1}{2}a^2_0n^2(5n^2 + 1 - 3l(l + 1)) \notag
 \end{align}
 
 
