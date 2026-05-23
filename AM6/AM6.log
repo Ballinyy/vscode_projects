@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  21 MAY 2026 15:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  21 MAY 2026 19:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1697,63 +1697,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 2536--2537
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 2553--2556
-
- []
-
-[86] [87]
-Underfull \hbox (badness 10000) in paragraph at lines 2578--2579
+[86]
+Underfull \hbox (badness 10000) in paragraph at lines 2561--2564
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 2599--2602
+[87]
+Underfull \hbox (badness 10000) in paragraph at lines 2586--2587
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2604--2605
+Underfull \hbox (badness 10000) in paragraph at lines 2607--2610
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2613
 
  []
 
 [88]
-Underfull \hbox (badness 10000) in paragraph at lines 2628--2631
+Underfull \hbox (badness 10000) in paragraph at lines 2636--2639
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2633--2636
+Underfull \hbox (badness 10000) in paragraph at lines 2641--2644
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2638--2639
+Underfull \hbox (badness 10000) in paragraph at lines 2646--2647
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2651--2654
+Underfull \hbox (badness 10000) in paragraph at lines 2659--2662
 
  []
 
 [89]
-Underfull \hbox (badness 10000) in paragraph at lines 2656--2658
+Underfull \hbox (badness 10000) in paragraph at lines 2664--2666
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2685--2688
+Underfull \hbox (badness 10000) in paragraph at lines 2693--2696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2685--2688
+Underfull \hbox (badness 10000) in paragraph at lines 2693--2696
 
  []
 
 [90] [91]
-Underfull \hbox (badness 10000) in paragraph at lines 2701--2702
+Underfull \hbox (badness 10000) in paragraph at lines 2709--2710
 
  []
 
@@ -1772,7 +1772,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,19n,65p,1023b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on AM6.pdf (93 pages, 471404 bytes).
+Output written on AM6.pdf (93 pages, 472180 bytes).
 PDF statistics:
  405 PDF objects out of 1000 (max. 8388607)
  267 compressed objects within 3 object streams

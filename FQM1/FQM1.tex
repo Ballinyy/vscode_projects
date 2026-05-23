@@ -20,7 +20,7 @@ Vediamo delle conversioni per alcune grandezze fisiche che risultano essere como
     &\text{Massa protone $p$} \qquad &m_p = 1.673 \cdot 10^{-27} \, kg \notag \\
     &\text{Massa neutrone $n$} \qquad &m_n = 1.675 \cdot 10^{-27} \, kg \notag \\
     \notag \\
-    &\text{Carica fondamentale} \qquad &e = 1.602 \cdot 10^{-19} \, C\cdot m \notag \\
+    &\text{Carica fondamentale} \qquad &e = 1.602 \cdot 10^{-19} \, C \notag \\
     \notag \\
     &\text{Costante di Planck $h$} \qquad &h = 6.62 \cdot 10^{-34} \, \frac{J}{s} \notag \\
     &\text{Costante di Planck ridotta $\hbar$} \qquad &\hbar = 1.05 \cdot 10^{-34} \frac{J}{s} \notag \\
@@ -42,12 +42,12 @@ L'energia $\mathcal{E}$, di solito espressa in Joule $J$, può essere anche espr
 Usando la relazione di Einstein $E = \hbar\omega = h\nu = \frac{hc}{\lambda}$ possiamo esprimere l'energia funzione dell'inverso di una lunghezza d'onda. In particolare se esprimiamo la lunghezza d'onda in Angstrom si ha
 \begin{align}
     E(eV) &= \frac{1}{e} \cdot \frac{h(J/s) \cdot c(\mathring{A}/s)}{\lambda(\mathring{A})} \notag \\
-    &= \frac{1}{1.602 \cdot 10^{-19} C\cdot m}\frac{6.62 \cdot 10^{-34} \, J/s \cdot 3 \cdot 10^{18} \, \mathring{A}/s}{\lambda(\mathring{A})} \notag \\
-    &= \frac{12.4 \cdot 10^3 \frac{\mathring{A} \cdot J}{C \cdot m \cdot s^2}}{\lambda(\mathring{A})} \notag
+    &= \frac{1}{1.602 \cdot 10^{-19} C}\frac{6.62 \cdot 10^{-34} \, J\cdot s \cdot 3 \cdot 10^{18} \, \mathring{A}/s}{\lambda(\mathring{A})} \notag \\
+    &= \frac{12.4 \cdot 10^3 \frac{\mathring{A} \cdot J}{C}}{\lambda(\mathring{A})} \notag
 \end{align}
 ovvero
 \begin{gather}
-    E(eV) = \frac{12.4 \cdot 10^3}{E(\mathring{A}^{-1})} \qquad E(\mathring{A}^{-1}) = \frac{12.4 \cdot 10^3}{E(eV)} \notag
+    E(eV) = \frac{1.24 \cdot 10^4}{\lambda(\mathring{A})} \qquad \lambda(\mathring{A}) = \frac{1.24 \cdot 10^4}{E(eV)} \notag
 \end{gather}
 Usando questa relazione si ottiene la larghezza dello spettro del visibile espressa in $eV$, ovvero
 \begin{gather}
@@ -73,7 +73,8 @@ segue che il raggio di Bohr $a_0 = 1 \, u.a.$. Possiamo ricavare le conversione 
     &u.a.(\mathcal{E}) \quad &= -2\mathcal{E}^H_{1s} = 27.21 \, eV \notag \\
     &u.a.(B) \quad &= 2.35 \cdot 10^5 \, T \notag \\
     &u.a.(E) \quad &= 5.13 \cdot 10^{11} \, \frac{V}{m} \notag \\
-    &u.a.(d) \quad &= 8.46 \cdot 10^{-30} C \cdot m \notag
+    &u.a.(d) \quad &= 8.46 \cdot 10^{-30} C \cdot m \notag \\
+    &u.a.(uma) \quad &= 0.000549 \, uma \notag
 \end{align}
 Inoltre si ottiene dal fatto che la costante di struttura affine $\alpha = 1/137$ che $c = 137 \, u.a.$.
 

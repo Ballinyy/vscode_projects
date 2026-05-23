@@ -2539,7 +2539,7 @@ ovvero $\lambda \in \sigma(A)$.
 \begin{align*}
     \omega_\mu(f) = \int_X f \, d\mu
 \end{align*}
-per ogni $f \in C(X)$. Siano $x_1, \dots, x_n$ gli elementi di $X$, poiché $\mu$ è $\sigma$-additiva e $f$ è costante su $\{x_i\}$ per ogni $i = 1, \dots, n$ possiamo scrivere 
+per ogni $f \in C(X)$. Siano $x_1, \dots, x_n$ gli elementi di $X$, poiché $\mu$ è $\sigma$-additiva rispetto alla $\sigma$-algebra degli aperti di $X$, possiamo scrivere 
 \begin{align*}
     \omega_\mu(f) = \sum_{i = 1}^n f(x_i)\mu(\{x_i\})
 \end{align*}
@@ -2551,16 +2551,24 @@ Possiamo esprimere $\mu$ come somma di delta di Dirac, infatti
 \begin{align*}
     \omega_\mu(f) = \sum_{i = 1}^n \mu(\{x_i\})\int_X f \, d\delta_{x_i} = \sum_{i = 1}^n \mu(\{x_i\})\omega_{\delta_{x_i}}(f)
 \end{align*}
-(normalizzazione stati). \\ \\
+Notiamo che $\omega_{\delta_{x_i}}$ è uno stato per ogni $i = 1, \dots, n$, infatti è lineare, positivo e unitale. Supponiamo per assurdo che esistano $m \leq n$ indici $1 \leq i_1 < i_2 < \dots < i_m \leq n$ tali che $\mu(\{x_{i_k}\}) > 0$ per $k = 1, \dots, m$. Allora 
+\begin{align*}
+    \sum_{k = 2}^m \mu(\{x_{i_k}\}) = 1 - \mu(\{x_{i_1}\})
+\end{align*}
+e quindi 
+\begin{align*}
+    \omega_\mu(f) = \mu(\{x_{i_1}\})\omega_{\delta_{x_1}} + \frac{1}{1 - \mu(\{x_1\})}\sum_{k = 2}^n \omega_{\delta_{x_k}}\mu(\{x_k\})
+\end{align*}
+per ogni $f \in C(X)$, ovvero possiamo esprimere $\omega_\mu$ come combinazione convessa non banale di stati, ma ciò è assurdo poiché $\omega_\mu$ è puro per ipotesi. \\ \\
 $(\leftarrow)$ Sia $\mu = \delta_x$ per qualche $x \in X$. Dato $\omega_\mu \in \mathcal{S}(C(X))$ lo scriviamo come combinazione convessa di due stati $\omega_1, \omega_2$
 \begin{align*}
     \omega_\mu = \alpha\omega_1 + \beta\omega_2
 \end{align*}
-dove $\alpha + \beta = 1$, ovvero $\beta = 1 - \alpha$. Chiamando come prima $x_1, \dots, x_n$ gli elementi di $X$ si ottiene 
+dove $\alpha + \beta = 1$, ovvero $\beta = 1 - \alpha$. Chiamando, come prima, $x_1, \dots, x_n$ gli elementi di $X$ si ottiene 
 \begin{align*}
     \omega_\mu(f) = f(x) = \alpha\sum_{i = 1}^n \mu_1(\{x_i\})f(x_i) + \beta\sum_{i = 1}^n\mu_2(\{x_i\})f(x_i) = \alpha\omega_1(f) + \beta\omega_2(f)
 \end{align*}
-per ogni $f \in C(X)$. Sostituendo $\beta = 1 - \alpha$ e imponendo che $\omega_mu, \omega_1, \omega_2$ siano unitali si ottiene 
+per ogni $f \in C(X)$. Sostituendo $\beta = 1 - \alpha$ e usando il fatto che $\omega_\mu, \omega_1, \omega_2$ sono unitali si ottiene
 \begin{align*}
     0 = \alpha\sum_{i = 1}^n (\mu_1(\{x_i\}) - \mu_2(\{x_i\}))
 \end{align*}
