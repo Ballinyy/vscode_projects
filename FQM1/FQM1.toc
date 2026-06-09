@@ -8,5 +8,10 @@
 \contentsline {subsubsection}{\numberline {1.5.1}Esercizi}{21}{}%
 \contentsline {subsection}{\numberline {1.6}Effetto Stark}{23}{}%
 \contentsline {subsubsection}{\numberline {1.6.1}Esercizi}{24}{}%
-\contentsline {subsection}{\numberline {1.7}Metalli alcalini}{26}{}%
-\contentsline {subsubsection}{\numberline {1.7.1}Esercizi}{26}{}%
+\contentsline {section}{\numberline {2}Atomi a più elettroni}{26}{}%
+\contentsline {subsection}{\numberline {2.1}Metalli alcalini}{26}{}%
+\contentsline {subsection}{\numberline {2.2}Funzioni d'onda di spin per atomi a due elettroni}{27}{}%
+\contentsline {subsection}{\numberline {2.3}Atomi elioidi}{29}{}%
+\contentsline {subsection}{\numberline {2.4}Approssimazione di campo centrale}{31}{}%
+\contentsline {subsection}{\numberline {2.5}Metodo di Hartree-Fock}{32}{}%
+\contentsline {subsection}{\numberline {2.6}HF spin-adapted}{35}{}%

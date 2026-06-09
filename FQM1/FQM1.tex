@@ -757,6 +757,8 @@ dato che è nullo l'integrale in $d\theta$. Concludiamo che $Delta E^{(1)} = \fr
 Notiamo che se il campo avesse avuto solamente componente $z$ il risultato sarebbe stato comunque lo stesso per simmetria sferica dello stato $1s$.
 
 \newpage
+\section{Atomi a più elettroni}
+Studiamo ora gli atomi a più elettroni, le loro proprietà e i vari metodi approssimativi per determinare le energia dei livelli e le funzioni d'onda appropriate per descriverli.
 \subsection{Metalli alcalini}
 Sono detti \textit{metalli alcalini} tutti quegli elementi che hanno come shell finale una della forma $ns^1$ per qualche $n \in \mathbf{N}$, ovvero l'elettrone ottico si trova nello stato $ns^1$. \\
 I metalli alcalini hanno energia di prima ionizzazione molto bassa (dato che la prima ionizzazione comporta la completezza dell'ottetto), mentre hanno energia di seconda ionizzazione molto alta (poiché una volta ionizzati si trovano in una configurazione molto stabile). \\
@@ -766,22 +768,253 @@ Il potenziale a cui è soggetto l'elettrone ottico è della forma $-\frac{\alpha
     V(r) = \begin{cases}
         -\frac{Z}{r} \qquad &r \rightarrow 0 \\
         -\frac{1}{r} \qquad &r \rightarrow \infty
-    \end{cases} \tag{1.7.1}
+    \end{cases} \tag{2.1.1}
 \end{align}
 La presenza della shell interna rompe la degenerazione in $l$ e si ottiene 
 \begin{align}
-    E_{nl} = \frac{R}{(n - \Delta_{nl})^2} \tag{1.7.2}
+    E_{nl} = -\frac{R}{(n - \Delta_{nl})^2} \tag{2.1.2}
 \end{align}
 dove $R = \frac{1}{2}$, mentre $\Delta_{nl}$ è detto \textit{difetto quantico}. Il difetto quantico dipende fortemente da $l$ (e debolmente da $n$), pertanto è valida la seguente approssimazione 
 \begin{align}
-    \Delta_{nl} \sim \Delta_l \tag{1.7.3}
+    \Delta_{nl} \sim \Delta_l \tag{2.1.3}
 \end{align}
-Inoltre, $\Delta_{nl} \rightarrow 0$ per $n \rightarrow \infty$.
+Inoltre, $\Delta_{nl} \rightarrow 0$ per $n \rightarrow \infty$. \\ \\
+Per elementi che diventano alcalini dopo processi di ionizzazione si ha 
+\begin{align}
+    E_{nl} = -\frac{\tilde{Z}^2R}{(n - \Delta_{nl})^2} \tag{2.1.4}
+\end{align}
+dove $\tilde{Z} = Z - N + 1$, con $N$ numero di elettroni nell'atomo.
 
-\subsubsection{Esercizi}
-\textbf{Problema 1.79:} lo spettro di emissione del sodio ($Z = 11$, con elettrone ottico in $3s^1$) a transizioni verso lo stato $3p$ ha come righe di emissione $\lambda_1 = 11381.5 \, \mathring{A}$ e $\lambda_2 = 8184.4 \, \mathring{A}$. Assegnare $\lambda_1$ e $\lambda_2$ e determinare l'energia di prima ionizzazione per $3s^1$ sapendo che l'energia del livello $3d$ è $E_{3d} = -1.52 \, eV$. \\
+\newpage
+\subsection{Funzioni d'onda di spin per atomi a due elettroni}
+Per un atomo elioide si ha 
+\begin{align}
+    H = -\frac{\nabla^2_1}{2} - \frac{\nabla^2_2}{2} - \frac{Z}{r_1} - \frac{Z}{r_2} + \frac{1}{r_{12}} \tag{2.2.1}
+\end{align}
+Gli operatori di spin totale sono 
+\begin{align}
+    \mathbf{S}^2 &= (\mathbf{S}_1 + \mathbf{S}_2)^2 = \mathbf{S}^2_1 + \mathbf{S}^2_2 + 2\mathbf{S}_1 \cdot \mathbf{S}_2 \notag \\
+    S_z &= S_{1_z} + S_{2_z} \notag
+\end{align}
+Indichiamo con $\alpha$ la funzione di spin up e con $\beta$ la funzione di spin down, inoltre, per convenzione, scriviamo prima la funzione di spin della prima particella, seguita (a moltiplicare) dalla funzione di spin della seconda particella. \\
+Notiamo che 
+\begin{align}
+    S_z \alpha\alpha &= (S_{1_z} + S_{2_z})\alpha\alpha = (S_{1_z}\alpha)\alpha + \alpha(S_{2_z}\alpha) = \frac{1}{2}\alpha\alpha + \frac{1}{2}\alpha\alpha = \alpha\alpha \notag \\
+    S_z \beta\beta &= (S_{1_z} + S_{2_z})\beta\beta = (S_{1_z}\beta)\beta + \beta(S_{2_z}\beta) = \frac{1}{2}\beta\beta + \frac{1}{2}\beta\beta = \beta\beta \notag \\
+    S_z \alpha\beta &= (S_{1_z} + S_{2_z})\alpha\beta = (S_{1_z}\alpha)\beta + \alpha(S_{2_z}\beta) = \frac{1}{2}\alpha\beta - \frac{1}{2}\alpha\beta = 0 \notag \\
+    S_z \beta\alpha &= (S_{1_z} + S_{2_z})\beta\alpha = (S_{1_z}\beta)\alpha + \beta(S_{2_z}\alpha) = \frac{1}{2}\beta\alpha - \frac{1}{2}\beta\alpha = 0 \notag
+\end{align}
+ovvero tutte le possibili combinazioni di funzioni spin up e down sono autofunzioni dell'operatore $S_z$. \\
+Vediamo ora se sono autofunzioni anche dell'operatore $\mathbf{S}^2$. A tal proposito è comodo scrivere 
+\begin{align}
+    \mathbf{S}^2 = \mathbf{S}^2_1 + \mathbf{S}^2_2 + 2S_{1_z}S_{2_z} + S_{1_+}S_{2_-} + S_{1_-}S_{2_+} \tag{2.2.2}
+\end{align}
+ovvero utilizzando gli operatori di innalzamento e abbassamento per lo spin. In particolare si ottiene 
+\begin{align}
+    \mathbf{S}^2\alpha\alpha &= \frac{3}{4}\alpha\alpha + \frac{3}{4}\alpha\alpha + \frac{1}{2}\alpha\alpha = 2\alpha\alpha \notag \\
+    \mathbf{S}^\beta\beta &= \frac{3}{4}\beta\beta + \frac{3}{4}\beta\beta + \frac{1}{2}\beta\beta = 2\beta\beta \notag \\
+    \mathbf{S}^2\alpha\beta &= \frac{3}{4}\alpha\beta + \frac{3}{4}\alpha\beta - \frac{1}{2}\alpha\beta + \beta\alpha = \alpha\beta + \beta\alpha \notag \\
+    \mathbf{S}^2\beta\alpha &= \frac{3}{4}\beta\alpha + \frac{3}{4}\beta\alpha - \frac{1}{2}\beta\alpha + \alpha\beta = \beta\alpha + \alpha\beta \notag
+\end{align}
+Concludiamo quindi che $\alpha\beta$ e $\beta\alpha$ non sono autofunzioni di $\mathbf{S}^2$, pertanto consideriamo combinazioni lineare di $\alpha\beta$ e $\beta\alpha$ in modo tale che siano annche autofunzioni di $\mathbf{S}^2$. In particolare si ha 
+\begin{align}
+    \mathbf{S}^2\frac{\alpha\beta + \beta\alpha}{\sqrt{2}} &= 2\frac{\alpha\beta + \beta\alpha}{\sqrt{2}} \tag{2.2.3} \\
+    \mathbf{S}^2\frac{\alpha\beta - \beta\alpha}{\sqrt{2}} &= 0 \tag{2.2.4}
+\end{align}
+Lo stato $(2.2.3)$ è detto \textit{tripletto} ($S = 1, 2S + 1 = 3$), mentre lo stato $(2.2.4)$ è detto \textit{singoletto} ($S = 0, 2S + 1 = 1$). \\ \\
+Per fermioni lo stato di tripletto necessita di almeno due elettroni che occupano due orbitali differenti, altrimenti la funzione d'onda sarebbe identicamente nulla dato che sarebbe nulla la parte orbitale.
 
-\textbf{Soluzione:} ricordiamo le regole di selezione in approssimazione di dipolo $\Delta l = \pm 1$ e $\Delta m = 0, \pm 1$. Pertanto le uniche transizioni possibili (in emissione) verso il livello $3p$ sono $3d \rightarrow 3p$ e $4s \rightarrow 3p$. Poiché $E_{4s} < E_{3d}$ concludiamo che $\lambda_1$ corrisponde alla transizione $4s \rightarrow 3p$ e $\lambda_2$ corrisponde alla transizione $3d \rightarrow 3p$.
+\newpage
+\subsection{Atomi elioidi}
+Un atomo è detto \textit{elioide} se ha numero atomico $Z$ e possiede due elettroni. In tal caso l'hamiltoniano che lo descrive è 
+\begin{align}
+    H = -\frac{\nabla^2_1}{2} - \frac{\nabla^2_2}{2} - \frac{Z}{r_1} - \frac{Z}{r_2} + \frac{1}{r_{12}} \tag{2.3.1}
+\end{align}
+Per $Z = 2$ si ha l'atomo di elio, l'energia dello stato fondamentale dell'elio determinata sperimentlmente è $E^{(0)}_{exp} = -2.9 \, ua$. \\ \\
+Vediamo ora diversi metodi per calcolare in forma approssimata l'energia totale dello stato fondamentale di un atomo elioide e confrontiamo i risultati con il valore sperimentale noto per l'atomo di elio ($Z = 2$). \\
+Se supponiamo particelle independenti, ovvero $\frac{1}{r_{12}} \sim 0$, si ha 
+\begin{align}
+    H = \left(-\frac{\nabla^2_1}{2} - \frac{Z}{r_1}\right) + \left(-\frac{\nabla^2_2}{2} - \frac{Z}{r_2}\right) \tag{2.3.2}
+\end{align}
+ovvero $H = h_1 + h_2$ dove $h_i$ è l'hamiltoniano di singola particella associato alla particella $i$-esima ($i = 1, 2$), ed è essenzialmente l'hamiltoniano di un atomo idrogenoide. \\
+Con questa approssimazione si ottiene un energia totale 
+\begin{align}
+    E_{tot} = -\frac{Z^2}{2}\left(\frac{1}{n^2_1} + \frac{1}{n^2_2}\right) \tag{2.3.3}
+\end{align}
+che per lo stato fondamentale dell'elio ($n_1, n_2 = 1$, $Z = 2$) fornisce $E_{tot} = -4 \, ua$, ovvero si compie un errore del $40 \%$ circa. \\ \\
+Se trattiamo il termine $\frac{1}{r_{12}}$ come una perturbazione rispetto all'hamiltoniano $H = h_1 + h_2$ si ottiene una correzione all'energia dello stato fondamentale data da 
+\begin{align}
+    \Delta E^{(1)} &= \braket{\psi_{1s}(r_1, r_2)|\frac{1}{r_{12}}|\psi_{1s}(r_1, r_2)} \notag \\
+    &= \int d^3\mathbf{r}_1d^3\mathbf{r}_2 \, \frac{Z^6}{\pi^2}e^{-2Z(r_1 + r_2)}\frac{1}{r_{12}} \notag \\
+    &\sim \frac{Z^6}{\pi^2}\int_0^\infty dr_1dr_2 \, r^2_1r^2_2 e^{-2Z(r_1 + r_2)}\int d\Omega_1d\Omega_2 \, \sum_{l, m}\frac{4\pi}{2l + 1}\frac{r^l_<}{r^{l + 1}_>}Y^*_{lm}(\Omega_1)Y_{lm}(\Omega_2) \notag \\
+    &= 16Z^6 \int_0^\infty dr_1dr_2 \, r^2_1r^2_2e^{-2Z(r_1 + r_2)}\frac{1}{r_>} \notag \\
+    &= 16Z^2\int_0^\infty dr_1 \, r^2_1e^{-2Zr_1}\left(\frac{1}{r_1}\int_0^{r_1} dr_2 \, r^2_2e^{-2Zr_2} + \int_{r_1}^\infty dr_2 \, r_2e^{-2Zr_2}\right) = \frac{5}{8}Z \tag{2.3.4}
+\end{align}
+pertanto $E_{tot} \sim -Z^2 + \frac{5}{8}Z$, in particolare per $Z = 2$ si ottiene $E_{tot} \sim -2.75 \, ua$. \\ \\
+Applicando il metodo variazionale, possiamo introdurre un parametro che chiameremo \textit{numero atomico efficace} $Z_{eff}$ e usare come funzione di prova 
+\begin{align}
+    \psi_{Z_{eff}}(r_1, r_2) = \frac{Z^3_{eff}}{\pi}e^{-Z_{eff}r} \tag{2.3.5}
+\end{align}
+Il parametro $Z_{eff}$ tiene conto dello schermo elettronico, ognuno dei due elettroni nello stato $1s$ vede la carica nucleare parzialmente schermata a causa della presenza dell'altro elettrone. \\
+L'energia totale in funzione del parametro $Z_{eff}$ è 
+\begin{align}
+    E(Z_{eff}) = Z^2_{eff} - 2ZZ_{eff} + \frac{5}{8}Z_{eff} \tag{2.3.6}
+\end{align}
+Ora minimizziamo l'energia 
+\begin{align}
+    \frac{\partial}{\partial Z_{eff}}E(Z_{eff}) = 2Z_{eff} - 2Z + \frac{5}{8} = 0 \tag{2.3.7}
+\end{align}
+la condizione $(2.3.7)$ è soddisfatta per $Z_{eff} = Z - \frac{5}{16}$, pertanto concludiamo che l'energia dello stato fondamentale di un atomo elioide è approssimabile da 
+\begin{align}
+    E_{tot} = -\left(Z - \frac{5}{16}\right)^2 \tag{2.3.8}
+\end{align}
+In particolare, per l'atomo di elio si ottiene che l'energia dello stato fondamentale è $E_{tot} = -2.85 \, ua$. \\ \\
+Consideriamo ora un atomo eliode con configurazione elettronica $1snl$ con $n, l$ generici, $nl \neq 1s$. Allora, possiamo applicare un metodo perturbativo usando una funzione d'onda orbitale correttamente simmetrizzata 
+\begin{align}
+    \psi(r_1, r_2) = \frac{1}{\sqrt{2}}(\psi_{100}(r_1)\psi_{nlm}(r_2) \pm \psi_{nlm}(r_1)\psi_{100}(r_2)) \tag{2.3.9}
+\end{align}
+dove $\pm$ è determinato dalla natura dell funzione di spin, ovvero se si tratta di un singoletto sarà $+$, mentre se si tratta di un tripletto si avrà $-$. La prima correzione all'energia è 
+\begin{align}
+    \Delta E^{(1)} &= \braket{\psi|\frac{1}{r_{12}}|\psi} \notag \\
+    &= \frac{1}{2}\braket{\psi_{100}\psi_{nlm} \pm \psi_{nlm}\psi_{100}|\frac{1}{r_{12}}|\psi_{100}\psi_{nlm} \pm \psi_{nlm}\psi_{100}} \notag \\
+    &= J_{12} \pm K_{12} \tag{2.3.10}
+\end{align}
+Dove, dati due stati $a, b$, $J_{ab} = \braket{ab|\frac{1}{r_{12}}|ab}$ è detto \textit{integrale coulombiano}, mentre $K_{ab} = \braket{ab|\frac{1}{r_{12}}|ba}$ è detto \textit{integrale di scambio}. Notiamo che $K_{ab} = 0$ se $a, b$ hanno spin antiparalleli, mentre l'integrale coulombiano non dipende dallo spin. \\
+$J, K \geq 0$, pertanto segue che l'energia di singoletto (funz. orbitale simmetrica) è maggiore dell'energia di tripletto (funz. orbitale antisimmetrica). Quindi concludiamo che lo stato fondamentale dell'elio è di tripletto.
+
+\newpage
+\subsection{Approssimazione di campo centrale}
+Consideriamo un atomo a $N$ elettroni, l'hamiltoniano che lo descrive è della forma 
+\begin{align}
+    H = \sum_{i = 1}^N \hat{h}_i + \sum_{i < j}\frac{1}{r_{ij}} \tag{2.4.1}
+\end{align}
+dove $h_i$ è, come sempre, l'hamiltoniano di singola particella associato alla particella $i$-esima. \\ \\
+In questo caso non possiamo trattare il termine a più elettroni come una perturbazione, dato che l'interazione è troppo importante. \\ \\
+A tal proposito introduciamo l'\textit{approssimazione di campo centrale}, ovvero supponiamo che gli elettroni siano indipendenti e che ogni elettrone si muova in un potenziale medio $V$ generato dagli altri $N - 1$ elettroni e dal nucleo
+\begin{align}
+    V(r) = -\frac{Z}{r} + S(r) \tag{2.4.2}
+\end{align}
+$S$ è il termine medio generato dagli altri elettroni e tiene conto dello schermo elettronico che generano rispetto all'elettrone in esame. \\
+In particolare ci aspettiamo che $S$ soddisfi i seguenti comportamenti asintotici 
+\begin{align}
+    S(r) \sim \begin{cases}
+        0 \qquad r \rightarrow 0 \\
+        \frac{N - 1}{r} \qquad r \rightarrow \infty
+    \end{cases} \tag{2.4.3}
+\end{align}
+ovvero che lo schermo sia nullo quando l'elettrone non vede elettroni interni e che lo schermo sia completo quando l'elettrone è esterno a tutti i restanti elettroni (abbastanza distante dal nucleo). \\
+Allora, possiamo riscrivere l'hamiltoniano come segue 
+\begin{align}
+    H = \sum_{i = 1}^N\left(-\frac{\nabla^2_i}{2} - \frac{Z}{r_i}\right) + \left(\sum_{i < j}\frac{1}{r_{ij}} - \sum_{k = 1}^N S(r_k)\right) \tag{2.4.4}
+\end{align}
+In questo caso è valido trattare il termine 
+\begin{align}
+    H' = \sum_{i < j}\frac{1}{r_{ij}} - \sum_{k = 1}^N S(r_k) \notag
+\end{align}
+come una perturbazione rispetto all'hamiltoniano $H_0 = \sum \hat{h}_i$. Infatti stiamo essenzialmente sottraendo all'interazione elettrone ($\sum 1/r_{ij}$) il termine isotropo centrale ($\sum S(r_i)$), dunque rimane solamente il termine anisotropo dell'interazione elettronica, che è una piccola frazione del contributo totale.  \\
+Come funzione d'onda imperturbata prendiamo il determinante di Slater dato da 
+\begin{align}
+    \psi(r_1, \dots, r_n) = \frac{1}{\sqrt{N!}}\ket{\psi_{n_1l_1m_1} \dots \psi_{n_Nl_Nm_N}} \tag{2.4.5}
+\end{align}
+
+\newpage
+\subsection{Metodo di Hartree-Fock}
+Consideriamo un atomo a $N$ elettroni. Il \textit{metodo di Hartree-Fock} è un metodo variazionale, basato sul \textit{metodo dei moltiplicatori di Lagrange}, che minimizza l'energia imponendo come vincolo la normalizzazione della funzione d'onda. \\ \\
+Come funzione d'onda complessiva $\psi$ prendiamo un determinante di Slater
+\begin{align}
+    \psi = \frac{1}{\sqrt{N}}\ket{\psi_{a_1} \dots \psi_{a_N}} \tag{2.5.1}
+\end{align}
+dove $a_i$ è un set di numeri quantici che identifica lo stato. Allora
+\begin{align}
+    E_{HF} = \braket{\psi|H|\psi} \tag{2.5.2}
+\end{align}
+Imponiamo come vincolo $\braket{\psi_{a_i}|\psi_{a_j}} = \delta_{ij}$ e applichiamo il metodo dei moltiplicatori di Lagrange
+\begin{align}
+    \delta\left(E_{HF} - \sum_{ij}\epsilon_{ij}(\braket{\psi_{a_i}, \psi_{a_j}} - \delta_{ij})\right) = 0 \tag{2.5.3}
+\end{align}
+dove $\epsilon$ è detto moltiplicatore di Lagrange e $\delta$ è l'operatore variazione prima. \\
+Vediamo termine per termine 
+\begin{align}
+    E_{HF} = \sum_{i = 1}^N E_i + \frac{1}{2}\sum_{ij}(J_{ij} - K_{ij}) \tag{2.5.4}
+\end{align}
+dove $I_k$ è l'energia di singolo elettrone associato all'elettrone $k$-esimo, $J_{ij}$ e $K_{ij}$ sono rispettivamente l'integrale coulombiano e l'intergrale di scambio associati alla coppia di elettroni $i, j$. In particolare 
+\begin{align}
+    E_i = \int d^3\mathbf{r} \, \psi^*_{a_i}(r)\hat{h}\psi_{a_i}(r) \tag{2.5.5}
+\end{align}
+Basta considerare variare il bra nel prodotto scalare (per ottenere una variazione prima), ovvero variamo $\psi^*_{a_i}$, pertanto 
+\begin{align}
+    \delta E_i = \int d^3\mathbf{r} \, \delta \psi^*_{a_i}(r)\hat{h}\psi_{a_i}(r) \tag{2.5.6}
+\end{align}
+L'integrale coulombiano è dato da 
+\begin{align}
+    E_J &= \frac{1}{2}\sum_{ij} J_{ij} \notag \\ 
+    &= \frac{1}{2}\sum_{ij} \int d^3\mathbf{r}_1d^3\mathbf{r}_2 \, \psi^*_{a_i}(r_1)\psi^*_{a_j}(r_2)\frac{1}{r_{12}}\psi_{a_i}(r_1)\psi_{a_j}(r_2) \tag{2.5.7}
+\end{align}
+Ora variamo rispetto a $\psi^*_{a_k}$. Notiamo che $\psi^*_{a_k}$ può comparire come $\psi^*_{a_i}(r_1)$ se $i = k$, oppure può apparire come $\psi^*_{a_j}(r_2)$ se $j = k$, pertanto otteniamo due termini uguali (poiché sommiamo su entrambi gli indici) che cancellano il fattore $1/2$ 
+\begin{align}
+    \delta E_J &= \sum_{ij}\int d^3\mathbf{r}_1d^3\mathbf{r}_2 \, \delta\psi^*_{a_i}(r_1)\psi^*_{a_j}(r_2)\frac{1}{r_{12}}\psi_{a_i}(r_1)\psi_{a_j}(r_2) \notag \\
+    &= \sum_{i} \int d^3\mathbf{r}_1 \, \delta\psi^*_{a_i}(r_1)\left(\sum_j \int d^3\mathbf{r}_2 \, |\psi_{a_j}(r_2)|^2\frac{1}{r_{12}}\right)\psi_{a_i}(r_1) \tag{2.5.8}
+\end{align}
+Analogamente, per l'energia di scambio si ottiene 
+\begin{align}
+    \delta E_K &= \sum_{ij}\int d^3\mathbf{r}_1d^3\mathbf{r}_2 \, \delta\psi^*_{a_i}(r_1)\psi^*_{a_j}(r_2)\frac{1}{r_{12}}\psi_{a_j}(r_1)\psi_{a_i}(r_2) \notag \\
+    &= \sum_i \int d^3\mathbf{r}_1 \, \delta\psi^*_{a_i}(r_1)\left(\sum_j \int d^3\mathbf{r}_2 \, \psi^*_{a_j}(r_2)\frac{1}{r_{12}}\psi_{a_i}(r_2)\right)\psi_{a_j}(r_1) \tag{2.5.9}
+\end{align}
+Introduciamo gli operatori $\hat{J}_j$ e $\hat{K}_i$, che operano come segue 
+\begin{align}
+    \hat{J}_j(1)\psi_{a_i}(r_1) &= \left(\int d^3\mathbf{r}_2 \, |\psi_{a_j}(r_2)|^2\frac{1}{r_{12}}\right)\psi_{a_i}(r_1) \notag \\
+    \hat{K}_j(1)\psi_{a_i}(r_1) &= \left(\int d^3\mathbf{r}_2 \, \psi^*_{a_j}(r_2)\frac{1}{r_{12}}\psi_{a_i}(r_2)\right)\psi_{a_j}(r_1) \notag
+\end{align}
+Il termine $\delta_{ij}$ è costante, dunque $\delta \delta_{ij} = 0$. Mentre per il vincolo si ha 
+\begin{align}
+    \delta(\epsilon_{ij}\braket{\psi_{a_i}|\psi_{a_j}}) = \epsilon_{ij}\int d^3\mathbf{r} \, \delta\psi^*_{a_i}(r)\psi_{a_j}(r) \tag{2.5.8}
+\end{align}
+Unendo tutti i termini si ottiene 
+\begin{align}
+    0 &= \delta E_{HF} - \sum_{ij}\delta(\epsilon_{ij}\braket{\psi_{a_i}|\psi_{a_j}}) \notag \\
+    &= \sum_{ij} \left(\int d^3\mathbf{r} \, \delta\psi^*_{a_i}(\hat{h} + \hat{J}_j(1) - \hat{K}_j(1))\psi_{a_i} - \epsilon_{ij}\int d^3\mathbf{r} \, \delta\psi^*_{a_i}\psi_{a_i}\right) \tag{2.5.9}
+\end{align}
+Dato che la $(2.5.9)$ deve valere per ogni variazione arbitraria $\delta$ si ottiene 
+\begin{align}
+    \sum_j(\hat{h} + \hat{J}_j(1) - \hat{K}_j(1))\psi_{a_i} = \sum_j \epsilon_{ij}\psi_{a_i} \tag{2.5.10}
+\end{align}
+Ponendo $\hat{f}(1) = \hat{h} + \sum_j (\hat{J}_j(1) - \hat{K}_j(1))$ \textit{operatore di Fock}, l'equazione di HF diventa 
+\begin{align}
+    \hat{f}\psi_{a_i} = \sum_j \epsilon_{ij}\psi_{a_i} \tag{2.5.12}
+\end{align}
+La matrice dei moltiplicatori di Lagrange è simmetrica (reale) e quindi può essere diagonalizzata con una opportuna trasformazione unitaria applicata agli spin-oribitali. In tal caso si ottiene la forma diagonalizzata dell'equazione di HF 
+\begin{align}
+    \hat{f}\psi_{a_i} = \epsilon_i\psi_{a_i} \tag{2.5.13}
+\end{align}
+Il metodo di HF è iterativo, pertanto, una volta scelti degli spin-orbitali iniziali $\{\psi^{(0)}_{a_i}\}_{i \in I}$, si può risolvere per ottenere altri spin-orbitali tramite 
+\begin{align}
+    \hat{f}^{(0)}\psi^{(1)}_{a_i} &= \epsilon^{(1)}_{i}\psi^{(1)}_{a_i} \tag{2.5.14}
+\end{align}
+dove 
+\begin{align}
+    \hat{f}^{(0)} = \hat{h} + \sum_j (\hat{J}^{(0)}_j(1) - \hat{K}^{(0)}_j(1)) \notag
+\end{align}
+Questo processo si può iterare fino ad ottenere il $k$-esimo set di spin-orbitali $\{\psi^{(k)}_{a_i}\}_{i \in I}$ in base alla precisione scelta. 
+
+\newpage
+\subsection{HF spin-adapted}
+Consideriamo due elettroni, uno in uno stato $a$ e l'altro nello stato $b$ con spin antiparallelo, quindi avremo $a\overline{b}$ o $\overline{a}b$. Prendiamo come funzione d'onda un determinante di Slater, in particolare si avranno 
+\begin{align}
+    a\overline{b}&: \qquad \psi_{a\overline{b}} = \frac{1}{\sqrt{2}}(a\overline{b} - \overline{b}a) \notag \\
+    \overline{a}b&: \qquad \psi_{\overline{a}b} = \frac{1}{\sqrt{2}}(\overline{a}b - b\overline{a}) \notag
+\end{align}
+Come visto nel $§2.2$, per far ottenere autofunzioni sia si $S_z$ che di $\mathbf{S}^2$ dobbiamo prendere combinazioni lineari simmetriche e antisimmetriche di $\psi_{a\overline{b}}$ e $\psi_{\overline{a}b}$. Allora definiamo 
+\begin{align}
+    \psi_S &= \frac{1}{\sqrt{2}}(\psi_{a\overline{b}} + \psi_{\overline{a}b}) = \frac{1}{\sqrt{2}}(ab - ba)\chi_T \tag{2.6.1} \\
+    \psi_{AS} &= \frac{1}{\sqrt{2}}(\psi_{a\overline{b}} - \psi_{\overline{a}b}) = \frac{1}{\sqrt{2}}(ab + ba)\chi_S \tag{2.6.2}
+\end{align}
+dove $\chi_S$ e $\chi_T$ sono rispettivamente il singoletto ed il tripletto. \\
+Calcoliamo l'energia di $\psi_S$ e di $\psi_{AS}$
+\begin{align}
+    \braket{\psi_S|H|\psi_S} &= \frac{1}{2}(\braket{\psi_{a\overline{b}}|H|\psi_{a\overline{b}}} + \braket{\psi_{\overline{a}b}|H|\psi_{\overline{a}b}}) \notag \\
+    &= \frac{1}{2}(2I_a + 2I_b + 2J_{ab} - 2K_{ab})
+\end{align}
+
 
 \newpage
 \section*{Appendice}
