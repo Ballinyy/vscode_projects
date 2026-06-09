@@ -15,3 +15,6 @@
 \contentsline {subsection}{\numberline {2.4}Approssimazione di campo centrale}{31}{}%
 \contentsline {subsection}{\numberline {2.5}Metodo di Hartree-Fock}{32}{}%
 \contentsline {subsection}{\numberline {2.6}HF spin-adapted}{35}{}%
+\contentsline {section}{\numberline {3}Molecole}{36}{}%
+\contentsline {subsection}{\numberline {3.1}Approssimazione di Born-Oppenheimer}{36}{}%
+\contentsline {subsection}{\numberline {3.2}Molecola $H^+_2$}{38}{}%

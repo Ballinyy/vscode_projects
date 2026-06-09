@@ -1011,9 +1011,69 @@ Come visto nel $§2.2$, per far ottenere autofunzioni sia si $S_z$ che di $\math
 dove $\chi_S$ e $\chi_T$ sono rispettivamente il singoletto ed il tripletto. \\
 Calcoliamo l'energia di $\psi_S$ e di $\psi_{AS}$
 \begin{align}
-    \braket{\psi_S|H|\psi_S} &= \frac{1}{2}(\braket{\psi_{a\overline{b}}|H|\psi_{a\overline{b}}} + \braket{\psi_{\overline{a}b}|H|\psi_{\overline{a}b}}) \notag \\
-    &= \frac{1}{2}(2I_a + 2I_b + 2J_{ab} - 2K_{ab})
+    \braket{\psi_S|H|\psi_S} &= \frac{1}{2}(\braket{\psi_{a\overline{b}} + \psi_{\overline{a}b}|H|\psi_{a\overline{b}} + \psi_{\overline{a}b}}) \notag \\
+    &= \frac{1}{2}(\braket{ab - ba|H|ab - ba}\braket{\chi_T|\chi_T}) \notag \\
+    &= \frac{1}{2}(2I_a + 2I_b + 2J_{ab} - 2K_{ab}) \notag \\
+    &= I_a + I_b + J_{ab} - K_{ab} \tag{2.6.3} \\ \notag \\
+    \braket{\psi_{AS}|H|\psi_{AS}} &= \frac{1}{2}(\braket{\psi_{a\overline{b}} - \psi_{\overline{a}b}|H|\psi_{a\overline{b}} - \psi_{\overline{a}b}}) \notag \\
+    &= \frac{1}{2}(\braket{ab + ba|H|ab + ba}\braket{\chi_S|\chi_S}) \notag \\
+    &= \frac{1}{2}(2I_a + 2I_b + 2J_{ab} + 2K_{ab}) \notag \\
+    &= I_a + I_b + J_{ab} + K_{ab} \tag{2.6.4}
 \end{align}
+Notiamo che il tripletto ha energia inferiore rispetto al singoletto, in particolare $\Delta E_{T, S} = 2K_{ab}$.
+
+\newpage
+\section{Molecole}
+\subsection{Approssimazione di Born-Oppenheimer}
+L'hamiltoniano che descrive un molecola è della forma 
+\begin{align}
+    H = T_e + T_N + V_{ee} + V_{NN} + V_{eN} \tag{3.1.1}
+\end{align}
+dove $T_e$ e $T_N$ sono rispettivamente l'energia cinetica degli elettroni e dei nuclei, $V_{ee}$ è l'interazione tra elettroni, $V_{NN}$ è l'interazione tra nuclei e infine $V_{eN}$ è l'interazione elettroni-nuclei. In particolare, se poniamo $N$ il numero di elettroni e $A$ il numero di nuclei, si ha 
+\begin{align}
+    T_e &= -\sum_{i = 1}^N \frac{\nabla^2_i}{2} \notag \\
+    T_N &= -\sum_{i = 1}^A \frac{\nabla^2_i}{2} \notag \\
+    V_{ee} &= \sum_{i < j} \frac{1}{r_{ij}} \notag \\
+    V_{NN} &= \sum_{i < j} \frac{Z_iZ_j}{R_{ij}} \notag \\
+    V_{eN} &= -\sum_{ij} \frac{1}{|\mathbf{r}_i - \mathbf{R}_j|} \notag
+\end{align}
+dove, per convenzione, sono state scritte maiuscole le grandezze relative ai nuclei e minuscole le grandezze relative agli elettroni. \\ \\
+In generale, i tempi caratteristici del moto degli elettroni sono molto più brevi dei tempi caratteristici del moto nucleare. Infatti, il moto elettronico avviene in tempi dell'ordine di $2.5 \cdot 10^{-17} \, s$, mentre il moto nucleare in tempi dell'ordine di $10^{-12} \, s$. Questo segue dal fatto che i nuclei sono molto più pesanti degli elettroni, pertanto, a parità di energia, si muovono molto più lentamente. \\
+Ha quindi senso risolvere il moto elettronico trattando le variabili nucleari come parametri, ovvero risolviamo il moto elettronico fissando le coordinate nucleari $\{\mathbf{R}_i\}$. \\
+Sotto tale ipotesi, il termine $T_N$ è nullo e il termine $V_{NN}$ è costante, pertanto l'hamiltoniano che descrive il moto elettronico è 
+\begin{align}
+    H_e = T_e + V(\{\mathbf{r}_i\}; \{\mathbf{R}_i\}) \tag{3.1.2}
+\end{align}
+e l'equazione da risolvere diventa 
+\begin{align}
+    H_e\phi^{(e)}_n(\{\mathbf{r}_i\}; \{\mathbf{R}_i\}) = E^{(e)}(\{\mathbf{R}_i\})\phi^{(e)}_n(\{\mathbf{r}_i\}; \{\mathbf{R}_i\}) \tag{3.1.3}
+\end{align}
+dove le distanze $\{\mathbf{R}_i\}$ appaiono come parametri e la funzione d'onda $\phi^{(e)}_n$ è quella che descrive il moto elettronico. \\
+Dato che $\{\phi^{(e)}_n\}_n$ è un set completo e ortonormale, possiamo scrivere la funzione d'onda molecolare (complessiva) come combinazione lineare di soluzioni del moto elettronico. In particolare, posta $\psi(\{\mathbf{r}_i\}, \{\mathbf{R}_i\})$ la funzione d'onda molecolare, possiamo scrivere 
+\begin{align}
+    \psi(\{\mathbf{r}_i\}; \{\mathbf{R}_i\}) = \sum_n F_n(\{\mathbf{R}_i\})\phi^{(e)}_n(\{\mathbf{r}_i\}, \{\mathbf{R}_i\}) \tag{3.1.4}
+\end{align}
+L'equazione da risolvere è quindi della forma 
+\begin{align}
+    (T_e + T_N + V)\sum_n F_n(\{\mathbf{R}_i\})\phi^{(e)}_n(\{\mathbf{r}_i\}, \{\mathbf{R}_i\}) = E\sum_n F_n(\{\mathbf{R}_i\})\phi^{(e)}_n(\{\mathbf{r}_i\}, \{\mathbf{R}_i\}) \tag{3.1.5}
+\end{align}
+Eseguendo il prodotto scalare con $\phi^{(e)*}_m(\{\mathbf{r}_i\}; \{\mathbf{R}_i\})$ (integrando in $d\{\mathbf{r}_i\}$) si ottiene 
+\begin{align}
+    \sum_n \int d\{\mathbf{r}_i\} \, \phi^{(e)*}_m(T_e + T_N + V)F_n\phi^{(e)}_n = EF_{m} \tag{3.1.6}
+\end{align}
+dove si è usata l'ortonormalità del set $\{\phi^{(e)}_n\}_n$. Dato che $(T_e + V)\phi^{(e)}_n = E^{(e)}_n\phi^{(e)}_n$ e che $T_N$ agisce solamente su $F_n$ (ovvero, proprio per costruzione dell'approx di B-O si pone $T_N\phi^{(e)}_n = 0$), si ottiene 
+\begin{align}
+    T_NF_m + (E^{(e)}_m - E)F_m = 0 \tag{3.1.7}
+\end{align}
+che descrive il moto nucleare. Notiamo che l'energia della configurazione elettronica appare ora come un potenziale efficace. \\ \\
+Nel caso particolare di molecole biatomiche la dipendenza dalle coordinate nucleari si riduce ad una dipendenza dalla distanza dei nuclei $\mathbf{R} = \mathbf{R}_A - \mathbf{R}_B$. In tal caso la $(3.1.7)$ diventa
+\begin{align}
+    -\frac{\hbar^2}{2\mu}\nabla^2_{\mathbf{R}}F_n(\mathbf{R}) + (E^{(e)}_n(\mathbf{R}) - E)F_n(\mathbf{R}) = 0 \tag{3.1.8}
+\end{align}
+
+\newpage
+\subsection{Molecola $H^+_2$}
+Consideriamo la molecola $H^+_2$. Sia $R$ la distanza tra il nucleo $A$ e $B$ e poniamo $\mathbf{r}_A$ e $\mathbf{r}_B$ rispettivamente la distanza dell'elettrone dal nucleo $A$ e dal nucleo $B$.
 
 
 \newpage
