@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1781182589.84705 "c:/Users/aless/vscode_tex/Sistemi Dinamici/Sistemi Dinamici.tex" "Sistemi Dinamici.pdf" "Sistemi Dinamici" 1781182591.40881 0
-  "Sistemi Dinamici.aux" 1781182591 247 6c836a48b0768e249ae148ec6d250fdd "pdflatex"
-  "Sistemi Dinamici.tex" 1781182589 4614 f512d1ffcd8392669c797035e000840b ""
-  "Sistemi Dinamici.toc" 1781182591 133 58544c65b2a2c7a15323b636924d46ba "pdflatex"
-  "c:/Users/aless/vscode_tex/Sistemi Dinamici/Sistemi Dinamici.tex" 1781182589 4614 f512d1ffcd8392669c797035e000840b ""
+["pdflatex"] 1781192026.78134 "c:/Users/aless/vscode_tex/Sistemi Dinamici/Sistemi Dinamici.tex" "Sistemi Dinamici.pdf" "Sistemi Dinamici" 1781192028.38491 0
+  "Sistemi Dinamici.aux" 1781192028 247 6c836a48b0768e249ae148ec6d250fdd "pdflatex"
+  "Sistemi Dinamici.tex" 1781192025 5563 321a52daf8f358302f30e207662b0910 ""
+  "Sistemi Dinamici.toc" 1781192028 133 58544c65b2a2c7a15323b636924d46ba "pdflatex"
+  "c:/Users/aless/vscode_tex/Sistemi Dinamici/Sistemi Dinamici.tex" 1781192025 5563 321a52daf8f358302f30e207662b0910 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1773573954 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1773573954 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -38,6 +38,7 @@
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1773573954 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1773573954 32762 7fee39e011c23b3589931effd97b9702 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1773573954 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1773573954 32716 08e384dc442464e7285e891af9f45947 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1773573954 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1773573954 34694 870c211f62cb72718a00e353f14f254d ""
   "c:/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1773582138 71627 94eb9990bed73c364d7f53f960cc8c5b ""
