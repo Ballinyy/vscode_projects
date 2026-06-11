@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1781192056.49011 "c:/Users/aless/vscode_tex/Sistemi Dinamici/Sistemi Dinamici.tex" "Sistemi Dinamici.pdf" "Sistemi Dinamici" 1781192058.13272 0
-  "Sistemi Dinamici.aux" 1781192057 247 6c836a48b0768e249ae148ec6d250fdd "pdflatex"
-  "Sistemi Dinamici.tex" 1781192054 5569 bf0c46866f8d2a9e330982016edbfea5 ""
-  "Sistemi Dinamici.toc" 1781192057 133 58544c65b2a2c7a15323b636924d46ba "pdflatex"
-  "c:/Users/aless/vscode_tex/Sistemi Dinamici/Sistemi Dinamici.tex" 1781192054 5569 bf0c46866f8d2a9e330982016edbfea5 ""
+["pdflatex"] 1781210843.86249 "c:/Users/aless/vscode_tex/Teoria KAM/Teoria KAM.tex" "Teoria KAM.pdf" "Teoria KAM" 1781210845.39262 0
+  "Teoria KAM.aux" 1781210845 247 6c836a48b0768e249ae148ec6d250fdd "pdflatex"
+  "Teoria KAM.tex" 1781210841 7036 8b3092a9a40a7a0954fe74650b8e6d5a ""
+  "Teoria KAM.toc" 1781210845 133 58544c65b2a2c7a15323b636924d46ba "pdflatex"
+  "c:/Users/aless/vscode_tex/Teoria KAM/Teoria KAM.tex" 1781210841 7036 8b3092a9a40a7a0954fe74650b8e6d5a ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1773573954 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1773573954 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -36,6 +36,7 @@
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1773573954 35752 024fb6c41858982481f6968b5fc26508 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1773573954 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1773573954 32362 bc3f3eec7ab7d65fe700963d4017d32c ""
+  "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1773573954 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1773573954 32762 7fee39e011c23b3589931effd97b9702 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1773573954 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1773573954 32716 08e384dc442464e7285e891af9f45947 ""
@@ -139,8 +140,8 @@
   "c:/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1773585069 3636415 ecab02c4a9d9453df876c87b43ac82f2 ""
   "c:/texlive/2026/texmf.cnf" 1773584742 713 e69b156964470283e0530f5060668171 ""
   (generated)
-  "Sistemi Dinamici.aux"
-  "Sistemi Dinamici.log"
-  "Sistemi Dinamici.pdf"
-  "Sistemi Dinamici.toc"
+  "Teoria KAM.aux"
+  "Teoria KAM.log"
+  "Teoria KAM.pdf"
+  "Teoria KAM.toc"
   (rewritten before read)

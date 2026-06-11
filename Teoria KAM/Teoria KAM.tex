@@ -55,14 +55,18 @@ Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodi
     h(\varphi_1(t, x)) = \varphi_2(t, h(x)) \tag{2.4}
 \end{align}
 Notiamo che la coniugazione topologica è una condizione più forte dell'equivalenza topologica, infatti si richiede che venga rispettato anche l'ordine temporale. \\ \\
-\textbf{Definizione:} sia $h$ un omeomorfismo tra $X$ e $Y$ spazi topologici e siano
+\textbf{Definizione:} un'applicazione continua $p : R \longrightarrow X$ di spazi topologici è detta rivestimento se è suriettiva e se per ogni $x \in X$ ammette un intorno aperto $U_x$ tale che $p^{-1}(U_x)$ è unione disgiunta di aperti di $R$ e $p^{-1}(U_x)$ ognuno dei quali viene mappato omeomorficamente su $U_x$. \\ \\
+\textbf{Definizione:} sia $f : X \longrightarrow Y$ un'applicazione continua di spazi topologici 
 \begin{align}
     p : \tilde{X} \longrightarrow X \notag \\
     q : \tilde{Y} \longrightarrow Y \notag
 \end{align}
-rivestimenti. Un omeomorfismo $\tilde{h} : \tilde{X} \longrightarrow \tilde{Y}$ è detto \textit{lift} di $h$ se $q \circ \tilde{h} = h \circ p$. \\
-Notiamo che il lift di un omeomorfismo non è unico, infatti, in base alle proprietà del rivestimento si possono trovare più lift. La non unicità dipende dal fatto che ine generale $p$ non è iniettiva, quindi $p^{-1}(x)$ può contenere più di un punto. \\ \\
-\textbf{Osservazione:} il lift è unico una volta fissato un punto iniziale. Infatti, dato \\ \\
+rivestimenti. $\tilde{f} : \tilde{X} \longrightarrow \tilde{Y}$ è detto \textit{sollevamento} di $f$ se $q \circ \tilde{f} = f \circ p$. \\ \\
+\textbf{Osservazione:} Notiamo che il sollevamento di un'applicazione continua non è unico, infatti, in base alle proprietà del rivestimento si possono trovare più sollevamenti. La non unicità dipende dal fatto che ine generale $p$ non è iniettiva, quindi $p^{-1}(x)$ può contenere più di un punto. \\ \\
+Dato $X$ spazio topologico e $x_0 \in X$ chiamiamo spazio topologico \textit{puntato} o \textit{con punto base} la coppia $(X, x_0)$. Inoltre, dati due spazi topologici puntati $(X, x_0), (Y, y_0)$ chiamiamo \textit{applicazione continua di spazi topologici} un'applicazione continua $f : (X, x_0) \longrightarrow (Y, y_0)$ tale che $f(x_0) = y_0$. \\ \\
+\textbf{Teorema (di unicità del sollevamento):} siano $p : (R, r_0) \longrightarrow (Y, y_0)$ un rivestiemnto e $f : (X, x_0) \longrightarrow (Y, y_0)$ un'applicazione continua di spazi topologici puntati con $Y$ connesso. Se esiste $\tilde{f} : (X, x_0) \longrightarrow (R, r_0)$ continua tale che $p \circ \tilde{f} = f$, è unica. \\
+
+\textbf{Dimostrazione:} supponiamo che esista $\tilde{f} : (X, x_0) \longrightarrow (R, r_0)$ tale che $p \circ \tilde{f} = f$. Per definizione di applicazione di spazi topologici puntati si ha $p(r_0) = y_0$, $f(x_0) = y_0$ e $\tilde{f}(x_0) = r_0$. Inoltre, per definizione di rivestimento, esiste un intorno aperto $U_{y_0}$ di $y_0$ tale che $V_{y_0} := p^{-1}(U_{y_0})$ è unione disgiunta di aperti di $R$ e viene mappato omeomorficamente su $U_{y_0}$ da $p$.   \\ \\
 Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso 
 \begin{align}
     \varphi_t : &\mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
@@ -74,7 +78,7 @@ dove $\alpha = \nabla_rH(r)$. \\ \\
 \begin{align}
     h(\theta + t\alpha) = h(\theta) + t\beta \tag{2.5}
 \end{align}
-A meno di sostituire $h(\theta)$ con $h(\theta) - h(0)$ possiamo supporre $h(0) = 0$. Sia $H : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ l'unico lift di $h$ tale che $H(0) = 0$.
+A meno di sostituire $h(\theta)$ con $h(\theta) - h(0)$ possiamo supporre $h(0) = 0$. Sia $H : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ l'unico sollevamento di $h$ tale che $H(0) = 0$.
 
 
 \end{document}
