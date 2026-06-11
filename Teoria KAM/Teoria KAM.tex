@@ -49,7 +49,7 @@ Notiamo che lo spazio delle fasi è costituito da tori invarianti, infatti fissa
 \begin{align}
     \varphi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} \tag{2.3}
 \end{align}
-Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega = \nabla_rH \in \mathbb{R}^n$. \\ \\
+Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \nabla_rH(r_0) \in \mathbb{R}^n$. \\ \\
 \textbf{Definizione:} sia $M$ una varietà differenziabile e siano $\Phi_1, \Phi_2$ campi vettoriali definiti su $M$. Inoltre, siano $\varphi_1$ e $\varphi_2$ rispettivamente il flusso di $\Phi_1$ e $\Phi_2$. I flussi $\varphi_1$ e $\varphi_2$ vengono detti \textit{topologicamente coniugati} se esiste un omeomorfismo $h$ su $M$ tale che
 \begin{align}
     h(\varphi_1(t, x)) = \varphi_2(t, h(x)) \tag{2.4}
@@ -62,11 +62,19 @@ Notiamo che la coniugazione topologica è una condizione più forte dell'equival
     q : \tilde{Y} \longrightarrow Y \notag
 \end{align}
 rivestimenti. $\tilde{f} : \tilde{X} \longrightarrow \tilde{Y}$ è detto \textit{sollevamento} di $f$ se $q \circ \tilde{f} = f \circ p$. \\ \\
-\textbf{Osservazione:} Notiamo che il sollevamento di un'applicazione continua non è unico, infatti, in base alle proprietà del rivestimento si possono trovare più sollevamenti. La non unicità dipende dal fatto che ine generale $p$ non è iniettiva, quindi $p^{-1}(x)$ può contenere più di un punto. \\ \\
+\textbf{Osservazione:} Notiamo che il sollevamento di un'applicazione continua non è unico, infatti, in base alle proprietà del rivestimento si possono trovare più sollevamenti. La non unicità dipende dal fatto che in generale $p$ non è iniettiva, quindi $p^{-1}(x)$ può contenere più di un punto. \\ \\
 Dato $X$ spazio topologico e $x_0 \in X$ chiamiamo spazio topologico \textit{puntato} o \textit{con punto base} la coppia $(X, x_0)$. Inoltre, dati due spazi topologici puntati $(X, x_0), (Y, y_0)$ chiamiamo \textit{applicazione continua di spazi topologici} un'applicazione continua $f : (X, x_0) \longrightarrow (Y, y_0)$ tale che $f(x_0) = y_0$. \\ \\
-\textbf{Teorema (di unicità del sollevamento):} siano $p : (R, r_0) \longrightarrow (Y, y_0)$ un rivestiemnto e $f : (X, x_0) \longrightarrow (Y, y_0)$ un'applicazione continua di spazi topologici puntati con $Y$ connesso. Se esiste $\tilde{f} : (X, x_0) \longrightarrow (R, r_0)$ continua tale che $p \circ \tilde{f} = f$, è unica. \\
+\textbf{Teorema (di unicità del sollevamento):} siano $p : (R, r_0) \longrightarrow (Y, y_0)$ un rivestimento e $f : (X, x_0) \longrightarrow (Y, y_0)$ un'applicazione continua di spazi topologici puntati con $X$ connesso. Se esiste $\tilde{f} : (X, x_0) \longrightarrow (R, r_0)$ continua tale che $p \circ \tilde{f} = f$, è unica. \\
 
-\textbf{Dimostrazione:} supponiamo che esista $\tilde{f} : (X, x_0) \longrightarrow (R, r_0)$ tale che $p \circ \tilde{f} = f$. Per definizione di applicazione di spazi topologici puntati si ha $p(r_0) = y_0$, $f(x_0) = y_0$ e $\tilde{f}(x_0) = r_0$. Inoltre, per definizione di rivestimento, esiste un intorno aperto $U_{y_0}$ di $y_0$ tale che $V_{y_0} := p^{-1}(U_{y_0})$ è unione disgiunta di aperti di $R$ e viene mappato omeomorficamente su $U_{y_0}$ da $p$.   \\ \\
+\textbf{Dimostrazione:} supponiamo che esistano $\tilde{f}_1, \tilde{f}_2 : (X, x_0) \longrightarrow (R, r_0)$ tali che $p \circ \tilde{f}_1 = f = p \circ \tilde{f}_2$. \\
+Poniamo 
+\begin{align}
+    A &= \{x \in X : \tilde{f}_1(x) = \tilde{f}_2(x)\} \notag \\
+    B &= \{x \in X : \tilde{f}_1(x) \neq \tilde{f}_2(x)\} \notag
+\end{align}
+Dimostriamo che $A$ e $B$ sono aperti di $X$. \\
+Per ipotesi $x_0 \in A$, infatti $\tilde{f}_1(x_0) = r_0 = \tilde{f}_2(x_0)$, pertanto $A \neq \emptyset$. Dato $z \in A$, poniamo $\tilde{f}_1(z) = r = \tilde{f}_2(z)$. Sia $y = p(r)$, per definizione di rivestimento esiste un intorno aperto $U_y$ di $y$ tale che la restrizione di $p$ a $V_y := p^{-1}(U_y)$ è un omeomorfismo. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni di $z$ tali che $\tilde{f}_1(W_1) \subset V_y$ e $\tilde{f}_2(W_2) \subset V_y$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1 \cap W_2$ e dato che $p|_{V_y}$ è un omeomorfismo si ha che $\tilde{f}_1 = \tilde{f}_2$ in $W_1 \cap W_2$. Allora $W_1 \cap W_2 \subset A$ e dall'arbitrarietà del punto $z$ scelto segue che $A$ è un aperto. \\
+Supponiamo per assurdo che esista un elemento $z \in B$ e poniamo $\tilde{f}_1(z) = r_1$ e $\tilde{f}_2(z) = r_2$. Siano $y_1 = p(r_1)$ e $y_2 = p(r_2)$. Per definizione di rivestimento, esistono $U_{y_1}$ e $U_{y_2}$ rispettivamente intorno aperto di $y_1$ e $y_2$ tali che la restrizione di $p$ a $V_{y_1} := p^{-1}(U_{y_1})$ e la restrizione di $p$ a $V_{y_2} := p^{-1}(U_{y_2})$ sono omeomorfismi. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni aperti di $z$ tali che $\tilde{f}_1(W_1) \subset V_{y_1}$ e $\tilde{f}_2(W_2) \subset V_{y_2}$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1$ e ogni $x \in W_2$. Ma allora, $\tilde{f}_1 = \tilde{f}_2$ per ogni $x \in W_1$ e ogni $x \in W_2$, in particolare per $z$, quindi si ottiene un assurdo. Segue che $B = \emptyset$ e di conseguenza $A = X \setminus B = X$. \qed \\ \\
 Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso 
 \begin{align}
     \varphi_t : &\mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
