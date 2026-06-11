@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts, amsmath, amssymb, amsthm, float}
+\usepackage{tikz-cd}
+
+\title{Teoria KAM}
+\author{Alessandro Ballini}
+\date{June 2026}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+\section{Sistemi hamiltoniani}
+Consideriamo una funzione liscia $H$ definita su un aperto $M$ di $\mathbb{T}^n \times \mathbb{R}^n$ = $\{(\theta, r)\}$ (dove $\mathbb{T}^n = \mathbb{R}^n/\mathbb{Z}^n$ è il toro $n$-dimensionale e $(\theta, r) = (\theta_1, \dots, \theta_n, r_1, \dots, r_n)$). \\
+Il \textit{campo vettoriale hamiltoniano} $X_H$ indotto da $H$ tramite le equazioni di Hamilton è dato da 
+\begin{align} X_H =
+    \begin{cases}
+        \dot{\theta}_j &= \frac{\partial H}{\partial r_j} \\
+        \dot{r}_j &= -\frac{\partial H}{\partial \theta_j}
+    \end{cases} \tag{1.1}
+\end{align}
+Notiamo immediatamente che $\nabla H \cdot X_H = 0$, il gradiente euclideo di $H$ è ortogonale al campo vettoriale hamiltoniano $X_H$. Infatti 
+\begin{align}
+    \nabla H \cdot X_H &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\dot{\theta}_j - \frac{\partial H}{\partial r_j}\dot{r}_j\right) \notag \\
+    &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\frac{\partial H}{\partial r_j} - \frac{\partial H}{\partial r_j}\frac{\partial H}{\partial \theta_j}\right) = 0 \tag{1.1}
+\end{align}
+In particolare, la proiezione sul piano $\{(\theta_j, r_j)\}$ del campo vettoriale hamiltoniano $X_H$ e del gradiente euclideo $\nabla H$ sono ortogonali. Questo segue dal fatto che $X_H$ è tangente alle curve di livello di $H$ (curve ad energia fissata), mentre $\nabla H$ punta verso la direzione di massima pendenza (positiva) di $H$.
+
+\newpage
+\section{Moti quasiperiodici}
+Studiamo ora una classe particolare di sistemi hamiltoniani: i sistemi hamiltoniani \textit{integrabili}. Un sistema hamiltoniano integrabile non dipende dalla variabile del moto $\theta$. Pertanto, fissato $r$ si ottiene 
+\begin{align}
+    \begin{cases}
+        \dot{\theta} &= \nabla_rH = cst \\
+        \dot{r} &= 0
+    \end{cases} \tag{2.1}
+\end{align}
+dove con $\nabla_rH$ si intende il gradiente rispetto alla coordinata $r = (r_1, \dots, r_n)$, ovvero 
+\begin{align}
+    \nabla_rH = \left(\frac{\partial H}{\partial r_1}, \dots, \frac{\partial H}{\partial r_n}\right) \notag
+\end{align}
+Possiamo facilmente determinare il flusso associato a $X_H$ usando la definizione di flusso di un campo vettoriale 
+\begin{align}
+    \varphi_t(\theta, r) = \left(\theta + t\nabla_rH, r\right) \tag{2.2}
+\end{align}
+Notiamo che lo spazio delle fasi è costituito da tori invarianti, infatti fissato $r_0 \in \mathbb{R}^n$ si ha 
+\begin{align}
+    \varphi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} \tag{2.3}
+\end{align}
+Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega = \nabla_rH \in \mathbb{R}^n$. \\ \\
+\textbf{Definizione:} sia $M$ una varietà differenziabile e siano $X_1, X_2$ campi vettoriali definiti su $M$. Inoltre, siano $\varphi_1$ e $\varphi_2$ rispettivamente il flusso di $X_1$ e $X_2$. I flussi $\varphi_1$ e $\varphi_2$ vengono detti \textit{topologicamente coniugati} se esiste un omeomorfismo $h$ su $M$ tale che
+\begin{align}
+    h(\varphi_1(t, x)) = \varphi_2(t, h(x)) \tag{2.4}
+\end{align}
+Notiamo che la coniugazione topologica è una condizione più forte dell'equivalenza topologica, infatti si richiede che venga rispettato anche l'ordine temporale. \\ \\
+Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso 
+\begin{align}
+    \varphi_t : &\mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
+\end{align}
+dove $\alpha = \nabla_rH(r)$. \\ \\
+\textbf{Lemma 2.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto t\beta$ con $\alpha, \beta \in \mathbb{R}^n$ sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
+
+\textbf{Dimostrazione:} supponiamo che i flussi definiti da $\theta + t\alpha$ e $\theta + t\beta$ siano topologicamente coniugati. Allora esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
+\begin{align}
+    h(\theta + t\alpha) = h(\theta) + t\beta \tag{2.5}
+\end{align}
+
+
+\end{document}
