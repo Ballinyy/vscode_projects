@@ -12,6 +12,164 @@
 \maketitle
 \tableofcontents
 \newpage
+\section{Forme differenziali}
+Descriviamo la struttura geometrica definita sugli spazi in esame. In particolare, introdurremo i concetti di \textit{forma differenziale}, di \textit{prodotto esterno}, di \textit{derivata esterna} e definiremo l'integrazione delle forme differenziali.
+\subsection{$k$-forme}
+Sia $\mathbb{R}^n$ uno spazio lineare $n$-dimensionale (senza struttura euclidea fissata). \\ \\
+\textbf{Definizione:} una mappa lineare $\omega : \mathbb{R}^n \longrightarrow \mathbb{R}$ è detta $1$-\textit{forma}. In particolare 
+\begin{align}
+    \omega(x_1 + x_2) = \omega(x_1) + \omega(x_2) \qquad \omega(\lambda x) = \lambda\omega(x) \tag{1.1.1}
+\end{align}
+per ogni $x, x_1, x_2 \in \mathbb{R}^n$ e ogni $\lambda \in \mathbb{R}$. \\ \\
+Sull'insieme delle $1$-forme su $\mathbb{R}^n$ è possibile definire struttura di spazio lineare introducendo le operazioni di somma tra $1$-forme e di prodotto per scalare. Date $\omega_1, \omega_2$ $1$-forme lineari, si pone 
+\begin{align}
+    (\omega_1 + \omega_2)(x) = \omega_1(x) + \omega_2(x) \qquad (\lambda\omega)(x) = \lambda\omega(x) \tag{1.1.2}
+\end{align}
+per ogni $x \in \mathbb{R}^n$ e ogni $\lambda \in \mathbb{R}$. Lo spazio lineare delle $1$-forme si indica con $(\mathbb{R}^n)^*$ ed è detto \textit{spazio duale}. \\ \\
+Fissata una base $\{e_1, \dots, e_n\}$ di $\mathbb{R}^n$, essa induce una base sullo spazio duale. Per ogni $i, j = 1, \dots, n$, poniamo
+\begin{align}
+    dx_i(e_j) = \delta_{ij} \tag{1.1.3}
+\end{align}
+ed estensione lineare, dove $\delta_{ij}$ è la \textit{delta di Kronecker}. Data $\omega \in (\mathbb{R}^n)^*$ e $x \in \mathbb{R}$ si ha 
+\begin{align}
+    \omega(x) &= \omega(a_1e_1 + \dots + a_ne_n) \notag \\
+    &= a_1\omega(e_1) + \dots + a_n\omega(e_n) \notag \\
+    &= b_1dx_1(x) + \dots + b_ndx_n(x) \notag
+\end{align}
+dove $b_i = \omega(e_i)$, $i = 1, \dots, n$. Segue che 
+\begin{align}
+    \omega = b_1dx_1 + \dots b_ndx_n \tag{1.1.4}
+\end{align}
+ovvero ogni $1$-forma su $\mathbb{R}^n$ può essere espressa come combinazione lineare di elementi della base duale $\{dx_i\}$. \\
+Osserviamo che uno spazio lineare ed il suo duale hanno la stessa dimensione. \\ \\
+\textbf{Esempio:} dato un campo vettoriale uniforme $F$ (campo di forze) su $\mathbb{R}^n$ e un vettore $x \in \mathbb{R}^n$ (vettore spostamento), l'applicazione lineare 
+\begin{align}
+    \omega(x) = (F, x) \tag{1.1.5}
+\end{align}
+è una $1$-forma su $\mathbb{R}^n$. \\ \\
+\textbf{Definizione:} una mappa bilineare antisimmetrica $\omega^{(2)} : \mathbb{R}^n \times \mathbb{R}^n \longrightarrow \mathbb{R}$ è detta $2$-\textit{forma}. In particolare 
+\begin{align}
+    \omega^{(2)}(\lambda_1x_1 + \lambda_2x_2, x) = \lambda_1\omega^{(2)}(x_1, x) + \lambda_2\omega^{(2)}(x_2, x) \tag{1.1.6}
+\end{align}
+e
+\begin{align}
+    \omega^{(2)}(x_1, x_2) = -\omega^{(2)}(x_2, x_1) \tag{1.1.7} 
+\end{align}
+per ogni $x, x_1, x_2 \in \mathbb{R}^n$ e ogni $\lambda_1, \lambda_2 \in \mathbb{R}$. \\ \\
+\textbf{Esempio:} sia $s : \mathbb{R}^n \times \mathbb{R}^n \longrightarrow \mathbb{R}$ la mappa 
+\begin{align}
+    (x_1, x_2) \mapsto \det
+    \begin{pmatrix}
+        x_{11} & x_{12} \\
+        x_{21} & x_{22}
+    \end{pmatrix} \tag{1.1.8}
+\end{align}
+dove $x_1 = x_{11}e_1 + x_{12}e_2$ e $x_2 = x_{21}e_1 + x_{22}e_2$. Dalle proprietà della funzione $\det$ segue che $s$ è bilineare e antisimmetrica, dunque $s$ è una $2$-forma. $s(x_1, x_2)$ si interpreta geometricamente come l'area orientata del parallelogramma identificato dai vettori $x_1, x_2$ in $\mathbb{R}^n$. \\ \\
+\textbf{Osservazione:} sia $\omega^{(2)}$ una $2$-forma. $\omega$ è antilineare, quindi
+\begin{align}
+    \omega^{(2)}(x, x) = -\omega^{(2)}(x, x) \tag{1.1.10}
+\end{align}
+segue che $\omega^{(2)}(x, x) = 0$ per ogni $x \in \mathbb{R}^n$. \\ \\
+Introducendo le operazioni di somma e prodotto per scalare per le $2$-forme in maniera identica a come fatto per le $1$-forme su $\mathbb{R}^n$, si definisce struttura di spazio lineare sull'insieme delle $2$-forme su $\mathbb{R}^n \times \mathbb{R}^n$. \\ \\
+\textbf{Proposizione 1.1.1:} lo spazio duale $(\mathbb{R}^n \times \mathbb{R}^n)^*$ ha dimensione $\frac{n(n - 1)}{2}$. \\
+
+\textbf{Dimostrazione:} sia $\omega^{(2)}$ una $2$-forma su $\mathbb{R}^n \times \mathbb{R}^n$. Fissiamo una base $\{e_1, \dots, e_n\}$ su $\mathbb{R}^n$. Dati $x, y \in \mathbb{R}^n$, indichiamo con $a_1, \dots, a_n$ e $b_1, \dots, b_n$ rispettivamente le coordinate di $x$ e $y$ rispetto alla base $\{e_1, \dots, e_n\}$. Allora 
+\begin{align}
+    \omega^{(2)}(x, y) &= \omega^{(2)}(a_1e_1 + \dots + a_ne_n, b_1e_1 + \dots + b_ne_n) \notag \\
+    &= \sum_{i,j = 1}^n a_ib_j\omega^{(2)}(e_i, e_j) \notag \\
+    &= \sum_{i \neq j} a_ib_j\omega^{(2)}(e_i, e_j) \notag
+\end{align}
+Per ogni $i,j = 1, \dots, n$ definiamo $\omega_{ij} = \omega^{(2)}(e_i, e_j)$. Sappiamo che $\omega_{ii} = 0$ e $\omega_{ij} = -\omega_{ji}$ per ogni $i, j = 1, \dots, n$. Inoltre, per ogni $0 \leq i < j \leq n$, definiamo la $2$-forma 
+\begin{align}
+    dx_{ij}(e_k, e_l) = \det(0, \dots, \overbrace{e_k}^{i-\text{esima riga}}, \dots, \overbrace{e_l}^{j-\text{esima riga}}, \dots, 0) \tag{1.1.12}
+\end{align}
+ed estensione bilineare, con $k, l = 1, \dots, n$. Allora 
+\begin{align}
+    \omega^{(2)}(x, y) = \sum_{0 \leq i < j \leq n}\omega_{ij}dx_{ij}(x, y) \tag{1.1.13}
+\end{align}
+e per l'arbitrarietà della coppia $(x, y)$ segue che 
+\begin{align}
+    \omega^{(2)} = \sum_{0 \leq i < j \leq n} \omega_{ij}dx_{ij} \tag{1.1.14}
+\end{align}
+Inoltre 
+\begin{align}
+    \sum_{0 \leq i < j \leq n} 1 = \frac{n(n - 1)}{2} \tag{1.1.15}
+\end{align}
+ovvero la dimensione del duale è $\frac{n(n - 1)}{2}$. \qed \\ \\
+La dimensione di $(\mathbb{R}^n \times \mathbb{R}^n)^*$ è $\frac{n(n - 1)}{2}$ proprio per le proprietà di antisimmetricità delle $2$-forme. \\ \\
+In generale, si possono definire le $k$-forme, ovvero le mappe $k$-lineari e antisimmetriche definite su $k$ copie di $\mathbb{R}^n$. In particolare, data $\omega$ una $k$-forma, si ha 
+\begin{align}
+    \omega(\lambda x + \mu y, z_2, \dots, z_k) = \lambda\omega(x, z_2, \dots, z_k) + \mu\omega(y, z_2, \dots, z_k) \tag{1.1.16}
+\end{align}
+e
+\begin{align}
+    \omega(z_{i_1}, \dots, z_{i_k}) = (-1)^\nu\omega(z_1, \dots, z_k) \tag{1.1.17}
+\end{align}
+dove 
+\begin{align}
+    \nu = 
+    \begin{cases}
+        0 \qquad &\text{se la permutazione } i_1, \dots, i_k \text{ è pari} \\
+        1 \qquad &\text{se la permutazione } i_1, \dots, i_k \text{ è dispari}
+    \end{cases} \notag
+\end{align}
+per ogni $x, y, z_1, \dots, z_k \in \mathbb{R}^k$ e ogni $\lambda, \mu \in \mathbb{R}$. \\ \\
+Identicamente a come visto per le $1$-forme e le $2$-forme, è possibile definire struttura di spazio lineare sull'insieme delle $k$-forme e tale spazio ha dimensione finita.
+
+\newpage
+\subsection{Prodotto esterno}
+Introduciamo l'operazione di \textit{prodotto esterno} $\wedge$ per le forme differenziali. Date $\omega^{(k)}$ una $k$-forma e $\omega^{(l)}$ una $l$-forma, il prodotto esterno $\omega^{(k)} \wedge \omega^{(l)}$ sarà una $k + l$-forma. \\ \\
+Prima di tutto, definiamo il prodotto esterno per le $1$-forme. Date $\omega_1, \omega_2$ $1$-forme su $\mathbb{R}^n$, poniamo 
+\begin{align}
+    (\omega_1 \wedge \omega_2)(x_1, x_2) = \det
+    \begin{pmatrix}
+        \omega_1(x_1) & \omega_2(x_1) \\
+        \omega_1(x_2) & \omega_2(x_2)
+    \end{pmatrix} \tag{1.2.1}
+\end{align}
+L'interpretazione geometrica del prodotto esterno tra $\omega_1$ e $\omega_2$ calcolato in $(x_1, x_2)$ è l'area del parallelogramma di lati $x_1, x_2$ nel piano $(\omega_1, \omega_2)$. \\ \\
+\textbf{Osservazione:} $\omega_1 \wedge \omega_2$ è una $2$-forma, infatti
+\begin{align}
+    (\omega_1 \wedge \omega_2)(x_2, x_1) &= \det
+    \begin{pmatrix}
+        \omega_1(x_2) & \omega_2(x_2) \\
+        \omega_1(x_1) & \omega_2(x_1)
+    \end{pmatrix}
+    \notag \\
+    &= -\det
+    \begin{pmatrix}
+        \omega_1(x_1) & \omega_2(x_1) \\
+        \omega_1(x_2) & \omega_2(x_2)
+    \end{pmatrix}
+    \notag \\
+    &= -(\omega_1 \wedge \omega_2)(x_1, x_2) \tag{1.2.2}
+\end{align}
+e
+\begin{align}
+    (\omega_1 \wedge \omega_2)(\lambda_1x_1 + \lambda_2x_2, x) &= \det
+    \begin{pmatrix}
+        \lambda_1\omega_1(x_1) + \lambda_2\omega_1(x_2) & \lambda_1\omega_2(x_1) + \lambda_2\omega_2(x_2) \\
+        \omega_1(x) & \omega_2(x)
+    \end{pmatrix}
+    \notag \\
+    &= \lambda_1\det
+    \begin{pmatrix}
+        \omega_1(x_1) & \omega_2(x_1) \\
+        \omega_1(x) & \omega_2(x)
+    \end{pmatrix}
+    + \notag \\
+    &+ \lambda_2\det
+    \begin{pmatrix}
+        \omega_1(x_2) & \omega_2(x_2) \\
+        \omega_1(x) & \omega_2(x)
+    \end{pmatrix}
+    \notag \\
+    &= \lambda_1(\omega_1 \wedge \omega_2)(x_1, x) + \lambda_2(\omega_1 \wedge \omega_2)(x_2, x) \tag{1.2.3}
+\end{align}
+Analogamente si mostra che l'applicazione $(\omega_1, \omega_2) \mapsto \omega_1 \wedge \omega_2$ è bilineare e antisimmetrica.
+
+
+\newpage
 \section{Sistemi hamiltoniani}
 Consideriamo una funzione liscia $H$ definita su un aperto $M$ di $\mathbb{T}^n \times \mathbb{R}^n$ = $\{(\theta, r)\}$ (dove $\mathbb{T}^n = \mathbb{R}^n/\mathbb{Z}^n$ è il toro $n$-dimensionale e $(\theta, r) = (\theta_1, \dots, \theta_n, r_1, \dots, r_n)$). \\
 Il \textit{campo vettoriale hamiltoniano} $X_H$ indotto da $H$ tramite le equazioni di Hamilton è dato da 
@@ -19,12 +177,12 @@ Il \textit{campo vettoriale hamiltoniano} $X_H$ indotto da $H$ tramite le equazi
     \begin{cases}
         \dot{\theta}_j &= \frac{\partial H}{\partial r_j} \\
         \dot{r}_j &= -\frac{\partial H}{\partial \theta_j}
-    \end{cases} \tag{1.1}
+    \end{cases} \tag{2.1}
 \end{align}
 Notiamo immediatamente che $\nabla H \cdot X_H = 0$, il gradiente euclideo di $H$ è ortogonale al campo vettoriale hamiltoniano $X_H$. Infatti 
 \begin{align}
     \nabla H \cdot X_H &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\dot{\theta}_j - \frac{\partial H}{\partial r_j}\dot{r}_j\right) \notag \\
-    &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\frac{\partial H}{\partial r_j} - \frac{\partial H}{\partial r_j}\frac{\partial H}{\partial \theta_j}\right) = 0 \tag{1.1}
+    &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\frac{\partial H}{\partial r_j} - \frac{\partial H}{\partial r_j}\frac{\partial H}{\partial \theta_j}\right) = 0 \tag{2.2}
 \end{align}
 In particolare, la proiezione sul piano $\{(\theta_j, r_j)\}$ del campo vettoriale hamiltoniano $X_H$ e del gradiente euclideo $\nabla H$ sono ortogonali (ogni termine della somma è nullo). Questo segue dal fatto che $X_H$ è tangente alle curve di livello di $H$ (curve ad energia fissata), mentre $\nabla H$ punta verso la direzione di massima pendenza (positiva) di $H$.
 
@@ -35,7 +193,7 @@ Studiamo ora una classe particolare di sistemi hamiltoniani: i sistemi hamiltoni
     \begin{cases}
         \dot{\theta} &= \nabla_rH = cst \\
         \dot{r} &= 0
-    \end{cases} \tag{2.1}
+    \end{cases} \tag{3.1}
 \end{align}
 dove con $\nabla_rH$ si intende il gradiente rispetto alla coordinata $r = (r_1, \dots, r_n)$, ovvero 
 \begin{align}
@@ -43,27 +201,23 @@ dove con $\nabla_rH$ si intende il gradiente rispetto alla coordinata $r = (r_1,
 \end{align}
 Possiamo facilmente determinare il flusso associato a $X_H$ usando la definizione di flusso di un campo vettoriale 
 \begin{align}
-    \varphi_t(\theta, r) = \left(\theta + t\nabla_rH, r\right) \tag{2.2}
+    \varphi_t(\theta, r) = \left(\theta + t\nabla_rH, r\right) \tag{3.2}
 \end{align}
 Notiamo che lo spazio delle fasi è costituito da tori invarianti, infatti fissato $r_0 \in \mathbb{R}^n$ si ha 
 \begin{align}
-    \varphi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} \tag{2.3}
+    \varphi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} \tag{3.3}
 \end{align}
 Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \nabla_rH(r_0) \in \mathbb{R}^n$. \\ \\
 \textbf{Definizione:} sia $M$ una varietà differenziabile e siano $\Phi_1, \Phi_2$ campi vettoriali definiti su $M$. Inoltre, siano $\varphi_1$ e $\varphi_2$ rispettivamente il flusso di $\Phi_1$ e $\Phi_2$. I flussi $\varphi_1$ e $\varphi_2$ vengono detti \textit{topologicamente coniugati} se esiste un omeomorfismo $h$ su $M$ tale che
 \begin{align}
-    h(\varphi_1(t, x)) = \varphi_2(t, h(x)) \tag{2.4}
+    h(\varphi_1(t, x)) = \varphi_2(t, h(x)) \tag{3.4}
 \end{align}
 Notiamo che la coniugazione topologica è una condizione più forte dell'equivalenza topologica, infatti si richiede che venga rispettato anche l'ordine temporale. \\ \\
 \textbf{Definizione:} un'applicazione continua $p : R \longrightarrow X$ di spazi topologici è detta rivestimento se è suriettiva e se per ogni $x \in X$ ammette un intorno aperto $U_x$ tale che $p^{-1}(U_x)$ è unione disgiunta di aperti di $R$ e $p^{-1}(U_x)$ ognuno dei quali viene mappato omeomorficamente su $U_x$. \\ \\
-\textbf{Definizione:} sia $f : X \longrightarrow Y$ un'applicazione continua di spazi topologici 
-\begin{align}
-    p : \tilde{X} \longrightarrow X \notag \\
-    q : \tilde{Y} \longrightarrow Y \notag
-\end{align}
-rivestimenti. $\tilde{f} : \tilde{X} \longrightarrow \tilde{Y}$ è detto \textit{sollevamento} di $f$ se $q \circ \tilde{f} = f \circ p$. \\ \\
+\textbf{Definizione:} sia $f : X \longrightarrow Y$ un'applicazione continua di spazi topologici e siano
+$p : \tilde{X} \longrightarrow X$ e $q : \tilde{Y} \longrightarrow Y$ rivestimenti. $\tilde{f} : \tilde{X} \longrightarrow \tilde{Y}$ è detto \textit{sollevamento} di $f$ se $q \circ \tilde{f} = f \circ p$. \\ \\
 \textbf{Osservazione:} Notiamo che il sollevamento di un'applicazione continua non è unico, infatti, in base alle proprietà del rivestimento si possono trovare più sollevamenti. La non unicità dipende dal fatto che in generale $p$ non è iniettiva, quindi $p^{-1}(x)$ può contenere più di un punto. \\ \\
-Dato $X$ spazio topologico e $x_0 \in X$ chiamiamo spazio topologico \textit{puntato} o \textit{con punto base} la coppia $(X, x_0)$. Inoltre, dati due spazi topologici puntati $(X, x_0), (Y, y_0)$ chiamiamo \textit{applicazione continua di spazi topologici} un'applicazione continua $f : (X, x_0) \longrightarrow (Y, y_0)$ tale che $f(x_0) = y_0$. \\ \\
+Dato $X$ spazio topologico e $x_0 \in X$ chiamiamo spazio topologico \textit{puntato} o \textit{con punto base} la coppia $(X, x_0)$. Inoltre, dati due spazi topologici puntati $(X, x_0), (Y, y_0)$ chiamiamo \textit{applicazione continua di spazi topologici} una mappa continua $f : (X, x_0) \longrightarrow (Y, y_0)$ tale che $f(x_0) = y_0$. \\ \\
 \textbf{Teorema (di unicità del sollevamento):} siano $p : (R, r_0) \longrightarrow (Y, y_0)$ un rivestimento e $f : (X, x_0) \longrightarrow (Y, y_0)$ un'applicazione continua di spazi topologici puntati con $X$ connesso. Se esiste $\tilde{f} : (X, x_0) \longrightarrow (R, r_0)$ continua tale che $p \circ \tilde{f} = f$, è unica. \\
 
 \textbf{Dimostrazione:} supponiamo che esistano $\tilde{f}_1, \tilde{f}_2 : (X, x_0) \longrightarrow (R, r_0)$ tali che $p \circ \tilde{f}_1 = f = p \circ \tilde{f}_2$. \\
@@ -74,19 +228,33 @@ Poniamo
 \end{align}
 Dimostriamo che $A$ e $B$ sono aperti di $X$. \\
 Per ipotesi $x_0 \in A$, infatti $\tilde{f}_1(x_0) = r_0 = \tilde{f}_2(x_0)$, pertanto $A \neq \emptyset$. Dato $z \in A$, poniamo $\tilde{f}_1(z) = r = \tilde{f}_2(z)$. Sia $y = p(r)$, per definizione di rivestimento esiste un intorno aperto $U_y$ di $y$ tale che la restrizione di $p$ a $V_y := p^{-1}(U_y)$ è un omeomorfismo. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni di $z$ tali che $\tilde{f}_1(W_1) \subset V_y$ e $\tilde{f}_2(W_2) \subset V_y$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1 \cap W_2$ e dato che $p|_{V_y}$ è un omeomorfismo si ha che $\tilde{f}_1 = \tilde{f}_2$ in $W_1 \cap W_2$. Allora $W_1 \cap W_2 \subset A$ e dall'arbitrarietà del punto $z$ scelto segue che $A$ è un aperto. \\
-Supponiamo per assurdo che esista un elemento $z \in B$ e poniamo $\tilde{f}_1(z) = r_1$ e $\tilde{f}_2(z) = r_2$. Siano $y_1 = p(r_1)$ e $y_2 = p(r_2)$. Per definizione di rivestimento, esistono $U_{y_1}$ e $U_{y_2}$ rispettivamente intorno aperto di $y_1$ e $y_2$ tali che la restrizione di $p$ a $V_{y_1} := p^{-1}(U_{y_1})$ e la restrizione di $p$ a $V_{y_2} := p^{-1}(U_{y_2})$ sono omeomorfismi. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni aperti di $z$ tali che $\tilde{f}_1(W_1) \subset V_{y_1}$ e $\tilde{f}_2(W_2) \subset V_{y_2}$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1$ e ogni $x \in W_2$. Ma allora, $\tilde{f}_1 = \tilde{f}_2$ per ogni $x \in W_1$ e ogni $x \in W_2$, in particolare per $z$, quindi si ottiene un assurdo. Segue che $B = \emptyset$ e di conseguenza $A = X \setminus B = X$. \qed \\ \\
+Supponiamo per assurdo che esista un elemento $z \in B$ e poniamo $\tilde{f}_1(z) = r_1$ e $\tilde{f}_2(z) = r_2$. Siano $y_1 = p(r_1)$ e $y_2 = p(r_2)$. Per definizione di rivestimento, esistono $U_{y_1}$ e $U_{y_2}$ rispettivamente intorno aperto di $y_1$ e $y_2$ tali che la restrizione di $p$ a $V_{y_1} := p^{-1}(U_{y_1})$ e la restrizione di $p$ a $V_{y_2} := p^{-1}(U_{y_2})$ sono omeomorfismi. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni aperti di $z$ tali che $\tilde{f}_1(W_1) \subset V_{y_1}$ e $\tilde{f}_2(W_2) \subset V_{y_2}$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1$ e ogni $x \in W_2$. Ma allora, $\tilde{f}_1 = \tilde{f}_2$ per ogni $x \in W_1$ e ogni $x \in W_2$, in particolare per $z$, quindi si ottiene un assurdo. Segue che $B = \emptyset$ e di conseguenza $A = X \setminus B = X$. \qed \\ \\ \\
 Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso 
 \begin{align}
     \varphi_t : &\mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
 \end{align}
 dove $\alpha = \nabla_rH(r)$. \\ \\
-\textbf{Lemma 2.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto t\beta$ con $\alpha, \beta \in \mathbb{R}^n$ sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
+\textbf{Lemma 3.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto t\beta$ con $\alpha, \beta \in \mathbb{R}^n$ sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
 
 \textbf{Dimostrazione:} supponiamo che i flussi definiti da $\theta + t\alpha$ e $\theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
 \begin{align}
-    h(\theta + t\alpha) = h(\theta) + t\beta \tag{2.5}
+    h(\theta + t\alpha) = h(\theta) + t\beta \tag{3.5}
 \end{align}
-A meno di sostituire $h(\theta)$ con $h(\theta) - h(0)$ possiamo supporre $h(0) = 0$. Sia $H : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ l'unico sollevamento di $h$ tale che $H(0) = 0$.
+A meno di sostituire $h(\theta)$ con $h(\theta) - h(0)$ possiamo supporre $h(0) = 0$. Sia $H : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ l'unico sollevamento di $h$ tale che $H(0) = 0$. Allora 
+\begin{align}
+    H(\theta + t\alpha) = H(\theta) + t\beta \tag{3.6}
+\end{align}
+è soddisfatta per $\theta = 0$ e $t = 0$. Inoltre, sia $\pi : \mathbb{R}^n \longrightarrow \mathbb{T}^n$ la proiezione canonica, per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$ si ha 
+\begin{align}
+    \pi(H(\theta + t\alpha)) = \pi(H(\theta) + t\beta) \tag{3.7}
+\end{align}
+ovvero, dato che la proiezione canonica $\pi$ è $\mathbb{Z}^n$ periodica
+\begin{align}
+    H(\theta + t\alpha) - H(\theta) - t\beta \in \mathbb{Z}^n \tag{3.8}
+\end{align}
+per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$.
+
+
 
 
 \end{document}

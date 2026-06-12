@@ -1079,7 +1079,60 @@ Approssiamo le $\phi_i$ a orbitali atomici a un elettrone di tipo $1s$
     \phi_a(\mathbf{r}_a) &= \frac{1}{\sqrt{\pi}}e^{-r_a} \notag \\
     \phi_b(\mathbf{r}_b) &= \frac{1}{\sqrt{\pi}}e^{-r_b} \notag
 \end{align}
-$\phi_a$ e $\phi_b$ sono normalizzati ma non sono tra essi ortogonali.
+$\phi_a$ e $\phi_b$ sono normalizzati ma non sono tra essi ortogonali. \\
+Usiamo il modello LCAO, ovvero supponiamo che la funzione d'onda possa essere espressa come combinazione lineare di orbitali atomici (in questo caso $\phi_a$ e $\phi_b$). Definiamo le funzioni d'onda \textit{gerade} $\phi_g$ e \textit{ungerade} $\phi_u$ come segue 
+\begin{align}
+    \phi_g = N_g(\phi_a + \phi_b) \tag{3.2.1} \\
+    \phi_u = N_u(\phi_a - \phi_b) \tag{3.2.2}
+\end{align}
+Poniamo $\epsilon_0 = \braket{\phi_i|H|\phi_i}$ con $i = g, u$ e $\epsilon_1 = \braket{\phi_i|H|\phi_j}$ con $i \neq j$. L'equazione da risolvere è 
+\begin{align}
+    \det\begin{pmatrix}
+        \epsilon_0 - \lambda & \epsilon_1 - \lambda s \\
+        \epsilon_1 - \lambda s & \epsilon_0 - \lambda
+    \end{pmatrix} = 0 \tag{3.2.3}
+\end{align}
+dove $s = \braket{\phi_a|\phi_b}$, che compare perché la base $\{\phi_a, \phi_b\}$ non è ortogonale. Da $(3.2.3)$ si ottiene la seguente equazione secolare 
+\begin{align}
+    (\epsilon_0 - \lambda)^2 - (\epsilon_1 - \lambda s)^2 = 0 \tag{3.2.4}
+\end{align}
+che equivale a 
+\begin{align}
+    (\epsilon_0 - \lambda + \epsilon_1 - \lambda s)(\epsilon_0 - \lambda - \epsilon_1 + \lambda s) = 0 \tag{3.2.5}
+\end{align}
+che ammette come soluzioni 
+\begin{align}
+    \lambda_{\pm} = \frac{\epsilon_0 \pm \epsilon_1}{1 \pm s} \tag{3.2.6}
+\end{align}
+A questo punto, imponendo 
+\begin{align}
+    \begin{pmatrix}
+        \epsilon_0 - \lambda_\pm & \epsilon_1 - \lambda_\pm s \\
+        \epsilon_1 - \lambda_\pm s & \epsilon_0 - \lambda_\pm
+    \end{pmatrix}
+    \begin{pmatrix}
+        c_{1, \pm} \\
+        c_{2, \pm}
+    \end{pmatrix} = 0 \tag{3.2.7}
+\end{align}
+si ottiene 
+\begin{align}
+    \begin{cases}
+        c_{1, +} = c_{2, +} \\
+        c_{1, -} = -c_{2, -}
+    \end{cases} \tag{3.2.8}
+\end{align}
+pertanto le autofunzioni sono 
+\begin{align}
+    \begin{cases}
+        \phi_g = \frac{1}{\sqrt{2(1 + s)}}(\phi_a + \phi_b) \\
+        \phi_u = \frac{1}{\sqrt{2(1 - s)}}(\phi_a - \phi_b)
+    \end{cases} \tag{3.2.9}
+\end{align}
+Resta solamente da calcolare il termine $s = \braket{\phi_a|\phi_b}$
+\begin{align}
+    \braket{\phi_a|\phi_b} &=
+\end{align}
 
 
 \newpage
