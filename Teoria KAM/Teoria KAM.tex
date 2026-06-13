@@ -79,24 +79,27 @@ Introducendo le operazioni di somma e prodotto per scalare per le $2$-forme in m
     &= \sum_{i,j = 1}^n a_ib_j\omega^{(2)}(e_i, e_j) \notag \\
     &= \sum_{i \neq j} a_ib_j\omega^{(2)}(e_i, e_j) \notag
 \end{align}
-Per ogni $i,j = 1, \dots, n$ definiamo $\omega_{ij} = \omega^{(2)}(e_i, e_j)$. Sappiamo che $\omega_{ii} = 0$ e $\omega_{ij} = -\omega_{ji}$ per ogni $i, j = 1, \dots, n$. Inoltre, per ogni $0 \leq i < j \leq n$, definiamo la $2$-forma 
+Per ogni $i,j = 1, \dots, n$ definiamo $\omega_{ij} = \omega^{(2)}(e_i, e_j)$. Sappiamo che $\omega_{ii} = 0$ e $\omega_{ij} = -\omega_{ji}$ per ogni $i, j = 1, \dots, n$, pertanto i coefficienti "liberi" si hanno per $1 \leq i < j \leq n$. Inoltre, per ogni $1 \leq i < j \leq n$, definiamo la $2$-forma 
 \begin{align}
-    dx_{ij}(e_k, e_l) = \det(0, \dots, \overbrace{e_k}^{i-\text{esima riga}}, \dots, \overbrace{e_l}^{j-\text{esima riga}}, \dots, 0) \tag{1.1.12}
+    dx_{ij}(e_k, e_l) = \begin{cases}
+        1 \qquad &(k, l) = (i, j) \\
+        -1 \qquad &(k, l) = (j, i) \\
+        0 \qquad &\text{altrimenti}
+    \end{cases} \tag{1.1.12}
 \end{align}
 ed estensione bilineare, con $k, l = 1, \dots, n$. Allora 
 \begin{align}
-    \omega^{(2)}(x, y) = \sum_{0 \leq i < j \leq n}\omega_{ij}dx_{ij}(x, y) \tag{1.1.13}
+    \omega^{(2)}(x, y) = \sum_{1 \leq i < j \leq n}\omega_{ij}dx_{ij}(x, y) \tag{1.1.13}
 \end{align}
 e per l'arbitrarietà della coppia $(x, y)$ segue che 
 \begin{align}
-    \omega^{(2)} = \sum_{0 \leq i < j \leq n} \omega_{ij}dx_{ij} \tag{1.1.14}
+    \omega^{(2)} = \sum_{1 \leq i < j \leq n} \omega_{ij}dx_{ij} \tag{1.1.14}
 \end{align}
 Inoltre 
 \begin{align}
-    \sum_{0 \leq i < j \leq n} 1 = \frac{n(n - 1)}{2} \tag{1.1.15}
+    \sum_{1 \leq i < j \leq n} 1 = \frac{n(n - 1)}{2} \tag{1.1.15}
 \end{align}
 ovvero la dimensione del duale è $\frac{n(n - 1)}{2}$. \qed \\ \\
-La dimensione di $(\mathbb{R}^n \times \mathbb{R}^n)^*$ è $\frac{n(n - 1)}{2}$ proprio per le proprietà di antisimmetricità delle $2$-forme. \\ \\
 In generale, si possono definire le $k$-forme, ovvero le mappe $k$-lineari e antisimmetriche definite su $k$ copie di $\mathbb{R}^n$. In particolare, data $\omega$ una $k$-forma, si ha 
 \begin{align}
     \omega(\lambda x + \mu y, z_2, \dots, z_k) = \lambda\omega(x, z_2, \dots, z_k) + \mu\omega(y, z_2, \dots, z_k) \tag{1.1.16}
@@ -117,9 +120,9 @@ per ogni $x, y, z_1, \dots, z_k \in \mathbb{R}^k$ e ogni $\lambda, \mu \in \math
 Identicamente a come visto per le $1$-forme e le $2$-forme, è possibile definire struttura di spazio lineare sull'insieme delle $k$-forme e tale spazio ha dimensione finita.
 
 \newpage
-\subsection{Prodotto esterno}
-Introduciamo l'operazione di \textit{prodotto esterno} $\wedge$ per le forme differenziali. Date $\omega^{(k)}$ una $k$-forma e $\omega^{(l)}$ una $l$-forma, il prodotto esterno $\omega^{(k)} \wedge \omega^{(l)}$ sarà una $k + l$-forma. \\ \\
-Prima di tutto, definiamo il prodotto esterno per le $1$-forme. Date $\omega_1, \omega_2$ $1$-forme su $\mathbb{R}^n$, poniamo 
+\subsection{Prodotto esterno di $1$-forme}
+Introduciamo l'operazione di \textit{prodotto esterno} $\wedge$ di due $1$-forme, che poi estenderemo in modo tale da definire il prodotto esterno di $k$ $1$-forme e il prodotto esterno tra una $k$-forma e una $l$-forma. \\ \\
+Date $\omega_1, \omega_2$ $1$-forme su $\mathbb{R}^n$, poniamo 
 \begin{align}
     (\omega_1 \wedge \omega_2)(x_1, x_2) = \det
     \begin{pmatrix}
@@ -166,7 +169,88 @@ e
     \notag \\
     &= \lambda_1(\omega_1 \wedge \omega_2)(x_1, x) + \lambda_2(\omega_1 \wedge \omega_2)(x_2, x) \tag{1.2.3}
 \end{align}
-Analogamente si mostra che l'applicazione $(\omega_1, \omega_2) \mapsto \omega_1 \wedge \omega_2$ è bilineare e antisimmetrica.
+Analogamente si mostra che l'applicazione $(\omega_1, \omega_2) \mapsto \omega_1 \wedge \omega_2$ è bilineare e antisimmetrica. \\ \\
+Fissiamo una base $\{e_i\}$ per $\mathbb{R}^n$ e consideriamo la base duale indotta $\{dx_i\}$. I prodotti esterni $dx_i \wedge dx_j$ sono delle $2$-forme, inoltre, per antisimmetricità del prodotto esterno, si ha 
+\begin{align}
+    dx_i \wedge dx_i = 0 \qquad dx_i \wedge dx_j = -dx_j \wedge dx_j \tag{1.2.4}
+\end{align}
+per ogni $i, j = 1, \dots, n$. Possiamo interpretare geometricamente il prodotto esterno $(dx_i \wedge dx_j)(x_1, x_2)$ come l'area orientata della proiezione sul piano $(e_i, e_j)$ del parallelogramma con lati $x_1, x_2$ sul piano coordinato $(e_i, e_j)$. \\ \\
+\textbf{Proposizione 1.2.1:} ogni $2$-forma $\omega^{(2)}$ può essere rappresentata univocamente come combinazione lineare di $\{dx_i \wedge dx_j\}_{i < j}$. \\
+
+\textbf{Dimostrazione:} notiamo che 
+\begin{align}
+    (dx_i \wedge dx_j)(e_k, e_k) = dx_{ij}(e_k, e_l) \tag{1.2.5}
+\end{align}
+per ogni $1 \leq i < j \leq n$ e ogni $k, l = 1, \dots, n$, dove $dx_{ij}$ è la $2$-forma definita nella \textit{proposizione 1.1.1}. La tesi segue. \qed
+
+\newpage
+\subsection{Monomi esterni}
+Date $k$ $1$-forme $\omega_1, \dots, \omega_k$, definiamo il prodotto esterno $\omega_1 \wedge \dots \wedge \omega_k$ come segue
+\begin{align}
+    (\omega_1 \wedge \dots \wedge \omega_k)(x_1, \dots, x_k) = \det
+    \begin{pmatrix}
+        \omega_1(x_1) & \dots & \omega_k(x_1) \\
+        . & & . \\
+        \omega_1(x_k) & \dots & \omega_k(x_k)
+    \end{pmatrix} \tag{1.3.1}
+\end{align}
+Il prodotto esterno delle $k$ $1$-forme $\omega_1, \dots, \omega_k$ valutato in $(x_1, \dots, x_k)$ può essere interpretato geometricamente come il volume orientato del parallelepipedo in $\mathbb{R}^k$ individuato da $\omega_1, \dots, \omega_k$ tramite la mappa $x \mapsto (\omega_1(x), \dots, \omega_k(x))$. \\ \\
+Come visto in precedenza, dato che il determinante è una funzione multilineare e antisimmetrica (rispetto a righe e colonne), il prodotto di $k$ $1$-forme è una $k$-forma e anche $(\omega_1, \dots, \omega_k) \mapsto \omega_1 \wedge \dots \wedge \omega_k$ è una mappa multilineare e antisimmetrica. \\ \\
+Data la base duale $\{dx_i\}$ di $\mathbb{R}^n$, il prodotto esterno di $k$ elementi di base 
+\begin{align}
+    dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.3.2}
+\end{align}
+dove $1 \leq i_m \leq n$, $m = 1, \dots, k$,  valutato in $(x_1, \dots, x_k)$ fornisce il volume orientato della proiezione sul $k$-piano $(x_{i_1}, \dots, x_{i_k})$ del parallelepipedo di lati $(x_{i_1}, \dots, x_{1_k})$. \\ \\
+\textbf{Osservazione:} se tra gli indici $i_1, \dots, i_k$ ce ne sono due identici, la forma $dx_{i_1} \wedge \dots \wedge dx_{i_k} = 0$. Infatti, dati $x_1, \dots, x_k \in \mathbb{R}^n$, si ha 
+\begin{align}
+    (dx_{i_1} \wedge \dots \wedge dx_{i_k})(x_1, \dots, x_k) &= \det
+    \begin{pmatrix}
+        x_{1, i_1} & \dots & x_{1, i_k} \\
+        . & & . \\
+        x_{k, i_1} & \dots & x_{k, i_k}
+    \end{pmatrix} = 0 \tag{1.3.3}
+\end{align}
+dato che si tratta del determinante di una matrice con due colonne identiche. \\ \\
+\textbf{Proposizione 1.3.1:} ogni $k$-forma in $\mathbb{R}^n$ può essere rappresentata univocamente come combinazione lineare di $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. \\
+
+\textbf{Dimostrazione:} data $\omega^{(k)}$ $k$-forma in $\mathbb{R}^n$ e dati $x_1, \dots, x_k \in \mathbb{R}^n$ si ha
+\begin{align}
+    \omega^{(k)}(x_1, \dots, x_k) &= \omega^{(k)}\left(\sum_{i_1 = 1}^n a_{i_1}e_{i_1}, \dots, \sum_{i_k = 1}^n a_{i_k}e_{i_k}\right) \notag \\
+    &= \sum_{i_1, \dots, i_k} a_{i_1} \cdot \dots \cdot a_{i_k}\omega^{(k)}(e_{i_1}, \dots, e_{i_k}) \notag
+\end{align}
+Poniamo $\omega_{i_1, \dots, i_k} = \omega^{(k)}(e_{i_1}, \dots, e_{i_k})$. Notiamo che $\omega_{i_1, \dots, i_k} = 0$ se tra $i_1, \dots, i_k$ ci sono due indici identici. Inoltre, per l'antisimmetricità, si ha che \begin{align}
+    \omega_{i_1, \dots, i_s, \dots, i_t, \dots, i_k} = -\omega_{i_1, \dots, i_t, \dots, i_s, \dots, i_k} \notag
+\end{align}
+per ogni $1 \leq s < t \leq k$. Segue che 
+\begin{align}
+    \omega^{(k)}(x_1, \dots, x_k) &= \sum_{i_1 < \dots < i_k}a_{i_1} \cdot \dots \cdot a_{i_k}\omega_{i_1, \dots, i_k}(dx_{i_1} \wedge \dots \wedge dx_{i_k})(e_{i_1}, \dots, e_{i_k}) \notag \\
+    &= \sum_{i_1 < \dots < i_k} \omega_{i_1, \dots, i_k}(dx_{i_1} \wedge \dots \wedge dx_{i_k})(x_1, \dots, x_k) \tag{1.3.4}
+\end{align}
+Dall'arbitrarietà di $x_1, \dots, x_k$ si ottiene 
+\begin{align}
+    \omega^{(k)} = \sum_{i_1 < \dots < i_k} \omega_{i_1, \dots, i_k}dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.3.5}
+\end{align}
+I coefficienti $\{\omega_{i_1, \dots, i_k}\}$ sono unici per come sono state costruite le forme di base. \qed \\ \\
+Notiamo che la dimensione dello spazio delle $k$-forme su $\mathbb{R}^n$, che denotiamo con $\Lambda^(k)(\mathbb{R}^n)$, è $C^k_n$. \\
+Per $k = n$ si ha $C^k_n = 1$, pertanto ogni $n$-forma su $\mathbb{R}^n$ o è il volume orientato di un parallelepipedo, con una scelta opportuna di unità di volume, o è nulla
+\begin{align}
+    \omega^{(n)} = adx_1 \wedge \dots \wedge dx_n \tag{1.3.6}
+\end{align}
+con $a \in \mathbb{R}$. \\ \\
+\textbf{Osservazione:} sia $k > n$, ogni $k$-forma in $\mathbb{R}^n$ è identicamente nulla, infatti 
+\begin{align}
+    (dx_{i_1} \wedge \dots \wedge dx_{i_k})(e_{i_1}, \dots, e_{i_k}) = 0 \notag
+\end{align}
+dato che si avranno sempre due indici identici in $i_1, \dots, i_k$.
+
+\newpage
+\subsection{Prodotto esterno}
+Date $\omega^{(k)}$ e $\omega^{(l)}$ rispettivamente una $k$-forma e una $l$-forma su $\mathbb{R}^n$, possiamo scrievere 
+\begin{align}
+    \omega^{(k)} = \omega_1 \wedge \dots \wedge \omega_k \qquad \omega^{(l)} = \omega_{k + 1} \wedge \dots \wedge \omega_{k + l} \tag{1.4.1}
+\end{align}
+dove $\omega_1, \dots, \omega_{k + l}$ sono opportune $1$-forme su $\mathbb{R}^n$.
+
 
 
 \newpage
