@@ -1129,10 +1129,25 @@ pertanto le autofunzioni sono
         \phi_u = \frac{1}{\sqrt{2(1 - s)}}(\phi_a - \phi_b)
     \end{cases} \tag{3.2.9}
 \end{align}
-Resta solamente da calcolare il termine $s = \braket{\phi_a|\phi_b}$
+Resta solamente da calcolare il termine $s = \braket{\phi_a|\phi_b}$. Poniamo $R = \|\mathbf{r}_a - \mathbf{r}_b\|$ e introduciamo le \textit{coordinate confocali ellittiche}
 \begin{align}
-    \braket{\phi_a|\phi_b} &=
+    \begin{cases}
+        \xi = \frac{1}{R}(r_a + r_b) \\
+        \eta = \frac{1}{R}(r_a - r_b) \\
+        \phi \in [0, 2\pi]
+    \end{cases} \tag{3.2.10}
 \end{align}
+Allora
+\begin{align}
+    \braket{\phi_a|\phi_b} &= \frac{1}{\pi}\int d^3\mathbf{r} \, e^{-(r_a + r_b)} \notag \\
+    &= \frac{1}{\pi}\frac{R^2}{8}\int_1^\infty d\xi \int_{-1}^1 d\eta \int_0^{2\pi} d\phi \, (\xi^2 - \eta^2)e^{-R\xi} \notag \\
+    &= \frac{R^2}{4}\int_1^\infty d\xi \, \left(2\xi^2 - \frac{2}{3}\right)e^{-R\xi} \notag \\
+    &= e^{-R}\left(\frac{R^2}{3} + R + 1\right) \tag{3.2.11}
+\end{align}
+
+\newpage
+\subsection{Molecola $H^2$}
+
 
 
 \newpage
