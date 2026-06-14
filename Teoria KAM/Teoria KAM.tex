@@ -247,7 +247,7 @@ Consideriamo ora due monomi $\omega^{(k)} = \omega_1 \wedge \dots \wedge \omega_
 \begin{align}
     (\omega_1 \wedge \dots \wedge \omega_k) \wedge (\omega_{k + 1} \wedge \dots \wedge \omega_{k + l}) = \omega_1 \wedge \dots \wedge \omega_{k + l} \tag{1.3.7}
 \end{align} \\
-\textbf{Proposizione 1.3.2:} il prodotto esterno di monomi è associativo e anticommutativo. \\
+\textbf{Proposizione 1.3.2:} il prodotto esterno di monomi è associativo e anticommutativo graduato. \\
 
 \textbf{Dimostrazione:} siano $\omega^{(k)}, \omega^{(l)}, \omega^{(m)}$ monomi esterni. Allora 
 \begin{align}
@@ -263,7 +263,7 @@ ovvero il prodotto esterno tra monomi è associativo. Inoltre
     &= (-1)^{kl}\omega^{(l)} \wedge \omega^{(k)} \notag
 \end{align}
 dato che per "spostare" ogni termine $\omega_i$, $i = k + 1, \dots, k + l$, a "sinistra" di $\omega_{i - k}$ si devono compiere $k$ inversioni. \qed \\ \\
-Osserviamo che l'anticommutatività comporta la commutatività se $kl$ è pari.
+Il termine \textit{anticommutativo graduato} sta a sottolineare una particolare proprietà del prodotto esterno di monomi: il prodotto è (anti)commutativo se $kl$ è (dispari) pari.
 
 \newpage
 \subsection{Prodotto esterno}
@@ -303,8 +303,136 @@ ovvero ogni termine della somma è multineare, segue che anche $\omega^{(k)} \we
 Inoltre, $\omega^{(k)} \wedge \omega^{(l)}$ è antisimmetrico perché $\omega^{(k)}$ e $\omega^{(l)}$ lo sono singolarmente (si vede facilmente fissando una permutazione $\sigma$ come fatto per mostrare la multilinearità). \\ \\
 \textbf{Teorema (proprietà del prodotto esterno):} il prodotto esterno è anticommutativo, distributivo e associativo. \\
 
-\textbf{Dimostrazione:} siano $\omega^{(k)}$, $\omega^{(l)}$ e $\omega^{(m)}$ rispettivamente una $k$-forma, una $l$-forma e una $m$-forma su $\mathbb{R}^n$. \\
-Per la \textit{proposizione 1.3.1} sappiamo che $\omega^{(k)}$ e $\omega^{(l)}$ possono essere rappresentate come combinazione lineare dei monomi di base. Inoltre, per la \textit{proposizione 1.3.2}, sappiamo che il prodotto di monomi è anticommutativo. Pertanto, concludiamo che $\omega^{(k)} \wedge \omega^{(l)}$ può essere rappresentato come somma di prodotti di monomi, ognuno anticommutativo. \\ \\
+\textbf{Dimostrazione:} per la \textit{proposizione 1.3.1} sappiamo che $\omega^{(k)}$ e $\omega^{(l)}$ possono essere rappresentate come combinazione lineare dei monomi di base. Inoltre, per la \textit{proposizione 1.3.2}, sappiamo che il prodotto di monomi è anticommutativo graduato. Pertanto, concludiamo che $\omega^{(k)} \wedge \omega^{(l)}$ può essere rappresentato come somma di prodotti di monomi, ognuno anticommutativo graduato. \\ \\
+La distributività si vede immediatamente notando che la mappa
+\begin{align}
+    (\omega^{(k)}, \omega^{(l)}) \mapsto \omega^{(k)} \wedge \omega^{(l)} \notag
+\end{align}
+è bilineare, infatti ogni termine della $(1.4.1)$ è lineare rispetto a $\omega^{(k)}$ e $\omega^{(l)}$. \\ \\
+Infine, per dimostrare l'associatività facciamo uso del \textit{teorema di Laplace}, che permette di sviluppare il determinante secondi i minori delle colonne. \\
+Notiamo che se l'associatività vale separatemente per $\omega'_1, \omega''_1$, allora vale anche per la somma $\omega'_1 + \omega''_1$, ovvero 
+\begin{align}
+    \begin{cases}
+        (\omega'_1 \wedge \omega_2) \wedge \omega_3 &= \omega'_1 \wedge (\omega_2 \wedge \omega_3) \\
+        (\omega''_1 \wedge \omega_2) \wedge \omega_3 &= \omega''_1 \wedge (\omega_2 \wedge \omega_3)
+    \end{cases} \tag{1.4.2}
+\end{align}
+implica
+\begin{align}
+    ((\omega'_1 + \omega''_1) \wedge \omega_2) \wedge \omega_3 = (\omega'_1 + \omega''_1) \wedge (\omega_2 \wedge \omega_3) \tag{1.4.3}
+\end{align}
+Per la bilinearità della mappa $(\omega, \omega') \mapsto \omega \wedge \omega'$. Inoltre, per la distributività, si ha 
+\begin{align}
+    \begin{cases}
+        ((\omega'_1 + \omega''_1) \wedge \omega_2) \wedge \omega_3 &= (\omega'_1 \wedge \omega_2) \wedge \omega_3 + (\omega''_1 \wedge \omega_2) \wedge \omega_3 \\
+        (\omega'_1 + \omega''_1) \wedge (\omega_2 \wedge \omega_3) &= \omega'_1 \wedge (\omega_2 \wedge \omega_3) + \omega''_1 \wedge (\omega_2 \wedge \omega_3)
+    \end{cases} \tag{1.4.4}
+\end{align}
+Per la \textit{proposizione 1.3.1} sappiamo che ogni forma è somma di monomi, pertanto è sufficiente dimostrare l'associatività per i monomi. \\
+Per ora indicheremo il prodotto esterno tra monomi con il simbolo $*$, dato che ancora non è stata verificata l'uguaglianza con al definizione $(1.4.1)$. \\
+Mostriamo che il prodotto esterno tra monomi è il monomio 
+\begin{align}
+    (\omega_1 * \dots * \omega_k) \wedge (\omega_{k + 1} * \dots * \omega_{k + l}) = \omega_1 * \dots * \omega_{k + l} \tag{1.4.5}
+\end{align}
+Valutiamo le espressioni dei due membri della $(1.4.5)$ in $(x_1, \dots, x_{k + l})$. Il membro di destra è uguale al determinante $\det\{\omega_i(x_j)\}$. Il membro di sinistra è uguale a 
+\begin{align}
+    \sum_{\substack{i_1 < \dots < i_k \\ j_1 < \dots < j_l}} (\pm) \det\{\omega_\nu(x_{i_m})\} \cdot \det\{\omega_\mu(x_{j_m})\} \tag{1.4.6}
+\end{align}
+dove $1 \leq \nu \leq k$ e $k + 1 \leq \mu \leq k + l$. Per il \textit{teorema di Laplace}, il termine $\det\{\omega_i(x_j)\}$ è uguale alla $(1.4.6)$, scegliendo opportunamente i segni di ogni termine. \\ \\
+Concludiamo che le operazioni $*$ e $\wedge$ coincidono. Inoltre, per quanto sopra osservato, dall'associatività del prodotto di $1$-forme segue l'associatività per il prodotto definito in $(1.4.1)$ e quindi si ottiene la tesi. \qed \\ \\
+\textbf{Osservazione:} l'anticommutatività graduata comporta $\omega^{(k)} \wedge \omega^{(k)} = 0$ se $k$ è dispari. Infatti
+\begin{align}
+    \omega^{(k)} \wedge \omega^{(k)} = (-1)^{k^2}\omega^{(k)} \wedge \omega^{(k)} = -\omega^{(k)} \wedge \omega^{(k)} \tag{1.4.7}
+\end{align}
+dato che $k^2$ è dispari per $k$ dispari. \\
+Il prodotto esterno di una $k$-forma con se stessa è detto \textit{quadrato esterno}. \\ \\
+\textbf{Esempio:} in $\mathbb{R}^{2n}$ con il sistema di coordinate $(p_1, \dots, p_n, q_1, \dots, q_n)$, consideriamo la $2$-forma 
+\begin{align}
+    \omega^{(2)} = \sum_{i = 1}^n dp_i \wedge dq_i \tag{1.4.8}
+\end{align}
+Geometricamente, $\omega^{(2)}$ valutata in $(x_1, x_2)$ viene interpretata come la somma delle aree orientate delle proiezioni di un parallelogramma sui piani coordinati $(p_1, q_1), \dots, (p_n, q_n)$. \\
+Determiniamo il quadrato esterno di $\omega^{(2)}$
+\begin{align}
+    \omega^{(2)} \wedge \omega^{(2)} &= \left(\sum_i dp_i \wedge dq_i\right) \wedge \left(\sum_j dp_j \wedge dq_j\right) \notag \\
+    &= \sum_{i, j}dp_i \wedge dq_i \wedge dp_j \wedge dq_j \notag \\
+    &= -\sum_{i \neq j} dp_i \wedge dp_j \wedge dq_i \wedge dq_j \notag \\
+    &= -2\sum_{i < j} dp_i \wedge dp_j \wedge dq_i \wedge dq_j \tag{1.4.9}
+\end{align}
+dove nell'ultimo passaggio si è usata l'(anti)commutatività graduata della $4$-forma $dp_i \wedge dp_j \wedge dq_i \wedge dq_j$. \\
+Determiamo la potenza $k$-esima della forma $\omega^{(2)}$
+\begin{align}
+    \overbrace{\omega^{(2)} \wedge \dots \wedge \omega^{(2)}}^{k \text{ volte}} &= \left(\sum_{i_1}dp_{i_1} \wedge dq_{i_1}\right) \dots \left(\sum_{i_k}dp_{i_k} \wedge dq_{i_k}\right) \notag \\
+    &= \sum_{i_1, \dots, i_k} dp_{i_1} \wedge dq_{i_1} \wedge \dots \wedge dp_{i_k} \wedge dq_{i_k} \notag \\
+    &= \sum_{i_1 \neq \dots \neq i_k} dp_{i_1} \wedge dq_{i_1} \wedge \dots \wedge dp_{i_k} \wedge dq_{i_k} \notag \\
+    &= (-1)^{k - 1}\sum_{i_1 \neq \dots \neq i_k} dp_{i_1} \wedge \dots \wedge dp_{i_k} \wedge dq_{i_1} \wedge \dots \wedge dq_{i_k} \notag \\
+    &= (-1)^{k - 1}k!\sum_{i_1 < \dots < i_k} dp_{i_1} \wedge \dots \wedge dp_{i_k} \wedge dq_{i_1} \wedge \dots \wedge dq_{i_k} \tag{1.4.10}
+\end{align}
+dove nell'ultimo passaggio si è notato che ogni permutazione di indici porta un segno positivo fuori dalla somma, dato che avviene sia per le coordinate $\{p_i\}$ che per le $\{q_i\}$, e le possibili permutazioni sono $k!$. \\ \\
+\textbf{Esercizio:} per ogni $v \in \mathbb{R}^3$ consideriamo la $1$-forma $\omega^{(1)}_v$ definita da
+\begin{align}
+    \omega^{(1)}_v(x) = (v, x) \tag{1.4.11}
+\end{align}
+e la $2$-forma $\omega^{(2)}_v$ definita da
+\begin{align}
+    \omega^{(2)}_v(x_1, x_2) = v \cdot (x_1 \times x_2) \tag{1.4.12}
+\end{align}
+per ogni $x, x_1, x_2 \in \mathbb{R}^3$. Dimostriamo che le mappe 
+\begin{align}
+    v \in \mathbb{R}^3 \mapsto \omega^{(1)}_v \in \Lambda^{(1)}(\mathbb{R}^3) \tag{1.4.13} \\
+    v \in \mathbb{R}^3 \mapsto \omega^{(2)}_v \in \Lambda^{(2)}(\mathbb{R}^3) \tag{1.4.14}
+\end{align}
+sono isomorfismi di spazi lineari. \\
+
+\textbf{Soluzione:} si vede immediatamente che le mappe definite in $(1.4.13)$ e $(1.4.14)$ sono lineari, pertanto preservano la struttura di spazio lineare, ovvero sono omomorfismi. \\
+Dimostriamo che sono iniettive e suriettive. Siano $u, v \in \mathbb{R}^3$, allora 
+\begin{align}
+    (\omega^{(1)}_u - \omega^{(1)}_v)(x) &= \omega^{(1)}_u(x) - \omega^{(1)}_v(x) \notag \\
+    &= (u, x) - (v, x) \notag \\
+    &= (u - v, x) = 0 \notag
+\end{align}
+per ogni $x \in \mathbb{R}^3$ se e solo se $u = v$. Pertanto la mappa definita in $(1.4.13)$ è iniettiva. Identicamente si dimostra che $v \mapsto \omega^{(2)}_v$ è iniettiva. \\
+Fissiamo una base ortonormale $\{e_1, e_2, e_3\}$ di $\mathbb{R}^3$. Data $\omega^{(1)} \in \Lambda^{(1)}(\mathbb{R}^3)$, possiamo rappresentarla come combinazione lineare delle forme di base $dx_1, dx_2, dx_3$ indotte dalla base fissata. In particolare 
+\begin{align}
+    \omega^{(1)} = adx_1 + bdx_2 + cdx_3 \tag{1.4.15}
+\end{align}
+per opportuni $a, b, c \in \mathbb{R}$. Dunque, per ogni $x \in \mathbb{R}^3$ si ha
+\begin{align}
+    \omega^{(1)}(x) &= adx_1(x) + bdx_2(x) + cdx_3(x) \notag \\
+    &= ax_1 + bx_2 + cx_3 \notag \\
+    &= a(e_1, x) + b(e_2, x) + c(e_3, x) \notag \\
+    &= (ae_1 + be_2 + ce_3, x) \notag \\
+    &= (v, x) \notag \\
+    &= \omega^{(1)}_v(x) \tag{1.4.16}
+\end{align}
+dove si è definito $v = ae_1 + be_2 + ce_3$. Concludiamo che ogni $1$-forma su $\mathbb{R}^3$ è del tipo $\omega^{(1)}_v$ per qualche $v \in \mathbb{R}^3$. Segue che la mappa $v \mapsto \omega^{(1)}_v$ è un omomorfismo biettivo, ovvero un isomorfismo. \\ \\
+Analogamente, ogni $2$-forma può essere rappresentata come combinazione lineare dei monom di base $\{dx_i \wedge dx_j\}_{i < j}$. In particolare, data $\omega^{(2)} \in \Lambda^{(2)}(\mathbb{R}^3)$, si ha 
+\begin{align}
+    \omega^{(2)} = Adx_2 \wedge dx_3 + Bdx_1 \wedge dx_3 + Cdx_1 \wedge dx_2 \tag{1.4.17}
+\end{align}
+per opportuni $A, B, C \in \mathbb{R}^3$. Dunque, per ogni $x, y \in \mathbb{R}^3$ si ha 
+\begin{align}
+    \omega^{(2)}(x, y) &= A(dx_2 \wedge dx_3)(x, y) + B(dx_1 \wedge dx_3)(x, y) + C(dx_1 \wedge dx_2) \notag \\
+    &= A(x_2y_3 - y_2x_3) + B(x_1y_3 - y_1x_3) + C(x_1y_2 - y_1x_2) \notag \\
+    &= \det\begin{pmatrix}
+        A & B & C \\
+        x_1 & x_2 & x_3 \\
+        y_1 & y_2 & y_3
+    \end{pmatrix} \notag \\
+    &= u \cdot (x \times y) \tag{1.4.18}
+\end{align}
+dove si è definito $u = Ae_1 + Be_2 + Ce_3$. Concludiamo che ogni $2$-forma su $\mathbb{R}^3$ è del tipo $\omega^{(2)}_u$ per qualche $u \in \mathbb{R}^3$. Segue che anche la mappa $u \mapsto \omega^{(2)}_u$ è un isomorfismo. \qed
+
+\newpage
+\subsection{Comportamento sotto applicazioni lineari}
+Sia $f : \mathbb{R}^m \longrightarrow \mathbb{R}^n$ un'applicazione lineare e sia $\omega^{(k)}$ una $k$-forma su $\mathbb{R}^n$. Allora, $f$ definisce la $k$-forma $f^*\omega$ su $\mathbb{R}^m$ tramite \textit{pullback}. In particolare, si pone
+\begin{align}
+    (f^*\omega^{(k)})(x_1, \dots, x_k) = \omega^{(k)}(fx_1, \dots, fx_k) \tag{1.5.1}
+\end{align}
+per ogni $x_1, \dots, x_k \in \mathbb{R}^m$. \\ \\
+Verichiamo che $f^*\omega^{(k)}$ sia effettivamente una $k$-forma su $\mathbb{R}^m$. $f^*\omega^{(k)}$ è multilineare, infatti $f$ è un'applicazione lineare (che agisce su ogni entrata di $\omega^{(k)}$) e $\omega^{(k)}$ è multilineare per definizione. Infine, l'anticommutatività graduata si vede immediatamente, infatti $f$ non altera in alcun modo questa proprietà della $k$-forma. \\ \\
+\textbf{Proposizione 1.5.1:} $f^*$ è un operatore lineare da $\Lambda^{(k)}(\mathbb{R}^n)$ a $\Lambda^{(k)}(\mathbb{R}^m)$. \\
+
+\textbf{Dimostrazione:}
 
 
 
