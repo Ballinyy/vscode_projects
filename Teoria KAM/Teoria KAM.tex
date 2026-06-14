@@ -92,7 +92,7 @@ ed estensione bilineare, con $k, l = 1, \dots, n$. Allora
 \begin{align}
     \omega^{(2)}(x, y) = \sum_{1 \leq i < j \leq n}\omega_{ij}dx_{ij}(x, y) \tag{1.1.13}
 \end{align}
-e per l'arbitrarietà della coppia $(x, y)$ segue che 
+Dall'arbitrarietà della coppia $(x, y)$ segue che 
 \begin{align}
     \omega^{(2)} = \sum_{1 \leq i < j \leq n} \omega_{ij}dx_{ij} \tag{1.1.14}
 \end{align}
@@ -260,12 +260,52 @@ ovvero il prodotto esterno tra monomi è associativo. Inoltre
 \begin{align}
     \omega^{(k)} \wedge \omega^{(l)} &= \omega_1 \wedge \dots \wedge \omega_{k + l} \notag \\
     &= (-1)^{kl}\omega_{k + l} \wedge \dots \wedge \omega_k \wedge \omega_1 \wedge \dots \wedge \omega_k \notag \\
-    &= \omega^{(l)} \wedge \omega^{(k)} \notag
+    &= (-1)^{kl}\omega^{(l)} \wedge \omega^{(k)} \notag
 \end{align}
-dato che per "spostare" ogni termine $\omega_i$, $i = k + 1, \dots, k + l$, a "sinistra" di $\omega_{i - k}$ si devono compiere $k$ inversioni. \qed
+dato che per "spostare" ogni termine $\omega_i$, $i = k + 1, \dots, k + l$, a "sinistra" di $\omega_{i - k}$ si devono compiere $k$ inversioni. \qed \\ \\
+Osserviamo che l'anticommutatività comporta la commutatività se $kl$ è pari.
 
 \newpage
 \subsection{Prodotto esterno}
+\textbf{Definizione:} date $\omega^{(k)}$ e $\omega^{(l)}$, rispettivamente una $k$-forma e una $l$-forma su $\mathbb{R}^n$, definiamo il prodotto esterno $\omega^{(k)} \wedge \omega^{(l)}$ come
+\begin{align}
+    (\omega^{(k)} \wedge \omega^{(l)})(x_1, \dots, x_{k + l}) = \sum_{\substack{i_1 < \dots < i_k \\ j_1 < \dots < j_l}}(-1)^\nu \omega^{(k)}(x_{i_1}, \dots, x_{i_k})\omega^{(l)}(x_{j_1}, \dots, x_{j_l}) \tag{1.4.1}
+\end{align}
+dove $(i_1, \dots, i_k, j_1, \dots, j_l)$ è una permutazione di $(1, \dots, k, k + 1, \dots, k + l)$, mentre 
+\begin{align}
+    \nu = \begin{cases}
+        0 \qquad &\text{se la permutazione è pari} \\
+        1 \qquad &\text{se la permutazione è dispari}
+    \end{cases} \notag
+\end{align}
+\textbf{Esempio:} per due $1$-forme $\omega_1, \omega_2$ si ha 
+\begin{align}
+    (\omega_1 \wedge \omega_2)(x_1, x_2) = \omega_1(x_1)\omega_2(x_2) - \omega_2(x_1)\omega_1(x_2) \notag
+\end{align}
+in accordo con la definizione di prodotto esterno di due $1$-forme. \\ \\
+\textbf{Proposizione 1.4.1:} il prodotto $\omega^{(k)} \wedge \omega^{(l)}$ è una $k + l$-forma. \\
+
+\textbf{Dimostrazione:} fissata una qualsiasi permutazione $\sigma$
+\begin{align}
+    (1, \dots, k + l) \mapsto (\sigma(1), \dots, \sigma(k + l)) \notag
+\end{align}
+si ha
+\begin{align}
+    \omega^{(k)}(\dots, \overbrace{\lambda x_1 + \mu y_1}^{\sigma(1)-\text{esima}}, \dots)\omega^{(l)}(\dots) &= (\lambda\omega^{(k)}(\dots, x_1, \dots) + \notag \\
+    &+ \mu\omega^{(k)}(\dots, y_1, \dots))\omega^{(l)}(\dots) \notag
+\end{align}
+e analogamente 
+\begin{align}
+    \omega^{(k)}(\dots)\omega^{(l)}(\dots, \overbrace{\lambda x_1 + \mu y_1}^{\sigma(1)-\text{esima}}, \dots) &= (\lambda\omega^{(l)}(\dots, x_1, \dots) + \notag \\
+    &+ \mu\omega^{(l)}(\dots, y_1, \dots))\omega^{(k)}(\dots) \notag
+\end{align}
+ovvero ogni termine della somma è multineare, segue che anche $\omega^{(k)} \wedge \omega^{(l)}$ è multilineare. \\
+Inoltre, $\omega^{(k)} \wedge \omega^{(l)}$ è antisimmetrico perché $\omega^{(k)}$ e $\omega^{(l)}$ lo sono singolarmente (si vede facilmente fissando una permutazione $\sigma$ come fatto per mostrare la multilinearità). \\ \\
+\textbf{Teorema (proprietà del prodotto esterno):} il prodotto esterno è anticommutativo, distributivo e associativo. \\
+
+\textbf{Dimostrazione:} siano $\omega^{(k)}$, $\omega^{(l)}$ e $\omega^{(m)}$ rispettivamente una $k$-forma, una $l$-forma e una $m$-forma su $\mathbb{R}^n$. \\
+Per la \textit{proposizione 1.3.1} sappiamo che $\omega^{(k)}$ e $\omega^{(l)}$ possono essere rappresentate come combinazione lineare dei monomi di base. Inoltre, per la \textit{proposizione 1.3.2}, sappiamo che il prodotto di monomi è anticommutativo. Pertanto, concludiamo che $\omega^{(k)} \wedge \omega^{(l)}$ può essere rappresentato come somma di prodotti di monomi, ognuno anticommutativo. \\ \\
+
 
 
 
