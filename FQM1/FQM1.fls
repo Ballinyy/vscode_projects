@@ -115,6 +115,16 @@ INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
+INPUT ./immagini/spettr_rot_puro.jpg
+INPUT ./immagini/spettr_rot_puro.jpg
+INPUT ./immagini/spettr_rot_puro.jpg
+INPUT ./immagini/spettr_rot_puro.jpg
+INPUT ./immagini/spettr_rot_puro.jpg
+INPUT ./immagini/spettr_rotovibr.png
+INPUT ./immagini/spettr_rotovibr.png
+INPUT ./immagini/spettr_rotovibr.png
+INPUT ./immagini/spettr_rotovibr.png
+INPUT ./immagini/spettr_rotovibr.png
 INPUT FQM1.aux
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb

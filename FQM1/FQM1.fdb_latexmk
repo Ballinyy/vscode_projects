@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1781533923.98144 "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" "FQM1.pdf" "FQM1" 1781533925.55355 0
-  "FQM1.aux" 1781533925 2824 52cc960ea4a239995784d614cd3b6719 "pdflatex"
-  "FQM1.tex" 1781533922 91872 f5b1eda2f6c931528b2e38de54e692ea ""
-  "FQM1.toc" 1781533925 1807 576a2f490e3a6b87875ffae851e18bde "pdflatex"
-  "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" 1781533922 91872 f5b1eda2f6c931528b2e38de54e692ea ""
+["pdflatex"] 1781542736.52958 "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" "FQM1.pdf" "FQM1" 1781542738.05628 0
+  "FQM1.aux" 1781542737 2940 7e178f6ab9b7fce356030866044d837c "pdflatex"
+  "FQM1.tex" 1781542733 92695 27d7491b5b8d1122139a7a9dd72734a6 ""
+  "FQM1.toc" 1781542737 1807 576a2f490e3a6b87875ffae851e18bde "pdflatex"
+  "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" 1781542733 92695 27d7491b5b8d1122139a7a9dd72734a6 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1773577763 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1773573954 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -89,6 +89,8 @@
   "c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1773584786 5618266 85c272d09f6df628d158699e137c8ff6 ""
   "c:/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1773585069 3636415 ecab02c4a9d9453df876c87b43ac82f2 ""
   "c:/texlive/2026/texmf.cnf" 1773584742 713 e69b156964470283e0530f5060668171 ""
+  "immagini/spettr_rot_puro.jpg" 1781542274 7359 d448ad7e5e439e9974cd7ce0e9ca682f ""
+  "immagini/spettr_rotovibr.png" 1781542311 9524 a097f2e468db74b238623ec74502ca4c ""
   (generated)
   "FQM1.aux"
   "FQM1.log"
