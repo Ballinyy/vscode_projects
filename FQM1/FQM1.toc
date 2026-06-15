@@ -18,4 +18,6 @@
 \contentsline {section}{\numberline {3}Molecole}{36}{}%
 \contentsline {subsection}{\numberline {3.1}Approssimazione di Born-Oppenheimer}{36}{}%
 \contentsline {subsection}{\numberline {3.2}Molecola $H^+_2$}{38}{}%
-\contentsline {subsection}{\numberline {3.3}Molecola $H^2$}{40}{}%
+\contentsline {subsection}{\numberline {3.3}Molecola $H_2$}{40}{}%
+\contentsline {subsection}{\numberline {3.4}Modello Valence Bond (VB)}{42}{}%
+\contentsline {subsection}{\numberline {3.5}Moti nucleari}{43}{}%
