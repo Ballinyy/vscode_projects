@@ -1237,7 +1237,7 @@ Dato che la parte spaziale è simmetrica per scambio, la componente di spin deve
 Ipotizziamo che ogni molecola si trovi in un stato $\Sigma$, ovvero con momento angolare orbitale elettronico nullo, allora il momento angolare orbitale complessivo sarà dovuto solamente a quello del moto nucleare. Inoltre, trascuriamo interazioni di spin. \\
 In prima approssimazione, possiamo disaccopiare i moti nucleari di rotazione, vibrazione e di transizione elettronica. \\
 \begin{align}
-    \chi_N(R) = F_{vj}(R)Y_{jm_j}(\theta, \varphi) \tag{3.5.1}
+    \chi_N(R) = F_{vJ}(R)Y_{JM_J}(\theta, \varphi) \tag{3.5.1}
 \end{align}
 Per moto di rotazione rigida di una molecola biatomica, $R = R_0$, si ha 
 \begin{align}
@@ -1253,13 +1253,13 @@ In prima approssimazione, possiamo trattare il moto vibrazione come un moto di o
 \end{align}
 L'equazione da risolvere diventa 
 \begin{align}
-    \left(-\frac{\hbar^2}{2\mu}\frac{\partial^2}{\partial R^2} + \overbrace{\frac{J(J + 1)}{2\mu R^2_0}}^{E_{rot}} + E^{(e)}_n(R) - E\right)F_{vj}(R) = 0 \tag{3.5.5}
+    \left(-\frac{\hbar^2}{2\mu}\frac{\partial^2}{\partial R^2} + \overbrace{\frac{J(J + 1)}{2\mu R^2_0}}^{E_{rot} \text{ rotatore rigido}} + E^{(e)}_n(R) - E\right)F_{vJ}(R) = 0 \tag{3.5.5}
 \end{align}
-dove $E = E_{rot} + E_v + E^{(e)}_n$. Pertanto, sviluppando il potenziale elettronico attorno al punto di equilibrio, la $(3.5.5)$ diventa 
+dove $E = E_{rot} + E_v + E^{(e)}_n(R_0)$, energia nucleare su una certa (fissata) superficie elettronica, in approssimazione armonica e rotatore rigido. Pertanto, sviluppando il potenziale elettronico attorno al punto di equilibrio, la $(3.5.5)$ diventa 
 \begin{align}
-    \left(-\frac{\hbar^2}{2\mu}\frac{\partial^2}{\partial R^2} + \frac{1}{2}\frac{d^2E^{(e)}_n}{dR^2}(R_0)(R - R_0)^2 - E_v\right)F_{vj}(R) = 0 \tag{3.5.6}
+    \left(-\frac{\hbar^2}{2\mu}\frac{\partial^2}{\partial R^2} + \frac{1}{2}\frac{d^2E^{(e)}_n}{dR^2}(R_0)(R - R_0)^2 - E_v\right)F_{vJ}(R) = 0 \tag{3.5.6}
 \end{align}
-La $(3.5.6)$ non è altro che l'equazione differenziale dell'oscillatore armonico, pertanto le $F_{vj}$ sono i polinomi di Hermite, mentre 
+La $(3.5.6)$ non è altro che l'equazione differenziale dell'oscillatore armonico, pertanto le $F_{vJ}$ sono i polinomi di Hermite, mentre 
 \begin{align}
     E_v = \hbar\omega_0\left(v + \frac{1}{2}\right) \tag{3.5.7}
 \end{align}
@@ -1267,6 +1267,58 @@ dove
 \begin{align}
     \omega_0 = \sqrt{\frac{k}{\mu}} \qquad k = \frac{d^2E^{(e)}_n}{dR^2}(R_0) \tag{3.5.8}
 \end{align}
+Se facciamo cadere l'ipotesi di rotatore rigido si ha 
+\begin{align}
+    \frac{J(J + 1)}{2\mu R^2_0} \rightarrow \frac{J(J + 1)}{2\mu R^2} \tag{3.5.9}
+\end{align}
+Pertanto, la $(3.5.5)$ diventa 
+\begin{align}
+    \left(-\frac{\hbar^2}{2\mu}\frac{\partial^2}{\partial R^2} + \frac{J(J + 1)}{2\mu R^2} + V(R) - E\right)F_{vJ} = 0 \tag{3.5.10}
+\end{align}
+Dove $V$ è un generico potenziale adatto a descrivere l'interazione elettronica, come ad esempio il potenziale di \textit{Morse} o il potenziale di \textit{Lennard-Jones}. Definiamo il potenziale efficace 
+\begin{align}
+    V_{eff}(R) = \frac{J(J + 1)}{2\mu R^2} + V(R) \tag{3.5.11}
+\end{align}
+Supponiamo sempre che per $R \sim R_0$ si abbia
+\begin{align}
+    V(R) \sim V(R_0) + \frac{1}{2}k(R - R_0)^2 \tag{3.5.12}
+\end{align}
+Allora, il minimo del potenziale efficace non è più $R_0$, piuttosto si ha 
+\begin{align}
+    0 = \frac{dV_{eff}}{dR}(R_1) = k(R_1 - R_0) - \frac{J(J + 1)}{\mu R_1^3} \tag{3.5.13}
+\end{align}
+ovvero 
+\begin{align}
+    R_1 - R_0 = \frac{J(J + 1)}{k\mu R^3_1} > 0 \tag{3.5.14}
+\end{align}
+ovvero si osserva un fenomeno di \textit{stretching molecolare}, cioè la distanza di equilibrio aumenta, il legame si estende. \\
+Per $J$ non troppo grande possiamo stimare $R_1$ come segue 
+\begin{align}
+    R_1 \sim R_0 + \frac{J(J + 1)}{k\mu R^3_0} \tag{3.5.15}
+\end{align}
+
+\newpage
+\subsection{Spettroscopia molecolare}
+Le regole di transizioni che seguono sono valide solamente per molecole con momento di dipolo permanente non nullo (ad esempio molecole eteronucleari).
+\begin{align}
+    \text{spettro rot. puro:} \qquad &\begin{cases}
+        \Lambda = 0 \\
+        \Delta J &= \pm 1 \\
+        \Delta M_J &= 0, \pm 1
+    \end{cases}
+    \qquad \begin{cases}
+        \Lambda \neq 0 \\
+        \Delta J &= 0, \pm 1 \\
+        \Delta M_J &= 0, \pm 1
+    \end{cases} \tag{3.6.1} \\
+    \text{spettro vibrazionale:} \qquad &\Delta v = \pm 1 \tag{3.6.2} \\
+    \text{spettro elettronico:} \qquad &\begin{cases}
+        \Delta L &= \pm 1 \\
+        \Delta M &= 0, \pm 1
+    \end{cases} \tag{3.6.3}
+\end{align}
+Uno spettro rotazionale puro ha righe equidistanti, separate da una quantità $2B$. Ongi riga corrisponde a una transizione $j \rightarrow j + 1$. \\ \\
+Lo spettro vibrazionale è centrato attorno alla riga (assente) con l'energia della radiazione e.m. applicata. Le righe adiacenti alla centrali sono distanti $4B$, mentre le altre righe sono equidistanzi, separate da una quantità $2B$.
 
 
 \newpage

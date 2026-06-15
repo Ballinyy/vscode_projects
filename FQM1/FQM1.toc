@@ -21,3 +21,4 @@
 \contentsline {subsection}{\numberline {3.3}Molecola $H_2$}{40}{}%
 \contentsline {subsection}{\numberline {3.4}Modello Valence Bond (VB)}{42}{}%
 \contentsline {subsection}{\numberline {3.5}Moti nucleari}{43}{}%
+\contentsline {subsection}{\numberline {3.6}Spettroscopia molecolare}{45}{}%
