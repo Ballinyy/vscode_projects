@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  15 JUN 2026 19:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  16 JUN 2026 22:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -420,7 +420,62 @@ File: immagini/spettr_rotovibr.png Graphic file (type png)
 <use immagini/spettr_rotovibr.png>
 Package pdftex.def Info: immagini/spettr_rotovibr.png  used on input line 1333.
 (pdftex.def)             Requested size: 224.2479pt x 101.38002pt.
- [46 <./immagini/spettr_rot_puro.jpg> <./immagini/spettr_rotovibr.png>] [47] [48] [49] [50] [51] (./FQM1.aux)
+ [46 <./immagini/spettr_rot_puro.jpg> <./immagini/spettr_rotovibr.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1348--1351
+
+ []
+
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 1354--1356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1354--1356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1357--1358
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1359--1360
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1361--1362
+
+ []
+
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 1367--1369
+
+ []
+
+
+Overfull \hbox (0.8618pt too wide) in paragraph at lines 1367--1369
+\OT1/cmr/m/n/10 sond-abili con spet-tro-scopia IR. In par-ti-co-lare sfrutta la po-lar-iz-z-abilit^^Ra anisotropa
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1381--1385
+
+ []
+
+
+Overfull \hbox (0.3061pt too wide) in paragraph at lines 1387--1389
+\OT1/cmr/m/n/10 Compaiono il coseno ed il seno al quadrato poich^^Se si con-sid-era an-che la proiezione
+ []
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1409--1412
+
+ []
+
+[50] [51] [52] [53] [54] (./FQM1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -439,10 +494,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,20n,65p,612b,297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on FQM1.pdf (51 pages, 398359 bytes).
+Output written on FQM1.pdf (54 pages, 408409 bytes).
 PDF statistics:
- 283 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
+ 292 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

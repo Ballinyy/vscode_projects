@@ -56,27 +56,27 @@ Usando questa relazione si ottiene la larghezza dello spettro del visibile espre
 dove $1.55 \, eV$ è il rosso e $3.10 \, eV$ è il blu (dato che l'energia è inversamente proporzionale alla lunghezza d'onda).
 
 \newpage
-\section*{Sistema di unità atomiche (u.a.)}
-Un sistema molto comodo per svolgere calcoli riguardanti sistemi atomici e molecolari è il sistema di unità atomiche (u.a.). Tale sistema pone arbitrariamente
+\section*{Sistema di unità atomiche (ua)}
+Un sistema molto comodo per svolgere calcoli riguardanti sistemi atomici e molecolari è il sistema di unità atomiche (ua). Tale sistema pone arbitrariamente
 \begin{align}
     1 &= \hbar \notag \\
     1 &= 4\pi\varepsilon_0 \notag \\
     1 &= e \notag \\
     1 &= m_e \notag
 \end{align}
-segue che il raggio di Bohr $a_0 = 1 \, u.a.$. Possiamo ricavare le conversione inverse, ovvero vedere la relazione tra unità atomiche e unità fisiche:
+segue che il raggio di Bohr $a_0 = 1 \, ua$. Possiamo ricavare le conversione inverse, ovvero vedere la relazione tra unità atomiche e unità fisiche:
 \begin{align}
-    &u.a.(l) \quad &= 0.529 \, \mathring{A} \notag \\
-    &u.a.(m) \quad &= 9.1 \cdot 10^{-31} \, kg \notag \\
-    &u.a.(v) \quad &= 2.2 \cdot 10^6 \, \frac{m}{s} \notag \\
-    &u.a.(t) \quad &= \frac{0.529 \, \mathring{A}}{2.2 \cdot 10^6 \, m/s} = 2.4 \cdot 10^{-17} \, s \notag \\
-    &u.a.(\mathcal{E}) \quad &= -2\mathcal{E}^H_{1s} = 27.21 \, eV \notag \\
-    &u.a.(B) \quad &= 2.35 \cdot 10^5 \, T \notag \\
-    &u.a.(E) \quad &= 5.13 \cdot 10^{11} \, \frac{V}{m} \notag \\
-    &u.a.(d) \quad &= 8.46 \cdot 10^{-30} C \cdot m \notag \\
-    &u.a.(uma) \quad &= 0.000549 \, uma \notag
+    &ua(l) \quad &= 0.529 \, \mathring{A} \notag \\
+    &ua(m) \quad &= 9.1 \cdot 10^{-31} \, kg \notag \\
+    &ua(v) \quad &= 2.2 \cdot 10^6 \, \frac{m}{s} \notag \\
+    &ua(t) \quad &= \frac{0.529 \, \mathring{A}}{2.2 \cdot 10^6 \, m/s} = 2.4 \cdot 10^{-17} \, s \notag \\
+    &ua(\mathcal{E}) \quad &= -2\mathcal{E}^H_{1s} = 27.21 \, eV \notag \\
+    &ua(B) \quad &= 2.35 \cdot 10^5 \, T \notag \\
+    &ua(E) \quad &= 5.13 \cdot 10^{11} \, \frac{V}{m} \notag \\
+    &ua(d) \quad &= 8.46 \cdot 10^{-30} C \cdot m \notag \\
+    &ua(uma) \quad &= 0.000549 \, uma \notag
 \end{align}
-Inoltre si ottiene dal fatto che la costante di struttura affine $\alpha = 1/137$ che $c = 137 \, u.a.$.
+Inoltre si ottiene dal fatto che la costante di struttura affine $\alpha = 1/137$ che $c = 137 \, ua$.
 
 \newpage
 \section{Atomo idrogenoide}
@@ -142,7 +142,7 @@ pertanto, trascurando il termine costante $m_ec^2$ che è l'energia a riposo del
 \begin{align}
     H'_{k} &= -\frac{p^4}{8m^3_2c^2} \notag \\
     &= -\frac{1}{2m_ec^2}T^2 \notag \\
-    &= -\frac{\alpha^2}{2}T^2 \qquad (u.a.) \tag{1.2.3}
+    &= -\frac{\alpha^2}{2}T^2 \qquad (ua) \tag{1.2.3}
 \end{align}
 dove $T$ è l'operatore energia cinetica. Possiamo allora applicare i metodi della teoria delle perturbazioni sull'hamiltoniano perturbato in termini di $\alpha$. Notiamo che, nonostante il fatto che l'atomo idrogenoide presenti degenerazione, possiamo applicare il metodo delle perturbazioni indipendenti dal tempo nel caso non degenere, infatti la perturbazione commuta con l'hamiltoniano imperturbato e quindi è già diagonale nella base iniziale (non "mischia" gli autostati del sottospazio degenere). Allora si ha
 \begin{align}
@@ -167,7 +167,7 @@ dunque in unità atomiche si ha
     &= -E_n\left(\frac{Z\alpha}{n}\right)^2\left(\frac{3}{4} - \frac{n}{l - \frac{1}{2}}\right) \leq 0 \tag{1.2.8}
 \end{align}
 \subsubsection*{Interazione spin-orbita}
-La seconda correzione è dovuta al moto del nucleo del sistema di riferimento dell'elettrone, infatti si osserva una densità di corrente non nulla dovuta al moto relativo del nucleo e dunque un campo magnetico. In particolare si ha 
+La seconda correzione è dovuta al moto del nucleo del sistema di riferimento dell'elettrone. L'elettrone osserva una densità di corrente dovuta al moto relativo del nucleo e dunque un campo magnetico. In particolare si ha 
 \begin{align}
     \mathbf{j} = -Ze\mathbf{v} \tag{1.2.9}
 \end{align}
@@ -283,11 +283,11 @@ che ha come punto di minimo
 \end{align}
 per cui vale 
 \begin{align}
-    \braket{H}_{\overline{c}} = -0.424 \, u.a. \notag
+    \braket{H}_{\overline{c}} = -0.424 \, ua \notag
 \end{align}
 e quindi l'errore rispetto al valore reale è 
 \begin{align}
-    \Delta E = 0.074 \, u.a. \notag
+    \Delta E = 0.074 \, ua \notag
 \end{align}
 che è circa del $15 \%$. \\ \\
 \textbf{2.} Consideriamo il seguente hamiltoniano 
@@ -711,7 +711,7 @@ Una volta diagonalizzata si nota che la perturbazione rompe la degenerazione per
         \frac{1}{\sqrt{2}}(\ket{200} + \ket{210}) \longrightarrow -3E 
     \end{cases} \tag{1.6.5}
 \end{align}
-questo comporta che per tali stati $\boldsymbol{\mu}_{dip} = \pm 3 \, u.a.$. Mentre per $\ket{21\pm1}$ si ha $\boldsymbol{\mu}_{dip} \perp \mathbf{E}$, il che ha senso dato che si tratta di stati $p_x$ e $p_y$ (ovvero ortogonali a $z$). \\ \\
+questo comporta che per tali stati $\boldsymbol{\mu}_{dip} = \pm 3 \, ua$. Mentre per $\ket{21\pm1}$ si ha $\boldsymbol{\mu}_{dip} \perp \mathbf{E}$, il che ha senso dato che si tratta di stati $p_x$ e $p_y$ (ovvero ortogonali a $z$). \\ \\
 Per lo stato $1s$ la perturbazione è nulla, pertanto è necessario considerare la seconda approssimazione. Possiamo stimare la correzione usando la completezza della base $\{\ket{nlm}\}_{nlm}$
 \begin{align}
     \Delta E^{(2)}_{1s} &= \sum_{n = 2}^\infty \sum_{l = 0}^{n - 1}\sum_{m = -l}^l \frac{|\braket{nlm|zE|100}|^2}{E_1 - E_n} \notag \\
@@ -1342,6 +1342,75 @@ Imponendo che $\frac{\partial I}{\partial j}(j_{max}) = 0$ si ottiene
 \begin{align}
     j_{max} = \frac{1}{2}\left(\sqrt{\frac{2kT}{B}} - 1\right) \tag{3.6.5}
 \end{align}
+Come visto per le transizioni tra stati atomici, la probabilità $P_{\alpha\alpha'}$ di transizione da uno stato molecolare $\alpha = \ket{n, v, J}$ a uno stato $\alpha' = \ket{n', v', J'}$ è proporzionale al termine $\braket{\alpha|\boldsymbol{\epsilon}_{k\lambda} \cdot \boldsymbol{\mu}|\alpha'}$, dove $\boldsymbol{\epsilon}{k\lambda}$ è il versore che fornisce la direzione di propagazione dell'onda, mentre $\boldsymbol{\mu}$ è il momento di dipolo permanente della molecola. In particolare 
+\begin{align}
+    \boldsymbol{\mu} = \sum_i Z_A\mathbf{R}_A - \sum_i \mathbf{r}_i \tag{3.6.6}
+\end{align}
+Notiamo immediatamente che per molecole biatomoche omonucleari $\boldsymbol{\mu} = 0$, pertanto non si hanno spettri rotovibrazionali (e rotazionali). \\ \\
+Infine, notiamo che gli unici spettri puri sono quelli rotazionali, dato che sono le transizioni a energia più bassa. Transizioni vibrazionali comportano aumaticamente anche transizioni rotazione. Analogamente, transizioni elettroniche (più energetiche tra le tre) comportano anche transizioni rotovibrazionali. 
+
+\newpage
+\subsection{Principio di Frank-Condon e transizioni elettroniche}
+Il principio di Frank-Condon afferma che le transizioni elettroniche sono "verticali" nel piano $(R, E_n(R))$, ovvero avvengono a distanze nucleari fissate. Questa proprietà discende dal fatto che il moti nucleari avvengono su scale temporali molto più lunghe rispetto ai moti elettronici, pertanto, durante la transizione elettronica, i nuclei non hanno tempo di reagire. \\ \\
+Le possibili transizioni elettroniche sono: \\
+
+\textbf{1.} Dissociazione della molecola: avviene quando il potenziale di interazione elettronica dello stato finale non ha un minimo, ovvero non esiste una distanza di equilibrio. \\
+
+\textbf{2.} Pre-dissociazione della molecola: avviene quando lo stato finale ammette ancora un distanza di equilibrio, ma la molecola transisce nuovamente ad uno stato privo di distanza di equilibrio a causa di interazioni non radiative all'interno della molecola. \\
+
+\textbf{3.} Fluorescenza: avviene quando la molecola assorbe una certa lunghezza d'onda $\lambda$ e emmette subito dopo una lunghezza d'onda meno energetica $\lambda' > \lambda$, sempre a causa di processi di interazione non radiativa all'interno della molecola stessa. \\
+
+\textbf{4.} Fosforescenza: avviene quando la molecola assorbe una certa lunghezza d'onda $\lambda$ e emette in un periodi di tempo esteso un lunghezza d'onda meno energetica $\lambda' > \lambda$, sempre a causa di processi di interazione non radiativa all'interno della molecola stessa. 
+
+\newpage
+\subsection{Spettroscopia Raman}
+Come visto nel paragrafo $3.6$, è possibile osservare spettri rotovibrazionali (in approssimazione di dipolo) solamente per molecole con momento di dipolo permanente non nullo. \\ \\
+La spettroscopia Raman viene applicata per osservare gli spettri di molecole insondabili con spettroscopia IR. In particolare sfrutta la polarizzabilità anisotropa della molecola, ovvero, anche se la molecola ha momento di dipolo nullo, induce un momento di dipolo non nullo $\boldsymbol{\mu}$ tramite un campo elettrico $\mathbf{E}$. Fissata una direzione e posto $\alpha$ polarizzabilità anisotropa della molecola lungo tale direzione, si ha
+\begin{align}
+    \boldsymbol{\mu} = \alpha\mathbf{E} \tag{3.8.1}
+\end{align}
+in generale $\alpha$ sarebbe un tensore. Supponiamo che lungo la direzione $z$ la polarizzabilità anisotropa $\alpha$ possa essere scritta come
+\begin{align}
+    \alpha(t) = \alpha_0 + \Delta\alpha\cos(\omega t) \tag{3.8.2}
+\end{align}
+dove il termine coseno tiene conto della vibrazione armonica della molecola. Se anche il campo $\mathbf{E}$ è diretto lungo $z$, si ha
+\begin{align}
+    \boldsymbol{\mu} &= \alpha\mathbf{E} \notag \\
+    &= (\alpha_0 + \Delta\alpha\cos(\omega t))(E_0\cos(\omega_0 t))\mathbf{u}_z \notag \\
+    &= \overbrace{a_0E_0\cos(\omega_0 t)}^{\text{riga Rayleigh}} + \frac{\Delta\alpha E_0}{2}(\overbrace{\cos(\omega - \omega_0)t}^{\text{riga Stokes}} + \overbrace{\cos(\omega + \omega_0)t}^{\text{riga Anti-Stokes}}) \tag{3.8.3}
+\end{align}
+In particolare, si ha una riga Stokes quando la molecola assorbe il fotone, mentre si ha una riga Anti-Stokes quando la molecola si trova già in uno stato eccitato e cede energia al fotone. \\ \\
+La regola di selezione per transizioni in uno spettro Raman è $\Delta J = \pm 2$. Per dimostrarlo verifichiamo che $\alpha^{anis}_{zz} \propto Y_{2m}$. \\
+Siano $\alpha_{||}$ la polarizzabilità lungo l'asse della molecola e sia $\alpha_\perp$ la polarizzabilità nella direzione ortogonale all'asse della molecola. Posto $\theta$ l'angolo tra l'asse molecolare e il campo elettrico, si ha 
+\begin{align}
+    \alpha_{zz} &= \alpha_{||}\cos^2\theta + \alpha_\perp\sin^2\theta \tag{3.8.4}
+\end{align}
+Compaiono il coseno ed il seno al quadrato poiché si considera anche la proiezione del campo, ovvero, per definizione, si pone 
+\begin{align}
+    \mu_{||} &= \alpha_{||}E_{||} = \alpha_{||}E_z\cos\theta \notag \\
+    \mu_\perp &= \alpha_\perp E_\perp = \alpha_\perp E_z\sin\theta \notag
+\end{align}
+Possiamo riscrivere la $(3.8.4)$ come 
+\begin{align}
+    \alpha_{zz} = \alpha_\perp + (\alpha_{||} - \alpha_\perp)\cos^2\theta \tag{3.8.5}
+\end{align}
+In particolare, vale l'identità
+\begin{align}
+    \cos^2\theta = \frac{1}{3} + \frac{2}{3}P_2(\cos\theta) \tag{3.8.6}
+\end{align}
+dove $P_2$ è il secondo polinomio di Legendre. Allora, sostituendo in $(3.8.5)$ si ottiene 
+\begin{align}
+    \alpha_{zz} &= \alpha_\perp + (\alpha_{||} - \alpha_\perp)\left(\frac{1}{3} + \frac{2}{3}P_2(\cos\theta)\right) \notag \\
+    &= \underbrace{\left(\alpha_\perp + \frac{1}{3}(\alpha_{||} - \alpha_\perp)\right)}_{\text{parte isotropa}} + \underbrace{\left(\frac{2}{3}(\alpha_{||} - \alpha_\perp)P_2(\cos\theta)\right)}_{\text{parte anisotropa}} \tag{3.8.7}
+\end{align}
+Indichiamo con $\overline{\alpha}$ la parte isotropa. Notiamo che la parte anisotropa è proporzionale a $P_2(\cos\theta)$ e quindi proporzionale a $Y_{20} = \sqrt{\frac{5}{4\pi}}P_2(\cos\theta)$
+\begin{align}
+    \alpha_{zz} = \overline{\alpha} + \frac{2}{3}\sqrt{\frac{4\pi}{5}}(\alpha_{||} - \alpha_\perp)Y_{20} \tag{3.8.8}
+\end{align}
+Concludiamo che $\alpha^{anis}_{zz} \propto Y_{20}$ e quindi la regola di selezione è $\Delta J = 0, \pm 2$, tutta via $\Delta J = 0$ è essenzialmente inosservabile a causa della riga Rayleigh. \\ \\
+Ne segue che le due righe adiacenti alla riga Rayleigh sono distanti $12B$, mentre tutte le altre righe adiacenti distano $4B$.
+
+
 
 
 \newpage
@@ -1356,7 +1425,7 @@ Le equazioni di Maxwell nel vuoto sono
         \nabla \times \mathbf{B} &= \mu_0\mathbf{j} + \mu_0\varepsilon_0\frac{\partial \mathbf{E}}{\partial t} \\
     \end{cases} \notag
 \end{align}
-dove $\rho$ è la distribuzione spaziale di carica e $\mathbf{j}$ è la densità di corrente. Poiché $\mathbf{B}$ ha divergenza nulla esiste un potenziale vettore $\mathbf{A}$ che identifica $\mathbf{B}$ tramite 
+dove $\rho$ è la distribuzione spaziale di carica e $\mathbf{j}$ è la densità di corrente. Poiché $\mathbf{B}$ ha divergenza nulla esiste un potenziale vettore $\mathbf{A}$ che identifica $\mathbf{B}$ tramite
 \begin{align}
     \mathbf{B} = \nabla \times \mathbf{A} \notag
 \end{align}
@@ -1370,7 +1439,7 @@ se $\mathbf{A}$ è sufficientemente regolare (in particolare di classe $C^2$). N
     &= -\frac{\partial}{\partial t}(\nabla \times \mathbf{A}) \notag \\
     &= \nabla \times \frac{\partial \mathbf{A}}{\partial t} \notag
 \end{align}
-(sempre supponendo sufficiente regolarità per invertire l'ordine di derivazione, pertanto 
+(sempre supponendo sufficiente regolarità per invertire l'ordine di derivazione), pertanto 
 \begin{align}
     \nabla \times \left(\mathbf{E} + \frac{\partial \mathbf{A}}{\partial t}\right) = 0 \notag
 \end{align}

@@ -22,3 +22,5 @@
 \contentsline {subsection}{\numberline {3.4}Modello Valence Bond (VB)}{43}{}%
 \contentsline {subsection}{\numberline {3.5}Moti nucleari}{44}{}%
 \contentsline {subsection}{\numberline {3.6}Spettroscopia molecolare}{46}{}%
+\contentsline {subsection}{\numberline {3.7}Principio di Frank-Condon e transizioni elettroniche}{48}{}%
+\contentsline {subsection}{\numberline {3.8}Spettroscopia Raman}{49}{}%
