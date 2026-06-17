@@ -21,6 +21,9 @@
 \contentsline {subsection}{\numberline {3.3}Molecola $H_2$}{41}{}%
 \contentsline {subsection}{\numberline {3.4}Modello Valence Bond (VB)}{43}{}%
 \contentsline {subsection}{\numberline {3.5}Moti nucleari}{44}{}%
-\contentsline {subsection}{\numberline {3.6}Spettroscopia molecolare}{46}{}%
-\contentsline {subsection}{\numberline {3.7}Principio di Frank-Condon e transizioni elettroniche}{48}{}%
-\contentsline {subsection}{\numberline {3.8}Spettroscopia Raman}{49}{}%
+\contentsline {subsection}{\numberline {3.6}Spettroscopia molecolare}{47}{}%
+\contentsline {subsection}{\numberline {3.7}Principio di Frank-Condon e transizioni elettroniche}{49}{}%
+\contentsline {subsection}{\numberline {3.8}Spettroscopia Raman}{50}{}%
+\contentsline {section}{\numberline {4}Solidi}{52}{}%
+\contentsline {subsection}{\numberline {4.1}Proprietà dei solidi e reticolo di Bravais}{52}{}%
+\contentsline {subsection}{\numberline {4.2}Reticolo reciproco e prima zona di Brillouin}{53}{}%

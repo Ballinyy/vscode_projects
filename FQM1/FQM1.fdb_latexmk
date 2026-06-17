@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1781641149.19882 "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" "FQM1.pdf" "FQM1" 1781641150.84857 0
-  "FQM1.aux" 1781641150 3200 4bbd3f413ca14735dfb0093d3a13cb40 "pdflatex"
-  "FQM1.tex" 1781641147 99279 6a2a9c30ec58d0252a60d7d01240c29c ""
-  "FQM1.toc" 1781641150 1985 248e94bfbbc2e9172abc0b5366ce3906 "pdflatex"
-  "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" 1781641147 99279 6a2a9c30ec58d0252a60d7d01240c29c ""
+["pdflatex"] 1781704730.94313 "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" "FQM1.pdf" "FQM1" 1781704732.60385 0
+  "FQM1.aux" 1781704732 3570 553c500856ddfe4394ebac06f1f7f305 "pdflatex"
+  "FQM1.tex" 1781704729 103388 140087637ffdf07941eb17f464f78b97 ""
+  "FQM1.toc" 1781704732 2232 473c57ba972e1d0065bf140e980f185e "pdflatex"
+  "c:/Users/aless/vscode_tex/FQM1/FQM1.tex" 1781704729 103388 140087637ffdf07941eb17f464f78b97 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1773577763 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1773573954 1120 1e8878807317373affa7f7bba4cf2f6a ""

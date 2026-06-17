@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  16 JUN 2026 22:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  17 JUN 2026 15:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -409,73 +409,88 @@ Underfull \hbox (badness 10000) in paragraph at lines 1238--1240
 
  []
 
-[44] [45]
-<immagini/spettr_rot_puro.jpg, id=167, 272.01625pt x 186.6975pt>
+[44] [45] [46]
+<immagini/spettr_rot_puro.jpg, id=170, 272.01625pt x 186.6975pt>
 File: immagini/spettr_rot_puro.jpg Graphic file (type jpg)
 <use immagini/spettr_rot_puro.jpg>
-Package pdftex.def Info: immagini/spettr_rot_puro.jpg  used on input line 1325.
+Package pdftex.def Info: immagini/spettr_rot_puro.jpg  used on input line 1339.
 (pdftex.def)             Requested size: 224.2479pt x 153.91907pt.
-<immagini/spettr_rotovibr.png, id=168, 335.2525pt x 151.56625pt>
+<immagini/spettr_rotovibr.png, id=171, 335.2525pt x 151.56625pt>
 File: immagini/spettr_rotovibr.png Graphic file (type png)
 <use immagini/spettr_rotovibr.png>
-Package pdftex.def Info: immagini/spettr_rotovibr.png  used on input line 1333.
+Package pdftex.def Info: immagini/spettr_rotovibr.png  used on input line 1347.
 (pdftex.def)             Requested size: 224.2479pt x 101.38002pt.
- [46 <./immagini/spettr_rot_puro.jpg> <./immagini/spettr_rotovibr.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1348--1351
-
- []
-
-[47]
-Underfull \hbox (badness 10000) in paragraph at lines 1354--1356
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1354--1356
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1357--1358
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1359--1360
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1361--1362
+ [47 <./immagini/spettr_rot_puro.jpg> <./immagini/spettr_rotovibr.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1362--1365
 
  []
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1367--1369
+Underfull \hbox (badness 10000) in paragraph at lines 1368--1370
 
  []
 
 
-Overfull \hbox (0.8618pt too wide) in paragraph at lines 1367--1369
+Underfull \hbox (badness 10000) in paragraph at lines 1368--1370
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1371--1372
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1373--1374
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1375--1376
+
+ []
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1381--1383
+
+ []
+
+
+Overfull \hbox (0.8618pt too wide) in paragraph at lines 1381--1383
 \OT1/cmr/m/n/10 sond-abili con spet-tro-scopia IR. In par-ti-co-lare sfrutta la po-lar-iz-z-abilit^^Ra anisotropa
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1381--1385
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1399
 
  []
 
 
-Overfull \hbox (0.3061pt too wide) in paragraph at lines 1387--1389
+Overfull \hbox (0.3061pt too wide) in paragraph at lines 1401--1403
 \OT1/cmr/m/n/10 Compaiono il coseno ed il seno al quadrato poich^^Se si con-sid-era an-che la proiezione
  []
 
-[49]
-Underfull \hbox (badness 10000) in paragraph at lines 1409--1412
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 1423--1426
 
  []
 
-[50] [51] [52] [53] [54] (./FQM1.aux)
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1436
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1438--1443
+
+ []
+
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 1455--1458
+
+ []
+
+[53] [54] [55] [56] [57] (./FQM1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -494,10 +509,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,20n,65p,612b,297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on FQM1.pdf (54 pages, 408409 bytes).
+Output written on FQM1.pdf (57 pages, 415172 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 187 compressed objects within 2 object streams
+ 302 PDF objects out of 1000 (max. 8388607)
+ 194 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
