@@ -231,141 +231,7 @@ Considerando tutti e tre i contributi calcolati si ha una rottura parziale della
     E_{n, j} = E_n\left(1 - \frac{(Z\alpha)^2}{n^2}\left(\frac{n}{j + \frac{1}{2}} - \frac{3}{4}\right)\right) \tag{1.2.23}
 \end{align}
 
-\subsubsection{Esercizi}
-\textbf{1.} Determinare l'errore che si compie sul calcolo dell'energia dello stato fondamentale dell'atomo di idrogeno se si sceglie come autofunzione dello stato fondamentale la seguente
-\begin{align}
-    \psi(r, \theta, \varphi) = Ne^{-cr^2} \notag
-\end{align}
-con $c > 0$. \\
-
-\textbf{Soluzione:} la costante $N$ si determina imponendo la normalizzazione della funzione d'onda su $\mathbf{R}^3$. Per determinare l'energia dello stato fondamentale utilizzando $\psi$ come funzione d'onda procediamo calcolando il valor medio di $H$ rispetto a $\psi$ e cercando per quale $c$ positivo si ha che il valore medio di $H$ è minimo. In particolare imponiamo
-\begin{align}
-    4\pi N^2\int_0^\infty r^2e^{-2cr^2} \, dr = 1 \notag
-\end{align}
-allora otteniamo 
-\begin{align}
-    4\pi N^2 \frac{1}{8c}\sqrt{\frac{\pi}{2c}} = 1 \notag
-\end{align}
-quindi poniamo 
-\begin{align}
-    N = \left(\frac{8c^3}{\pi^3}\right)^{1/4} \notag
-\end{align}
-A questo punto $\braket{H}_c = \braket{T}_c + \braket{V}_c$, dove
-\begin{align}
-    \braket{V}_c &= -4\pi N^2 \int_0^\infty r^2e^{-2cr^2}\frac{1}{r} \, dr \notag \\
-    &= -N^2\frac{\pi}{c} \notag \\
-    &= -\sqrt{\frac{8c}{\pi}} \notag
-\end{align}
-e 
-\begin{align}
-    \braket{T}_c &= -2\pi N^2 \int_0^\infty r^2\psi^*\nabla^2\psi \, dr \notag
-\end{align}
-in particolare, usando coordinate sferiche e sfruttando la simmetria radiale della funzione d'onda, si ha 
-\begin{align}
-    \nabla^2\psi &= \left(\frac{2}{r}\frac{\partial}{\partial r} + \frac{\partial^2}{\partial r^2}\right)\psi \notag \\
-    &= \frac{2}{r}\left(-cr\psi\right) + \left(-c\psi + c^2r^2\psi\right) \notag \\
-    &= -3c\psi + c^2r^2\psi \notag
-\end{align}
-allora 
-\begin{align}
-    \braket{T}_c &= 6\pi cN^2\int_0^\infty r^2|\psi|^2 \, dr - 2\pi c^2N^2\int_0^\infty r^4|\psi|^2 \, dr \notag \\
-    &= \frac{3}{2}c - 2\pi c^2N^2\frac{3}{16c^2}\sqrt{\frac{\pi}{2c}} \notag \\
-    &= \frac{3}{2}c - N^2\frac{3}{8}\sqrt{\frac{\pi^3}{2c}} \notag \\
-    &= \frac{3}{2}c - \frac{3}{4} \notag
-\end{align}
-si ottiene quindi 
-\begin{align}
-    \braket{H}_c = \frac{3}{2}c - \sqrt{\frac{8c}{\pi}} - \frac{3}{4} \notag
-\end{align}
-che ha come punto di minimo 
-\begin{align}
-    \overline{c} = \frac{8}{9\pi} \notag
-\end{align}
-per cui vale 
-\begin{align}
-    \braket{H}_{\overline{c}} = -0.424 \, ua \notag
-\end{align}
-e quindi l'errore rispetto al valore reale è 
-\begin{align}
-    \Delta E = 0.074 \, ua \notag
-\end{align}
-che è circa del $15 \%$. \\ \\
-\textbf{2.} Consideriamo il seguente hamiltoniano 
-\begin{align}
-    H_\mu = -\frac{1}{2\mu}\nabla^2 - \frac{1}{r} \notag
-\end{align}
-con $\mu > 0$, determinare l'errore sul calcolo dell'energia dello stato $1s$ usando il metodo perturbativo e variazionale lineare. \\
-
-\textbf{Soluzione:} riscriviamo
-\begin{align}
-    H_\mu = H_1 + H'_\mu \notag
-\end{align}
-dove $H_1$ è l'hamiltoniano imperturbato dell'atomo di idrogeno, ovvero 
-\begin{align}
-    H_1 = -\frac{1}{2}\nabla^2 - \frac{1}{r} \notag
-\end{align}
-mentre $H'_\mu$ è la perturbarzione introdotta con il parametro $\mu$, ovvero 
-\begin{align}
-    H'_\mu = \left(1 - \frac{1}{\mu}\right)\frac{\nabla^2}{2} \notag
-\end{align}
-$H'_\mu$ commuta con l'hamiltoniana imperturbata, dato che è proporzionale all'energia cinetica, pertanto non "mischia" gli stati degeneri. La correzione al primo ordine dell'energia dello stato $1s$ è data da 
-\begin{align}
-    \braket{H'_\mu}_{1s} &= {}\left(1 - \frac{1}{\mu}\right)\braket{100|\frac{\nabla^2}{2}|100} \notag \\
-    &= -\left(1 - \frac{1}{\mu}\right)\braket{T}_{1s} \notag
-\end{align}
-Possiamo applicare il teorema del viriale, dato che dobbiamo calcolare il valor medio rispetto ad un autostato di $H_1$, quindi $2\braket{T}_{1s} = -\braket{V}_{1s}$. In particolare
-\begin{align}
-    \braket{V}_{1s} &= 4\pi\int_0^\infty r^{\cancel{2}}\cancel{\frac{1}{r}}\frac{1}{\pi}e^{-2r} \, dr \notag \\
-    &= -1 \notag
-\end{align}
-pertanto 
-\begin{align}
-    \braket{T}_{1s} &= \frac{1}{2} \notag
-\end{align}
-e \begin{align}
-    \Delta E_{1s} = -\frac{1}{2}\left(1 - \frac{1}{\mu}\right) \notag
-\end{align}
-Possiamo applicare il metodo variazionale lineare usando come funzione di prova le autofunzioni $\psi_{1s}, \psi_{2s}$ e diagonalizzando rispetto a quest'ultime la perturbazione $H'_\mu$. In tal caso la correzione all'energia dello stato $1s$ è l'autovalore associato a $\psi_{1s}$. \\ \\
-\textbf{3.} Calcolare il potenzile a cui è soggetto l'elettrone di un atomo idrogenoide tenendo conto delle dimensione finite del nucleo ($r_0 \sim 10^{-15} \, m$). \\
-
-\textbf{Soluzione:} per definizione si ha 
-\begin{align}
-    V(r) = \int_\infty^r \mathbf{E}(r) \cdot d\mathbf{r} \notag
-\end{align}
-Calcoliamo il campo elettrico generato dal nucleo usando la legge di Gauss. In particolare, in unità atomiche, si ha 
-\begin{align}
-    \phi(\mathbf{E}) = 4\pi Q_{int} = 4\pi r^2E(r) \notag
-\end{align}
-dove il flusso è inteso calcolato su una sfera di raggio $r < r_0$ concentrica al nucleo. Allora si ha 
-\begin{align}
-    \mathbf{E}(r) = \frac{Q_{int}}{r^2}\mathbf{u}_r \notag
-\end{align}
-Dobbiamo dunque determinare la carica interna alla sfera di raggio $r < r_0$ 
-\begin{align}
-    Q_{int} &= \frac{\frac{4}{3}\pi r^3}{\frac{4}{3}\pi r^3_0}Z = \left(\frac{r}{r_0}\right)^3Z \notag
-\end{align}
-segue che 
-\begin{align}
-    \mathbf{E}(r) = \frac{r}{r^3_0}Z\mathbf{u}_r \notag
-\end{align}
-quindi
-\begin{align}
-    V(r) = \frac{1}{2}\frac{r^2}{r^3_0}Z + c \notag
-\end{align}
-con $c$ costante da determinare imponendo la condizione al contorno 
-\begin{align}
-    V(r_0) = \frac{1}{2}\frac{Z}{r_0} + c = -\frac{Z}{r_0} \notag
-\end{align}
-pertanto si ottiene 
-\begin{align}
-    c = -\frac{3}{2}\frac{Z}{r_0} \notag
-\end{align}
-e 
-\begin{align}
-    V(r) = -\frac{Z}{r_0}\left(\frac{3}{2} - \frac{1}{2}\left(\frac{r}{r_0}\right)^2\right) \notag
-\end{align}
-per $r < r_0$ e ovviamente $V(r) = - \frac{Z}{r}$ per $r > r_0$. Ricordiamo che questo vale solamente per gli stati con $l = 0$ che hanno probabilità non nulla di trovarsi all'interno del nucleo.
-
+\newpage
 \subsection{Interazione radiazione-materia}
 Studiamo i fenomeni di emissione (spontanea e non) e assorbimento della materia soggetta a radiazione elettromagnetica attraverso la teoria delle perturbazioni dipendenti dal tempo, in particolare determinando le rate alle quali avvengono tali fenomeni. \\ \\
 Riportiamo immediatamente i risultati
@@ -651,25 +517,6 @@ Dato uno stato $c$, indichiamo con $c$ lo stato orbitale $c$ con spin up, mentre
 \end{align}
 dato che le funzioni spinoriali sono ortogonali.
 
-\subsubsection{Esercizi}
-\textbf{Problema 1.30:} consideriamo un atomo di idrogeno ($1s$). Calcolare il potenziale elettrostatico in un punto generico $P$ a distanza $r$ dal nucleo e a distanza $|\mathbf{r} - \mathbf{r}_e|$ dall'elettrone. \\
-
-\textbf{Soluzione:} si ha 
-\begin{align}
-    V(r) = \frac{1}{r} - \frac{1}{|\mathbf{r} - \mathbf{r}_e|} \notag
-\end{align}
-Determiniamo $\braket{\frac{1}{|\mathbf{r} - \mathbf{r}_e|}}_{1s}$. Si ha 
-\begin{align}
-    \braket{\frac{1}{|\mathbf{r} - \mathbf{r}_e|}}_{1s} &= \int d^3\mathbf{r}_e \, \psi^*_{1s}\frac{1}{|\mathbf{r} - \mathbf{r}_e|}\psi_{1s} \notag \\
-    &\sim \int d^3\mathbf{r}_e \, |\psi_{1s}(r)|^2\sum_{l = 0}^{n - 1}\sum_{m = -l}^l \frac{4\pi}{2l + 1}\frac{r^l_<}{r^{l + 1}_>}Y_{lm}(\theta_{\mathbf{r}}, \varphi_\mathbf{r})Y_{lm}(\theta_{\mathbf{r}_e}, \varphi_{\mathbf{r}_e}) \notag
-\end{align}
-A questo punto possiamo sfruttare le proprietà di ortogonalità delle armoniche sferiche moltiplicando e dividendo per $Y_{00}$ (è indifferenze se fa riferimento alla prima o seconda coordinata, infatti è una costante). Supponiamo di sfruttare l'ortogonalità con $Y_{lm}(\theta_\mathbf{r}, \varphi_{\mathbf{r}})$, allora 
-\begin{align}
-    \braket{\frac{1}{|\mathbf{r} - \mathbf{r}_e|}}_{1s} &\sim \int_0^\infty \frac{1}{\pi}drr^2 \, e^{-2r}\frac{4\pi}{r_>}\cancel{\frac{Y_{00}(\theta_{\mathbf{r}_e}, \varphi_{\mathbf{r}_e})}{Y_{00}(\theta_\mathbf{r}, \varphi_{\mathbf{r}})}} \notag \\
-    &= 4\left(\int_0^R drr^2 \, \frac{e^{-2r}}{r_>} + \int_{R}^\infty drr^2 \, \frac{e^{-2r}}{r_>}\right) \notag \\
-    &= 4\left(\int_0^R drr^2 \, \frac{e^{-2r}}{R} + \int_R^\infty drr^{\cancel{2}} \, \frac{e^{-2r}}{\cancel{r}}\right) \notag
-\end{align}
-dove si è decomposto l'intervallo $[0, \infty)$ in $[0, R] \cup (R, \infty)$ per determinare $r_>$. A questo punto possiamo calcolare gli integrali usando i risultati del formulario.
 
 \newpage
 \subsection{Effetto Stark}
@@ -720,42 +567,6 @@ Per lo stato $1s$ la perturbazione è nulla, pertanto è necessario considerare 
     &= -\frac{E^2}{E_2 - E_1}\frac{\braket{r^2}_{100}}{3} = -\frac{8}{3}E^2 \tag{1.6.6}
 \end{align}
 Allora $\boldsymbol{\mu}_{dip} = -\frac{\partial E}{\partial \mathbf{E}} \sim \mathbf{E}$.
-
-\subsubsection{Esercizi}
-\textbf{1.} Consideriamo un atomo idrogenoide soggetto ad un campo magnetico $\mathbf{B} = B(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0)$. Calcolare $\mu = \frac{\partial E}{\partial B}$ e $\chi = \frac{\partial^2E}{\partial B^2}$. \\
-
-\textbf{Soluzione:} sappiamo che in prima approssimazione si ha 
-\begin{align}
-    E_{int} = -\mathbf{m} \cdot \mathbf{B} \notag
-\end{align}
-dove $\mathbf{m} = -\mu_B(\mathbf{L} + 2\cancel{\mathbf{S}})$, dato che trascuriamo lo spin. Allora 
-\begin{align}
-    E_{int} = \frac{1}{2}\mathbf{L} \cdot \mathbf{B} = 0 \notag
-\end{align}
-per gli stati a $l = 0$. Dobbiamo considerare il termine quadratico $\frac{1}{2}\mathbf{A}^2$ 
-\begin{align}
-    E_{int} &= \frac{1}{2}\mathbf{A}^2 \notag \\
-    &= \frac{1}{8}(\mathbf{B} \times \mathbf{r})^2 \notag \\
-    &= \frac{1}{16}\left(Bz\mathbf{i} + By\mathbf{k} - Bx\mathbf{k} - Bz\mathbf{j}\right)^2 \notag \\
-    &= \frac{B^2}{16}\left(z(\mathbf{i} - \mathbf{j}) + (y - x)\mathbf{k}\right)^2 \notag \\
-    &= \frac{B^2}{16}(2z^2 + (x - y)^2) \notag \\
-    &= \frac{B^2}{16}(z^2 + r^2 - 2xy) \notag
-\end{align}
-Segue che 
-\begin{align}
-    \Delta E^{(1)} &= \braket{1s|\frac{B^2}{16}(z^2 + r^2 - 2xy)|1s} \notag \\
-    &= \frac{B^2}{16}(\braket{z}^2_{1s} + \braket{r^2}_{1s} - 2\braket{xy}_{1s}) \notag \\
-    &= \frac{B^2}{16}(\frac{4}{3}\braket{r^2}_{1s} - 2\braket{xy}_{1s}) \notag
-\end{align}
-dove 
-\begin{align}
-    \braket{xy}_{1s} &= \int_0^\infty dr \, \frac{1}{\pi}r^4e^{-r}\int_0^{2\pi}d\varphi \int_0^\pi \sin\theta d\theta \, \cos\theta = 0 \notag
-\end{align}
-dato che è nullo l'integrale in $d\theta$. Concludiamo che $Delta E^{(1)} = \frac{B^2}{4}$, allora 
-\begin{align}
-    \mu = \frac{B}{2} \qquad \chi = \frac{1}{2} \notag
-\end{align}
-Notiamo che se il campo avesse avuto solamente componente $z$ il risultato sarebbe stato comunque lo stesso per simmetria sferica dello stato $1s$.
 
 \newpage
 \section{Atomi a più elettroni}
@@ -1075,13 +886,7 @@ Nel caso particolare di molecole biatomiche la dipendenza dalle coordinate nucle
 \newpage
 \subsection{Molecola $H^+_2$}
 Consideriamo la molecola $H^+_2$. Sia $R$ la distanza tra il nucleo $A$ e $B$ e poniamo $\mathbf{r}_A$ e $\mathbf{r}_B$ rispettivamente la distanza dell'elettrone dal nucleo $A$ e dal nucleo $B$. \\ \\
-Approssiamo le soluzioni del moto elettronico $(3.1.3)$ con combinazioni lineari di orbitali atomici a un elettrone di tipo $1s$
-\begin{align}
-    \phi_a(\mathbf{r}_a) &= \frac{1}{\sqrt{\pi}}e^{-r_a} \notag \\
-    \phi_b(\mathbf{r}_b) &= \frac{1}{\sqrt{\pi}}e^{-r_b} \notag
-\end{align}
-$\phi_a$ e $\phi_b$ sono normalizzati ma non sono tra essi ortogonali. \\
-Usiamo il modello LCAO, ovvero supponiamo che la funzione d'onda possa essere espressa come combinazione lineare di orbitali atomici (in questo caso $\phi_a$ e $\phi_b$). Definiamo le funzioni d'onda \textit{gerade} $\phi_g$ e \textit{ungerade} $\phi_u$ come segue 
+Applichiamo il metodo LCAO, ovvero diagonalizziamo l'hamiltoniano nella base composta da orbitali atomici di singolo elettrone, in questo caso $\phi_a = \phi_{1s}(r_a)$ e $\phi_b = \phi_{1s}(r_b)$. Definiamo le funzioni d'onda \textit{gerade} $\phi_g$ e \textit{ungerade} $\phi_u$ come segue 
 \begin{align}
     \phi_g = N_g(\phi_a + \phi_b) \tag{3.2.1} \\
     \phi_u = N_u(\phi_a - \phi_b) \tag{3.2.2}
@@ -1148,28 +953,29 @@ Allora
 
 \newpage
 \subsection{Molecola $H_2$}
-L'hamiltoniano che descrive una molecola di $H^2$ è 
+L'hamiltoniano che descrive una molecola di $H_2$ è 
 \begin{align}
     H = \left(-\frac{\nabla^2_1}{2} - \frac{1}{r_{a_1}} - \frac{1}{r_{b_1}}\right) + \left(-\frac{\nabla^2_2}{2} - \frac{1}{r_{a_2}} - \frac{1}{r_{b_2}}\right) + \frac{1}{r_{12}} + \frac{1}{R} \tag{3.3.1}
 \end{align}
 dove $r_{a_1}$ e $r_{b_1}$ sono rispettivamente la distanza dell'elettrone $1$ dal nucleo $A$ e dal nucleo $B$, $r_{a_2}$ e $r_{b_2}$ sono rispettivamente la distanza dell'elettrone $2$ dal nucleo $A$ e dal nucleo $B$, mentre $\frac{1}{R}$ è il potenziale di interazione nucleare e $\frac{1}{r_{12}}$ il potenziale di interazione elettronica. \\
 A meno di sommare e sottrare un termine $\frac{1}{R}$, possiamo riscrivere la $(3.3.1)$ come segue
 \begin{align}
-    H = h_1 + h_2 - \frac{1}{R} + \frac{1}{r_{12}} \tag{3.3.2}
+    H = \hat{h}_1 + \hat{h}_2 - \frac{1}{R} + \frac{1}{r_{12}} \tag{3.3.2}
 \end{align}
-dove $h_1, h_2$ sono rispettivamente l'hamiltoniano di $H^+_2$ per l'elettrone $1$ e per l'elettrone $2$. \\ \\
-Prendiamo come funzioni di prova variazionali il prodotto di autofunzioni di $h_i$, ovvero 
+dove $\hat{h}_1, \hat{h}_2$ sono rispettivamente l'hamiltoniano di $H^+_2$ per l'elettrone $1$ e per l'elettrone $2$. \\ \\
+Trascurando il termine di interazione elettronica, l'energia dello stato fondamentale di $H_2$ sarebbe data da $E = 2E_+ - \frac{1}{R}$, dove $E_+ = \braket{\phi_g|\hat{h}|\phi_g}$, dato che sappiamo che $\phi_g$ è lo stato fondamantale della molecola $H^+_2$. \\
+Possiamo pensare di trattare il termine di interazione elettronica come una perturbazione al primo ordine. La soluzione del problema imperturbato $H_0 = \hat{h}_1 + \hat{h}_2 - \frac{1}{R}$ è
 \begin{align}
     \phi(r_1, r_2) = \phi_g(r_1)\phi_g(r_2) \tag{3.3.3}
 \end{align}
-In particolare, ricordando le espressioni $(3.2.9)$, si ha 
+Ricordando le espressioni $(3.2.9)$, si ha 
 \begin{align}
     \phi(r_1, r_2) &= N^2_g(\phi_{1s}(r_{a_1}) + \phi_{1s}(r_{b_1}))(\phi_{1s}(r_{a_2}) + \phi_{1s}(r_{b_2})) \notag \\
     &=N^2_g(\overbrace{\phi_{1s}(r_{a_1})\phi_{1s}(r_{a_2}) + \phi_{1s}(r_{b_1})\phi_{1s}(r_{b_2})}^{\text{contr. ionico}} + \notag \\
     &+ \overbrace{\phi_{1s}(r_{a_1})\phi_{1s}(r_{b_2}) + \phi_{1s}(r_{a_2})\phi_{1s}(r_{b_1})}^{\text{contr. covalente}}) \notag \\
     &= N^2_g(\phi_{ion} + \phi_{cov}) \tag{3.3.4}
 \end{align}
-Notiamo che in questo modello il contributo ionico e quello covalente sono equipesati. Tuttavia non è un risultato del tutto corretto, infatti, affinché la molecola esista e sia stabile, ci aspettiamo che il contributo covalente pasi molto di più del contributo ionico. \\ \\
+Notiamo che in questo modello il contributo ionico e quello covalente sono equipesati. Tuttavia non è un risultato del tutto corretto, infatti, affinché la molecola esista e sia stabile, ci aspettiamo che il contributo covalente pesi molto di più del contributo ionico. \\ \\
 Inoltre, $\phi$ è simmetrica per scambio di particelle, pertanto la funzione d'onda di spin deve essere il singoletto $\chi_S$, in modo tale da rendere la funzione d'onda complessiva antisimmetrica. In particolare 
 \begin{align}
     \phi(r_1, r_2) = \frac{N^2_g}{\sqrt{2}}(g_1\overline{g}_2 - \overline{g}_1g_2) \tag{3.3.5}
@@ -1186,6 +992,7 @@ Calcoliamo l'energia totale del sistema
     \braket{\phi|H|\phi} &= \frac{N^4}{2}\braket{g_1\overline{g}_2 - \overline{g}_1g_2|h_1 + h_2 - \frac{1}{R} + \frac{1}{r_{12}}|g_1\overline{g}_2 - \overline{g}_1g_2} \notag \\
     &= 2E_g + J_{gg} - \frac{1}{R} \tag{3.3.7}
 \end{align}
+dove $J_{gg} = \braket{\phi|\frac{1}{r_{12}}|\phi}$ è la correzione al primo ordine dell'energia. \\ \\
 Un metodo più preciso è il variazionale lineare, in particolare diagonalizziamo $H$ nella base $\{\ket{g\overline{g}}_{det}, \ket{u\overline{u}}_{det}\}$ 
 \begin{align}
     H &= \begin{pmatrix}
@@ -1199,7 +1006,7 @@ Un metodo più preciso è il variazionale lineare, in particolare diagonalizziam
 \end{align}
 Le energie che si ottegono sono 
 \begin{align}
-    E_{\pm} &= \frac{1}{2}((\alpha + \beta)) \pm (\alpha - \beta)\sqrt{1 + \frac{4\gamma^2}{(\alpha - \beta)^2}} \notag \\
+    E_{\pm} &= \frac{1}{2}((\alpha + \beta) \pm (\alpha - \beta))\sqrt{1 + \frac{4\gamma^2}{(\alpha - \beta)^2}} \notag \\
     &\sim \begin{cases}
         \alpha\left(1 + \frac{2\gamma^2}{(\alpha - \beta)^2}\right) \\
         -\beta\left(1 + \frac{2\gamma^2}{(\alpha - \beta)^2}\right)
@@ -1207,7 +1014,7 @@ Le energie che si ottegono sono
 \end{align}
 
 \newpage
-\subsection{Modello Valence Bond (VB)}
+\subsection{Modello Valence Bond (VB) o Heitler-London}
 Consideriamo sempre la molecola di $H_2$. Supponiamo innanzitutto che i due nuclei siano a distanza infinita, l'orbitale atomico che descrive l'elettrone $1$ attorno al nucleo $A$ è 
 \begin{align}
     \phi_A(r_1) \notag
@@ -1232,6 +1039,8 @@ Dato che la parte spaziale è simmetrica per scambio, la componente di spin deve
 \begin{align}
     \psi_{VB} = \phi_{VB}\chi_S \tag{3.4.2}
 \end{align}
+Essenzialmente, il metodo MO-LCAO sottostima la relazione di carica, ovvero considerare il termine covalente e il termine ionico con lo stesso peso. Mentre, il metodo VB sovrastima la relazioni di carica, infatti considera solamente il termine covalente. \\
+Per correggere il metodo VB si può introdurre un termine ionico modulato da un parametro $\lambda > 0$. Per $H_2$ si trova che il valore ottimale di $\lambda$ è circa $\frac{1}{6}$.
 
 \newpage
 \subsection{Moti nucleari}
@@ -1555,31 +1364,4 @@ mentre l'equazione differenziale per determinare $\phi$ diventa
 \begin{align}
     \nabla^2\phi - \mu_0\varepsilon_0\frac{\partial^2\phi}{\partial t^2} = -\frac{\rho}{\varepsilon_0} \notag
 \end{align}
-
-
-
-\newpage
-\section*{Formulario}
-\subsection*{Integrali pseudo-gaussiani}
-Per ogni $k \in \mathbf{N}$ si ha
-\begin{align}
-    \int_0^\infty x^{2k + 1}e^{-ax^2} \, dx &= \frac{k!}{2a^{k + 1}} \notag \\
-    \int_{-\infty}^\infty x^{2k}e^{-ax^2} \, dx &= \frac{(2k - 1)!!}{(2a)^k}\sqrt{\frac{\pi}{a}} \notag \\
-    \int_0^\infty x^{2k}e^{-ax^2} \, dx &= \frac{(2k - 1)!!}{2(2a)^k}\sqrt{\frac{\pi}{a}} \notag \\
-    \int e^{-ax}x^n \, dx &= \frac{e^{-ax}}{a}\left(x^n - \frac{nx^{n - 1}}{a} + \frac{n(n - 1)x^{n - 2}}{a^2} + \dots + \frac{(-1)^nn!}{a^n}\right) \notag \\
-    \int_0^\infty e^{-ax}x^n \, dx &= \frac{n!}{a^{n + 1}} \notag \\
-    \int_R^\infty e^{-ax}x^n \, dx &= e^{-aR}\sum_{k = 0}^n \frac{n!}{k!}\frac{aR^k}{e^{a - k + 1}} \notag
-\end{align}
-\subsection*{Regole di selezione}
-\begin{align}
-    \Delta l = \pm 1 \quad \Delta j = 0, \pm 1 \quad \Delta m_j = 0, \pm 1 \notag
-\end{align}
-\subsection*{Momenti di r}
-\begin{align}
-    \braket{r} &= \frac{1}{2}a_0(3n^2 - l(l + 1)) \notag \\
-    \braket{r^2} &= \frac{1}{2}a^2_0n^2(5n^2 + 1 - 3l(l + 1)) \notag
-\end{align}
-
-
-
 \end{document}
