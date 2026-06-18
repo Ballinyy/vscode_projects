@@ -131,9 +131,9 @@ inoltre $r^H_{n = 1} = a_0$ e $v^H_{n = 1} = 2.2 \cdot 10^6 m/s$.
 L'energia relativistica dell'elettrone in un atomo idrogenoide è
 \begin{align}
     E_{rel} &= \sqrt{p^2c^2 + m^2_ec^4} \notag \\
-    &= m_ec^2\sqrt{1 + \frac{p^2}{m^2_ec^2}} \tag{1.2.1}
+    &= m_ec^2\sqrt{1 + \frac{p^2}{m^2_ec^2}} = m_ec^2\sqrt{1 + \frac{v^2}{c^2}} \tag{1.2.1}
 \end{align}
-dunque usando l'approssimazione $\sqrt{1 + \varepsilon} \sim 1 + \frac{1}{2}\varepsilon - \frac{1}{8}\varepsilon^2$ si ottiene
+dunque, per $\frac{v}{c} << 1$, usando l'approssimazione $\sqrt{1 + \varepsilon} \sim 1 + \frac{1}{2}\varepsilon - \frac{1}{8}\varepsilon^2$ si ottiene
 \begin{align}
     E_{rel} &\sim m_ec^2\left(1 + \frac{p^2}{2m^2_ec^2} - \frac{p^4}{8m^4_ec^4}\right) \notag \\
     &= m_ec^2 + \frac{p^2}{2m_e} - \frac{p^4}{8m^3_ec^2} \tag{1.2.2}
@@ -169,15 +169,15 @@ dunque in unità atomiche si ha
 \subsubsection*{Interazione spin-orbita}
 La seconda correzione è dovuta al moto del nucleo del sistema di riferimento dell'elettrone. L'elettrone osserva una densità di corrente dovuta al moto relativo del nucleo e dunque un campo magnetico. In particolare si ha 
 \begin{align}
-    \mathbf{j} = -Ze\mathbf{v} \tag{1.2.9}
+    \mathbf{j} = Ze\mathbf{v} \tag{1.2.9}
 \end{align}
 Il campo magnetico osservato è dato da
 \begin{align}
-    \mathbf{B} = \frac{\mu_0}{4\pi}\frac{\mathbf{j} \times \mathbf{u}_r}{r^2} = -\frac{\mu_0}{4\pi}Ze\frac{\mathbf{v} \times \mathbf{u}_r}{r^2} \tag{1.2.10}
+    \mathbf{B} = \frac{\mu_0}{4\pi}\frac{\mathbf{j} \times \mathbf{u}_r}{r^2} = \frac{\mu_0}{4\pi}Ze\frac{\mathbf{v} \times \mathbf{u}_r}{r^2} \tag{1.2.10}
 \end{align}
 ponendo
 \begin{align}
-    \mathbf{E} = \frac{Ze^2}{4\pi\varepsilon_0r^2}\mathbf{u}_r \tag{1.2.11}
+    \mathbf{E} = -\frac{Ze^2}{4\pi\varepsilon_0r^2}\mathbf{u}_r \tag{1.2.11}
 \end{align}
 possiamo scrivere
 \begin{align}
@@ -251,7 +251,7 @@ Scegliendo la gauge di Coulomb, dalle equazione di Maxwell otteniamo
         \mathbf{A}(\omega, \mathbf{r}, t) &= \int_0^\infty d\omega \, A_0(\omega)\cos(\mathbf{k} \cdot \mathbf{r} - \omega t -\delta_\omega)\mathbf{u}
     \end{cases} \tag{1.3.1}
 \end{align}
-dove $\mathbf{u}$ è il versore che identifica la polarizzazione del campo elettromagnetico. \\ \\
+dove $\mathbf{u}$ è il versore che identifica la polarizzazione del campo elettromagnetico, mentre $\mathbf{A}$ è integrato in $d\omega$ perché stiamo considerando un campo elettromagnetico composto da più onde. \\ \\
 Ricordiamo che l'hamiltoniano di una particella con carica $q$ soggetta ad un campo elettromagnetico è data dall'accoppiamento minimo, ovvero $\mathbf{p} \rightarrow \mathbf{p} - q\mathbf{A}$, allora in unità atomiche
 \begin{align}
     H &= \frac{(\mathbf{p} + \mathbf{A})^2}{2m} - \frac{Z}{r} \notag \\
@@ -264,7 +264,7 @@ dove si è trascurato il termine quadratico $\mathbf{A}^2$ per campi elettromagn
     \nabla \cdot (\mathbf{A}\psi) = \psi\cancel{\nabla \cdot \mathbf{A}} + \mathbf{A}\nabla\phi \tag{1.3.3}
 \end{align}
 dato che in gauge di Coulomb si ha $\nabla \cdot \mathbf{A} = 0$. In $(1.4.2)$ $\nabla \cdot \mathbf{A}$ è da intendere come operatore che agisce sui vettori dello spazio di Hilbert in esame. \\ \\
-Ricordiamo che l'intensità dell'onda elettromagnetica (che sappiamo essere proporzionale al numero di fotoni) è definita come il valor medio del vettore di Poynting $\mathbf{S} = \mathbf{E} \times \mathbf{H}$, in particolare si ha 
+Ricordiamo che l'intensità dell'onda elettromagnetica (che sappiamo essere proporzionale al numero di fotoni) è definita come il valor medio del flusso del vettore di Poynting $\mathbf{S} = \mathbf{E} \times \mathbf{H}$, in particolare si ha 
 \begin{align}
     I &= \braket{\mathbf{S}} \notag \\
     &= \braket{\mathbf{E} \times \mathbf{H}} \notag \\
@@ -357,7 +357,7 @@ Allora
 \end{align}
 In particolare 
 \begin{align}
-    \braket{f|r_q|i} &= \sqrt{\frac{4\pi}{3}}\int_0^\infty dr \, R_{nlm}R_{n'l'm'}r^3 \int_0^{2\pi}d\varphi \int_0^\pi \sin\theta d\theta \, Y_{nlm}Y_{1q}Y_{n'l'm'} \tag{1.3.20}
+    \braket{f|r_q|i} &= \sqrt{\frac{4\pi}{3}}\int_0^\infty dr \, r^2 R_{nlm}R_{n'l'm'}r_q \int_0^{2\pi}d\varphi \int_0^\pi \sin\theta d\theta \, Y_{nlm}Y_{1q}Y_{n'l'm'} \tag{1.3.20}
 \end{align}
 Poiché l'operatore $\mathbf{A} \cdot \nabla$ è invariante per scambio $\theta \rightarrow \pi - \theta$ e $\varphi \rightarrow \pi + \varphi$, deve valere anche per il termine $\braket{f|r_q|i}$ per ogni $q = -1, 0, 1$. Allora, dato che le armoniche sferiche hanno simmetria $(-1)^{l}$ deve valere $(-1)^{l + l' + 1} = 1$, ovvero $l + l' + 1$ deve essere pari, ciò comporta $\Delta l = \pm 1$. \\
 Inoltre 
@@ -422,7 +422,7 @@ Se supponiamo che l'elettrone compie un'orbita circolare attorno al nucleo ed in
 \begin{align}
     \mathbf{m} = i\Sigma \hat{n} \notag
 \end{align}
-dove $i = -\frac{e}{T} = -\frac{e\omega}{2\pi}$, $\hat{n}$ è il versore perpendicolare alla superficie $\Sigma$ e $\Sigma = \pi R^2$ con $R$ raggio dell'orbita. Allora 
+dove $i = -\frac{e}{T} = -\frac{e\omega}{2\pi}$, $\hat{n}$ è il versore perpendicolare alla superficie $\Sigma$ e $\Sigma = \pi R^2$ con $R$ raggio dell'orbita, orientato secondo la regola della mano destra rispetto al verso della corrente. Allora 
 \begin{align}
     -\mathbf{m} = -\frac{e\omega}{2\pi}\pi R^2 \hat{n} = \frac{e\omega R^2}{2}\hat{n} = \frac{e\mathbf{L}}{2m} = -\frac{\mu_B}{\hbar}\mathbf{L} \tag{1.4.6}
 \end{align}
@@ -467,7 +467,7 @@ Trattiamo il termine dovuto all'interazione spin-orbita come una perturbazione r
     &= \frac{\alpha^2Z}{4}(m_lm_s)\braket{\frac{1}{r^3}}_{nl} \notag \\
     &= \frac{\alpha^2Z}{4}\frac{Z^3}{n^2l(l + 1/2)(l + 1)}(m_lm_s) = \lambda_{nl}m_lm_s \tag{1.4.13}
 \end{align}
-Notiamo che il termine di interazione spin-orbita non rompe nessuna degenerazione. \\ \\
+Notiamo che il termine di interazione spin-orbita rompe la degenerazione in $l, m_l, m_s$. \\ \\
 Per il \textit{teorema di Wigner-Eckart}, data la simmetria radiale del potenziale, si ha che $\mathbf{L}$ e $\mathbf{S}$ sono proporzionali a $\mathbf{J}$, pertanto possiamo scrivere 
 \begin{align}
     H &= H_0 + H_{SO} + \mu_BB(L_z + 2S_z) \notag \\
@@ -654,7 +654,7 @@ Con questa approssimazione si ottiene un energia totale
     E_{tot} = -\frac{Z^2}{2}\left(\frac{1}{n^2_1} + \frac{1}{n^2_2}\right) \tag{2.3.3}
 \end{align}
 che per lo stato fondamentale dell'elio ($n_1, n_2 = 1$, $Z = 2$) fornisce $E_{tot} = -4 \, ua$, ovvero si compie un errore del $40 \%$ circa. \\ \\
-Se trattiamo il termine $\frac{1}{r_{12}}$ come una perturbazione rispetto all'hamiltoniano $H = h_1 + h_2$ si ottiene una correzione all'energia dello stato fondamentale data da 
+Se trattiamo il termine $\frac{1}{r_{12}}$ come una perturbazione rispetto all'hamiltoniano $H = \hat{h}_1 + \hat{h}_2$ si ottiene una correzione all'energia dello stato fondamentale data da 
 \begin{align}
     \Delta E^{(1)} &= \braket{\psi_{1s}(r_1, r_2)|\frac{1}{r_{12}}|\psi_{1s}(r_1, r_2)} \notag \\
     &= \int d^3\mathbf{r}_1d^3\mathbf{r}_2 \, \frac{Z^6}{\pi^2}e^{-2Z(r_1 + r_2)}\frac{1}{r_{12}} \notag \\
@@ -779,28 +779,28 @@ Introduciamo gli operatori $\hat{J}_j$ e $\hat{K}_i$, che operano come segue
 \end{align}
 Il termine $\delta_{ij}$ è costante, dunque $\delta \delta_{ij} = 0$. Mentre per il vincolo si ha 
 \begin{align}
-    \delta(\epsilon_{ij}\braket{\psi_{a_i}|\psi_{a_j}}) = \epsilon_{ij}\int d^3\mathbf{r} \, \delta\psi^*_{a_i}(r)\psi_{a_j}(r) \tag{2.5.8}
+    \delta(\epsilon_{ij}\braket{\psi_{a_i}|\psi_{a_j}}) = \epsilon_{ij}\int d^3\mathbf{r} \, \delta\psi^*_{a_i}(r)\psi_{a_j}(r) \tag{2.5.10}
 \end{align}
 Unendo tutti i termini si ottiene 
 \begin{align}
     0 &= \delta E_{HF} - \sum_{ij}\delta(\epsilon_{ij}\braket{\psi_{a_i}|\psi_{a_j}}) \notag \\
-    &= \sum_{ij} \left(\int d^3\mathbf{r} \, \delta\psi^*_{a_i}(\hat{h} + \hat{J}_j(1) - \hat{K}_j(1))\psi_{a_i} - \epsilon_{ij}\int d^3\mathbf{r} \, \delta\psi^*_{a_i}\psi_{a_i}\right) \tag{2.5.9}
+    &= \sum_{ij} \left(\int d^3\mathbf{r} \, \delta\psi^*_{a_i}(\hat{h} + \hat{J}_j(1) - \hat{K}_j(1))\psi_{a_i} - \epsilon_{ij}\int d^3\mathbf{r} \, \delta\psi^*_{a_i}\psi_{a_i}\right) \tag{2.5.11}
 \end{align}
 Dato che la $(2.5.9)$ deve valere per ogni variazione arbitraria $\delta$ si ottiene 
 \begin{align}
-    \sum_j(\hat{h} + \hat{J}_j(1) - \hat{K}_j(1))\psi_{a_i} = \sum_j \epsilon_{ij}\psi_{a_i} \tag{2.5.10}
+    \sum_j(\hat{h} + \hat{J}_j(1) - \hat{K}_j(1))\psi_{a_i} = \sum_j \epsilon_{ij}\psi_{a_i} \tag{2.5.12}
 \end{align}
 Ponendo $\hat{f}(1) = \hat{h} + \sum_j (\hat{J}_j(1) - \hat{K}_j(1))$ \textit{operatore di Fock}, l'equazione di HF diventa 
 \begin{align}
-    \hat{f}\psi_{a_i} = \sum_j \epsilon_{ij}\psi_{a_i} \tag{2.5.12}
+    \hat{f}\psi_{a_i} = \sum_j \epsilon_{ij}\psi_{a_i} \tag{2.5.13}
 \end{align}
-La matrice dei moltiplicatori di Lagrange è simmetrica (reale) e quindi può essere diagonalizzata con una opportuna trasformazione unitaria applicata agli spin-oribitali. In tal caso si ottiene la forma diagonalizzata dell'equazione di HF 
+La matrice dei moltiplicatori di Lagrange è simmetrica (reale) e quindi può essere diagonalizzata con una opportuna trasformazione unitaria applicata agli spin-orbitali. In tal caso si ottiene la forma diagonalizzata dell'equazione di HF 
 \begin{align}
-    \hat{f}\psi_{a_i} = \epsilon_i\psi_{a_i} \tag{2.5.13}
+    \hat{f}\psi_{a_i} = \epsilon_i\psi_{a_i} \tag{2.5.14}
 \end{align}
 Il metodo di HF è iterativo, pertanto, una volta scelti degli spin-orbitali iniziali $\{\psi^{(0)}_{a_i}\}_{i \in I}$, si può risolvere per ottenere altri spin-orbitali tramite 
 \begin{align}
-    \hat{f}^{(0)}\psi^{(1)}_{a_i} &= \epsilon^{(1)}_{i}\psi^{(1)}_{a_i} \tag{2.5.14}
+    \hat{f}^{(0)}\psi^{(1)}_{a_i} &= \epsilon^{(1)}_{i}\psi^{(1)}_{a_i} \tag{2.5.15}
 \end{align}
 dove 
 \begin{align}
@@ -1165,12 +1165,20 @@ Imponendo che $\frac{\partial I}{\partial j}(j_{max}) = 0$ si ottiene
 \begin{align}
     j_{max} = \frac{1}{2}\left(\sqrt{\frac{2kT}{B}} - 1\right) \tag{3.6.5}
 \end{align}
-Come visto per le transizioni tra stati atomici, la probabilità $P_{\alpha\alpha'}$ di transizione da uno stato molecolare $\alpha = \ket{n, v, J}$ a uno stato $\alpha' = \ket{n', v', J'}$ è proporzionale al termine $\braket{\alpha|\boldsymbol{\epsilon}_{k\lambda} \cdot \boldsymbol{\mu}|\alpha'}$, dove $\boldsymbol{\epsilon}{k\lambda}$ è il versore che fornisce la direzione di propagazione dell'onda, mentre $\boldsymbol{\mu}$ è il momento di dipolo permanente della molecola. In particolare 
+Come visto per le transizioni tra stati atomici, la probabilità $P_{\alpha\alpha'}$ di transizione da uno stato molecolare $\alpha = \ket{n, v, J}$ a uno stato $\alpha' = \ket{n', v', J'}$ è proporzionale al termine $\braket{\alpha|\boldsymbol{\epsilon}_{k\lambda} \cdot \boldsymbol{\mu}|\alpha'}$, dove $\boldsymbol{\epsilon}_{k\lambda}$ è il versore che fornisce la direzione di propagazione dell'onda, mentre $\boldsymbol{\mu}$ è il momento di dipolo permanente della molecola. In particolare 
 \begin{align}
     \boldsymbol{\mu} = \sum_i Z_A\mathbf{R}_A - \sum_i \mathbf{r}_i \tag{3.6.6}
 \end{align}
 Notiamo immediatamente che per molecole biatomoche omonucleari $\boldsymbol{\mu} = 0$, pertanto non si hanno spettri rotovibrazionali (e rotazionali). \\ \\
-Infine, notiamo che gli unici spettri puri sono quelli rotazionali, dato che sono le transizioni a energia più bassa. Transizioni vibrazionali comportano aumaticamente anche transizioni rotazione. Analogamente, transizioni elettroniche (più energetiche tra le tre) comportano anche transizioni rotovibrazionali. 
+Infine, notiamo che gli unici spettri puri sono quelli rotazionali, dato che sono le transizioni a energia più bassa. Transizioni vibrazionali comportano aumaticamente anche transizioni rotazione. Analogamente, transizioni elettroniche (più energetiche tra le tre) comportano anche transizioni rotovibrazionali. \\ \\
+Le scale di energia necessaria per osservare i vari spettri sono le seguenti:
+\begin{align}
+    \begin{cases}
+        \text{spettro rotazionale puro}: \quad &1 \div 100 \, cm^{-1} \\
+        \text{spettro rotovibrazionale}: \quad &10^2 \div 10^4 \, cm^{-1} \\
+        \text{spettro elettronico}: \quad &10^4 \div 10^5 \, cm^{-1}
+    \end{cases} \tag{3.6.7}
+\end{align}
 
 \newpage
 \subsection{Principio di Frank-Condon e transizioni elettroniche}
@@ -1188,7 +1196,7 @@ Le possibili transizioni elettroniche sono: \\
 \newpage
 \subsection{Spettroscopia Raman}
 Come visto nel paragrafo $3.6$, è possibile osservare spettri rotovibrazionali (in approssimazione di dipolo) solamente per molecole con momento di dipolo permanente non nullo. \\ \\
-La spettroscopia Raman viene applicata per osservare gli spettri di molecole insondabili con spettroscopia IR. In particolare sfrutta la polarizzabilità anisotropa della molecola, ovvero, anche se la molecola ha momento di dipolo nullo, induce un momento di dipolo non nullo $\boldsymbol{\mu}$ tramite un campo elettrico $\mathbf{E}$. Fissata una direzione e posto $\alpha$ polarizzabilità anisotropa della molecola lungo tale direzione, si ha
+La spettroscopia Raman viene applicata per osservare gli spettri di molecole insondabili con spettroscopia standard. In genere viene usato un laser nel raggio del visibile o vicino all'infrarosso come radiazione elettromagnetica. In particolare, la spettroscopia Raman sfrutta la polarizzabilità anisotropa della molecola, ovvero, anche se la molecola ha momento di dipolo nullo, induce un momento di dipolo non nullo $\boldsymbol{\mu}$ tramite un campo elettrico $\mathbf{E}$. Fissata una direzione e posto $\alpha$ polarizzabilità anisotropa della molecola lungo tale direzione, si ha
 \begin{align}
     \boldsymbol{\mu} = \alpha\mathbf{E} \tag{3.8.1}
 \end{align}
