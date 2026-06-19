@@ -124,7 +124,7 @@ Usando $(1.1.5)$ si ottengono i corretti livelli energetici dell'elettrone, i ra
 \begin{align}
     \mathcal{E}^H_n = -\frac{1}{2}\left(\frac{Ze^2}{4\pi\varepsilon_0}\right)^2\frac{1}{n^2\hbar^2} \tag{1.1.8}
 \end{align}
-inoltre $r^H_{n = 1} = a_0$ e $v^H_{n = 1} = 2.2 \cdot 10^6 m/s$.
+inoltre $r^H_{n = 1} = a_0$ e $v^H_{n = 1} = 2.2 \cdot 10^6 \, m/s$.
 
 \newpage
 \subsection{Correzioni relativistiche}
@@ -358,10 +358,10 @@ Allora
 \end{align}
 In particolare 
 \begin{align}
-    \braket{f|r_q|i} &= \sqrt{\frac{4\pi}{3}}\int_0^\infty dr \, r^2 R_{nlm}R_{n'l'm'}r_q \int_0^{2\pi}d\varphi \int_0^\pi \sin\theta d\theta \, Y_{nlm}Y_{1q}Y_{n'l'm'} \tag{1.3.20}
+    \braket{f|r_q|i} &= \sqrt{\frac{4\pi}{3}}\int_0^\infty dr \, r^2 R_{nl}R_{n'l'}r_q \int d\Omega \, Y_{lm}Y_{1q}Y_{l'm'} \tag{1.3.20}
 \end{align}
-Poiché l'operatore $\mathbf{A} \cdot \nabla$ è invariante per scambio $\theta \rightarrow \pi - \theta$ e $\varphi \rightarrow \pi + \varphi$, deve valere anche per il termine $\braket{f|r_q|i}$ per ogni $q = -1, 0, 1$. Allora, dato che le armoniche sferiche hanno simmetria $(-1)^{l}$ deve valere $(-1)^{l + l' + 1} = 1$, ovvero $l + l' + 1$ deve essere pari, ciò comporta $\Delta l = \pm 1$. \\
-Inoltre 
+Dato che le armoniche sferiche hanno simmetria $(-1)^{l}$ deve valere $(-1)^{l + l' + 1} = 1$, ovvero $l + l' + 1$ deve essere pari, altrimenti l'integrale in $d\Omega$ è nullo. Inoltre, il prodotto $Y_{1q}Y_{l'm'}$ può essere espresso come combinazione lineare di $Y_{j' + 1, m + q}, Y_{j', m + q}, Y_{j' - 1, m + q}$ (come se fosse una combinazione di momenti angolari), pertanto, per le proprietà di ortonormalità delle armoniche sferiche, deve valere $\Delta j = \pm 1$ affinché l'integrale sia non nullo. \\
+Infine notiamo che 
 \begin{align}
     \int_0^{2\pi}d\varphi \, e^{i(m - m' + q)\varphi} \neq 0 \notag
 \end{align}
@@ -391,12 +391,12 @@ ovvero decresce esponenzialmente con rapidità dettata dal tempo di vita.
 \subsection{Atomo idrogenoide soggetto a campo elettromagnetico}
 Consideriamo un campo magnetico uniforme $\mathbf{B} = (0, 0, B)$. L'hamiltoniano di una particella soggetta al campo $\mathbf{B}$ (in unità atomiche) è 
 \begin{align}
-    H = \frac{(\mathbf{p} + \mathbf{A})^2}{2m} - \frac{Z}{r} \tag{1.4.1}
+    H = \frac{(\mathbf{p} + \mathbf{A})^2}{2} - \frac{Z}{r} \tag{1.4.1}
 \end{align}
 per \textit{accoppiamento minimale}, dove $\mathbf{A} = \frac{1}{2}\mathbf{B} \times \mathbf{r}$ in questo caso. Se supponiamo che il campo magnetico sia poco intenso possiamo trascurare il termine $\mathbf{A}^2$, pertanto si ottiene 
 \begin{align}
-    H &= \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{A}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} \notag \\
-    &\sim \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} = H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} \tag{1.4.2}
+    H &= \frac{\mathbf{p}^2}{2} + \frac{\mathbf{A}^2}{2} + \mathbf{p} \cdot \mathbf{A} - \frac{Z}{r} \notag \\
+    &\sim \frac{\mathbf{p}^2}{2} + \mathbf{p} \cdot \mathbf{A} - \frac{Z}{r} = H_0 + \mathbf{p} \cdot \mathbf{A} \tag{1.4.2}
 \end{align}
 dove $H_0$ è l'hamiltoniana dell'atomo idrogenoide (che sappiamo risolvere). In particolare 
 \begin{align}
@@ -415,7 +415,7 @@ Determiniamo l'ordine di grandezza del termine quadratico. Si ha
     &= \frac{1}{8}\mathbf{B}^2\left(1 - \frac{1}{3}\right)\braket{\mathbf{r}^2}_{n00} \tag{1.4.4} 
 \end{align}
 dove si è usato $\braket{\mathbf{r}^2}_{nlm} = \frac{1}{3}\braket{\mathbf{z}^2}_{nlm}$ per simmetria sferica del problema. Il termine $\braket{\mathbf{r}^2}_{n00}$ va come $n^4$. Pertanto per $n = 1$ si ha $\frac{1}{2}\mathbf{A}^2 \sim \mathbf{B}^2$ e il termine quadratico è trascurabile, mentre per $n$ abbastanza grandi ha un contributo che non può essere più tralasciato. \\ \\
-Sappiamo che, in prima approssimazione, il termine di interazione può essere scritto come $-\mathbf{m} \cdot \mathbf{B}$, dove $\mathbf{m}$ è il momento di dipolo. Allora deve valere 
+Sappiamo che, in prima approssimazione, il termine di interazione può essere scritto come $-\mathbf{m} \cdot \mathbf{B}$, dove $\mathbf{m}$ è il momento magnetico. Allora deve valere 
 \begin{align}
     -\mathbf{m} \cdot \mathbf{B} = \mathbf{p} \cdot \mathbf{A} \tag{1.4.5}
 \end{align}
@@ -431,7 +431,7 @@ dove $\mu_B$ è il magnetone di Bohr e si è usato $\mathbf{L} = m\omega R^2\hat
 \begin{align}
     -\mathbf{m} = -\frac{\mu_B}{\hbar}(\mathbf{L} + g\mathbf{S}) \tag{1.4.7}
 \end{align}
-dove $g$ è detto \textit{fattore giromagnetico} e tiene conto di quanto spin è necessario per generare un magnetone di Bohr. \\ \\
+dove $g$ è detto \textit{fattore giromagnetico} e tiene conto di quante unita $\hbar$ di spin $\mathbf{S}$ sono necessarie per generare un magnetone di Bohr. \\ \\
 Delle correzioni relativistiche ci interessa solamente l'interazione spin-orbita, dato che è l'unica che rompe la degenerazione. Studiamo il suo effetto in relazione all'intensità del campo magnetico.
 
 \subsubsection*{Effetto Zeeman}
@@ -643,7 +643,7 @@ Un atomo è detto \textit{elioide} se ha numero atomico $Z$ e possiede due elett
 \begin{align}
     H = -\frac{\nabla^2_1}{2} - \frac{\nabla^2_2}{2} - \frac{Z}{r_1} - \frac{Z}{r_2} + \frac{1}{r_{12}} \tag{2.3.1}
 \end{align}
-Per $Z = 2$ si ha l'atomo di elio, l'energia dello stato fondamentale dell'elio determinata sperimentlmente è $E^{(0)}_{exp} = -2.9 \, ua$. \\ \\
+Per $Z = 2$ si ha l'atomo di elio, l'energia dello stato fondamentale dell'elio determinata sperimentalmente è $E^{(0)}_{exp} = -2.9 \, ua$. \\ \\
 Vediamo ora diversi metodi per calcolare in forma approssimata l'energia totale dello stato fondamentale di un atomo elioide e confrontiamo i risultati con il valore sperimentale noto per l'atomo di elio ($Z = 2$). \\
 Se supponiamo particelle independenti, ovvero $\frac{1}{r_{12}} \sim 0$, si ha 
 \begin{align}
@@ -816,7 +816,7 @@ Consideriamo due elettroni, uno in uno stato $a$ e l'altro nello stato $b$ con s
     a\overline{b}&: \qquad \psi_{a\overline{b}} = \frac{1}{\sqrt{2}}(a\overline{b} - \overline{b}a) \notag \\
     \overline{a}b&: \qquad \psi_{\overline{a}b} = \frac{1}{\sqrt{2}}(\overline{a}b - b\overline{a}) \notag
 \end{align}
-Come visto nel $§2.2$, per far ottenere autofunzioni sia si $S_z$ che di $\mathbf{S}^2$ dobbiamo prendere combinazioni lineari simmetriche e antisimmetriche di $\psi_{a\overline{b}}$ e $\psi_{\overline{a}b}$. Allora definiamo 
+Come visto nel paragrafo $2.2$, per far ottenere autofunzioni sia si $S_z$ che di $\mathbf{S}^2$ dobbiamo prendere combinazioni lineari simmetriche e antisimmetriche di $\psi_{a\overline{b}}$ e $\psi_{\overline{a}b}$. Allora definiamo 
 \begin{align}
     \psi_S &= \frac{1}{\sqrt{2}}(\psi_{a\overline{b}} + \psi_{\overline{a}b}) = \frac{1}{\sqrt{2}}(ab - ba)\chi_T \tag{2.6.1} \\
     \psi_{AS} &= \frac{1}{\sqrt{2}}(\psi_{a\overline{b}} - \psi_{\overline{a}b}) = \frac{1}{\sqrt{2}}(ab + ba)\chi_S \tag{2.6.2}
@@ -1244,35 +1244,62 @@ Ne segue che le due righe adiacenti alla riga Rayleigh sono distanti $12B$, ment
 
 \newpage
 \section{Solidi}
-\subsection{Proprietà dei solidi e reticolo di Bravais}
+\subsection{Proprietà dei solidi, reticolo di Bravais e reticolo reciproco}
 Un solido è detto cristallino quando lo disposizione degli atomi nello spazio può essere descritta come l'insieme dei punti di un reticolo. Matematicamente, possiamo descrivere il reticolo usando il \textit{reticolo di Bravais}. Fissiamo tre vettori linearmente indipendenti \text{primitivi} $\mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_3$, allora il reticolo di Bravais è l'insieme dei punti $\mathbf{a}$ individuati da 
 \begin{align}
     \mathbf{a} = n_1\mathbf{a}_1 + n_2\mathbf{a}_2 + n_3\mathbf{a}_3 \tag{4.1.1}
 \end{align}
 dove $(n_1, n_2, n_3) \in \mathbf{Z}^3$. Chiamiamo \textit{cella primitiva} il parallelepipedo $\Omega$ identificato dai tre vettori primitivi. Il volume della cella primitiva è dato da $m(\Omega) = |\mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3)|$. \\ \\
-Il potenziale $V$ che descrive tale sistema deve essere necassariamente invariante per traslazioni reticolari, ovvero per ogni $\mathbf{r} \in \mathbf{R}^3$ deve valere
+Possiamo applicare l'approssimazione di Born-Oppenheimer, quindi risolvere il moto elettronico parametrizzando il moto nucleare. In particolare, possiamo pensare di "sederci" su determinato elettrone e considerare il potenziale medio $V_{el}(\mathbf{r})$ che l'elettrone osserva. Per definizione 
 \begin{align}
-    V(\mathbf{r} + \mathbf{t}_{n_1, n_2, n_3}) = V(\mathbf{r}) \tag{4.1.2}
+    V_{el}(\mathbf{r}) = \sum_j \int d^3\mathbf{r}_j \, \frac{|\psi_j(\mathbf{r})|^2}{\|\mathbf{r} - \mathbf{r}_j\|} \tag{4.1.2}
+\end{align}
+Il potenziale $V_{el}$ deve essere necassariamente invariante per traslazioni reticolari, ovvero per ogni $\mathbf{r} \in \mathbf{R}^3$ deve valere
+\begin{align}
+    V(\mathbf{r} + \mathbf{t}_{n_1, n_2, n_3}) = V(\mathbf{r}) \tag{4.1.3}
 \end{align}
 dove $\mathbf{t}_{n_1, n_2, n_3} = n_1\mathbf{a}_1 + n_2\mathbf{a}_2 + n_3\mathbf{a}_3$. \\ \\
+\textbf{Teorema (di Bloch):} la funzione $\psi$ soluzione di $H\psi = E\psi$ è della forma
+\begin{align}
+    \psi(\mathbf{r}) = \omega(\mathbf{r})e^{i\mathbf{k} \cdot \mathbf{r}} \tag{4.1.4}
+\end{align}
+dove $\omega$ ha la stessa periodicità del solito (e del potenziale). \\
+
+\textbf{Dimostrazione:} sia $\hat{T}(\mathbf{t}_n)$ l'operatore di traslazione reticolare 
+\begin{align}
+    \hat{T(\mathbf{t}_n)}\psi(\mathbf{r}) = \psi(\mathbf{r} + \mathbf{t}_n) \tag{4.1.5}
+\end{align}
+Determiniamo le autofunzioni dell'operatore traslazione reticolare. Notiamo $\psi(\mathbf{r}) = e^{i\mathbf{k} \cdot \mathbf{r}}$ soddisfa l'equazione agli autovalori con autovalore $\lambda = e^{i\mathbf{k} \cdot \mathbf{t}_n}$. Allora, dato che l'operatore di traslazione reticolare commuta con l'hamiltoniano del solido, si ha 
+\begin{align}
+    \psi(\mathbf{r} + \mathbf{t}_n) = e^{i\mathbf{k} \cdot \mathbf{t}_n}\psi(\mathbf{r}) \tag{4.1.6}
+\end{align}
+segue che 
+\begin{align}
+    e^{-i\mathbf{k} \cdot \mathbf{r}}\psi(\mathbf{r} + \mathbf{t}_n) = e^{i\mathbf{k} \cdot \mathbf{t}_n}\overbrace{\psi(\mathbf{r})e^{-i\mathbf{\mathbf{k} \cdot \mathbf{r}}}}^{\omega(\mathbf{r})} \tag{4.1.7}
+\end{align}
+Sostituendo $(4.1.6)$ in $(4.1.7)$ e moltiplicando ambo i membri per $e^{i\mathbf{k} \cdot \mathbf{r}}$ si ottiene
+\begin{align}
+    \psi(\mathbf{r}) = e^{i\mathbf{k} \cdot \mathbf{r}}\omega(\mathbf{r}) \tag{4.1.8}
+\end{align}
+ovvero la tesi. \qed \\ \\
 Fissiamo un punto $\mathbf{a}$ del reticolo e consideriamo i segmenti che lo uniscono a tutti i punti reticolari adiacenti. Per ogni segmento tracciamo il piano ad esso perpendicolare nel punto medio. Tale processo identifica una regione limitata dello spazio detta \textit{Cella di Wigner-Seitz}. \\
 La cella di Wigner-Seitz ha lo stesso volume di ogni cella primitiva, contiene al suo interno un punto reticolare effettivo (uno solo) e riflette tutte le simmetrie del reticolo. \\
 Se consideriamo la cella di Wigner-Seitz costruita attorno all'origine, essa contiene tutti i punti dello spazio che soddisfano 
 \begin{align}
-    \|\mathbf{r}\| \leq \|\mathbf{r} - \mathbf{R}\| \tag{4.1.3}
+    \|\mathbf{r}\| \leq \|\mathbf{r} - \mathbf{R}\| \tag{4.1.9}
 \end{align}
-per ogni vettore reticolare non nullo $\mathbf{R}$.
-
-\newpage
-\subsection{Reticolo reciproco e prima zona di Brillouin}
+per ogni vettore reticolare non nullo $\mathbf{R}$. \\ \\
 Dati i tre vettori primiti del reticolo di Bravais $\mathbf{a}_1, \mathbf{a}_2, \mathbf{a}_3$, definiamo tre nuovi vettori primitivi $\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3$ dati da 
 \begin{align}
-    \mathbf{b_1} &= 2\pi\frac{\mathbf{a}_2 \times \mathbf{a}_3}{|\mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3)|} \tag{4.2.1} \\
-    \mathbf{b}_2 &= 2\pi\frac{\mathbf{a}_1 \times \mathbf{a}_3}{|\mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3)|} \tag{4.2.2} \\
-    \mathbf{b}_3 &= 2\pi\frac{\mathbf{a}_1 \times \mathbf{a}_2}{|\mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3)|} \tag{4.2.3}
+    \mathbf{b_1} &= 2\pi\frac{\mathbf{a}_2 \times \mathbf{a}_3}{|\mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3)|} \tag{4.1.10} \\
+    \mathbf{b}_2 &= 2\pi\frac{\mathbf{a}_1 \times \mathbf{a}_3}{|\mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3)|} \tag{4.1.11} \\
+    \mathbf{b}_3 &= 2\pi\frac{\mathbf{a}_1 \times \mathbf{a}_2}{|\mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3)|} \tag{4.1.12}
 \end{align}
 I vettori primitivi $\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3$ identificiano il \textit{reticolo reciproco}. Osserviamo immediatamente che $\mathbf{a}_i \cdot \mathbf{b}_j = 2\pi\delta_{ij}$, per $i, j = 1, 2, 3$. Segue che $e^{\mathbf{G} \cdot \mathbf{R}} = 1$ per ogni vettore $\mathbf{G}$ del reticolo reciproco e ogni vettore $\mathbf{R}$ del reticolo diretto. \\ \\
 Chiamiamo \textit{prima zona di Brillouin} la cella di Wigner-Seitz del reticolo reciproco.
+
+\newpage
+\subsection{Modello di Kronig-Penney}
 
 
 

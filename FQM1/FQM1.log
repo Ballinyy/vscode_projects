@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  18 JUN 2026 19:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  19 JUN 2026 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -336,15 +336,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 735--737
 
  []
 
-[29] [30] [31]
-
-LaTeX Warning: Command \textsection invalid in math mode on input line 819.
-
-
-LaTeX Warning: Command \textsection invalid in math mode on input line 819.
-
-Missing character: There is no § in font cmr10!
-[32]
+[29] [30] [31] [32]
 Underfull \hbox (badness 10000) in paragraph at lines 852--857
 
  []
@@ -451,16 +443,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 1251--1254
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1256--1261
+Underfull \hbox (badness 10000) in paragraph at lines 1260--1263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1267
 
  []
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1273--1276
+Underfull \hbox (badness 10000) in paragraph at lines 1283--1288
 
  []
 
-[49] [50] [51] [52] (./FQM1.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1290--1293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1297--1300
+
+ []
+
+[49] [50] [51] [52] [53] (./FQM1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -471,18 +478,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2837 strings out of 467525
- 40652 string characters out of 5423209
+ 2834 strings out of 467525
+ 40615 string characters out of 5423209
  456697 words of memory out of 5000000
- 31715 multiletter control sequences out of 15000+600000
- 639335 words of font info for 83 fonts, out of 8000000 for 9000
+ 31713 multiletter control sequences out of 15000+600000
+ 639000 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,18n,65p,675b,297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on FQM1.pdf (52 pages, 401241 bytes).
+Output written on FQM1.pdf (53 pages, 404514 bytes).
 PDF statistics:
- 286 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
+ 289 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
