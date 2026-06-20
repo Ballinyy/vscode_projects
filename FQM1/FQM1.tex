@@ -210,7 +210,7 @@ Infine abbiamo la correzione per lo stato $1s$ dovuta al fatto che la probabilit
 \end{align}
 allora 
 \begin{align}
-    U(r + \delta r) &\sim U(r) + \delta r \nabla U + \sum_{i, j}\delta x_i \delta x_j \frac{\partial^2 U}{\partial x_i \partial x_j} \tag{1.2.17}
+    U(r + \delta r) &\sim U(r) + \delta r \cancel{\nabla U} + \frac{1}{2}\sum_{i, j}\delta x_i \delta x_j \frac{\partial^2 U}{\partial x_i \partial x_j} \tag{1.2.17}
 \end{align}
 ovvero 
 \begin{align}
@@ -696,7 +696,7 @@ dove $\pm$ è determinato dalla natura dell funzione di spin, ovvero se si tratt
 \begin{align}
     \Delta E^{(1)} &= \braket{\psi|\frac{1}{r_{12}}|\psi} \notag \\
     &= \frac{1}{2}\braket{\psi_{100}\psi_{nlm} \pm \psi_{nlm}\psi_{100}|\frac{1}{r_{12}}|\psi_{100}\psi_{nlm} \pm \psi_{nlm}\psi_{100}} \notag \\
-    &= J_{12} \pm K_{12} \tag{2.3.10}
+    &= J_{1s, nlm} \pm K_{1s, nlm} \tag{2.3.10}
 \end{align}
 Dove, dati due stati $a, b$, $J_{ab} = \braket{ab|\frac{1}{r_{12}}|ab}$ è detto \textit{integrale coulombiano}, mentre $K_{ab} = \braket{ab|\frac{1}{r_{12}}|ba}$ è detto \textit{integrale di scambio}. Notiamo che $K_{ab} = 0$ se $a, b$ hanno spin antiparalleli, mentre l'integrale coulombiano non dipende dallo spin. \\
 $J, K \geq 0$, pertanto segue che l'energia di singoletto (funz. orbitale simmetrica) è maggiore dell'energia di tripletto (funz. orbitale antisimmetrica). Quindi concludiamo che lo stato fondamentale dell'elio è di tripletto.
@@ -805,7 +805,7 @@ Unendo tutti i termini si ottiene
 \end{align}
 Dato che la $(2.5.9)$ deve valere per ogni variazione arbitraria $\delta$ si ottiene 
 \begin{align}
-    \sum_j(\hat{h} + \hat{J}_j(1) - \hat{K}_j(1))\psi_{a_i} = \sum_j \epsilon_{ij}\psi_{a_i} \tag{2.5.12}
+    \hat{h} + \sum_j(\hat{J}_j(1) - \hat{K}_j(1))\psi_{a_i} = \sum_j \epsilon_{ij}\psi_{a_i} \tag{2.5.12}
 \end{align}
 Ponendo $\hat{f}(1) = \hat{h} + \sum_j (\hat{J}_j(1) - \hat{K}_j(1))$ \textit{operatore di Fock}, l'equazione di HF diventa 
 \begin{align}
@@ -1316,6 +1316,25 @@ Chiamiamo \textit{prima zona di Brillouin} la cella di Wigner-Seitz del reticolo
 
 \newpage
 \subsection{Modello di Kronig-Penney}
+Consideriamo un potenziale unidimensionale composto da una serie di barriere di potenziale distanti $a$ una dall'altra e larghe $b$.
+\begin{center}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.90\linewidth]{immagini/modello_kp.png}
+        \label{fig:placeholder}
+    \end{figure}
+\end{center}
+Possiamo risolvere l'equazioni di Schrodinger in entrambe le zone.Indichiamo con $1$ le zone dove $V(x) = 0$, mentre indichiamo con $2$ le zone dove $V(x) = V_0$. Allora 
+\begin{align}
+    1. \qquad &\frac{d^2}{dx^2}\psi + \frac{2m}{\hbar^2}E\psi = 0 \tag{4.2.1} \\
+    2. \qquad &\frac{d^2}{dx^2}\psi + \frac{2m}{\hbar^2}(E - V_0)\psi = 0 \tag{4.2.2}
+\end{align}
+Applicando il \textit{teorema di Bloch}, le soluzioni sono della forma 
+\begin{align}
+    1. \qquad &\omega_1 = Ae^{i(\alpha - k)x} + Be^{i(\alpha + k)x} \tag{4.2.3} \\
+    2. \qquad &\omega_2 = Ce^{(\beta - ik)x} + De^{i(\beta + ik)x} \tag{4.2.4
+    }
+\end{align}
 
 
 
