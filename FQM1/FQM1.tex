@@ -83,15 +83,15 @@ Inoltre si ottiene dal fatto che la costante di struttura fine $\alpha = 1/137$ 
 \subsection{Approccio semiclassico}
 Consideriamo un atomo idrogenoide con numero atomico $Z$. L'elettrone, a distanza $r$ dal nucleo, è soggetto alla forza di Coulomb e alla forza centripeta. Affinché l'elettrone resti in orbita la risultante delle forze deve essere identicamente nulla, ovvero deve valere
 \begin{gather}
-    \frac{m_ev^2}{r} = \frac{Ze^2}{4\pi\varepsilon_0r^2} \tag{1.1.1}
+    \frac{mv^2}{r} = \frac{Ze^2}{4\pi\varepsilon_0r^2} \tag{1.1.1}
 \end{gather}
 dunque si ottiene
 \begin{gather}
-    m_ev^2 = \frac{Ze^2}{4\pi\varepsilon_0r} \tag{1.1.2}
+    mv^2 = \frac{Ze^2}{4\pi\varepsilon_0r} \tag{1.1.2}
 \end{gather}
 Questo ci permette di ricavare un'espressione per l'energia cinetica $T$ dell'elettrone
 \begin{gather}
-    T = \frac{1}{2}m_ev^2 = \frac{1}{2}\frac{Ze^2}{4\pi\varepsilon_0r} \tag{1.1.3}
+    T = \frac{1}{2}mv^2 = \frac{1}{2}\frac{Ze^2}{4\pi\varepsilon_0r} \tag{1.1.3}
 \end{gather}
 Inoltre, l'energia potenziale a cui è sottoposto l'elettrone è nota, infatti
 \begin{gather}
@@ -105,18 +105,18 @@ Questo modello non può essere corretto, infatti l'elettrone irradia energia dur
 Per spiegare le osservazioni sperimentali, Niels Bohr ipotizzò che il momento angolare dell'elettrone non potesse assumere valori arbitrari ma fosse vincolato ad essere un multiplo intero di $\hbar$. Dunque viene aggiunta un'altra condizione, ovvero la quantizzazione del momento angolare
 \begin{gather}
     \begin{cases}
-        m_ev^2_n &= \frac{Ze^2}{4\pi\varepsilon_or_n} \\
-        m_ev_nr_n &= n\hbar
+        mv^2_n &= \frac{Ze^2}{4\pi\varepsilon_or_n} \\
+        mv_nr_n &= n\hbar
     \end{cases} \tag{1.1.6}
 \end{gather}
 questo introduce dei vincoli anche su $v$ e $r$, dunque anch'essi ora dipendono da $n$. Risolvendo il sistema si ottiene
 \begin{gather}
     \begin{cases}
-        \frac{n^2\hbar^2}{m_er^2_n} &= \frac{Ze^2}{4\pi\varepsilon_0r_n} \\
-        v_n &= \frac{n\hbar}{m_er_n}
+        \frac{n^2\hbar^2}{mr^2_n} &= \frac{Ze^2}{4\pi\varepsilon_0r_n} \\
+        v_n &= \frac{n\hbar}{mr_n}
     \end{cases} \longrightarrow
     \begin{cases}
-        r_n &= \frac{4\pi\varepsilon_0}{Ze^2}\frac{n^2\hbar^2}{m_e} \\
+        r_n &= \frac{4\pi\varepsilon_0}{Ze^2}\frac{n^2\hbar^2}{m} \\
         v_n &= \frac{Ze^2}{4\pi\varepsilon_0}\frac{1}{n\hbar}
     \end{cases} \tag{1.1.7}
 \end{gather}
@@ -165,7 +165,7 @@ dove
 dunque in unità atomiche si ha
 \begin{align}
     \Delta E^k_{nlm} &= -\frac{\alpha^2}{2}\left(\frac{Z^4}{4n^4} - \frac{Z^5}{2n^4} + \frac{Z^4}{n^3\left(l + \frac{1}{2}\right)}\right) \notag \\
-    &= -E_n\left(\frac{Z\alpha}{n}\right)^2\left(\frac{3}{4} - \frac{n}{l - \frac{1}{2}}\right) \leq 0 \tag{1.2.8}
+    &= -E_n\left(\frac{Z\alpha}{n}\right)^2\left(\frac{3}{4} - \frac{n}{l + \frac{1}{2}}\right) \leq 0 \tag{1.2.8}
 \end{align}
 \subsubsection*{Interazione spin-orbita}
 La seconda correzione è dovuta al moto del nucleo del sistema di riferimento dell'elettrone. L'elettrone osserva una densità di corrente dovuta al moto relativo del nucleo e dunque un campo magnetico. In particolare si ha 
@@ -197,7 +197,11 @@ pertanto la correzione all'hamiltoniana diventa
 dove $\boldsymbol{\mu}_S$ è il momento magnetico associato allo spin dell'elettrone e il fattore $\frac{1}{2}$ deriva dalla \textit{precessione di Thomas}. Allora 
 \begin{align}
     \Delta E^{so}_{nlm} &= \frac{\alpha^2}{2}\braket{\psi^{(0)}_{nlm}|\frac{1}{r}\frac{dV}{dr}\mathbf{L} \cdot \mathbf{S}|\psi^{(0)}_{nlm}} \notag \\
-    &= \frac{\alpha^2\hbar^2}{4}\braket{Z/r^3}_{nlm} \cdot (j(j + 1) - l(l + 1) - s(s + 1)) \tag{1.2.15}
+    &= \frac{\alpha^2}{4}\braket{Z/r^3}_{nlm} \cdot (j(j + 1) - l(l + 1) - s(s + 1)) \notag \\
+    &= \frac{\alpha^2}{4}\braket{Z/r^3}_{nlm} \cdot \begin{cases}
+        l \qquad &j = l + \frac{1}{2} \\
+        -(l + 1) \qquad &j = l - \frac{1}{2}
+    \end{cases} \tag{1.2.15}
 \end{align}
 \subsubsection*{Termine di Darwin (stato 1s)}
 Infine abbiamo la correzione per lo stato $1s$ dovuta al fatto che la probabilità di trovare lo stato $l = 0$ nel nucleo è non nulla, ovvero $|R_{10}(0)|^2 \neq 0$. Sia $U(r)$ il potenziale di interzione tra il nucleo e l'elettrone dello stato $1s$ nel sistema di riferimento dell'elettrone. Per il principio di indeterminazione l'orbita dell'elettrone non è ben identificata, si ha 
@@ -255,21 +259,21 @@ Scegliendo la gauge di Coulomb, dalle equazione di Maxwell otteniamo
 dove $\mathbf{u}$ è il versore che identifica la polarizzazione del campo elettromagnetico, mentre $\mathbf{A}$ è integrato in $d\omega$ perché stiamo considerando un campo elettromagnetico composto da più onde. \\ \\
 Ricordiamo che l'hamiltoniano di una particella con carica $q$ soggetta ad un campo elettromagnetico è data dall'accoppiamento minimo, ovvero $\mathbf{p} \rightarrow \mathbf{p} - q\mathbf{A}$, allora in unità atomiche
 \begin{align}
-    H &= \frac{(\mathbf{p} + \mathbf{A})^2}{2m} - \frac{Z}{r} \notag \\
-    &= \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{A}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} - \frac{Z}{r} \notag \\
-    &= \frac{\mathbf{p}^2}{2m} - \frac{Z}{r} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} + \cancel{\left[\frac{\mathbf{A}^2}{2m}\right]} \notag \\
-    &\sim H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} = H_0 + \frac{i\hbar}{m}\mathbf{A} \cdot \nabla \tag{1.3.2}
+    H &= \frac{(\mathbf{p} + \mathbf{A})^2}{2} - \frac{Z}{r} \notag \\
+    &= \frac{\mathbf{p}^2}{2} + \frac{\mathbf{A}^2}{2} + \mathbf{p} \cdot \mathbf{A} - \frac{Z}{r} \notag \\
+    &= \frac{\mathbf{p}^2}{2} - \frac{Z}{r} + \mathbf{p} \cdot \mathbf{A} + \cancel{\left[\frac{\mathbf{A}^2}{2}\right]} \notag \\
+    &\sim H_0 + \mathbf{p} \cdot \mathbf{A} = H_0 + i\mathbf{A} \cdot \nabla \tag{1.3.2}
 \end{align} 
 dove si è trascurato il termine quadratico $\mathbf{A}^2$ per campi elettromagnetici poco intensi e si è usato il fatto che $\nabla$ e $\mathbf{A}$ commutano, infatti 
 \begin{align}
     \nabla \cdot (\mathbf{A}\psi) = \psi\cancel{\nabla \cdot \mathbf{A}} + \mathbf{A}\nabla\phi \tag{1.3.3}
 \end{align}
 dato che in gauge di Coulomb si ha $\nabla \cdot \mathbf{A} = 0$. In $(1.4.2)$ $\nabla \cdot \mathbf{A}$ è da intendere come operatore che agisce sui vettori dello spazio di Hilbert in esame. \\ \\
-Ricordiamo che l'intensità dell'onda elettromagnetica (che sappiamo essere proporzionale al numero di fotoni) è definita come il valor medio del flusso del vettore di Poynting $\mathbf{S} = \mathbf{E} \times \mathbf{H}$, in particolare si ha 
+Ricordiamo che l'intensità dell'onda elettromagnetica (che sappiamo essere proporzionale al numero di fotoni) è definita come il valor medio del modulo del vettore di Poynting $\mathbf{S} = \mathbf{E} \times \mathbf{H}$, in particolare si ha 
 \begin{align}
-    I &= \braket{\mathbf{S}} \notag \\
-    &= \braket{\mathbf{E} \times \mathbf{H}} \notag \\
-    &= \braket{\mathbf{E} \times \frac{\mathbf{B}}{\mu_0}} \notag \\
+    I &= \braket{\|\mathbf{S}\|} \notag \\
+    &= \braket{\|\mathbf{E} \times \mathbf{H}\|} \notag \\
+    &= \braket{\|\mathbf{E} \times \frac{\mathbf{B}}{\mu_0}\|} \notag \\
     &= -\omega_0A^2_0(\omega)k\braket{\sin^2(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)} \notag \\
     &= \frac{1}{2}c\varepsilon_0\omega^2A^2_0(\omega) \tag{1.3.4}
 \end{align}
@@ -278,10 +282,10 @@ dove si è usato $\frac{1}{\mu_0} = c^2\varepsilon_0$ e $k = \frac{\omega}{c}$. 
     A^2_0(\omega) = \frac{2I}{c\varepsilon_0\omega^2} \tag{1.3.5}
 \end{align}
 ovvero possiamo determinare l'ampiezza dell'onda in funzione della sua intensità, il che è molto comodo dato che l'intensità è un parametro facilmente controllabile praticamente. \\ \\
-A questo punto applichiamo la teoria delle perturbazioni dipendenti dal tempo sulla perturbazione $H' = \frac{i\hbar}{m}\nabla \cdot \mathbf{A}$ per determinare le rate di transizione dei vari stati. Si ha 
+A questo punto applichiamo la teoria delle perturbazioni dipendenti dal tempo sulla perturbazione $H' = \frac{i\hbar}{m}\nabla \cdot \mathbf{A}$ per determinare le rate di transizione dei vari stati. In unità atomiche si ha 
 \begin{align}
-    \alpha_{fi} &= -\frac{1}{m}\int_0^t dt' \, \braket{f|\mathbf{A} \cdot \nabla|i}e^{i\omega_{fi}t'} \notag \\
-    &= -\frac{1}{2m}\int_0^\infty d\omega \, A_0(\omega)\left(e^{i\delta_\omega}\braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i}\int_0^\infty dt' \, e^{i(\omega_{fi} - \omega)t'} +\right. \notag \\
+    \alpha_{fi} &= -\int_0^t dt' \, \braket{f|\mathbf{A} \cdot \nabla|i}e^{i\omega_{fi}t'} \notag \\
+    &= -\frac{1}{2}\int_0^\infty d\omega \, A_0(\omega)\left(e^{i\delta_\omega}\braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i}\int_0^\infty dt' \, e^{i(\omega_{fi} - \omega)t'} +\right. \notag \\
     &+ \left.e^{-i\delta_\omega}\braket{f|e^{-i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i}\int_0^t dt' \, e^{i(\omega_{fi} + \omega)t}\right) \tag{1.3.6}
 \end{align}
 dove si è espresso il coseno in termini di esponenziali complessi. I termini integrali 
@@ -327,16 +331,16 @@ In particolare si ha
     M_{fi} &= \braket{f|e^{i\mathbf{k} \cdot \mathbf{r}}\mathbf{u} \cdot \nabla|i} \notag \\
     &\sim \frac{i}{\hbar}\braket{f|\mathbf{u} \cdot \mathbf{p}|i} \tag{1.3.15}
 \end{align}
-Inoltre $\mathbf{p} = \frac{m}{i\hbar}[\mathbf{r}, H_0]$, infatti 
+Inoltre $\mathbf{p} = -i[\mathbf{r}, H_0]$, infatti 
 \begin{align}
-    [\mathbf{r}, H_0] &= [\mathbf{r}, \frac{\mathbf{p}^2}{2m} + \cancel{V(r)}] \notag \\
-    &= \frac{1}{2m}[\mathbf{r}, \mathbf{p}^2] = \frac{i\hbar}{m}\mathbf{p} \tag{1.3.16}
+    [\mathbf{r}, H_0] &= [\mathbf{r}, \frac{\mathbf{p}^2}{2} + \cancel{V(r)}] \notag \\
+    &= \frac{1}{2}[\mathbf{r}, \mathbf{p}^2] = i\mathbf{p} \tag{1.3.16}
 \end{align}
-dove si è usato $[\mathbf{r}, f(\mathbf{p})] = i\hbar\frac{df}{d\mathbf{p}}$. Pertanto sostituendo $(1.4.16)$ in $(1.4.15)$ si ottiene 
+dove si è usato $[\mathbf{r}, f(\mathbf{p})] = i\frac{df}{d\mathbf{p}}$. Pertanto sostituendo $(1.4.16)$ in $(1.4.15)$ si ottiene 
 \begin{align}
-    M_{fi} &\sim \frac{m}{\hbar^2}(\braket{f|\mathbf{r}H_0|i} - \braket{f|H_0\mathbf{r}|i}) \cdot \mathbf{u} \notag \\
-    &= \frac{m}{\hbar^2}(E_i - E_f)\braket{f|\mathbf{r}|i} \cdot \mathbf{u} \notag \\
-    &= \frac{m\omega_{fi}}{\hbar}\mathbf{r}_{fi} \cdot \mathbf{u} \tag{1.3.17}
+    M_{fi} &\sim (\braket{f|\mathbf{r}H_0|i} - \braket{f|H_0\mathbf{r}|i}) \cdot \mathbf{u} \notag \\
+    &= (E_i - E_f)\braket{f|\mathbf{r}|i} \cdot \mathbf{u} \notag \\
+    &= \omega_{fi}\mathbf{r}_{fi} \cdot \mathbf{u} \tag{1.3.17}
 \end{align}
 Se il termine $D_{fi} = \mathbf{r}_{fi} \cdot \mathbf{u}$ è non nullo la transizione è permessa, mentre se $D_{fi} = 0$ la transizione non è permessa. \\
 Facciamo un cambio di coordinare opportuno per calcolare comodamente il prodotto scalare $\mathbf{r}_{fi} \cdot \mathbf{u}$. Poniamo 
@@ -369,7 +373,7 @@ se e solo se $m - m' + q = 0$, allora $\Delta m = 0, \pm 1$. \\
 Pertanto concludiamo che le regole di selezione per verificare se una transizione è ammessa (in approssimazione di dipolo) sono $\Delta l = \pm 1$ e $\Delta m = 0, \pm 1$. \\ \\
 Definiamo la \textit{forza dell'oscillatore} associata alla transizione $j \rightarrow i$
 \begin{align}
-    f_{ij} = \frac{2m\omega_{ij}}{3\hbar}|\mathbf{r}_{ij}|^2 \notag
+    f_{ij} = \frac{2\omega_{ij}}{3}|\mathbf{r}_{ij}|^2 \notag
 \end{align}
 Notiamo che il segno del termine $f_{ij}$ dipende solamente da $\omega_{ij}$. In particolare se $f_{ij} > 0$ è relativo ad un processo di assorbimento, mentre se $f_{ij} < 0$ è relativo ad un processo di emissione (il primo indice rappresenta lo stato finale). \\
 I termini $f_{ij}$ soddisfano 
@@ -389,14 +393,14 @@ ovvero decresce esponenzialmente con rapidità dettata dal tempo di vita.
 
 \newpage
 \subsection{Atomo idrogenoide soggetto a campo elettromagnetico}
-Consideriamo un campo magnetico uniforme $\mathbf{B} = (0, 0, B)$. L'hamiltoniano di una particella soggetta al campo $\mathbf{B}$ (in unità atomiche) è 
+Consideriamo un campo magnetico uniforme $\mathbf{B} = (0, 0, B)$. L'hamiltoniano di una particella soggetta al campo $\mathbf{B}$ è 
 \begin{align}
-    H = \frac{(\mathbf{p} + \mathbf{A})^2}{2} - \frac{Z}{r} \tag{1.4.1}
+    H = \frac{(\mathbf{p} + e\mathbf{A})^2}{2m} + V(r) \tag{1.4.1}
 \end{align}
 per \textit{accoppiamento minimale}, dove $\mathbf{A} = \frac{1}{2}\mathbf{B} \times \mathbf{r}$ in questo caso. Se supponiamo che il campo magnetico sia poco intenso possiamo trascurare il termine $\mathbf{A}^2$, pertanto si ottiene 
 \begin{align}
-    H &= \frac{\mathbf{p}^2}{2} + \frac{\mathbf{A}^2}{2} + \mathbf{p} \cdot \mathbf{A} - \frac{Z}{r} \notag \\
-    &\sim \frac{\mathbf{p}^2}{2} + \mathbf{p} \cdot \mathbf{A} - \frac{Z}{r} = H_0 + \mathbf{p} \cdot \mathbf{A} \tag{1.4.2}
+    H &= \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{A}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} + V(r) \notag \\
+    &\sim \frac{\mathbf{p}^2}{2m} + \frac{\mathbf{p} \cdot \mathbf{A}}{m} + V(r) = H_0 + \frac{\mathbf{p} \cdot \mathbf{A}}{m} \tag{1.4.2}
 \end{align}
 dove $H_0$ è l'hamiltoniana dell'atomo idrogenoide (che sappiamo risolvere). In particolare 
 \begin{align}
@@ -417,77 +421,71 @@ Determiniamo l'ordine di grandezza del termine quadratico. Si ha
 dove si è usato $\braket{\mathbf{r}^2}_{nlm} = \frac{1}{3}\braket{\mathbf{z}^2}_{nlm}$ per simmetria sferica del problema. Il termine $\braket{\mathbf{r}^2}_{n00}$ va come $n^4$. Pertanto per $n = 1$ si ha $\frac{1}{2}\mathbf{A}^2 \sim \mathbf{B}^2$ e il termine quadratico è trascurabile, mentre per $n$ abbastanza grandi ha un contributo che non può essere più tralasciato. \\ \\
 Sappiamo che, in prima approssimazione, il termine di interazione può essere scritto come $-\mathbf{m} \cdot \mathbf{B}$, dove $\mathbf{m}$ è il momento magnetico. Allora deve valere 
 \begin{align}
-    -\mathbf{m} \cdot \mathbf{B} = \mathbf{p} \cdot \mathbf{A} \tag{1.4.5}
+    -\mathbf{m} \cdot \mathbf{B} = \frac{\mathbf{p} \cdot \mathbf{A}}{m} \tag{1.4.5}
 \end{align}
 Se supponiamo che l'elettrone compie un'orbita circolare attorno al nucleo ed indichiamo con $\Sigma$ la superficie racchiusa dall'orbita, otteniamo 
 \begin{align}
-    \mathbf{m} = i\Sigma \hat{n} \notag
+    \mathbf{m} = i\Sigma \hat{\boldsymbol{n}} \notag
 \end{align}
-dove $i = -\frac{e}{T} = -\frac{e\omega}{2\pi}$, $\hat{n}$ è il versore perpendicolare alla superficie $\Sigma$ e $\Sigma = \pi R^2$ con $R$ raggio dell'orbita, orientato secondo la regola della mano destra rispetto al verso della corrente. Allora 
+dove $i = -\frac{e}{T} = -\frac{e\omega}{2\pi}$, $\hat{\boldsymbol{n}}$ è il versore perpendicolare alla superficie $\Sigma$ e $\Sigma = \pi R^2$ con $R$ raggio dell'orbita, orientato secondo la regola della mano destra rispetto al verso della corrente. Allora 
 \begin{align}
-    -\mathbf{m} = -\frac{e\omega}{2\pi}\pi R^2 \hat{n} = \frac{e\omega R^2}{2}\hat{n} = \frac{e\mathbf{L}}{2m} = -\frac{\mu_B}{\hbar}\mathbf{L} \tag{1.4.6}
+    -\mathbf{m} = -\frac{e\omega}{2\pi}\pi R^2 \hat{\boldsymbol{n}} = \frac{e\omega R^2}{2}\hat{\boldsymbol{n}} = \frac{e\mathbf{L}}{2m} = -\frac{\mu_B}{\hbar}\mathbf{L} \tag{1.4.6}
 \end{align}
-dove $\mu_B$ è il magnetone di Bohr e si è usato $\mathbf{L} = m\omega R^2\hat{n}$. Se consideriamo anche lo spin $\mathbf{S}$ si ottiene 
+dove $\mu_B$ è il magnetone di Bohr, che misura il momento magnetico associato al moto degli elettroni negli atomi, e si è usato $\mathbf{L} = m\omega R^2\hat{\boldsymbol{n}}$. Se consideriamo anche lo spin $\mathbf{S}$ si ottiene 
 \begin{align}
     -\mathbf{m} = -\frac{\mu_B}{\hbar}(\mathbf{L} + g\mathbf{S}) \tag{1.4.7}
 \end{align}
 dove $g$ è detto \textit{fattore giromagnetico} e tiene conto di quante unita $\hbar$ di spin $\mathbf{S}$ sono necessarie per generare un magnetone di Bohr. \\ \\
 Delle correzioni relativistiche ci interessa solamente l'interazione spin-orbita, dato che è l'unica che rompe la degenerazione. Studiamo il suo effetto in relazione all'intensità del campo magnetico.
 
-\subsubsection*{Effetto Zeeman}
-Se il campo magnetico è abbastanza intenso da trascurare l'interazione spin-orbita si ha 
+\subsubsection*{Effetto Paschen-Back}
+Se l'interazione con il campo magnetico esterno è molto più importante dell'interazione spin-orbita, è corretto usare come numeri quantici $n, l, m_l, s, m_s$, ovvero i numeri quantici dell'hamiltoniano $H_0 + H_B$. $\mathbf{J}^2$ non è un buon numero quantico dato che il forte campo magnetico seleziona una direzione ben precisa dello spazio (in questo caso supponiamo la direzione $z$) e quindi rompe la simmetria sferica. \\
+La correzione dell'energia al primo ordine dovuta all'interazione con $\mathbf{B}$ è
 \begin{align}
-    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B \tag{1.4.8}
+    \Delta E^{(1)}_B &= \braket{nlmsm_s|\frac{\mu_B}{\hbar}(L_z + 2S_z)B|nlmsm_s} \notag \\
+    &= \frac{\mu_BB}{\hbar}(m_l + 2m_s) \tag{1.4.8}
 \end{align}
-per $\mathbf{B} = (0, 0, B)$, $g = 2$ per l'elettrone. Allora l'energia corretta al primo ordine è 
+Notiamo che viene rotta la degenerazione in $m_l$ e $m_s$. Chiaramente è necessario calcolare il valor medio dell'interazione spin orbita 
 \begin{align}
-    E^{(1)} &= \braket{nlm|H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B|nlm} \notag \\
-    &= E_n + \frac{\mu_BB}{\hbar}(m_l + 2m_s) \tag{1.4.9}
+    \braket{\mathbf{L} \cdot \mathbf{S}}_{m_l, m_s} &= \braket{L_zS_z + \frac{1}{2}(L_+S_- + L_-S_+)}_{m_l, m_s} \notag \\
+    &= \hbar^2m_lm_s \tag{1.4.9}
 \end{align}
-Notiamo che viene rotta la degenerazione in $m_l$ e $m_s$.
+Pertanto concludiamo che 
+\begin{align}
+    \Delta E^{(1)} = \frac{\mu_B B}{\hbar}(m_l + 2m_s) + \hbar^2\overbrace{\braket{Z/r^3}}^{\lambda_{nl}}m_lm_s \tag{1.4.10}
+\end{align}
 
-\subsubsection*{Effetto Pachen-Back}
-Se il campo megnetico non è abbastanza intenso dobbiamo considerare anche il termine dovuto all'interazione spin-orbita, ovvero 
+\subsubsection*{Effetto Zeeman}
+Se invece $H_B << H_{SO}$ si ha che $m_l, m_s$ non sono più buoni numeri quantici ed è necessario mediare sugli stati imperturbati $\ket{njm_jls}$. In particolare possiamo scrivere
 \begin{align}
-    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B + f(r)\mathbf{L} \cdot \mathbf{S} \tag{1.4.10}
+    H &= H_0 + \frac{\mu_B B}{\hbar}(L_z + 2S_z) + f(r)\mathbf{L} \cdot \mathbf{S} \notag \\
+    &= H_0 + \frac{\mu_B B}{\hbar}(J_z + S_z) + \frac{1}{2}f(r)(\mathbf{J}^2 - \mathbf{L}^2 - \mathbf{S}^2) \tag{1.4.11}
 \end{align}
-In particolare possiamo scrivere
+dove si è usato 
 \begin{align}
-    \mathbf{L} \cdot \mathbf{S} = \frac{1}{2}(\mathbf{J}^2 - \mathbf{L}^2 - \mathbf{S}^2) \tag{1.4.11}
+    J_z = L_z + S_z \tag{1.4.12}
 \end{align}
-e sostituendo $(1.5.11)$ in $(1.5.10)$ si ottiene 
-\begin{align}
-    H = H_0 + \frac{\mu_B}{\hbar}(L_z + 2S_z)B + \frac{1}{2}f(r)(\mathbf{J}^2 - \mathbf{L}^2 - \mathbf{S}^2) \tag{1.4.12}
-\end{align}
-Trattiamo il termine dovuto all'interazione spin-orbita come una perturbazione rispetto al caso dell'effetto Zeeman. In particolare $f(r) = \frac{\alpha^2}{2}\frac{1}{r}\frac{dV}{dr}$, pertanto 
-\begin{align}
-    \Delta E^{(1)} &= \frac{1}{2}\braket{f(r)}\braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
-    &= \frac{1}{2}\int_0^\infty dr \, R_{nl}(r)f(r)R_{nl}(r) \cdot \braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
-    &= \frac{1}{2}\int_0^\infty dr \, |R_{nl}(r)|^2\frac{\alpha^2}{2}\frac{1}{r}\frac{dV}{dr} \cdot \braket{\mathbf{L} \cdot \mathbf{S}} \notag \\
-    &= \frac{\alpha^2Z}{4}\int_0^\infty dr \, |R_{nl}(r)|^2\frac{1}{r^3} \cdot (m_lm_s) \notag \\
-    &= \frac{\alpha^2Z}{4}(m_lm_s)\braket{\frac{1}{r^3}}_{nl} \notag \\
-    &= \frac{\alpha^2Z}{4}\frac{Z^3}{n^2l(l + 1/2)(l + 1)}(m_lm_s) = \lambda_{nl}m_lm_s \tag{1.4.13}
-\end{align}
-Notiamo che il termine di interazione spin-orbita rompe la degenerazione in $l, m_l, m_s$. \\ \\
 Per il \textit{teorema di Wigner-Eckart}, data la simmetria radiale del potenziale, si ha che $\mathbf{L}$ e $\mathbf{S}$ sono proporzionali a $\mathbf{J}$, pertanto possiamo scrivere 
 \begin{align}
     H &= H_0 + H_{SO} + \mu_BB(L_z + 2S_z) \notag \\
     &= H_0 + H_{SO} + \mu_BB(J_z + S_z) \notag \\
-    &= H_0 + H_{SO} + \mu_BB(1 + k)J_z \tag{1.4.14}
+    &= H_0 + H_{SO} + \mu_BB(1 + k)J_z \tag{1.4.13}
 \end{align}
-con $k$ da determinare imponendo che $\braket{\mathbf{S}}_{nlm} = k\braket{\mathbf{J}}_{nlm}$. Allora 
+con $k$ da determinare imponendo che $\braket{\mathbf{S}} = k\braket{\mathbf{J}}$. Allora 
 \begin{align}
-    \braket{\mathbf{S} \cdot \mathbf{J}}_{nlm} &= k\braket{\mathbf{J}^2}_{nlm} \notag
+    \braket{\mathbf{S} \cdot \mathbf{J}} &= k\braket{\mathbf{J}^2} \notag
 \end{align}
 segue che 
 \begin{align}
-    k = \frac{1}{2}\frac{j(j + 1) - (l(l + 1) - s(s + 1))}{j(j + 1)} \tag{1.4.15}
+    k = \frac{1}{2}\frac{j(j + 1) - (l(l + 1) - s(s + 1))}{j(j + 1)} \tag{1.4.14}
 \end{align}
 ovviamente $s = \frac{1}{2}$ per l'elettrone. Concludiamo che 
 \begin{align}
-    \Delta E^{(1)}_{PB} = \mu_BB(1 + k)m_j \tag{1.4.16}
+    \Delta E^{(1)}_{B} = \mu_BB(1 + k)m_j \tag{1.4.15}
 \end{align}
-dove $(1 + k)$ è detto \textit{fattore di Landé} e vedremo che non è altro che il \textit{fattore giromagnetico} $g$.
+dove $(1 + k)$ è detto \textit{fattore di Landé} e vedremo che non è altro che il \textit{fattore giromagnetico} $g$. \\ \\
+L'effetto Zeeman viene detto \textit{Zeeman normale} quando si ha $\mathbf{S} = 0$, ad esempio quando tutti gli elettroni sono accoppiati. In tal caso non compare il termine $S_z$ nell'interazione $H_B$ e non compare l'interazione spin orbita $H_{SO}$ dato che $\mathbf{L} \cdot \mathbf{S} = 0$. \\
+Mentre è detto effetto \textit{Zeeman anomalo} quando lo spin totale dell'atomo è non nullo ($\mathbf{S} \neq 0)$. Il termine anomalo deriva dal fatto che quando fu osservato ancora non si conosceva lo spin dell'elettrone.
 
 \newpage
 \subsection{Approssimazione del potenziale in armoniche sferiche}
@@ -538,21 +536,29 @@ Inoltre, ricordando che $[L_z, z] = 0$, concludiamo che
     &= (m - m')\braket{nlm|z|n'l'm'} \tag{1.6.3}
 \end{align}
 pertanto gli elementi di matrice della perturbazione (che è $zE$) possono essere non nulli se e solo se $m = m'$. \\
-Allora gli unici elementi di matrice non nulli, per $n = 2$, sono $\braket{210|zE|200}$ e $\braket{200|zE|210}$, che sono uguali dato che le autofunzioni dell'atomo idrogenoide sono reali. In particolare
+Allora gli unici elementi di matrice non nulli, per $n = 2$, sono $\braket{210|zE|200}$ e $\braket{200|zE|210}$, che sono uguali dato che le autofunzioni $\psi_{210}, \psi_{200}$ dell'atomo idrogenoide sono reali. In particolare
 \begin{align}
     \braket{210|zE|200} &= \frac{1}{16\pi}\int_0^\infty drr^3 \, \left(1 - \frac{r}{2}\right)e^{-r}\int_0^{2\pi}d\varphi\int_0^\pi\sin\theta d\theta \, zE\cos\theta \notag \\
     &= -\frac{E}{8}\int_0^\infty \left(r^4 - \frac{r^5}{2}\right)e^{-r}\int_0^\pi d(\cos\theta) \, \cos^2\theta = -3E \tag{1.6.4}
 \end{align}
 La matrice da diagonalizzare è 
-\begin{align}
+\begin{align} -3E
     \begin{pmatrix}
-        0 & 0 & -3E & 0 \\
+        0 & 0 & -1 & 0 \\
         0 & 0 & 0 & 0 \\
-        -3E & 0 & 0 & 0 \\
+        -1 & 0 & 0 & 0 \\
         0 & 0 & 0 & 0
     \end{pmatrix} \notag
 \end{align}
-Una volta diagonalizzata si nota che la perturbazione rompe la degenerazione per gli stati $\ket{210}$ e $\ket{200}$
+In particolare, l'equazione secolare è
+\begin{align}
+    \lambda^4 - \lambda^2 = 0 \notag
+\end{align}
+ovvero 
+\begin{align}
+    \lambda^2(\lambda^2 - 1) = 0 \notag
+\end{align}
+che ha come soluzioni $\lambda_0 = 0$ (con molteplicità algeberica $2$) e $\lambda_{\pm} = \pm 1$. La perturbazione rompe la degenerazione per gli stati $\ket{210}$ e $\ket{200}$
 \begin{align}
     \begin{cases}
         \frac{1}{\sqrt{2}}(\ket{200} - \ket{210}) \longrightarrow +3E \\
@@ -560,7 +566,7 @@ Una volta diagonalizzata si nota che la perturbazione rompe la degenerazione per
     \end{cases} \tag{1.6.5}
 \end{align}
 questo comporta che per tali stati $\boldsymbol{\mu}_{dip} = \pm 3 \, ua$. Mentre per $\ket{21\pm1}$ si ha $\boldsymbol{\mu}_{dip} \perp \mathbf{E}$, il che ha senso dato che si tratta di stati $p_x$ e $p_y$ (ovvero ortogonali a $z$). \\ \\
-Per lo stato $1s$ la perturbazione è nulla, pertanto è necessario considerare la seconda approssimazione. Possiamo stimare la correzione usando la completezza della base $\{\ket{nlm}\}_{nlm}$
+Per lo stato $1s$ la perturbazione al primo ordine è nulla, pertanto è necessario considerare la seconda approssimazione. Possiamo stimare la correzione usando la completezza della base $\{\ket{nlm}\}_{nlm}$
 \begin{align}
     \Delta E^{(2)}_{1s} &= \sum_{n = 2}^\infty \sum_{l = 0}^{n - 1}\sum_{m = -l}^l \frac{|\braket{nlm|zE|100}|^2}{E_1 - E_n} \notag \\
     &> -\frac{E^2}{E_2 - E_1}\sum_{nlm} \braket{100|z|nlm}\braket{nlm|z|100} \notag \\
@@ -587,7 +593,7 @@ La presenza della shell interna rompe la degenerazione in $l$ e si ottiene
 \begin{align}
     E_{nl} = -\frac{R}{(n - \Delta_{nl})^2} \tag{2.1.2}
 \end{align}
-dove $R = \frac{1}{2}$, mentre $\Delta_{nl}$ è detto \textit{difetto quantico}. Il difetto quantico dipende fortemente da $l$ (e debolmente da $n$), pertanto è valida la seguente approssimazione 
+dove $R = \frac{1}{2}$ è la costante di \textit{Rydberg}, mentre $\Delta_{nl}$ è detto \textit{difetto quantico} e misura essenzialmente quanto l'atomo alcalino devia dal caso dell'atomo idrogenoide. Il difetto quantico dipende fortemente da $l$ (e debolmente da $n$), pertanto è valida la seguente approssimazione 
 \begin{align}
     \Delta_{nl} \sim \Delta_l \tag{2.1.3}
 \end{align}
@@ -703,11 +709,11 @@ Consideriamo un atomo a $N$ elettroni, l'hamiltoniano che lo descrive è della f
 \end{align}
 dove $h_i$ è, come sempre, l'hamiltoniano di singola particella associato alla particella $i$-esima. \\ \\
 In questo caso non possiamo trattare il termine a più elettroni come una perturbazione, dato che l'interazione è troppo importante. \\ \\
-A tal proposito introduciamo l'\textit{approssimazione di campo centrale}, ovvero supponiamo che gli elettroni siano indipendenti e che ogni elettrone si muova in un potenziale medio $V$ generato dagli altri $N - 1$ elettroni e dal nucleo
+A tal proposito introduciamo l'\textit{approssimazione di campo centrale}, ovvero supponiamo che gli elettroni siano indipendenti e che ogni elettrone si muova in un potenziale centrale medio $V_c$ generato dagli altri $N - 1$ elettroni e dal nucleo
 \begin{align}
-    V(r) = -\frac{Z}{r} + S(r) \tag{2.4.2}
+    V_c(r) = -\frac{Z}{r} + S(r) \tag{2.4.2}
 \end{align}
-$S$ è il termine medio generato dagli altri elettroni e tiene conto dello schermo elettronico che generano rispetto all'elettrone in esame. \\
+$S$ è la componente isotropa dello schermo elettronico che gli altri $N - 1$ elettroni generano rispetto all'elettrone in esame. In questa approssimazione stiamo trascurando la componente anisotropa, che in generale è molto meno importante ma comunque non nulla. \\
 In particolare ci aspettiamo che $S$ soddisfi i seguenti comportamenti asintotici 
 \begin{align}
     S(r) \sim \begin{cases}
@@ -718,17 +724,27 @@ In particolare ci aspettiamo che $S$ soddisfi i seguenti comportamenti asintotic
 ovvero che lo schermo sia nullo quando l'elettrone non vede elettroni interni e che lo schermo sia completo quando l'elettrone è esterno a tutti i restanti elettroni (abbastanza distante dal nucleo). \\
 Allora, possiamo riscrivere l'hamiltoniano come segue 
 \begin{align}
-    H = \sum_{i = 1}^N\left(-\frac{\nabla^2_i}{2} - \frac{Z}{r_i}\right) + \left(\sum_{i < j}\frac{1}{r_{ij}} - \sum_{k = 1}^N S(r_k)\right) \tag{2.4.4}
+    H &= \sum_{i = 1}^N\left(-\frac{\nabla^2_i}{2} - \frac{Z}{r_i}\right) + \sum_{i < j}\frac{1}{r_{ij}} + \left(\sum_{k = 1}^N V_c(r_k) - V_c(r_k)\right) \notag \\
+    &= \sum_{i = 1}^N\left(-\frac{\nabla^2_i}{2} + V(r_i)\right) + \left(\sum_{i < j}\frac{1}{r_{ij}} - \sum_{k = 1}^N S(r_k)\right) \tag{2.4.4}
 \end{align}
 In questo caso è valido trattare il termine 
 \begin{align}
     H' = \sum_{i < j}\frac{1}{r_{ij}} - \sum_{k = 1}^N S(r_k) \notag
 \end{align}
-come una perturbazione rispetto all'hamiltoniano $H_0 = \sum \hat{h}_i$. Infatti stiamo essenzialmente sottraendo all'interazione elettrone ($\sum 1/r_{ij}$) il termine isotropo centrale ($\sum S(r_i)$), dunque rimane solamente il termine anisotropo dell'interazione elettronica, che è una piccola frazione del contributo totale.  \\
-Come funzione d'onda imperturbata prendiamo il determinante di Slater dato da 
+come una perturbazione rispetto all'hamiltoniano $H_0 = \sum \hat{h}_i$. Infatti stiamo essenzialmente sottraendo all'interazione elettrone ($\sum 1/r_{ij}$) il termine isotropo centrale ($\sum S(r_i)$), dunque rimane solamente il termine anisotropo dell'interazione elettronica, che è una piccola frazione del contributo totale. \\
+La soluzione del problema imperturbato è prodotto di soluzione dell'hamiltoniano centrale di singola particella dato da 
 \begin{align}
-    \psi(r_1, \dots, r_n) = \frac{1}{\sqrt{N!}}\ket{\psi_{n_1l_1m_1} \dots \psi_{n_Nl_Nm_N}} \tag{2.4.5}
+    -\frac{\nabla^2}{2} + V_c(r) \notag
+\end{align} 
+ovvero
+\begin{align}
+    \psi(\mathbf{r}_1, \dots, \mathbf{r}_N) = \psi_{a_1}(\mathbf{r}_1) \cdot \dots \cdot \psi_{a_N}(\mathbf{r}_N) \tag{2.4.5}
 \end{align}
+Inoltre, dato che il potenziale è centrale, si ha $[H_c, \mathbf{L}] = 0$, pertanto
+\begin{align}
+    \psi_{nlm}(\mathbf{r}) = R_{nl}(r)Y_{lm}(\theta, \varphi) \tag{2.4.6}
+\end{align}
+ovvero possiamo fattorizzare la dipendenza angolare.
 
 \newpage
 \subsection{Metodo di Hartree-Fock}
@@ -746,11 +762,11 @@ Imponiamo come vincolo $\braket{\psi_{a_i}|\psi_{a_j}} = \delta_{ij}$ e applichi
     \delta\left(E_{HF} - \sum_{ij}\epsilon_{ij}(\braket{\psi_{a_i}, \psi_{a_j}} - \delta_{ij})\right) = 0 \tag{2.5.3}
 \end{align}
 dove $\epsilon$ è detto moltiplicatore di Lagrange e $\delta$ è l'operatore variazione prima. \\
-Vediamo termine per termine 
+Vediamo termine per termine. In generale si ha
 \begin{align}
     E_{HF} = \sum_{i = 1}^N E_i + \frac{1}{2}\sum_{ij}(J_{ij} - K_{ij}) \tag{2.5.4}
 \end{align}
-dove $I_k$ è l'energia di singolo elettrone associato all'elettrone $k$-esimo, $J_{ij}$ e $K_{ij}$ sono rispettivamente l'integrale coulombiano e l'intergrale di scambio associati alla coppia di elettroni $i, j$. In particolare 
+dove $E_i$ è l'energia di singolo elettrone associato all'elettrone $k$-esimo, $J_{ij}$ e $K_{ij}$ sono rispettivamente l'integrale coulombiano e l'intergrale di scambio associati alla coppia di elettroni $i, j$. In particolare 
 \begin{align}
     E_i = \int d^3\mathbf{r} \, \psi^*_{a_i}(r)\hat{h}\psi_{a_i}(r) \tag{2.5.5}
 \end{align}
