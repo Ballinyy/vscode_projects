@@ -3,24 +3,24 @@
 \contentsline {subsection}{\numberline {1.2}Correzioni relativistiche}{7}{}%
 \contentsline {subsection}{\numberline {1.3}Interazione radiazione-materia}{11}{}%
 \contentsline {subsection}{\numberline {1.4}Atomo idrogenoide soggetto a campo elettromagnetico}{16}{}%
-\contentsline {subsection}{\numberline {1.5}Approssimazione del potenziale in armoniche sferiche}{19}{}%
-\contentsline {subsection}{\numberline {1.6}Effetto Stark}{20}{}%
-\contentsline {section}{\numberline {2}Atomi a più elettroni}{22}{}%
-\contentsline {subsection}{\numberline {2.1}Metalli alcalini}{22}{}%
-\contentsline {subsection}{\numberline {2.2}Funzioni d'onda di spin per atomi a due elettroni}{23}{}%
-\contentsline {subsection}{\numberline {2.3}Atomi elioidi}{25}{}%
-\contentsline {subsection}{\numberline {2.4}Approssimazione di campo centrale}{27}{}%
-\contentsline {subsection}{\numberline {2.5}Metodo di Hartree-Fock}{29}{}%
-\contentsline {subsection}{\numberline {2.6}HF spin-adapted}{32}{}%
-\contentsline {section}{\numberline {3}Molecole}{33}{}%
-\contentsline {subsection}{\numberline {3.1}Approssimazione di Born-Oppenheimer}{33}{}%
-\contentsline {subsection}{\numberline {3.2}Molecola $H^+_2$}{35}{}%
-\contentsline {subsection}{\numberline {3.3}Molecola $H_2$}{37}{}%
-\contentsline {subsection}{\numberline {3.4}Modello Valence Bond (VB) o Heitler-London}{39}{}%
-\contentsline {subsection}{\numberline {3.5}Moti nucleari}{40}{}%
-\contentsline {subsection}{\numberline {3.6}Spettroscopia molecolare}{43}{}%
-\contentsline {subsection}{\numberline {3.7}Principio di Frank-Condon e transizioni elettroniche}{45}{}%
-\contentsline {subsection}{\numberline {3.8}Spettroscopia Raman}{46}{}%
-\contentsline {section}{\numberline {4}Solidi}{48}{}%
-\contentsline {subsection}{\numberline {4.1}Proprietà dei solidi, reticolo di Bravais e reticolo reciproco}{48}{}%
-\contentsline {subsection}{\numberline {4.2}Modello di Kronig-Penney}{50}{}%
+\contentsline {subsection}{\numberline {1.5}Approssimazione del potenziale in armoniche sferiche}{20}{}%
+\contentsline {subsection}{\numberline {1.6}Effetto Stark}{21}{}%
+\contentsline {section}{\numberline {2}Atomi a più elettroni}{23}{}%
+\contentsline {subsection}{\numberline {2.1}Metalli alcalini}{23}{}%
+\contentsline {subsection}{\numberline {2.2}Funzioni d'onda di spin per atomi a due elettroni}{25}{}%
+\contentsline {subsection}{\numberline {2.3}Atomi elioidi}{27}{}%
+\contentsline {subsection}{\numberline {2.4}Approssimazione di campo centrale}{29}{}%
+\contentsline {subsection}{\numberline {2.5}Metodo di Hartree-Fock}{31}{}%
+\contentsline {subsection}{\numberline {2.6}HF spin-adapted}{34}{}%
+\contentsline {section}{\numberline {3}Molecole}{35}{}%
+\contentsline {subsection}{\numberline {3.1}Approssimazione di Born-Oppenheimer}{35}{}%
+\contentsline {subsection}{\numberline {3.2}Molecola $H^+_2$}{37}{}%
+\contentsline {subsection}{\numberline {3.3}Molecola $H_2$}{39}{}%
+\contentsline {subsection}{\numberline {3.4}Modello Valence Bond (VB) o Heitler-London}{41}{}%
+\contentsline {subsection}{\numberline {3.5}Moti nucleari}{42}{}%
+\contentsline {subsection}{\numberline {3.6}Spettroscopia molecolare}{45}{}%
+\contentsline {subsection}{\numberline {3.7}Principio di Frank-Condon e transizioni elettroniche}{47}{}%
+\contentsline {subsection}{\numberline {3.8}Spettroscopia Raman}{48}{}%
+\contentsline {section}{\numberline {4}Solidi}{50}{}%
+\contentsline {subsection}{\numberline {4.1}Proprietà dei solidi, reticolo di Bravais e reticolo reciproco}{50}{}%
+\contentsline {subsection}{\numberline {4.2}Modello di Kronig-Penney}{52}{}%

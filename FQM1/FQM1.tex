@@ -408,7 +408,7 @@ dove $H_0$ è l'hamiltoniana dell'atomo idrogenoide (che sappiamo risolvere). In
     &= -\frac{1}{2}(\mathbf{p} \times \mathbf{r}) \cdot \mathbf{B} \notag \\
     &= \frac{1}{2}\mathbf{L} \cdot \mathbf{B} \tag{1.4.3}
 \end{align}
-Notiamo immediatamente che tale termine non ha effetto sugli stati a $l = 0$, pertanto in tal caso non può essere trascurato il termine quadratico $\mathbf{A}^2$. \\
+Notiamo immediatamente che tale termine non ha effetto sugli stati a $l = 0$, pertanto in tal caso non può essere trascurato il termine quadratico $\mathbf{A}^2$ (\textit{effetto diamagnetico}). \\
 Determiniamo l'ordine di grandezza del termine quadratico. Si ha
 \begin{align}
     \frac{1}{2}\mathbf{A}^2 &= \frac{1}{8}(\mathbf{B} \times \mathbf{r})^2 \notag \\
@@ -418,7 +418,7 @@ Determiniamo l'ordine di grandezza del termine quadratico. Si ha
     &= \frac{1}{8}\mathbf{B}^2(\mathbf{r}^2 - \mathbf{z}^2) \notag \\
     &= \frac{1}{8}\mathbf{B}^2\left(1 - \frac{1}{3}\right)\braket{\mathbf{r}^2}_{n00} \tag{1.4.4} 
 \end{align}
-dove si è usato $\braket{\mathbf{r}^2}_{nlm} = \frac{1}{3}\braket{\mathbf{z}^2}_{nlm}$ per simmetria sferica del problema. Il termine $\braket{\mathbf{r}^2}_{n00}$ va come $n^4$. Pertanto per $n = 1$ si ha $\frac{1}{2}\mathbf{A}^2 \sim \mathbf{B}^2$ e il termine quadratico è trascurabile, mentre per $n$ abbastanza grandi ha un contributo che non può essere più tralasciato. \\ \\
+dove si è usato $\braket{\mathbf{r}^2}_{n00} = \frac{1}{3}\braket{\mathbf{z}^2}_{n00}$ per simmetria sferica del problema. Il termine $\braket{\mathbf{r}^2}_{n00}$ va come $n^4$. Pertanto per $n = 1$ si ha $\mathbf{A}^2 \sim \mathbf{B}^2$ e il termine quadratico è trascurabile, mentre per $n$ abbastanza grandi ha un contributo che non può essere più tralasciato. \\ \\
 Sappiamo che, in prima approssimazione, il termine di interazione può essere scritto come $-\mathbf{m} \cdot \mathbf{B}$, dove $\mathbf{m}$ è il momento magnetico. Allora deve valere 
 \begin{align}
     -\mathbf{m} \cdot \mathbf{B} = \frac{e\mathbf{p} \cdot \mathbf{A}}{m} \tag{1.4.5}
@@ -436,6 +436,7 @@ dove $\mu_B$ è il magnetone di Bohr, che misura il momento magnetico associato 
     -\mathbf{m} = -\frac{\mu_B}{\hbar}(\mathbf{L} + g\mathbf{S}) \tag{1.4.7}
 \end{align}
 dove $g$ è detto \textit{fattore giromagnetico} e tiene conto di quante unita $\hbar$ di spin $\mathbf{S}$ sono necessarie per generare un magnetone di Bohr. \\ \\
+Se $l = 0$ o $n$ è sufficientemente grande è necessario considerare il termine diamagnetico $\mathbf{A}^2$. In particolare, usando $\mathbf{A} = \frac{1}{2}(\mathbf{B} \times \mathbf{r})$ si ottiene che la perturbazione dovuta al termine quadratico è $H'' = \frac{e^2B^2}{8m}(x^2 + y^2)$. \\ \\
 Delle correzioni relativistiche ci interessa solamente l'interazione spin-orbita, dato che è l'unica che rompe la degenerazione. Studiamo il suo effetto in relazione all'intensità del campo magnetico.
 
 \subsubsection*{Effetto Paschen-Back}
@@ -483,7 +484,8 @@ ovviamente $s = \frac{1}{2}$ per l'elettrone. Concludiamo che
 \begin{align}
     \Delta E^{(1)}_{B} = \mu_BB(1 + k)m_j \tag{1.4.15}
 \end{align}
-dove $(1 + k)$ è detto \textit{fattore di Landé} che non è altro che il \textit{fattore giromagnetico} $g_J$ associato a $\mathbf{J}$. \\ \\
+dove $(1 + k)$ è detto \textit{fattore di Landé}
+ che non è altro che il \textit{fattore giromagnetico} $g_J$ associato a $\mathbf{J}$. \\ \\
 L'effetto Zeeman viene detto \textit{Zeeman normale} quando si ha $\mathbf{S} = 0$, ad esempio quando tutti gli elettroni sono accoppiati. In tal caso non compare il termine $S_z$ nell'interazione $H_B$ e non compare l'interazione spin orbita $H_{SO}$ dato che $\mathbf{L} \cdot \mathbf{S} = 0$. \\
 Mentre è detto effetto \textit{Zeeman anomalo} quando lo spin totale dell'atomo è non nullo ($\mathbf{S} \neq 0)$. Il termine anomalo deriva dal fatto che quando fu osservato ancora non si conosceva lo spin dell'elettrone.
 
@@ -597,7 +599,11 @@ dove $R = \frac{1}{2}$ è la costante di \textit{Rydberg}, mentre $\Delta_{nl}$ 
 \begin{align}
     \Delta_{nl} \sim \Delta_l \tag{2.1.3}
 \end{align}
-Inoltre, $\Delta_{nl} \rightarrow 0$ per $n \rightarrow \infty$. \\ \\
+Infatti è il momento angolare orbitale $\mathbf{L}$ che determina l'interazione con lo schermo elettronico e quindi la penetrazione della funzione d'onda all'interno della nuvola elettronica. Questo fenomeno è controllato dal termine di potenziale centrifugo 
+\begin{align}
+    \frac{l(l + 1)}{r^2} \notag
+\end{align}
+Notiamo appunto che per $l = 0$ la penetrazione è molto alta dato che il termine centrifugo è identicamente nullo. Inoltre, $\Delta_{nl} \rightarrow 0$ per $n \rightarrow \infty$. \\ \\
 Per elementi che diventano alcalini dopo processi di ionizzazione si ha 
 \begin{align}
     E_{nl} = -\frac{\tilde{Z}^2R}{(n - \Delta_{nl})^2} \tag{2.1.4}
