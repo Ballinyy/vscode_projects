@@ -731,7 +731,7 @@ ovvero che lo schermo sia nullo quando l'elettrone non vede elettroni interni e 
 Allora, possiamo riscrivere l'hamiltoniano come segue 
 \begin{align}
     H &= \sum_{i = 1}^N\left(-\frac{\nabla^2_i}{2} - \frac{Z}{r_i}\right) + \sum_{i < j}\frac{1}{r_{ij}} + \left(\sum_{k = 1}^N V_c(r_k) - V_c(r_k)\right) \notag \\
-    &= \sum_{i = 1}^N\left(-\frac{\nabla^2_i}{2} + V(r_i)\right) + \left(\sum_{i < j}\frac{1}{r_{ij}} - \sum_{k = 1}^N S(r_k)\right) \tag{2.4.4}
+    &= \sum_{i = 1}^N\left(-\frac{\nabla^2_i}{2} + V_c(r_i)\right) + \left(\sum_{i < j}\frac{1}{r_{ij}} - \sum_{k = 1}^N S(r_k)\right) \tag{2.4.4}
 \end{align}
 In questo caso è valido trattare il termine 
 \begin{align}
@@ -811,7 +811,7 @@ Unendo tutti i termini si ottiene
 \end{align}
 Dato che la $(2.5.9)$ deve valere per ogni variazione arbitraria $\delta$ si ottiene 
 \begin{align}
-    \hat{h} + \sum_j(\hat{J}_j(1) - \hat{K}_j(1))\psi_{a_i} = \sum_j \epsilon_{ij}\psi_{a_i} \tag{2.5.12}
+    \sum_j(\hat{h} + \hat{J}_j(1) - \hat{K}_j(1))\psi_{a_i} = \sum_j \epsilon_{ij}\psi_{a_i} \tag{2.5.12}
 \end{align}
 Ponendo $\hat{f}(1) = \hat{h} + \sum_j (\hat{J}_j(1) - \hat{K}_j(1))$ \textit{operatore di Fock}, l'equazione di HF diventa 
 \begin{align}
@@ -1068,9 +1068,9 @@ Per correggere il metodo VB si può introdurre un termine ionico modulato da un 
 \newpage
 \subsection{Moti nucleari}
 Ipotizziamo che ogni molecola si trovi in un stato $\Sigma$, ovvero con momento angolare orbitale elettronico nullo, allora il momento angolare orbitale complessivo sarà dovuto solamente a quello del moto nucleare. Inoltre, trascuriamo interazioni di spin. \\
-In prima approssimazione, possiamo disaccopiare i moti nucleari di rotazione, vibrazione e di transizione elettronica. \\
+Dato che il potenziale di interazione elettronica $E_n(R)$ dipende solamente da $R$, possiamo disaccoppiare il moto rotazionale e quello vibrazionale
 \begin{align}
-    \chi_N(R) = F_{vJ}(R)Y_{JM_J}(\theta, \varphi) \tag{3.5.1}
+    \chi_N(R) = \frac{F_{vJ}}{R}(R)Y_{JM_J}(\theta, \varphi) \tag{3.5.1}
 \end{align}
 Per moto di rotazione rigida di una molecola biatomica, $R = R_0$, si ha 
 \begin{align}
@@ -1086,11 +1086,11 @@ In prima approssimazione, possiamo trattare il moto vibrazione come un moto di o
 \end{align}
 L'equazione da risolvere diventa 
 \begin{align}
-    \left(-\frac{\hbar^2}{2\mu}\frac{\partial^2}{\partial R^2} + \overbrace{\frac{J(J + 1)}{2\mu R^2_0}}^{E_{rot} \text{ rotatore rigido}} + E^{(e)}_n(R) - E\right)F_{vJ}(R) = 0 \tag{3.5.5}
+    \left(-\frac{\hbar^2}{2\mu}\nabla^2_R + \overbrace{\frac{J(J + 1)}{2\mu R^2_0}}^{E_{rot} \text{ rotatore rigido}} + E^{(e)}_n(R) - E\right)F_{vJ}(R) = 0 \tag{3.5.5}
 \end{align}
 dove $E = E_{rot} + E_v + E^{(e)}_n(R_0)$, energia nucleare su una certa (fissata) superficie elettronica, in approssimazione armonica e rotatore rigido. Pertanto, sviluppando il potenziale elettronico attorno al punto di equilibrio, la $(3.5.5)$ diventa 
 \begin{align}
-    \left(-\frac{\hbar^2}{2\mu}\frac{\partial^2}{\partial R^2} + \frac{1}{2}\frac{d^2E^{(e)}_n}{dR^2}(R_0)(R - R_0)^2 - E_v\right)F_{vJ}(R) = 0 \tag{3.5.6}
+    \left(-\frac{\hbar^2}{2\mu}\nabla^2_R + \frac{1}{2}\frac{d^2E^{(e)}_n}{dR^2}(R_0)(R - R_0)^2 - E_v\right)F_{vJ}(R) = 0 \tag{3.5.6}
 \end{align}
 La $(3.5.6)$ non è altro che l'equazione differenziale dell'oscillatore armonico, pertanto le $F_{vJ}$ sono i polinomi di Hermite, mentre 
 \begin{align}
@@ -1106,15 +1106,15 @@ Se facciamo cadere l'ipotesi di rotatore rigido si ha
 \end{align}
 Pertanto, la $(3.5.5)$ diventa 
 \begin{align}
-    \left(-\frac{\hbar^2}{2\mu}\frac{\partial^2}{\partial R^2} + \frac{J(J + 1)}{2\mu R^2} + V(R) - E\right)F_{vJ} = 0 \tag{3.5.10}
+    \left(-\frac{\hbar^2}{2\mu}\nabla^2_R + \frac{J(J + 1)}{2\mu R^2} + V(R) - E\right)F_{vJ} = 0 \tag{3.5.10}
 \end{align}
 Dove $V$ è un generico potenziale adatto a descrivere l'interazione elettronica, come ad esempio il potenziale di \textit{Morse} o il potenziale di \textit{Lennard-Jones}. Definiamo il potenziale efficace 
 \begin{align}
     V_{eff}(R) = \frac{J(J + 1)}{2\mu R^2} + V(R) \tag{3.5.11}
 \end{align}
-Supponiamo sempre che per $R \sim R_0$ si abbia
+Supponiamo sempre che esista $R_1$ posizione di equilibrio tale che
 \begin{align}
-    V(R) \sim V(R_0) + \frac{1}{2}k(R - R_0)^2 \tag{3.5.12}
+    V(R) \sim V(R_1) + \frac{1}{2}k(R - R_1)^2 \tag{3.5.12}
 \end{align}
 Allora, il minimo del potenziale efficace non è più $R_0$, piuttosto si ha 
 \begin{align}
@@ -1164,6 +1164,7 @@ Le regole di transizioni che seguono sono valide solamente per molecole con mome
         \Delta M &= 0, \pm 1
     \end{cases} \tag{3.6.3}
 \end{align}
+La regola di selezione per spettri vibrazionali segue proprio dalle proprietà di ricorrenza dei polinomi di Hermite. \\ \\
 Uno spettro rotazionale puro ha righe equidistanti, separate da una quantità $2B$. Ogni riga corrisponde a una transizione $j \rightarrow j + 1$
 \begin{center}
     \begin{figure}[h]
@@ -1210,7 +1211,7 @@ Le possibili transizioni elettroniche sono: \\
 
 \textbf{1.} Dissociazione della molecola: avviene quando il potenziale di interazione elettronica dello stato finale non ha un minimo, ovvero non esiste una distanza di equilibrio. \\
 
-\textbf{2.} Pre-dissociazione della molecola: avviene quando lo stato finale ammette ancora un distanza di equilibrio, ma la molecola transisce nuovamente ad uno stato privo di distanza di equilibrio a causa di interazioni non radiative all'interno della molecola. \\
+\textbf{2.} Pre-dissociazione della molecola: avviene quando lo stato finale ammette ancora un distanza di equilibrio, ma la molecola transisce nuovamente ad uno stato privo di distanza di equilibrio a causa di interazioni non radiative all'interno della molecola stessa. \\
 
 \textbf{3.} Fluorescenza: avviene quando la molecola assorbe una certa lunghezza d'onda $\lambda$ e emmette subito dopo una lunghezza d'onda meno energetica $\lambda' > \lambda$, sempre a causa di processi di interazione non radiativa all'interno della molecola stessa. \\
 
@@ -1317,8 +1318,7 @@ Dati i tre vettori primiti del reticolo di Bravais $\mathbf{a}_1, \mathbf{a}_2, 
     \mathbf{b}_2 &= 2\pi\frac{\mathbf{a}_1 \times \mathbf{a}_3}{|\mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3)|} \tag{4.1.11} \\
     \mathbf{b}_3 &= 2\pi\frac{\mathbf{a}_1 \times \mathbf{a}_2}{|\mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3)|} \tag{4.1.12}
 \end{align}
-I vettori primitivi $\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3$ identificiano il \textit{reticolo reciproco}. Osserviamo immediatamente che $\mathbf{a}_i \cdot \mathbf{b}_j = 2\pi\delta_{ij}$, per $i, j = 1, 2, 3$. Segue che $e^{\mathbf{G} \cdot \mathbf{R}} = 1$ per ogni vettore $\mathbf{G}$ del reticolo reciproco e ogni vettore $\mathbf{R}$ del reticolo diretto. \\ \\
-Chiamiamo \textit{prima zona di Brillouin} la cella di Wigner-Seitz del reticolo reciproco.
+I vettori primitivi $\mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3$ identificiano il \textit{reticolo reciproco}. Osserviamo immediatamente che $\mathbf{a}_i \cdot \mathbf{b}_j = 2\pi\delta_{ij}$, per $i, j = 1, 2, 3$. Segue che $e^{\mathbf{G} \cdot \mathbf{R}} = 1$ per ogni vettore $\mathbf{G}$ del reticolo reciproco e ogni vettore $\mathbf{R}$ del reticolo diretto.
 
 \newpage
 \subsection{Modello di Kronig-Penney}
@@ -1335,12 +1335,60 @@ Possiamo risolvere l'equazioni di Schrodinger in entrambe le zone.Indichiamo con
     1. \qquad &\frac{d^2}{dx^2}\psi + \frac{2m}{\hbar^2}E\psi = 0 \tag{4.2.1} \\
     2. \qquad &\frac{d^2}{dx^2}\psi + \frac{2m}{\hbar^2}(E - V_0)\psi = 0 \tag{4.2.2}
 \end{align}
-Applicando il \textit{teorema di Bloch}, le soluzioni sono della forma 
+Applicando il \textit{teorema di Bloch} si ottiene 
 \begin{align}
-    1. \qquad &\omega_1 = Ae^{i(\alpha - k)x} + Be^{i(\alpha + k)x} \tag{4.2.3} \\
-    2. \qquad &\omega_2 = Ce^{(\beta - ik)x} + De^{i(\beta + ik)x} \tag{4.2.4
-    }
+    1. \qquad &\omega'' + 2ik\omega' + (\alpha^2 - k^2)\omega = 0 \tag{4.2.3} \\
+    2. \qquad &\omega'' + 2ik\omega' - (\beta^2 + k^2)\omega = 0 \tag{4.2.4}
 \end{align}
+che ammettono soluzioni della forma 
+\begin{align}
+    1. \qquad &\omega_1 = Ae^{i(\alpha - k)x} + Be^{i(\alpha + k)x} \tag{4.2.5} \\
+    2. \qquad &\omega_2 = Ce^{(\beta - ik)x} + De^{i(\beta + ik)x} \tag{4.2.6}
+\end{align}
+Dato che $\alpha$ e $\beta$ contengono l'informazione sull'energia, imponendo che le soluzioni siano di classe $C^1$ nei punti di discontinuità del potenziale, si ottiene la condizione che determina lo spettro energetico del solido. \\
+In particolare, la condizione è della forma 
+\begin{align}
+    \cos(ka) = L(E) \tag{4.2.7}
+\end{align}
+dove $L(E)$ è una funzione dell'energia. La condizione che deve essere soddisfatta affinché il livello energetico $E$ sia accessibile per il sistema è $|L(E)| \leq 1$ (si risolve graficamente). \\
+Se supponiamo che $b \rightarrow 0$, ovvero potenziale a delta di Dirac, la condizione diventa 
+\begin{align}
+    \cos(ka) = \frac{P}{\alpha a}\sin(\alpha a) + \cos(\alpha a) \tag{4.2.8}
+\end{align} \\
+Tale condizione individua delle regione continue, dette \textit{bande}, composte da energia accessibili per il solido, separate da regioni dette \textit{gap}, che indivuano le energie che non soddisfano l'equazione caratteristica $|L(E)| \leq 1$. \\ \\
+Notiamo che la condizione $(4.2.7)$ è invariante per traslazioni $k \mapsto k + n\frac{2\pi}{a}$, con $n \in \mathbf{N}$. Chiamiamo \textit{prima zona di Brillouin} la regione dello spazio $k$ identificata da $-\frac{\pi}{a} \leq k \leq \frac{\pi}{a}$. \\
+Notiamo che anche la soluzione del problema del solido, per il \textit{teorema di Bloch}, soddisfa tale invarianza per traslazioni di $k$. Questo comporta che la soluzione di una particolare banda è equivalente alla soluzione nella prima zona di Brillouin, in particolare è sufficiente traslare la soluzione per riottenere la soluzione nella prima zona di Brillouin. \\ \\
+Da $(4.1.8)$ notiamo che $\omega_k$ soddisfa
+\begin{align}
+    \left(\frac{p^2}{2m} + \frac{\hbar^2k^2}{2m} + \frac{\hbar k}{m}\right)\omega_k = E_k\omega_k \tag{4.2.9}
+\end{align}
+ovvero è autofunzione dell'hamiltoniano $H_k$ che ha la seguente forma
+\begin{align}
+    H_k = \frac{(p + \hbar k)}{2m} + V(R) \tag{4.2.10}
+\end{align}
+Inoltre, notiamo che 
+\begin{align}
+    \frac{d}{dk}(H_k\omega_k) = \frac{dH_k}{dk}\omega_k + H_k\frac{d\omega_k}{dk} = \frac{dE_k}{dk}\omega_k + E_k\frac{d\omega_k}{dk} = \frac{d}{dk}(E_k\omega_k) \tag{4.2.11}
+\end{align}
+dato che $H_k\omega_k = E_k\omega_k$. Allora, eseguendo il prodotto scalare con $\omega_k$ stesso, si ottiene 
+\begin{align}
+    \braket{\omega_k|\frac{dH_k}{dk}|\omega_k} + \cancel{E_k\braket{\omega_k|\frac{d\omega_k}{dk}}} = \frac{dE_k}{dk} + \cancel{E_k\braket{\omega_k|\frac{d\omega_k}{dk}}} \tag{4.2.12}
+\end{align}
+Sostituendo $(4.2.10)$ in $(4.2.12)$ e calcolando la derivata si ottiene
+\begin{align}
+    \overbrace{\frac{dE_k}{dk}}^{\text{pendenza della banda}} &= \braket{\omega_k|\frac{\hbar(p + \hbar k)}{m}|\omega_k} \notag \\
+    &= \frac{\hbar^2k}{m} + \frac{\hbar}{m}\braket{\omega_k|p|\omega_k} \notag \\
+    &= \frac{\hbar^2k}{m} + \frac{\hbar}{m}\braket{e^{-ikx}\psi_k|-i\hbar\frac{d}{dx}|e^{-ikx}\psi_k} \notag \\
+    &= \hbar\braket{\psi_k|v|\psi_k} \notag \\
+    &= \hbar\braket{v}_k \tag{4.2.13}
+\end{align}
+Pertanto, conludiamo che 
+\begin{align}
+    a &= \frac{d\braket{v}_k}{dt} = \frac{d}{dt}\left(\frac{1}{\hbar}\frac{dE_k}{dk}\right) \notag \\
+    &= \underbrace{\frac{1}{\hbar^2}\frac{d^2E_k}{dk^2}}_{(m^*)^{-1}} \cdot \underbrace{\hbar\frac{dk}{dt}}_{\frac{d}{dt}p = F} \tag{4.2.14}
+\end{align}
+ovvero, gli elettroni all'interno del solido soddisfa un'equazione del moto caratterizzata da una \textit{massa efficace} $m^*$ che può essere anche negativa. Segue che l'elettrone può comportarsi come una carica postivi, ovvero una lacuna, in base alla banda energetica in cui si trova il solido (notiamo che il segno di $m^*$ è unicamente determinato da $\frac{d^2E_k}{dk^2}$).
+
 
 
 
