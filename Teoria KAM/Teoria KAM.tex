@@ -426,14 +426,82 @@ dove si è definito $u = Ae_1 + Be_2 + Ce_3$. Concludiamo che ogni $2$-forma su 
 \subsection{Comportamento sotto applicazioni lineari}
 Sia $f : \mathbb{R}^m \longrightarrow \mathbb{R}^n$ un'applicazione lineare e sia $\omega^{(k)}$ una $k$-forma su $\mathbb{R}^n$. Allora, $f$ definisce la $k$-forma $f^*\omega$ su $\mathbb{R}^m$ tramite \textit{pullback}. In particolare, si pone
 \begin{align}
-    (f^*\omega^{(k)})(x_1, \dots, x_k) = \omega^{(k)}(fx_1, \dots, fx_k) \tag{1.5.1}
+    (f^*\omega^{(k)})(x_1, \dots, x_k) = \omega^{(k)}(f(x_1), \dots, f(x_k)) \tag{1.5.1}
 \end{align}
 per ogni $x_1, \dots, x_k \in \mathbb{R}^m$. \\ \\
 Verichiamo che $f^*\omega^{(k)}$ sia effettivamente una $k$-forma su $\mathbb{R}^m$. $f^*\omega^{(k)}$ è multilineare, infatti $f$ è un'applicazione lineare (che agisce su ogni entrata di $\omega^{(k)}$) e $\omega^{(k)}$ è multilineare per definizione. Infine, l'anticommutatività graduata si vede immediatamente, infatti $f$ non altera in alcun modo questa proprietà della $k$-forma. \\ \\
 \textbf{Proposizione 1.5.1:} $f^*$ è un operatore lineare da $\Lambda^{(k)}(\mathbb{R}^n)$ a $\Lambda^{(k)}(\mathbb{R}^m)$. \\
 
-\textbf{Dimostrazione:}
+\textbf{Dimostrazione:} dati $\omega_1, \omega_2 \in \Lambda^{(k)}(\mathbb{R}^n)$ e $\lambda_1, \lambda_2 \in \mathbb{R}$ si ha
+\begin{align}
+    (f^*(\lambda_1\omega_1 + \lambda_2\omega_2))(x_1, \dots, x_k) &= (\lambda_1\omega_1 + \lambda_2\omega_2)(f(x_1), \dots, f(x_k)) \notag \\
+    &= \lambda_1\omega_1(f(x_1), \dots, f(x_k)) \notag \\
+    &+ \lambda_2\omega_2(f(x_1), \dots, f(x_k)) \notag \\ \notag \\
+    &= \lambda_1(f^*\omega_1)(x_1, \dots, x_k) \notag \\
+    &+ \lambda_2(f^*\omega_2)(x_1, \dots, x_k) \tag{1.5.2}
+\end{align}
+per ogni $x_1, \dots, x_k \in \mathbb{R}^m$, ovvero la tesi. \qed \\ \\
+\textbf{Proposizione 1.5.2:} siano $f : \mathbb{R}^m \longrightarrow \mathbb{R}^n$ e $g : \mathbb{R}^n \longrightarrow \mathbb{R}^l$, allora $(g \circ f)^* = f^* \circ g^*$. \\
 
+\textbf{Dimostrazione:} sia $\omega$ una $k$-forma su $\mathbb{R}^l$, allora 
+\begin{align}
+    ((g \circ f)^*\omega)(x_1, \dots, x_k) &= \omega(g \circ f(x_1), \dots, g \circ f(x_k)) \notag \\
+    &= \omega(g(f(x_1)), \dots, g(f(x_k))) \notag \\
+    &= (g^*\omega)(f(x_1), \dots, f(x_k)) \notag \\
+    &= (f^* \circ g^*(\omega))(x_1, \dots, x_k) \tag{1.5.3}
+\end{align}
+per ogni $x_1, \dots, x_k \in \mathbb{R}^m$, ovvero la tesi. \qed \\ \\
+\textbf{Proposizione 1.5.3:} $f^*$ preserva il prodotto esterno. \\
+
+\textbf{Dimostrazione:} siano $\omega^{(k)}$ e $\omega^{(l)}$ rispettivamente una $k$-forma e una $l$-forma su $\mathbb{R}^n$. Si ha 
+\begin{align}
+    f^*(\omega^{(k)} \wedge \omega^{(l)})(x_1, \dots, x_{k + l}) &= \sum_{\substack{i_1 < \dots < i_k \\ j_1 < \dots < j_l}}(-1)^\nu\omega^{(k)}(f(x_{i_1}), \dots, f(x_{i_k})) \cdot \notag \\
+    &\cdot \omega^{(l)}(f(x_{j_1}), \dots, f(x_{j_l})) \tag{1.5.4}
+\end{align}
+dove $(i_1, \dots, i_k, j_1, \dots, j_l)$ è una permutazione di $(1, \dots, k + l)$ e $\nu$ è determinato in base al segno della permutazione. Da $(1.5.4)$ si vede immediatamente che
+\begin{align}
+    f^*(\omega^{(k)} \wedge \omega^{(l)}) = (f^*\omega^{(k)}) \wedge (f^*\omega^{(l)}) \tag{1.5.5}
+\end{align}
+ovvero la tesi. \qed
+
+\newpage
+\subsection{Forme differenziali su varietà}
+Diamo ora la definizione di forma differenziale definita su una varietà differenziabile $M$. Vediamo prima qualche esempio. \\ \\
+\textbf{Esempio:} il differenziale di una funzione è una $1$-forma differenziabile. Consideriamo ad esempio la funzione reale $f$ definita da $x \mapsto x^2$. Il suo differenziale $df$ è
+\begin{align}
+    df = 2x \, dx \tag{1.6.1}
+\end{align}
+Notiamo che, fissato $x \in \mathbb{R}$, il differenziale dipende linearmente dal termine $dx$, incremento dell'argomento. Pertanto, se fissiamo $x = 1$, si ha 
+\begin{align}
+    df(dx = 1) = 2 \qquad df(dx = 10) = 20 \notag
+\end{align} \\
+\textbf{Definizione:} sia $f : M \longrightarrow \mathbb{R}$ una funzione differenziabile. Il differenziale $df_x$ della funzione $f$ nel punto $x \in M$ è un'applicazione lineare 
+\begin{align}
+    df_x : T_xM \longrightarrow \mathbb{R} \tag{1.6.2}
+\end{align}
+dello spazio tangente a $M$ in $x$ nella retta reale. \\
+In particolare, data una curva $\gamma : [-\varepsilon, \varepsilon] \longrightarrow M$ tale che $\gamma(0) = x$ e $\dot{\gamma}(0) = v$, si ha 
+\begin{align}
+    df_x(v) = \frac{d}{dt}f(\gamma(t))|_{t = 0} \tag{1.6.3}
+\end{align}
+\textbf{Esempio:} sia $\alpha$ la curva piana
+\begin{align}
+    t \in \mathbb{R} \mapsto (x(t), y(t)) \in \mathbb{R}^2 \tag{1.6.4}
+\end{align}
+dove $x(t) = \cos t$ e $y(t) = \sin t$. Posto $v$ il vettore tangente ad $\alpha$ per $t = 0$, ovvero 
+\begin{align}
+    v = \frac{d}{dt}\alpha(t)|_{t = 0} = (0, 1) \tag{1.6.5}
+\end{align}
+Allora, i differenziali in $(1, 0)$ delle funzioni $x$ e $y$ calcolati sul vettore $v$ sono 
+\begin{align}
+    dx_{(1, 0)}(v) &= 0 \notag \\
+    dy_{(1, 0)}(v) &= 1 \notag
+\end{align}
+In generale, il differenziale $df$ di una funzione $f$ definita su una varietà $M$ è un'applicazione 
+\begin{align}
+    df : TM \longrightarrow \mathbb{R} \tag{1.6.6}
+\end{align}
+dove $TM = \bigcup_x T_xM$, lineare su ogni spazio tangente $T_xM$ e differenziabile.
 
 
 
