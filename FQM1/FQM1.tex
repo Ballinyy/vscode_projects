@@ -1114,35 +1114,32 @@ Dove $V$ è un generico potenziale adatto a descrivere l'interazione elettronica
 \begin{align}
     V_{eff}(R) = \frac{J(J + 1)}{2\mu R^2} + V(R) \tag{3.5.11}
 \end{align}
-Supponiamo sempre che esista $R_1$ posizione di equilibrio tale che
+Per $J$ non troppo grande $V_{eff} \sim V$. Possiamo sviluppare il potenziale efficace attorno al suo punto di minimo. Fermandosi al secondo ordine, si ha
 \begin{align}
-    V(R) \sim V(R_1) + \frac{1}{2}k(R - R_1)^2 \tag{3.5.12}
+    V_{eff}(R) \sim V_{eff}(R_1) + \frac{1}{2}k(R - R_1)^2 \tag{3.5.12}
 \end{align}
-Allora, il minimo del potenziale efficace non è più $R_0$, piuttosto si ha 
+Allora, derivando rispetto a $R$, si ottiene 
 \begin{align}
-    0 = \frac{dV_{eff}}{dR}(R_1) = k(R_1 - R_0) - \frac{J(J + 1)}{\mu R_1^3} \tag{3.5.13}
+    \frac{dV_{eff}}{dR} = k(R - R_1) \tag{3.5.13}
 \end{align}
-ovvero 
+Dato che $V$ ha minimo in $R_0$, uguagliando le due derivate si ottiene 
 \begin{align}
-    R_1 - R_0 = \frac{J(J + 1)}{k\mu R^3_1} > 0 \tag{3.5.14}
+    R_1 - R_0 = \frac{J(J + 1)}{k\mu R^3_0} > 0 \tag{3.5.14}
 \end{align}
 ovvero si osserva un fenomeno di \textit{stretching molecolare}, cioè la distanza di equilibrio aumenta, il legame si estende. \\
 Per $J$ non troppo grande possiamo stimare $R_1$ come segue 
-\begin{align}
-    R_1 \sim R_0 + \frac{J(J + 1)}{k\mu R^3_0} \tag{3.5.15}
-\end{align}
 L'energia totale, sempre nell'ipotesi di rotatore non rigido, diventa 
 \begin{align}
     E_{nvJ} &= -D_e + \hbar\omega_0\left(v + \frac{1}{2}\right) + BJ(J + 1) - \overbrace{\beta\hbar\omega_0\left(v + \frac{1}{2}\right)^2}^{\text{correzione alla vibrazione armonica}} + \notag \\
-    &- \underbrace{\alpha\left(v + \frac{1}{2}\right)J(J + 1)}_{\text{accoppiamento rotovibrazionale}} - \underbrace{\gamma J^2(J + 1)^2}_{\text{correzione al rotatore}} \tag{3.5.16}
+    &- \underbrace{\alpha\left(v + \frac{1}{2}\right)J(J + 1)}_{\text{accoppiamento rotovibrazionale}} - \underbrace{\gamma J^2(J + 1)^2}_{\text{correzione al rotatore}} \tag{3.5.15}
 \end{align}
 dove $\alpha, \beta, \gamma$ sono costanti che descrivono le correzioni alle energie. In particolare, $\beta$ è detta \textit{costante di anarmonicità}. Il potenziale di Morse 
 \begin{align}
-    V_M(R) = -D_e\left(1 - e^{-a(R - R_0)}\right)^2 \tag{3.5.17}
+    V_M(R) = -D_e\left(1 - e^{-a(R - R_0)}\right)^2 \tag{3.5.16}
 \end{align}
 è usato per descrivere il moto vibrazionale non armonico. Inoltre, $\beta$ ha la seguente espressione 
 \begin{align}
-    \beta = \frac{\omega_0}{4D_e} \tag{3.5.18}
+    \beta = \frac{\omega_0}{4D_e} \tag{3.5.17}
 \end{align}
 
 
