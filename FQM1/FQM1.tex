@@ -985,7 +985,8 @@ A meno di sommare e sottrare un termine $\frac{1}{R}$, possiamo riscrivere la $(
 \begin{align}
     H = \hat{h}_1 + \hat{h}_2 - \frac{1}{R} + \frac{1}{r_{12}} \tag{3.3.2}
 \end{align}
-dove $\hat{h}_1, \hat{h}_2$ sono rispettivamente l'hamiltoniano di $H^+_2$ per l'elettrone $1$ e per l'elettrone $2$. \\ \\
+dove $\hat{h}_1, \hat{h}_2$ sono rispettivamente l'hamiltoniano di $H^+_2$ per l'elettrone $1$ e per l'elettrone $2$.
+\subsubsection*{Metodo MO-LCAO}
 Trascurando il termine di interazione elettronica, l'energia dello stato fondamentale di $H_2$ sarebbe data da $E = 2E_+ - \frac{1}{R}$, dove $E_+ = \braket{\phi_g|\hat{h}|\phi_g}$, dato che sappiamo che $\phi_g$ è lo stato fondamantale della molecola $H^+_2$. \\
 Possiamo pensare di trattare il termine di interazione elettronica come una perturbazione al primo ordine. La soluzione del problema imperturbato $H_0 = \hat{h}_1 + \hat{h}_2 - \frac{1}{R}$ è
 \begin{align}
@@ -1015,7 +1016,8 @@ Calcoliamo l'energia totale del sistema
     \braket{\phi|H|\phi} &= \frac{N^4}{2}\braket{g_1\overline{g}_2 - \overline{g}_1g_2|h_1 + h_2 - \frac{1}{R} + \frac{1}{r_{12}}|g_1\overline{g}_2 - \overline{g}_1g_2} \notag \\
     &= 2E_g + J_{gg} - \frac{1}{R} \tag{3.3.7}
 \end{align}
-dove $J_{gg} = \braket{\phi|\frac{1}{r_{12}}|\phi}$ è la correzione al primo ordine dell'energia. \\ \\
+dove $J_{gg} = \braket{\phi|\frac{1}{r_{12}}|\phi}$ è la correzione al primo ordine dell'energia.
+\subsubsection*{Metodo CI}
 Un metodo più preciso è il variazionale lineare, in particolare diagonalizziamo $H$ nella base $\{\ket{g\overline{g}}_{det}, \ket{u\overline{u}}_{det}\}$ 
 \begin{align}
     H &= \begin{pmatrix}
@@ -1035,6 +1037,7 @@ Le energie che si ottegono sono
         -\beta\left(1 + \frac{2\gamma^2}{(\alpha - \beta)^2}\right)
     \end{cases} \tag{3.3.9}
 \end{align}
+Il metodo CI riesce a descrivere correttamente la dissociazione della molecola, al contrario di quanto accade per il metodo HF.
 
 \newpage
 \subsection{Modello Valence Bond (VB) o Heitler-London}
