@@ -364,7 +364,7 @@ In particolare
 \begin{align}
     \braket{f|r_q|i} &= \sqrt{\frac{4\pi}{3}}\int_0^\infty dr \, r^3 R_{nl}R_{n'l'} \int d\Omega \, Y_{lm}Y_{1q}Y_{l'm'} \tag{1.3.20}
 \end{align}
-Dato che le armoniche sferiche hanno simmetria $(-1)^{l}$ deve valere $(-1)^{l + l' + 1} = 1$, ovvero $l + l' + 1$ deve essere pari, altrimenti l'integrale in $d\Omega$ è nullo. Inoltre, il prodotto $Y_{1q}Y_{l'm'}$ può essere espresso come combinazione lineare di $Y_{j' + 1, m + q}, Y_{j', m + q}, Y_{j' - 1, m + q}$ (come se fosse una combinazione di momenti angolari), pertanto, per le proprietà di ortonormalità delle armoniche sferiche, deve valere $\Delta j = \pm 1$ affinché l'integrale sia non nullo. \\
+Dato che le armoniche sferiche hanno simmetria $(-1)^{l}$ deve valere $(-1)^{l + l' + 1} = 1$, ovvero $l + l' + 1$ deve essere pari, altrimenti l'integrale in $d\Omega$ è nullo. Inoltre, il prodotto $Y_{1q}Y_{l'm'}$ può essere espresso come combinazione lineare di $Y_{l' + 1, m + q}, Y_{l', m + q}, Y_{l' - 1, m + q}$ (come se fosse una combinazione di momenti angolari), pertanto, per le proprietà di ortonormalità delle armoniche sferiche, deve valere $\Delta j = \pm 1$ affinché l'integrale sia non nullo. \\
 Infine notiamo che 
 \begin{align}
     \int_0^{2\pi}d\varphi \, e^{i(m - m' + q)\varphi} \neq 0 \notag
@@ -443,7 +443,7 @@ Delle correzioni relativistiche ci interessa solamente l'interazione spin-orbita
 Se l'interazione con il campo magnetico esterno è molto più importante dell'interazione spin-orbita, è corretto usare come numeri quantici $n, l, m_l, s, m_s$, ovvero i numeri quantici dell'hamiltoniano $H_0 + H_B$. $\mathbf{J}^2$ non è un buon numero quantico dato che il forte campo magnetico seleziona una direzione ben precisa dello spazio (in questo caso supponiamo la direzione $z$) e quindi rompe la simmetria sferica. \\
 La correzione dell'energia al primo ordine dovuta all'interazione con $\mathbf{B}$ è
 \begin{align}
-    \Delta E^{(1)}_B &= \braket{nlmsm_s|\frac{\mu_B}{\hbar}(L_z + 2S_z)B|nlmsm_s} \notag \\
+    \Delta E^{(1)}_B &= \braket{nlm_lsm_s|\frac{\mu_B}{\hbar}(L_z + 2S_z)B|nlm_lsm_s} \notag \\
     &= \frac{\mu_BB}{\hbar}(m_l + 2m_s) \tag{1.4.8}
 \end{align}
 Notiamo che viene rotta la degenerazione in $m_l$ e $m_s$. Chiaramente è necessario calcolare il valor medio dell'interazione spin orbita 
@@ -1017,7 +1017,7 @@ Calcoliamo l'energia totale del sistema
     &= 2E_g + J_{gg} - \frac{1}{R} \tag{3.3.7}
 \end{align}
 dove $J_{gg} = \braket{\phi|\frac{1}{r_{12}}|\phi}$ è la correzione al primo ordine dell'energia.
-\subsubsection*{Metodo CI}
+\subsubsection*{Metodo configuration interaction}
 In generale, la molecola $H_2$ può mescolare configurazioni diverse, ad esempio trovarsi anche nello stato $\ket{u\overline{u}}_{det}$. Pertanto applochiamo il metodo variazionale lineare per determinare la migliore combinazione lineare di stati $\ket{g\overline{g}}_{det}, \ket{u\overline{u}}_{det}$ per la molecola $H_2$ 
 \begin{align}
     H &= \begin{pmatrix}
@@ -1039,8 +1039,7 @@ Le energie che si ottegono sono
 \end{align}
 Il metodo CI riesce a descrivere correttamente la dissociazione della molecola, al contrario di quanto accade per il metodo HF.
 
-\newpage
-\subsection{Modello Valence Bond (VB) o Heitler-London}
+\subsubsection*{Metodo valence bond o Heitler-London}
 Consideriamo sempre la molecola di $H_2$. Supponiamo innanzitutto che i due nuclei siano a distanza infinita, l'orbitale atomico che descrive l'elettrone $1$ attorno al nucleo $A$ è 
 \begin{align}
     \phi_A(r_1) \notag
@@ -1059,11 +1058,11 @@ Tuttavia gli elettroni sono indistinguibili, pertanto dobbiamo considerare anche
 \end{align}
 Pertanto, prenderemo come funzione d'onda $VB$ la combinazione lineare 
 \begin{align}
-    \phi_{VB} = \frac{1}{\sqrt{2}}(\phi_A(r_1)\phi_B(r_2) + \phi_B(r_1)\phi_A(r_2)) \tag{3.4.1}
+    \phi_{VB} = \frac{1}{\sqrt{2}}(\phi_A(r_1)\phi_B(r_2) + \phi_B(r_1)\phi_A(r_2)) \tag{3.3.10}
 \end{align}
 Dato che la parte spaziale è simmetrica per scambio, la componente di spin deve essere il singoletto $\chi_S$, pertanto la funzione d'onda complessiva diventa 
 \begin{align}
-    \psi_{VB} = \phi_{VB}\chi_S \tag{3.4.2}
+    \psi_{VB} = \phi_{VB}\chi_S \tag{3.3.11}
 \end{align}
 Essenzialmente, il metodo MO-LCAO sottostima la relazione di carica, ovvero considerare il termine covalente e il termine ionico con lo stesso peso. Mentre, il metodo VB sovrastima la relazioni di carica, infatti considera solamente il termine covalente. \\
 Per correggere il metodo VB si può introdurre un termine ionico modulato da un parametro $\lambda > 0$. Per $H_2$ si trova che il valore ottimale di $\lambda$ è circa $\frac{1}{6}$.

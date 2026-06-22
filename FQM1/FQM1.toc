@@ -16,11 +16,10 @@
 \contentsline {subsection}{\numberline {3.1}Approssimazione di Born-Oppenheimer}{35}{}%
 \contentsline {subsection}{\numberline {3.2}Molecola $H^+_2$}{37}{}%
 \contentsline {subsection}{\numberline {3.3}Molecola $H_2$}{39}{}%
-\contentsline {subsection}{\numberline {3.4}Modello Valence Bond (VB) o Heitler-London}{41}{}%
-\contentsline {subsection}{\numberline {3.5}Moti nucleari}{42}{}%
-\contentsline {subsection}{\numberline {3.6}Spettroscopia molecolare}{45}{}%
-\contentsline {subsection}{\numberline {3.7}Principio di Frank-Condon e transizioni elettroniche}{47}{}%
-\contentsline {subsection}{\numberline {3.8}Spettroscopia Raman}{48}{}%
+\contentsline {subsection}{\numberline {3.4}Moti nucleari}{42}{}%
+\contentsline {subsection}{\numberline {3.5}Spettroscopia molecolare}{45}{}%
+\contentsline {subsection}{\numberline {3.6}Principio di Frank-Condon e transizioni elettroniche}{47}{}%
+\contentsline {subsection}{\numberline {3.7}Spettroscopia Raman}{48}{}%
 \contentsline {section}{\numberline {4}Solidi}{50}{}%
 \contentsline {subsection}{\numberline {4.1}Proprietà dei solidi, reticolo di Bravais e reticolo reciproco}{50}{}%
 \contentsline {subsection}{\numberline {4.2}Modello di Kronig-Penney}{52}{}%
