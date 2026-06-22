@@ -881,7 +881,7 @@ Sotto tale ipotesi, il termine $T_N$ è nullo e il termine $V_{NN}$ è costante,
 \end{align}
 e l'equazione da risolvere diventa 
 \begin{align}
-    H_e\phi^{(e)}_n(\{\mathbf{r}_i\}; \{\mathbf{R}_i\}) = E^{(e)}(\{\mathbf{R}_i\})\phi^{(e)}_n(\{\mathbf{r}_i\}; \{\mathbf{R}_i\}) \tag{3.1.3}
+    H_e\phi^{(e)}_n(\{\mathbf{r}_i\}; \{\mathbf{R}_i\}) = E^{(e)}_n(\{R_i\})\phi^{(e)}_n(\{\mathbf{r}_i\}; \{\mathbf{R}_i\}) \tag{3.1.3}
 \end{align}
 dove le distanze $\{\mathbf{R}_i\}$ appaiono come parametri e la funzione d'onda $\phi^{(e)}_n$ è quella che descrive il moto elettronico. \\
 Dato che $\{\phi^{(e)}_n\}_n$ è un set completo e ortonormale, possiamo scrivere la funzione d'onda molecolare (complessiva) come combinazione lineare di soluzioni del moto elettronico. In particolare, posta $\psi(\{\mathbf{r}_i\}, \{\mathbf{R}_i\})$ la funzione d'onda molecolare, possiamo scrivere 
@@ -903,7 +903,7 @@ dove si è usata l'ortonormalità del set $\{\phi^{(e)}_n\}_n$. Dato che $(T_e +
 che descrive il moto nucleare. Notiamo che l'energia della configurazione elettronica appare ora come un potenziale efficace. \\ \\
 Nel caso particolare di molecole biatomiche la dipendenza dalle coordinate nucleari si riduce ad una dipendenza dalla distanza dei nuclei $\mathbf{R} = \mathbf{R}_A - \mathbf{R}_B$. In tal caso la $(3.1.7)$ diventa
 \begin{align}
-    -\frac{\hbar^2}{2\mu}\nabla^2_{\mathbf{R}}F_n(\mathbf{R}) + (E^{(e)}_n(\mathbf{R}) - E)F_n(\mathbf{R}) = 0 \tag{3.1.8}
+    -\frac{\hbar^2}{2\mu}\nabla^2_{\mathbf{R}}F_n(\mathbf{R}) + (E^{(e)}_n(R) - E)F_n(\mathbf{R}) = 0 \tag{3.1.8}
 \end{align}
 
 \newpage
@@ -1070,7 +1070,7 @@ Per correggere il metodo VB si può introdurre un termine ionico modulato da un 
 \newpage
 \subsection{Moti nucleari}
 Ipotizziamo che ogni molecola si trovi in un stato $\Sigma$, ovvero con momento angolare orbitale elettronico nullo, allora il momento angolare orbitale complessivo sarà dovuto solamente a quello del moto nucleare. Inoltre, trascuriamo interazioni di spin. \\
-Dato che il potenziale di interazione elettronica $E_n(R)$ dipende solamente da $R$, possiamo disaccoppiare il moto rotazionale e quello vibrazionale
+Dato che il potenziale di interazione elettronica $E_n(R)$ dipende solamente da $R$, proprio perché l'hamiltoniano della molecola è invariante per traslazioni e rotazioni del sistema, possiamo disaccoppiare il moto rotazionale e quello vibrazionale
 \begin{align}
     \chi_N(R) = \frac{F_{vJ}}{R}(R)Y_{JM_J}(\theta, \varphi) \tag{3.5.1}
 \end{align}
