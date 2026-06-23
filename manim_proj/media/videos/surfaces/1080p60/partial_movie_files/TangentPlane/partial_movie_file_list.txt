@@ -1,0 +1,7 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/surfaces/1080p60/partial_movie_files/TangentPlane/1331619278_1567062517_223132457.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/surfaces/1080p60/partial_movie_files/TangentPlane/4261594700_2682282692_3994825785.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/surfaces/1080p60/partial_movie_files/TangentPlane/4261594700_1595433117_2224598101.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/surfaces/1080p60/partial_movie_files/TangentPlane/4261594700_233831863_1536344925.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/surfaces/1080p60/partial_movie_files/TangentPlane/4261594700_454266022_1582228659.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/surfaces/1080p60/partial_movie_files/TangentPlane/4261594700_789064381_2441663128.mp4'

@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/tutorial/1080p60/partial_movie_files/SquareAndCircle/2257293077_436655087_223132457.mp4'
