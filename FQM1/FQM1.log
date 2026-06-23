@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  22 JUN 2026 18:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  22 JUN 2026 18:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -140,10 +140,7 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count296
 ) (./FQM1.aux
 
-LaTeX Warning: Label `fig:placeholder' multiply defined.
-
-
-LaTeX Warning: Label `fig:placeholder' multiply defined.
+LaTeX Warning: Label `' multiply defined.
 
 )
 \openout1 = `FQM1.aux'.
@@ -387,33 +384,28 @@ Package pdftex.def Info: immagini/spettr_rot_puro.jpg  used on input line 1171.
 <immagini/spettr_rotovibr.png, id=165, 335.2525pt x 151.56625pt>
 File: immagini/spettr_rotovibr.png Graphic file (type png)
 <use immagini/spettr_rotovibr.png>
-Package pdftex.def Info: immagini/spettr_rotovibr.png  used on input line 1179.
+Package pdftex.def Info: immagini/spettr_rotovibr.png  used on input line 1180.
 (pdftex.def)             Requested size: 224.2479pt x 101.38002pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [45 <./immagini/spettr_rot_puro.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 1194--1198
+Underfull \hbox (badness 10000) in paragraph at lines 1196--1200
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1194--1198
+Underfull \hbox (badness 10000) in paragraph at lines 1196--1200
 
  []
 
 [46 <./immagini/spettr_rotovibr.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1208--1210
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1208--1210
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1211--1212
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1212
 
  []
 
@@ -427,48 +419,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 1215--1216
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1217--1218
+
+ []
+
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 1221--1223
+Underfull \hbox (badness 10000) in paragraph at lines 1223--1225
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1235--1239
+Underfull \hbox (badness 10000) in paragraph at lines 1237--1241
 
  []
 
 
-Overfull \hbox (0.3061pt too wide) in paragraph at lines 1241--1243
+Overfull \hbox (0.3061pt too wide) in paragraph at lines 1243--1245
 \OT1/cmr/m/n/10 Compaiono il coseno ed il seno al quadrato poich^^Se si con-sid-era an-che la proiezione
  []
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1263--1266
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1268
 
  []
 
 [49]
-Underfull \hbox (badness 10000) in paragraph at lines 1273--1276
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1278
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1282--1285
+Underfull \hbox (badness 10000) in paragraph at lines 1284--1287
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1287--1289
+Underfull \hbox (badness 10000) in paragraph at lines 1289--1291
 
  []
 
 [50]
-Underfull \hbox (badness 10000) in paragraph at lines 1305--1310
+Underfull \hbox (badness 10000) in paragraph at lines 1307--1312
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1312--1315
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1317
 
  []
 
@@ -476,20 +473,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 1312--1315
 <immagini/modello_kp.png, id=190, 587.19376pt x 312.16624pt>
 File: immagini/modello_kp.png Graphic file (type png)
 <use immagini/modello_kp.png>
-Package pdftex.def Info: immagini/modello_kp.png  used on input line 1328.
+Package pdftex.def Info: immagini/modello_kp.png  used on input line 1330.
 (pdftex.def)             Requested size: 310.4979pt x 165.06625pt.
 
-Overfull \hbox (2.03531pt too wide) in paragraph at lines 1346--1349
+Overfull \hbox (2.03531pt too wide) in paragraph at lines 1348--1351
 \OT1/cmr/m/n/10 Dato che $\OML/cmm/m/it/10 $ \OT1/cmr/m/n/10 e $\OML/cmm/m/it/10 ^^L$ \OT1/cmr/m/n/10 con-tengono l'informazione sull'energia, im-po-nendo che le soluzioni
  []
 
 [52 <./immagini/modello_kp.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1356--1361
+Underfull \hbox (badness 10000) in paragraph at lines 1358--1363
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1356--1361
+Underfull \hbox (badness 10000) in paragraph at lines 1358--1363
 
  []
 
@@ -504,15 +501,15 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2841 strings out of 467525
- 40824 string characters out of 5423209
- 456697 words of memory out of 5000000
- 31720 multiletter control sequences out of 15000+600000
+ 2843 strings out of 467525
+ 40841 string characters out of 5423209
+ 456720 words of memory out of 5000000
+ 31722 multiletter control sequences out of 15000+600000
  639000 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,18n,65p,675b,297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on FQM1.pdf (57 pages, 418501 bytes).
+Output written on FQM1.pdf (57 pages, 418601 bytes).
 PDF statistics:
  303 PDF objects out of 1000 (max. 8388607)
  194 compressed objects within 2 object streams

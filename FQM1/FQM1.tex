@@ -1169,7 +1169,8 @@ Uno spettro rotazionale puro ha righe equidistanti, separate da una quantità $2
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.65\linewidth]{immagini/spettr_rot_puro.jpg}
-        \label{fig:placeholder}
+        \caption{Spettro rotazionale}
+        \label{}
     \end{figure}
 \end{center}
 Lo spettro vibrazionale è centrato attorno alla riga (assente) con l'energia della radiazione e.m. applicata. Le righe adiacenti alla centrale sono distanti $4B$, mentre le altre righe sono equidistanzi, separate da una quantità $2B$.
@@ -1177,7 +1178,8 @@ Lo spettro vibrazionale è centrato attorno alla riga (assente) con l'energia de
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.65\linewidth]{immagini/spettr_rotovibr.png}
-        \label{fig:placeholder}
+        \caption{Spettro rotovibrazionale}
+        \label{}
     \end{figure}
 \end{center}
 L'intensità delle righe dipende dalla popolazione dei livelli. In particolare, la popolazione dei livelli segue la \textit{distribuzione di Boltzmann}, allora 
@@ -1274,7 +1276,7 @@ Un solido è detto cristallino quando lo disposizione degli atomi nello spazio p
 dove $(n_1, n_2, n_3) \in \mathbf{Z}^3$. Chiamiamo \textit{cella primitiva} il parallelepipedo $\Omega$ identificato dai tre vettori primitivi. Il volume della cella primitiva è dato da $m(\Omega) = |\mathbf{a}_1 \cdot (\mathbf{a}_2 \times \mathbf{a}_3)|$. \\ \\
 Possiamo applicare l'approssimazione di Born-Oppenheimer, quindi risolvere il moto elettronico parametrizzando il moto nucleare. In particolare, possiamo pensare di "sederci" su determinato elettrone e considerare il potenziale medio $V_{el}(\mathbf{r})$ che l'elettrone osserva. Per definizione 
 \begin{align}
-    V_{el}(\mathbf{r}) = \sum_j \int d^3\mathbf{r}_j \, \frac{|\psi_j(\mathbf{r})|^2}{\|\mathbf{r} - \mathbf{r}_j\|} \tag{4.1.2}
+    V_{el}(\mathbf{r}) = \sum_j \int d^3\mathbf{r}_j \, \frac{|\psi_j(\mathbf{r}_j)|^2}{\|\mathbf{r} - \mathbf{r}_j\|} \tag{4.1.2}
 \end{align}
 Il potenziale $V_{el}$ deve essere necassariamente invariante per traslazioni reticolari, ovvero per ogni $\mathbf{r} \in \mathbf{R}^3$ deve valere
 \begin{align}
