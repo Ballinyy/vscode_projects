@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  17 JUN 2026 17:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  26 JUN 2026 17:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/aless/vscode_tex/MS/MS.tex
-(c:/Users/aless/vscode_tex/MS/MS.tex
+**c:/Users/aless/Desktop/vscode_proj/MS/MS.tex
+(c:/Users/aless/Desktop/vscode_proj/MS/MS.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (c:/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -187,173 +187,173 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 56--59
+{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 45--48
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 59--62
 
  []
 
 [4]
-Overfull \hbox (2.64053pt too wide) detected at line 92
-[]
- []
+Underfull \hbox (badness 10000) in paragraph at lines 100--103
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 96--99
-
- []
-
-
-Overfull \hbox (6.66728pt too wide) in paragraph at lines 101--103
-\OT1/cmr/m/n/10 la misura dell'(iper)superficie $\OML/cmm/m/it/10 S\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 )$ definita dall'energia del sis-tema, pro-porzionale
  []
 
 [5]
-Overfull \hbox (15.45897pt too wide) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
+
+ []
+
+
+Overfull \hbox (15.45897pt too wide) in paragraph at lines 119--120
 \OT1/cmr/m/n/10 Consideriamo un en-sem-ble mi-cro-canon-ico con en-er-gia fis-sata $\OML/cmm/m/it/10 E$\OT1/cmr/m/n/10 , defini-amo l'entropia
  []
 
-[6]
-Overfull \hbox (17.0287pt too wide) in paragraph at lines 135--137
-\OT1/cmr/m/n/10 Sappiamo che $\OML/cmm/m/it/10 E \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 NkT$\OT1/cmr/m/n/10 , dunque $\OML/cmm/m/it/10 E=\OT1/cmr/m/n/10 ^^A \OMS/cmsy/m/n/10 ^^X \OML/cmm/m/it/10 N$\OT1/cmr/m/n/10 , men-tre la misura della (iper)superficie
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 175--178
-
+[6] [7]
+Overfull \hbox (27.2137pt too wide) in paragraph at lines 213--214
+\OT1/cmr/m/n/10 Vediamo ora il caso par-ti-co-lare del gas libero con-fi-nato in un vol-ume $\OML/cmm/m/it/10 V$\OT1/cmr/m/n/10 . L'hamiltoniana
  []
 
 [8] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 292--296
+Underfull \hbox (badness 10000) in paragraph at lines 306--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 292--296
+Underfull \hbox (badness 10000) in paragraph at lines 306--310
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 306--309
+Underfull \hbox (badness 10000) in paragraph at lines 320--323
 
  []
 
 [12] [13] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 462--465
+Underfull \hbox (badness 10000) in paragraph at lines 476--479
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 467--469
+Underfull \hbox (badness 10000) in paragraph at lines 481--483
 
  []
 
 
-Overfull \hbox (14.25966pt too wide) detected at line 493
+Overfull \hbox (14.25966pt too wide) detected at line 507
 []
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 505--507
+Underfull \hbox (badness 10000) in paragraph at lines 519--521
 
  []
 
 [18]
-Overfull \hbox (22.25058pt too wide) in paragraph at lines 531--533
+Overfull \hbox (22.25058pt too wide) in paragraph at lines 545--547
 \OT1/cmr/m/n/10 Fis-sata l'energia del sis-tema siamo in-ter-es-sati a de-ter-minare l'espressione dell'entropia
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 531--533
+Underfull \hbox (badness 10000) in paragraph at lines 545--547
 
  []
 
 [19]
-Overfull \hbox (12.47197pt too wide) in paragraph at lines 573--575
+Overfull \hbox (9.00455pt too wide) detected at line 571
+[]
+ []
+
+
+Overfull \hbox (12.47197pt too wide) in paragraph at lines 587--589
 \OT1/cmr/m/n/10 dove si ^^Re molti-pli-cato e di-viso per $\OML/cmm/m/it/10 e[]$ \OT1/cmr/m/n/10 il sec-ondo mem-bro della prima uguaglianza.
  []
 
 [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 620--623
+Underfull \hbox (badness 10000) in paragraph at lines 634--637
 
  []
 
 [22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 681--684
+Underfull \hbox (badness 10000) in paragraph at lines 695--698
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 686--688
+Underfull \hbox (badness 10000) in paragraph at lines 700--702
 
  []
 
 [24]
-Overfull \hbox (14.17085pt too wide) in paragraph at lines 699--700
+Overfull \hbox (14.17085pt too wide) in paragraph at lines 713--714
 \OT1/cmr/m/n/10 No-ti-amo che la definizione di mo-mento di or-dine due (rispetto a $\OML/cmm/m/it/10 ^^Z$\OT1/cmr/m/n/10 ) dell'hamiltoniana
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 750--752
+Underfull \hbox (badness 10000) in paragraph at lines 764--766
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 750--752
+Underfull \hbox (badness 10000) in paragraph at lines 764--766
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 774--777
+Underfull \hbox (badness 10000) in paragraph at lines 788--791
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 784--787
+Underfull \hbox (badness 10000) in paragraph at lines 798--801
 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 805--808
+Underfull \hbox (badness 10000) in paragraph at lines 819--822
 
  []
 
 [28]
-Overfull \hbox (25.13956pt too wide) in paragraph at lines 849--851
+Overfull \hbox (25.13956pt too wide) in paragraph at lines 863--865
 \OT1/cmr/m/n/10 Nota la fun-zione di par-tizione canon-ica pos-si-amo de-ter-minare l'espressione dell'energia
  []
 
 [29] [30]
-Overfull \hbox (12.75061pt too wide) in paragraph at lines 905--907
+Overfull \hbox (12.75061pt too wide) in paragraph at lines 919--921
 \OT1/cmr/m/n/10 Studiando lo stesso sis-tema come en-sem-ble canon-ico pos-si-amo de-ter-minare l'energia
  []
 
 [31] [32] [33] [34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 1049--1052
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1066
 
  []
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1091--1093
+Underfull \hbox (badness 10000) in paragraph at lines 1105--1107
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1113--1116
+Underfull \hbox (badness 10000) in paragraph at lines 1127--1130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1121--1124
+Underfull \hbox (badness 10000) in paragraph at lines 1135--1138
 
  []
 
 [38] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1161--1164
+Underfull \hbox (badness 10000) in paragraph at lines 1175--1178
 
  []
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1225--1228
+Underfull \hbox (badness 10000) in paragraph at lines 1239--1242
 
  []
 
@@ -364,18 +364,18 @@ L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2800 strings out of 467525
- 39803 string characters out of 5423209
+ 2814 strings out of 467525
+ 40010 string characters out of 5423209
  457620 words of memory out of 5000000
- 31687 multiletter control sequences out of 15000+600000
- 636549 words of font info for 74 fonts, out of 8000000 for 9000
+ 31695 multiletter control sequences out of 15000+600000
+ 638379 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,19n,65p,669b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MS.pdf (44 pages, 346573 bytes).
+ 57i,19n,65p,678b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on MS.pdf (44 pages, 355612 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
+ 263 PDF objects out of 1000 (max. 8388607)
+ 169 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

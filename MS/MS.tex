@@ -14,34 +14,37 @@
 \newpage
 
 \section*{Introduzione}
-In particolare ci occuperemo di sistemi termodinamici all'equilibrio (termico, meccanico e chimico), dunque l'hamiltoniana che descrive i sistemi in esame non dipenderà esplicitamente dal tempo (altrimenti anche il valor medio di una qualsiasi osservabile ne dipenderà, in contrasto con l'ipotesi di equilibrio termodinamico). Lo scopo è quello di ricavare leggi generali a partire dallo studio microscopico di sistemi con un numero molto elevato di gradi di libertà. Inizialmente seguiremo un approccio classico per la descrizione dei fenomeni microscopici.
+In particolare ci occuperemo di sistemi termodinamici all'equilibrio (termico, meccanico e chimico), dunque l'hamiltoniana che descrive i sistemi in esame non dipenderà esplicitamente dal tempo (altrimenti anche il valor medio di una qualsiasi osservabile ne dipenderà, in contrasto con l'ipotesi di equilibrio termodinamico). \\
+Lo scopo è quello di ricavare leggi generali a partire dallo studio microscopico di sistemi con un numero molto elevato di gradi di libertà. \\
+Inizialmente seguiremo un approccio classico per la descrizione dei fenomeni microscopici. Successivamente tratteremo anche gas quantistici di fermioni e bosoni.
+
 
 \newpage
 \section{Ensemble microcanonico}
-\subsection{Densità di probabilità per ensemble microcanonici}
+\subsection{Densità di probabilità per ensemble microcanonico}
 Consideriamo un sistema isolato costituito da $N$ particelle, ognuna con $3$ gradi di libertà spaziali. Indichiamo con $q^i_j$ e $p^i_j$ rispettivamente la $j$-esima coordinata spaziale e il $j$-esimo impulso della $i$-esima particella. \\
 Fissato un tempo $t_0$, se sono note tutte le coordinate e tutti gli impulsi di ogni particella, lo stato del sistema è identificato univocamente da un punto $(\mathbf{p}(t_0), \mathbf{q}(t_0))$ dello spazio delle fasi ($6N$ dimensionale), dove
 \begin{gather}
     \mathbf{q}(t_0) = (q^1_1(t_0), q^1_2(t_0), q^1_3(t_0), q^2_1(t_0), \dots, q^N_3(t_0)) \notag \\
     \mathbf{p}(t_0) = (p^1_2(t_0), p^1_2(t_0), p^1_3(t_0), p^2_1(t_0), \dots, p^N_3(t_0)) \notag
 \end{gather}
-Inoltre, nota l'hamiltoniana $\mathcal{H}(\mathbf{p}, \mathbf{q})$ che governa il sistema è possibile evolvere lo stato iniziale nel tempo, dunque si ottiene una curva nello spazio delle fasi, detta traiettoria di fase, che indica l'evoluzione nel tempo del sistema, ovvero di tutte le coordinate e tutti gli impulsi, in particolare si ha
+Inoltre, nota l'hamiltoniana $\mathcal{H}(\mathbf{p}, \mathbf{q})$ che governa il sistema, è possibile evolvere lo stato iniziale nel tempo, dunque si ottiene una curva nello spazio delle fasi, detta \textit{traiettoria di fase}, che indica l'evoluzione nel tempo del sistema, ovvero di tutte le coordinate e tutti gli impulsi. In particolare, dalle equazioni del moto di Hamilton, otteniamo
 \begin{gather}
     \begin{cases}
         \dot{q}^i_j &= \frac{\partial \mathcal{H}}{\partial p^i_j} \\
         \dot{p}^i_j &= -\frac{\partial \mathcal{H}}{\partial q^i_j}
     \end{cases} \tag{1.1.1}
 \end{gather}
-Consideriamo ora un'osservabile $\theta$ dipendente da $(\mathbf{p}, \mathbf{q})$. Dato che i tempi caratteristici per i fenomeni microscopici sono estremamente più brevi dei tempi caratteristici per i fenomeni globali (o macroscopici), è possibile definire il valore medio di $\theta$ come segue
+Consideriamo un'osservabile $\theta$ dipendente da $(\mathbf{p}, \mathbf{q})$. Dato che i tempi caratteristici per i fenomeni microscopici sono estremamente più brevi dei tempi caratteristici per i fenomeni globali (o macroscopici), è possibile definire il valore medio di $\theta$ come segue
 \begin{gather}
     \braket{\theta} = \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T \theta(\mathbf{p}(t), \mathbf{q}(t)) \, dt \tag{1.1.2}
 \end{gather}
-calcolato lungo la traiettoria delle fasi, per semplicità si è posto $t_0 = 0$. Per ipotesi ergotica si ha
+calcolato lungo la traiettoria delle fasi (per semplicità si è posto $t_0 = 0$). Per ipotesi ergotica si ha
 \begin{gather}
     \braket{\theta} = \int\theta(\mathbf{p}, \mathbf{q})\rho(\mathbf{p}, \mathbf{q})d\mathbf{p}d\mathbf{q} \tag{1.1.3}
 \end{gather}
-dove $\rho$ è detta distribuzione statistica e rappresenta la densità di probabilità che il sistema si trovi nello stato identificato dal punto $(\mathbf{p}, \mathbf{q})$ dello spazio delle fasi. Ovviamente $\rho$ non può dipendere esplicitamente dal tempo proprio perché altrimenti anche il valore medio delle osservabili dipenderebbe dal tempo e ciò non è compatibile con l'ipotesi di equilibrio termodinamico. \\
-L'ipotesi ergotica si basa sulla seguente osservazione: consideriamo un elemento di "volume" dello spazio delle fasi $\Delta\mathbf{p}\Delta\mathbf{q}$, dato il comportamento assai complesso e confuso della traiettoria delle fasi, è ragionevole supporre che durante un intervallo di tempo $T$ sufficientemente lungo la traiettoria delle fasi passi molte volte per ogni elemento di "volume" di questo genere. Sia $\Delta t$ l'intervallo di tempo in cui la traiettoria delle fasi si trova all'interno di $\Delta\mathbf{p}\Delta\mathbf{q}$, allora si ha che la quantità
+dove $\rho$ è detta \textit{distribuzione statistica} e rappresenta la densità di probabilità che il sistema si trovi nello stato identificato dal punto $(\mathbf{p}, \mathbf{q})$ dello spazio delle fasi. Ovviamente $\rho$ non può dipendere esplicitamente dal tempo, altrimenti anche il valore medio delle osservabili dipenderebbe dal tempo e ciò non è compatibile con l'ipotesi di equilibrio termodinamico. \\ \\
+L'ipotesi ergotica si basa sulla seguente osservazione: consideriamo un elemento di "volume" dello spazio delle fasi $\Delta\mathbf{p}\Delta\mathbf{q}$, dato il comportamento assai complesso della traiettoria delle fasi, è ragionevole supporre che, durante un intervallo di tempo $T$ sufficientemente lungo, la traiettoria delle fasi passi molte volte per ogni elemento di "volume" di questo genere. Sia $\Delta t$ l'intervallo di tempo in cui la traiettoria delle fasi si trova all'interno di $\Delta\mathbf{p}\Delta\mathbf{q}$, allora si ha che la quantità
 \begin{gather}
     \omega := \lim_{T \rightarrow \infty} \frac{\Delta t}{T} \tag{1.1.4}
 \end{gather}
@@ -54,52 +57,54 @@ allora si può introdurre la probabilità infinitesima $d\omega$ data da
 \begin{gather}
     d\omega = \rho(\mathbf{p}, \mathbf{q}) \, d\mathbf{p}d\mathbf{q} \tag{1.1.5}
 \end{gather}
-dove $\rho$ è una funzione densità di probabilità (definita per ogni coppia $(\mathbf{p}, \mathbf{q})$), ovviamente normalizzata (per sistemi isolati). \\ \\
-Vediamo ora che relazione soddisfa $\rho$. Consideriamo un volume $T$ dello spazio delle fasi e sia $S := \partial T$. La probabilità $M$ di trovare il sistema in un stato contenuto in $T$ è data da
+dove $\rho$ è una PDF (definita per ogni coppia $(\mathbf{p}, \mathbf{q})$ nello spazio delle fasi), ovviamente normalizzata. \\ \\
+Vediamo come $\rho$ evolve nel tempo. Consideriamo una regione $\Omega$ dello spazio delle fasi e sia $\Sigma = \partial \Omega$. La probabilità $P$ di trovare il sistema in un stato contenuto in $\Omega$ è data da
 \begin{gather}
-    M = \int_{T}\rho \, d\mathbf{p}d\mathbf{q} \tag{1.1.6}
+    P = \int_{\Omega}\rho \, d\mathbf{p}d\mathbf{q} \tag{1.1.6}
 \end{gather}
-poiché il sistema è isolato non ci sono sorgenti o pozzi, dunque $M$ soddisfa la relazione di continuità
+Il sistema è isolato, quindi non ci sono sorgenti o pozzi. Posto $\mathbf{v} = \mathbf{v}$, segue che $P$ soddisfa la relazione di continuità
 \begin{gather}
-    \frac{\partial M}{\partial t} = -\int_{S}(\dot{\mathbf{p}}, \dot{\mathbf{q}})\cdot \hat{n} \, \rho \, d\mathbf{p}d\mathbf{q} \tag{1.1.7}
+    \frac{\partial P}{\partial t} = -\int_{\Sigma} \rho\mathbf{v} \cdot \hat{\boldsymbol{n}} \, d\mathbf{p}d\mathbf{q} \tag{1.1.7}
 \end{gather}
-con $\hat{n}$ versore ortogonale alla (iper)superficie $S$ e uscente. La relazione globale $(1.1.7)$ è equivalente alla seguente relazione differenziale (locale)
+con $\hat{\boldsymbol{n}}$ versore ortogonale (uscente) alla (iper)superficie $\Sigma$. La relazione globale $(1.1.7)$ è equivalente alla seguente relazione locale
 \begin{align}
-    \frac{\partial\rho}{\partial t} = -\nabla \cdot ((\dot{\mathbf{p}}, \dot{\mathbf{q}})\rho) \tag{1.1.8}
+    \frac{\partial\rho}{\partial t} = -\nabla \cdot (\rho\mathbf{v}) \tag{1.1.8}
 \end{align}
-infatti, poiché $\rho$ è sufficientemente regolare, si ha
+Infatti, supponendo $\rho$ è sufficientemente regolare, si ha
 \begin{align}
-    \frac{\partial M}{\partial t} &= \frac{\partial}{\partial t}\int_T \rho \, d\mathbf{p}d\mathbf{q} \notag \\
-    &= \int_T \frac{\partial\rho}{\partial t} \, d\mathbf{p}d\mathbf{q} \notag
+    \frac{\partial P}{\partial t} &= \frac{\partial}{\partial t}\int_\Omega \rho \, d\mathbf{p}d\mathbf{q} \notag \\
+    &= \int_\Omega \frac{\partial\rho}{\partial t} \, d\mathbf{p}d\mathbf{q} \notag
 \end{align}
-e quindi, per ogni volume $T$, vale la seguente relazione
+quindi si ottiene
 \begin{gather}
-    \int_S \frac{\partial \rho}{\partial t} \, d\mathbf{p}d\mathbf{q} = - \int_S (\dot{\mathbf{p}}, \dot{\mathbf{q}}) \cdot \hat{n} \, \rho \, d\mathbf{p}d\mathbf{q} \tag{1.1.9}
+    \int_\Omega \frac{\partial \rho}{\partial t} \, d\mathbf{p}d\mathbf{q} = -\int_\Omega \rho\mathbf{v} \cdot \hat{\boldsymbol{n}} \, d\mathbf{p}d\mathbf{q} \tag{1.1.9}
 \end{gather}
 ovvero
 \begin{gather}
-    \int_S \left(\frac{\partial \rho}{\partial t} + (\dot{\mathbf{p}}, \dot{\mathbf{q}}) \cdot \hat{n} \, \rho\right) \, d\mathbf{p}d\mathbf{q} = 0 \tag{1.1.10}
+    \int_\Sigma \left(\frac{\partial \rho}{\partial t} + \rho\mathbf{v} \cdot \hat{\boldsymbol{n}}\right) \, d\mathbf{p}d\mathbf{q} = 0 \tag{1.1.10}
 \end{gather}
-dall'arbitrarietà di $T$ segue che la funzione integranda in $(1.1.10)$ è identicamente nulla (ovunque per continuità, ovvero anche su insiemi di misura nulla), pertanto concludiamo
+dall'arbitrarietà di $\Omega$, segue che la funzione integranda in $(1.1.10)$ è identicamente nulla (ovunque per continuità, ovvero anche su insiemi di misura nulla), pertanto concludiamo
 \begin{gather}
-    \frac{\partial \rho}{\partial t} + \nabla \cdot ((\dot{\mathbf{p}}, \dot{\mathbf{q}})\rho) = 0 \tag{1.1.11}
+    \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho\mathbf{v}) = 0 \tag{1.1.11}
 \end{gather}
-Esplicitiamo la divergenza di $(\dot{\mathbf{p}}, \dot{\mathbf{q}})\rho$ ricordando che $(\mathbf{p}, \mathbf{q})$ soddisfa la equazioni di Hamilton lungo la traiettoria delle fasi. In particolare, sia $N$ il numero di particelle, si ha
+Esplicitiamo la divergenza di $\rho\mathbf{v}$ ricordando che $\mathbf{v} = (\dot{\mathbf{p}}, \dot{\mathbf{q}})$ soddisfa la equazioni di Hamilton lungo la traiettoria delle fasi. In particolare, sia $N$ il numero di particelle, si ha
 \begin{align}
-    \frac{\partial \rho}{\partial t} + \nabla\cdot((\dot{\mathbf{p}}, \dot{\mathbf{q}})\rho) &= \frac{\partial \rho}{\partial t} + \sum_{i = 1}^{3N}\rho\left(\frac{\partial\dot{p}_i}{\partial p_i} + \frac{\partial\dot{q}_i}{\partial q_i}\right) + \left(\dot{p}_i\frac{\partial\rho}{\partial p_i} + \dot{q}_i\frac{\partial\rho}{\partial q_i}\right) \notag \\
+    \frac{\partial \rho}{\partial t} + \nabla\cdot(\rho\mathbf{v}) &= \frac{\partial \rho}{\partial t} + \sum_{i = 1}^{3N}\rho\left(\frac{\partial\dot{p}_i}{\partial p_i} + \frac{\partial\dot{q}_i}{\partial q_i}\right) + \left(\dot{p}_i\frac{\partial\rho}{\partial p_i} + \dot{q}_i\frac{\partial\rho}{\partial q_i}\right) \notag \\
     &= \frac{\partial \rho}{\partial t} + \sum_{i = 1}^{3N}\rho\cancel{\left(-\frac{\partial^2\mathcal{H}}{\partial p_i \partial q_i} + \frac{\partial^2\mathcal{H}}{\partial q_i\partial p_i}\right)} + \left(-\frac{\partial\mathcal{H}}{\partial q_i}\frac{\partial\rho}{\partial p_i} + \frac{\partial \mathcal{H}}{\partial p_i}\frac{\partial\rho}{\partial q_i}\right) \notag \\
     &= \frac{\partial \rho}{\partial t} + \{\rho, \mathcal{H}\} = 0 \tag{1.1.12}
 \end{align}
-Come detto in precedenza, se il sistema si trova all'equilibrio termodinamico deve per forza valere $\frac{\partial\rho}{\partial t} = 0$, pertanto $\rho$ soddisfa $\{\rho, \mathcal{H}\} = 0$. Tuttavia $(1.1.12)$ è ancora di un'equazione differenziale impossibile da risolvere per $N$ molto grande. Si semplifica molto se è possibile esprimere la dipendenza di $\rho$ da $\mathbf{p}$ e $\mathbf{q}$ come una dipendenza da $\mathcal{H}(\mathbf{p}, \mathbf{q})$ stesso, ovvero se è possibile esprimere $\rho = \rho(\mathcal{H}(\mathbf{p}, \mathbf{q}))$, infatti in tal caso si avrebbe
+Come detto in precedenza, se il sistema si trova all'equilibrio termodinamico deve per forza valere $\frac{\partial\rho}{\partial t} = 0$, pertanto $\rho$ soddisfa $\{\rho, \mathcal{H}\} = 0$. \\
+Tuttavia, $(1.1.12)$ è ancora di un'equazione differenziale impossibile da risolvere per $N$ molto grande. Si semplifica molto se è possibile scrivere $\rho$ come funzione di $\mathcal{H}(\mathbf{p}, \mathbf{q})$ stesso, ovvero se è possibile scrivere $\rho = \rho(\mathcal{H}(\mathbf{p}, \mathbf{q}))$. In tal caso
 \begin{align}
     \{\rho, \mathcal{H}\} &= \frac{\partial \rho}{\partial \mathcal{H}}\sum_{i = 1}^{3N}\cancel{\left(-\frac{\partial \mathcal{H}}{\partial q_i}\frac{\partial \mathcal{H}}{\partial p_i} + \frac{\partial \mathcal{H}}{\partial p_i}\frac{\partial \mathcal{H}}{\partial q_i}\right)} \tag{1.1.13}
 \end{align}
-ovvero ogni termine della somma sarebbe identicamente nullo. \\ \\
-Abbiamo essenzialmente dimostrato che l'equazione di continuità per $\rho$ equivale a $\frac{d\rho}{dt} = 0$, ovvero per enseble microcanonici la distribuzione di probabilità $\rho$ è uniforme lungo tutta la (iper)superficie definita dall'energia (fissata) del sistema. Poniamo
+ovvero ogni termine della somma è identicamente nullo. \\ \\
+Abbiamo essenzialmente dimostrato che l'equazione di continuità per $\rho$ equivale a $\frac{d\rho}{dt} = 0$. Segue che la distribuzione di probabilità $\rho$ è uniforme lungo tutta la (iper)superficie definita dall'energia (fissata) del sistema. Poniamo
 \begin{gather}
-    \Gamma(E) = \int_{S(E)} d\mathbf{p}d\mathbf{q} \tag{1.1.14}
+    \Gamma(E) = \int_{\Sigma(E)} d\mathbf{p}d\mathbf{q} \tag{1.1.14}
 \end{gather}
-la misura dell'(iper)superficie $S(E)$ definita dall'energia del sistema, proporzionale al numero di stati $(\mathbf{p}, \mathbf{q})$ ad energia $E$, con fattore di proporzionalità che è la misura minima dell'elemento infinitesimo nello spazio delle fasi, ovvero $1/h^{3N}$, infatti sappiamo che $\Delta p_i\Delta q_i \geq h$. Poiché $\rho$ deve essere normalizzata su $S(E)$ si ha
+la misura della (iper)superficie $\Sigma(E)$ definita da $\mathcal{H}(\mathbf{p}, \mathbf{q}) = E$. $\Gamma(E)$ è proporzionale al "numero" di stati $(\mathbf{p}, \mathbf{q})$ che soddisfano $\mathcal{H}(\mathbf{p}, \mathbf{q}) = E$, con fattore di proporzionalità dato dalla misura minima dell'elemento infinitesimo nello spazio delle fasi, ovvero $1/h^{3N}$ ($\Delta p_i\Delta q_i \geq h$ per il \textit{principio di indeterminazione}). \\
+$\rho$ deve essere normalizzata su $\Sigma(E)$, pertanto
 \begin{gather}
     \rho = \frac{1}{\Gamma(E)} \tag{1.1.15}
 \end{gather}
@@ -107,21 +112,23 @@ Per comodità si introduce un parametro $\Delta > 0$ e si decide arbitrariamente
 \begin{gather}
     \Gamma(E) = \int_{E \leq H(\mathbf{p}, \mathbf{q}) \leq E + \Delta} d\mathbf{p}d\mathbf{q} \tag{1.1.16}
 \end{gather}
+Ogni sistema isolato descritto dalle variabili termodinamiche $E, N, V$ appertiene ad un ensemble detto \textit{ensemble microcanonico}. \\
+
 
 \subsection{Entropia}
 Consideriamo un ensemble microcanonico con energia fissata $E$, definiamo l'entropia del sistema come segue
 \begin{gather}
-    S = k_B\ln \Gamma(E) \tag{1.2.1}
+    S = k_B\log \Gamma(E) \tag{1.2.1}
 \end{gather}
-Vogliamo dimostrare che questa definizione di entropia è estensiva e quindi può essere usata come potenziale termodinamico e vogliamo dimostrare che è legata alla definizione macroscopica di entropia data da
+Vogliamo dimostrare che questa definizione di entropia è estensiva e quindi può essere usata come potenziale termodinamico. Inoltre, vogliamo dimostrare che è legata alla definizione macroscopica di entropia data da
 \begin{gather}
     TdS = dE + PdV - \mu dN \tag{1.2.2}
 \end{gather}
-Consideriamo un sistema isolato confinato in un volume $V = V_1 + V_2$ e con un numero $N = N_1 + N_2$ di particelle libere (non interagenti), dunque l'hamiltoniana che descrive il moto è
+Consideriamo un sistema isolato confinato in un volume $V = V_1 + V_2$ e con un numero $N = N_1 + N_2$ di particelle libere e indipendenti. L'hamiltoniana che descrive tale sistema è
 \begin{gather}
     \mathcal{H} = \sum_{i = 1}^{N} \frac{\mathbf{p}^2_i}{2m} \notag
 \end{gather}
-Pensiamo di dividere il sistema in due sottosistemi $1$ e $2$ a volume e numero di particelle fissato ($V_1, V_2$ e $N_1, N_2$), pertanto l'unica interazione sarà termica ($dV = 0 = dN$). Fissiamo l'energia totale del sistema $E$ e siano $E_1$ ed $E_2$ rispettivamente l'energia del sottosistema $1$ e l'energia del sottosistema $2$. $E_1$ ed $E_2$ non sono quantità fissate, sono libere di variare affinché rispettino il vincolo $E = E_1 + E_2$. Siano $S_1 = k\ln \Gamma_1(E_1)$ e $S_2 = k\ln \Gamma_2(E_2)$ rispettivamente l'entropia sottosistema $1$ e l'entropia del sottosistema $2$, allora si ha
+Pensiamo di dividere il sistema in due sottosistemi $1$ e $2$ a volume e numero di particelle fissato ($V_1, V_2$ e $N_1, N_2$), pertanto l'unica interazione sarà termica ($dV = 0 = dN$). Fissiamo l'energia totale del sistema $E$ e siano $E_1$ ed $E_2$ rispettivamente l'energia del sottosistema $1$ e l'energia del sottosistema $2$. $E_1$ ed $E_2$ non sono quantità fissate, sono libere di variare affinché rispettino il vincolo $E = E_1 + E_2$. Siano $S_1 = k\log \Gamma_1(E_1)$ e $S_2 = k\log \Gamma_2(E_2)$ rispettivamente l'entropia sottosistema $1$ e l'entropia del sottosistema $2$. Allora
 \begin{gather}
     \Gamma(E) = \sum_{i = 1}^{E/\Delta} \Gamma_1(E^{(i)}_1)\Gamma_2(E - E^{(i)}_1) \tag{1.2.3}
 \end{gather}
@@ -133,7 +140,11 @@ per ogni $i = 1, \dots, E/\Delta$. Possiamo minorare e maggiorare $\Gamma(E)$ co
 \begin{gather}
     \Gamma_1(\overline{E}_1)\Gamma_2(E - \overline{E}_1) \leq \Gamma(E) \leq \left(\frac{E}{\Delta}\right) \Gamma_1(\overline{E}_1)\Gamma_2(E - \overline{E}_1) \tag{1.2.5}
 \end{gather}
-Sappiamo che $E = \frac{3}{2}NkT$, dunque $E/\Delta \sim N$, mentre la misura della (iper)superficie degli stati ad energia $E$, che in questo caso è una sfera nello spazio degli impulsi, va come $R^{3N - 1}$, con $R = \sqrt{2mE}$, pertanto $\Gamma(E) \sim E^{\frac{3N - 1}{2}}$. Concludiamo che il termine $E/\Delta$ è trascurabile per $N \rightarrow \infty$ (limite termodinamico) e da $(1.2.5)$ si ottiene
+Dalla \textit{teoria cinetica dei gas} sappiamo che $E = \frac{3}{2}NkT$, dunque $E/\Delta \sim N$, mentre la misura della (iper)superficie degli stati ad energia $E$, che in questo caso è una sfera nello spazio degli impulsi, va come $R^{3N - 1}$, con $R = \sqrt{2mE}$. Segue che 
+\begin{align*}
+    \Gamma(E) \sim E^{\frac{3N - 1}{2}} 
+\end{align*}
+Concludiamo che il termine $E/\Delta$ è trascurabile per $N \rightarrow \infty$ (limite termodinamico) e da $(1.2.5)$ si ottiene
 \begin{gather}
     \Gamma_1(\overline{E}_1)\Gamma_2(E - \overline{E}_1) \leq \Gamma(E) \leq \Gamma_1(\overline{E}_1)\Gamma_2(E - \overline{E}_1) \notag \qquad N \rightarrow \infty
 \end{gather}
@@ -141,9 +152,9 @@ ovvero
 \begin{gather}
     \Gamma(E) = \Gamma_1(\overline{E}_1)\Gamma_2(E - \overline{E}_1) \qquad N \rightarrow \infty \tag{1.2.6}
 \end{gather}
-Pertanto, dato che la funzione $\ln$ è monotona e quindi preserva la disuguaglianza, al limite termodinamico si ha
+Pertanto, dato che la funzione $\log$ è monotona e quindi preserva la disuguaglianza, al limite termodinamico si ha
 \begin{gather}
-    k\ln\Gamma(E) = k\ln\Gamma_1(\overline{E}_1) + k\ln\Gamma_2(E - \overline{E}_1) \tag{1.2.7}
+    k\log\Gamma(E) = k\log\Gamma_1(\overline{E}_1) + k\log\Gamma_2(E - \overline{E}_1) \tag{1.2.7}
 \end{gather}
 che equivale a
 \begin{gather}
@@ -157,24 +168,27 @@ ovvero
 \begin{align}
     \Gamma_2(E_2)\frac{\partial}{\partial E}\Gamma_1(E_1) + \Gamma_1(E_1)\frac{\partial E_2}{\partial E_1}\frac{\partial}{\partial E_2}\Gamma_2(E_2) = 0 \tag{1.2.10}
 \end{align}
-in particolare
+In particolare
 \begin{gather}
     \frac{\partial E_2}{\partial E_1} = \frac{\partial}{\partial E_1}(E - E_1) = -1 \notag
 \end{gather}
-allora la condizione che deve essere soddisfatta è la seguente
+quindi la condizione che deve essere soddisfatta è la seguente
 \begin{gather}
     \Gamma_2\frac{\partial\Gamma_1}{\partial E_1} = \Gamma_1\frac{\partial\Gamma_2}{\partial E_2} \tag{1.2.11}
 \end{gather}
-dividendo entrambi i membri per $\Gamma_1\Gamma_2$ e esprimendo in termini di logaritmi $(1.2.11)$ equivale a
+Dividendo entrambi i membri per $\Gamma_1\Gamma_2$ e esprimendo in termini di logaritmi, $(1.2.11)$ diventa
 \begin{gather}
-    \frac{\partial}{\partial E_1}\ln \Gamma_1 = \frac{\partial}{\partial E_2}\ln \Gamma_2 \tag{1.2.12}
+    \frac{\partial}{\partial E_1}\log \Gamma_1 = \frac{\partial}{\partial E_2}\log \Gamma_2 \tag{1.2.12}
 \end{gather}
 A questo punto ricordiamo che per $dV = 0 = dN$ si ha $TdS = dE$, che all'equilibrio termico, cioè $T_1 = T_2$, comporta
 \begin{gather}
     \frac{\partial S_1}{\partial E_1} = \frac{\partial S_2}{\partial E_2} \tag{1.2.13}
 \end{gather}
-confrontando $(1.2.13)$ e $(1.2.12)$ viene naturale pensare che $S$ e $\ln\Gamma$ sono legate da qualche costante di proporzionalità $k$, come avevamo già ipotizzato, cioè $S = k\ln\Gamma$. \\ \\
-Vediamo come sono legate la misura della "corteccia" definita dall'energia del sistema e la misura della sfera (piena) che contiene. Poniamo
+confrontando $(1.2.13)$ e $(1.2.12)$ viene naturale pensare che $S$ e $\log\Gamma$ sono legate da qualche costante di proporzionalità $k$, come avevamo già ipotizzato, cioè
+\begin{align*}
+    S = k\log\Gamma
+\end{align*}
+Vediamo come sono legate la misura della "corteccia" definita dall'energia del sistema e la misura della sfera (piena) contenuta la suo interno. Poniamo
 \begin{align}
     \Omega(E) &= \int_{\mathcal{H} \leq E}d\mathbf{p}d\mathbf{q} \tag{1.2.14}
 \end{align}
@@ -182,29 +196,29 @@ dalla definizione $(1.1.16)$ segue
 \begin{gather}
     \Gamma(E) = \Omega(E + \Delta) - \Omega(E) \notag
 \end{gather}
-e per $\Delta$ abbastanza piccolo possiamo scrivere
+Per $\Delta$ sufficientemente piccolo possiamo scrivere
 \begin{gather}
     \Gamma(E) \sim \Delta\frac{\partial \Omega}{\partial E} \tag{1.2.15}
 \end{gather}
 In particolare $\Omega \sim E^\alpha$, con $\alpha \sim N$, dato che si tratta del "volume" della (iper)sfera. Sostituendo la $(1.2.15)$ nella $(1.2.1)$ si ottiene
 \begin{align}
-    k\ln\Gamma &\sim k\ln\left(\Delta\frac{\partial\Omega}{\partial E}\right) \notag \\
-    &= k\ln\left(\frac{\Delta}{E}\right) + k\ln\left(E\frac{\partial\Omega}{\partial E}\right) \notag \\
-    &= k\ln\left(\frac{\Delta}{E}\right) + k\ln\left(\alpha\Omega\right) \notag \\
-    &\sim k\ln\Omega \notag
+    k\log\Gamma &\sim k\log\left(\Delta\frac{\partial\Omega}{\partial E}\right) \notag \\
+    &= k\log\left(\frac{\Delta}{E}\right) + k\log\left(E\frac{\partial\Omega}{\partial E}\right) \notag \\
+    &= k\log\left(\frac{\Delta}{E}\right) + k\log\left(\alpha\Omega\right) \notag \\
+    &\sim k\log\Omega \notag
 \end{align}
 dove è stato trascurato il primo termine del membro di destra per $N \rightarrow \infty$, concludiamo che al limite termodinamico possiamo sostituire $\Gamma$ con $\Omega$.
 
 \subsubsection{Particelle libere in una scatola}
-Vediamo ora il caso particolare del gas libero confinato in un volume $V$. si ha
+Vediamo ora il caso particolare del gas libero confinato in un volume $V$. L'hamiltoniana che descrive il sistema è
 \begin{gather}
     \mathcal{H} = \sum_{i = 1}^N \frac{\mathbf{p}^2_i}{2m} \notag
 \end{gather}
-calcoliamo $\Omega(E)$, si ha
+Calcoliamo $\Omega(E)$, si ha
 \begin{gather}
     \Omega(E) = \int_{\mathcal{H} \leq E} d\mathbf{p}_1d\mathbf{p}_2 \dots d\mathbf{p}_Nd\mathbf{q}_1d\mathbf{q}_2 \dots d\mathbf{q}_N \tag{1.2.16}
 \end{gather}
-$\Omega$, come visto in precedenza, è proporzionale al numero di stati contenuti nell'insieme identificato dalla relazione $\mathcal{H} \leq E$, dividendo per la misura minima dell'elemento $d\mathbf{p}_1d\mathbf{q}_i$ otteniamo il numero di stati, dunque, a meno di ridefinire $\Omega$, possiamo scrivere
+$\Omega$ è proporzionale al numero di stati contenuti nell'insieme identificato da $\mathcal{H} \leq E$. Dividendo per la misura minima dell'elemento $d\mathbf{p}_1d\mathbf{q}_i$ otteniamo il numero di stati, dunque, a meno di ridefinire $\Omega$, possiamo scrivere
 \begin{gather}
     \Omega(E) = \frac{1}{h^{3N}}\int_{\mathcal{H} \leq E}d\mathbf{p}_1d\mathbf{p}_2 \dots d\mathbf{p}_Nd\mathbf{q}_1d\mathbf{q}_2 \dots d\mathbf{q}_N \tag{1.2.17}
 \end{gather}
@@ -212,7 +226,7 @@ L'hamiltoniana $\mathcal{H}$ non dipende da $\mathbf{q}$, dunque possiamo subito
 \begin{gather}
     \Omega(E) = \left(\frac{V}{h^3}\right)^N\omega_{3N}(R) \tag{1.2.18}
 \end{gather}
-dove $\omega_{3N}(R)$ è la misura della sfera di raggio $R$ $3N$ dimensionale. Dobbiamo quindi determinare la seguente quantità per $n$ generico
+dove $\omega_{3N}(R)$ è la misura della sfera $3N$-dimensionale di raggio $R$. Dobbiamo quindi determinare la seguente quantità per $n$ generico
 \begin{gather}
     \omega_n(R) = \int_{\|\mathbf{x}\| \leq R}dx_1 \dots dx_n \notag
 \end{gather}
@@ -220,17 +234,17 @@ Ragionando per induzione, sappiamo che la misura della sfera bidimensionale di r
 \begin{gather}
     \mathbf{S}^n = \{\mathbf{x} \in \mathbf{R}^n : x^2_1 + \dots + x^2_n \leq R^2\} \notag
 \end{gather}
-ponendo $x_n = t$ tale equazione equivale a
-\begin{gather}
-    x^2_1 + \dots + x^2_{n - 1} \leq R^2 - t^2 \notag
-\end{gather}
-con $t \in [-R, R]$, che identifica la sezione della sfera $n$ dimensionale per $x_n = t$ variabile. Allora
+Allora
 \begin{align}
-    \omega_n(R) &= \int_{-R}^{R}\int_{x^2_1 + \dots + x^2_{n - 1} \leq R^2 - t^2}dx_1 \dots dx_{n - 1}dt \notag \\
-    &= \int_{-R}^R c_{n - 1}(R^2 - t^2)^{\frac{n - 1}{2}} \, dt \notag \\
+    \omega_n(R) &= \int_{-R}^{R}\int_{x^2_1 + \dots + x^2_{n - 1} \leq R^2 - x^2_n}dx_1 \dots dx_{n - 1}dx_n \notag \\
+    &= \int_{-R}^R c_{n - 1}(R^2 - x^2_n)^{\frac{n - 1}{2}} \, dx_n \notag \\
     &= c_{n - 1}R^n\int_{-1}^1(1 - u^2)^{\frac{n - 1}{2}} \, du \tag{1.2.19}
 \end{align}
-dove si è posto $u = t/R$. A questo punto $c_{n - 1}$ lo possiamo determinare notando che l'ipotesi induttiva ci dice che $dx_1 \dots dx_{n - 1} = (n - 1)c_{n - 1}r^{n - 2}dr$, inoltre vale la seguente identità
+dove si è posto $u = x_n/R$. A questo punto, possiamo determinare $c_{n - 1}$ notando che, per ipotesi induttiva, si ha
+\begin{align*}
+    dx_1 \dots dx_{n - 1} = (n - 1)c_{n - 1}r^{n - 2}dr
+\end{align*}
+ponendo $r = \|\mathbf{x}\|$. Inoltre vale la seguente identità
 \begin{align}
     \pi^{\frac{n - 1}{2}} &= \int_{-\infty}^\infty dx_1 \dots \int_{-\infty}^\infty dx_{n - 1}e^{-(x^2_1 + \dots + x^2_{n - 1})} \notag \\
     &= (n - 1)c_{n - 1}\int_{0}^\infty r^{n - 2}e^{-r^2} \, dr \notag \\
@@ -247,29 +261,29 @@ Pertanto si ottiene
     \omega_n(R) &= \frac{\pi^{\frac{n - 1}{2}}}{\Gamma\left(\frac{n + 1}{2}\right)}R^n\int_{-1}^1(1 - u^2)^{\frac{n - 1}{2}} \, du \notag \\
     &= \frac{\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2} + 1\right)}R^n \tag{1.2.21}
 \end{align}
-Dove si è usato la tesi della ipotesi induttiva (dimostrata con il passaggio $(1.2.19)$). Allora sostituendo in $(1.2.18)$ si ha
+Sostituendo in $(1.2.18)$ si ha
 \begin{gather}
     \Omega(E) = c_{3N}\left(\frac{V}{h^3}(2mE)^{3/2}\right)^N \tag{1.2.21}
 \end{gather}
 A questo punto sostituendo nella definizione di entropia otteniamo
 \begin{gather}
-    S(N, V, E) = k\left(\ln c_{3N} + N\ln \frac{V}{h^3} + \frac{3}{2}\ln (2mE)\right) \tag{1.2.22}
+    S(N, V, E) = k\left(\log c_{3N} + N\log \frac{V}{h^3} + \frac{3}{2}\log (2mE)\right) \tag{1.2.22}
 \end{gather}
-per poter trattare l'espressione $(1.2.22)$ in modo da poter usare $S$ come potenziale termodinamico dobbiamo far uso della formula di Stirling, ovvero
+per poter trattare l'espressione $(1.2.22)$ dell'entropia $S$ come potenziale termodinamico dobbiamo far uso della \textit{formula di Stirling}, ovvero
 \begin{gather}
-    \ln\Gamma\left(\frac{3N}{2} + 1\right) \sim \frac{3N}{2}\ln\frac{3N}{2} - \frac{3N}{2} \qquad N \rightarrow \infty \notag
+    \log\Gamma\left(\frac{3N}{2} + 1\right) \sim \frac{3N}{2}\log\frac{3N}{2} - \frac{3N}{2} \qquad N \rightarrow \infty \notag
 \end{gather}
 allora
 \begin{gather}
-    \ln c_{3N} \sim \frac{3N}{2}\ln\pi - \frac{3N}{2}\ln\frac{3N}{2} + \frac{3N}{2} \qquad N \rightarrow \infty \notag
+    \log c_{3N} \sim \frac{3N}{2}\log\pi - \frac{3N}{2}\log\frac{3N}{2} + \frac{3N}{2} \qquad N \rightarrow \infty \notag
 \end{gather}
 e
 \begin{gather}
-    S(N, V, E) \sim kN\ln\left(V\left(\frac{4\pi m}{3h^2}\frac{E}{N}\right)^{3/2}\right) + \frac{3}{2}Nk \qquad N \rightarrow \infty \tag{1.2.23} 
+    S(N, V, E) \sim kN\log\left(V\left(\frac{4\pi m}{3h^2}\frac{E}{N}\right)^{3/2}\right) + \frac{3}{2}Nk \qquad N \rightarrow \infty \tag{1.2.23} 
 \end{gather}
-Esprimendo $E$ in funzione di $(N, V, S)$ e usando la relazione macroscopica $TdS = dE + PdV - \mu dN$ possiamo ricavare le relazione che legano i potenziali termodinamici con le grandezze termodinamiche globali, infatti
+Esprimendo $E$ in funzione di $(N, S, V)$ e usando la relazione macroscopica $TdS = dE + PdV - \mu dN$ possiamo ricavare le relazione che legano i potenziali termodinamici con le grandezze termodinamiche globali, infatti
 \begin{gather}
-    E(N, V, S) = \left(\frac{3h^2}{4\pi m}\right)\frac{N}{V^{2/3}}\exp\left(\frac{2}{3}\frac{S}{Nk} - 1\right) \tag{1.2.24}
+    E(N, S, V) = \left(\frac{3h^2}{4\pi m}\right)\frac{N}{V^{2/3}}\exp\left(\frac{2}{3}\frac{S}{Nk} - 1\right) \tag{1.2.24}
 \end{gather}
 e in particolare
 \begin{align}
@@ -294,11 +308,11 @@ ovvero ricaviamo la legge dei gas ideali. \\ \\
 Tuttavia l'espressione $(1.2.23)$ dell'entropia non è estensiva a causa del termine $V$ all'interno del logaritmo. Infatti nell'integrazione rispetto a $d\mathbf{q}$ per il calcolo di $\Omega(E)$ non abbiamo tenuto conto dell'indistinguibilità classica delle particelle per il gas ideale. Necessitiamo dunque di un fattore $N!$ (detto fattore di Gibbs) a dividere $\Gamma$ (o $\Sigma$) per correggere il problema. Tale fattore apparirà autonomamente quando considereremo l'indistinguibilità delle particelle della meccanica quantistica. \\ \\
 Poniamo $u = E/N$ e $v = V/N$, riscriviamo $S(N, V, E)$ come segue
 \begin{align}
-    S(N, V, E) = kN\ln(Vu^{2/3}) + \frac{3}{2}kNS_0 \tag{1.2.25}
+    S(N, V, E) = kN\log(Vu^{2/3}) + \frac{3}{2}kNS_0 \tag{1.2.25}
 \end{align}
 dove
 \begin{align}
-    S_0 = 1 + \ln\frac{4\pi m}{3h^2} \notag
+    S_0 = 1 + \log\frac{4\pi m}{3h^2} \notag
 \end{align}
 come già osservato, il fattore $V$ nel logaritmo comporta un problema, infatti tale espressione dell'entropia non è estensiva, ovvero non scala con il sistema. Possiamo pensare di fattorizzare $N$ dall'espressione dell'entropia, ovvero porre
 \begin{align}
@@ -307,17 +321,17 @@ come già osservato, il fattore $V$ nel logaritmo comporta un problema, infatti 
 essendo $N$ fattorizzato $s$ deve dipendere solamente da quantità intensive, come appunto $u = E/N$ densità di energia e $v = V/N$ densità di volume. \\ \\
 Aggiungendo manualmente il fattore di Gibbs $N!$ si ha
 \begin{align}
-    k\ln\Sigma \longrightarrow k\ln\Sigma - k\ln N! \tag{1.2.26}
+    k\log\Sigma \longrightarrow k\log\Sigma - k\log N! \tag{1.2.26}
 \end{align}
 e al limite termodinamico, usando la formula di Stirling, si ottiene
 \begin{align}
-    k\ln N! &= k\ln\Gamma(N + 1) \notag \\
-    &\sim kN\ln N - N \notag
+    k\log N! &= k\log\Gamma(N + 1) \notag \\
+    &\sim kN\log N - N \notag
 \end{align}
 pertanto l'espressione corretta dell'entropia diventa
 \begin{align}
-    S(N, V, E) &= kN\ln\left(\frac{V}{N}\left(\frac{E}{N}\right)^{3/2}\right) + \frac{5}{2}kNS_0 \notag \\
-    &= kN\ln(uv^{3/2}) - \frac{5}{2}kNS_0 \tag{1.2.27}
+    S(N, V, E) &= kN\log\left(\frac{V}{N}\left(\frac{E}{N}\right)^{3/2}\right) + \frac{5}{2}kNS_0 \notag \\
+    &= kN\log(uv^{3/2}) - \frac{5}{2}kNS_0 \tag{1.2.27}
 \end{align}
 notiamo che $N$ è già fattorizzato e i termini che moltiplica dipendono solamente da quantità intensive, dunque questa espressione dell'entropia è estensiva. 
 
@@ -328,7 +342,7 @@ Nel caso in cui le particelle sono soggette ad un potenziale armonico si ha
 \end{align}
 Al limite termodinamico possiamo approssimare
 \begin{align}
-    k\ln\Gamma \sim k\ln\Sigma \notag
+    k\log\Gamma \sim k\log\Sigma \notag
 \end{align}
 Allora
 \begin{align}
@@ -350,9 +364,9 @@ Allora
 \end{align}
 quindi, usando la formula di Stirling al limite termodinamico, si ha
 \begin{align}
-    S &\sim k\ln \Sigma \notag \\
-    &\sim -3kN\ln 3N + 3kN + 3kN\ln \frac{E}{\hbar\omega} \notag \\
-    &= 3kN\left(1 + \ln\left(\frac{1}{3\hbar\omega}\frac{E}{N}\right)\right) \tag{1.2.29}
+    S &\sim k\log \Sigma \notag \\
+    &\sim -3kN\log 3N + 3kN + 3kN\log \frac{E}{\hbar\omega} \notag \\
+    &= 3kN\left(1 + \log\left(\frac{1}{3\hbar\omega}\frac{E}{N}\right)\right) \tag{1.2.29}
 \end{align}
 Notiamo che l'entropia è correttamente estensiva, infatti $N$ è fattorizzato e il termine che moltiplica dipende solamente da quantità intensive, in questo caso $u = E/N$ densità di energia. Questo segue dal fatto che le particelle in questo caso sono distinguibili, infatti sono ben identificate dal punto di equilibrio rispetto al quale oscillano. Inoltre
 \begin{align}
@@ -448,8 +462,8 @@ In questo caso dobbiamo aggiungere a mano il fattore di Gibbs per far sì che l'
 \end{align}
 Allora
 \begin{align}
-    S &\sim k\ln \Sigma \notag \\
-    &\sim kN\left(4 + \ln\left(\frac{8\pi VE^3}{27h^3c^3N^4}\right)\right) \tag{1.2.43}
+    S &\sim k\log \Sigma \notag \\
+    &\sim kN\left(4 + \log\left(\frac{8\pi VE^3}{27h^3c^3N^4}\right)\right) \tag{1.2.43}
 \end{align}
 dove si è usata nuovamente la formula di Stirling al limite termodinamico. Notiamo che
 \begin{align}
@@ -495,7 +509,7 @@ il primo integrale è nullo dato che $x_i(\mathcal{H} - E) = 0$ per $\mathcal{H}
 \begin{align}
     \braket{x_i\frac{\partial \mathcal{H}}{\partial x_j}} &= \delta_{ij}\left(\frac{\partial \Sigma}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}(E - \mathcal{H}) \, d\mathbf{p}d\mathbf{q} \notag \\
     &= \delta_{ij}\Sigma\left(\frac{\partial \Sigma}{\partial E}\right)^{-1} \notag \\
-    &= \delta_{ij}\left(\frac{\partial \ln\Sigma}{\partial E}\right)^{-1} \notag \\
+    &= \delta_{ij}\left(\frac{\partial \log\Sigma}{\partial E}\right)^{-1} \notag \\
     &= \delta_{ij}k\left(\frac{\partial S}{\partial E}\right)^{-1} \notag \\
     &= \delta_{ij}kT \notag
 \end{align}
@@ -509,14 +523,14 @@ Fissiamo l'energia totale del sistema $E = m\varepsilon$, dove $m$ è il numero 
 \end{align}
 Al limite termidinamico si ha 
 \begin{align}
-    S(m, N) &\sim k\left(N\ln N - N - (N - m)\ln(N - m) + (N - m) - m\ln m + m\right) \notag \\
-    &= k\left(N\ln N - (N - m)\ln(N - m) - m\ln m\right) \notag
+    S(m, N) &\sim k\left(N\log N - N - (N - m)\log(N - m) + (N - m) - m\log m + m\right) \notag \\
+    &= k\left(N\log N - (N - m)\log(N - m) - m\log m\right) \notag
 \end{align}
 Notiamo che 
 \begin{align}
     \frac{1}{T} &= \left(\frac{\partial S}{\partial E}\right)_N \notag \\
     &= \left(\frac{\partial m}{\partial E}\frac{\partial S}{\partial m}\right)_N \notag \\
-    &= \frac{k}{\varepsilon}\ln 
+    &= \frac{k}{\varepsilon}\log 
     \left(\frac{N}{m} - 1\right) \notag
 \end{align}
 ovvero 
@@ -548,18 +562,18 @@ Nel caso $3D$ basta sostituire $N$ con $3N$, infatti l'hamiltoniano dell'oscilla
 \end{align}
 Al limite termodinamico $3N - 1 \sim 3N$, quindi, usando la formula di Stirling, si ottiene 
 \begin{align}
-    S(N, M) &\sim k\left((M + 3N)\ln(M + 3N) - M\ln M - 3N\ln 3N\right) \notag
+    S(N, M) &\sim k\left((M + 3N)\log(M + 3N) - M\log M - 3N\log 3N\right) \notag
 \end{align}
 esplicitando la dipendenza dall'energia totale $E$ e fattorizzando $N$ si ottiene 
 \begin{align}
-    S(N, E) &\sim kN\left(\left(u + \frac{3}{2}\right)\ln N\left(u + \frac{3}{2}\right) - \left(u - \frac{3}{2}\right)\ln N\left(u - \frac{3}{2}\right) - 3\ln 3N\right) \notag \\
-    &= kN\left(u\ln \frac{u + 3/2}{u - 3/2} + \frac{3}{2}\ln\left(u^2 - \frac{9}{4}\right) -3\ln3\right) \notag
+    S(N, E) &\sim kN\left(\left(u + \frac{3}{2}\right)\log N\left(u + \frac{3}{2}\right) - \left(u - \frac{3}{2}\right)\log N\left(u - \frac{3}{2}\right) - 3\log 3N\right) \notag \\
+    &= kN\left(u\log \frac{u + 3/2}{u - 3/2} + \frac{3}{2}\log\left(u^2 - \frac{9}{4}\right) -3\log3\right) \notag
 \end{align}
 Notiamo che 
 \begin{align}
     \frac{1}{T} &= \left(\frac{\partial S}{\partial E}\right)_N \notag \\
     &= \left(\frac{\partial u}{\partial E}\frac{\partial S}{\partial u}\right)_N \notag \\
-    &= k\ln \left(\frac{u + 3/2}{u - 3/2}\right) \notag
+    &= k\log \left(\frac{u + 3/2}{u - 3/2}\right) \notag
 \end{align}
 ovvero 
 \begin{align}
@@ -643,7 +657,7 @@ pertanto
 \end{align}
 Facendo riferimento all'espressione $(2.1.5)$, diamo come definizione statistica dell'energia libera la seguente 
 \begin{align}
-    G(N, V, T) = -kT\ln Q_N(V, T) \tag{2.1.8}
+    G(N, V, T) = -kT\log Q_N(V, T) \tag{2.1.8}
 \end{align}
 Verifichiamo che sia correttamente estensiva. Poiché per ipotesi $X_1$ e $X_2$ sono debolmente interagenti si ha che $\mathcal{H}_{tot} = \mathcal{H}_1 + \mathcal{H}_2$, allora 
 \begin{align}
@@ -652,8 +666,8 @@ Verifichiamo che sia correttamente estensiva. Poiché per ipotesi $X_1$ e $X_2$ 
 \end{align}
 segue che 
 \begin{align}
-    G_{tot} &= -kT\ln Q_N \notag \\
-    &= -kT\ln(Q^{(1)}_{N_1}Q^{(2)}_{N_2}) \notag \\
+    G_{tot} &= -kT\log Q_N \notag \\
+    &= -kT\log(Q^{(1)}_{N_1}Q^{(2)}_{N_2}) \notag \\
     &= G_1 + G_2 \tag{2.1.9}
 \end{align}
 ovvero $G$ correttamente estensiva (sotto l'ipotesi di sottosistemi debolmente interagenti). \\
@@ -775,12 +789,12 @@ Notiamo che
 questo accade ogni qual volta l'hamiltoniana è separabile, ovvero è somma di hamiltoniane di particelle indipendenti tra loro. \\ \\
 Nota la funzione di partizione canonica possiamo ottere l'espressione dell'energia libera e studiare l'aspetto termodinamico del sistema, in particolare 
 \begin{align}
-    G &= -kT\ln Q_N \notag \\
-    &= -kT\ln \frac{V^N}{N!}\left(\frac{2\pi mkT}{h^2}\right)^{3N/2} \notag
+    G &= -kT\log Q_N \notag \\
+    &= -kT\log \frac{V^N}{N!}\left(\frac{2\pi mkT}{h^2}\right)^{3N/2} \notag
 \end{align}
 usando la formula di Stirling al limite termodinamico si ottiene 
 \begin{align}
-    G \sim -NkT\ln\frac{V}{N} - NkT\left(1 - \frac{3}{2}\ln\frac{2\pi mkT}{h^2}\right) \tag{2.1.24}
+    G \sim -NkT\log\frac{V}{N} - NkT\left(1 - \frac{3}{2}\log\frac{2\pi mkT}{h^2}\right) \tag{2.1.24}
 \end{align}
 $G$ è correttamente estensiva, infatti $N$ è già fattorizzato e $G$ può essere scritta come il prodotto tra $N$ ed una funzione che dipende solamente da quantità intensive (in questo caso la densità di volume e la temperatura). \\ \\
 Infine calcoliamo l'energia interna del sistema $U = \braket{\mathcal{H}}$, si ha che 
@@ -789,12 +803,12 @@ Infine calcoliamo l'energia interna del sistema $U = \braket{\mathcal{H}}$, si h
 \end{align}
 per definizione di su ensemble canonico. Notiamo che 
 \begin{align}
-    U = -\frac{\partial}{\partial \beta}\ln Q_N = -\frac{1}{Q_N}\frac{\partial Q_N}{\partial\beta} \notag
+    U = -\frac{\partial}{\partial \beta}\log Q_N = -\frac{1}{Q_N}\frac{\partial Q_N}{\partial\beta} \notag
 \end{align}
 portando l'operazione di derivazione sotto il segno di integrale, pertanto 
 \begin{align}
-    U &= -\frac{\partial}{\partial\beta}\left(-N\ln\frac{V}{N} -N\left(1 - \frac{3}{2}\ln\frac{2\pi m}{h^2\beta}\right)\right) \notag \\
-    &= -\frac{\partial}{\partial\beta}\left(-\frac{3}{2}N\ln\frac{1}{\beta}\right) = \frac{3}{2}NkT \tag{2.1.25}
+    U &= -\frac{\partial}{\partial\beta}\left(-N\log\frac{V}{N} -N\left(1 - \frac{3}{2}\log\frac{2\pi m}{h^2\beta}\right)\right) \notag \\
+    &= -\frac{\partial}{\partial\beta}\left(-\frac{3}{2}N\log\frac{1}{\beta}\right) = \frac{3}{2}NkT \tag{2.1.25}
 \end{align}
 risultato che segue dal \textit{teorema di equipartizione di energia}.
 
@@ -817,12 +831,12 @@ e quindi
 \end{align}
 Segue che 
 \begin{align}
-    G = -3NkT\ln \frac{kT}{\hbar\omega} \tag{2.1.28}
+    G = -3NkT\log \frac{kT}{\hbar\omega} \tag{2.1.28}
 \end{align}
 inoltre 
 \begin{align}
     U &= \frac{\partial G}{\partial \beta} \notag \\
-    &= -\frac{\partial}{\partial \beta}\ln Q_N \notag \\
+    &= -\frac{\partial}{\partial \beta}\log Q_N \notag \\
     &= 3NkT \tag{2.1.29}
 \end{align}
 come ci si aspetta dal \textit{teorema di equipartizione dell'energia}.
@@ -849,12 +863,12 @@ allora
 \end{align}
 Nota la funzione di partizione canonica possiamo determinare l'espressione dell'energia libera 
 \begin{align}
-    G &= N\frac{\hbar\omega}{2} + NkT\ln\left(1 - e^{-\beta\hbar\omega}\right) \tag{2.1.34}
+    G &= N\frac{\hbar\omega}{2} + NkT\log\left(1 - e^{-\beta\hbar\omega}\right) \tag{2.1.34}
 \end{align}
 mentre per l'energia interna si ha 
 \begin{align}
-    U &= -\frac{\partial}{\partial\beta}\ln Q_N \notag \\
-    &= -\frac{\partial}{\partial\beta}\left(-N\beta\frac{\hbar\omega}{2} - N\ln\left(1 - e^{-\beta\hbar\omega}\right)\right) \notag \\
+    U &= -\frac{\partial}{\partial\beta}\log Q_N \notag \\
+    &= -\frac{\partial}{\partial\beta}\left(-N\beta\frac{\hbar\omega}{2} - N\log\left(1 - e^{-\beta\hbar\omega}\right)\right) \notag \\
     &= N\frac{\hbar\omega}{2} - N\hbar\omega\frac{}{1 - e^{-\beta\hbar\omega}} \notag
 \end{align}
 Al limite per cui vale $\frac{\hbar\omega}{kT} << 1$ si ha 
@@ -894,14 +908,14 @@ Usando la formula di Stirling al limite termidinamico si ha
 \end{align}
 segue che 
 \begin{align}
-    S(E) &\sim o(\ln N) + k\left(N\ln N - \frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\ln\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) +\right. \notag \\
-    &-\left.\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\ln\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) - N\ln\frac{1}{2}\right) \tag{2.1.41}
+    S(E) &\sim o(\log N) + k\left(N\log N - \frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\log\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) +\right. \notag \\
+    &-\left.\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\log\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) - N\log\frac{1}{2}\right) \tag{2.1.41}
 \end{align}
 dove 
 \begin{align}
-    o(\ln N) &= \frac{k}{2}\ln N - \frac{k}{2}\ln\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) - \frac{k}{2}\ln\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) \notag \\
-    &= \frac{k}{2}\ln\frac{N}{\frac{1}{4}\left(N^2 - \frac{E^2}{\varepsilon^2}\right)} \notag \\
-    &= \frac{k}{2}\ln\frac{4\varepsilon^2}{kT^2c_V} \tag{2.1.42}
+    o(\log N) &= \frac{k}{2}\log N - \frac{k}{2}\log\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) - \frac{k}{2}\log\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) \notag \\
+    &= \frac{k}{2}\log\frac{N}{\frac{1}{4}\left(N^2 - \frac{E^2}{\varepsilon^2}\right)} \notag \\
+    &= \frac{k}{2}\log\frac{4\varepsilon^2}{kT^2c_V} \tag{2.1.42}
 \end{align}
 Studiando lo stesso sistema come ensemble canonico possiamo determinare l'energia libera $G$ (e quindi l'entropia canonica) passando per la funzione di partizione canonica
 \begin{align}
@@ -912,8 +926,8 @@ Studiando lo stesso sistema come ensemble canonico possiamo determinare l'energi
 \end{align}
 per definizioni di binomio di Newton. A questo punto possiamo determinare l'espressione dell'energia libera 
 \begin{align}
-    G &= -NkT\ln(e^{\beta E} + e^{-\beta E}) \notag \\
-    &= -NkT\ln(2\cosh \beta E) \tag{2.1.44}
+    G &= -NkT\log(e^{\beta E} + e^{-\beta E}) \notag \\
+    &= -NkT\log(2\cosh \beta E) \tag{2.1.44}
 \end{align}
 segue che 
 \begin{align}
@@ -923,9 +937,9 @@ segue che
 A questo punto possiamo determinare l'entropia canonica del sistema, si ha 
 \begin{align}
     S_{can} &= -\left(\frac{\partial G}{\partial T}\right)_{N, V} \notag \\
-    &= \frac{\partial}{\partial T}\left(NkT\ln\left(2\cosh \frac{E}{kT}\right)\right) \notag \\
-    &= Nk\ln\left(2\cosh \frac{E}{kT}\right) - \frac{NE}{T}\tanh\frac{E}{kT} \notag \\
-    &= Nk\ln\left(2\cosh \beta E\right) - N\beta kE\tanh \beta E \tag{2.1.46}
+    &= \frac{\partial}{\partial T}\left(NkT\log\left(2\cosh \frac{E}{kT}\right)\right) \notag \\
+    &= Nk\log\left(2\cosh \frac{E}{kT}\right) - \frac{NE}{T}\tanh\frac{E}{kT} \notag \\
+    &= Nk\log\left(2\cosh \beta E\right) - N\beta kE\tanh \beta E \tag{2.1.46}
 \end{align}
 
 
@@ -964,13 +978,13 @@ Notiamo che la derivata seconda di $S_{mic}$ calcolata per $E = \overline{E}$ è
 \begin{align}
     Q_N \sim \frac{1}{h^{3N}}\exp\left(\beta(TS_{mic}(\overline{E}) - \overline{E})\right)\left(-2\pi k\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)^{-1}_{E = \overline{E}}\right)^{1/2} \tag{2.2.6}
 \end{align}
-Concludiamo che l'entropia canonica è maggiore dell'entropia microcanonica (a causa delle fluttazioni) e differisce da quest'ultima per un termine che va come $\ln N$. In particolare, usando la definizione statistica dell'energia libera $(2.1.8)$, si ottiene 
+Concludiamo che l'entropia canonica è maggiore dell'entropia microcanonica (a causa delle fluttazioni) e differisce da quest'ultima per un termine che va come $\log N$. In particolare, usando la definizione statistica dell'energia libera $(2.1.8)$, si ottiene 
 \begin{align}
-    U - TS_{can} \sim \overline{E} - TS_{mic} - \frac{kT}{2}\ln\left(2\pi kT^2\frac{\partial \overline{E}}{\partial T}\right) \tag{2.2.7}
+    U - TS_{can} \sim \overline{E} - TS_{mic} - \frac{kT}{2}\log\left(2\pi kT^2\frac{\partial \overline{E}}{\partial T}\right) \tag{2.2.7}
 \end{align}
 e, dato che $U \sim \overline{E}$, si ottiene 
 \begin{align}
-    S_{can} \sim S_{mic} + \frac{kT}{2}\ln\left(2\pi kT^2c_V\right) \tag{2.2.8}
+    S_{can} \sim S_{mic} + \frac{kT}{2}\log\left(2\pi kT^2c_V\right) \tag{2.2.8}
 \end{align}
 
 \newpage
@@ -1052,13 +1066,13 @@ Notiamo che
 \begin{align}
     \braket{N} &= \sum_{N = 0}^\infty \frac{1}{\tilde{Q}}\frac{Z^N}{N!h^{3N}}\int d\mathbf{p}d\mathbf{q} \, Ne^{-\beta \mathcal{H}_N} \notag \\
     &= \frac{1}{\tilde{Q}}\sum_{N = 0}^\infty NZ^NQ_N \notag \\
-    &= Z\left(\frac{\partial}{\partial Z}\ln \tilde{Q}\right)_{V, T} \tag{3.1.14}
+    &= Z\left(\frac{\partial}{\partial Z}\log \tilde{Q}\right)_{V, T} \tag{3.1.14}
 \end{align}
 dove nel secondo passaggio si è usata l'identità $(3.1.10)$. Pertanto, sempre nel contesto di particelle indipendenti e indistinguibili, si ha 
 \begin{align}
-    \braket{N} &= Z\frac{\partial}{\partial Z}\left(\ln \tilde{Q}\right) \notag \\
-    &= Z\frac{\partial}{\partial Z}\left(\ln \sum_{N = 0}^\infty Z^NQ_N\right) \notag \\
-    &= Z\frac{\partial}{\partial Z}\left(\ln \sum_{N = 0}^\infty \frac{(ZQ_1)^N}{N!}\right) \notag \\
+    \braket{N} &= Z\frac{\partial}{\partial Z}\left(\log \tilde{Q}\right) \notag \\
+    &= Z\frac{\partial}{\partial Z}\left(\log \sum_{N = 0}^\infty Z^NQ_N\right) \notag \\
+    &= Z\frac{\partial}{\partial Z}\left(\log \sum_{N = 0}^\infty \frac{(ZQ_1)^N}{N!}\right) \notag \\
     &= Z\frac{\partial}{\partial Z}ZQ_1 = ZQ_1 \tag{3.1.15}
 \end{align}
 dove si è usato $(3.1.12)$ nel quarto passaggio. Quindi, come ci si aspettava si ha 
@@ -1067,7 +1081,7 @@ dove si è usato $(3.1.12)$ nel quarto passaggio. Quindi, come ci si aspettava s
 \end{align}
 Inoltre, grazie alla $(3.1.15)$ siamo in grado di ottenere un'espressione per il potenziale chimico a cui è soggetto il sistema passando per la definizione di fugacità, in particolare si ha 
 \begin{align}
-    \mu = -kT\ln \frac{Q}{\braket{N}} \tag{3.1.17}
+    \mu = -kT\log \frac{Q}{\braket{N}} \tag{3.1.17}
 \end{align}
 
 \subsubsection{Particelle libere in una scatola}
@@ -1077,7 +1091,7 @@ Consideriamo un sistema di $N$ particelle libere indistinguibili in una scatola 
 \end{align}
 dove $c$ è un termine costante. Come fatto per $\braket{N}$, usando la definizione di media per l'ensemble gran canonico, possiamo scrivere 
 \begin{align}
-    \braket{E} = -\left(\frac{\partial}{\partial \beta}\ln\tilde{Q}\right)_{Z, V} \tag{3.1.19}
+    \braket{E} = -\left(\frac{\partial}{\partial \beta}\log\tilde{Q}\right)_{Z, V} \tag{3.1.19}
 \end{align}
 Allora si ottiene 
 \begin{align}
@@ -1099,11 +1113,11 @@ dove $d(E_N)$ rappresenta la degenerazione del livello energetico $E_N$. Possiam
 \end{align}
 ben normalizzata. A questo punto, per costruzione, si ha 
 \begin{align}
-    \braket{E} = \sum_{N, E_N} E_NP(E_N) = -\left(\frac{\partial}{\partial\beta}\ln \tilde{Q}\right) _{Z, V}\notag
+    \braket{E} = \sum_{N, E_N} E_NP(E_N) = -\left(\frac{\partial}{\partial\beta}\log \tilde{Q}\right) _{Z, V}\notag
 \end{align}
 per $(3.1.12)$ si ha che 
 \begin{align}
-    -\left(\frac{\partial}{\partial\beta}\ln \tilde{Q}\right)_{Z, V} = -ZV\frac{\partial}{\partial\beta}f(T) = ZVf'(T)kT^2 \tag{3.1.23}
+    -\left(\frac{\partial}{\partial\beta}\log \tilde{Q}\right)_{Z, V} = -ZV\frac{\partial}{\partial\beta}f(T) = ZVf'(T)kT^2 \tag{3.1.23}
 \end{align}
 dove si è usata l'ipotesi $\tilde{Q} = Vf(T)$. A questo punto possiamo calcolare il calore specifico a volume costante $c_V$ usando la definizione termodinamica 
 \begin{align}
@@ -1226,12 +1240,12 @@ dove
 pertanto $\Gamma(u) = (u - 1)!$. \\ \\
 Vediamo ora come si comporta la Gamma di Eulero per $u$ abbastanza grande, riscriviamo $\Gamma(u)$ come segue
 \begin{align}
-    \Gamma(u + 1) &= \int_0^\infty e^{-t}e^{u\ln t} \, dt \notag \\
-    &= \int_0^\infty e^{-t + u\ln t} \, dt \notag
+    \Gamma(u + 1) &= \int_0^\infty e^{-t}e^{u\log t} \, dt \notag \\
+    &= \int_0^\infty e^{-t + u\log t} \, dt \notag
 \end{align}
 Notiamo che la funzione integranda è scritta nella forma $e^{f(t)}$, dove
 \begin{align}
-    f(t) = -t + u\ln t \notag
+    f(t) = -t + u\log t \notag
 \end{align}
 Determiniamo il punto di massimo per $f$, imponiamo $f'(t) = 0$, si ha
 \begin{align}
@@ -1240,25 +1254,25 @@ Determiniamo il punto di massimo per $f$, imponiamo $f'(t) = 0$, si ha
 dunque $f'(t) = 0$ per $t = u$. Per la monotonia della funzione esponenziale si ha che il punto $t = u$ è anche punto di massimo per $e^{f(t)}$. Sviluppiamo $f$ in serie di Taylor attorno al suo punto di massimo
 \begin{align}
     f(t) &\sim f(u) + \cancel{f'(u)(t - u)} + \frac{1}{2}f''(u)(t - u)^2 \notag \\
-    &= -u + u\ln u - \frac{1}{2u}(t - u)^2 \notag
+    &= -u + u\log u - \frac{1}{2u}(t - u)^2 \notag
 \end{align}
 notiamo che se usiamo lo sviluppo di $f$ attorno al suo punto di massimo si ha
 \begin{align}
-    e^{f(t)} &\sim e^{-u + u\ln u - \frac{1}{2u}(t - u)^2} \notag \\
-    &= e^{-u + u\ln u}e^{-\frac{1}{2u}(t - u)^2} \notag
+    e^{f(t)} &\sim e^{-u + u\log u - \frac{1}{2u}(t - u)^2} \notag \\
+    &= e^{-u + u\log u}e^{-\frac{1}{2u}(t - u)^2} \notag
 \end{align}
 ovvero $e^{f(t)}$ diventa, a meno di un fattore costante, una gaussiana con varianza $\sigma = \sqrt{u}$. Dato che il punto di massimo della funzione integranda va come $u$, è valido, per $u$ abbastanza grande, usare lo sviluppo attorno al punto di massimo, dato che l'errore va come $u/\sqrt{u}$, che diventa infinitesimo per $u \rightarrow \infty$. Allora per $u$ abbastanza grande otteniamo
 \begin{align}
-    \Gamma(u + 1) &\sim e^{-u + u\ln u}\int_0^\infty e^{-\frac{1}{2u}(t - u)^2} \, dt \notag \\
-    &= e^{-u + u\ln u}\int_{-u}^\infty e^{-\frac{s^2}{2u}} \, ds \notag \\
-    &\sim e^{-u + u\ln u}\int_{-\infty}^\infty e^{-\frac{s^2}{2u}} , ds \notag \\
-    &= e^{-u + u\ln u}\sqrt{2\pi u} \notag \\
+    \Gamma(u + 1) &\sim e^{-u + u\log u}\int_0^\infty e^{-\frac{1}{2u}(t - u)^2} \, dt \notag \\
+    &= e^{-u + u\log u}\int_{-u}^\infty e^{-\frac{s^2}{2u}} \, ds \notag \\
+    &\sim e^{-u + u\log u}\int_{-\infty}^\infty e^{-\frac{s^2}{2u}} , ds \notag \\
+    &= e^{-u + u\log u}\sqrt{2\pi u} \notag \\
     &= e^{-u}u^u\sqrt{2\pi u} \notag \\
     &\sim e^{-u}u^u \notag
 \end{align}
 dove si è posto $s = t - u$ e si è scambiamo l'estremo inferiore di integrazione $-u$ con $-\infty$, sempre nell'ipotesi $u$ abbastanza grande. Pertano otteniamo la formula di Stirling
 \begin{align}
-    \ln\Gamma(u + 1) \sim u\ln u - u \notag
+    \log\Gamma(u + 1) \sim u\log u - u \notag
 \end{align}
 per $u$ abbastanza grande.
 
@@ -1297,11 +1311,11 @@ Per la formula di Stirling possiamo scrivere
 \end{align}
 pertanto 
 \begin{align}
-    P(x) \sim \frac{1}{\sqrt{2\pi}}e^{-\lambda}\frac{\lambda^x}{e^{-x}x^{x + 1/2}} = \frac{1}{\sqrt{2\pi}}e^{-\lambda + x\ln \lambda + x - (x + 1/2)\ln x} \notag
+    P(x) \sim \frac{1}{\sqrt{2\pi}}e^{-\lambda}\frac{\lambda^x}{e^{-x}x^{x + 1/2}} = \frac{1}{\sqrt{2\pi}}e^{-\lambda + x\log \lambda + x - (x + 1/2)\log x} \notag
 \end{align}
 Consideriamo solamente l'esponente, sostituendo $x = \lambda + \Delta$ si ha 
 \begin{align}
-    \cancel{-\lambda} + (\lambda + \Delta)\ln \lambda + (\cancel{\lambda} + \Delta) + (\lambda + \Delta + 1/2)\ln(\lambda + \Delta) \notag
+    \cancel{-\lambda} + (\lambda + \Delta)\log \lambda + (\cancel{\lambda} + \Delta) + (\lambda + \Delta + 1/2)\log(\lambda + \Delta) \notag
 \end{align}
 
 

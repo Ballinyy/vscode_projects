@@ -1,0 +1,6 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/updaters/1080p60/partial_movie_files/Updaters/2257293077_2694549727_223132457.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/updaters/1080p60/partial_movie_files/Updaters/2135761390_2819611031_1723662995.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/updaters/1080p60/partial_movie_files/Updaters/2135761390_1969335558_1634903881.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/updaters/1080p60/partial_movie_files/Updaters/2135761390_2834709167_2405415749.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/updaters/1080p60/partial_movie_files/Updaters/2135761390_1250905196_2524957252.mp4'

@@ -1,7 +1,7 @@
 \contentsline {section}{\numberline {1}Ensemble microcanonico}{3}{}%
-\contentsline {subsection}{\numberline {1.1}Densità di probabilità per ensemble microcanonici}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Densità di probabilità per ensemble microcanonico}{3}{}%
 \contentsline {subsection}{\numberline {1.2}Entropia}{6}{}%
-\contentsline {subsubsection}{\numberline {1.2.1}Particelle libere in una scatola}{8}{}%
+\contentsline {subsubsection}{\numberline {1.2.1}Particelle libere in una scatola}{9}{}%
 \contentsline {subsubsection}{\numberline {1.2.2}Particelle soggette a potenziale armonico in una scatola}{12}{}%
 \contentsline {subsubsection}{\numberline {1.2.3}Particelle relativistiche libere in una scatola}{14}{}%
 \contentsline {subsubsection}{\numberline {1.2.4}Sistema di $N$ siti a due stati}{18}{}%

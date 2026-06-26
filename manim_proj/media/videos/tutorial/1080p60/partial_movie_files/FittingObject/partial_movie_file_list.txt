@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/tutorial/1080p60/partial_movie_files/FittingObject/2257293077_1703155792_903689012.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/tutorial/1080p60/partial_movie_files/FittingObject/2135761390_2607880363_1816256206.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/tutorial/1080p60/partial_movie_files/FittingObject/2135761390_2815861158_1816256206.mp4'
