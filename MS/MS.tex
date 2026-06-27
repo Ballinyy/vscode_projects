@@ -207,7 +207,7 @@ In particolare $\Omega \sim E^\alpha$, con $\alpha \sim N$, dato che si tratta d
     &= k\log\left(\frac{\Delta}{E}\right) + k\log\left(\alpha\Omega\right) \notag \\
     &\sim k\log\Omega \notag
 \end{align}
-dove è stato trascurato il primo termine del membro di destra per $N \rightarrow \infty$, concludiamo che al limite termodinamico possiamo sostituire $\Gamma$ con $\Omega$.
+dove è stato trascurato il primo termine del membro di destra per $N \rightarrow \infty$, concludiamo che, al limite termodinamico, possiamo sostituire $\Gamma$ con $\Omega$.
 
 \subsubsection{Particelle libere in una scatola}
 Vediamo ora il caso particolare del gas libero confinato in un volume $V$. L'hamiltoniana che descrive il sistema è
@@ -244,7 +244,7 @@ dove si è posto $u = x_n/R$. A questo punto, possiamo determinare $c_{n - 1}$ n
 \begin{align*}
     dx_1 \dots dx_{n - 1} = (n - 1)c_{n - 1}r^{n - 2}dr
 \end{align*}
-ponendo $r = \|\mathbf{x}\|$. Inoltre vale la seguente identità
+dove $r = \|\mathbf{x}\|$. Inoltre vale la seguente identità
 \begin{align}
     \pi^{\frac{n - 1}{2}} &= \int_{-\infty}^\infty dx_1 \dots \int_{-\infty}^\infty dx_{n - 1}e^{-(x^2_1 + \dots + x^2_{n - 1})} \notag \\
     &= (n - 1)c_{n - 1}\int_{0}^\infty r^{n - 2}e^{-r^2} \, dr \notag \\
@@ -267,7 +267,7 @@ Sostituendo in $(1.2.18)$ si ha
 \end{gather}
 A questo punto sostituendo nella definizione di entropia otteniamo
 \begin{gather}
-    S(N, V, E) = k\left(\log c_{3N} + N\log \frac{V}{h^3} + \frac{3}{2}\log (2mE)\right) \tag{1.2.22}
+    S(E, N, V) = k\left(\log c_{3N} + N\log \frac{V}{h^3} + \frac{3}{2}\log (2mE)\right) \tag{1.2.22}
 \end{gather}
 per poter trattare l'espressione $(1.2.22)$ dell'entropia $S$ come potenziale termodinamico dobbiamo far uso della \textit{formula di Stirling}, ovvero
 \begin{gather}
@@ -279,9 +279,9 @@ allora
 \end{gather}
 e
 \begin{gather}
-    S(N, V, E) \sim kN\log\left(V\left(\frac{4\pi m}{3h^2}\frac{E}{N}\right)^{3/2}\right) + \frac{3}{2}Nk \qquad N \rightarrow \infty \tag{1.2.23} 
+    S(E, N, V) \sim kN\log\left(V\left(\frac{4\pi m}{3h^2}\frac{E}{N}\right)^{3/2}\right) + \frac{3}{2}Nk \qquad N \rightarrow \infty \tag{1.2.23} 
 \end{gather}
-Esprimendo $E$ in funzione di $(N, S, V)$ e usando la relazione macroscopica $TdS = dE + PdV - \mu dN$ possiamo ricavare le relazione che legano i potenziali termodinamici con le grandezze termodinamiche globali, infatti
+Esprimendo $E$ in funzione di $(N, S, V)$ e usando la relazione macroscopica $TdS = dE + PdV - \mu dN$, possiamo ricavare le relazione che lega i potenziali termodinamici con le grandezze termodinamiche globali, infatti
 \begin{gather}
     E(N, S, V) = \left(\frac{3h^2}{4\pi m}\right)\frac{N}{V^{2/3}}\exp\left(\frac{2}{3}\frac{S}{Nk} - 1\right) \tag{1.2.24}
 \end{gather}
@@ -294,7 +294,7 @@ ovvero
 \begin{gather}
     E = \frac{3}{2}NkT \notag
 \end{gather}
-ritroviamo la relazione dell'energia interna del gas ricavata con la teoria cinetica dei gas e comprendiamo che il termine $3/2$ deriva dal fatto che l'hamiltoniana è quadratica negli impulsi. Inoltre
+pertanto ritroviamo la relazione dell'energia interna del gas ricavata con la teoria cinetica dei gas e comprendiamo che il termine $3/2$ deriva dal fatto che l'hamiltoniana è quadratica negli impulsi e che il sistema è tridimensionale. Inoltre
 \begin{align}
     P &= -\frac{\partial E}{\partial V} \notag \\
     &= \frac{2}{3}\frac{E}{V} \notag \\
@@ -305,32 +305,31 @@ che comporta
     PV = NkT \notag
 \end{gather}
 ovvero ricaviamo la legge dei gas ideali. \\ \\
-Tuttavia l'espressione $(1.2.23)$ dell'entropia non è estensiva a causa del termine $V$ all'interno del logaritmo. Infatti nell'integrazione rispetto a $d\mathbf{q}$ per il calcolo di $\Omega(E)$ non abbiamo tenuto conto dell'indistinguibilità classica delle particelle per il gas ideale. Necessitiamo dunque di un fattore $N!$ (detto fattore di Gibbs) a dividere $\Gamma$ (o $\Sigma$) per correggere il problema. Tale fattore apparirà autonomamente quando considereremo l'indistinguibilità delle particelle della meccanica quantistica. \\ \\
-Poniamo $u = E/N$ e $v = V/N$, riscriviamo $S(N, V, E)$ come segue
+Tuttavia, l'espressione $(1.2.23)$ dell'entropia non è estensiva a causa del termine $V$ all'interno del logaritmo. Questo accade perché non abbiamo tenuto conto dell'indistinguibilità classica delle particelle per il gas ideale nell'integrazione rispetto a $d\mathbf{q}$ per il calcolo di $\Omega(E)$. Necessitiamo dunque di un fattore $N!$, detto \textit{fattore di Gibbs}, a dividere $\Gamma$ (o $\Omega$) per correggere il problema. Tale fattore apparirà autonomamente quando considereremo l'indistinguibilità quantistica delle particelle. \\ \\
+Poniamo $u = E/N$ e $v = V/N$ e riscriviamo $S$ come segue
 \begin{align}
-    S(N, V, E) = kN\log(Vu^{2/3}) + \frac{3}{2}kNS_0 \tag{1.2.25}
+    S(E, N, V) = kN\log(Vu^{2/3}) + \frac{3}{2}kNS_0 \tag{1.2.25}
 \end{align}
 dove
 \begin{align}
     S_0 = 1 + \log\frac{4\pi m}{3h^2} \notag
 \end{align}
-come già osservato, il fattore $V$ nel logaritmo comporta un problema, infatti tale espressione dell'entropia non è estensiva, ovvero non scala con il sistema. Possiamo pensare di fattorizzare $N$ dall'espressione dell'entropia, ovvero porre
+Il fattore $V$ all'interno del logaritmo comporta un problema. Affinché l'entropia $S$ sia correttamente estensiva deve essere possibile fattorizzare la dipendenza da $N$ in modo tale che $S$ possa essere scritta il prodotto tra $N$ e una funzione $s$ che dipende solamente da variabili intensive, ovvero
 \begin{align}
     S = Ns(E/N, V/N) \notag
 \end{align}
-essendo $N$ fattorizzato $s$ deve dipendere solamente da quantità intensive, come appunto $u = E/N$ densità di energia e $v = V/N$ densità di volume. \\ \\
-Aggiungendo manualmente il fattore di Gibbs $N!$ si ha
+Aggiungendo a mano il fattore di Gibbs $N!$ si ha
 \begin{align}
-    k\log\Sigma \longrightarrow k\log\Sigma - k\log N! \tag{1.2.26}
+    k\log\Omega \longrightarrow k\log\Omega - k\log N! \tag{1.2.26}
 \end{align}
 e al limite termodinamico, usando la formula di Stirling, si ottiene
 \begin{align}
     k\log N! &= k\log\Gamma(N + 1) \notag \\
     &\sim kN\log N - N \notag
 \end{align}
-pertanto l'espressione corretta dell'entropia diventa
+Pertanto, l'espressione corretta dell'entropia diventa
 \begin{align}
-    S(N, V, E) &= kN\log\left(\frac{V}{N}\left(\frac{E}{N}\right)^{3/2}\right) + \frac{5}{2}kNS_0 \notag \\
+    S(E, N, V) &= kN\log\left(\frac{V}{N}\left(\frac{E}{N}\right)^{3/2}\right) + \frac{5}{2}kNS_0 \notag \\
     &= kN\log(uv^{3/2}) - \frac{5}{2}kNS_0 \tag{1.2.27}
 \end{align}
 notiamo che $N$ è già fattorizzato e i termini che moltiplica dipendono solamente da quantità intensive, dunque questa espressione dell'entropia è estensiva. 
@@ -342,11 +341,11 @@ Nel caso in cui le particelle sono soggette ad un potenziale armonico si ha
 \end{align}
 Al limite termodinamico possiamo approssimare
 \begin{align}
-    k\log\Gamma \sim k\log\Sigma \notag
+    k\log\Gamma \sim k\log\Omega \notag
 \end{align}
 Allora
 \begin{align}
-    \Sigma = \frac{1}{h^{3N}} \int_{\mathcal{H} \leq E} d\mathbf{p}d\mathbf{q} \notag
+    \Omega = \frac{1}{h^{3N}} \int_{\mathcal{H} \leq E} d\mathbf{p}d\mathbf{q} \notag
 \end{align}
 Poniamo
 \begin{align}
@@ -357,14 +356,14 @@ Poniamo
 \end{align}
 Allora
 \begin{align}
-    \Sigma &= \frac{1}{h^{3N}}\left(2m\right)^{\frac{3N}{2}}\left(\frac{2}{m\omega^2}\right)^{\frac{3N}{2}}\int_{\sum \|\mathbf{x}_i\|^2 + \|\mathbf{y}_i\|^2 \leq E} d\mathbf{x}_1 \dots d\mathbf{x}_Nd\mathbf{y}_1 \dots d\mathbf{y}_N \notag \\
+    \Omega &= \frac{1}{h^{3N}}\left(2m\right)^{\frac{3N}{2}}\left(\frac{2}{m\omega^2}\right)^{\frac{3N}{2}}\int_{\sum \|\mathbf{x}_i\|^2 + \|\mathbf{y}_i\|^2 \leq E} d\mathbf{x}_1 \dots d\mathbf{x}_Nd\mathbf{y}_1 \dots d\mathbf{y}_N \notag \\
     &= \frac{1}{h^{3N}}\left(2m\right)^{\frac{3N}{2}}\left(\frac{2}{m\omega^2}\right)^{\frac{3N}{2}}\frac{\pi^{3N}}{3N\Gamma(3N)}E^{3N} \notag \\
     &= \left(\frac{2}{h\omega}\right)^{3N}\frac{\pi^{3N}}{3N\Gamma(3N)}E^{3N} \notag \\
     &= \left(\frac{E}{\hbar\omega}\right)^{3N}\frac{1}{(3N)!} \notag
 \end{align}
 quindi, usando la formula di Stirling al limite termodinamico, si ha
 \begin{align}
-    S &\sim k\log \Sigma \notag \\
+    S &\sim k\log \Omega \notag \\
     &\sim -3kN\log 3N + 3kN + 3kN\log \frac{E}{\hbar\omega} \notag \\
     &= 3kN\left(1 + \log\left(\frac{1}{3\hbar\omega}\frac{E}{N}\right)\right) \tag{1.2.29}
 \end{align}
@@ -377,20 +376,21 @@ ovvero
 \begin{align}
     E = 3NkT \tag{1.2.30} \notag
 \end{align}
-il fattore $3$ segue dal fatto che in questo caso i gradi di libertà sono $6$, $3$ per gli impulsi e $3$ per le coordinate. Come vedremo successivamente questo fenomeno è una conseguenza dell'equipartizione dell'energia sui gradi di libertà. Inoltre notiamo che
+Il fattore $3$ dipende dal fatto che in questo caso i gradi di libertà sono $6$, $3$ per gli impulsi e $3$ per le coordinate, e l'hamiltoniana è quadratica in entrambi le variabili dinamiche. Come vedremo successivamente questo fenomeno è una conseguenza dell'equipartizione dell'energia sui gradi di libertà. \\
+Inoltre notiamo che
 \begin{align}
     P &= T\left(\frac{\partial S}{\partial V}\right)_{E, N} = 0 \notag
 \end{align}
 infatti, essendo ogni particella localizzata attorno ad un punto di equilibrio, non avvengono urti che si manifestano poi in pressione.
 
-\subsubsection{Particelle relativistiche libere in una scatola}
-L'hamiltoniana relativistica di un insieme di $N$ particelle libere in una scatola è
+\subsubsection{Particelle ultra-relativistiche libere in una scatola}
+L'hamiltoniana di un insieme di $N$ particelle libere ultra-relativistiche in una scatola è
 \begin{align}
     \mathcal{H} = c\sum_{i = 1}^N |\mathbf{p}_i| \tag{1.2.31}
 \end{align}
-Come fatto in precedenza, al limite termodinamico si ha $\Gamma \sim \Sigma$, dunque siamo interessati a calcolare il seguente integrale
+Al limite termodinamico si ha $\Gamma \sim \Omega$, dunque siamo interessati a calcolare il seguente integrale
 \begin{align}
-    \Sigma = \frac{1}{h^{3N}}\int_{\sum |\mathbf{p}_i| \leq E/c} d\mathbf{p}d\mathbf{q} \tag{1.2.32}
+    \Omega = \frac{1}{h^{3N}}\int_{\sum |\mathbf{p}_i| \leq E/c} d\mathbf{p}d\mathbf{q} \tag{1.2.32}
 \end{align}
 L'equazione
 \begin{align}
@@ -404,7 +404,7 @@ dove $p_i = |\mathbf{p}_i|$, pertanto $p_i \geq 0$ per ogni $i = 1, \dots, N$. D
 \begin{align}
     I_n(A) = \int_{\sum x_i \leq A}\prod_{i = 1}^nx^2_i \, dx_i \tag{1.2.35}
 \end{align}
-Per $n = 2$ si ha
+dove $x_i \geq 0$ per ogni $i = 1, \dots, n$. Per $n = 2$ si ha
 \begin{align}
     I_2(A) &= \int_{x_1 + x_2 \leq A}x^2_1x^2_2 \, dx_1dx_2 \notag \\
     &= \int_0^A x^2_1 \int_0^{A - x_1} x^2_2 \, dx_2dx_1 \notag \\
@@ -434,14 +434,14 @@ Per $n = 3$ si ha
     &= \frac{2^2}{6!}J_6(A) \notag \\
     &= \frac{2^3}{9!}A^9 \tag{1.2.39}
 \end{align}
-Confrontando $(1.2.38)$ e $(1.2.39)$ viene naturale ragionare per induzione, dunque supponiamo che per $k$ valga
+Confrontando $(1.2.38)$ e $(1.2.39)$ viene naturale ragionare per induzione, dunque supponiamo che per $k < n$ valga
 \begin{align}
     I_k(A) = \frac{2^k}{(3k)!}A^{3k} \notag
 \end{align}
 e dimostriamo che vale anche per $k + 1$. Si ha che
 \begin{align}
-    I_{k + 1}(A) &= \int_{x_1 + \dots +x_{k + 1} \leq A}x^2_1 \dots x^2_{n + 1} \, dx_1 \dots dx_{n + 1} \notag \\
-    &= \int_0^A x^2_1 \int_{x_2 + \dots + x_{n + 1} \leq A - x_1}x^2_2 \dots x^2_{n + 1} \, dx_1 \dots dx_{n + 1}dx_1 \notag \\
+    I_{k + 1}(A) &= \int_{x_1 + \dots +x_{k + 1} \leq A}x^2_1 \dots x^2_{k + 1} \, dx_1 \dots dx_{k + 1} \notag \\
+    &= \int_0^A x^2_1 \int_{x_2 + \dots + x_{k + 1} \leq A - x_1}x^2_2 \dots x^2_{k + 1} \, dx_1 \dots dx_{k + 1}dx_1 \notag \\
     &= \int_0^A x^2_1I_k(A - x_1) \, dx_1 \notag \\
     &= \frac{2^k}{(3k)!}\int_0^A x^2_1(A - x_1)^{3k} \, dx_1 \notag \\
     &= \frac{2^k}{(3k)!}J_{3k}(A) \notag \\
@@ -454,15 +454,15 @@ che è la tesi, dunque abbiamo dimostrato che
 \end{align}
 per ogni $n \in \mathbf{N}$. A questo punto, sostituendo in $(1.2.34)$, otteniamo che
 \begin{align}
-    \Sigma = \left(\frac{4\pi V}{h^3}\right)^N\frac{2^N}{(3N)!}\left(\frac{E}{c}\right)^{3N} \tag{1.2.41}
+    \Omega = \left(\frac{4\pi V}{h^3}\right)^N\frac{2^N}{(3N)!}\left(\frac{E}{c}\right)^{3N} \tag{1.2.41}
 \end{align}
 In questo caso dobbiamo aggiungere a mano il fattore di Gibbs per far sì che l'entropia sia correttamente estensiva, dunque
 \begin{align}
-    \Sigma = \frac{1}{N!}\frac{1}{(3N)!}\left(\frac{8\pi V E^3}{h^3c^3}\right)^N \tag{1.2.42}
+    \Omega = \frac{1}{N!}\frac{1}{(3N)!}\left(\frac{8\pi V E^3}{h^3c^3}\right)^N \tag{1.2.42}
 \end{align}
 Allora
 \begin{align}
-    S &\sim k\log \Sigma \notag \\
+    S &\sim k\log \Omega \notag \\
     &\sim kN\left(4 + \log\left(\frac{8\pi VE^3}{27h^3c^3N^4}\right)\right) \tag{1.2.43}
 \end{align}
 dove si è usata nuovamente la formula di Stirling al limite termodinamico. Notiamo che
@@ -485,7 +485,7 @@ per ogni $i, j = 1, \dots, 6N$. \\
 \begin{align}
     \braket{A} = \int A(\mathbf{p}, \mathbf{q})\rho(\mathbf{p}, \mathbf{q}) \, d\mathbf{p}d\mathbf{q} \tag{1.2.46}
 \end{align}
-dove $\rho$ è la funzione densità di probabilità. In particolare per ensemble microcanonici, come visto in $(1.1.15)$, $rho$ è costante lungo la "corteccia" identificata da $E \leq \mathcal{H} \leq E + \Delta$, ovvero 
+dove $\rho$ è la funzione densità di probabilità. In particolare $\rho$ è costante lungo la "corteccia" identificata da $E \leq \mathcal{H} \leq E + \Delta$, ovvero 
 \begin{align}
     \rho(\mathbf{p}, \mathbf{q}) = \begin{cases}
         \frac{1}{\Gamma(E)} \qquad &E \leq \mathcal{H}(\mathbf{p}, \mathbf{q}) \leq E + \Delta \\
@@ -501,15 +501,15 @@ dunque, sostituendo in $(1.2.47)$, si ottiene
     \braket{x_i\frac{\partial \mathcal{H}}{\partial x_j}} &= \frac{1}{\Gamma(E)}\int_{E \leq \mathcal{H} \leq E + \Delta} x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}, d\mathbf{q} \notag \\
     &= \frac{1}{\Gamma(E)}\left(\int_{\mathcal{H} \leq E + \Delta}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q} - \int_{E \leq \mathcal{H}}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q}\right) \notag \\
     &\sim \frac{\Delta}{\Gamma(E)}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q} \notag \\
-    &= \left(\frac{\partial \Sigma}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q} \notag \\
-    &= \left(\frac{\partial \Sigma}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}x_i\frac{\partial}{\partial x_j}(\mathcal{H} - E) \, d\mathbf{p}d\mathbf{q} \notag \\
-    &= \left(\frac{\partial \Sigma}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\left(\cancel{\int_{E \leq \mathcal{H}}\frac{\partial}{\partial x_j}(x_i(\mathcal{H} - E)) \, d\mathbf{p}d\mathbf{q}} - \delta_{ij}\int_{E \leq \mathcal{H}}(\mathcal{H} - E) \, d\mathbf{p}d\mathbf{q}\right) \notag
+    &= \left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q} \notag \\
+    &= \left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}x_i\frac{\partial}{\partial x_j}(\mathcal{H} - E) \, d\mathbf{p}d\mathbf{q} \notag \\
+    &= \left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\left(\cancel{\int_{E \leq \mathcal{H}}\frac{\partial}{\partial x_j}(x_i(\mathcal{H} - E)) \, d\mathbf{p}d\mathbf{q}} - \delta_{ij}\int_{E \leq \mathcal{H}}(\mathcal{H} - E) \, d\mathbf{p}d\mathbf{q}\right) \notag
 \end{align}
-il primo integrale è nullo dato che $x_i(\mathcal{H} - E) = 0$ per $\mathcal{H} = E$, ovvero lungo il bordo dell'insieme di integrazione. Allora si ha 
+Il primo integrale è nullo dato che $x_i(\mathcal{H} - E) = 0$ per $\mathcal{H} = E$, ovvero lungo il bordo dell'insieme di integrazione. Allora si ha 
 \begin{align}
-    \braket{x_i\frac{\partial \mathcal{H}}{\partial x_j}} &= \delta_{ij}\left(\frac{\partial \Sigma}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}(E - \mathcal{H}) \, d\mathbf{p}d\mathbf{q} \notag \\
-    &= \delta_{ij}\Sigma\left(\frac{\partial \Sigma}{\partial E}\right)^{-1} \notag \\
-    &= \delta_{ij}\left(\frac{\partial \log\Sigma}{\partial E}\right)^{-1} \notag \\
+    \braket{x_i\frac{\partial \mathcal{H}}{\partial x_j}} &= \delta_{ij}\left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}(E - \mathcal{H}) \, d\mathbf{p}d\mathbf{q} \notag \\
+    &= \delta_{ij}\Omega\left(\frac{\partial \Omega}{\partial E}\right)^{-1} \notag \\
+    &= \delta_{ij}\left(\frac{\partial \log\Omega}{\partial E}\right)^{-1} \notag \\
     &= \delta_{ij}k\left(\frac{\partial S}{\partial E}\right)^{-1} \notag \\
     &= \delta_{ij}kT \notag
 \end{align}
@@ -566,7 +566,7 @@ Al limite termodinamico $3N - 1 \sim 3N$, quindi, usando la formula di Stirling,
 \end{align}
 esplicitando la dipendenza dall'energia totale $E$ e fattorizzando $N$ si ottiene 
 \begin{align}
-    S(N, E) &\sim kN\left(\left(u + \frac{3}{2}\right)\log N\left(u + \frac{3}{2}\right) - \left(u - \frac{3}{2}\right)\log N\left(u - \frac{3}{2}\right) - 3\log 3N\right) \notag \\
+    S(E, N) &\sim kN\left(\left(u + \frac{3}{2}\right)\log N\left(u + \frac{3}{2}\right) - \left(u - \frac{3}{2}\right)\log N\left(u - \frac{3}{2}\right) - 3\log 3N\right) \notag \\
     &= kN\left(u\log \frac{u + 3/2}{u - 3/2} + \frac{3}{2}\log\left(u^2 - \frac{9}{4}\right) -3\log3\right) \notag
 \end{align}
 Notiamo che 
