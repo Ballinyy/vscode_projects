@@ -18,5 +18,5 @@
 \contentsline {subsection}{\numberline {2.8}Entropia canonica}{38}{}%
 \contentsline {section}{\numberline {3}Ensemble gran canonico}{40}{}%
 \contentsline {subsection}{\numberline {3.1}Legge di stato}{40}{}%
-\contentsline {subsection}{\numberline {3.2}Fluttuazioni del numero di particelle (spettro discreto)}{44}{}%
+\contentsline {subsection}{\numberline {3.2}Fluttuazioni del numero medio di particelle (spettro discreto)}{44}{}%
 \contentsline {subsection}{\numberline {3.3}Particelle libere in una scatola}{46}{}%

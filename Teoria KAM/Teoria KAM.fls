@@ -1,8 +1,8 @@
-PWD c:/Users/aless/vscode_tex/Teoria KAM
+PWD c:/Users/aless/Desktop/vscode_proj/Teoria KAM
 INPUT c:/texlive/2026/texmf.cnf
 INPUT c:/texlive/2026/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/aless/vscode_tex/Teoria KAM/Teoria KAM.tex
+INPUT c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex
 OUTPUT Teoria KAM.log
 INPUT c:/texlive/2026/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2026/texmf-dist/tex/latex/base/article.cls

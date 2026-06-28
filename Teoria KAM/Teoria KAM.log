@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  22 JUN 2026 13:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  28 JUN 2026 19:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/aless/vscode_tex/Teoria KAM/Teoria KAM.tex"
-(c:/Users/aless/vscode_tex/Teoria KAM/Teoria KAM.tex
+**"c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex"
+(c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (c:/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -635,85 +635,105 @@ Underfull \hbox (badness 10000) in paragraph at lines 469--471
 
  []
 
-[17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 545--548
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--506
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 513--516
 
  []
 
 
-Overfull \hbox (5.58401pt too wide) in paragraph at lines 550--558
+Underfull \hbox (badness 10000) in paragraph at lines 513--516
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--532
+
+ []
+
+[18] [19] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 594--597
+
+ []
+
+
+Overfull \hbox (5.58401pt too wide) in paragraph at lines 599--607
 \OT1/cmr/m/n/10 Notiamo che la co-ni-ugazione topo-log-ica ^^Re una con-dizione pi^^Ru forte dell'equivalenza
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--558
+Underfull \hbox (badness 10000) in paragraph at lines 599--607
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--558
+Underfull \hbox (badness 10000) in paragraph at lines 599--607
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--558
+Underfull \hbox (badness 10000) in paragraph at lines 599--607
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--558
+Underfull \hbox (badness 10000) in paragraph at lines 599--607
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--558
+Underfull \hbox (badness 10000) in paragraph at lines 599--607
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--558
+Underfull \hbox (badness 10000) in paragraph at lines 599--607
 
  []
 
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 564--569
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 564--569
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 613--618
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 571--574
+Underfull \hbox (badness 10000) in paragraph at lines 613--618
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 571--574
+Underfull \hbox (badness 10000) in paragraph at lines 620--623
 
  []
 
-[20] [21] (./Teoria KAM.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 620--623
+
+ []
+
+[22] [23] (./Teoria KAM.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14033 strings out of 467525
- 290869 string characters out of 5423209
+ 14035 strings out of 467525
+ 290952 string characters out of 5423209
  682228 words of memory out of 5000000
- 42700 multiletter control sequences out of 15000+600000
+ 42702 multiletter control sequences out of 15000+600000
  635930 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,17n,118p,959b,227s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,17n,118p,968b,227s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Teoria KAM.pdf" (21 pages, 242211 bytes).
+Output written on "Teoria KAM.pdf" (23 pages, 245903 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 162 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -467,7 +467,7 @@ ovvero la tesi. \qed
 \newpage
 \subsection{Forme differenziali su varietà}
 Diamo ora la definizione di forma differenziale definita su una varietà differenziabile $M$. Vediamo prima qualche esempio. \\ \\
-\textbf{Esempio:} il differenziale di una funzione è una $1$-forma differenziabile. Consideriamo ad esempio la funzione reale $f$ definita da $x \mapsto x^2$. Il suo differenziale $df$ è
+\textbf{Esempio:} il differenziale di una funzione è una $1$-forma differenziabile. Consideriamo ad esempio la funzione reale $x \mapsto x^2$, che chiameremo $f$. Il suo differenziale $df$ è
 \begin{align}
     df = 2x \, dx \tag{1.6.1}
 \end{align}
@@ -501,7 +501,56 @@ In generale, il differenziale $df$ di una funzione $f$ definita su una varietà 
 \begin{align}
     df : TM \longrightarrow \mathbb{R} \tag{1.6.6}
 \end{align}
-dove $TM = \bigcup_x T_xM$, lineare su ogni spazio tangente $T_xM$ e differenziabile.
+dove $TM = \bigcup_x T_xM$, lineare su ogni spazio tangente $T_xM$ e differenziabile. \\ \\
+\textbf{Definizione:} è detta $1$-\text{forma sulla varietà} $M$ l'applicazione regolare
+\begin{align}
+    \omega : TM \longrightarrow \mathbb{R} \tag{1.6.7}
+\end{align}
+del fibrato tangente della varietà nella retta reale, lineare in $T_xM$ per ogni $x \in M$. \\
+In particolare, dati $(x, v) \in M \times T_xM$, si ha 
+\begin{align*}
+    \omega(x, v) = \omega_x(v) \tag{1.6.8}
+\end{align*}
+dove $\omega_x$ è un'applicazione lineare dello spazio tangente a $M$ in $x$ nella retta reale. \\ \\
+\textbf{Proposizione 1.6.1:} ogni $1$-forma su $\mathbb{R}$ è il differenziale di qualche funzione. \\
+
+\textbf{Dimostrazione:} sia $\omega$ una $1$-forma su $\mathbb{R}$. Allora $\omega$ si può scrivere come 
+\begin{align}
+    \omega = adx \tag{1.6.9}
+\end{align}
+dove $a : \mathbb{R} \longrightarrow \mathbb{R}$ è un opportuna funzione e $dx$ è la $1$-forma di base. In particolare, dati $(x, v) \in \mathbb{R} \times T_x\mathbb{R}$ (dove $T_x\mathbb{R} = \mathbb{R}$ essenzialmente), si ha 
+\begin{align*}
+    \omega(x, v) = a(x)dx(v) \tag{1.6.10}
+\end{align*}
+La dipendenza da $x$ è liscia, mentre $\omega$ dipende da $v$ linearmente. Dato che $a$ è sufficientemente regolare (per ipotesi), $a$ ammette primitiva $A$. Pertanto, il differenziale di $A$ è dato da
+\begin{align*}
+    dA = adx \tag{1.6.11}
+\end{align*}
+ovvero $\omega = dA$. \qed \\ \\
+\textbf{Osservazione:} se consideriamo $1$-forme su $\mathbb{R}^2$, o su qualsiasi altra $2$-varietà differenziabile, la \textit{proposizione 1.6.1} non è più valida. Esibiamo una $1$-forma su $\mathbb{R}^2$ che non è il differenziale di alcuna funzione del piano nella retta. \\
+Definiamo la $1$-forma $\omega$ su $\mathbb{R}^2$ ponendo
+\begin{align*}
+    \omega = a_1dx_1 + a_2dx_2 \tag{1.6.12}
+\end{align*}
+dove $a_1, a_2$ sono date da 
+\begin{align*}
+    a_1(x_1, x_2) &= x_1 \tag{1.6.13} \\
+    a_2(x_1, x_2) &= x_1x_2 \tag{1.6.14}
+\end{align*}
+Notiamo che non esiste una funzione $f$ del piano nella retta tale che 
+\begin{align*}
+    a_1 = \frac{\partial f}{\partial x_1} \qquad a_2 = \frac{\partial f}{\partial x_2} \tag{1.6.15}
+\end{align*}
+Infatti, a partire da $(1.6.13)$ troviamo che
+\begin{align*}
+    f(x_1, x_2) = \frac{1}{2}x^2_1 + g(x_2) \tag{1.6.16}
+\end{align*}
+dove $g$ è una funzione arbitraria della sola $x_2$ da determinare imponendo
+\begin{align*}
+    \frac{\partial g}{\partial x_2} = x_1x_2 \tag{1.6.17}
+\end{align*}
+Tuttavia, non esiste una funzione $g$ della sola $x_2$ che soddisfa tale condizione.
+
 
 
 
@@ -570,7 +619,7 @@ Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso
     \varphi_t : &\mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
 \end{align}
 dove $\alpha = \nabla_rH(r)$. \\ \\
-\textbf{Lemma 3.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto t\beta$ con $\alpha, \beta \in \mathbb{R}^n$ sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
+\textbf{Lemma 3.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$ con $\alpha, \beta \in \mathbb{R}^n$ sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
 
 \textbf{Dimostrazione:} supponiamo che i flussi definiti da $\theta + t\alpha$ e $\theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
 \begin{align}
