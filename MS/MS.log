@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  27 JUN 2026 19:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  28 JUN 2026 12:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -267,87 +267,82 @@ Underfull \hbox (badness 10000) in paragraph at lines 643--646
 
  []
 
-[25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 704--707
+[25] [26] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 712--714
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 709--711
-
- []
-
-[27]
-Overfull \hbox (14.17085pt too wide) in paragraph at lines 722--723
-\OT1/cmr/m/n/10 No-ti-amo che la definizione di mo-mento di or-dine due (rispetto a $\OML/cmm/m/it/10 ^^Z$\OT1/cmr/m/n/10 ) dell'hamiltoniana
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 773--775
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 773--775
-
+Overfull \hbox (14.17085pt too wide) in paragraph at lines 726--727
+\OT1/cmr/m/n/10 No-ti-amo che la definizione di mo-mento di or-dine due (rispetto a $\OML/cmm/m/it/10 ^^Z$\OT1/cmr/m/n/10 ) dell'hamiltoniana
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 797--800
+Underfull \hbox (badness 10000) in paragraph at lines 777--779
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 807--810
+Underfull \hbox (badness 10000) in paragraph at lines 777--779
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 828--831
+Underfull \hbox (badness 10000) in paragraph at lines 802--805
 
  []
 
-[31]
-Overfull \hbox (25.13956pt too wide) in paragraph at lines 872--874
+
+Underfull \hbox (badness 10000) in paragraph at lines 812--815
+
+ []
+
+[31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 834--837
+
+ []
+
+[33]
+Overfull \hbox (25.13956pt too wide) in paragraph at lines 879--881
 \OT1/cmr/m/n/10 Nota la fun-zione di par-tizione canon-ica pos-si-amo de-ter-minare l'espressione dell'energia
  []
 
-[32] [33]
-Overfull \hbox (12.75061pt too wide) in paragraph at lines 928--930
+[34] [35]
+Overfull \hbox (12.75061pt too wide) in paragraph at lines 936--938
 \OT1/cmr/m/n/10 Studiando lo stesso sis-tema come en-sem-ble canon-ico pos-si-amo de-ter-minare l'energia
  []
 
-[34] [35] [36] [37] [38]
-Underfull \hbox (badness 10000) in paragraph at lines 1072--1075
+[36] [37] [38] [39] [40]
+Underfull \hbox (badness 10000) in paragraph at lines 1080--1083
 
  []
 
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 1114--1116
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 1122--1124
 
  []
 
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 1136--1139
-
- []
-
-
+[42]
 Underfull \hbox (badness 10000) in paragraph at lines 1144--1147
 
  []
 
-[41] [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1184--1187
+
+Underfull \hbox (badness 10000) in paragraph at lines 1152--1155
 
  []
 
-[43]
-Underfull \hbox (badness 10000) in paragraph at lines 1248--1251
+[43] [44]
+Underfull \hbox (badness 10000) in paragraph at lines 1192--1195
 
  []
 
-[44] [45] [46] [47] (./MS.aux)
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 1256--1259
+
+ []
+
+[46] [47] [48] [49] (./MS.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -362,10 +357,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,19n,65p,678b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MS.pdf (47 pages, 366378 bytes).
+Output written on MS.pdf (49 pages, 368029 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
+ 284 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

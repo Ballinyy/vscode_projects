@@ -613,7 +613,7 @@ ovvero $E = \frac{3}{2}N\hbar\omega$ (in unità di $\hbar\omega$), quindi ogni o
 Siamo interessati a descivere statisticamente un sistema a contatto con un reservoir. Possiamo immaginare un reservoir come un sistema ad energia e volume molto maggiori rispetto al sistema in esame, che quindi resta imperturbato nonostante l'interazione esterna.
 
 \subsection{Energia libera}
-Consideriamo un sistema microcanonico $X$ descritto dalla terna $(E, N, V)$ e consideriamo un sottoinsieme $X_1$ di $X$ descritto dalla terna $(E_1, N_1, V_1)$. Poniamo $X_2 = X \setminus X_1$, il complementare di $X_1$, descritto dalla terna $(E_2, N_2, V_2)$ e supponiamo che $X_2$ sia molto più grande di $X_1$. Sotto tali ipotesi, l'interazione tra $X_1$ e $X_2$, che è essenzialmente limitata ad una regione limitrofa al bordo di $X_1$, diventa infinitesima, e quindi trascurabile, al limite termidinamico, ovvero $V_1$ molto grande e $V >> V_1$, possiamo dunque trattare $X_1$ come un sistema isolato. \\
+Consideriamo un sistema microcanonico $X$ descritto dalla terna $(E, N, V)$ e consideriamo un sottoinsieme $X_1$ di $X$ descritto dalla terna $(E_1, N_1, V_1)$. Poniamo $X_2 = X \setminus X_1$, il complementare di $X_1$, descritto dalla terna $(E_2, N_2, V_2)$ e supponiamo che $X_2$ sia molto più grande di $X_1$. Sotto tali ipotesi, l'interazione tra $X_1$ e $X_2$, che è essenzialmente limitata ad una regione limitrofa al bordo di $X_1$, diventa infinitesima, e quindi trascurabile, al limite termidinamico, ovvero $V_1$ molto grande e $V >> V_1$. Possiamo dunque trattare $X_1$ come un sistema isolato. \\
 Fissate l'energia totale $E$ e l'energia $E_1$ di $X_1$, l'energia $E_2$ di $X_2$ deve soddisfare 
 \begin{align}
     E_2 = E - E_1 \notag
@@ -637,7 +637,7 @@ e dalla definizione statistica dell'entropia del sistema si ottiene
 \begin{align}
     \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) &\propto \exp\left(\frac{S_2(E)}{k}-\frac{E_1}{kT}\right) \notag
 \end{align}
-dove si è usato $\frac{\partial S_2}{\partial E_2} = \frac{1}{T_2} \sim \frac{1}{T}$. In particolare il termine $S_2(E)$ non dipende dalle variabili microscopiche del sottosistema $X_1$, pertanto si ottiene 
+dove si è usato $\frac{\partial S_2}{\partial E_2} = \frac{1}{T_2} \sim \frac{1}{T}$. In particolare, il termine $S_2(E)$ non dipende dalle variabili microscopiche del sottosistema $X_1$, pertanto si ottiene 
 \begin{align}
     \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) &\propto \exp\left(-\frac{\mathcal{H}_{N_1}(\mathbf{p}^{(1)}, \mathbf{q}^{(1)})}{kT}\right) \tag{2.1.3}
 \end{align}
@@ -646,7 +646,7 @@ In generale, dato un sistema descritto da $(E, N, V)$ posto a contatto con un re
 \begin{align}
     \rho(\mathbf{p}, \mathbf{q}) \propto \exp\left(-\frac{\mathcal{H}_N(\mathbf{p}, \mathbf{q})}{kT}\right) \tag{2.1.4}
 \end{align}
-resta da determinare la costante di normalizzazione, che poi, come nel paragrafo precedente, determinerà il potenziale termodinamico associato alla descrizione del sistema. Definiamo 
+Resta da determinare la costante di normalizzazione, che poi, come nel paragrafo precedente, determinerà il potenziale termodinamico associato alla descrizione del sistema. Definiamo 
 \begin{align}
     Q_N = \frac{1}{h^{3N}}\int \exp\left(-\frac{\mathcal{H}_N(\mathbf{p}, \mathbf{q})}{kT}\right) \, d\mathbf{p}d\mathbf{q} \tag{2.1.5}
 \end{align}
@@ -654,19 +654,19 @@ Allora
 \begin{align}
     \frac{1}{h^{3N}Q_N}\int \rho(\mathbf{p}, \mathbf{q}) \, d\mathbf{p}d\mathbf{q} = 1 \tag{2.1.6}
 \end{align}
-Notiamo che $Q_N = Q_N(V, T)$, ovvero dipende dalla terna $(E, V, T)$. Il potenziale termodinamico le cui variabili naturali sono $(E, V, T)$ è l'energia libera $G$, infatti 
+Notiamo che $Q_N = Q_N(T, V)$, ovvero dipende dalla terna $(N, T, V)$. Il potenziale termodinamico le cui variabili naturali sono $(N, T, V)$ è l'\textit{energia libera di Helmotz} $F$, infatti 
 \begin{align}
-    G = E - TS \notag
+    F = E - TS \notag
 \end{align}
 pertanto 
 \begin{align}
-    dG &= dE - SdT - TdS \notag \\
+    dF &= dE - SdT - TdS \notag \\
     &= dE - SdT -dE - PdV + \mu dN \notag \\
     &= -SdT - PdV + \mu dN \tag{2.1.7}
 \end{align}
 Facendo riferimento all'espressione $(2.1.5)$, diamo come definizione statistica dell'energia libera la seguente 
 \begin{align}
-    G(N, V, T) = -kT\log Q_N(V, T) \tag{2.1.8}
+    F(N, T, V) = -kT\log Q_N(T, V) \tag{2.1.8}
 \end{align}
 Verifichiamo che sia correttamente estensiva. Poiché per ipotesi $X_1$ e $X_2$ sono debolmente interagenti si ha che $\mathcal{H}_{tot} = \mathcal{H}_1 + \mathcal{H}_2$, allora 
 \begin{align}
@@ -675,37 +675,40 @@ Verifichiamo che sia correttamente estensiva. Poiché per ipotesi $X_1$ e $X_2$ 
 \end{align}
 segue che 
 \begin{align}
-    G_{tot} &= -kT\log Q_N \notag \\
+    F_{tot} &= -kT\log Q_N \notag \\
     &= -kT\log(Q^{(1)}_{N_1}Q^{(2)}_{N_2}) \notag \\
-    &= G_1 + G_2 \tag{2.1.9}
+    &= F_1 + F_2 \tag{2.1.9}
 \end{align}
-ovvero $G$ correttamente estensiva (sotto l'ipotesi di sottosistemi debolmente interagenti). \\
-Osserviamo che il termine $E$ nella definizione dell'energia libera non è l'energia del sistema, infatti quest'ultima è una variabile stocastica per gli ensemble canonici, dato che il sistema scambia energia con il reservoir per termalizzarsi. La corretta definizione di $G$ è 
+ovvero $F$ correttamente estensiva (sotto l'ipotesi di sottosistemi debolmente interagenti). \\
+Osserviamo che il termine $E$ nella definizione macroscopica dell'energia libera non è l'energia del sistema, infatti quest'ultima è una variabile stocastica per gli ensemble canonici, dato che il sistema scambia energia con il reservoir per termalizzarsi. La corretta definizione di $F$ è 
 \begin{align}
-    G = \braket{\mathcal{H}_N} - TS \tag{2.1.10}
+    F = \braket{\mathcal{H}_N} - TS \tag{2.1.10}
 \end{align}
 Per mostrarlo poniamo $\beta = \frac{1}{kT}$, si ha che 
 \begin{align}
-    e^{\beta G}Q_N &= e^{\beta G}\int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{-\beta\mathcal{H}_N} = 1 \notag
+    e^{\beta F}Q_N &= e^{\beta F}\int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{-\beta\mathcal{H}_N} = 1 \notag
 \end{align}
 ovvero 
 \begin{align}
-    \int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{\beta(G - \mathcal{H}_N)} = 1 \tag{2.1.11}
+    \int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{\beta(F - \mathcal{H}_N)} = 1 \tag{2.1.11}
 \end{align}
 allora 
 \begin{align}
-    \frac{\partial}{\partial \beta}\int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{\beta(G - \mathcal{H})} &= \int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}\left(G - \mathcal{H}_N + \beta\left(\frac{\partial G}{\partial \beta}\right)_{N, V}\right)e^{\beta(G - \mathcal{H}_N)} \notag \\
-    &= \left(G + \beta\left(\frac{\partial G}{\partial \beta}\right)_{N, V}\right) - \frac{1}{Q_N}\int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}\mathcal{H}_Ne^{-\beta\mathcal{H}_N} \notag \\
-    &= \left(G - T\left(\frac{\partial G}{\partial T}\right)_{N, V}\right) - \braket{\mathcal{H}_N} = 0 \notag
+    \frac{\partial}{\partial \beta}\int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}e^{\beta(F - \mathcal{H})} &= \int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}\left(F - \mathcal{H}_N + \beta\left(\frac{\partial F}{\partial \beta}\right)_{N, V}\right)e^{\beta(F - \mathcal{H}_N)} \notag \\
+    &= \left(F + \beta\left(\frac{\partial F}{\partial \beta}\right)_{N, V}\right) - \frac{1}{Q_N}\int\frac{d\mathbf{p}d\mathbf{q}}{h^{3N}}\mathcal{H}_Ne^{-\beta\mathcal{H}_N} \notag \\
+    &= \left(F - T\left(\frac{\partial F}{\partial T}\right)_{N, V}\right) - \braket{\mathcal{H}_N} = 0 \notag
 \end{align}
-inoltre da $(2.1.7)$ notiamo
+Inoltre, da $(2.1.7)$ si ha
 \begin{align}
-    -T\left(\frac{\partial G}{\partial T}\right)_{N, V} = TS \notag 
+    -T\left(\frac{\partial F}{\partial T}\right)_{N, V} = TS \notag 
 \end{align}
-pertanto concludiamo che la corretta definizione di $G$ per ensemble canonici è la $(2.1.10)$. \\ \\
+pertanto concludiamo che la corretta definizione di $F$ per ensemble canonici è la $(2.1.10)$.
+
+\newpage
+\subsection{Teorema di equipartizione dell'energia}
 \textbf{Teorema (di equipartizione dell'energia per ensemble canonico):} sia $\mathcal{H}$ un'hamiltoniana associata ad un sistema canonico, sia $x_i$, $i = 1, \dots, 6N$, uno qualsiasi tra $(p_1, p_2, \dots, p_{3N}, q_1, q_2, \dots, q_{3N})$, allora si ha 
 \begin{align}
-    \braket{x_i\frac{\partial\mathcal{H}}{\partial x_j}} = \delta_{ij}kT \tag{2.1.12}
+    \braket{x_i\frac{\partial\mathcal{H}}{\partial x_j}} = \delta_{ij}kT \tag{2.2.1}
 \end{align}
 per ogni $i, j = 1, \dots, 6N$. \\
 
@@ -718,46 +721,47 @@ per ogni $i, j = 1, \dots, 6N$. \\
 \end{align}
 poiché la prima funzione integranda si annulla agli estremi (per hamiltoniane note come particella libera e oscillatore armonico).
 
+\newpage
 \subsection{Fluttuazioni dell'energia}
 Vediamo ora come si comportano le fluttuazioni dell'energia rispetto alla media. Notiamo che la definizione di momento di ordine due (rispetto a $\rho$) dell'hamiltoniana $\mathcal{H}$ è legata al concetto di varianza della distribuzione dell'energia, infatti si ha 
 \begin{align}
-    \Delta \mathcal{H} = \sqrt{\braket{\mathcal{H}^2} - \braket{\mathcal{H}}^2} \tag{2.2.1}
+    \Delta \mathcal{H} = \sqrt{\braket{\mathcal{H}^2} - \braket{\mathcal{H}}^2} \tag{2.3.1}
 \end{align}
-Consideriamo la media statistica sull'ensemble dell'hamiltoniana 
+Consideriamo la media statistica sull'ensemble dell'hamiltoniana $\mathcal{H}$
 \begin{align}
     \braket{\mathcal{H}} &= \frac{1}{h^{3N}Q_N}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} \notag \\
-    &= \frac{1}{h^{3N}}e^{\beta G}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} \notag
+    &= \frac{1}{h^{3N}}e^{\beta F}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} \notag
 \end{align}
-l'energia libera $G$ non dipende dalle variabili microscopiche del sistema $(\mathbf{p}, \mathbf{q})$, pertanto 
+L'energia libera $F$ non dipende dalle variabili microscopiche del sistema $(\mathbf{p}, \mathbf{q})$, pertanto 
 \begin{align}
-    \braket{\mathcal{H}} = \frac{1}{h^{3N}}e^{\beta G}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} = \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{\beta(G - \mathcal{H})} \tag{2.2.2}
+    \braket{\mathcal{H}} = \frac{1}{h^{3N}}e^{\beta F}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} = \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{\beta(F - \mathcal{H})} \tag{2.3.2}
 \end{align}
 per $(2.1.11)$ si ha 
 \begin{align}
-    \braket{\mathcal{H}} = 1 \cdot \braket{\mathcal{H}} = \left(\frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{\beta(G - \mathcal{H})}\right)\braket{\mathcal{H}} \notag
+    \braket{\mathcal{H}} = 1 \cdot \braket{\mathcal{H}} = \left(\frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{\beta(F - \mathcal{H})}\right)\braket{\mathcal{H}} \notag
 \end{align}
-inoltre, dato che il valor medio dell'hamiltoniana non dipende dalle variabili microscopiche $(\mathbf{p}, \mathbf{q})$ si ottiene 
+Inoltre, dato che il valor medio dell'hamiltoniana non dipende dalle variabili microscopiche $(\mathbf{p}, \mathbf{q})$, si ottiene 
 \begin{align}
-    \braket{\mathcal{H}} = \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \braket{\mathcal{H}}e^{\beta(G - \mathcal{H})} \tag{2.2.3}
+    \braket{\mathcal{H}} = \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \braket{\mathcal{H}}e^{\beta(F - \mathcal{H})} \tag{2.3.3}
 \end{align}
-confrontando $(2.2.2)$ e $(2.2.15)$ si ottiene 
+Confrontando $(2.3.2)$ e $(2.3.3)$ si ottiene 
 \begin{align}
-    \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, (\braket{\mathcal{H}} - \mathcal{H})e^{\beta(G - \mathcal{H})} = 0 \tag{2.2.4}
+    \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, (\braket{\mathcal{H}} - \mathcal{H})e^{\beta(F - \mathcal{H})} = 0 \tag{2.3.4}
 \end{align}
-ricaviamo un vincolo sulla varianza derivando rispetto a $\beta$, infatti 
+Ricaviamo un vincolo sulla varianza derivando rispetto a $\beta$, infatti 
 \begin{align}
     0 &= \frac{\partial}{\partial \beta}\left(\frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, (\braket{\mathcal{H}} - \mathcal{H})e^{\beta(G - \mathcal{H})}\right) \notag \\
-    &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \left(\frac{\partial \braket{\mathcal{H}}}{\partial \beta} + (\braket{\mathcal{H}} - \mathcal{H})\left(G - \mathcal{H} + \beta\left(\frac{\partial G}{\partial \beta}\right)_{N, V}\right)\right)e^{\beta(G - \mathcal{H})} \tag{2.2.5}
+    &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \left(\frac{\partial \braket{\mathcal{H}}}{\partial \beta} + (\braket{\mathcal{H}} - \mathcal{H})\left(G - \mathcal{H} + \beta\left(\frac{\partial G}{\partial \beta}\right)_{N, V}\right)\right)e^{\beta(G - \mathcal{H})} \tag{2.3.5}
 \end{align}
-il termine $\frac{\partial \braket{\mathcal{H}}}{\partial \beta}$ non dipende dalle variabili microscopiche $(\mathbf{p}, \mathbf{q})$, quindi può essere fattorizzato fuori dall'integrale (che fa 1). Inoltre, da $(2.1.10)$ notiamo che 
+Il termine $\frac{\partial \braket{\mathcal{H}}}{\partial \beta}$ non dipende dalle variabili microscopiche $(\mathbf{p}, \mathbf{q})$, quindi può essere fattorizzato fuori dall'integrale (che fa 1). Inoltre, da $(2.1.10)$ notiamo che 
 \begin{align}
-    G + \beta\left(\frac{\partial G}{\partial \beta}\right)_{N, V} &= G - T\left(\frac{\partial G}{\partial T}\right)_{N, V} \notag \\
-    &= G + TS \notag \\
-    &= \braket{\mathcal{H}} \tag{2.2.6}
+    F + \beta\left(\frac{\partial F}{\partial \beta}\right)_{N, V} &= F - T\left(\frac{\partial F}{\partial T}\right)_{N, V} \notag \\
+    &= F + TS \notag \\
+    &= \braket{\mathcal{H}} \tag{2.3.6}
 \end{align}
-e sostituendo in $(2.1.17)$ si ha 
+e sostituendo in $(2.3.5)$ si ha 
 \begin{align}
-    \frac{\partial \braket{\mathcal{H}}}{\partial \beta} + \braket{(\braket{\mathcal{H}} - \mathcal{H})^2} = 0 \tag{2.2.7}
+    \frac{\partial \braket{\mathcal{H}}}{\partial \beta} + \braket{(\braket{\mathcal{H}} - \mathcal{H})^2} = 0 \tag{2.3.7}
 \end{align}
 ponendo $U = \braket{\mathcal{H}}$ si ha 
 \begin{align}
@@ -765,14 +769,15 @@ ponendo $U = \braket{\mathcal{H}}$ si ha
 \end{align}
 ovvero 
 \begin{align}
-    \braket{(U - \mathcal{H})^2} = kT^2U \tag{2.2.8}
+    \braket{(U - \mathcal{H})^2} = kT^2U \tag{2.3.8}
 \end{align}
 Dalla termodinamica ricordiamo che 
 \begin{align}
-    \frac{\partial U}{\partial T} = c_V \tag{2.2.9}
+    \frac{\partial U}{\partial T} = c_V \tag{2.3.9}
 \end{align}
 dove $c_V$ è la funzione di risposta capacità termica (a volume costante), deduciamo quindi che le fluttuazioni dell'energia sono strettamente legata alla capacità termica. \\ \\
 
+\newpage
 \subsection{Particelle libere in una scatola}
 Consideriamo un sistema composta da $N$ particelle confinate in un volume $V$, in particolare 
 \begin{align}
@@ -798,14 +803,14 @@ Notiamo che
 questo accade ogni qual volta l'hamiltoniana è separabile, ovvero è somma di hamiltoniane di particelle indipendenti tra loro. \\ \\
 Nota la funzione di partizione canonica possiamo ottere l'espressione dell'energia libera e studiare l'aspetto termodinamico del sistema, in particolare 
 \begin{align}
-    G &= -kT\log Q_N \notag \\
+    F &= -kT\log Q_N \notag \\
     &= -kT\log \frac{V^N}{N!}\left(\frac{2\pi mkT}{h^2}\right)^{3N/2} \notag
 \end{align}
 usando la formula di Stirling al limite termodinamico si ottiene 
 \begin{align}
-    G \sim -NkT\log\frac{V}{N} - NkT\left(1 - \frac{3}{2}\log\frac{2\pi mkT}{h^2}\right) \tag{2.1.24}
+    F \sim -NkT\log\frac{V}{N} - NkT\left(1 - \frac{3}{2}\log\frac{2\pi mkT}{h^2}\right) \tag{2.1.24}
 \end{align}
-$G$ è correttamente estensiva, infatti $N$ è già fattorizzato e $G$ può essere scritta come il prodotto tra $N$ ed una funzione che dipende solamente da quantità intensive (in questo caso la densità di volume e la temperatura). \\ \\
+$F$ è correttamente estensiva, infatti $N$ è già fattorizzato e $F$ può essere scritta come il prodotto tra $N$ ed una funzione che dipende solamente da quantità intensive (in questo caso la densità di volume e la temperatura). \\ \\
 Infine calcoliamo l'energia interna del sistema $U = \braket{\mathcal{H}}$, si ha che 
 \begin{align}
     U = \frac{1}{Q_Nh^{3N}}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} \notag
@@ -821,7 +826,8 @@ portando l'operazione di derivazione sotto il segno di integrale, pertanto
 \end{align}
 risultato che segue dal \textit{teorema di equipartizione di energia}.
 
-\subsubsection{Particelle soggette a potenziale armonico in una scatola}
+\newpage
+\subsection{Particelle soggette a potenziale armonico in una scatola}
 Consideriamo ora un sistema composto da $N$ oscillatori armonici tridimensionali, ovvero 
 \begin{align}
     \mathcal{H}(\mathbf{p}, \mathbf{q}) = \sum_{i = 1}^N \frac{|\mathbf{p_i|^2}}{2m} + \frac{1}{2}m\omega^2|\mathbf{q}_i|^2 \notag
@@ -840,17 +846,18 @@ e quindi
 \end{align}
 Segue che 
 \begin{align}
-    G = -3NkT\log \frac{kT}{\hbar\omega} \tag{2.1.28}
+    F = -3NkT\log \frac{kT}{\hbar\omega} \tag{2.1.28}
 \end{align}
 inoltre 
 \begin{align}
-    U &= \frac{\partial G}{\partial \beta} \notag \\
+    U &= \frac{\partial F}{\partial \beta} \notag \\
     &= -\frac{\partial}{\partial \beta}\log Q_N \notag \\
     &= 3NkT \tag{2.1.29}
 \end{align}
 come ci si aspetta dal \textit{teorema di equipartizione dell'energia}.
 
-\subsubsection{Sistema di $N$ oscillatori armonici quantisitici}
+\newpage
+\subsection{Sistema di $N$ oscillatori armonici quantisitici}
 Consideriamo un sistema composto da $N$ oscillatori armonici quantistici. Dato che lo spettro energetico è discreto si ha 
 \begin{align}
     Q_N = \sum_{states} e^{-\beta E_{state}} \tag{2.1.30}
@@ -872,7 +879,7 @@ allora
 \end{align}
 Nota la funzione di partizione canonica possiamo determinare l'espressione dell'energia libera 
 \begin{align}
-    G &= N\frac{\hbar\omega}{2} + NkT\log\left(1 - e^{-\beta\hbar\omega}\right) \tag{2.1.34}
+    F &= N\frac{\hbar\omega}{2} + NkT\log\left(1 - e^{-\beta\hbar\omega}\right) \tag{2.1.34}
 \end{align}
 mentre per l'energia interna si ha 
 \begin{align}
@@ -895,7 +902,8 @@ e
 \end{align}
 come segue dal \textit{teorema di equipartizione dell'energia}.
 
-\subsubsection{Sistema di $N$ siti a due stati}
+\newpage
+\subsection{Sistema di $N$ siti a due stati}
 Consideriamo un sistema composto da $N$ siti localizzati a due stati, in particolare ogni sito può avere energia $E_+ = +\varepsilon$ o $E_- = -\varepsilon$ (con $\varepsilon > 0)$. Se l'energia è fissata (ensemble microcanonico) sappiamo come è fatta la funzione $\Gamma(E)$ e quindi sappiamo determinare l'espressione dell'entropia microcanonica, ovvero, posto $N_+$ il numero di siti con energia $+\varepsilon$ e $N_-$ il numero di siti con energia $-\varepsilon$ si ha 
 \begin{align}
     \Gamma(E) = \frac{N!}{N_+!N_-!} \tag{2.1.38}
@@ -926,7 +934,7 @@ dove
     &= \frac{k}{2}\log\frac{N}{\frac{1}{4}\left(N^2 - \frac{E^2}{\varepsilon^2}\right)} \notag \\
     &= \frac{k}{2}\log\frac{4\varepsilon^2}{kT^2c_V} \tag{2.1.42}
 \end{align}
-Studiando lo stesso sistema come ensemble canonico possiamo determinare l'energia libera $G$ (e quindi l'entropia canonica) passando per la funzione di partizione canonica
+Studiando lo stesso sistema come ensemble canonico possiamo determinare l'energia libera $F$ (e quindi l'entropia canonica) passando per la funzione di partizione canonica
 \begin{align}
     Q_N &= \sum_n e^{-\beta E_n} \notag \\
     &= \sum_{N_+ + N_- = N}\frac{N!}{N_+!N_-!}e^{-\beta(N_+\varepsilon - N_-\varepsilon)} \notag \\
@@ -935,7 +943,7 @@ Studiando lo stesso sistema come ensemble canonico possiamo determinare l'energi
 \end{align}
 per definizioni di binomio di Newton. A questo punto possiamo determinare l'espressione dell'energia libera 
 \begin{align}
-    G &= -NkT\log(e^{\beta E} + e^{-\beta E}) \notag \\
+    F &= -NkT\log(e^{\beta E} + e^{-\beta E}) \notag \\
     &= -NkT\log(2\cosh \beta E) \tag{2.1.44}
 \end{align}
 segue che 
@@ -945,7 +953,7 @@ segue che
 \end{align}
 A questo punto possiamo determinare l'entropia canonica del sistema, si ha 
 \begin{align}
-    S_{can} &= -\left(\frac{\partial G}{\partial T}\right)_{N, V} \notag \\
+    S_{can} &= -\left(\frac{\partial F}{\partial T}\right)_{N, V} \notag \\
     &= \frac{\partial}{\partial T}\left(NkT\log\left(2\cosh \frac{E}{kT}\right)\right) \notag \\
     &= Nk\log\left(2\cosh \frac{E}{kT}\right) - \frac{NE}{T}\tanh\frac{E}{kT} \notag \\
     &= Nk\log\left(2\cosh \beta E\right) - N\beta kE\tanh \beta E \tag{2.1.46}
@@ -1029,7 +1037,7 @@ Il fattore $1/N!$ non appare più poiché l'indistinguibilità classica delle pa
 \begin{align}
     \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) &= \frac{1}{Q_N}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \cdot \frac{1}{N_2!h^{3N_2}}\int d\mathbf{p}_2d\mathbf{q}_2 \, e^{-\beta\mathcal{H}_{N_2}} \notag \\
     &= \frac{Q_{N_2}}{Q_N}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \notag \\
-    &= e^{-\beta(G_{N_2}(V_2, T) - G_N(V, T))}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \tag{3.1.4}
+    &= e^{-\beta(F_{N_2}(V_2, T) - F_N(V, T))}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \tag{3.1.4}
 \end{align}
 Notiamo che $\rho$ è correttamente normalizzata sullo spazio delle fasi associato al sistema $1$, in particolare 
 \begin{align}
@@ -1037,7 +1045,7 @@ Notiamo che $\rho$ è correttamente normalizzata sullo spazio delle fasi associa
 \end{align}
 Supponiamo ora che $N_2 << N$ e $V_2 << V$, si ha 
 \begin{align}
-    G_{N_2}(V_2, T) - G_N(V, T) &\sim -\underbrace{\left(\frac{\partial G}{\partial N}\right)_{V, T}}_{\mu}N_1 - \underbrace{\left(\frac{\partial G}{\partial V}\right)_{N, T}}_{-P}V_1 \notag \\
+    F_{N_2}(V_2, T) - F_N(V, T) &\sim -\underbrace{\left(\frac{\partial F}{\partial N}\right)_{V, T}}_{\mu}N_1 - \underbrace{\left(\frac{\partial F}{\partial V}\right)_{N, T}}_{-P}V_1 \notag \\
     &= -\mu N_1 + PV_1 \tag{3.1.6}
 \end{align}
 sostituendo in $(3.1.4)$ si ottiene 
@@ -1104,8 +1112,8 @@ dove $c$ è un termine costante. Come fatto per $\braket{N}$, usando la definizi
 \end{align}
 Allora si ottiene 
 \begin{align}
-    \braket{E} &= -\left(\frac{\partial}{\partial \beta}ZQ_1(V, T)\right)_{Z, V} \notag \\
-    &= -Z\frac{\partial T}{\partial \beta} \left(\frac{\partial}{\partial T}Q_1(V, T)\right)_{Z, V} \notag \\
+    \braket{E} &= -\left(\frac{\partial}{\partial \beta}ZQ_1(T, V)\right)_{Z, V} \notag \\
+    &= -Z\frac{\partial T}{\partial \beta} \left(\frac{\partial}{\partial T}Q_1(T, V)\right)_{Z, V} \notag \\
     &= \frac{3}{2}\overbrace{cZVT^{3/2}}^{\braket{N}}kT = \frac{3}{2}\braket{N}kT \tag{3.1.20}
 \end{align}
 Mentre ricordiamo che per l'ensemble canonico si ha $\braket{E}_{can} = \frac{3}{2}NkT$ con $N$ costante del sistema. Successivamente studieremo come si comportano le fluttuazioni del numero di particelle rispetto alla media al limite termodinamico per capire se in tal caso l'ensemble gran canonico si riconduce approssimativamente all'ensemble canonico.
