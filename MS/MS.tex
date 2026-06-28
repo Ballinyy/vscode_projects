@@ -207,7 +207,7 @@ In particolare $\Omega \sim E^\alpha$, con $\alpha \sim N$, dato che si tratta d
 dove è stato trascurato il primo termine del membro di destra per $N \rightarrow \infty$, concludiamo che, al limite termodinamico, possiamo sostituire $\Gamma$ con $\Omega$.
 
 \newpage
-\subsection{Teorema di equipartizione}
+\subsection{Teorema di equipartizione dell'energia}
 \textbf{Teorema (di equipartizione dell'energia per ensemble microcanonico):} sia $\mathcal{H}$ un'hamiltoniana associata ad un sistema microcanonico, sia $x_i$, con $i = 1, \dots, 6N$, uno qualsiasi tra $(p_1, \dots, p_{3N}, q_1, \dots, q_{3N})$, allora si ha 
 \begin{align}
     \braket{x_i\frac{\partial \mathcal{H}}{\partial x_j}} = \delta_{ij}kT \tag{1.3.1}
@@ -250,7 +250,7 @@ Il primo integrale è nullo dato che $x_i(\mathcal{H} - E) = 0$ per $\mathcal{H}
 dove si è usata la formula di derivazione di funzione integrale rispetto ad un parametro e $T = \left(\frac{\partial S}{\partial E}\right)^{-1}$. \qed
 
 \newpage
-\subsection{Particelle libere in una scatola}
+\subsection{Particelle libere}
 Vediamo ora il caso particolare del gas libero confinato in un volume $V$. L'hamiltoniana che descrive il sistema è
 \begin{gather}
     \mathcal{H} = \sum_{i = 1}^N \frac{\mathbf{p}^2_i}{2m} \notag
@@ -376,7 +376,7 @@ Pertanto, l'espressione corretta dell'entropia diventa
 notiamo che $N$ è già fattorizzato e i termini che moltiplica dipendono solamente da quantità intensive, dunque questa espressione dell'entropia è estensiva. 
 
 \newpage
-\subsection{Particelle soggette a potenziale armonico in una scatola}
+\subsection{Particelle soggette a potenziale armonico}
 Nel caso in cui le particelle sono soggette ad un potenziale armonico si ha
 \begin{align}
     \mathcal{H} = \sum_{i = 1}^N \left(\frac{\mathbf{p}^2_i}{2m} + \frac{1}{2}m\omega^2\mathbf{q}^2_i\right) \tag{1.5.1}
@@ -426,7 +426,7 @@ Inoltre notiamo che
 infatti, essendo ogni particella localizzata attorno ad un punto di equilibrio, non avvengono urti che si manifestano poi in pressione.
 
 \newpage
-\subsection{Particelle ultra-relativistiche libere in una scatola}
+\subsection{Particelle ultra-relativistiche libere}
 L'hamiltoniana di un insieme di $N$ particelle libere ultra-relativistiche in una scatola è
 \begin{align}
     \mathcal{H} = c\sum_{i = 1}^N |\mathbf{p}_i| \tag{1.6.1}
@@ -613,12 +613,12 @@ ovvero $E = \frac{3}{2}N\hbar\omega$ (in unità di $\hbar\omega$), quindi ogni o
 Siamo interessati a descivere statisticamente un sistema a contatto con un reservoir. Possiamo immaginare un reservoir come un sistema ad energia e volume molto maggiori rispetto al sistema in esame, che quindi resta imperturbato nonostante l'interazione esterna.
 
 \subsection{Energia libera}
-Consideriamo un sistema microcanonico $X$ descritto dalla terna $(E, N, V)$ e consideriamo un sottoinsieme $X_1$ di $X$ descritto dalla terna $(E_1, N_1, V_1)$. Poniamo $X_2 = X \setminus X_1$, il complementare di $X_1$, descritto dalla terna $(E_2, N_2, V_2)$ e supponiamo che $X_2$ sia molto più grande di $X_1$. Sotto tali ipotesi, l'interazione tra $X_1$ e $X_2$, che è essenzialmente limitata ad una regione limitrofa al bordo di $X_1$, diventa infinitesima, e quindi trascurabile, al limite termidinamico, ovvero $V_1$ molto grande e $V >> V_1$. Possiamo dunque trattare $X_1$ come un sistema isolato. \\
+Nel contesto dell'ensemble microcanonico, consideriamo un sistema $X$ descritto dalla terna $(E, N, V)$ e consideriamo un sottoinsieme $X_1$ di $X$ descritto dalla terna $(E_1, N_1, V_1)$. Poniamo $X_2 = X \setminus X_1$, il complementare di $X_1$, descritto dalla terna $(E_2, N_2, V_2)$ e supponiamo che $X_2$ sia molto più grande di $X_1$. Sotto tali ipotesi, l'interazione tra $X_1$ e $X_2$, che è essenzialmente limitata ad una regione limitrofa al bordo di $X_1$, diventa infinitesima, e quindi trascurabile, al limite termidinamico, ovvero $V_1$ molto grande e $V >> V_1$. Possiamo dunque trattare $X_1$ come un sistema isolato. \\
 Fissate l'energia totale $E$ e l'energia $E_1$ di $X_1$, l'energia $E_2$ di $X_2$ deve soddisfare 
 \begin{align}
     E_2 = E - E_1 \notag
 \end{align}
-Per ipotesi $X$ è un sistema microcanonico, dunque la densità di probabilità $\rho$ associata a $X$ è costante sull'ipersuperficie identificata da $\mathcal{H}(\mathbf{p}, \mathbf{q}) = E$ e nulla altrimenti. In particolare 
+La densità di probabilità $\rho$ associata a $X$ è costante sull'ipersuperficie identificata da $\mathcal{H}(\mathbf{p}, \mathbf{q}) = E$ e nulla altrove. In particolare 
 \begin{align}
     \rho(\mathbf{p}, \mathbf{q}) = \begin{cases}
         \frac{1}{\Gamma(E)} \qquad &\mathcal{H}(\mathbf{p}, \mathbf{q}) = E \\
@@ -779,52 +779,52 @@ dove $c_V$ è la funzione di risposta capacità termica (a volume costante), ded
 
 \newpage
 \subsection{Particelle libere in una scatola}
-Consideriamo un sistema composta da $N$ particelle confinate in un volume $V$, in particolare 
+Consideriamo un sistema composto da $N$ particelle confinate in un volume $V$, in particolare 
 \begin{align}
     \mathcal{H}(\mathbf{p}, \mathbf{q}) = \sum_{i = 1}^N \frac{|\mathbf{p}_i|^2}{2m} \notag
 \end{align}
 dove $|\mathbf{p}_i|^2 = p^2_{ix} + p^2_{iy} + p^2_{iz}$. Siamo interessati a determinare l'espressione dell'energia libera, pertanto calcoliamo la funzione di partizione canonica $Q_N$ associata a $\mathcal{H}$, si ha 
 \begin{align}
     Q_N &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\mathcal{H}} \notag \\
-    &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\sum_{i = 1}^N \frac{|\mathbf{p}_i|^2}{2m}} \notag
+    &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\sum_{i = 1}^N \frac{|\mathbf{p}_i|^2}{2m}} \tag{2.4.1}
 \end{align}
-Notiamo che si tratta dell'integrale di funzioni gaussiane indipendenti tra loro, pertanto può essere trattato come il prodotto di $3N$ integrali gaussiani in $d\mathbf{p}_i$, ovvero 
+Notiamo che si tratta dell'integrale del prodotto di $N$ gaussiane indipendenti tra loro, pertanto possiamo integrare ogni termine singolarmente
 \begin{align}
-    Q_N &= \frac{V^N}{N!}\frac{1}{h^{3N}}\prod_{i = 1}^N \int d\mathbf{p}_i e^{-\beta\frac{|\mathbf{p}_i|^2}{2m}} \notag
+    Q_N &= \frac{V^N}{N!}\frac{1}{h^{3N}}\prod_{i = 1}^N \int d\mathbf{p}_i e^{-\beta\frac{|\mathbf{p}_i|^2}{2m}} \tag{2.4.2}
 \end{align}
 dove è stato aggiunto "a mano" anche il fattore di Gibbs necessario per rendere l'energia libera correttamente estensiva. Otteniamo quindi 
 \begin{align}
-    Q_N = \frac{V^N}{N!}\left(\frac{2\pi mkT}{h^2}\right)^{3N/2} \tag{2.3.1}
+    Q_N = \frac{V^N}{N!}\left(\frac{2\pi mkT}{h^2}\right)^{3N/2} \tag{2.4.3}
 \end{align}
 Notiamo che 
 \begin{align}
-    Q_N = Q^N_1 \tag{2.1.23}
+    Q_N = \frac{Q^N_1}{N!} \tag{2.4.4}
 \end{align}
-questo accade ogni qual volta l'hamiltoniana è separabile, ovvero è somma di hamiltoniane di particelle indipendenti tra loro. \\ \\
-Nota la funzione di partizione canonica possiamo ottere l'espressione dell'energia libera e studiare l'aspetto termodinamico del sistema, in particolare 
+questo accade ogni qual volta l'hamiltoniana è separabile, ovvero è somma di hamiltoniane di particelle indipendenti tra loro (e indistinguibili, per questo il fattore di Gibbs). \\ \\
+Nota la funzione di partizione canonica, possiamo ricavare l'espressione dell'energia libera e studiare l'aspetto termodinamico del sistema. In particolare 
 \begin{align}
     F &= -kT\log Q_N \notag \\
     &= -kT\log \frac{V^N}{N!}\left(\frac{2\pi mkT}{h^2}\right)^{3N/2} \notag
 \end{align}
 usando la formula di Stirling al limite termodinamico si ottiene 
 \begin{align}
-    F \sim -NkT\log\frac{V}{N} - NkT\left(1 - \frac{3}{2}\log\frac{2\pi mkT}{h^2}\right) \tag{2.1.24}
+    F \sim -NkT\log\frac{V}{N} - NkT\left(1 - \frac{3}{2}\log\frac{2\pi mkT}{h^2}\right) \tag{2.4.5}
 \end{align}
 $F$ è correttamente estensiva, infatti $N$ è già fattorizzato e $F$ può essere scritta come il prodotto tra $N$ ed una funzione che dipende solamente da quantità intensive (in questo caso la densità di volume e la temperatura). \\ \\
-Infine calcoliamo l'energia interna del sistema $U = \braket{\mathcal{H}}$, si ha che 
+Infine calcoliamo l'energia interna del sistema $U = \braket{\mathcal{H}}$. Per definizione di media statistica sull'ensemble canonico
 \begin{align}
-    U = \frac{1}{Q_Nh^{3N}}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} \notag
+    U = \frac{1}{Q_Nh^{3N}}\int d\mathbf{p}d\mathbf{q} \, \mathcal{H}e^{-\beta\mathcal{H}} \tag{2.4.6}
 \end{align}
-per definizione di su ensemble canonico. Notiamo che 
+Notiamo che 
 \begin{align}
-    U = -\frac{\partial}{\partial \beta}\log Q_N = -\frac{1}{Q_N}\frac{\partial Q_N}{\partial\beta} \notag
+    U = -\frac{\partial}{\partial \beta}\log Q_N = -\frac{1}{Q_N}\frac{\partial Q_N}{\partial\beta} \tag{2.4.7}
 \end{align}
-portando l'operazione di derivazione sotto il segno di integrale, pertanto 
+portando l'operazione di derivazione sotto il segno di integrale. Pertanto 
 \begin{align}
     U &= -\frac{\partial}{\partial\beta}\left(-N\log\frac{V}{N} -N\left(1 - \frac{3}{2}\log\frac{2\pi m}{h^2\beta}\right)\right) \notag \\
-    &= -\frac{\partial}{\partial\beta}\left(-\frac{3}{2}N\log\frac{1}{\beta}\right) = \frac{3}{2}NkT \tag{2.1.25}
+    &= -\frac{\partial}{\partial\beta}\left(-\frac{3}{2}N\log\frac{1}{\beta}\right) = \frac{3}{2}NkT \tag{2.4.8}
 \end{align}
-risultato che segue dal \textit{teorema di equipartizione di energia}.
+risultato che è in accordo con il \textit{teorema di equipartizione di energia}.
 
 \newpage
 \subsection{Particelle soggette a potenziale armonico in una scatola}
@@ -832,176 +832,177 @@ Consideriamo ora un sistema composto da $N$ oscillatori armonici tridimensionali
 \begin{align}
     \mathcal{H}(\mathbf{p}, \mathbf{q}) = \sum_{i = 1}^N \frac{|\mathbf{p_i|^2}}{2m} + \frac{1}{2}m\omega^2|\mathbf{q}_i|^2 \notag
 \end{align}
-tale sistema è equivalente a un sistema di $3N$ oscillatori armonici unidimensionali dato che i moti lungo i tre assi si scompongono e l'hamiltoniana di ogni singola particella è separabile e scrivibile come somma di tre hamiltoniane unidimensionali. \\ \\
-Anche in questo caso vale la proprietà $(2.1.23)$ dato che gli stati delle singole particelle sono indipendenti, pertanto per determinare $Q_N$ determiniamo prima $Q_1$. Si ha 
+Tale sistema è equivalente a un sistema di $3N$ oscillatori armonici unidimensionali, infatti i moti lungo i tre assi si scompongono e l'hamiltoniana di ogni singola particella è separabile e scrivibile come somma di tre hamiltoniane unidimensionali. \\ \\
+Anche in questo caso vale la proprietà $(2.4.4)$ dato che gli stati delle singole particelle sono indipendenti. Tuttavia, non è necessario il fattore di Gibbs, infatti le particelle sono distinguibili grazie al termine potenziale dell'hamiltoniana. Per determinare $Q_N$ determiniamo prima $Q_1$. Si ha 
 \begin{align}
     Q_1 &= \frac{1}{h^3}\int d\mathbf{p}_1d\mathbf{q}_1 \, e^{-\beta\mathcal{H}_1} \notag \\
     &= \frac{1}{h^3}\int dp_xdp_ydp_zdxdydx \, e^{-\beta\left(\frac{p^2_x + p^2_y + p^2_z}{2m} + \frac{1}{2}m\omega^2(x^2 + y^2 + z^2)\right)} \notag \\
     &= \frac{1}{h^3}\left(\frac{2\pi m}{\beta}\right)^{3/2}\left(\frac{2\pi}{m\omega^2\beta}\right)^{3/2} \notag \\
-    &= \left(\frac{kT}{\hbar\omega}\right)^3 \tag{2.1.26}
+    &= \left(\frac{kT}{\hbar\omega}\right)^3 \tag{2.5.1}
 \end{align}
 e quindi 
 \begin{align}
-    Q_N = \left(\frac{kT}{\hbar\omega}\right)^{3N} \tag{2.1.27}
+    Q_N = \left(\frac{kT}{\hbar\omega}\right)^{3N} \tag{2.5.2}
 \end{align}
 Segue che 
 \begin{align}
-    F = -3NkT\log \frac{kT}{\hbar\omega} \tag{2.1.28}
+    F = -3NkT\log \frac{kT}{\hbar\omega} \tag{2.5.3}
 \end{align}
-inoltre 
+Inoltre 
 \begin{align}
     U &= \frac{\partial F}{\partial \beta} \notag \\
     &= -\frac{\partial}{\partial \beta}\log Q_N \notag \\
-    &= 3NkT \tag{2.1.29}
+    &= 3NkT \tag{2.5.4}
 \end{align}
 come ci si aspetta dal \textit{teorema di equipartizione dell'energia}.
 
 \newpage
-\subsection{Sistema di $N$ oscillatori armonici quantisitici}
-Consideriamo un sistema composto da $N$ oscillatori armonici quantistici. Dato che lo spettro energetico è discreto si ha 
-\begin{align}
-    Q_N = \sum_{states} e^{-\beta E_{state}} \tag{2.1.30}
-\end{align}
-anche in questo caso vale l'indipendenza degli stati, quindi $Q_N = Q^N_1$, dove 
-\begin{align}
-    Q_1 &= \sum_n e^{-\beta E_n} \notag \\
-    &= \sum_n e^{-\beta\hbar\omega(n + 1/2)} \notag \\
-    &= e^{-\beta\frac{\hbar\omega}{2}}\sum_n e^{-\beta\hbar\omega n} \tag{2.1.31}
-\end{align}
-con $E_n = \hbar\omega\left(n + \frac{1}{2}\right)$. Poniamo $x = e^{-\beta\hbar\omega}$, notiamo che $|x| \leq 1$, infatti $\beta\hbar\omega > 0$, pertanto possiamo ricondurre $(2.1.31)$ alla serie geometrica di ragione $x$, segue che 
-\begin{align}
-    Q_1 &= e^{-\beta\frac{\hbar\omega}{2}}\frac{1}{1 - x} \notag \\
-    &= \frac{e^{-\beta\frac{\hbar\omega}{2}}}{1 - e^{-\beta\hbar\omega}} \tag{2.1.32}
-\end{align}
-allora 
-\begin{align}
-    Q_N = e^{-N\beta\frac{\hbar\omega}{2}}\left(1 - e^{-\beta\hbar\omega}\right)^{-N} \tag{2.1.33}
-\end{align}
-Nota la funzione di partizione canonica possiamo determinare l'espressione dell'energia libera 
-\begin{align}
-    F &= N\frac{\hbar\omega}{2} + NkT\log\left(1 - e^{-\beta\hbar\omega}\right) \tag{2.1.34}
-\end{align}
-mentre per l'energia interna si ha 
-\begin{align}
-    U &= -\frac{\partial}{\partial\beta}\log Q_N \notag \\
-    &= -\frac{\partial}{\partial\beta}\left(-N\beta\frac{\hbar\omega}{2} - N\log\left(1 - e^{-\beta\hbar\omega}\right)\right) \notag \\
-    &= N\frac{\hbar\omega}{2} - N\hbar\omega\frac{}{1 - e^{-\beta\hbar\omega}} \notag
-\end{align}
-Al limite per cui vale $\frac{\hbar\omega}{kT} << 1$ si ha 
-\begin{align}
-    U &\sim N\cancel{\frac{\hbar\omega}{2}} + N\hbar\omega\frac{1}{\frac{\hbar\omega}{kT}} \notag \\
-    &= NkT \tag{2.1.35}
-\end{align}
-Il caso di $N$ oscillatori armonici quantistici tridimensionali è equivalente a avere $3N$ oscillatori armonici quantistici unidimensionali, pertanto 
-\begin{align}
-    Q_N = e^{-\frac{3}{2}\beta\hbar\omega}\left(1 - e^{-\beta\hbar\omega}\right)^{-3N} \tag{2.1.36}
-\end{align}
-e 
-\begin{align}
-    U = 3NkT \tag{2.1.37}
-\end{align}
-come segue dal \textit{teorema di equipartizione dell'energia}.
-
-\newpage
 \subsection{Sistema di $N$ siti a due stati}
-Consideriamo un sistema composto da $N$ siti localizzati a due stati, in particolare ogni sito può avere energia $E_+ = +\varepsilon$ o $E_- = -\varepsilon$ (con $\varepsilon > 0)$. Se l'energia è fissata (ensemble microcanonico) sappiamo come è fatta la funzione $\Gamma(E)$ e quindi sappiamo determinare l'espressione dell'entropia microcanonica, ovvero, posto $N_+$ il numero di siti con energia $+\varepsilon$ e $N_-$ il numero di siti con energia $-\varepsilon$ si ha 
+Consideriamo un sistema composto da $N$ siti localizzati a due stati. In particolare, ogni sito può avere energia $E_+ = +\varepsilon$ o $E_- = -\varepsilon$ (con $\varepsilon > 0)$. \\
+Se l'energia è fissata (contesto dell'ensemble microcanonico) sappiamo come è fatta la funzione $\Gamma(E)$ e quindi sappiamo determinare l'espressione dell'entropia microcanonica, ovvero, posto $N_+$ il numero di siti con energia $+\varepsilon$ e $N_-$ il numero di siti con energia $-\varepsilon$, si ha 
 \begin{align}
-    \Gamma(E) = \frac{N!}{N_+!N_-!} \tag{2.1.38}
+    \Gamma(E) = \frac{N!}{N_+!N_-!} \tag{2.6.1}
 \end{align}
 dove $N_+$ e $N_-$ soddisfano $N = N_+ + N_-$. Inoltre noti $E, N$ possiamo esprimere $N_+$ e $N_-$ in funzione di essi, infatti 
 \begin{align}
     \begin{cases}
         N_+ &= \frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) \\
         N_- &= \frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) 
-    \end{cases} \tag{2.1.39}
+    \end{cases} \tag{2.6.2}
 \end{align}
 e quindi esprimere $\Gamma$ in funzione di $N, E$ 
 \begin{align}
-    \Gamma(E) = \frac{N!}{\left(\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\right)!\left(\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\right)!} \notag
+    \Gamma(E) = \frac{N!}{\left(\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\right)!\left(\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\right)!} \tag{2.6.3}
 \end{align}
 Usando la formula di Stirling al limite termidinamico si ha 
 \begin{align}
-    \Gamma(E) \sim \frac{N^{N + \frac{1}{2}}}{\left(\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\right)^{\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) + \frac{1}{2}}\left(\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\right)^{\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) + \frac{1}{2}}} \tag{2.1.40}
+    \Gamma(E) \sim \frac{N^{N + \frac{1}{2}}}{\left(\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\right)^{\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) + \frac{1}{2}}\left(\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\right)^{\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) + \frac{1}{2}}} \tag{2.6.4}
 \end{align}
-segue che 
+Segue che 
 \begin{align}
     S(E) &\sim o(\log N) + k\left(N\log N - \frac{1}{2}\left(N + \frac{E}{\varepsilon}\right)\log\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) +\right. \notag \\
-    &-\left.\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\log\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) - N\log\frac{1}{2}\right) \tag{2.1.41}
+    &-\left.\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right)\log\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) - N\log\frac{1}{2}\right) \tag{2.6.5}
 \end{align}
 dove 
 \begin{align}
     o(\log N) &= \frac{k}{2}\log N - \frac{k}{2}\log\frac{1}{2}\left(N + \frac{E}{\varepsilon}\right) - \frac{k}{2}\log\frac{1}{2}\left(N - \frac{E}{\varepsilon}\right) \notag \\
     &= \frac{k}{2}\log\frac{N}{\frac{1}{4}\left(N^2 - \frac{E^2}{\varepsilon^2}\right)} \notag \\
-    &= \frac{k}{2}\log\frac{4\varepsilon^2}{kT^2c_V} \tag{2.1.42}
+    &= \frac{k}{2}\log\frac{4\varepsilon^2}{kT^2c_V} \tag{2.6.6}
 \end{align}
-Studiando lo stesso sistema come ensemble canonico possiamo determinare l'energia libera $F$ (e quindi l'entropia canonica) passando per la funzione di partizione canonica
+Studiando lo stesso sistema nel contesto dell'ensemble canonico, possiamo determinare l'energia libera $F$ (e quindi l'entropia canonica) passando per la funzione di partizione canonica
 \begin{align}
     Q_N &= \sum_n e^{-\beta E_n} \notag \\
     &= \sum_{N_+ + N_- = N}\frac{N!}{N_+!N_-!}e^{-\beta(N_+\varepsilon - N_-\varepsilon)} \notag \\
     &= \sum_{k = 0}^N\frac{N!}{k!(N - k)!}e^{-\beta\varepsilon k}e^{\beta\varepsilon(N - k)} \notag \\
-    &= \left(e^{\beta E} + e^{-\beta E}\right)^N = Q^N_1 \tag{2.1.43}
+    &= \left(e^{\beta E} + e^{-\beta E}\right)^N = Q^N_1 \tag{2.6.7}
 \end{align}
-per definizioni di binomio di Newton. A questo punto possiamo determinare l'espressione dell'energia libera 
+dove si è riconosciuta l'espressione del \textit{binomio di Newton}. A questo punto possiamo determinare l'espressione dell'energia libera 
 \begin{align}
     F &= -NkT\log(e^{\beta E} + e^{-\beta E}) \notag \\
-    &= -NkT\log(2\cosh \beta E) \tag{2.1.44}
+    &= -NkT\log(2\cosh \beta E) \tag{2.6.8}
 \end{align}
-segue che 
+Segue che 
 \begin{align}
     U &= -NE\frac{e^{\beta E} - e^{-\beta E}}{e^{\beta E} + e^{-\beta E}} \notag \\
-    &= -NE\tanh \beta E \tag{2.1.45}
+    &= -NE\tanh \beta E \tag{2.6.9}
 \end{align}
-A questo punto possiamo determinare l'entropia canonica del sistema, si ha 
+Per definizione, l'entropia canonica del sistema è data da
 \begin{align}
     S_{can} &= -\left(\frac{\partial F}{\partial T}\right)_{N, V} \notag \\
     &= \frac{\partial}{\partial T}\left(NkT\log\left(2\cosh \frac{E}{kT}\right)\right) \notag \\
     &= Nk\log\left(2\cosh \frac{E}{kT}\right) - \frac{NE}{T}\tanh\frac{E}{kT} \notag \\
-    &= Nk\log\left(2\cosh \beta E\right) - N\beta kE\tanh \beta E \tag{2.1.46}
+    &= Nk\log\left(2\cosh \beta E\right) - N\beta kE\tanh \beta E \tag{2.6.10}
 \end{align}
 
+\newpage
+\subsection{Sistema di $N$ oscillatori armonici quantisitici}
+Consideriamo un sistema composto da $N$ oscillatori armonici quantistici. Dato che lo spettro energetico è discreto si ha 
+\begin{align}
+    Q_N = \sum_{states} e^{-\beta E_{state}} \tag{2.7.1}
+\end{align}
+Anche in questo caso le particelle sono indipendenti e distinguibili, quindi $Q_N = Q^N_1$, dove 
+\begin{align}
+    Q_1 &= \sum_n e^{-\beta E_n} \notag \\
+    &= \sum_n e^{-\beta\hbar\omega(n + 1/2)} \notag \\
+    &= e^{-\beta\frac{\hbar\omega}{2}}\sum_n e^{-\beta\hbar\omega n} \tag{2.7.2}
+\end{align}
+con $E_n = \hbar\omega\left(n + \frac{1}{2}\right)$. Poniamo $x = e^{-\beta\hbar\omega}$ e notiamo che $|x| \leq 1$, infatti $\beta\hbar\omega > 0$, pertanto possiamo ricondurre $(2.7.2)$ alla serie geometrica di ragione $x$, segue che 
+\begin{align}
+    Q_1 &= e^{-\beta\frac{\hbar\omega}{2}}\frac{1}{1 - x} \notag \\
+    &= \frac{e^{-\beta\frac{\hbar\omega}{2}}}{1 - e^{-\beta\hbar\omega}} \tag{2.7.3}
+\end{align}
+Allora 
+\begin{align}
+    Q_N = e^{-N\beta\frac{\hbar\omega}{2}}\left(1 - e^{-\beta\hbar\omega}\right)^{-N} \tag{2.7.4}
+\end{align}
+Nota la funzione di partizione canonica possiamo determinare l'espressione dell'energia libera 
+\begin{align}
+    F &= N\frac{\hbar\omega}{2} + NkT\log\left(1 - e^{-\beta\hbar\omega}\right) \tag{2.7.5}
+\end{align}
+Mentre per l'energia interna si ha 
+\begin{align}
+    U &= -\frac{\partial}{\partial\beta}\log Q_N \notag \\
+    &= -\frac{\partial}{\partial\beta}\left(-N\beta\frac{\hbar\omega}{2} - N\log\left(1 - e^{-\beta\hbar\omega}\right)\right) \notag \\
+    &= N\hbar\omega\left(\frac{1}{2} - \frac{e^{-\beta\hbar\omega}}{1 - e^{-\beta\hbar\omega}}\right) \tag{2.7.6}
+\end{align}
+Al limite per cui vale $\frac{\hbar\omega}{kT} << 1$ si ha 
+\begin{align}
+    U &\sim N\cancel{\frac{\hbar\omega}{2}} + N\hbar\omega\frac{1}{\frac{\hbar\omega}{kT}} \notag \\
+    &= NkT \tag{2.7.7}
+\end{align}
+Il caso di $N$ oscillatori armonici quantistici tridimensionali è equivalente a avere $3N$ oscillatori armonici quantistici unidimensionali, pertanto 
+\begin{align}
+    Q_N = e^{-\frac{3}{2}\beta\hbar\omega}\left(1 - e^{-\beta\hbar\omega}\right)^{-3N} \tag{2.7.8}
+\end{align}
+e 
+\begin{align}
+    U = 3NkT \tag{2.7.9}
+\end{align}
+come previsto dal \textit{teorema di equipartizione dell'energia}.
 
+\newpage
 \subsection{Entropia canonica}
-Facendo un cambio di variabili opportuno si ha 
+Con un opportuno cambio di variabili si può esprimere la funzione di partizione canonica come integrale sui livelli energetici del sistema (che supponiamo continui), ovvero
 \begin{align}
-    Q_N = \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\mathcal{H}} = \int_0^\infty dE \, \Gamma(E)e^{-\beta E} \tag{2.2.1}
+    Q_N = \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\mathcal{H}} = \int_0^\infty dE \, \Gamma(E)e^{-\beta E} \tag{2.8.1}
 \end{align}
-ovvero integrando su tutte le ipersuperficie a energia fissata nello spazio delle fasi. Per definizione 
+Essenzialmente stiamo integrando su tutte le ipersuperficie a energia fissata nello spazio delle fasi. Per definizione 
 \begin{align}
-    \Gamma(E) = \exp\left(-\frac{S_{mic}(E)}{k}\right) \tag{2.2.2}
+    \Gamma(E) = \exp\left(-\frac{S_{mic}(E)}{k}\right) \tag{2.8.2}
 \end{align}
-sostituendo $(2.2.2)$ in $(2.2.1)$ si ha 
+Sostituendo $(2.8.2)$ in $(2.().1)$ si ha 
 \begin{align}
     Q_N &= \int_0^\infty dE \, \exp\left(-\frac{S_{mic}(E)}{k} - \beta E\right) \notag \\
-    &= \int_0^\infty dE \, \exp\left(-\beta\left(TS_{mic}(E) + E\right)\right) \tag{2.2.3}
+    &= \int_0^\infty dE \, \exp\left(-\beta\left(TS_{mic}(E) + E\right)\right) \tag{2.8.3}
 \end{align}
-Notiamo che la funzione integranda è prodotto di una funzione crescente e una funzione decrescente ed ha quindi un punto di massimo. \\
+Notiamo che la funzione integranda è prodotto di una funzione crescente e una funzione decrescente (dell'energia) ed ha quindi un punto di massimo globale. \\
 A questo punto, sotto la stessa ipotesi dell'esempio del gas libero, ha senso approssimare l'esponente attorno al punto di massimo. Si ha 
 \begin{align}
     \frac{\partial}{\partial E}(TS_{mic}(E) - E) = 0 \notag
 \end{align}
 per $E = \overline{E}$ tale che
 \begin{align}
-    T\frac{\partial S_{mic}}{\partial E} = 1 \notag
+    T\left(\frac{\partial S_{mic}}{\partial E}\right)_{E = \overline{E}} = 1 \notag
 \end{align}
 Attorno ad $\overline{E}$ si ha 
 \begin{align}
-    TS_{mic}(E) - E \sim TS_{mic}(\overline{E}) - \overline{E} + \frac{1}{2}(E - \overline{E})^2T\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}} \tag{2.2.4}
+    TS_{mic}(E) - E \sim TS_{mic}(\overline{E}) - \overline{E} + \frac{1}{2}(E - \overline{E})^2T\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}} \tag{2.8.4}
 \end{align}
-ponendo $\eta = E - \overline{E}$ si ottiene 
+Ponendo $\eta = E - \overline{E}$ si ottiene 
 \begin{align}
-    Q_N \sim \frac{1}{h^{3N}}\exp\left(\beta(TS_{mic}(\overline{E}) - \overline{E})\right)\int_0^\infty d\eta \, \exp\left(\frac{1}{2k}\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}}\eta^2\right) \tag{2.2.5}
+    Q_N \sim \frac{1}{h^{3N}}\exp\left(\beta(TS_{mic}(\overline{E}) - \overline{E})\right)\int_0^\infty d\eta \, \exp\left(\frac{1}{2k}\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}}\eta^2\right) \tag{2.8.5}
 \end{align}
-Notiamo che la derivata seconda di $S_{mic}$ calcolata per $E = \overline{E}$ è un termine nergativo, infatti $\overline{E}$ è un punto di massimo per $S_{mic}$, segue che l'integrale in $(2.2.5)$ è gaussiano, quindi 
+Notiamo che la derivata seconda di $S_{mic}$ calcolata per $E = \overline{E}$ è un termine negativo, infatti $\overline{E}$ è un punto di massimo per $S_{mic}$, segue che l'integrale in $(2.8.5)$ è gaussiano, quindi 
 \begin{align}
-    Q_N \sim \frac{1}{h^{3N}}\exp\left(\beta(TS_{mic}(\overline{E}) - \overline{E})\right)\left(-2\pi k\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)^{-1}_{E = \overline{E}}\right)^{1/2} \tag{2.2.6}
+    Q_N \sim \frac{1}{2h^{3N}}\exp\left(\beta(TS_{mic}(\overline{E}) - \overline{E})\right)\left(-2\pi k\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)^{-1}_{E = \overline{E}}\right)^{1/2} \tag{2.8.6}
 \end{align}
-Concludiamo che l'entropia canonica è maggiore dell'entropia microcanonica (a causa delle fluttazioni) e differisce da quest'ultima per un termine che va come $\log N$. In particolare, usando la definizione statistica dell'energia libera $(2.1.8)$, si ottiene 
+Concludiamo che l'entropia canonica è maggiore dell'entropia microcanonica (a causa delle fluttazioni) e differisce da quest'ultima per un termine che va come $\log N$. In particolare, usando la definizione statistica dell'energia libera, si ottiene 
 \begin{align}
-    U - TS_{can} \sim \overline{E} - TS_{mic} - \frac{kT}{2}\log\left(2\pi kT^2\frac{\partial \overline{E}}{\partial T}\right) \tag{2.2.7}
+    U - TS_{can} \sim \overline{E} - TS_{mic} - \frac{kT}{2}\log\left(2\pi kT^2\frac{\partial \overline{E}}{\partial T}\right) \tag{2.8.7}
 \end{align}
 e, dato che $U \sim \overline{E}$, si ottiene 
 \begin{align}
-    S_{can} \sim S_{mic} + \frac{kT}{2}\log\left(2\pi kT^2c_V\right) \tag{2.2.8}
+    S_{can} \sim S_{mic} + \frac{kT}{2}\log\left(2\pi kT^2c_V\right) \tag{2.8.8}
 \end{align}
 
 \newpage
@@ -1028,7 +1029,7 @@ Dato un sistema costituito da $N$ particelle identiche e indistinguibili vale la
 \begin{align}
     \int d\mathbf{p}d\mathbf{q} \, (\dots) = \sum_{N_1 = 0}^N \frac{N!}{N_1!N_2!}\int d\mathbf{p}_1d\mathbf{q}_1 \, (\dots) \tag{3.1.2}
 \end{align}
-notiamo che il termine $(\dots)$ non è lo stesso in entrambi i membri. $(3.1.2)$ dice essenzialmente che nota la configurazione del sistema $1$ conosciamo direttamente anche la configurazione del sistema $2$ grazie ai vincoli su $N_1, N_2; V_1, V_2$. Sostituendo nella definizione di funzione di partizione canonica si ottiene 
+Notiamo che il termine $(\dots)$ non è lo stesso in entrambi i membri. $(3.1.2)$ dice essenzialmente che nota la configurazione del sistema $1$ conosciamo direttamente anche la configurazione del sistema $2$ grazie ai vincoli su $N_1, N_2; V_1, V_2$. Sostituendo nella definizione di funzione di partizione canonica si ottiene 
 \begin{align}
     Q_N &= \sum_{N_1 = 0}^N \frac{1}{N_1!N_2!}\frac{1}{h^{3N_1}}\int d\mathbf{p}_1d\mathbf{q}_1 \, e^{-\beta\mathcal{H}_{N_1}}\left(\frac{1}{h^{3N_2}}\int d\mathbf{p}_2d\mathbf{q}_2 \, e^{-\beta\mathcal{H}_{N_2}}\right) \notag \\
     &= \sum_{N_1 = 0}^N \frac{1}{N_1!(N - N_1)!}Q_{N_1}Q_{N - N_1} \tag{3.1.3}
@@ -1052,11 +1053,11 @@ sostituendo in $(3.1.4)$ si ottiene
 \begin{align}
     \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) \sim e^{-\beta(PV_1 -\mu N_1)}\frac{e^{-\beta \mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \tag{3.1.7}
 \end{align}
-A questo punto possiamo abbandonare il pedice che caratterizza il sottosistema $1$ e lo trattiamo come il sistema generale. Pertanto per un insieme di particelle indipendenti e indistinguibili studite come ensemble gran canonico si ha 
+A questo punto possiamo abbandonare il pedice che caratterizza il sottosistema $1$ e lo trattiamo come il sistema generale. Pertanto, per un insieme di particelle indipendenti e indistinguibili nel contesto dell'ensemble grancanonico, si ha
 \begin{align}
     \rho_N(\mathbf{p}, \mathbf{q}) = e^{-\beta(PV + \mathcal{H}_N)}\frac{Z^N}{N!h^{3N}} \tag{3.1.8}
 \end{align}
-dove si è posto $Z = e^{\beta\mu}$ detta \textit{fugacità}. Sostituendo l'espressione $(3.1.7)$ in $(3.1.5)$ otteniamo 
+dove si è posto $Z = e^{\beta\mu}$, detta \textit{fugacità}. Sostituendo l'espressione $(3.1.7)$ in $(3.1.5)$ otteniamo 
 \begin{align}
     1 &= \sum_{N = 0}^{\overbrace{\infty}^{\text{lim. termodin.}}}e^{-\beta PV}Z^N\frac{1}{N!h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\mathcal{H}_N} \notag \\
     &= \sum_{N = 0}^\infty e^{-\beta PV}Z^NQ_N \tag{3.1.9}
@@ -1067,9 +1068,9 @@ ovvero
 \end{align}
 Poniamo 
 \begin{align}
-    \tilde{Q}(Z, V, T) = \sum_{N = 0}^\infty Z^NQ_N \tag{3.1.11}
+    \tilde{Q}(T, V, Z) = \sum_{N = 0}^\infty Z^NQ_N \tag{3.1.11}
 \end{align}
-detta funzione di partizione gran canonica (costante che determina la normalizzazione della funzione distribuzione di probabilità $\rho$ associata all'ensemble gran canonico). \\
+detta \textit{funzione di partizione grancanonica} (costante che determina la normalizzazione della funzione distribuzione di probabilità $\rho$ associata all'ensemble grancanonico). \\
 Per particelle indipendenti e indistinguibili sappiamo che vale $Q_N = \frac{Q^N_1}{N!}$. Sostituendo in $(3.1.10)$ si ottiene 
 \begin{align}
     e^{\beta PV} = \sum_{N = 0}^\infty \frac{(ZQ_1)^N}{N!} = e^{ZQ_1} \tag{3.1.12}
@@ -1078,12 +1079,12 @@ e quindi otteniamo
 \begin{align}
     PV = ZQ_1kT \tag{3.1.13}
 \end{align}
-Per ensemble gran canonico il numero di particelle è una variabile stocastica, a causa del potenziale chimico $\mu$. Tuttavia, come già visto nel caso dell'ensemble canonico, è ragionevole aspettarsi che $ZQ_1 = \braket{N}$. \\ \\
+Nel contesto dell'ensemble grancanonico, il numero di particelle è una variabile stocastica, a causa del potenziale chimico $\mu$. Tuttavia, come già visto nel caso dell'ensemble canonico, è ragionevole aspettarsi che $ZQ_1 = \braket{N}$. \\ \\
 Notiamo che
 \begin{align}
     \braket{N} &= \sum_{N = 0}^\infty \frac{1}{\tilde{Q}}\frac{Z^N}{N!h^{3N}}\int d\mathbf{p}d\mathbf{q} \, Ne^{-\beta \mathcal{H}_N} \notag \\
     &= \frac{1}{\tilde{Q}}\sum_{N = 0}^\infty NZ^NQ_N \notag \\
-    &= Z\left(\frac{\partial}{\partial Z}\log \tilde{Q}\right)_{V, T} \tag{3.1.14}
+    &= Z\left(\frac{\partial}{\partial Z}\log \tilde{Q}\right)_{T, V} \tag{3.1.14}
 \end{align}
 dove nel secondo passaggio si è usata l'identità $(3.1.10)$. Pertanto, sempre nel contesto di particelle indipendenti e indistinguibili, si ha 
 \begin{align}
@@ -1092,55 +1093,39 @@ dove nel secondo passaggio si è usata l'identità $(3.1.10)$. Pertanto, sempre 
     &= Z\frac{\partial}{\partial Z}\left(\log \sum_{N = 0}^\infty \frac{(ZQ_1)^N}{N!}\right) \notag \\
     &= Z\frac{\partial}{\partial Z}ZQ_1 = ZQ_1 \tag{3.1.15}
 \end{align}
-dove si è usato $(3.1.12)$ nel quarto passaggio. Quindi, come ci si aspettava si ha 
+dove si è usato $(3.1.12)$ nel quarto passaggio. Quindi, come ci si aspettava, si ha 
 \begin{align}
     PV = \braket{N}kT \tag{3.1.16}
 \end{align}
-Inoltre, grazie alla $(3.1.15)$ siamo in grado di ottenere un'espressione per il potenziale chimico a cui è soggetto il sistema passando per la definizione di fugacità, in particolare si ha 
+Inoltre, grazie alla $(3.1.15)$, siamo in grado di ottenere un'espressione per il potenziale chimico a cui è soggetto il sistema passando per la definizione di fugacità, in particolare si ha 
 \begin{align}
     \mu = -kT\log \frac{Q}{\braket{N}} \tag{3.1.17}
 \end{align}
 
-\subsubsection{Particelle libere in una scatola}
-Consideriamo un sistema di $N$ particelle libere indistinguibili in una scatola di volume $V$. In questo caso sappiamo che vale $Q_N = \frac{Q^N_1}{N!}$, inoltre 
-\begin{align}
-    Q_1 = cVT^{3/2} \tag{3.1.18}
-\end{align}
-dove $c$ è un termine costante. Come fatto per $\braket{N}$, usando la definizione di media per l'ensemble gran canonico, possiamo scrivere 
-\begin{align}
-    \braket{E} = -\left(\frac{\partial}{\partial \beta}\log\tilde{Q}\right)_{Z, V} \tag{3.1.19}
-\end{align}
-Allora si ottiene 
-\begin{align}
-    \braket{E} &= -\left(\frac{\partial}{\partial \beta}ZQ_1(T, V)\right)_{Z, V} \notag \\
-    &= -Z\frac{\partial T}{\partial \beta} \left(\frac{\partial}{\partial T}Q_1(T, V)\right)_{Z, V} \notag \\
-    &= \frac{3}{2}\overbrace{cZVT^{3/2}}^{\braket{N}}kT = \frac{3}{2}\braket{N}kT \tag{3.1.20}
-\end{align}
-Mentre ricordiamo che per l'ensemble canonico si ha $\braket{E}_{can} = \frac{3}{2}NkT$ con $N$ costante del sistema. Successivamente studieremo come si comportano le fluttuazioni del numero di particelle rispetto alla media al limite termodinamico per capire se in tal caso l'ensemble gran canonico si riconduce approssimativamente all'ensemble canonico.
-
-\subsubsection{Fluttuazioni del numero di particelle (spettro discreto)}
+\newpage
+\subsection{Fluttuazioni del numero di particelle (spettro discreto)}
 Poniamoci sempre nel contesto di particelle indipendenti e indistinguibili. Come già visto la funzione di partizione canonica si fattorizza. Supponiamo che $Q_1 = Vf(T)$, con $f$ una qualsiasi funzione della temperatura sufficientemente regolare. \\ \\
 Nel caso di spettro discreto si ha 
 \begin{align}
-    \tilde{Q} &= \sum_{N = 0}^\infty Z^NQ_N = \sum_{N, E_N} Z^Nd(E_N)e^{-\beta E_N} \tag{3.1.21}
+    \tilde{Q} &= \sum_{N = 0}^\infty Z^NQ_N = \sum_{N, E_N} Z^Nd(E_N)e^{-\beta E_N} \tag{3.2.1}
 \end{align}
 dove $d(E_N)$ rappresenta la degenerazione del livello energetico $E_N$. Possiamo quindi definire una distribuzione di probabilità $P$ ponendo 
 \begin{align}
-    P(E_N) = \frac{Z^Nd(E_N)e^{-\beta E_N}}{\sum_{N, E_N}Z^Nd(E_N)e^{-\beta E_N}} \tag{3.1.22}
+    P(E_N) = \frac{Z^Nd(E_N)e^{-\beta E_N}}{\sum_{N, E_N}Z^Nd(E_N)e^{-\beta E_N}} \tag{3.2.2}
 \end{align}
 ben normalizzata. A questo punto, per costruzione, si ha 
 \begin{align}
-    \braket{E} = \sum_{N, E_N} E_NP(E_N) = -\left(\frac{\partial}{\partial\beta}\log \tilde{Q}\right) _{Z, V}\notag
+    \braket{E} = \sum_{N, E_N} E_NP(E_N) = -\left(\frac{\partial}{\partial\beta}\log \tilde{Q}\right) _{V, Z}\notag
 \end{align}
 per $(3.1.12)$ si ha che 
 \begin{align}
-    -\left(\frac{\partial}{\partial\beta}\log \tilde{Q}\right)_{Z, V} = -ZV\frac{\partial}{\partial\beta}f(T) = ZVf'(T)kT^2 \tag{3.1.23}
+    -\left(\frac{\partial}{\partial\beta}\log \tilde{Q}\right)_{V, Z} = -ZV\frac{\partial}{\partial\beta}f(T) = ZVf'(T)kT^2 \tag{3.2.3}
 \end{align}
 dove si è usata l'ipotesi $\tilde{Q} = Vf(T)$. A questo punto possiamo calcolare il calore specifico a volume costante $c_V$ usando la definizione termodinamica 
 \begin{align}
-    c_V &= \left(\frac{\partial}{\partial T}\braket{E}\right)_{Z, V} \notag \\
-    &= \left(\frac{\partial}{\partial T}\frac{f'(T)}{f(T)}\braket{N}kT^2\right)_{Z, V} \notag \\
-    &= \braket{N}kT\frac{2f(T)f'(T) + Tf(T)f''(T) - T(f'(T))^2}{(f(T))^2} \tag{3.1.24}
+    c_V &= \left(\frac{\partial}{\partial T}\braket{E}\right)_{V, Z} \notag \\
+    &= \left(\frac{\partial}{\partial T}\frac{f'(T)}{f(T)}\braket{N}kT^2\right)_{V, Z} \notag \\
+    &= \braket{N}kT\frac{2f(T)f'(T) + Tf(T)f''(T) - T(f'(T))^2}{(f(T))^2} \tag{3.2.4}
 \end{align}
 dove si è usato $\braket{N} = ZVf(T)$ e quindi $Z = \frac{\braket{N}}{Vf(T)}$. Questa espressione tornerà molto utile quando la dipendenza di $f$ da $T$ è della forma $T^\alpha$ per qualche $\alpha \in \mathbf{R}$. \\ \\
 Per $(3.1.12)$ si ha che 
@@ -1148,7 +1133,7 @@ Per $(3.1.12)$ si ha che
     P(E_N) &= \frac{Z^Nd(E_N)e^{-\beta E_N}}{\sum_{N, E_N}Z^Nd(E_N)e^{-\beta E_N}} \notag \\
     &= \frac{Z^NQ_N}{\sum_N Z^NQ_N} \notag \\
     &= \frac{Z^NQ^N_1}{N!}e^{-ZQ_1} \notag \\
-    &= \frac{\braket{N}}{N!}e^{-\braket{N}} \tag{3.1.25}
+    &= \frac{\braket{N}}{N!}e^{-\braket{N}} \tag{3.2.5}
 \end{align}
 ovvero $P(E_N)$ è una distribuzione poissoniana. Nell'appendice si dimostra che per $\braket{N} \rightarrow \infty$ la distribuzione poissoniana si comporta come una distribuzione gaussiana. \\ \\
 A questo punto studiamo come si comportano le fluttuazioni del numero di particelle. Per definizione 
@@ -1158,19 +1143,37 @@ A questo punto studiamo come si comportano le fluttuazioni del numero di partice
 e 
 \begin{align}
     \braket{(\Delta N)^2} &= \braket{N^2} - \braket{N}^2 \notag \\
-    &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} - \left(\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right) \tag{3.1.26}
+    &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} - \left(\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)^2 \tag{3.2.6}
 \end{align}
 Verifichiamo che vale la seguente relazione 
 \begin{align}
-    \braket{(\Delta N)^2} = Z\left(\frac{\partial}{\partial Z}\braket{N}\right)_{V, T} \tag{3.1.27}
+    \braket{(\Delta N)^2} = Z\left(\frac{\partial}{\partial Z}\braket{N}\right)_{V, T} \tag{3.2.7}
 \end{align}
 Si ha che 
 \begin{align}
     Z\left(\frac{\partial}{\partial Z}\braket{N}\right)_{V, T} &= Z\left(\frac{\partial}{\partial Z}\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)_{V, T} \notag \\
     &= Z\left(\frac{\sum_{N}N^2Z^{N - 1}Q_N}{\sum_{N}Z^NQ_N} - \frac{\sum_{N}NZ^{N - 1}Q_N\sum_{N}NZ^NQ_N}{\left(\sum_N Z^NQ_N\right)^2}\right) \notag \\
-    &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} - \left(\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)^2 \tag{3.1.28}
+    &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} - \left(\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)^2 \tag{3.2.8}
 \end{align}
-pertanto $(3.1.27)$ è dimostrata.
+pertanto $(3.2.7)$ è dimostrata.
+
+\newpage
+\subsection{Particelle libere in una scatola}
+Consideriamo un sistema di $N$ particelle libere, indipendenti e indistinguibili in una scatola di volume $V$. In questo caso sappiamo che vale $Q_N = \frac{Q^N_1}{N!}$, inoltre 
+\begin{align}
+    Q_1 = cVT^{3/2} \tag{3.3.1}
+\end{align}
+dove $c$ è un termine costante. Come fatto per $\braket{N}$, usando la definizione di media per l'ensemble grancanonico, possiamo scrivere 
+\begin{align}
+    \braket{E} = -\left(\frac{\partial}{\partial \beta}\log\tilde{Q}\right)_{V, Z} \tag{3.3.2}
+\end{align}
+Allora si ottiene 
+\begin{align}
+    \braket{E} &= -\left(\frac{\partial}{\partial \beta}ZQ_1(T, V)\right)_{V, Z} \notag \\
+    &= -Z\frac{\partial T}{\partial \beta} \left(\frac{\partial}{\partial T}Q_1(T, V)\right)_{V, Z} \notag \\
+    &= \frac{3}{2}\overbrace{cZVT^{3/2}}^{\braket{N}}kT = \frac{3}{2}\braket{N}kT \tag{3.3.3}
+\end{align}
+Mentre ricordiamo che per l'ensemble canonico si ha $\braket{E}_{can} = \frac{3}{2}NkT$ con $N$ costante del sistema.
 
 
 
