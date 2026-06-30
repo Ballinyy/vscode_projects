@@ -14,8 +14,8 @@
 \tableofcontents
 \newpage
 \section{Forme differenziali}
-Descriviamo la struttura geometrica definita sugli spazi in esame. In particolare, introdurremo i concetti di \textit{forma differenziale}, di \textit{prodotto esterno}, di \textit{derivata esterna} e definiremo l'integrazione delle forme differenziali.
-\subsection{$k$-forme}
+Descriviamo la struttura geometrica definita sugli spazi in esame. In particolare, introdurremo i concetti di \textit{forma esterna}, di \textit{prodotto esterno}, di \textit{forma differenziale}, di \textit{derivata esterna} e definiremo l'integrazione delle forme differenziali.
+\subsection{$k$-forme esterne}
 Sia $\mathbb{R}^n$ uno spazio lineare $n$-dimensionale (senza struttura euclidea fissata). \\ \\
 \textbf{Definizione:} una mappa lineare $\omega : \mathbb{R}^n \longrightarrow \mathbb{R}$ è detta $1$-\textit{forma}. In particolare 
 \begin{align}
@@ -405,7 +405,7 @@ per opportuni $a, b, c \in \mathbb{R}$. Dunque, per ogni $x \in \mathbb{R}^3$ si
     &= \omega^{(1)}_v(x) \tag{1.4.16}
 \end{align}
 dove si è definito $v = ae_1 + be_2 + ce_3$. Concludiamo che ogni $1$-forma su $\mathbb{R}^3$ è del tipo $\omega^{(1)}_v$ per qualche $v \in \mathbb{R}^3$. Segue che la mappa $v \mapsto \omega^{(1)}_v$ è un omomorfismo biettivo, ovvero un isomorfismo. \\ \\
-Analogamente, ogni $2$-forma può essere rappresentata come combinazione lineare dei monom di base $\{dx_i \wedge dx_j\}_{i < j}$. In particolare, data $\omega^{(2)} \in \Lambda^{(2)}(\mathbb{R}^3)$, si ha 
+Analogamente, ogni $2$-forma può essere rappresentata come combinazione lineare dei monomi di base $\{dx_i \wedge dx_j\}_{i < j}$. In particolare, data $\omega^{(2)} \in \Lambda^{(2)}(\mathbb{R}^3)$, si ha 
 \begin{align}
     \omega^{(2)} = Adx_2 \wedge dx_3 + Bdx_1 \wedge dx_3 + Cdx_1 \wedge dx_2 \tag{1.4.17}
 \end{align}
@@ -502,7 +502,7 @@ In generale, il differenziale $df$ di una funzione $f$ definita su una varietà 
     df : TM \longrightarrow \mathbb{R} \tag{1.6.6}
 \end{align}
 dove $TM = \bigcup_x T_xM$, lineare su ogni spazio tangente $T_xM$ e differenziabile. \\ \\
-\textbf{Definizione:} è detta $1$-\text{forma sulla varietà} $M$ un'applicazione regolare
+\textbf{Definizione:} è detta $1$-\textit{forma differenziale} su $M$ un'applicazione regolare
 \begin{align}
     \omega : TM \longrightarrow \mathbb{R} \tag{1.6.7}
 \end{align}
@@ -511,7 +511,8 @@ In particolare, dati $(x, v) \in M \times T_xM$, si ha
 \begin{align*}
     \omega(x, v) = \omega_x(v) \tag{1.6.8}
 \end{align*}
-dove $\omega_x$ è un'applicazione lineare dello spazio tangente a $M$ in $x$ nella retta reale. \\ \\
+dove $\omega_x$ è un'applicazione lineare dello spazio tangente a $M$ in $x$ nella retta reale. \\
+Uno può dire che una $1$-forma su $M$ è una \textit{forma algebrica} (forma esterna) su $T_xM$ differenziabile in $x$. \\ \\
 \textbf{Proposizione 1.6.1:} ogni $1$-forma su $\mathbb{R}$ è il differenziale di qualche funzione. \\
 
 \textbf{Dimostrazione:} sia $\omega$ una $1$-forma su $\mathbb{R}$. Allora $\omega$ si può scrivere come 
@@ -550,8 +551,35 @@ dove $g$ è una funzione arbitraria della sola $x_2$ da determinare imponendo
     \frac{\partial g}{\partial x_2} = x_1x_2 \tag{1.6.17}
 \end{align*}
 Tuttavia, non esiste una funzione $g$ della sola $x_2$ che soddisfa tale condizione. \\ \\
--- ESIBIRE 1-FORMA SULLA CIRCONFERENZA CHE NON SIA IL DIFFERENZIALE DI UNA FUNZIONE--
- 
+-- ESIBIRE 1-FORMA SULLA CIRCONFERENZA CHE NON SIA IL DIFFERENZIALE DI UNA FUNZIONE-- \\ \\
+\textbf{Teorema 1.6.1:} una $1$-forma differenziale su $M$ può essere scritta, in ogni intorno coordinato $U$, come combinazione lineare delle $n$-forme differenziali di base ($1$-forme algebriche), ovvero
+\begin{align}
+    \omega = a_1(x)dx_1 + \dots + a_n(x)dx_n \tag{1.6.18}
+\end{align}
+dove $a_1, \dots, a_n$ sono funzioni differenziabili di $M$ sulla retta reale. \\
+
+\textbf{Dimostrazione:} come visto nel paragrafo $1.1$, ogni $1$-forma esterna definita su uno spazio lineare $n$-dimensionale può essere scritta come combinazione lineare delle $n$ forme esterne di base, $dx_1, \dots, dx_n$. \\
+Sia $(U, \varphi)$ una carta dell'atlante definito su $M$. La mappa $\varphi$ introduce un sistema di coordinate locali su $M$. \\
+Allora, data $\omega$ una $1$-forma differenziale su $M$ e fissato $x \in M$, si ha 
+\begin{align}
+    \omega_x = a_1dx_1 + \dots + a_ndx_n \tag{1.6.19}
+\end{align}
+ per opportuni $a_1, \dots, a_n \in \mathbb{R}$, dove $dx_1, \dots, dx_n$ sono ora le forme esterne di base dello spazio lineare $(T_xM)^*$, ben definite grazie al sistema di coordinare locali introdotto da $\varphi$. Lasciando $x$ libero di variare in $M$ si ottiene naturalmente 
+ \begin{align}
+    \omega = a_1(x)dx_1 + \dots + a_n(x)dx_n \tag{1.6.20}
+ \end{align}
+ dove $a_1, \dots, a_n$ sono funzioni differenziabili di $M$ sulla retta reale (per definizione di forma differenziale). \\
+ Data l'arbitrarietà della carta scelta, il risultato è valido per ogni carta dell'atlante definito su $M$. \qed
+
+ \newpage
+ \subsection{$k$-forme differenziali}
+ \textbf{Definizione:} è detta $k$-\textit{forma differenziale} su $M$ un'applicazione 
+ \begin{align}
+    \omega^{(k)} : TM \longrightarrow \mathbb{R} \tag{1.7.1}
+ \end{align}
+ differenziabile in $x$, multilineare e anticommutativa su $T_xM$ per ogni $x \in M$. \\
+ Analogamente a quanto osservato nel caso di $1$-forme differenziali su una varietà $M$, una $k$-forma differenziale su $M$ è una $k$-forma algebrica (esterna) su $T_xM$ per ogni $x \in M$, che dipende da $x$ in modo differenziabile. \\ \\
+ La composizione, moltiplicazione per scalare e prodotto esterno di $k$-forme differenziali su una varietà $M$ sono definiti puntualmente, ovvero si opera sulle forme algebriche definite su $T_xM$ per ogni $x \in M$ singolarmente.
 
 
 
