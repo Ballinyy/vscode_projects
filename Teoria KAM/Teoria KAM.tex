@@ -550,29 +550,8 @@ dove $g$ è una funzione arbitraria della sola $x_2$ da determinare imponendo
     \frac{\partial g}{\partial x_2} = x_1x_2 \tag{1.6.17}
 \end{align*}
 Tuttavia, non esiste una funzione $g$ della sola $x_2$ che soddisfa tale condizione. \\ \\
-Facciamo lo stesso considerando come varietà la circonferenza nel piano $\mathbf{S}^1$. La circonferenza nel piano può essere parametrizzata come segue
-\begin{align*}
-    t \mapsto (\cos t, \sin t) \qquad t \in [0, 2\pi) \tag{1.6.18}
-\end{align*}
-Indichiamo con $\gamma$ la parametrizzazione della circonferenza. Fissato $t \in [0, 2\pi)$, lo spazio tangente alla circonferenza in $t$ è identificato da
-\begin{align*}
-    T_{\gamma(t)}\mathbf{S}^1 = \{a\dot{\gamma}(t) : a \in \mathbb{R}\} \tag{1.6.19}
-\end{align*}
-ovvero è lo span del vettore velocità $\dot{\gamma}(t)$. \\
-Una $1$-forma $\omega$ su $\mathbf{S}^1$ è un'applicazione $\omega : T\mathbf{S}^1 \longrightarrow \mathbb{R}$ del tipo
-\begin{align*}
-    (x, v) \in \mathbf{S}^1 \times T_x\mathbf{S}^1 \mapsto \omega_x(v) \in \mathbb{R} \tag{1.6.20} 
-\end{align*}
-differenziabile in $x$ e che dipende da $v$ linearmente, dove $\omega_x$ è una $1$-forma su $T_x\mathbf{S}^1$. Dato che abbiamo definito una parametrizzazione per $\mathbf{S}^1$, ogni punto della circonferenza è identificato univocamente da $t$, pertanto la dipendenza da $x$ si riduce a una dipendenza da $t$. In generale possiamo scrivere 
-\begin{align*}
-    \omega(t, v) = a(t)dt(v) \tag{1.6.21}
-\end{align*}
-dove $a$ è una funzione sufficientemente regolare e $dt$ è la $1$-forma di base dello spazio duale $(T_{\gamma(t)}\mathbf{S}^1)^*$ (una volta fissata $\{\dot{\gamma}(t)\}$ come base di $T_{\gamma(t)}\mathbf{S}^1$). \\
-Data una funzione differenziabile $f : \mathbf{S}^1 \longrightarrow \mathbb{R}$ e data una curva differenziabile $\alpha_t : (-\varepsilon, \varepsilon) \longrightarrow \mathbf{S}^1$ tale che $\alpha_t(0) = \gamma(t)$ e $\dot{\alpha}_t(0) = v$, si ha 
-\begin{align*}
-    df_{\gamma(t)}(v) = \frac{d}{ds}f(\alpha_t(s))|_{s = 0} \tag{1.6.22}
-\end{align*}
-
+-- ESIBIRE 1-FORMA SULLA CIRCONFERENZA CHE NON SIA IL DIFFERENZIALE DI UNA FUNZIONE--
+ 
 
 
 

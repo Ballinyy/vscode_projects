@@ -1006,14 +1006,16 @@ e, dato che $U \sim \overline{E}$, si ottiene
 \end{align}
 
 \newpage
-\section{Ensemble gran canonico}
+\section{Ensemble grancanonico}
+Siamo interessati a descrivere microscopicamente un sistema a contatto con un reservoir, dunque termalizzato ad una temperatura $T$, con il quale scambia energia ed è in grado di interagire chimicamente. Segue che le grandezze termodinamiche $E, N$ diventano ora variabili stocastiche del sistema. \\
+Sistemi che soddisfano tal condizioni fanno parte dell'\textit{ensemble grancanonico}.
 \subsection{Legge di stato}
-Siamo ora interessati a studiare un sistema in cui $E, N$ non sono fissate. Consideriamo un sistema identificato dalle grandezze $N, V$ termalizzato a temperatura $T$ per contatto con un reservoir. Suddividiamo questo sistema in due sottosistemi identificati dalle grandezze $N_1, V_1$ e $N_2, V_2$, che soddisfano 
+Consideriamo un sistema $X$ a contatto con un reservoir termalizzato e suddividiamo $X$ in due sottosistemi $X_1, X_2$ caratterizzati dalle grandezze termodinamiche $N_1, V_1$ e $N_2, V_2$, che soddisfano 
 \begin{align}
     N &= N_1 + N_2 \notag \\
     V &= V_1 + V_2 \notag
 \end{align}
-Al limite in cui $V$ è molto grande il contributo di interazione tra il sistema $1$ e il sistema $2$, che è pressoché limitato al bordo, è trascurabile rispetto al contributo dovuto alle interazioni interne, ovvero i due sistemi sono debolmente interagenti e quindi si ha 
+Al limite in cui $V$ è molto grande il contributo di interazione tra $X_1$ e $X_2$, che è pressoché limitato al bordo di $X_1$, è trascurabile rispetto al contributo dovuto alle interazioni interne, ovvero i due sistemi sono debolmente interagenti e quindi si ha 
 \begin{align}
     \mathcal{H}_N(\mathbf{p}, \mathbf{q}) = \mathcal{H}_{N_1}(\mathbf{p}_1, \mathbf{q}_1) + \mathcal{H}_{N_2}(\mathbf{p}_2, \mathbf{q}_2) \notag
 \end{align}
@@ -1021,30 +1023,32 @@ Per definizione
 \begin{align}
     Q_N &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\mathcal{H}_N} \notag
 \end{align}
-Cerchiamo un modo per poter scrivere la funzione di partizione canonica come segue (costruzione marginale (?))
+Cerchiamo un modo per scrivere la funzione di partizione canonica come segue (costruzione marginale (?))
 \begin{align}
     Q_N = \sum_{N_1}\frac{1}{h^{3N_1}}\int d\mathbf{p}_1d\mathbf{q}_1 \, (\dots) \tag{3.1.1}
 \end{align}
-Dato un sistema costituito da $N$ particelle identiche e indistinguibili vale la seguente identità 
+Poiché ora stiamo considerando $N_1$ variabile, ovvero supponiamo che il sottosistema $X_1$ possa interagire chimicamente con $X_2$, dobbiamo considerare tutte le configurazioni possibili che soddisfano il vincolo $N = N_1 + N_2$. \\
+Se $N_1$ e $N_2$ fossero fissate, sotto l'ipotesi di sistemi debolmente interagenti, si avrebbe
 \begin{align}
-    \int d\mathbf{p}d\mathbf{q} \, (\dots) = \sum_{N_1 = 0}^N \frac{N!}{N_1!N_2!}\int d\mathbf{p}_1d\mathbf{q}_1 \, (\dots) \tag{3.1.2}
+    Q_N &= Q_{N_1}Q_{N_2} \notag \\
+    &= \left(\frac{1}{\hbar^{3N_1}N_1!}\int d\mathbf{p}^{(1)}d\mathbf{q}^{(1)} \, e^{-\beta\mathcal{H}_{N_1}}\right)\left(\frac{1}{\hbar^{3N_2}N_2!}\int d\mathbf{p}^{(2)}d\mathbf{q}^{(2)} \, e^{-\beta\mathcal{H}_{N_2}}\right) \tag{3.1.2}
 \end{align}
-Notiamo che il termine $(\dots)$ non è lo stesso in entrambi i membri. $(3.1.2)$ dice essenzialmente che nota la configurazione del sistema $1$ conosciamo direttamente anche la configurazione del sistema $2$ grazie ai vincoli su $N_1, N_2; V_1, V_2$. Sostituendo nella definizione di funzione di partizione canonica si ottiene 
+Una volta introdotta la possibilità che i sistemi scambino particelle dobbiamo considerare tutte le configurazioni che soddisfano $N = N_1 + N_2$, pertanto si ottiene
 \begin{align}
-    Q_N &= \sum_{N_1 = 0}^N \frac{1}{N_1!N_2!}\frac{1}{h^{3N_1}}\int d\mathbf{p}_1d\mathbf{q}_1 \, e^{-\beta\mathcal{H}_{N_1}}\left(\frac{1}{h^{3N_2}}\int d\mathbf{p}_2d\mathbf{q}_2 \, e^{-\beta\mathcal{H}_{N_2}}\right) \notag \\
+    Q_N &= \sum_{N_1 = 0}^N \left(\frac{1}{\hbar^{3N_1}N_1!}\int d\mathbf{p}^{(1)}d\mathbf{q}^{(1)} \, e^{-\beta\mathcal{H}_{N_1}}\right)\left(\frac{1}{\hbar^{3N_2}N_2!}\int d\mathbf{p}^{(2)}d\mathbf{q}^{(2)} \, e^{-\beta\mathcal{H}_{N_2}}\right) \notag \\
     &= \sum_{N_1 = 0}^N \frac{1}{N_1!(N - N_1)!}Q_{N_1}Q_{N - N_1} \tag{3.1.3}
 \end{align}
-Il fattore $1/N!$ non appare più poiché l'indistinguibilità classica delle particelle ci costringe a introdurre il fattore di Gibbs a mano. Poniamo allora 
+Concludiamo che la densità di probabilità associata al sottosistema $X_1$ è data da
 \begin{align}
     \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) &= \frac{1}{Q_N}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \cdot \frac{1}{N_2!h^{3N_2}}\int d\mathbf{p}_2d\mathbf{q}_2 \, e^{-\beta\mathcal{H}_{N_2}} \notag \\
     &= \frac{Q_{N_2}}{Q_N}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \notag \\
     &= e^{-\beta(F_{N_2}(V_2, T) - F_N(V, T))}\frac{e^{-\beta\mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \tag{3.1.4}
 \end{align}
-Notiamo che $\rho$ è correttamente normalizzata sullo spazio delle fasi associato al sistema $1$, in particolare 
+Notiamo che $\rho$ è correttamente normalizzata sullo spazio delle fasi associato a $X_1$, in particolare 
 \begin{align}
     1 = \sum_{N_1 = 0}\int d\mathbf{p}_1d\mathbf{q}_1 \, \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) \tag{3.1.5}
 \end{align}
-Supponiamo ora che $N_2 << N$ e $V_2 << V$, si ha 
+Supponiamo ora che $N_1 << N$ e $V_1 << V$, si ha 
 \begin{align}
     F_{N_2}(V_2, T) - F_N(V, T) &\sim -\underbrace{\left(\frac{\partial F}{\partial N}\right)_{V, T}}_{\mu}N_1 - \underbrace{\left(\frac{\partial F}{\partial V}\right)_{N, T}}_{-P}V_1 \notag \\
     &= -\mu N_1 + PV_1 \tag{3.1.6}
@@ -1053,7 +1057,7 @@ sostituendo in $(3.1.4)$ si ottiene
 \begin{align}
     \rho_{N_1}(\mathbf{p}_1, \mathbf{q}_1) \sim e^{-\beta(PV_1 -\mu N_1)}\frac{e^{-\beta \mathcal{H}_{N_1}}}{N_1!h^{3N_1}} \tag{3.1.7}
 \end{align}
-A questo punto possiamo abbandonare il pedice che caratterizza il sottosistema $1$ e lo trattiamo come il sistema generale. Pertanto, per un insieme di particelle indipendenti e indistinguibili nel contesto dell'ensemble grancanonico, si ha
+A questo punto possiamo abbandonare il pedice che caratterizza il sottosistema $X_1$ e lo trattiamo come il sistema generale. Per un insieme di particelle indipendenti e indistinguibili nel contesto dell'ensemble grancanonico si ha
 \begin{align}
     \rho_N(\mathbf{p}, \mathbf{q}) = e^{-\beta(PV + \mathcal{H}_N)}\frac{Z^N}{N!h^{3N}} \tag{3.1.8}
 \end{align}
@@ -1111,13 +1115,13 @@ Nel caso di spettro discreto si ha
 \end{align}
 dove $d(E_N)$ rappresenta la degenerazione del livello energetico $E_N$. Possiamo quindi definire una distribuzione di probabilità $P$ ponendo 
 \begin{align}
-    P(E_N) = \frac{Z^Nd(E_N)e^{-\beta E_N}}{\sum_{N, E_N}Z^Nd(E_N)e^{-\beta E_N}} \tag{3.2.2}
+    P(N, E_N) = \frac{Z^Nd(E_N)e^{-\beta E_N}}{\sum_{N, E_N}Z^Nd(E_N)e^{-\beta E_N}} \tag{3.2.2}
 \end{align}
 ben normalizzata. A questo punto, per costruzione, si ha 
 \begin{align}
-    \braket{E} = \sum_{N, E_N} E_NP(E_N) = -\left(\frac{\partial}{\partial\beta}\log \tilde{Q}\right) _{V, Z}\notag
+    U = \sum_{N, E_N} E_NP(N, E_N) = -\left(\frac{\partial}{\partial\beta}\log \tilde{Q}\right) _{V, Z}\notag
 \end{align}
-per $(3.1.12)$ si ha che 
+Per $(3.1.12)$ si ha che 
 \begin{align}
     -\left(\frac{\partial}{\partial\beta}\log \tilde{Q}\right)_{V, Z} = -ZV\frac{\partial}{\partial\beta}f(T) = ZVf'(T)kT^2 \tag{3.2.3}
 \end{align}
@@ -1130,12 +1134,12 @@ dove si è usata l'ipotesi $\tilde{Q} = Vf(T)$. A questo punto possiamo calcolar
 dove si è usato $\braket{N} = ZVf(T)$ e quindi $Z = \frac{\braket{N}}{Vf(T)}$. Questa espressione tornerà molto utile quando la dipendenza di $f$ da $T$ è della forma $T^\alpha$ per qualche $\alpha \in \mathbf{R}$. \\ \\
 Per $(3.1.12)$ si ha che 
 \begin{align}
-    P(E_N) &= \frac{Z^Nd(E_N)e^{-\beta E_N}}{\sum_{N, E_N}Z^Nd(E_N)e^{-\beta E_N}} \notag \\
+    P(N, E_N) &= \frac{Z^Nd(E_N)e^{-\beta E_N}}{\sum_{N, E_N}Z^Nd(E_N)e^{-\beta E_N}} \notag \\
     &= \frac{Z^NQ_N}{\sum_N Z^NQ_N} \notag \\
     &= \frac{Z^NQ^N_1}{N!}e^{-ZQ_1} \notag \\
     &= \frac{\braket{N}}{N!}e^{-\braket{N}} \tag{3.2.5}
 \end{align}
-ovvero $P(E_N)$ è una distribuzione poissoniana. Nell'appendice si dimostra che per $\braket{N} \rightarrow \infty$ la distribuzione poissoniana si comporta come una distribuzione gaussiana. \\ \\
+ovvero $P(N, E_N)$ è una distribuzione poissoniana. Nell'appendice si dimostra che per $\braket{N} \rightarrow \infty$ la distribuzione poissoniana si comporta come una distribuzione gaussiana. \\ \\
 A questo punto studiamo come si comportano le fluttuazioni del numero di particelle. Per definizione 
 \begin{align}
     \braket{N^2} &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} \notag
@@ -1153,9 +1157,10 @@ Si ha che
 \begin{align}
     Z\left(\frac{\partial}{\partial Z}\braket{N}\right)_{V, T} &= Z\left(\frac{\partial}{\partial Z}\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)_{V, T} \notag \\
     &= Z\left(\frac{\sum_{N}N^2Z^{N - 1}Q_N}{\sum_{N}Z^NQ_N} - \frac{\sum_{N}NZ^{N - 1}Q_N\sum_{N}NZ^NQ_N}{\left(\sum_N Z^NQ_N\right)^2}\right) \notag \\
-    &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} - \left(\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)^2 \tag{3.2.8}
+    &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} - \left(\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)^2 \notag \\
+    &= \braket{N^2} - \braket{N}^2 \tag{3.2.8}
 \end{align}
-pertanto $(3.2.7)$ è dimostrata.
+Pertanto $(3.2.7)$ è dimostrata.
 
 \newpage
 \subsection{Particelle libere in una scatola}
@@ -1165,15 +1170,15 @@ Consideriamo un sistema di $N$ particelle libere, indipendenti e indistinguibili
 \end{align}
 dove $c$ è un termine costante. Come fatto per $\braket{N}$, usando la definizione di media per l'ensemble grancanonico, possiamo scrivere 
 \begin{align}
-    \braket{E} = -\left(\frac{\partial}{\partial \beta}\log\tilde{Q}\right)_{V, Z} \tag{3.3.2}
+    U = -\left(\frac{\partial}{\partial \beta}\log\tilde{Q}\right)_{V, Z} \tag{3.3.2}
 \end{align}
 Allora si ottiene 
 \begin{align}
-    \braket{E} &= -\left(\frac{\partial}{\partial \beta}ZQ_1(T, V)\right)_{V, Z} \notag \\
+    U &= -\left(\frac{\partial}{\partial \beta}ZQ_1(T, V)\right)_{V, Z} \notag \\
     &= -Z\frac{\partial T}{\partial \beta} \left(\frac{\partial}{\partial T}Q_1(T, V)\right)_{V, Z} \notag \\
     &= \frac{3}{2}\overbrace{cZVT^{3/2}}^{\braket{N}}kT = \frac{3}{2}\braket{N}kT \tag{3.3.3}
 \end{align}
-Mentre ricordiamo che per l'ensemble canonico si ha $\braket{E}_{can} = \frac{3}{2}NkT$ con $N$ costante del sistema.
+Mentre ricordiamo che per l'ensemble canonico si ha $U_{can} = \frac{3}{2}NkT$ con $N$ costante del sistema.
 
 
 
