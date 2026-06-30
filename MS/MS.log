@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  30 JUN 2026 12:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  30 JUN 2026 18:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -313,36 +313,36 @@ Overfull \hbox (25.13956pt too wide) in paragraph at lines 937--939
  []
 
 [36] [37] [38] [39] [40] [41]
-Underfull \hbox (badness 10000) in paragraph at lines 1085--1088
+Underfull \hbox (badness 10000) in paragraph at lines 1084--1087
 
  []
 
 [42] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1111--1113
+Underfull \hbox (badness 10000) in paragraph at lines 1110--1112
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1133--1136
+Underfull \hbox (badness 10000) in paragraph at lines 1132--1135
 
  []
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 1141--1144
+Underfull \hbox (badness 10000) in paragraph at lines 1140--1143
 
  []
 
-[45] [46]
-Underfull \hbox (badness 10000) in paragraph at lines 1200--1203
+[45] [46] [47]
+Underfull \hbox (badness 10000) in paragraph at lines 1221--1224
 
  []
 
-[47]
-Underfull \hbox (badness 10000) in paragraph at lines 1264--1267
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 1285--1288
 
  []
 
-[48] [49] [50] [51] (./MS.aux)
+[49] [50] [51] [52] (./MS.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -357,10 +357,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,19n,65p,706b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MS.pdf (51 pages, 369909 bytes).
+Output written on MS.pdf (52 pages, 373574 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 187 compressed objects within 2 object streams
+ 293 PDF objects out of 1000 (max. 8388607)
+ 189 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
