@@ -1184,7 +1184,7 @@ Mentre ricordiamo che per l'ensemble canonico si ha $U_{can} = \frac{3}{2}NkT$ c
 \section{Meccanica Statistica Quantistica}
 Nel caso di sistemi quantistici è necessario tenere conto di aspetti che abbiamo fino ad ora trascurato, come l'indistinguibilità quantistica delle particelle, che porta a funzioni d'onda con simmetria ben definita, e la sovrapposizione di stati.
 
-\subsection{Concetto di ensemble quantistico}
+\subsection{Statistica dei sistemi quantistici}
 Consideriamo un sistema composto da due particelle indipendenti, ognuna delle quali può avere un energia che è multiplo intero positivo di una quantità fissata $\varepsilon > 0$. L'energia totale del sistema è data da
 \begin{align}
     E_{tot} = m\varepsilon + n\varepsilon \qquad m, n \in \mathbf{N} \tag{4.1.1}
@@ -1203,6 +1203,57 @@ Mentre, se supponiamo che si tratti di due bosoni, la funzione d'onda complessiv
 \begin{align}
     Q_2 = \frac{1}{2}\sum_{m, n = 0}^\infty e^{-\beta(m\varepsilon + n\varepsilon)} + \frac{1}{2}\sum_{m = n}e^{-\beta(m\varepsilon + n\varepsilon)} = \frac{1}{2}Q^2_1(\beta) + \frac{1}{2}Q_1(2\beta) \tag{4.1.4}
 \end{align}
+Consideriamo un sistema simile, composto da due particelle che possono occupare due stati differenti, uno a energia $0$ e l'altro a energia $\varepsilon$. La funzione di partizione canonica è data da
+\begin{align}
+    Q_2 = 1 + 2e^{-\beta\varepsilon} + e^{-2\beta\varepsilon} = (1 + e^{-\beta\varepsilon})^2 = Q^2_1 \tag{4.1.5}
+\end{align}
+Se supponiamo che le particelle siano indistinguibili e moltiplichiamo per il fattore di Gibbs, si ottiene
+\begin{align}
+    Q_2 = \frac{1}{2} + e^{-\beta\varepsilon} + \frac{1}{2}e^{-2\beta\varepsilon} \tag{4.1.6}
+\end{align}
+Tuttavia, non è corretto assegnare un fattore $\frac{1}{2}$ ad ogni microstato. \\
+Se consideriamo le particelle come indistinguibili sin dall'inizio i microstati distinti diventano tre, di cui solo uno è accessibile nel caso di fermioni. In particolare, per fermioni si ottiene
+\begin{align}
+    Q_2 = e^{-\beta\varepsilon} \tag{4.1.7}
+\end{align}
+che combacia con il risultato ottenuto in $(4.1.6)$ se non consideriamo gli stati non accessibili. Mentre, nel caso di bosoni si ottiene 
+\begin{align}
+    Q_2 = 1 + e^{-\beta\varepsilon} + e^{-2\beta\varepsilon} \tag{4.1.8}
+\end{align}
+Notiamo che $(4.1.8)$ e $(4.1.6)$ sono differenti. Infatti, il fattore di Gibbs fallisce quando c'è un accumulo di particelle in un singolo stato. Più precisamente, quando la frazione di particelle in un singolo stato diventa non infinitesima, il fattore di Gibbs fallisce. \\
+Questo accade perché il fattore di Gibbs non selezione solamente i microstati "patologici", ma associa un peso statistico identico ad ogni microstato. In $(4.1.8)$ solamente i microstati che contruibiscono con il termine $e^{-\beta\varepsilon}$ creano problemi, ovvero gli stati $(\varepsilon, 0)$ e $(0, \varepsilon)$ che sono identici per particelle indistinguibili. Mentre, i microstati $(0, 0)$ e $(\varepsilon, \varepsilon)$ non vengono contati più volte nel calcolo della funzione di partizione canonica, pertanto non necessitano del peso statistico attribuito dal fattore di Gibbs.
+
+\newpage
+\subsection{Matrice densità}
+Consideriamo un stato quantistico $\ket{\psi(t)}$ e scriviamolo come combinazione lineare degli autostati dell'hamiltoniano
+\begin{align}
+    \ket{\psi(t)} = \sum_n \braket{\phi_n|\psi(t)}\ket{\phi_n} = \sum_n a_n(t)\ket{\phi_n} \tag{4.2.1}
+\end{align}
+dove
+\begin{align}
+    \sum_n |a_n(t)|^2 = 1 \notag
+\end{align}
+Sia $A$ un'osservabile, il valore medio di $A$ sullo stato $\ket{\psi}$ è dato da
+\begin{align}
+    \braket{A} = \braket{\psi(t)|A|\psi(t)} = \sum_{m, n}a_m(t)^*a_n(t)\braket{\phi_m|A|\phi_n} \tag{4.2.2}
+\end{align}
+A questo punto, possiamo definire la media temporale di $A$ come segue 
+\begin{align}
+    \overline{\braket{A}} = \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T dt \, \braket{A} \tag{4.2.3}
+\end{align}
+Nel contesto dell'ensemble microcanonico, fissata l'energia $E$ del sistema, poniamo
+\begin{align}
+    \overline{|a_n(t)|^2} = \begin{cases}
+        \frac{1}{\Gamma(E)} \qquad &E \leq E_n\ leq E + \Delta \\
+        0 \qquad &\text{altrimenti}
+    \end{cases} \tag{4.2.4}
+\end{align}
+Mentre ha senso aspettarsi che 
+\begin{align}
+    \overline{a_m(t)^*a_n(t)} = 0 \tag{4.2.5}
+\end{align}
+dato che si tratta di sovrapposizione di stati incoerenti. $(4.2.5)$ è detto \textit{postulato delle fasi random}.
+
 
 
 
