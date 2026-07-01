@@ -1184,7 +1184,7 @@ Mentre ricordiamo che per l'ensemble canonico si ha $U_{can} = \frac{3}{2}NkT$ c
 \section{Meccanica Statistica Quantistica}
 Nel caso di sistemi quantistici è necessario tenere conto di aspetti che abbiamo fino ad ora trascurato, come l'indistinguibilità quantistica delle particelle, che porta a funzioni d'onda con simmetria ben definita, e la sovrapposizione di stati.
 
-\subsection{Statistica dei sistemi quantistici}
+\subsection{Indistinguibilità quantistica}
 Consideriamo un sistema composto da due particelle indipendenti, ognuna delle quali può avere un energia che è multiplo intero positivo di una quantità fissata $\varepsilon > 0$. L'energia totale del sistema è data da
 \begin{align}
     E_{tot} = m\varepsilon + n\varepsilon \qquad m, n \in \mathbf{N} \tag{4.1.1}
@@ -1224,35 +1224,43 @@ Notiamo che $(4.1.8)$ e $(4.1.6)$ sono differenti. Infatti, il fattore di Gibbs 
 Questo accade perché il fattore di Gibbs non selezione solamente i microstati "patologici", ma associa un peso statistico identico ad ogni microstato. In $(4.1.8)$ solamente i microstati che contruibiscono con il termine $e^{-\beta\varepsilon}$ creano problemi, ovvero gli stati $(\varepsilon, 0)$ e $(0, \varepsilon)$ che sono identici per particelle indistinguibili. Mentre, i microstati $(0, 0)$ e $(\varepsilon, \varepsilon)$ non vengono contati più volte nel calcolo della funzione di partizione canonica, pertanto non necessitano del peso statistico attribuito dal fattore di Gibbs.
 
 \newpage
-\subsection{Matrice densità}
-Consideriamo un stato quantistico $\ket{\psi(t)}$ e scriviamolo come combinazione lineare degli autostati dell'hamiltoniano
+\subsection{Concetto di ensemble in meccanica quantistica}
+Consideriamo un sistema quantistico isolato a più corpi descritto dall'hamiltoniano $\hat{\mathcal{H}}$. Un qualsiasi stato quantistico puro (che presenti solamente fluttazioni quantistiche) $\ket{\psi(t)}$ può essere espresso come combinazione lineare di autostati $\{\ket{n}\}_n$ dell'hamiltoniniano, ovvero 
 \begin{align}
-    \ket{\psi(t)} = \sum_n \braket{\phi_n|\psi(t)}\ket{\phi_n} = \sum_n a_n(t)\ket{\phi_n} \tag{4.2.1}
+    \ket{\psi(t)} = \sum_n c_ne^{-i\frac{E_n}{\hbar}t}\ket{n} \tag{4.2.1}
 \end{align}
-dove
+dove $\sum_n |c_n|^2 = 1$, che garantisce la normalizzazione del ket di stato per ogni istante di tempo $t$. La condizione iniziale $\ket{\psi(0)}$ è univocamente identificata dalla scelta dei coefficienti $c_n$
 \begin{align}
-    \sum_n |a_n(t)|^2 = 1 \notag
+    \ket{\psi(0)} = \sum_n c_n\ket{n} \tag{4.2.2}
 \end{align}
-Sia $A$ un'osservabile, il valore medio di $A$ sullo stato $\ket{\psi}$ è dato da
+Consideriamo un'osservabile $\mathcal{O}$ associata al sistema in esame. Per definizione, il valore medio dell'osservabile $\mathcal{O}$ associata allo stato $\ket{\psi(t)}$ è data da 
 \begin{align}
-    \braket{A} = \braket{\psi(t)|A|\psi(t)} = \sum_{m, n}a_m(t)^*a_n(t)\braket{\phi_m|A|\phi_n} \tag{4.2.2}
+    \braket{\mathcal{O}}_t = \braket{\psi(t)|\mathcal{O}|\psi(t)} = \sum_n |c_n|^2\braket{n|\mathcal{O}|n} + \sum_{m \neq n}c_m^*c_ne^{-\frac{i}{\hbar}(E_m - E_n)t}\braket{m|\mathcal{O}|n} \tag{4.2.3}
 \end{align}
-A questo punto, possiamo definire la media temporale di $A$ come segue 
+Notiamo che la prima sommatoria in $(4.2.3)$ contribuisce con un termine indipendente dal tempo, mentre la seconda sommatoria contribuisce con un termine che dipende armonicamente dal tempo. \\
+A questo punto, ci chiediamo se è possibile osservare equilibrio nel sistema. In generale sembrerebbe di no, infatti la somma sulla diagonale dipende fortemente dai coefficienti che definiscono la condizione iniziale del sistema, mentre la somma dei termini fuori diagonale ha dipendenza armonica dal tempo, che in generale non si annulla. \\ \\
+Per studiare l'equilibrio di sistemi quantistici a più corpi, consideriamo la media statistica su un ensemble costituito da $N$ copie del sistema in esame, ognuno con condizione iniziale $\ket{\psi_k(0)}$ differente. In tale schema, il valor medio sull'ensemble di un'osservabile $\mathcal{O}$ è dato da 
 \begin{align}
-    \overline{\braket{A}} = \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T dt \, \braket{A} \tag{4.2.3}
+    \braket{\mathcal{O}}_t = \frac{1}{N}\sum_{k = 0}^N \braket{\psi_k(t)|\mathcal{O}|\psi_k(t)} \tag{4.2.4}
 \end{align}
-Nel contesto dell'ensemble microcanonico, fissata l'energia $E$ del sistema, poniamo
+Definiamo $p_k = \frac{n_k}{N}$, dove $n_k$ è il numero di elementi dell'ensemble che hanno come condizione iniziale $\ket{\psi_k(0)}$, notiamo che $\sum_k p_k = 1$. Allora 
 \begin{align}
-    \overline{|a_n(t)|^2} = \begin{cases}
-        \frac{1}{\Gamma(E)} \qquad &E \leq E_n\ leq E + \Delta \\
-        0 \qquad &\text{altrimenti}
-    \end{cases} \tag{4.2.4}
+    \braket{\mathcal{O}}_t = \sum_k p_k\braket{\psi_k(t)|\mathcal{O}|\psi_k(t)} \tag{4.2.5}
 \end{align}
-Mentre ha senso aspettarsi che 
+Introducendo un set completo $\sum_\alpha \ket{\alpha}\bra{\alpha}$, dove $\{\ket{\alpha}\}_{\alpha}$ non sono necessariamente autostati dell'hamiltoniano $\hat{\mathcal{H}}$, si può riscrivere $(4.2.5)$ come segue 
 \begin{align}
-    \overline{a_m(t)^*a_n(t)} = 0 \tag{4.2.5}
+    \braket{\mathcal{O}}_t &= \sum_k\sum_\alpha p_k\braket{\psi_k(t)|\alpha}\braket{\alpha|\mathcal{O}|\psi_k(t)} \notag \\
+    &= \sum_\alpha \braket{\alpha|\left(\sum_k p_k \ket{\psi_k(t)}\bra{\psi_k(t)}\right)\mathcal{O}|\alpha} \tag{4.2.6}
 \end{align}
-dato che si tratta di sovrapposizione di stati incoerenti. $(4.2.5)$ è detto \textit{postulato delle fasi random}.
+Definiamo
+\begin{align}
+    \hat{\rho}(t) = \sum_k p_k\ket{\psi_k(t)}\bra{\psi_k(t)} \tag{4.2.7}
+\end{align}
+detta \textit{matrice densità}. Allora $(4.2.6)$ diventa 
+\begin{align}
+    \braket{O}_t = \sum_\alpha \braket{\alpha|\hat{\rho}(t)\mathcal{O}|\alpha} = \mathrm{Tr}(\hat{\rho}(t)\mathcal{O}) \tag{4.2.8}
+\end{align}
+La traccia di un operatore è indipendente dalla base scelta.
 
 
 
