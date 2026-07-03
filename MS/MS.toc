@@ -11,8 +11,8 @@
 \contentsline {subsection}{\numberline {2.1}Energia libera}{25}{}%
 \contentsline {subsection}{\numberline {2.2}Teorema di equipartizione dell'energia}{28}{}%
 \contentsline {subsection}{\numberline {2.3}Fluttuazioni dell'energia}{29}{}%
-\contentsline {subsection}{\numberline {2.4}Particelle libere in una scatola}{31}{}%
-\contentsline {subsection}{\numberline {2.5}Particelle soggette a potenziale armonico in una scatola}{33}{}%
+\contentsline {subsection}{\numberline {2.4}Particelle libere}{31}{}%
+\contentsline {subsection}{\numberline {2.5}Particelle soggette a potenziale armonico}{33}{}%
 \contentsline {subsection}{\numberline {2.6}Sistema di $N$ siti a due stati}{34}{}%
 \contentsline {subsection}{\numberline {2.7}Sistema di $N$ oscillatori armonici quantisitici}{36}{}%
 \contentsline {subsection}{\numberline {2.8}Entropia canonica}{38}{}%
@@ -23,3 +23,4 @@
 \contentsline {section}{\numberline {4}Meccanica Statistica Quantistica}{47}{}%
 \contentsline {subsection}{\numberline {4.1}Indistinguibilità quantistica}{47}{}%
 \contentsline {subsection}{\numberline {4.2}Concetto di ensemble in meccanica quantistica}{49}{}%
+\contentsline {subsection}{\numberline {4.3}Particelle libere}{52}{}%
