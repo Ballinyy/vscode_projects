@@ -1296,10 +1296,68 @@ Scegliendo di usare una rappresentazione differente dalla rappresentazione nella
 per ogni condizione iniziale $\ket{\psi_k(0)}$ e ogni $m \neq n$ (a meno di degenerazioni). In particolare, $(4.1.13)$ equivale a supporre che lo stato quantistico in esame sia dato da una sovrapposizione incoerenti di autostati, la quale ha contributo nullo una volta che viene mediato su tempi sufficientemente lunghi.
 
 \newpage
-\subsection{Particelle libere}
-Ora tutte le variabili dinamiche e le varie osservabili saranno rappresentate da operatori quantistici. Consideriamo un sistema tridimensionale composto da $N$ particelle indipendenti e indistinguibili (senza ancora specificare se fermioni o bosoni). L'hamiltoniano che descrive tale sistema è
+\subsection{Gas ideali quantistici}
+Consideriamo un sistema quantistico composto da $N$ particelle indipendenti. La funzione di partizione canonico associata a tale sistema è data da
 \begin{align}
-    \mathcal{H} = \sum_{i = 1}^N \frac{\mathbf{p}^2_i}{2m} \tag{4.3.1}
+    Q_N = \sum_E e^{-\beta E} \tag{4.3.1}
+\end{align}
+dove $E$ è l'energia associata ad un determinato autostato. Possiamo esprimere $E$ in termini delle energie $\varepsilon$ dei singoli livelli occupati, ovvero 
+\begin{align}
+    E = \sum_{\varepsilon} n_\varepsilon\varepsilon \tag{4.3.2}
+\end{align}
+dove $n_\varepsilon$ è il numero di particelle che occupa lo stato ad energia $\varepsilon$. Ovviamente si ha 
+\begin{align}
+    \sum_\varepsilon n_\varepsilon = N \tag{4.3.3}
+\end{align}
+Pertanto, possiamo riscrivere la funzione di partizione canonica come segue
+\begin{align}
+    Q_N = \sum_{\{n_\varepsilon\}} g\{n_\varepsilon\}e^{-\beta\sum_\varepsilon n_\varepsilon\varepsilon} \tag{4.3.4}
+\end{align}
+dove $\{n_\varepsilon\}$ è l'insieme delle possibili configurazioni che soddisfano il vincolo $(4.3.3)$, mentre $g\{n_\varepsilon\}$ è il peso statistico assegnato ad una data configurazione. In particolare, il valore di $g$ per una data configurazione differesci nel caso di fermioni e bosoni. Per bosoni si ha
+\begin{align}
+    g\{n_\varepsilon\} = 1 \tag{4.3.5}
+\end{align}
+Mentre, nel caso di fermioni dobbiamo ricordare che uno stato non può essere occupato simultaneamente da più di un fermione, pertanto
+\begin{align}
+    g\{n_\varepsilon\} = \begin{cases}
+        1 \qquad &\text{se la conf. è permessa} \\
+        0 \qquad &\text{se la conf. è vietata}
+    \end{cases} \tag{4.3.6}
+\end{align}
+Inoltre, è possibile riscrivere $(4.3.4)$ come 
+\begin{align}
+    Q_N = \sum_{\{n_\varepsilon\}}\prod_\varepsilon g\{n_\varepsilon\}\left(e^{-\beta\varepsilon}\right)^{n_\varepsilon} \tag{4.3.7}
+\end{align}
+A questo punto, dato che al limite termodinamico i tre ensemble sono identici, scegliamo l'ensemble grancanonico per studiare il comportamento all'equilibrio dei sistemi quantistici, dato che risulta essere il più semplice da trattare matematicamente. \\
+La funzione di partizione grancanonica può essere scritta come
+\begin{align}
+    \tilde{Q} &= \sum_{N = 0}^\infty Z^NQ_N \notag \\
+    &= \sum_{N = 0}^\infty\sum_{\{n_\varepsilon\}}\prod_\varepsilon \left(Ze^{-\beta\varepsilon}\right)^{n_\varepsilon} \notag \\
+    &= \sum_{n_0, n_1, \dots}\left[\left(Ze^{-\beta\varepsilon_0}\right)^{n_0}\left(Ze^{-\beta\varepsilon_1}\right)^{n_1}\dots \right] \tag{4.3.8}
+\end{align}
+Ora diventa necessario distinguire il caso della statistica di Bose-Einstein con quello della statistica di Fermi-Dirac. \\
+Nella prima situazione, ogni configurazione $\{n_\varepsilon\}$ che soddisfa il vincolo $(4.3.3)$ è permessa. Allora, nel limite termodinamico ($N \rightarrow \infty)$, si ottiene 
+\begin{align}
+    \tilde{Q}_{BE} = \prod_\varepsilon \frac{1}{1 - Ze^{-\beta\varepsilon}} \tag{4.3.9}
+\end{align}
+Mentre, nel caso di fermioni $n_\varepsilon$ può essere $0$ o $1$, pertanto
+\begin{align}
+    \tilde{Q}_{FD} = \prod_\varepsilon 1 + Ze^{-\beta\varepsilon} \tag{4.3.10}
+\end{align}
+Nota la funzione di partizione grancanonica, possiamo determinare le espressioni caratteristiche dell'ensemble grancanonico. In particolare
+\begin{align}
+    \frac{PV}{kT} &= \log \tilde{Q} = \begin{cases}
+        -\sum_\varepsilon \log\left(1 - Ze^{-\beta\varepsilon}\right) &\qquad \text{BE}\\
+        \sum_\varepsilon \log\left(1 + Ze^{-\beta\varepsilon}\right) &\qquad \text{FD}
+    \end{cases} \tag{4.3.11} \\ \notag \\
+    \mathcal{N} &= Z\frac{\partial}{\partial Z}\left(\log \tilde{Q}\right) = \begin{cases}
+        \sum_\varepsilon \frac{1}{\frac{e^{\beta\varepsilon}}{Z} - 1} &\qquad \text{BE} \\
+        \sum_\varepsilon \frac{1}{\frac{e^{\beta\varepsilon}}{Z} + 1} &\qquad \text{FD}
+    \end{cases} \tag{4.3.12} \\ \notag \\
+    U &= -\left(\frac{\partial}{\partial \beta \log\tilde{Q}}\right) = \begin{cases}
+        \sum_\varepsilon \frac{\varepsilon}{\frac{e^{\beta\varepsilon}}{Z} - 1} &\qquad \text{BE} \\
+        \sum_\varepsilon \frac{\varepsilon}{\frac{e^{\beta\varepsilon}}{Z} + 1} &\qquad \text{FD}
+    \end{cases} \tag{4.3.13}
 \end{align}
 
 
