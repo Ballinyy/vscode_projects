@@ -1359,7 +1359,69 @@ Nota la funzione di partizione grancanonica, possiamo determinare le espressioni
         \sum_\varepsilon \frac{\varepsilon}{\frac{e^{\beta\varepsilon}}{Z} + 1} &\qquad \text{FD}
     \end{cases} \tag{4.3.13}
 \end{align}
+In ogni espressione è necessario moltiplicare per il termine $g_s = 2s + 1$ di degenerazione dovuta allo spin. \\ \\
+Nel limite termodinamico gli stati energeetici sono densissimi, pertanto è possibile sostituire la sommatoria con un integrale nello spazio delle fasi
+\begin{align}
+    \sum_\varepsilon f(\varepsilon) \longrightarrow \int d\mathbf{p}d\mathbf{q} \, g(\mathbf{p}, \mathbf{q})f(\mathbf{p}, \mathbf{q}) \tag{4.3.14}
+\end{align}
+dove $g$ è la funzione densità degli stati e si è espressa la dipendenza di $f$ dall'energia come dipendenza da $(\mathbf{p}, \mathbf{q})$ (ovvero supponiamo che $\mathcal{H}$, hamiltoniano di singola particella, sia funzione solamente di coordinate e impulsi generalizzati). \\ \\
+Osservato ciò, possiamo riscrivere le equazioni caratteristiche dell'ensemble grancanonico quantisico come segue
+\begin{align}
+    \frac{PV}{kT} &= (-1)^{g_s}g_s\int \frac{d\mathbf{p}d\mathbf{q}}{h^3} \, \log(1 + (-1)^{g_s}Ze^{-\beta\mathcal{H}(\mathbf{p}, \mathbf{q})}) \tag{4.3.15} \\ \notag \\
+    \mathcal{N} &= (-1)^{g_s}g_s\int \frac{d\mathbf{p}d\mathbf{q}}{h^3} \, \frac{1}{Z^{-1}e^{\beta\mathcal{H}(\mathbf{p}, \mathbf{q})} + (-1)^{g_s}} \tag{4.3.16} \\ \notag \\
+    U &= (-1)^{g_s}g_s\int \frac{d\mathbf{p}d\mathbf{q}}{h^3} \, \frac{\mathcal{H}(\mathbf{p}, \mathbf{q})}{Z^{-1}e^{\beta\mathcal{H}(\mathbf{p}, \mathbf{q})} + (-1)^{g_s}} \tag{4.3.17}
+\end{align}
+dove il valore di $g_s = 2s + 1$ dipende dalla natura delle particelle in esame (fermioni o bosoni).
 
+\newpage
+\subsection{Particelle libere}
+Consideriamo un sistema composto da $N$ particelle indipendenti e indistinguibili (fermioni o bosoni), l'hamiltoniano di singola particelle che lo descrive è
+\begin{align}
+    \mathcal{H}(\mathbf{p}, \mathbf{q}) = \frac{\mathbf{p}^2}{2m} \notag
+\end{align}
+Nel contento dell'ensemble grancanonico quantistico si ha 
+\begin{align}
+    \frac{PV}{kT} = (-1)^{g_s}g_s\frac{V}{h^3}\int d\mathbf{p} \, \log(1 + (-1)^{g_s}Ze^{-\beta\frac{\mathbf{p}^2}{2m}}) \tag{4.4.1}
+\end{align}
+dove è stato subito calcolato il contributo dovuta all'integrazione in $d\mathbf{q}$. Passando in coordinare sferiche e integrando per parti $(4.4.1)$ si ottiene
+\begin{align}
+    \frac{PV}{kT} = &(-1)^{g_s}\frac{4\pi g_sV}{h^3}\left(\frac{1}{3}p^3\log(1 + (-1)^{g_s}Ze^{-\beta\frac{p^2}{2m}})|_0^\infty\right. \notag \\
+    &+ \left.\frac{(-1)^{g_s}\beta Z}{3m}\int_0^\infty dp \, \frac{p^4e^{-\beta\frac{p^2}{2m}}}{1 + (-1)^{g_s}Ze^{-\beta\frac{p^2}{2m}}}\right) \tag{4.4.2} 
+\end{align}
+dove si è posto $p = \|\mathbf{p}\|$. Dopo qualche manipolazione algrebrica, possiamo riscrivere $(4.4.2)$ come segue
+\begin{align}
+    \frac{PV}{kT} &= \frac{2g_s\beta V}{3h^3}\int_0^\infty 4\pi p^2dp \, \frac{\frac{p^2}{2m}}{Z^{-1}e^{\beta\frac{p^2}{2m}} + (-1)^{g_s}} \notag \\
+    &= \frac{2}{3}\beta U \tag{4.4.3}
+\end{align}
+ovvero 
+\begin{align}
+    PV = \frac{2}{3}U \tag{4.4.4}
+\end{align}
+La relazione $(4.4.4)$ resta valida anche se non è più valido il \textit{teorema di equipartizione dell'energia}. Questo perché ha fondamenti cinetici che sono più profondi.
+
+\newpage
+\subsection{Correzioni quantistiche al limite classico}
+Consideriamo un sistema di $N$ fermioni indipendenti e indistinguibili governato da un hamiltoniano di singola particella della forma
+\begin{align}
+    \mathcal{H}(\mathbf{p}) = c\|\mathbf{p}\| \tag{4.5.1}
+\end{align}
+Nel contesto dell'ensemble grancanonico quantistico si ha
+\begin{align}
+    U = \frac{4\pi g_sV}{h^3}\int_0^\infty dp p^2 \, \frac{pc}{Z^{-1}e^{\beta pc} + 1} \tag{4.5.2}
+\end{align}
+Poniamo $x = \beta pc$, allora $p = \frac{x}{\beta c}$ e $dp = \frac{1}{\beta c}dx$. Sostituendo in $(4.5.3)$ si ottiene 
+\begin{align}
+    U = \frac{4\pi g_sV}{\beta^4c^3h^3}\int_0^\infty dx \, \frac{x^3}{Z^{-1}e^x + 1} \tag{4.5.3} 
+\end{align}
+Facendo lo stesso per l'espressione del numero medio di particelle $\mathcal{N}$ si ottiene
+\begin{align}
+    \mathcal{N} = \frac{4\pi g_sV}{\beta^3c^3h^3}\int_0^\infty dx \, \frac{x^2}{Z^{-1}e^x + 1} \tag{4.5.4}
+\end{align}
+Sviluppiamo $(4.5.4)$ in serie per $Z << 1$
+\begin{align}
+    \mathcal{N} &= \frac{4\pi g_sV}{\beta^3c^3h^3}\int_0^\infty dx \, \frac{Zx^2}{e^x + Z} \notag \\
+    &\sim \frac{4\pi g_sV}{\beta^3c^3h^3}\left(Z\int_0^\infty x^2e^x + Z^2\int_0^\infty ...\right)\tag{4.5.5}
+\end{align}
 
 
 
