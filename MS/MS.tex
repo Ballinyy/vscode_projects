@@ -1397,10 +1397,51 @@ ovvero
 \begin{align}
     PV = \frac{2}{3}U \tag{4.4.4}
 \end{align}
-La relazione $(4.4.4)$ resta valida anche se non è più valido il \textit{teorema di equipartizione dell'energia}. Questo perché ha fondamenti cinetici che sono più profondi.
+La relazione $(4.4.4)$ resta valida anche se non è più valido il \textit{teorema di equipartizione dell'energia}. Questo perché ha fondamenti cinetici che sono più profondi. \\ \\
+Consideriamo ora il caso di fermioni e poniamo $x = \beta\frac{p^2}{2m}$, allora $p = \sqrt{\frac{2mx}{\beta}}$ e $dp = \frac{1}{2}\sqrt{\frac{2m}{\beta}}x^{-1/2}dx$. Sostituendo in $(4.4.1)$ otteniamo
+\begin{align}
+    \frac{PV}{kT} &= \frac{4\pi g_sV}{h^3}\int_0^\infty dx \, \frac{1}{2}\sqrt{\frac{2m}{\beta}}x^{-1/2}\frac{2m}{\beta}x\log(1 + Ze^{-x}) \notag \\
+    &= \frac{4\pi g_sV}{h^3}\left(\frac{2m}{\beta}\right)^{3/2}\int_0^\infty dx \, x^{1/2}\log(1 + Ze^{-x}) \notag \\
+    &= \frac{V}{\lambda^3}\frac{4}{\sqrt{\pi}}\int_0^\infty dx \, x^{1/2}\log(1 + Ze^{-x}) \tag{4.4.5}
+\end{align}
+dove 
+\begin{align}
+    \lambda = \left(\frac{\beta h^2}{2\pi m}\right)^{1/2} \notag
+\end{align}
+che contiene l'informazione sulla temperatura. Integrando per parti $(4.4.5)$ si ottiene
+\begin{align}
+    \frac{P}{kT} &= \frac{1}{\lambda^3}\frac{4}{\sqrt{\pi}}\left[\cancel{\left(\frac{2}{3}x^{3/2}\log(1 + Ze^{-x})\right)_0^\infty} + \frac{2Z}{3}\int_0^\infty dx \, \frac{x^{3/2}e^{-x}}{1 + Ze^{-x}} \right] \notag \\
+    &= \frac{8}{3\lambda^3\sqrt{\pi}}\int_0^\infty dx \, \frac{x^{3/2}}{Z^{-1}e^x + 1} \tag{4.4.6}
+\end{align}
+Chiamiamo \textit{funzione di Fermi di ordine} $\frac{5}{2}$ il termine
+\begin{align}
+    f_{5/2}(Z) = \frac{8}{3\sqrt{\pi}}\int_0^\infty dx \, \frac{x^{3/2}}{Z^{-1}e^x + 1} \tag{4.4.7}
+\end{align}
+Più in generale, poniamo
+\begin{align}
+    f_\nu(Z) = \frac{1}{\Gamma(\nu)}\int_0^\infty dx \, \frac{x^{\nu - 1}}{Z^{-1}e^x + 1} \tag{4.4.8}
+\end{align}
+Per $Z << 1$, quindi al limite classico, si ha
+\begin{align}
+    f_{5/2}(Z) \sim Z \tag{4.4.9}
+\end{align}
+A questo punto possiamo riscrivere le equazioni caratteristiche dell'ensemble grancanonico quantistico termini delle funzioni di Fermi. In particolare
+\begin{align}
+    \mathcal{N} &= Z\frac{\partial}{\partial Z}\left(\frac{PV}{kT}\right)_{T, V} = \frac{V}{\lambda^3}Z\frac{\partial}{\partial Z}\left(f_{5/2}(Z)\right)_{T, V} \tag{4.4.10} \\
+    U &= -\frac{\partial}{\partial \beta}\left(\frac{PV}{kT}\right)_{V, Z} = -Vf_{5/2}\frac{\partial}{\partial \beta}\left(\frac{1}{\lambda^3}\right)_{V, Z} \tag{4.4.11} 
+\end{align}
+Esplicitiamo i termini in $(4.4.10)$ e $(4.4.11)$
+\begin{align}
+    \frac{\partial}{\partial Z}f_{5/2}(Z) &= \frac{8}{3\sqrt{\pi}}\int_0^\infty dx \, \frac{\partial}{\partial Z}\left(\frac{x^{3/2}}{Z^{-1}e^x + 1}\right) \notag \\
+    &= \frac{8}{3\sqrt{\pi}}\int_0^\infty dx \, \frac{\partial}{\partial Z}\left(\frac{Zx^{3/2}e^{-x}}{1 + Ze^{-x}}\right) \notag \\
+    &= \frac{8}{3\sqrt{\pi}}\int_0^\infty dx \, \frac{\frac{3}{2}Zx^{1/2}e^{-x}(1 + Ze^{-x}) - Zx^{3/2}e^{-x}}{(1 + Ze^{-x})^2} \notag \\
+    &= \frac{8}{3\sqrt{\pi}}\int_0^\infty dx \, \left(\frac{3}{2}Z\frac{x^{1/2}e^{-x}}{1 + Ze^{-x}} - Z\frac{x^{3/2}e^{-x}}{(1 + Ze^{-x})^2}\right) \tag{4.4.12}
+\end{align}
+
+
 
 \newpage
-\subsection{Correzioni quantistiche al limite classico}
+\subsection{Correzioni quantistiche alle equazioni caratteristiche}
 Consideriamo un sistema di $N$ fermioni indipendenti e indistinguibili governato da un hamiltoniano di singola particella della forma
 \begin{align}
     \mathcal{H}(\mathbf{p}) = c\|\mathbf{p}\| \tag{4.5.1}
@@ -1454,6 +1495,7 @@ Pertanto, dato che $PV = \frac{1}{3}U$, abbiamo ottenuto
     PV = \mathcal{N}kT\left(1 + \frac{5}{16}n'\right) \tag{4.5.11}
 \end{align}
 ovvero la prima correzione alla pressione è positiva, ciò è dovuto al principio di esclusione di Pauli.
+
 
 
 
