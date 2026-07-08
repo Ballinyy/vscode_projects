@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1783446649.71286 "c:/Users/aless/Desktop/vscode_proj/MS/MS.tex" "MS.pdf" "MS" 1783446651.36184 0
-  "MS.aux" 1783446651 3485 0e15d9db8124d603da72fee64ec7b8aa "pdflatex"
-  "MS.tex" 1783446648 111160 5a04903f6bd538a1a1ef78317d7ad8a5 ""
-  "MS.toc" 1783446651 2304 f2bfcbfbec27d2c3bb173fb29e090d88 "pdflatex"
-  "c:/Users/aless/Desktop/vscode_proj/MS/MS.tex" 1783446648 111160 5a04903f6bd538a1a1ef78317d7ad8a5 ""
+["pdflatex"] 1783521924.79735 "c:/Users/aless/Desktop/vscode_proj/MS/MS.tex" "MS.pdf" "MS" 1783521926.46373 0
+  "MS.aux" 1783521926 3485 84c8dfefb3b40529f0e093f798168659 "pdflatex"
+  "MS.tex" 1783521923 116619 b3b8b4d23fd02ebd17216aa5162a14fa ""
+  "MS.toc" 1783521926 2304 350ee231950f33b12b86cdb9e053f993 "pdflatex"
+  "c:/Users/aless/Desktop/vscode_proj/MS/MS.tex" 1783521923 116619 b3b8b4d23fd02ebd17216aa5162a14fa ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1773573954 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1773573954 1120 7f9f170e8aa57527ad6c49feafd45d54 ""

@@ -1397,7 +1397,9 @@ ovvero
 \begin{align}
     PV = \frac{2}{3}U \tag{4.4.4}
 \end{align}
-La relazione $(4.4.4)$ resta valida anche se non è più valido il \textit{teorema di equipartizione dell'energia}. Questo perché ha fondamenti cinetici che sono più profondi. \\ \\
+La relazione $(4.4.4)$ resta valida anche se non è più valido il \textit{teorema di equipartizione dell'energia}. Questo perché ha fondamenti cinetici che sono più profondi.
+
+\subsubsection*{Funzioni di Fermi}
 Consideriamo ora il caso di fermioni e poniamo $x = \beta\frac{p^2}{2m}$, allora $p = \sqrt{\frac{2mx}{\beta}}$ e $dp = \frac{1}{2}\sqrt{\frac{2m}{\beta}}x^{-1/2}dx$. Sostituendo in $(4.4.1)$ otteniamo
 \begin{align}
     \frac{PV}{kT} &= \frac{4\pi g_sV}{h^3}\int_0^\infty dx \, \frac{1}{2}\sqrt{\frac{2m}{\beta}}x^{-1/2}\frac{2m}{\beta}x\log(1 + Ze^{-x}) \notag \\
@@ -1430,14 +1432,96 @@ A questo punto possiamo riscrivere le equazioni caratteristiche dell'ensemble gr
     \mathcal{N} &= Z\frac{\partial}{\partial Z}\left(\frac{PV}{kT}\right)_{T, V} = \frac{V}{\lambda^3}Z\frac{\partial}{\partial Z}\left(f_{5/2}(Z)\right)_{T, V} \tag{4.4.10} \\
     U &= -\frac{\partial}{\partial \beta}\left(\frac{PV}{kT}\right)_{V, Z} = -Vf_{5/2}\frac{\partial}{\partial \beta}\left(\frac{1}{\lambda^3}\right)_{V, Z} \tag{4.4.11} 
 \end{align}
-Esplicitiamo i termini in $(4.4.10)$ e $(4.4.11)$
+Esplicitiamo i termini in $(4.4.10)$ e $(4.4.11)$. Per $\nu > 1$ si ha
 \begin{align}
-    \frac{\partial}{\partial Z}f_{5/2}(Z) &= \frac{8}{3\sqrt{\pi}}\int_0^\infty dx \, \frac{\partial}{\partial Z}\left(\frac{x^{3/2}}{Z^{-1}e^x + 1}\right) \notag \\
-    &= \frac{8}{3\sqrt{\pi}}\int_0^\infty dx \, \frac{\partial}{\partial Z}\left(\frac{Zx^{3/2}e^{-x}}{1 + Ze^{-x}}\right) \notag \\
-    &= \frac{8}{3\sqrt{\pi}}\int_0^\infty dx \, \frac{\frac{3}{2}Zx^{1/2}e^{-x}(1 + Ze^{-x}) - Zx^{3/2}e^{-x}}{(1 + Ze^{-x})^2} \notag \\
-    &= \frac{8}{3\sqrt{\pi}}\int_0^\infty dx \, \left(\frac{3}{2}Z\frac{x^{1/2}e^{-x}}{1 + Ze^{-x}} - Z\frac{x^{3/2}e^{-x}}{(1 + Ze^{-x})^2}\right) \tag{4.4.12}
+    Z\frac{\partial}{\partial Z}f_\nu(Z) &= \frac{Z}{\Gamma(\nu)}\int_0^\infty dx \, \frac{\partial}{\partial Z}\left(\frac{x^{\nu - 1}}{Z^{-1}e^x + 1}\right) \notag \\
+    &= \frac{Z}{\Gamma(\nu)}\int_0^\infty dx \, \frac{x^{\nu - 1}}{(Z^{-1}e^x + 1)^2}\frac{e^x}{Z^2} \notag \\
+    &= \frac{1}{\Gamma(\nu)}\int_0^\infty dx \, \frac{x^{\nu - 1}e^x}{Z(Z^{-1}e^x + 1)^2} \notag \\
+    &= -\frac{1}{\Gamma(\nu)}\int_0^\infty dx \, x^{\nu - 1}\frac{d}{dx}\left(\frac{1}{Z^{-1}e^x + 1}\right) \notag \\
+    &= -\frac{1}{\Gamma(\nu)}\left[\cancel{\left(\frac{x^{\nu - 1}}{Z^{-1}e^x + 1}\right)_0^\infty} - \int_0^\infty dx \, \frac{(\nu - 1)x^{\nu - 2}}{Z^{-1}e^x + 1}\right] \notag \\
+    &= \frac{\nu - 1}{\Gamma(\nu)}\int_0^\infty dx \, \frac{x^{\nu - 2}}{Z^{-1}e^x + 1} \notag \\
+    &= \frac{1}{\Gamma(\nu - 1)}\int_0^\infty dx \, \frac{x^{\nu - 2}}{Z^{-1}e^x + 1} \notag \\
+    &= f_{\nu - 1}(Z) \tag{4.4.12}
+\end{align}
+Mentre
+\begin{align}
+    \frac{\partial}{\partial \beta}\left(\frac{1}{\lambda^3}\right) &= \frac{\partial}{\partial \beta}\left(\frac{\beta h^2}{2\pi m}\right)^{3/2} \notag \\
+    &= \frac{3}{2}\left(\frac{h^2}{2\pi m}\right)^{3/2}\beta^{1/2} \notag
+\end{align}
+Pertanto, concludiamo che 
+\begin{align}
+    \frac{P}{kT} &= \frac{g_s}{\lambda^3}f_{5/2}(Z) \tag{4.4.13} \\
+    \frac{\mathcal{N}}{V} &= \frac{g_s}{\lambda^3}f_{3/2}(Z) \tag{4.4.14} \\
+    \frac{U}{V} &= \frac{3g_s}{2\beta}\frac{1}{\lambda^3}f_{5/2}(Z) \tag{4.4.15}
+\end{align}
+Inoltre, notiamo che è possibile riscrivere $f_\nu(Z)$ in termini di serie note, infatti
+\begin{align}
+    f_\nu(Z) &= \frac{1}{\Gamma(\nu)}\int_0^\infty dx \, \frac{x^{\nu - 1}}{Z^{-1}e^x + 1} \notag \\
+    &= \frac{1}{\Gamma(\nu)}\int_0^\infty dx \, Zx^{\nu - 1}e^{-x}\sum_{l = 0}^\infty (-Ze^{-x})^l \notag \\
+    &= \frac{1}{\Gamma(\nu)}\int_0^\infty dx \, x^{\nu - 1}\sum_{l = 0}^\infty (-1)^{l - 1}(Ze^{-x})^l \notag \\
+    &= \sum_{l = 0}^\infty (-1)^{l - 1}\frac{Z^l}{l^\nu} \tag{4.4.16}
+\end{align}
+dove si è usato
+\begin{align}
+    \int_0^\infty dy \, y^{\nu - 1}e^{-ly} = \frac{\Gamma(\nu)}{l^\nu} \notag
 \end{align}
 
+\subsubsection*{Energia di Fermi}
+Supponiamo ora di avere $\mathcal{N}$ particelle in un volume fissato $V$. Allora deve valere 
+\begin{align}
+    \frac{\mathcal{N}}{V} = \text{costante} \tag{4.4.17}
+\end{align}
+In particolare, confrontando $(4.4.17)$ con $(4.4.14)$, notiamo che, affinché la condizione $(4.4.17)$ sia soddisfatta, deve valere 
+\begin{align}
+    \frac{f_{3/2}(Z)}{\lambda^2} \propto 1 \tag{4.4.18}
+\end{align}
+dunque, dato che $\lambda^3$ va come $\beta^{3/2}$, otteniamo
+\begin{align}
+    f_{3/2}(Z) \propto \log Z^{3/2} \tag{4.4.19}
+\end{align}
+infatti $Z = e^{\beta\mu}$. Poniamo $\eta = \log Z$ (fissato) e supponiamo $\eta >> 1$, allora
+\begin{align}
+    f_{3/2}(Z) &= \frac{1}{\Gamma(3/2)}\int_0^\infty dx \, \frac{x^{1/2}}{Z^{-1}e^x + 1} \notag \\
+    &= \frac{2}{\sqrt{\pi}}\int_0^\infty dx \, \frac{x^{1/2}}{e^{x - \eta} + 1} \notag \\
+    &= \frac{2}{\sqrt{\pi}}\left[\cancel{\left(\frac{2}{3}\frac{x^{3/2}}{e^{x - \eta} + 1}\right)_0^\infty} + \frac{2}{3}\int_0^\infty dx \, \frac{x^{3/2}e^{x - \eta}}{(e^{x - \eta} + 1)^2}\right] \notag \\
+    &= \frac{4}{3\sqrt{\pi}}\int_0^\infty dx \, \frac{x^{3/2}e^{x - \eta}}{(e^{x - \eta} + 1)^2} \tag{4.4.20}
+\end{align}
+L'integrale in $(4.4.20)$ è non nullo se e solo se $x \sim \eta$ (dato che $\eta >> 1$ per ipotesi), allora poniamo $t = x - \eta$ e sviluppiamo in serie di Taylor attorno a $\eta$ il termine $x^{3/2}$
+\begin{align}
+    f_{3/2}(Z) &\sim \frac{4}{3\sqrt{\pi}}\int_{-\eta}^\infty dx \, \frac{e^{x - \eta}}{(e^{x - \eta} + 1)^2}\left(\eta^{3/2} + \frac{3}{2}\eta^{1/2}(x - \eta) + \frac{3}{8}\eta^{-1/2}(x - \eta)^2 \dots\right) \notag \\
+    &\sim \frac{4}{3\sqrt{\pi}}\int_{-\infty}^\infty dt \, \frac{e^t}{(e^t + 1)^2}\left(\eta^{3/2} + \frac{3}{2}\eta^{1/2}t + \frac{3}{8}\eta^{-1/2}t^2 \dots\right) \tag{4.4.21}
+\end{align}
+dove si è scambiato $-\eta$ con $-\infty$ nell'ipotesi $\eta >> 1$. Fissato $n \in \mathbf{N}$, poniamo
+\begin{align}
+    I_n = \int_{-\infty}^\infty dt \, t^n\frac{e^t}{(e^t + 1)^2} \tag{4.4.22}
+\end{align}
+Allora, sostituendo in $(4.4.21)$ si ha 
+\begin{align}
+    f_{3/2}(Z) \sim \frac{4}{3\sqrt{\pi}}\left(\eta^{3/2}I_0 + \frac{3}{2}\eta^{1/2}I_1 + \frac{3}{8}\eta^{-1/2}I_2 \dots\right) \tag{4.4.23}
+\end{align}
+Siamo ora interessati a determinare le proprietà del termine $I_n$ in base al valore dato di $n \in \mathbf{N}$- Notiamo che $I_n = 0$ se $n$ è dispari, infatti
+\begin{align}
+    (-t)^n\frac{e^{-t}}{(e^{-t} + 1)^2} &= -t^n\frac{e^{-t}}{e^{-2t} + 2e^{-t} + 1} \notag \\
+    &= -t^n\frac{e^{-t}}{e^{-2t} + 2e^{-t} + 1}\left(\frac{e^{2t}}{e^{2t}}\right) \notag \\
+    &= -t^n\frac{e^t}{1 + 2e^t + e^{2t}} \notag \\
+    &= -t^n\frac{e^t}{(e^t + 1)^2} \notag
+\end{align}
+ovvero la funzione integranda è dispari. \\
+Mentre, per $n$ pari è possibile ricondurre $(4.4.22)$ alla funzione $\zeta$ di Riemann. In particolare
+\begin{align}
+    I_n &= \int_{-\infty}^\infty dt \, t^n\frac{e^t}{(e^t + 1)^2} \notag \\
+    &= 2\int_0^\infty dt \, t^n\frac{e^t}{(e^t + 1)^2} \notag \\
+    &= -2\int_0^\infty dt \, \frac{\partial}{\partial \alpha}\left(\frac{t^{n - 1}}{e^{\alpha t} + 1}\right)_{\alpha = 1} \tag{4.4.24}
+\end{align}
+poniamo $u = \alpha t$, allora $t = \frac{1}{\alpha}u$ e $dt = \frac{1}{\alpha}du$. Sostituendo in $(4.4.24)$ si ottiene
+\begin{align}
+    I_n &= -2\frac{\partial}{\partial \alpha}\left(\frac{1}{\alpha^n}\int_0^\infty du \, \frac{u^{n - 1}}{e^u + 1}\right)_{\alpha = 1} \notag \\
+    &= 2n\int_0^\infty du \, \frac{u^{n - 1}}{e^u + 1} \notag \\
+    &= 2n\int_0^\infty du \, \frac{u^{n - 1}e^{-u}}{1 + e^{-u}} \notag \\
+    &= 2n\int_0^\infty du \, u^{n - 1}e^{-u}\sum_{l = 0}^\infty (-e^{-u})^l \notag \\
+    &= 2n\int_0^\infty du \, u^{n - 1}\sum_{l = 1}^\infty (-1)^{l - 1}(e^{-u})^l \notag \\
+    &= 2n(n - 1)!\sum_{l = 1}^\infty \frac{(-1)^{l - 1}}{l^n} \tag{4.4.25}
+\end{align}
 
 
 \newpage
