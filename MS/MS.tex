@@ -1479,7 +1479,7 @@ dunque, dato che $\lambda^3$ va come $\beta^{3/2}$, otteniamo
 \begin{align}
     f_{3/2}(Z) \propto \log Z^{3/2} \tag{4.4.19}
 \end{align}
-infatti $Z = e^{\beta\mu}$. Poniamo $\eta = \log Z$ (fissato) e supponiamo $\eta >> 1$, allora
+infatti $Z = e^{\beta\mu}$. Poniamo $\eta = \log Z$ (fissato) e supponiamo $\eta >> 1$ (limite classico di bassa densità e alta temperatura), allora
 \begin{align}
     f_{3/2}(Z) &= \frac{1}{\Gamma(3/2)}\int_0^\infty dx \, \frac{x^{1/2}}{Z^{-1}e^x + 1} \notag \\
     &= \frac{2}{\sqrt{\pi}}\int_0^\infty dx \, \frac{x^{1/2}}{e^{x - \eta} + 1} \notag \\
@@ -1520,8 +1520,23 @@ poniamo $u = \alpha t$, allora $t = \frac{1}{\alpha}u$ e $dt = \frac{1}{\alpha}d
     &= 2n\int_0^\infty du \, \frac{u^{n - 1}e^{-u}}{1 + e^{-u}} \notag \\
     &= 2n\int_0^\infty du \, u^{n - 1}e^{-u}\sum_{l = 0}^\infty (-e^{-u})^l \notag \\
     &= 2n\int_0^\infty du \, u^{n - 1}\sum_{l = 1}^\infty (-1)^{l - 1}(e^{-u})^l \notag \\
-    &= 2n(n - 1)!\sum_{l = 1}^\infty \frac{(-1)^{l - 1}}{l^n} \tag{4.4.25}
+    &= 2(n!)\sum_{l = 1}^\infty \frac{(-1)^{l - 1}}{l^n} \notag \\
+    &= 2(n!)\left(\zeta(n) - \frac{2}{2^n} - \frac{2}{4^n} - \frac{2}{6^n} \dots\right) \notag \\
+    &= 2(n!)\left(1 - \frac{1}{2^{n - 1}}\right)\zeta(n)  \tag{4.4.25}
 \end{align}
+In particolare, $I_0 = 1$ e $I_2 = \frac{\pi^2}{3}$, pertanto
+\begin{align}
+    f_{3/2}(Z) = \frac{4}{3\sqrt{\pi}}\left(\eta^{3/2} + \frac{\pi^2}{8}\eta^{1/2} + \dots\right) \tag{4.4.26}
+\end{align}
+Sostituendo da $(4.4.14)$ si ha
+\begin{align}
+    f_{3/2}(Z) = \frac{\lambda^3\mathcal{N}}{g_sV} \notag
+\end{align}
+quindi, sostituendo il risultato ottenuto in $(4.4.26)$
+\begin{align}
+    \frac{4}{3\sqrt{\pi}}\overbrace{(\beta\mu)^{3/2}}^{\eta^{3/2}}\left(1 + \frac{\pi^2}{8}(\beta\mu)^{-1} + \dots\right) = \frac{1}{g_s}\frac{\mathcal{N}}{V}\left(\frac{\beta h^2}{2\pi m}\right)^{3/2} \tag{4.4.27}
+\end{align}
+
 
 
 \newpage
