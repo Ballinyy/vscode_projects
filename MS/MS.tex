@@ -1354,13 +1354,13 @@ Nota la funzione di partizione grancanonica, possiamo determinare le espressioni
         \sum_\varepsilon \frac{1}{\frac{e^{\beta\varepsilon}}{Z} - 1} &\qquad \text{BE} \\
         \sum_\varepsilon \frac{1}{\frac{e^{\beta\varepsilon}}{Z} + 1} &\qquad \text{FD}
     \end{cases} \tag{4.3.12} \\ \notag \\
-    U &= -\left(\frac{\partial}{\partial \beta \log\tilde{Q}}\right) = \begin{cases}
+    U &= -\left(\frac{\partial}{\partial \beta} \log\tilde{Q}\right) = \begin{cases}
         \sum_\varepsilon \frac{\varepsilon}{\frac{e^{\beta\varepsilon}}{Z} - 1} &\qquad \text{BE} \\
         \sum_\varepsilon \frac{\varepsilon}{\frac{e^{\beta\varepsilon}}{Z} + 1} &\qquad \text{FD}
     \end{cases} \tag{4.3.13}
 \end{align}
 In ogni espressione è necessario moltiplicare per il termine $g_s = 2s + 1$ di degenerazione dovuta allo spin. \\ \\
-Nel limite termodinamico gli stati energeetici sono densissimi, pertanto è possibile sostituire la sommatoria con un integrale nello spazio delle fasi
+Nel limite termodinamico gli stati energetici sono molto densi, pertanto è possibile sostituire la sommatoria con un integrale nello spazio delle fasi
 \begin{align}
     \sum_\varepsilon f(\varepsilon) \longrightarrow \int d\mathbf{p}d\mathbf{q} \, g(\mathbf{p}, \mathbf{q})f(\mathbf{p}, \mathbf{q}) \tag{4.3.14}
 \end{align}
@@ -1368,8 +1368,8 @@ dove $g$ è la funzione densità degli stati e si è espressa la dipendenza di $
 Osservato ciò, possiamo riscrivere le equazioni caratteristiche dell'ensemble grancanonico quantisico come segue
 \begin{align}
     \frac{PV}{kT} &= (-1)^{g_s}g_s\int \frac{d\mathbf{p}d\mathbf{q}}{h^3} \, \log(1 + (-1)^{g_s}Ze^{-\beta\mathcal{H}(\mathbf{p}, \mathbf{q})}) \tag{4.3.15} \\ \notag \\
-    \mathcal{N} &= (-1)^{g_s}g_s\int \frac{d\mathbf{p}d\mathbf{q}}{h^3} \, \frac{1}{Z^{-1}e^{\beta\mathcal{H}(\mathbf{p}, \mathbf{q})} + (-1)^{g_s}} \tag{4.3.16} \\ \notag \\
-    U &= (-1)^{g_s}g_s\int \frac{d\mathbf{p}d\mathbf{q}}{h^3} \, \frac{\mathcal{H}(\mathbf{p}, \mathbf{q})}{Z^{-1}e^{\beta\mathcal{H}(\mathbf{p}, \mathbf{q})} + (-1)^{g_s}} \tag{4.3.17}
+    \mathcal{N} &= g_s\int \frac{d\mathbf{p}d\mathbf{q}}{h^3} \, \frac{1}{Z^{-1}e^{\beta\mathcal{H}(\mathbf{p}, \mathbf{q})} + (-1)^{g_s}} \tag{4.3.16} \\ \notag \\
+    U &= g_s\int \frac{d\mathbf{p}d\mathbf{q}}{h^3} \, \frac{\mathcal{H}(\mathbf{p}, \mathbf{q})}{Z^{-1}e^{\beta\mathcal{H}(\mathbf{p}, \mathbf{q})} + (-1)^{g_s}} \tag{4.3.17}
 \end{align}
 dove il valore di $g_s = 2s + 1$ dipende dalla natura delle particelle in esame (fermioni o bosoni).
 
@@ -1397,7 +1397,27 @@ ovvero
 \begin{align}
     PV = \frac{2}{3}U \tag{4.4.4}
 \end{align}
-La relazione $(4.4.4)$ resta valida anche se non è più valido il \textit{teorema di equipartizione dell'energia}. Questo perché ha fondamenti cinetici che sono più profondi.
+La relazione $(4.4.4)$ resta valida anche se non è più valido il \textit{teorema di equipartizione dell'energia}. Questo perché ha fondamenti cinetici che sono più profondi. \\ \\
+Infine, osserviamo che nel caso di particelle libere possiamo giustificare direttamente il passaggio da sommatoria a integrale. In particolare, sappiamo che la soluzione dell'hamiltoniano di particelle libera è data da
+\begin{align}
+    u(x, y, z) = \left(\frac{2}{L}\right)^{3/2}\sin\frac{p_x x}{\hbar}\sin\frac{p_y y}{\hbar}\sin\frac{p_z z}{\hbar} \notag
+\end{align}
+dove 
+\begin{align}
+    p_i = \frac{\pi\hbar}{L}n_i \qquad i = x, y, z \notag
+\end{align}
+Allora
+\begin{align}
+    \sum_{n_x, n_y, n_z} 1 = \left(\frac{L}{\pi\hbar}\right)^{3}\sum_{n_x, n_y, n_z}\left(\frac{\pi\hbar}{L}\right)^{3}(n_x + 1 - n_x)(n_y + 1 - n_y)(n_z + 1 - n_z) \notag
+\end{align}
+notiamo che 
+\begin{align}
+    \frac{\pi\hbar}{L}(n_i + 1 - n_i) = \Delta p_i \qquad i = x, y, z \notag
+\end{align}
+Pertanto, al limite termodinamico $L \rightarrow \infty$, otteniamo
+\begin{align}
+    \sum_{n_x, n_y, n_z} 1 = \left(\frac{L}{\pi\hbar}\right)^3\int_0^\infty dp_xdp_ydp_z = \frac{V}{h^3}\int_{-\infty}^\infty dp_xdp_ydp_z \notag
+\end{align}
 
 \subsubsection*{Funzioni di Fermi}
 Consideriamo ora il caso di fermioni e poniamo $x = \beta\frac{p^2}{2m}$, allora $p = \sqrt{\frac{2mx}{\beta}}$ e $dp = \frac{1}{2}\sqrt{\frac{2m}{\beta}}x^{-1/2}dx$. Sostituendo in $(4.4.1)$ otteniamo
@@ -1467,7 +1487,7 @@ dove si è usato
 \end{align}
 
 \subsubsection*{Energia di Fermi}
-Supponiamo ora di avere $\mathcal{N}$ particelle in un volume fissato $V$. Allora deve valere 
+Nel contensto dell'ensemble grancanonico (quantistico) si ha 
 \begin{align}
     \frac{\mathcal{N}}{V} = \text{costante} \tag{4.4.17}
 \end{align}
@@ -1532,10 +1552,152 @@ Sostituendo da $(4.4.14)$ si ha
 \begin{align}
     f_{3/2}(Z) = \frac{\lambda^3\mathcal{N}}{g_sV} \notag
 \end{align}
-quindi, sostituendo il risultato ottenuto in $(4.4.26)$
+quindi, sostituendo il risultato ottenuto in $(4.4.26)$, si ha
 \begin{align}
-    \frac{4}{3\sqrt{\pi}}\overbrace{(\beta\mu)^{3/2}}^{\eta^{3/2}}\left(1 + \frac{\pi^2}{8}(\beta\mu)^{-1} + \dots\right) = \frac{1}{g_s}\frac{\mathcal{N}}{V}\left(\frac{\beta h^2}{2\pi m}\right)^{3/2} \tag{4.4.27}
+    \frac{4}{3\sqrt{\pi}}\overbrace{(\beta\mu)^{3/2}}^{\eta^{3/2}}\left(1 + \frac{\pi^2}{8}(\beta\mu)^{-2} + \dots\right) = \frac{1}{g_s}\frac{\mathcal{N}}{V}\left(\frac{\beta h^2}{2\pi m}\right)^{3/2} \tag{4.4.27}
 \end{align}
+ovvero
+\begin{align}
+    \mu\left(1 + \frac{\pi^2}{8}(\beta\mu)^{-2} + \dots\right)^{2/3} &= \frac{h^2}{2m}\left(\frac{3}{4\pi g_s}\frac{\mathcal{N}}{V}\right)^{2/3} =: \varepsilon_F \tag{4.4.28}
+\end{align}
+dove $\varepsilon_F$ è detta \textit{energia di Fermi} del sistema. Notiamo che
+\begin{align}
+    \mu = \begin{cases}
+        \varepsilon_F \qquad &T \rightarrow 0 \\
+        \varepsilon_F\left(1 - \frac{\pi^2}{12}(\beta\varepsilon_F)^{-2} + \dots\right) \qquad &T \sim 0
+    \end{cases} \tag{4.4.29}
+\end{align}
+
+\subsubsection*{Condensazione di Bose-Einstein}
+Consideriamo ora il caso di bosoni liberi, poniamo $\varepsilon_p = \frac{p^2}{2m}$. La funzione di partizione grancanonica è data da
+\begin{align}
+    \tilde{Q} = \prod_p \frac{1}{1 - Ze^{-\beta\varepsilon_p}} \tag{4.4.30}
+\end{align}
+Notiamo che nel caso $Ze^{-\beta\varepsilon_p} \rightarrow 1$, il passaggio da sommatoria a integrale non è scontato, questo perché si potrebbe avere una frazione di particelle nello stato fondamentale non infinitesima. \\ \\
+A tal proposito, ha senso isolare il termine dovuto all'energia dello stato fondamentale (in questo caso $\varepsilon_p = 0$) e riscrivere $(4.4.1)$ come segue
+\begin{align}
+    \frac{P}{kT} = -\frac{4\pi g_s}{h^3}\int_0^\infty dp \, p^2\log(1 - Ze^{-\beta\frac{p^2}{2m}}) - \overbrace{\log(1 - Z)}^{\text{contr. stato fond.}}\tag{4.4.31}
+\end{align}
+Segue che 
+\begin{align}
+    \mathcal{N} = \frac{4\pi g_sV}{h^3}\int_0^\infty dp \, p^2\frac{1}{Z^{-1}e^{\beta\frac{p^2}{2m}} - 1} + \overbrace{\frac{Z}{1 - Z}}^{\mathcal{N}_0} \tag{4.4.32}
+\end{align}
+Analogamente a quanto fatto nel caso di fermioni, definiamo le \textit{funzioni di Bose}
+\begin{align}
+    g_\nu(Z) = \frac{1}{\Gamma(\nu)}\int_0^\infty dx \, \frac{x^{\nu - 1}}{Z^{-1}e^x - 1} \tag{4.4.33}
+\end{align}
+come fatto in $(4.4.16)$, possiamo riscrivere le funzioni di Bose in termine di serie note, in particolare in termini della funzione $\zeta$ di Riemann
+\begin{align}
+    g_\nu(Z) = \sum_{l = 1}^\infty \frac{Z^l}{l^\nu}  \qquad g_\nu(1) = \zeta(\nu) \notag
+\end{align}
+Da $(4.4.32)$ otteniamo
+\begin{align}
+    \overbrace{\frac{\mathcal{N}}{V}}^{\text{intensivo}} = \overbrace{\frac{4\pi g_s}{h^3}\int_0^\infty dp \, p^2\frac{1}{Z^{-1}e^{\beta\frac{p^2}{2m}} - 1}}^{\text{intensivo}} + \overbrace{\frac{1}{V}\left(\frac{Z}{1 - Z}\right)}^{\text{estensivo}} \tag{4.4.34}
+\end{align}
+Per far sì che l'espressione $(4.4.34)$ abbia senso, deve valere
+\begin{align}
+    \frac{Z}{1 - Z} \rightarrow V \qquad Z \rightarrow 1 \notag
+\end{align}
+in modo tale da rendere anche il terzo termine intensivo. Riscrivendo $(4.4.34)$ in termini delle funzioni di Bose e del parametro $\lambda$ introdotto precedentemente si ottiene
+\begin{align}
+    \frac{\mathcal{N}}{V} = \frac{1}{\lambda^3}g_{3/2}(Z) + \frac{1}{V}\left(\frac{Z}{1 - Z}\right) \tag{4.4.35}
+\end{align}
+che porta a 
+\begin{align}
+    \frac{\lambda^3}{v} = g_{3/2}(Z) + \frac{\lambda^3}{V}\left(\frac{Z}{1 - Z}\right) \tag{4.4.36}
+\end{align}
+Il polt della fugacità $Z$ che risolve $(4.4.36)$ è il seguente
+\begin{center}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.65\linewidth]{immagini/Screenshot 2026-07-09 183550.png}
+        \caption{Plot: $Z$ vs $v/\lambda^3$}
+        \label{}
+    \end{figure}
+\end{center}
+Pertanto, notiamo che la fugacità è vincolata a $0 < Z < 1$. Dunque, al limite termodinamico $V \rightarrow \infty$, si ottiene
+\begin{align}
+    Z = \begin{cases}
+        1 \qquad &\frac{v}{\lambda^3} \leq \zeta(3/2) \\
+        \text{soluzione di} (4.4.36) \qquad &\frac{v}{\lambda^3} > \zeta(3/2)
+    \end{cases} \tag{4.4.37}
+\end{align}
+Vediamo ora cosa emerge dall'equazione $(4.4.36)$ se facciamo variare la temperatura $T$ del sistema a $v$ fissato. L'equazione
+\begin{align}
+    \frac{\lambda^3}{v} = g_{3/2}(Z \rightarrow 1) \tag{4.4.38}
+\end{align}
+identifica una determinata temperatura $T_c$, detta \textit{temperatura critica}, data da
+\begin{align}
+    T_c = \frac{h^2}{2\pi km}\left(\frac{1}{v\zeta(3/2)}\right)^{2/3} \tag{4.4.39}
+\end{align}
+Per $T > T_c$ si ha $\frac{\lambda^3}{v} = g_{3/2}(Z)$, pertanto
+\begin{align}
+    \frac{\mathcal{N}_0}{\mathcal{N}} = 1 - \frac{v}{\lambda^3}g_{3/2}(Z) = 0 \tag{4.4.40}
+\end{align}
+ovvero non ci sono particelle che occupano lo stato fondamentale (o sono una frazione infinitesima). Mentre, per $T < T_c$, se $T_c > 0$, si ha
+\begin{align}
+    \frac{\mathcal{N}_0}{\mathcal{N}} = 1 - \left(\frac{T}{T_c}\right)^{2/3} \tag{4.4.41}
+\end{align}
+pertanto si osserva una frazione \textit{non} infinitesima di particelle che occupano lo stato fondamentale. \\ \\
+Analogamente, se si fissa la temperatura del sistema e si lascia variare $v$, si ottiene un'equazione che identifica una \textit{densità critica} $v_c$ che soddisfa
+\begin{align}
+    Z = \begin{cases}
+        1 \qquad &v \leq v_c \\
+        \text{soluzione di} (4.4.36) \qquad &v > v_c
+    \end{cases} \qquad
+    P = \begin{cases}
+        \frac{kT}{\lambda^3}\zeta(3/2) \qquad &v \leq v_c \\
+        \frac{kT}{\lambda^3}g_{3/2}(Z) \qquad &v > v_c
+    \end{cases} \tag{4.4.42}
+\end{align}
+Tuttavia, non sempre esiste $T_c > 0$, infatti un primo esempio è il caso di bosoni liberi in un dominio bidimensionale. In tal caso si ottiene $Z = 1$ solo per $T = 0$.
+
+\newpage
+\subsection{Equivalente quantistico del teorema di equipartizione dell'energia}
+Consideriamo un sistema governato da un hamiltoniano dipendente solamente dell'impulso, $\mathcal{H} = \mathcal{H}(p)$. Allora, integrando per parti l'espressione $(4.3.15)$ si ottiene
+\begin{align}
+    \frac{PV}{kT} &= (-1)^{g_s}\frac{4\pi g_sV}{h^3}\int_0^\infty dp \, p^2\log(1 + (-1)^{g_s}Ze^{-\beta\mathcal{H}}) \notag \\
+    &= \frac{g_sV}{3h^3}\int_0^\infty 4\pi p^2dp \, \frac{Z\beta p\frac{d\mathcal{H}}{dp}}{1 + (-1)^{g_s}Ze^{-\beta\mathcal{H}}} \notag \\
+    &= \frac{g_s\beta V}{3h^3}\int d\mathbf{p} \, \frac{p\frac{d\mathcal{H}}{dp}}{Z^{-1}e^{\beta\mathcal{H}} + (-1)^{g_s}} \notag \\
+    &= \frac{g_s\beta V}{3\mathcal{N}h^3}\mathcal{N}\int d\mathbf{p} \, \frac{p\frac{d\mathcal{H}}{dp}}{Z^{-1}e^{\beta\mathcal{H}} + (-1)^{g_s}} \tag{4.5.1}
+\end{align}
+A questo punto, confrontando $(4.5.1)$ e $(4.3.16)$, notiamo che
+\begin{align}
+    PV = \frac{1}{3}\mathcal{N}\braket{p\frac{d\mathcal{H}}{dp}} \tag{4.5.2}
+\end{align}
+dove il braket indica la statistica di singola particella. Concludiamo che vale un'analogo quantistico del teorema di equipartizione dell'energia. \\ \\
+Lo possiamo verificare costruendo "a mano" un esempio. Consideriamo un volume $V$ che contiene $N$ particelle e supponiamo di avere una distribuzione di probabilità (di singola particella) $f$ legata alla velocità delle particelle. Allora
+\begin{align}
+    \frac{dN_{\mathbf{u}}}{dV} = \frac{N}{V}f(\mathbf{u})d\mathbf{u} \tag{4.5.3}
+\end{align}
+ovvero prendiamo $f$ in modo tale che la densità di particelle con velocità compresa tra $\mathbf{u}$ e $\mathbf{u} + d\mathbf{u}$ sia proporzionale alla densità di particelle $N/V$ (del tutto ragionevole). Consideriamo ora una porzione di superficie $dA$ sul bordo di $V$, sia $\hat{\mathbf{z}}$ il versore ortogonale (uscente) a $dA$. Allora, data una velocità $\mathbf{u}$, tutte le particelle con velocità $\mathbf{u}$ che si trovano nel \textit{cilindro di collisione} $l \times dA$, dove $l = \|\mathbf{u}\|dt$, incideranno su $dA$ al più in un tempo $dt$. \\
+Segue che il numero di particelle che incide su $dA$ in un tempo $dt$ è dato da 
+\begin{align}
+    dN_{\mathbf{u}} &= \overbrace{n}^{\mathcal{N}/V}(\mathbf{u} \cdot \hat{\mathbf{z}}dA)dtf(\mathbf{u})d\mathbf{u} \notag \\
+    &= nu_zdAdtf(\mathbf{u})d\mathbf{u} \tag{4.5.4}
+\end{align}
+La variazione dell'impulso totale a seguito dell'impatto è
+\begin{align}
+    dp_{\mathbf{u}} = 2np_zu_zdAdtf(\mathbf{u})d\mathbf{u} \tag{4.5.5}
+\end{align}
+Quindi, la pressione esercitata in $dA$ dovuta all'urto delle particelle con velocità $\mathbf{u}$ è data da
+\begin{align}
+    P_\mathbf{u} = \frac{dp_\mathbf{u}}{dAdt} = 2np_zu_zf(\mathbf{u})d\mathbf{u} \tag{4.5.6}
+\end{align}
+A questo punto osserviamo che, in un sistema all'equilibrio, ha senso supporre che $f$ dipenda solamente dal modulo della velocità $u$, altrimenti esisterebbero direzioni preferite, il che comporta moto ordinato delle particelle. \\
+Integrando su tutte le velocità otteniamo la pressione totale
+\begin{align}
+    P = 2n\int_0^\infty du_x\int_0^\infty du_y\int_0^\infty du_z p_zu_zf(u) \tag{4.5.7}
+\end{align}
+Passando in coordinate sferiche
+\begin{align}
+    P &= 2n\int_0^\pi d\theta \, sin\theta \cos^2\theta\int_0^{2\pi}d\varphi \int_0^\infty du \, pu^3f(u) \notag \\
+    &= \frac{n}{3}\int_0^\infty \underbrace{4\pi u^2du}_{d\mathbf{u}} \, puf(u) \notag \\
+    &= \frac{n}{3}\braket{pu} \tag{4.5.8}
+\end{align}
+
+\newpage
+\subsection{Gas di onde elettromagnetiche}
 
 
 
