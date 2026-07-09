@@ -1,0 +1,410 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts, amsmath, amssymb, float}
+
+\title{Meccanica Hamiltoniana}
+
+\author{Alessandro Ballini}
+
+\date{May 2025}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Introduzione alla teoria di Hamilton}
+
+\subsection{Equazioni di Hamilton}
+La formulazione delle leggi della meccanica mediante l'utilizzo degli impulsi generalizzati $p_i$ e della coordinate generalizzate $q_i$ presenta molti vantaggi rispetto a alla formulazione lagrangiana, tali vantaggi consistono nel fatto che $(p_i, q_i)$ sono due set di variabili indipendenti. \\ \\
+Si può passare da un set id variabili indipendenti ad una altro mediante la \textit{trasformata di Legendre}, nel nostro caso essa prende la seguente forma, il differenziale totale della funzione di Lagrange $L$ come funzione delle coordinate e delle velocità è dato da:
+\begin{equation}
+    \mathrm{d}L = \sum _i \frac{\partial L}{\partial q_i}\mathrm{d}q_i + \sum_i \frac{\partial L}{\partial \dot{q}_i}\mathrm{d}\dot{q}_i \tag{1.1.1}
+\end{equation}
+poiché per definizione $\dot{p}_i := \frac{\partial L}{\partial \dot{q}_i}$ possiamo scrivere:
+\begin{equation}
+    \mathrm{d}L = \sum _i \dot{p}_i\mathrm{d}q_i + \sum_i p_i\mathrm{d}\dot{q}_i \tag{1.1.2}
+\end{equation}
+Ora per ottenere una funzione degli impulsi e delle coordinate coniugate possiamo scrivere:
+\begin{equation}
+    \sum_i p_i\mathrm{d}\dot{q}_i = \mathrm{d}\left( \sum_i p_i\dot{q}_i\right) - \sum_i \dot{q}_i\mathrm{d}p_i \tag{1.1.3}
+\end{equation}
+perciò sostituendo in \textbf{1.1.2} si ottiene la seguente espressione:
+\begin{equation}
+    \mathrm{d}\left( \sum p_i \dot{q}_i - L \right) = \sum \dot{q}_i \mathrm{d}p_i - \sum \dot{p}_i\mathrm{d}q_i \tag{1.1.4}
+\end{equation}
+La grandezza all'interno al segno di differenziale totale rappresenta l'energia totale del sistema espressa in funzione delle coordinate generalizzate e degli impulsi coniugati, essa si chiama \textbf{funzione di Hamilton} del sistema:
+\begin{equation}
+    H(p, q, t) = \sum_i p_i\dot{q_i} - L \tag{1.1.5}
+\end{equation}
+Dall'uguaglianza differenziale si ottengono dunque le equazioni del moto:
+\begin{equation}
+    \dot{q}_i = \frac{\partial H}{\partial p_i}, \quad \dot{p}_i = -\frac{\partial H}{\partial q_i} \tag{1.1.6}
+\end{equation}
+Queste sono dette le equazioni canoniche del sistema e formano un sistema di $2s$ E.D.O. del primo ordine per $2s$ funzioni incognite $p(t),\ q(t)$. \\ \\
+Lungo le soluzioni del moto si ha che:
+\begin{equation}
+    \frac{\mathrm{d}H}{\mathrm{d}t} = \frac{\partial H}{\partial t} \tag{1.1.7}
+\end{equation}
+perciò se $H$ non dipende esplicitamente dal tempo si ottiene di nuovo la formulazione della conservazione dell'energia.
+
+\subsection{Azione come funzione delle coordinate}
+Per formulare il principio di minima azione è stato considerato l'integrale:
+\begin{equation}
+    S = \int_{t_1}^{t_2}L\mathrm{d}t \tag{1.2.1}
+\end{equation}
+calcolato lungo una traiettoria tra due posizione fissate $q^{(1)} := q(t_1)$ e $q^{(2)} := q(t_2)$. \\
+Vediamo ora cosa succede se trattiamo l'azione $S$ come una funzione degli estremi del cammino e del tempo che caratterizza il moto su traiettorie reali. Sia allora $q^{(1)}$ fissato e $q^{(2)}$ variabile, stiamo dunque studiando come varia l'azione se fissiamo un estremo e il tempo di percorrenza ma facciamo variare uno degli estremi del moto. \\
+La variazione prima dell'azione è data da:
+\begin{equation}
+    \mathrm{\delta}S = \frac{\partial L}{\partial \dot{q}}\left. \delta q \right|_{t_1}^{t_2} + \int_{t_1}^{t_2} \left( \frac{\partial L}{\partial q} - \frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial L}{\partial \dot{q}} \right) \delta q \mathrm{d}t \tag{1.2.2}
+\end{equation}
+Poiché stiamo calcolando \textbf{1.2.2} lungo le traiettorie effettive del moto il termine integrale è nullo poiché il moto è soluzione delle equazioni di Eulero-Lagrange. Inoltre si ha che $\delta q (t_1) = 0$, poniamo allora $\delta q (t_2) = \delta q$ e esprimiamo in funzione degli impulsi coniugati, si ottiene quindi:
+\begin{equation}
+    \delta S = \sum_i p_i \delta q_i \tag{1.2.3}
+\end{equation}
+perciò da questa relazione si ricava che:
+\begin{equation}
+    \frac{\partial S}{\partial q_i} = p_i \tag{1.2.4}
+\end{equation}
+Analogamente possiamo trattare $S$ come una funzione esplicita del tempo; consideriamo allora una traiettoria con due estremi fissati $q^{(1)}$ e $q^{(2)}$ che inizia ad una tempo $t_1$ fissato e termina ad un tempo $t_2 = t$ variabile. Per definizione si ha che:
+\begin{equation}
+    \frac{\mathrm{d}S}{\mathrm{d}t} = L \tag{1.2.5}
+\end{equation}
+inoltre trattando $S$ come funzione delle coordinate sopracitate si ottiene:
+\begin{equation}
+    L = \frac{\mathrm{d}S}{\mathrm{d}t} = \frac{\partial S}{\partial t} + \sum_i \frac{\partial S}{\partial q}\dot{q}_i = \frac{\partial S}{\partial t} + \sum_i p_i\dot{q}_i \tag{1.2.6}
+\end{equation}
+perciò ricordando \textbf{1.1.5}:
+\begin{equation}
+    \frac{\partial S}{\partial t} = - H \tag{1.2.7}
+\end{equation}
+questa equazione sarà poi fondamentale per ottenere un metodo semplice per integrare le equazioni del moto.
+
+\subsection{Trasformazioni canoniche}
+Come è stato detto in \textbf{1.1}, la descrizione dei sistemi meccanici mediante l'utilizzo di coordinate generalizzate e impulsi coniugati presenta molti vantaggi, uno dei più importanti è l'enorme classe di trasformazioni per le quali le equazioni di Hamilton \textbf{1.1.6} restano invariate. \\ \\
+Sia $(P_i, Q_i), \ i = 1, 2, . . . , s$, un nuovo set di coordinate, determiniamo a partire dal principio di minima azione le formule delle trasformazioni ammissibili in un sistema meccanico, dette \textbf{trasformazioni canoniche}. \\
+Per quanto detto in \textbf{1.2} è possibile esprimere l'azione $S$ nella seguente forma:
+\begin{equation}
+    S = \int \left( \sum_i p_i\mathrm{d}q_i - H\mathrm{d}t \right) \tag{1.3.1}
+\end{equation}
+dunque il principio di minima azione può essere scritto come:
+\begin{equation}
+    \delta \int \left( \sum_i p_i\mathrm{d}q_i - H\mathrm{d}t \right) = 0 \tag{1.3.2}
+\end{equation}
+Affinché le nuovo variabili meccaniche soddisfino le equazioni di Hamilton devono anch'esse verificare il principio di minima azione:
+\begin{equation}
+    \delta \int \left( \sum_i P_i\mathrm{d}Q_i - H'\mathrm{d}t \right) = 0 \tag{1.3.3}
+\end{equation}
+ciò accade se e solo se le due espressioni integrande differiscono tra di loro solo per il differenziale totale di una funzione arbitraria $F$ delle coordinate generalizzate, degli impulsi coniugati e del tempo. Deve quindi valere:
+\begin{equation}
+    \sum_i p_i\mathrm{d}q_i - H\mathrm{d}t = \sum_i P_i\mathrm{d}Q_i - H'\mathrm{d}t  +\mathrm{d}F \tag{1.3.4}
+\end{equation}
+Ogni trasformazione canoniche è caratterizzata da una sua funzione $F$ detta \textbf{funzione generatrice} della trasformazione.
+Riscrivendo \textbf{1.3.4} nella seguente forma:
+\begin{equation}
+    \mathrm{d}F = \sum p_i \mathrm{d}q_i - \sum P_i \mathrm{d}Q_i + (H' - H)\mathrm{d}t \tag{1.3.5}
+\end{equation}
+permette di determinare la forma della funzione $F = F(q, Q, t)$ e le relazioni tra le vecchie coordinate e quelle nuove:
+\begin{equation}
+    p_i = \frac{\partial F}{\partial q_i}, \quad P_i = -\frac{\partial F}{\partial Q_i}, \quad H' = H + \frac{\partial F}{\partial t} \tag{1.3.6}
+\end{equation}
+Nel caso, come il precedente, in cui $F$ è funzione del delle vecchie e delle nuove coordinate è detta funzione generatrice di tipo 1. Spesso può essere comodo avere una funzione generatrice espresse in termini delle vecchie coordinate e dei nuovi impulsi coniugati, per fare ciò scriviamo:
+\begin{equation}
+    \mathrm{d}\left( F + \sum P_iQ_i \right) = \sum p_i\mathrm{d}q_i + \sum Q_i \mathrm{d}P_i + (H' - H) \mathrm{d}t \tag{1.3.7}
+\end{equation}
+perciò $G(q, P, t) := F(q, Q, t) + \sum P_i\mathrm{d}Q_i$ è detta funzione generatrice di tipo 2 e le \textbf{1.3.6} diventano:
+\begin{equation}
+    p_i = \frac{\partial G}{\partial q_i}, \quad Q_i = \frac{\partial G}{\partial P_i}, \quad H' = H + \frac{\partial G}{\partial t} \tag{1.3.8}
+\end{equation}
+Supponiamo allora di voler effettuare una trasformazione canonica con un funzione generatrice di tipo 2, una volta definite arbitrariamente i nuovi impulsi coniugati, le equazioni \textbf{1.3.8} forniscono le coordinate associate a tale impulsi per far sì che le equazioni del moto restino invariate.
+\subsection{Teorema di Liouville}
+Consideriamo un sistema hamiltoniano discreto $H$ a $l$ gradi di libertà. Per ogni punto dello spazio delle fasi $\mathbb{R}^{2l}$ si può definire una funzione $\phi_t : \mathbb{R}^{2l} \longrightarrow \mathbb{R}^{2l}$ che associa ad ogni condizione iniziale e ad ogni istante di tempo la soluzione del moto calcolare in tale istante:
+\begin{equation}
+    \phi_t(\mathbf{p}_0, \mathbf{q}_0) = \left( \mathbf{p}(t; t_0, \mathbf{p}_0), \mathbf{q}(t; t_0, \mathbf{q}_0) \right) \notag
+\end{equation}
+Vogliamo dimostrare che $\phi_t$ preserva la misura, ovvero che per ogni $\Omega \subset \mathbb{R}^{2l}$ si ha che $m(\phi_t (\Omega)) = m (\Omega), \ \forall t \geq t_0$. Per farlo dimostreremo prima che le trasformazioni canoniche preservano la misura e poi che il moto è una trasformazione canonica. \\ \\
+Consideriamo allora una funzione generatrice di tipo 2 $f = f(q, P)$ e dimostriamo che:
+\begin{equation}
+    \int_{\Omega} \mathrm{d}q_1\mathrm{d}q_2 \dots \mathrm{d}q_l \mathrm{d}p_1\mathrm{d}p_2 \dots \mathrm{d}p_l = \int_{\Omega} \mathrm{d}Q_1 \mathrm{d}Q_2 \dots \mathrm{d}Q_l \mathrm{d}P_1 \mathrm{d}P_2 \dots \mathrm{d}P_l \notag 
+\end{equation}
+Per fare ciò dobbiamo dimostrare che il determinante dello jacobiano $J$ di tale trasformazione sia uguale a 1, ovvero che:
+\begin{equation}
+    D = \left| \frac{\partial(Q_1, Q_2, \dots, Q_l, P_1, P_2, \dots, P_l)}{\partial(q_1, q_2, \dots, q_l, p_1, p_2, \dots, p_l)} \right| = 1 \notag
+\end{equation}
+Tuttavia possiamo spezzare la trasformazione in due trasformazioni, infatti $(q, p) \hookrightarrow (Q, P)$ equivale a $(q, p) \hookrightarrow (q, P)$ composta con $(q, P) \hookrightarrow (Q, P)$, perciò:
+\begin{equation}
+    D = \left| \frac{\partial(q_1, q_2, \dots, q_l, P_1, P_2, \dots P_l)}{\partial(q_1, q_2, \dots, q_l, p_1, p_2, \dots, p_l)} \right| \cdot \left| \frac{\partial(Q_1, Q_2, \dots, Q_l, P_1, P_2, \dots, P_l)}{\partial(q_1, q_2, \dots, q_l, P_1, P_2, \dots, P_l)} \right| \notag
+\end{equation}
+che può essere ancora riscritto nel seguente modo:
+\begin{equation}
+     D = \left| \frac{\partial(q_1, q_2, \dots, q_l, P_1, P_2, \dots P_l)}{\partial(q_1, q_2, \dots, q_l, p_1, p_2, \dots, p_l)} \right| \cdot \left| \frac{\partial(q_1, q_2, \dots, q_l, P_1, P_2, \dots, P_l)}{\partial(Q_1, Q_2, \dots, Q_l, P_1, P_2, \dots, P_l)} \right|^{-1} \notag
+\end{equation}
+Inoltre, per definizione di funzione generatrice di tipo 2, si ha che:
+\begin{equation}
+    \frac{\partial Q_i}{\partial q_k} = \frac{\partial^2 f}{\partial q_k \partial P_i}, \quad \frac{\partial p_i}{\partial P_k} = \frac{\partial^2 f}{\partial P_k \partial q_i} \notag
+\end{equation}
+Pertanto le righe del blocco che contribuisce al determinante del termine a sinistra sono le colonne del blocco che contribuisce al determinante del termine di destra, allora i determinanti sono gli stessi, dunque sviluppando i conti in forma matriciale si verifica facilmente la prima tesi. \\ \\
+Mostriamo ora che il moto può essere trattato come una trasformazione canonica, dunque esibiamo una funzione generatrice $f = f(q, Q)$ con $q = q^{(1)} := q(t_1)$ e $Q = q^{(2)} := q(t_2)$:
+\begin{equation}
+    f(q^{(1)}, q^{(2)}) := \int_{t_1}^{t_2} \left( \sum_i p_i \dot{q}_i - H \right) \mathrm{d}t \notag
+\end{equation}
+Allora si ha che, secondo le equazioni ricavate dalla teoria delle trasformazioni canoniche, che:
+\begin{equation}
+    p^{(2)}_j = \frac{\partial f}{\partial q^{(2)}_j} =  \int_{t_1}^{t_2} \sum_i \left( \frac{\partial p_i}{\partial q^{(2)}_j}\dot{q}_i + p_i \frac{\partial \dot{q}_i}{\partial q^{(2)}_j} - \frac{\partial H}{\partial p_i}\frac{\partial p_i}{\partial q^{(2)}_j} - \frac{\partial H}{\partial q_i}\frac{\partial q_i}{\partial q^{(2)}_j} \right) \mathrm{d}t \notag
+\end{equation}
+integrando per parti dove dovuto e ricordando le equazioni del moto di Hamilton si ottiene:
+\begin{equation}
+    p^{(2)}_j = \sum_i p_i \frac{\partial q_i}{\partial q^{(2)}_j} \left|\right._{t_1}^{t_2}  = p_j(t_2) \notag
+\end{equation}
+Analogamente si dimostra per $p^{(1)}$.
+
+\subsection{Metodo di Hamilton-Jacobi}
+Se è possibile ottenere una funzione generatrice $F$ tale che:
+\begin{equation}
+    H' = H + \frac{\partial F}{\partial t} = 0 \tag{1.5.1}
+\end{equation}
+il problema dell'integrazione delle equazioni del moto risulta essere banale, si avrebbe infatti:
+\begin{equation}
+    \dot{Q}_i = 0, \quad \dot{P}_i = 0, \quad i = 1,2, . . . , s \tag{1.5.2}
+\end{equation}
+Dal paragrafo \textbf{1.2} notiamo che l'azione $S$ verifica tale proprietà, infatti:
+\begin{equation}
+    \frac{\partial S}{\partial t} + H(\frac{\partial S}{\partial q_1}, \frac{\partial S}{\partial q_2}, . . . , \frac{\partial S}{\partial q_s}, q_1, q_2, . . . , q_s, t) = 0 \tag{1.5.3}
+\end{equation}
+detta \textbf{equazione di Hamilton-Jacobi}. Dalla teoria delle equazioni alle derivate parziali sappiamo che l'equazione di H-J ammette come soluzione una funzione che dipende da una funzione arbitraria del tempo, delle coordinate e di tante costanti arbitrarie quante sono le variabili indipendenti dell'equazione differenziale (in questo caso $s + 1$), cioè:
+\begin{equation}
+    S = f(t, q_1, . . . , q_s; \alpha_1, . . . , \alpha_s, A) \tag{1.5.4} 
+\end{equation}
+è soluzione per \textbf{1.4.3}. Scegliamo allora come funzione generatrice di tipo 2 $f$ e notiamo che verifica la proprietà che cercavamo in \textbf{1.4.1}. Definiamo allora i nuovi impulsi $P_i := \alpha_i$ e le nuove coordinate $\beta_i := \frac{\partial f}{\partial \alpha_i}, \ i = 1, ... , s$. \\
+A questo punto sappiamo che le nuove variabili sono costanti durante il moto e per inversione è possibile ricavare le espressioni del moto rispetto alle vecchie coordinate.
+\subsection{Esercizi}
+\textbf{Esercizio 1:} supponiamo di avere un sistema meccanico descritto dalla seguente funzione di Hamilton, siano $m,\,k \in \mathbb{R}$ tali che $m > 0$ e $k > 0$:
+\begin{equation}
+    H(p_{\xi}, p_{\eta}, \xi, \eta) = \frac{p^2_{\xi}}{4m} + \frac{p^2_{\eta}}{m} + \frac{1}{2}k\eta^2 \tag{1.1}
+\end{equation}
+Notiamo che $\frac{\partial H}{\partial \xi} = 0 \implies \dot{p}_\xi = 0$ e dunque l'impulso coniugato $p_{\xi}$ è una costante del moto, inoltre $\frac{\partial H}{\partial t} = 0$. \\
+Riportiamo ora l'equazione di Hamilton-Jacobi, ricavata trattando l'azione $S$ come funzione del tempo e delle coordinate generalizzate $S = S(q, t)$:
+\begin{equation}
+    \frac{\partial S}{\partial t} + H\left(\frac{\partial S}{\partial \xi}, \frac{\partial S}{\partial \eta}, \xi, \eta\right) = 0 \tag{1.2} 
+\end{equation}
+Poiché la funzione di Hamilton non dipende esplicitamente dal tempo si ha che, ricordando che $H = E$, la funziona azione $S$ prende la seguente forma:
+\begin{equation}
+    S(\xi, \eta, t) = W(\xi, \eta) - E(t - t_0) \tag{1.3}
+\end{equation}
+dove $W(\xi, \eta)$ è una funzione arbitraria delle vecchie coordinate. Scegliamo allora come nuovi impulsi coniugati $P_1 := E$ e $P_2 := p_\xi$, che sono costanti del moto. \\ \\
+Poiché trattiamo $p_\xi$ come una costante del moto possiamo porre $W(\xi, \eta) = W_1(\eta) + p_\xi \xi$, allora la funzione d'azione prende la seguente forma:
+\begin{equation}
+    S = W_1(\eta) + p_\xi \xi - E(t - t_0) \notag
+\end{equation}
+sostituendo nell'equazione di H-J:
+\begin{equation}
+    E = \frac{p^2_\xi}{4m} + \left(\frac{dW_1}{d\eta}\right)^2 \frac{1}{m} + \frac{1}{2}k\eta^2 \tag{1.4}
+\end{equation}
+questo porta alla seguente espressione per $W_1$:
+\begin{equation}
+    W_1 = \pm \int \sqrt{m\left( E - \frac{p^2_\xi}{4m} - \frac{1}{2}k\eta^2\right)}d\eta \tag{1.5}
+\end{equation}
+A questo punto trattiamo $W$ come una funzione generatrice del secondo tipo, dalle equazioni del moto di Hamilton si ha che $\dot{Q}_1 = \frac{\partial H'}{\partial P_1} = 1 \implies Q_1 = t - t_0$, allora:
+\begin{equation}
+    Q_1 = \frac{\partial W}{\partial P_1} = \frac{\partial W_1}{\partial E} \implies t - t_0 = \pm \int \frac{m\mathrm{d}\eta}{\sqrt{4m\left( E - \frac{p^2_\xi}{4m} -\frac{1}{2}k\eta^2 \right)}} \tag{1.6}
+\end{equation}
+quindi a meno di integrare tale espressione, analiticamente o numericamente, possiamo dare per nota $\eta (t)$. \\ \\
+Per ottenere un'espressione di $\xi (t)$ ricorriamo al risultato che $Q_2 = \frac{\partial W}{\partial P_2}$, perciò esplicitando la derivata:
+\begin{equation}
+     Q_2 = \xi \mp \int \frac{p_\xi\mathrm{d}\eta}{\sqrt{16m\left( E - \frac{p^2_\xi}{4m} -\frac{1}{2}k\eta^2 \right)}} \tag{1.7}  
+\end{equation}
+con $Q_2$ costante del moto determinabile a partire dalle condizioni iniziali. Notiamo inoltre che $\dot{\xi} = \frac{p_\xi}{2m}$, perciò, ponendo $\xi_0 := Q_2$, per \textbf{1.6} possiamo scrivere:
+\begin{equation}
+    \xi (t) = \xi_0 + \dot{\xi}(t - t_0) \notag
+\end{equation}
+dove possiamo definire $\omega := \dot{\xi}$ costante del moto, poiché come abbiamo visto $p_\xi$ è una costante del moto. \\ \\
+\textbf{Osservazione:} eseguendo tale trasformazione canonica si ottiene che:
+\begin{equation}
+    P_1 := E \implies H'(P, Q) = P_1 \tag{1.8}
+\end{equation}
+cioè nelle nuovi variabili si ha che $H'$ è una funzione della sola $P_1$ che è stata definita come l'energia totale del sistema, perciò si ottiene che:
+\begin{equation}
+    \frac{\partial H'}{\partial P_1} = \dot{Q_1} = 1, \quad \frac{\partial H'}{\partial P_2} = \dot{Q_2} = 0 \implies Q_2 = \mathrm{costante} \tag{1.9}
+\end{equation}
+questi risultati permettono dunque di integrare con facilità il sistema eseguendo i passaggi svolti nell'esercizio \textbf{1} nel caso di Hamiltoniana separabile o con variabile ciclica.\\ \\ \\
+\textbf{Esercizio 2:} studiamo il moto di una particella di massa $m$ sottoposta ad un potenziale della forma:
+\begin{equation}
+    U(x, y) = \frac{kmM}{\sqrt{x^2 + y^2}} + \left( \frac{1}{x^2} + \frac{1}{y^2} \right) \tag{2.1}
+\end{equation}
+Introduciamo delle nuove variabili meccaniche per ottenere una funzione di hamilton $H = H(p_1, q_1, \phi (p_2, q_2))$ che sappiamo essere separabile e quindi integrabile. Siano allora $x = \rho \cos \theta$ e $y = \rho \sin \theta$, si ottiene:
+\begin{equation}
+    U(\rho, \theta) = \frac{1}{\rho}kmM + \frac{1}{\rho^2}\left( \frac{1}{\cos^2 \theta \sin^2 \theta} \right) \tag{2.2}
+\end{equation}
+perciò nota l'espressione dell'energia cinetica $T$ si ha che la lagrangiana di tale sistema è:
+\begin{equation}
+    L = T - U = \frac{1}{2}m(\dot{\rho}^2 + \rho^2\dot{\theta}^2) - \frac{1}{\rho}kmM - \frac{1}{\rho^2}\left( \frac{1}{\cos^2 \theta \sin^2 \theta} \right) \tag{2.3}
+\end{equation}
+gli impulsi coniugati sono dati da $p_\rho = \frac{\partial L}{\partial \dot{\rho}}$ e $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$, quindi:
+\begin{equation}
+    p_\rho = m\dot{\rho}, \quad p_\theta = m\rho^2\dot{\theta} \tag{2.4}
+\end{equation}
+perciò la funzione di Hamilton che descrive questo sistema meccanico è:
+\begin{equation}
+    H(p_\rho, p_\theta, \rho, \theta) = \frac{p_\rho^2}{2m} + \frac{p_\theta^2}{2m\rho^2} + \frac{1}{\rho}kmM + \frac{1}{\rho^2}\left( \frac{1}{\cos^2 \theta \sin^2 \theta} \right) \tag{2.5}
+\end{equation}
+notiamo che possiamo scrivere $H$ nella forma separabile:
+\begin{equation}
+    H(p_\rho, \rho, \phi(p_\theta, \theta))  = \frac{p_\rho^2}{2m} + \frac{1}{\rho}kmM + \frac{1}{\rho^2}\left( \frac{1}{\cos^2 \theta \sin^2 \theta} + \frac{p_\theta^2}{2m} \right) \tag{2.6}
+\end{equation}
+dove abbiamo identificato $\phi(p_\theta, \theta) = \left( \frac{1}{\cos^2 \theta \sin^2 \theta} + \frac{p_\theta^2}{2m} \right)$. Abbiamo dimostrato a partire dall'unicità del moto che la quantità $\phi(p_\theta, \theta)$ è una costante del moto e dunque possiamo procedere con il metodo di Hamilton-Jacobi. \\
+Poniamo dunque $P_1 := E$ e $P_2 := \phi(p_\theta, \theta)$, costanti del moto. Cerchiamo allora un funzione generatrice $F$ della seguente forma:
+\begin{equation}
+    F(P_1, P_2, \rho, \theta) = F_1(P_1, P_2, \rho) + F_2(P_2, \theta) \tag{2.7}
+\end{equation}
+che ci permette di ottenere un sistema di due equazioni differenziali ordinarie con incognite $F_1$ e $F_2$. Allora procediamo analogamente al caso precedente, si ottiene:
+\begin{equation} \tag{2.8}
+    \begin{cases}
+    \frac{\mathrm{d}F_1}{\mathrm{d} \rho} = p_\rho \\
+    \frac{\mathrm{d}F_2}{\mathrm{d} \theta} = p_\theta
+\end{cases} \implies 
+\begin{cases}
+    E = \left( \frac{\mathrm{d}F_1}{\mathrm{d} \rho} \right)^2 \frac{1}{2m} + \frac{1}{\rho}kmM + \frac{1}{\rho^2}\phi \\
+    \phi = \frac{1}{\cos^2 \theta \sin^2 \theta} + \left(\frac{\mathrm{d}F_2}{\mathrm{d}\theta}\right)^2 \frac{1}{2m}
+\end{cases}
+\end{equation} 
+questo sistema ci permette di ottenere delle espressioni integrali per $F_1$ e $F_2$ e come l'\textbf{esercizio 1} di ricavare le soluzioni del moto. \\ \\
+\textbf{Esercizio 3:} studiamo il seguente pendolo doppio, in assenza di campi di forza esterni. \\
+La funziona lagrangiana che descrive questo sistema è:
+\begin{equation}
+    \mathfrak{L} = \frac{1}{2}ml^2(2\dot{\varphi_1}^2 + \dot{\varphi_2}^2 + 2 \cos(\varphi_1 - \varphi_2)\dot{\varphi_1}\dot{\varphi_2}) \tag{3.1}
+\end{equation}
+Notiamo che $\mathfrak{L}$ dipende solamente dalla differenza tra gli angoli $\varphi_1$ e $\varphi_2$, perciò possiamo definire delle nuove variabili meccaniche $\alpha := \varphi_1 + \varphi_2$ e $\beta := \varphi_1 - \varphi_2$, così facendo otterremo una funzioni di Hamilton con una variabile ciclica, proprio $\alpha$. Otteniamo:
+\begin{equation}
+    \begin{cases}
+        \varphi_1 = \frac{\alpha + \beta}{2} \\
+        \varphi_2 = \frac{\alpha - \beta}{2}
+    \end{cases} \tag{3.2}
+\end{equation}
+Dalla teoria di Hamilton sappiamo che nei casi in cui la matrice dei coefficienti dell'energia cinetica $\{ T_{i,j}\}_{1 \leq i,j \leq n}$ non è diagonale possiamo usare la seguente relazione per ottenere le espressioni delle quantità di moto:
+\begin{equation}
+    T = \sum_{i,j} T_{i,j}\dot{q}_i\dot{q}_j = \sum_{i,j} T^{-1}_{i,j}p_i p_j \tag{3.3}
+\end{equation}
+Tuttavia resta la complicazione che l'energia cinetica espressa in termini degli impulsi coniugati continua a non essere diagonale, dunque compaiono ancora termini misti, perciò la soluzione è cercare una trasformazione di contatto della seguente forma:
+\begin{equation}
+    \begin{cases}
+        \alpha = a\varphi_1 + b\varphi_2 \\
+        \beta = \varphi_1 - \varphi_2
+    \end{cases} \qquad a = a(\beta), \ b = b(\beta) \tag{3.4}
+\end{equation}
+Scriviamo dunque la funzione di Hamilton che descrive tale sistema a partire da \textbf{3.3}:
+\begin{equation} T_{i,j} = 
+    \begin{pmatrix}
+        2ml^2 & ml^2\cos (\varphi_1 - \varphi_2) \\
+        ml^2\cos (\varphi_1 - \varphi_2) & ml^2
+    \end{pmatrix} \notag
+\end{equation}
+\begin{equation}
+    \implies T^{-1}_{i,j} = \frac{1}{ml^2(2 - \cos (\varphi_1 - \varphi_2))}
+    \begin{pmatrix}
+        1 & -\cos (\varphi_1 - \varphi_2) \\
+        -\cos (\varphi_1 - \varphi_2) & 2
+    \end{pmatrix} \notag
+\end{equation}
+dunque otteniamo le seguenti espressioni per l'energia cinetica espressa mediante gli impulsi coniugati:
+\begin{equation}
+    T = \frac{p_1^2}{ml^2(2 - \cos (\varphi_1 - \varphi_2))} + \frac{2p_2^2}{ml^2(2 - \cos (\varphi_1 - \varphi_2))} - \frac{2p_1p_2\cos(\varphi_1 - \varphi_2)}{ml^2(2 - \cos (\varphi_1 - \varphi_2))} = \notag
+\end{equation}
+\begin{equation}
+    = \frac{1}{ml^2(2 - \cos (\varphi_1 - \varphi_2))}(p_1^2 + 2p_2^2 - 2p_1p_2\cos (\varphi_1 - \varphi_2)) \notag
+\end{equation}
+Cerchiamo ora una trasformazione come \textbf{3.4} tale che l'energia cinetica espressa mediante i nuovi impulsi coniugati $p_\alpha, \, p_\beta$ sia diagonale. Definiamo allora la seguente funzione generatrice del secondo tipo:
+\begin{equation}
+    F = p_\alpha(a\varphi_1 + b\varphi_2) + p_\beta(\varphi_1 - \varphi_2) \notag
+\end{equation}
+Allora otteniamo che:
+\begin{equation}
+    \frac{\partial F}{\partial \varphi_1} = ap_\alpha + p_\beta = p_1, \quad \frac{\partial F}{\partial \varphi_2} = bp_\alpha - p_\beta = p_2 \notag
+\end{equation}
+perciò si ottengolo le seguenti espressioni per i nuovi impulsi:
+\begin{equation}
+    p_\alpha = \frac{p_1 + p_2}{a+b}, \quad p_\beta = \frac{bp_1 - ap_2}{a+b} \tag{3.5}
+\end{equation}
+quindi $T$ espresso in funzione dei nuovi impulsi e delle nuove coordinate è:
+\begin{equation}
+    T = \frac{1}{ml^2(2 - \cos \beta)}\left((a^2 + 2b^2)p_\alpha^2 + 3p_\beta^2 + (2a - 4b - 2(b - a)\cos \beta)p_\alpha p_\beta \right. \ - \notag
+\end{equation}
+\begin{equation} \notag
+    - \left. 2\left[(a + b)p_\alpha^2 - p_\beta^2\right]\cos \beta\right)
+\end{equation}
+dunque imponendo che non ci siano termini misti si ottiene:
+\begin{equation}
+    2a - 4b - 2(b - a)\cos \beta = 0 \implies \frac{a}{b} = \frac{2 + \cos \beta}{1 - \cos \beta} \tag{3.6}
+\end{equation}
+\textbf{Nota:} la relazione \textbf{3.3} si ricava facilmente sfruttando il risultato seguente:
+\begin{equation}
+    \frac{\partial T}{\partial \dot{q}_k} = \frac{\partial}{\partial \dot{q}_k} \frac{1}{2} \langle \dot{q}, T\dot{q} \rangle = p_k \notag
+\end{equation}
+sostituendo poi l'espressione che si ottiene nell'espressione per l'energia cinetica si ottiene proprio \textbf{3.3}
+\subsection{Principio di Maupertuis}
+Trattiamo ora un altro principio variazionale attribuito a Maupertuis applicato a sistemi hamiltoniani che non dipendono esplicitamente dal tempo. Lavoriamo nello spazio $\mathbb{R}^{2n + 1}$ in cui consideriamo i punti $(\mathbf{p}, \mathbf{q}, t)$. Risulta comodo parametrizzare non solo $\mathbf{p}$ e $\mathbf{q}$ ma anche il tempo $t$, poniamo allora:
+\begin{equation}
+    \mathbf{p} = \mathbf{p}(u), \quad \mathbf{q} = \mathbf{q}(u), \quad t = t(u) \tag{1.7.1}
+\end{equation}
+Per ottenere una parametrizzazione del moto naturale poniamo $t = \overline{t}(u)$ per $u_0 \leq u \leq u_1$, in $C^2\left( [u_0, u_1] \right)$ tale che $\frac{\partial \overline{t}}{\partial u} \neq 0$ per $u \in [u_0, u_1]$ in modo da garantire la non stazionarietà del tempo lungo il moto. Infine poniamo:
+\begin{equation}
+    \mathbf{\overline{p}} = \mathbf{p}^{*}(\overline{t}(u)), \quad \mathbf{\overline{q}} = \mathbf{q}^{*}(\overline{t}(u)) \tag{1.7.2}
+\end{equation}
+Pertanto troviamo le curve di equazione:
+\begin{equation}
+    \mathbf{p} = \mathbf{\overline{p}}(u), \quad \mathbf{q} = \mathbf{\overline{q}}(u), \quad t = \overline{t}(u) \tag{1.7.3}
+\end{equation}
+lungo le quale introduciamo le seguenti perturbazioni:
+\begin{equation}
+    \mathbf{p} = \mathbf{\overline{p}}(u) + \mathbf{\zeta}(u), \quad \mathbf{q} = \mathbf{\overline{q}}(u) + \mathbf{\eta}(u), \quad t = \overline{t}(u) + \tau (u) \tag{1.7.4}
+\end{equation}
+con $\mathbf{\eta}(u_0) = 0 = \mathbf{\eta}(u_1)$. Così facendo le curve \textbf{1.6.4} sono di classe $C^2$. Il vantaggio di usare tale parametrizzazione sta nell'introduzione di una perturbazione anche nella scala temporale delle curve, tali perturbazioni sono infatti dette \textbf{perturbazioni asincrone}. \\
+Di tali perturbazioni selezioniamo solamente una sottoclasse che verifica la seguente proprietà:
+\begin{equation}
+    H\left(\mathbf{p}(u), \mathbf{q}(u)\right) = H\left( \mathbf{\overline{p}}(u), \mathbf{\overline{q}}(u)\right) \tag{1.7.5}
+\end{equation}
+dette \textbf{perturbazioni asincrone isoenergetiche}, poiché ricordiamo per funzioni di Hamilton che non dipendono esplicitamente dal tempo si ha $H = E$. In tal caso si ha:
+\begin{equation}
+    A = \int_{t_0}^{t_1} \left[ \mathbf{p} \cdot \mathbf{\dot{q}} - H\left( \mathbf{p}, \mathbf{q} \right) \right] \mathrm{d}t = \int_{t_0}^{t_1} \mathbf{p} \cdot \mathbf{\dot{q}} \mathrm{d}t - H(\mathbf{p}, \mathbf{q})(t_1 - t_0) \tag{1.7.6}
+\end{equation}
+Pertanto, poiché stiamo lavorando con perturbazioni isoenergetiche, per le quali vale \textbf{1.6.5}, possiamo trascurare il termine dovuto alla funzione di Hamilton stessa poiché per variazione prime esso non cambia, lavoriamo allora con il funzionale \textbf{azione ridotta} $\hat{A}$:
+\begin{equation}
+    \hat{A} = \int_{t_0}^{t_1} \mathbf{p} \cdot \mathbf{\dot{q}} \mathrm{d}t \tag{1.7.7}
+\end{equation}
+Dimostriamo ora il seguente risultato: \\
+\textbf{Teorema 1.6.1:} per sistemi hamiltoniani che non dipendono esplicitamente dal tempo, l'azione ridotta è stazionaria rispetto a perturbazioni asincrone isoenergetiche rispetto alla traiettoria naturale. \\ \\
+\textbf{Dimostrazione:} introducendo le perturbazioni e effettuando il cambiamento di variabili $t = t(u)$ si ha:
+\begin{equation}
+    \delta \hat{A} = \int_{u_0}^{u_1} \left[ \left(\mathbf{\overline{p}}(u) + \mathbf{\zeta}(u)\right) \cdot \frac{\mathrm{d}}{\mathrm{d}u} \left( \mathbf{\overline{q}}(u) + \mathbf{\eta}(u) \right) - \mathbf{\overline{p}}(u) \cdot \frac{\mathrm{d}}{\mathrm{d}u}\mathbf{\overline{q}}(u) \right] \mathrm{d}u \tag{1.7.8}
+\end{equation}
+Trascurando tutti il termine di ordine di infinitesimo maggiore, dato dal prodotto delle perturbazioni $\mathbf{\zeta}(u) \cdot \frac{\mathrm{d}}{\mathrm{d}u}\mathbf{\eta}(u)$, e integrando per parti dove dovuto, si ottiene:
+\begin{equation}
+    \delta \hat{A} = \int_{u_0}^{u_1}\left( \mathbf{\zeta} \cdot \frac{\mathrm{d}}{\mathrm{d}u}\mathbf{\overline{q}}(u) - \mathbf{\eta} \cdot \frac{\mathrm{d}}{\mathrm{d}u}\mathbf{\overline{p}}(u) \right) \mathrm{d}u \tag{1.7.9}
+\end{equation}
+Ricordando le equazioni del moto di Hamilton, notiamo che la funzione integranda equivale a:
+\begin{equation}
+    \left( \mathbf{\zeta} \cdot \frac{\mathrm{d}}{\mathrm{d}u}\mathbf{\overline{q}}(u) - \mathbf{\eta} \cdot \frac{\mathrm{d}}{\mathrm{d}u}\mathbf{\overline{p}}(u) \right) = \delta H \frac{\mathrm{d}t}{\mathrm{d}u} \tag{1.7.10}
+\end{equation}
+Pertanto, dato che stiamo lavorando con perturbazioni isoenergetiche, si ha $\delta H = 0$, e quindi l'azione ridotta è stazionaria.
+\subsection{Metrica di Jacobi}
+Notiamo il termine $\mathbf{p} \cdot \mathbf{\dot{q}} = 2T$, dunque l'azione ridotta diventa:
+\begin{equation}
+    \hat{A} = \int_{t_0}^{t_1} 2T\mathrm{d}t \tag{1.8.1}
+\end{equation}
+Definiamo ora l'elemento di lunghezza $\mathrm{d}s$:
+\begin{equation}
+    \mathrm{d}s = \sqrt{2T}\mathrm{d}t \notag
+\end{equation}
+quindi \textbf{1.7.1} diventa:
+\begin{equation}
+    \hat{A} = \int_\gamma \sqrt{2\left( E - \phi(x) \right)}\mathrm{d}s \tag{1.8.2}
+\end{equation}
+dove $\gamma(t_0) = x(t_0)$ e $\gamma(t_1) = x(t_1)$. Sappiamo che \textbf{1.7.2} è minimizzata lungo i cammini $\gamma$ che sono sullo stesso livello energetico del moto naturale. \\
+Data una metrica generica $\mathrm{d}l$ è possibile utilizzare il principio di Maupertius per determinare le geodetiche della metrica. Infatti, posta $E = 0$, posso scegliere arbitrariamente un potenziale $\phi$ tale che $\mathrm{d}l = \sqrt{-2\phi} \mathrm{d}s$. Allora si ha che:
+\begin{equation}
+    \int_\gamma \sqrt{-2\phi} \mathrm{d}s = \int_\gamma \mathrm{d}l \notag
+\end{equation}
+è minimizzato lungo le soluzioni del moto libero di una particella sottoposta al potenziale $\phi$ scelto. Pertanto la determinazione delle geodetiche dello spazio è ridotta alla determinazione del moto di una particella libera sottoposta al potenziale $\phi$ con energia fissata nulla.
+\end{document}

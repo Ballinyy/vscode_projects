@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Introduzione alla teoria di Hamilton}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Equazioni di Hamilton}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Azione come funzione delle coordinate}{3}{}%
+\contentsline {subsection}{\numberline {1.3}Trasformazioni canoniche}{4}{}%
+\contentsline {subsection}{\numberline {1.4}Teorema di Liouville}{5}{}%
+\contentsline {subsection}{\numberline {1.5}Metodo di Hamilton-Jacobi}{6}{}%
+\contentsline {subsection}{\numberline {1.6}Esercizi}{7}{}%
+\contentsline {subsection}{\numberline {1.7}Principio di Maupertuis}{11}{}%
+\contentsline {subsection}{\numberline {1.8}Metrica di Jacobi}{12}{}%
