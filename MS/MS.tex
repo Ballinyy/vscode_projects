@@ -1493,33 +1493,40 @@ Nel contensto dell'ensemble grancanonico (quantistico) si ha
 \end{align}
 In particolare, confrontando $(4.4.17)$ con $(4.4.14)$, notiamo che, affinché la condizione $(4.4.17)$ sia soddisfatta, deve valere 
 \begin{align}
-    \frac{f_{3/2}(Z)}{\lambda^2} \propto 1 \tag{4.4.18}
+    \frac{f_{3/2}(Z)}{\lambda^3} \propto 1 \tag{4.4.18}
 \end{align}
 dunque, dato che $\lambda^3$ va come $\beta^{3/2}$, otteniamo
 \begin{align}
-    f_{3/2}(Z) \propto \log Z^{3/2} \tag{4.4.19}
+    f_{3/2}(Z) \propto (\log Z)^{3/2} \tag{4.4.19}
 \end{align}
-infatti $Z = e^{\beta\mu}$. Poniamo $\eta = \log Z$ (fissato) e supponiamo $\eta >> 1$ (limite classico di bassa densità e alta temperatura), allora
+infatti $Z = e^{\beta\mu}$. Poniamo $\eta = \log Z$ (fissato), allora
 \begin{align}
     f_{3/2}(Z) &= \frac{1}{\Gamma(3/2)}\int_0^\infty dx \, \frac{x^{1/2}}{Z^{-1}e^x + 1} \notag \\
     &= \frac{2}{\sqrt{\pi}}\int_0^\infty dx \, \frac{x^{1/2}}{e^{x - \eta} + 1} \notag \\
     &= \frac{2}{\sqrt{\pi}}\left[\cancel{\left(\frac{2}{3}\frac{x^{3/2}}{e^{x - \eta} + 1}\right)_0^\infty} + \frac{2}{3}\int_0^\infty dx \, \frac{x^{3/2}e^{x - \eta}}{(e^{x - \eta} + 1)^2}\right] \notag \\
     &= \frac{4}{3\sqrt{\pi}}\int_0^\infty dx \, \frac{x^{3/2}e^{x - \eta}}{(e^{x - \eta} + 1)^2} \tag{4.4.20}
 \end{align}
-L'integrale in $(4.4.20)$ è non nullo se e solo se $x \sim \eta$ (dato che $\eta >> 1$ per ipotesi), allora poniamo $t = x - \eta$ e sviluppiamo in serie di Taylor attorno a $\eta$ il termine $x^{3/2}$
+Sviluppando in serie $x^{3/2}$ attorno a $\eta$ e ponendo $t = x - \eta$, si ottiene
 \begin{align}
-    f_{3/2}(Z) &\sim \frac{4}{3\sqrt{\pi}}\int_{-\eta}^\infty dx \, \frac{e^{x - \eta}}{(e^{x - \eta} + 1)^2}\left(\eta^{3/2} + \frac{3}{2}\eta^{1/2}(x - \eta) + \frac{3}{8}\eta^{-1/2}(x - \eta)^2 \dots\right) \notag \\
-    &\sim \frac{4}{3\sqrt{\pi}}\int_{-\infty}^\infty dt \, \frac{e^t}{(e^t + 1)^2}\left(\eta^{3/2} + \frac{3}{2}\eta^{1/2}t + \frac{3}{8}\eta^{-1/2}t^2 \dots\right) \tag{4.4.21}
+    f_{3/2}(Z) &\sim \frac{4}{3\sqrt{\pi}}\int_{-\eta}^\infty dt \, \frac{e^t}{(e^t + 1)^2}\left(\eta^{3/2} + \frac{3}{2}\eta^{1/2}t + \frac{3}{8}\eta^{-1/2}t^2 \dots\right) \tag{4.4.21}
 \end{align}
-dove si è scambiato $-\eta$ con $-\infty$ nell'ipotesi $\eta >> 1$. Fissato $n \in \mathbf{N}$, poniamo
+Per linearità dell'integrale si ha
+\begin{align}
+    \int_{-\eta}^\infty(\dots) = \int_{-\infty}^\infty(\dots) - \int_{-\infty}^{-\eta}(\dots) \notag
+\end{align}
+Inoltre, il secondo integrale risulta essere dell'ordine di $e^{-\eta}$, pertanto
+\begin{align}
+    f_{3/2}(Z) \sim \frac{4}{3\sqrt{\pi}}\int_{-\infty}^\infty dt \, \frac{e^t}{(e^t + 1)^2}\left(\eta^{3/2} + \frac{3}{2}\eta^{1/2}t + \frac{3}{8}\eta^{-1/2}t^2 \dots\right) + O(e^{-\eta}) \notag
+\end{align}
+Fissato $n \in \mathbf{N}$, poniamo
 \begin{align}
     I_n = \int_{-\infty}^\infty dt \, t^n\frac{e^t}{(e^t + 1)^2} \tag{4.4.22}
 \end{align}
 Allora, sostituendo in $(4.4.21)$ si ha 
 \begin{align}
-    f_{3/2}(Z) \sim \frac{4}{3\sqrt{\pi}}\left(\eta^{3/2}I_0 + \frac{3}{2}\eta^{1/2}I_1 + \frac{3}{8}\eta^{-1/2}I_2 \dots\right) \tag{4.4.23}
+    f_{3/2}(Z) \sim \frac{4}{3\sqrt{\pi}}\left(\eta^{3/2}I_0 + \frac{3}{2}\eta^{1/2}I_1 + \frac{3}{8}\eta^{-1/2}I_2 \dots\right) + O(Z^{-1}) \tag{4.4.23}
 \end{align}
-Siamo ora interessati a determinare le proprietà del termine $I_n$ in base al valore dato di $n \in \mathbf{N}$- Notiamo che $I_n = 0$ se $n$ è dispari, infatti
+Siamo ora interessati a determinare le proprietà del termine $I_n$ in base al valore dato di $n \in \mathbf{N}$. Notiamo che $I_n = 0$ se $n$ è dispari, infatti
 \begin{align}
     (-t)^n\frac{e^{-t}}{(e^{-t} + 1)^2} &= -t^n\frac{e^{-t}}{e^{-2t} + 2e^{-t} + 1} \notag \\
     &= -t^n\frac{e^{-t}}{e^{-2t} + 2e^{-t} + 1}\left(\frac{e^{2t}}{e^{2t}}\right) \notag \\
@@ -1546,39 +1553,44 @@ poniamo $u = \alpha t$, allora $t = \frac{1}{\alpha}u$ e $dt = \frac{1}{\alpha}d
 \end{align}
 In particolare, $I_0 = 1$ e $I_2 = \frac{\pi^2}{3}$, pertanto
 \begin{align}
-    f_{3/2}(Z) = \frac{4}{3\sqrt{\pi}}\left(\eta^{3/2} + \frac{\pi^2}{8}\eta^{1/2} + \dots\right) \tag{4.4.26}
+    f_{3/2}(Z) = \frac{4}{3\sqrt{\pi}}\left((\log Z)^{3/2} + \frac{\pi^2}{8}(\log Z)^{-1/2} + \dots\right) + O(Z^{-1}) \tag{4.4.26}
 \end{align}
-Sostituendo da $(4.4.14)$ si ha
+Assegnato un valore di $\frac{\lambda^3}{v}$ è possibile determinare il valore di $Z$ associato facendo riferimento al grafico di $f_{3/2}$. Inoltre, notiamo che $Z$ crescere in maniera monotona al crescere di $\frac{\lambda^3}{v}$.
+\begin{center}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.50\linewidth]{immagini/Screenshot 2026-07-10 152458.png}
+        \caption{$f_{3/2}(Z)$}
+        \label{}
+    \end{figure}
+\end{center}
+Per basse temperature e alte densità, ovvero in condizioni in cui ci aspettiamo di osservare effetti quantistici, vale $\frac{\lambda^3}{v} >> 1$, pertanto anche $Z >> 1$. Allora $(4.4.26)$ si riduce a 
 \begin{align}
-    f_{3/2}(Z) = \frac{\lambda^3\mathcal{N}}{g_sV} \notag
+    f_{3/2}(Z) \sim \frac{4}{3\sqrt{\pi}}(\log Z)^{3/2} \tag{4.4.27}
 \end{align}
-quindi, sostituendo il risultato ottenuto in $(4.4.26)$, si ha
+Confrontando con $(4.4.14)$ si ottiene 
 \begin{align}
-    \frac{4}{3\sqrt{\pi}}\overbrace{(\beta\mu)^{3/2}}^{\eta^{3/2}}\left(1 + \frac{\pi^2}{8}(\beta\mu)^{-2} + \dots\right) = \frac{1}{g_s}\frac{\mathcal{N}}{V}\left(\frac{\beta h^2}{2\pi m}\right)^{3/2} \tag{4.4.27}
+    \frac{1}{v}\left(\frac{\beta h^2}{2\pi m}\right)^{3/2} = \frac{4}{3\sqrt{\pi}}(\log Z)^{3/2} \tag{4.4.28}
 \end{align}
-ovvero
+Per cui
 \begin{align}
-    \mu\left(1 + \frac{\pi^2}{8}(\beta\mu)^{-2} + \dots\right)^{2/3} &= \frac{h^2}{2m}\left(\frac{3}{4\pi g_s}\frac{\mathcal{N}}{V}\right)^{2/3} =: \varepsilon_F \tag{4.4.28}
+    Z \sim e^{\beta\varepsilon_F} \qquad \varepsilon_F = \frac{\hbar^2}{2m}\left(\frac{6\pi^2}{v}\right)^{2/3} \tag{2.2.29}
 \end{align}
-dove $\varepsilon_F$ è detta \textit{energia di Fermi} del sistema. Notiamo che
-\begin{align}
-    \mu = \begin{cases}
-        \varepsilon_F \qquad &T \rightarrow 0 \\
-        \varepsilon_F\left(1 - \frac{\pi^2}{12}(\beta\varepsilon_F)^{-2} + \dots\right) \qquad &T \sim 0
-    \end{cases} \tag{4.4.29}
-\end{align}
+dove $\varepsilon_F$ è il potenziale chimico al limite di temperatura nulla, detto \textit{energia di Fermi}. \\
+Nel limite $T \rightarrow 0$, la funzione integranda che definisce il numero medio di particelle del contesto dell'ensemble grancanonico quantistico diventa una funzione a gradino. Questo è dovuto al principio di esclusione di Pauli, infatti uno stesso livello energetico non può essere occupato simultaneamente da due fermioni. \\ \\
+Concludiamo che $\varepsilon_F$ è il livello energetico di singola particella più alto ad essere occupato nel limite di temperatura nulla. Inoltre, per il principio di esclusione di Pauli, osserviamo che sotto all'energia di Fermi ci sono esattamente $\mathcal{N}$ livelli energetici.
 
 \subsubsection*{Condensazione di Bose-Einstein}
 Consideriamo ora il caso di bosoni liberi, poniamo $\varepsilon_p = \frac{p^2}{2m}$. La funzione di partizione grancanonica è data da
 \begin{align}
     \tilde{Q} = \prod_p \frac{1}{1 - Ze^{-\beta\varepsilon_p}} \tag{4.4.30}
 \end{align}
-Notiamo che nel caso $Ze^{-\beta\varepsilon_p} \rightarrow 1$, il passaggio da sommatoria a integrale non è scontato, questo perché si potrebbe avere una frazione di particelle nello stato fondamentale non infinitesima. \\ \\
-A tal proposito, ha senso isolare il termine dovuto all'energia dello stato fondamentale (in questo caso $\varepsilon_p = 0$) e riscrivere $(4.4.1)$ come segue
+Notiamo che nel limite $Z \rightarrow 1$ il passaggio da sommatoria a integrale non è scontato, questo perché il termine della sommatoria in $(4.4.30)$ che corrisponde a $\varepsilon_p = 0$ diverge per $Z \rightarrow 1$. \\ \\
+A tal proposito, isoliamo il termine dovuto all'energia dello stato fondamentale $\varepsilon_p = 0$ (ovvero $p = 0$) e riscriviamo $(4.4.1)$ come segue
 \begin{align}
     \frac{P}{kT} = -\frac{4\pi g_s}{h^3}\int_0^\infty dp \, p^2\log(1 - Ze^{-\beta\frac{p^2}{2m}}) - \overbrace{\log(1 - Z)}^{\text{contr. stato fond.}}\tag{4.4.31}
 \end{align}
-Segue che 
+Allora 
 \begin{align}
     \mathcal{N} = \frac{4\pi g_sV}{h^3}\int_0^\infty dp \, p^2\frac{1}{Z^{-1}e^{\beta\frac{p^2}{2m}} - 1} + \overbrace{\frac{Z}{1 - Z}}^{\mathcal{N}_0} \tag{4.4.32}
 \end{align}
@@ -1586,7 +1598,7 @@ Analogamente a quanto fatto nel caso di fermioni, definiamo le \textit{funzioni 
 \begin{align}
     g_\nu(Z) = \frac{1}{\Gamma(\nu)}\int_0^\infty dx \, \frac{x^{\nu - 1}}{Z^{-1}e^x - 1} \tag{4.4.33}
 \end{align}
-come fatto in $(4.4.16)$, possiamo riscrivere le funzioni di Bose in termine di serie note, in particolare in termini della funzione $\zeta$ di Riemann
+Notiamo immediatamente che $g_\nu$ è crescente in $Z$. Inoltre, come fatto in $(4.4.16)$, possiamo riscrivere le funzioni di Bose in termini di serie note
 \begin{align}
     g_\nu(Z) = \sum_{l = 1}^\infty \frac{Z^l}{l^\nu}  \qquad g_\nu(1) = \zeta(\nu) \notag
 \end{align}
@@ -1598,47 +1610,60 @@ Per far sì che l'espressione $(4.4.34)$ abbia senso, deve valere
 \begin{align}
     \frac{Z}{1 - Z} \rightarrow V \qquad Z \rightarrow 1 \notag
 \end{align}
-in modo tale da rendere anche il terzo termine intensivo. Riscrivendo $(4.4.34)$ in termini delle funzioni di Bose e del parametro $\lambda$ introdotto precedentemente si ottiene
+in modo tale da rendere anche il terzo termine intensivo. Riscrivendo $(4.4.34)$ in termini delle funzioni di Bose e del parametro $\lambda$ introdotto precedentemente, si ottiene
 \begin{align}
     \frac{\mathcal{N}}{V} = \frac{1}{\lambda^3}g_{3/2}(Z) + \frac{1}{V}\left(\frac{Z}{1 - Z}\right) \tag{4.4.35}
 \end{align}
 che porta a 
 \begin{align}
-    \frac{\lambda^3}{v} = g_{3/2}(Z) + \frac{\lambda^3}{V}\left(\frac{Z}{1 - Z}\right) \tag{4.4.36}
+    \lambda^3\frac{\mathcal{N}_0}{V} = \frac{\lambda^3}{v} - g_{3/2}(Z) \tag{4.4.36}
 \end{align}
-Il polt della fugacità $Z$ che risolve $(4.4.36)$ è il seguente
+Questa equazione comporta che il termine $\frac{\mathcal{N}_0}{V} > 0$ se la temperatura $T$ ed il volume specifico $v$ sono tali che 
+\begin{align}
+    \frac{\lambda^3}{v} - \overbrace{g_{3/2}(1)}^{\zeta(3/2)} > 0 \notag
+\end{align}
+In particolare, ciò significa che la frazione di particelle che occupa lo stato fondamentale è non infinitesima. Tale fenomeno è detto \textit{condensazione di Bose-Einstein}. \\ \\
+La fugacità $Z$ che risolve $(4.4.36)$ ha il seguente comportamento
 \begin{center}
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.65\linewidth]{immagini/Screenshot 2026-07-09 183550.png}
-        \caption{Plot: $Z$ vs $v/\lambda^3$}
+        \includegraphics[width=0.65\linewidth]{immagini/Screenshot 2026-07-10 142023.png}
+        \caption{$Z$ soluzione di $(4.4.36)$}
         \label{}
     \end{figure}
 \end{center}
-Pertanto, notiamo che la fugacità è vincolata a $0 < Z < 1$. Dunque, al limite termodinamico $V \rightarrow \infty$, si ottiene
+Notiamo che $0 < Z < 1$. Dunque, al limite $V \rightarrow \infty$, la soluzione $Z$ diventa una funzione a gradino e si ottiene
 \begin{align}
     Z = \begin{cases}
         1 \qquad &\frac{v}{\lambda^3} \leq \zeta(3/2) \\
         \text{soluzione di} (4.4.36) \qquad &\frac{v}{\lambda^3} > \zeta(3/2)
     \end{cases} \tag{4.4.37}
 \end{align}
-Vediamo ora cosa emerge dall'equazione $(4.4.36)$ se facciamo variare la temperatura $T$ del sistema a $v$ fissato. L'equazione
+Vediamo ora cosa emerge dall'equazione $(4.4.36)$ se facciamo variare $T$ a $v$ fissato. L'equazione
 \begin{align}
-    \frac{\lambda^3}{v} = g_{3/2}(Z \rightarrow 1) \tag{4.4.38}
+    \frac{\lambda^3}{v} = g_{3/2}(1) \tag{4.4.38}
 \end{align}
 identifica una determinata temperatura $T_c$, detta \textit{temperatura critica}, data da
 \begin{align}
     T_c = \frac{h^2}{2\pi km}\left(\frac{1}{v\zeta(3/2)}\right)^{2/3} \tag{4.4.39}
 \end{align}
-Per $T > T_c$ si ha $\frac{\lambda^3}{v} = g_{3/2}(Z)$, pertanto
+Per $T > T_c$ si ha $\frac{v}{\lambda^3} > \zeta(3/2)$, pertanto
 \begin{align}
     \frac{\mathcal{N}_0}{\mathcal{N}} = 1 - \frac{v}{\lambda^3}g_{3/2}(Z) = 0 \tag{4.4.40}
 \end{align}
-ovvero non ci sono particelle che occupano lo stato fondamentale (o sono una frazione infinitesima). Mentre, per $T < T_c$, se $T_c > 0$, si ha
+ovvero non ci sono particelle che occupano lo stato fondamentale (o sono una frazione infinitesima). Mentre, per $T < T_c$, ricordando che $g_{3/2}(1) = \zeta(3/2)$ e sostituendo $(4.4.39)$ in $(4.4.40)$, si ottiene
 \begin{align}
     \frac{\mathcal{N}_0}{\mathcal{N}} = 1 - \left(\frac{T}{T_c}\right)^{2/3} \tag{4.4.41}
 \end{align}
-pertanto si osserva una frazione \textit{non} infinitesima di particelle che occupano lo stato fondamentale. \\ \\
+ovvero si osserva una frazione \textit{non} infinitesima di particelle che occupano lo stato fondamentale.
+\begin{center}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.40\linewidth]{immagini/Screenshot 2026-07-10 143224.png}
+        \caption{$\mathcal{N}_0/\mathcal{N}$ vs $T$ per $T < T_c$}
+        \label{}
+    \end{figure}
+\end{center}
 Analogamente, se si fissa la temperatura del sistema e si lascia variare $v$, si ottiene un'equazione che identifica una \textit{densità critica} $v_c$ che soddisfa
 \begin{align}
     Z = \begin{cases}
@@ -1698,7 +1723,47 @@ Passando in coordinate sferiche
 
 \newpage
 \subsection{Gas di onde elettromagnetiche}
-
+Consideriamo un gas di onde elettromagnetiche confinate in un corpo nero. Decomponendo le onde elettromegnetiche nella base delle onde piane possiamo descrivere le onde elettromagnetiche come sovrapposizione (somma) di onde piane. \\
+Confrontando con le equazioni di Maxwell nel vuoto osserviamo che le onde piane soddisfano l'equazione dell'oscillatore armonico. In particolare, dalle equazioni di Maxwell sappiamo che
+\begin{align}
+    \nabla^2\mathbf{E} - \frac{1}{c^2}\frac{\partial^2 \mathbf{E}}{\partial t^2} = 0 \tag{4.6.1}
+\end{align}
+Dato che $\mathbf{E}$ è sovrapposizione di onde piane, ovvero
+\begin{align}
+    \mathbf{E} = \hat{\boldsymbol{\epsilon}}\int d\omega \, A(\omega)e^{i(\mathbf{k} \cdot \mathbf{r} - \omega t)} \tag{4.6.2}
+\end{align}
+Data che la regolarità della funzione integranda garantisce la linearità rispetto alle operazioni di derivazione, possiamo considerare ogni termine singolarmente. Dalle equazioni di Maxwell otteniamo
+\begin{align}
+    \nabla \cdot \mathbf{E} = 0 \implies \hat{\boldsymbol{\epsilon}} \cdot \mathbf{k} = 0 \notag 
+\end{align}
+Da $(4.6.1)$ si ottiene
+\begin{align}
+    c\|\mathbf{k}\| = \omega \notag
+\end{align}
+Infine
+\begin{align}
+    \frac{\partial^2 \mathbf{E}}{\partial t^2} &= -\omega^2\mathbf{E} \notag \\
+    \nabla^2\mathbf{E} &= -\mathbf{k}^2\mathbf{E} \notag
+\end{align}
+ovvero $\mathbf{E}$ soddisfa l'equazione differenziale dell'oscillatore armonico, pertanto possiamo trattare il gas di onde elettromagnetiche nel corpo nero come un insieme di oscillatori armonici quantistici. \\ \\
+Analogamente a quanto visto per le particelle libere, si ha
+\begin{align}
+    \sum_{k_x, k_y, k_z} 1 \sim \left(\frac{L}{2\pi}\right)^3\int_{-\infty}^\infty dk_x\int_{-\infty}^\infty dk_y\int_{-\infty}^\infty dk_z \tag{4.6.3}
+\end{align}
+al limite termodinamico. \\
+Classicamente penseremmo di associare ad ogni onda nel corpo nero un energia $kT$, tuttavia questo modello porta alla \textit{catastrofe dell'ultravioletto}, ovvero prevede un'energia interna infinita, infatti
+\begin{align}
+    U = 2\left(\frac{L}{2\pi}\right)^2\int_{-\infty}^\infty dk_x\int_{-\infty}^\infty dk_y\int_{-\infty}^\infty dk_z (kT) = +\infty \notag
+\end{align}
+dove il fattore $2$ a moltiplicare tiene conto della degenerazione dovuta alle possibili polarizzazioni dell'onda. \\ \\
+La soluzione è trattare, come prima giustificato, il gas di onde elettromagnetiche come un gas di oscillatori armonici, ognuno dei quali ha energia $E = \frac{1}{2}\hbar\omega$. In particolare, da $(2.7.3)$ sappiamo che
+\begin{align}
+    Q_1 = \frac{1}{e^{\beta\frac{\hbar\omega}{2}} - 1} \notag
+\end{align}
+pertanto, trascurando il fattore $1/2$ nel limite di molti fotoni, si ottiene
+\begin{align}
+    U = \frac{2L^3}{8\pi^3}\int d\mathbf{k} \, \frac{\hbar\omega}{e^{\hbar\omega} - 1} < \infty \tag{4.6.4}
+\end{align}
 
 
 \newpage
