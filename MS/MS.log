@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  10 JUL 2026 15:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  10 JUL 2026 18:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -340,37 +340,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 1140--1143
  []
 
 [45] [46] [47] [48]
-Overfull \hbox (8.75072pt too wide) in paragraph at lines 1228--1229
+Overfull \hbox (8.75072pt too wide) in paragraph at lines 1231--1232
 \OT1/cmr/m/n/10 Consideriamo un sis-tema quan-tis-tico iso-lato a pi^^Ru corpi de-scritto dall'hamiltoniano
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1239--1243
+Underfull \hbox (badness 10000) in paragraph at lines 1242--1246
 
  []
 
 [49]
-Underfull \hbox (badness 10000) in paragraph at lines 1262--1265
+Underfull \hbox (badness 10000) in paragraph at lines 1265--1268
 
  []
 
 [50] [51] [52]
-Underfull \hbox (badness 10000) in paragraph at lines 1361--1364
+Underfull \hbox (badness 10000) in paragraph at lines 1364--1367
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1366--1369
+Underfull \hbox (badness 10000) in paragraph at lines 1369--1372
 
  []
 
 
-Overfull \hbox (26.08392pt too wide) in paragraph at lines 1366--1369
+Overfull \hbox (26.08392pt too wide) in paragraph at lines 1369--1372
 \OT1/cmr/m/n/10 Osservato ci^^Ro, pos-si-amo riscri-vere le equazioni carat-ter-is-tiche dell'ensemble grancanon-
  []
 
 [53] [54]
-Underfull \hbox (badness 10000) in paragraph at lines 1399--1402
+Underfull \hbox (badness 10000) in paragraph at lines 1402--1405
 
  []
 
@@ -378,64 +378,79 @@ Underfull \hbox (badness 10000) in paragraph at lines 1399--1402
 <immagini/Screenshot 2026-07-10 152458.png, id=214, 199.34476pt x 130.68825pt>
 File: immagini/Screenshot 2026-07-10 152458.png Graphic file (type png)
 <use immagini/Screenshot 2026-07-10 152458.png>
-Package pdftex.def Info: immagini/Screenshot 2026-07-10 152458.png  used on input line 1562.
+Package pdftex.def Info: immagini/Screenshot 2026-07-10 152458.png  used on input line 1565.
 (pdftex.def)             Requested size: 172.5pt x 113.08763pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [60]
-Underfull \hbox (badness 10000) in paragraph at lines 1578--1582
+Underfull \hbox (badness 10000) in paragraph at lines 1581--1586
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1587--1590
+Underfull \hbox (badness 10000) in paragraph at lines 1581--1586
 
  []
 
-[61 <./immagini/Screenshot 2026-07-10 152458.png>] [62]
-Underfull \hbox (badness 10000) in paragraph at lines 1624--1627
+[61 <./immagini/Screenshot 2026-07-10 152458.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1595--1598
+
+ []
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 1632--1635
 
  []
 
 <immagini/Screenshot 2026-07-10 142023.png, id=227, 154.77824pt x 128.27925pt>
 File: immagini/Screenshot 2026-07-10 142023.png Graphic file (type png)
 <use immagini/Screenshot 2026-07-10 142023.png>
-Package pdftex.def Info: immagini/Screenshot 2026-07-10 142023.png  used on input line 1630.
+Package pdftex.def Info: immagini/Screenshot 2026-07-10 142023.png  used on input line 1638.
 (pdftex.def)             Requested size: 224.2479pt x 185.86899pt.
 [63 <./immagini/Screenshot 2026-07-10 142023.png>]
 <immagini/Screenshot 2026-07-10 143224.png, id=232, 152.36925pt x 130.086pt>
 File: immagini/Screenshot 2026-07-10 143224.png Graphic file (type png)
 <use immagini/Screenshot 2026-07-10 143224.png>
-Package pdftex.def Info: immagini/Screenshot 2026-07-10 143224.png  used on input line 1662.
+Package pdftex.def Info: immagini/Screenshot 2026-07-10 143224.png  used on input line 1670.
 (pdftex.def)             Requested size: 137.9979pt x 117.82263pt.
  [64 <./immagini/Screenshot 2026-07-10 143224.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1692--1695
+Underfull \hbox (badness 10000) in paragraph at lines 1700--1703
 
  []
 
-[65] [66]
-Underfull \hbox (badness 10000) in paragraph at lines 1747--1750
+[65] [66] [67] [68]
+Overfull \hbox (5.511pt too wide) in paragraph at lines 1790--1792
+\OT1/cmr/m/n/10 Consideriamo un corpo nero di vol-ume $\OML/cmm/m/it/10 V$ \OT1/cmr/m/n/10 ed a tem-per-atura $\OML/cmm/m/it/10 T$ \OT1/cmr/m/n/10 con-te-nente radizione
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1794--1797
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1757--1760
+Underfull \hbox (badness 10000) in paragraph at lines 1807--1811
 
  []
 
-[67] [68] [69] [70]
-Underfull \hbox (badness 10000) in paragraph at lines 1843--1846
+
+Underfull \hbox (badness 10000) in paragraph at lines 1807--1811
 
  []
 
-[71]
-Underfull \hbox (badness 10000) in paragraph at lines 1907--1910
+[69]
+Underfull \hbox (badness 10000) in paragraph at lines 1831--1834
 
  []
 
-[72] [73] [74] [75] (./MS.aux)
+[70]
+Underfull \hbox (badness 10000) in paragraph at lines 1895--1898
+
+ []
+
+[71] [72] [73] [74] (./MS.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -454,10 +469,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,19n,65p,706b,297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MS.pdf (75 pages, 491367 bytes).
+Output written on MS.pdf (74 pages, 490506 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 241 compressed objects within 3 object streams
+ 372 PDF objects out of 1000 (max. 8388607)
+ 239 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

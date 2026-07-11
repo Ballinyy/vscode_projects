@@ -1150,16 +1150,19 @@ e
 \end{align}
 Verifichiamo che vale la seguente relazione 
 \begin{align}
-    \braket{(\Delta N)^2} = Z\left(\frac{\partial}{\partial Z}\braket{N}\right)_{V, T} \tag{3.2.7}
+    \braket{(\Delta N)^2} = Z\left(\frac{\partial}{\partial Z}\braket{N}\right)_{T, V} \tag{3.2.7}
 \end{align}
 Si ha che 
 \begin{align}
-    Z\left(\frac{\partial}{\partial Z}\braket{N}\right)_{V, T} &= Z\left(\frac{\partial}{\partial Z}\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)_{V, T} \notag \\
+    Z\left(\frac{\partial}{\partial Z}\braket{N}\right)_{T, V} &= Z\left(\frac{\partial}{\partial Z}\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)_{T, V} \notag \\
     &= Z\left(\frac{\sum_{N}N^2Z^{N - 1}Q_N}{\sum_{N}Z^NQ_N} - \frac{\sum_{N}NZ^{N - 1}Q_N\sum_{N}NZ^NQ_N}{\left(\sum_N Z^NQ_N\right)^2}\right) \notag \\
     &= \frac{\sum_{N}N^2Z^NQ_N}{\sum_{N}Z^NQ_N} - \left(\frac{\sum_{N}NZ^NQ_N}{\sum_{N}Z^NQ_N}\right)^2 \notag \\
     &= \braket{N^2} - \braket{N}^2 \tag{3.2.8}
 \end{align}
-Pertanto $(3.2.7)$ è dimostrata.
+Pertanto $(3.2.7)$ è dimostrata. Segue che 
+\begin{align}
+    \braket{(\Delta N)^2} = Z\frac{\partial}{\partial Z}\left(Z\frac{\partial}{\partial Z}\log \tilde{Q}\right)_{T, V} \tag{3.2.9}
+\end{align}
 
 
 \newpage
@@ -1487,7 +1490,7 @@ dove si è usato
 \end{align}
 
 \subsubsection*{Energia di Fermi}
-Nel contensto dell'ensemble grancanonico (quantistico) si ha 
+Nel contensto dell'ensemble grancanonico quantistico si ha 
 \begin{align}
     \frac{\mathcal{N}}{V} = \text{costante} \tag{4.4.17}
 \end{align}
@@ -1574,11 +1577,16 @@ Confrontando con $(4.4.14)$ si ottiene
 \end{align}
 Per cui
 \begin{align}
-    Z \sim e^{\beta\varepsilon_F} \qquad \varepsilon_F = \frac{\hbar^2}{2m}\left(\frac{6\pi^2}{v}\right)^{2/3} \tag{2.2.29}
+    Z \sim e^{\beta\varepsilon_F} \qquad \varepsilon_F = \frac{\hbar^2}{2m}\left(\frac{6\pi^2}{v}\right)^{2/3} \tag{4.4.29}
 \end{align}
 dove $\varepsilon_F$ è il potenziale chimico al limite di temperatura nulla, detto \textit{energia di Fermi}. \\
 Nel limite $T \rightarrow 0$, la funzione integranda che definisce il numero medio di particelle del contesto dell'ensemble grancanonico quantistico diventa una funzione a gradino. Questo è dovuto al principio di esclusione di Pauli, infatti uno stesso livello energetico non può essere occupato simultaneamente da due fermioni. \\ \\
-Concludiamo che $\varepsilon_F$ è il livello energetico di singola particella più alto ad essere occupato nel limite di temperatura nulla. Inoltre, per il principio di esclusione di Pauli, osserviamo che sotto all'energia di Fermi ci sono esattamente $\mathcal{N}$ livelli energetici.
+Concludiamo che $\varepsilon_F$ è il livello energetico di singola particella più alto ad essere occupato nel limite di temperatura nulla. Inoltre, per il principio di esclusione di Pauli, osserviamo che sotto all'energia di Fermi ci sono esattamente $\mathcal{N}$ livelli energetici. \\ \\
+Per temperature prossime allo zero assoluto si ha
+\begin{align}
+    \mu = kT\log Z = \varepsilon_F\left(1 - \frac{\pi^2}{12}\left(\frac{kT}{\varepsilon_F}\right)^2 + \dots\right) \notag
+\end{align}
+sviluppando il potenziale chimico $\mu$.
 
 \subsubsection*{Condensazione di Bose-Einstein}
 Consideriamo ora il caso di bosoni liberi, poniamo $\varepsilon_p = \frac{p^2}{2m}$. La funzione di partizione grancanonica è data da
@@ -1722,72 +1730,27 @@ Passando in coordinate sferiche
 \end{align}
 
 \newpage
-\subsection{Gas di onde elettromagnetiche}
-Consideriamo un gas di onde elettromagnetiche confinate in un corpo nero. Decomponendo le onde elettromegnetiche nella base delle onde piane possiamo descrivere le onde elettromagnetiche come sovrapposizione (somma) di onde piane. \\
-Confrontando con le equazioni di Maxwell nel vuoto osserviamo che le onde piane soddisfano l'equazione dell'oscillatore armonico. In particolare, dalle equazioni di Maxwell sappiamo che
-\begin{align}
-    \nabla^2\mathbf{E} - \frac{1}{c^2}\frac{\partial^2 \mathbf{E}}{\partial t^2} = 0 \tag{4.6.1}
-\end{align}
-Dato che $\mathbf{E}$ è sovrapposizione di onde piane, ovvero
-\begin{align}
-    \mathbf{E} = \hat{\boldsymbol{\epsilon}}\int d\omega \, A(\omega)e^{i(\mathbf{k} \cdot \mathbf{r} - \omega t)} \tag{4.6.2}
-\end{align}
-Data che la regolarità della funzione integranda garantisce la linearità rispetto alle operazioni di derivazione, possiamo considerare ogni termine singolarmente. Dalle equazioni di Maxwell otteniamo
-\begin{align}
-    \nabla \cdot \mathbf{E} = 0 \implies \hat{\boldsymbol{\epsilon}} \cdot \mathbf{k} = 0 \notag 
-\end{align}
-Da $(4.6.1)$ si ottiene
-\begin{align}
-    c\|\mathbf{k}\| = \omega \notag
-\end{align}
-Infine
-\begin{align}
-    \frac{\partial^2 \mathbf{E}}{\partial t^2} &= -\omega^2\mathbf{E} \notag \\
-    \nabla^2\mathbf{E} &= -\mathbf{k}^2\mathbf{E} \notag
-\end{align}
-ovvero $\mathbf{E}$ soddisfa l'equazione differenziale dell'oscillatore armonico, pertanto possiamo trattare il gas di onde elettromagnetiche nel corpo nero come un insieme di oscillatori armonici quantistici. \\ \\
-Analogamente a quanto visto per le particelle libere, si ha
-\begin{align}
-    \sum_{k_x, k_y, k_z} 1 \sim \left(\frac{L}{2\pi}\right)^3\int_{-\infty}^\infty dk_x\int_{-\infty}^\infty dk_y\int_{-\infty}^\infty dk_z \tag{4.6.3}
-\end{align}
-al limite termodinamico. \\
-Classicamente penseremmo di associare ad ogni onda nel corpo nero un energia $kT$, tuttavia questo modello porta alla \textit{catastrofe dell'ultravioletto}, ovvero prevede un'energia interna infinita, infatti
-\begin{align}
-    U = 2\left(\frac{L}{2\pi}\right)^2\int_{-\infty}^\infty dk_x\int_{-\infty}^\infty dk_y\int_{-\infty}^\infty dk_z (kT) = +\infty \notag
-\end{align}
-dove il fattore $2$ a moltiplicare tiene conto della degenerazione dovuta alle possibili polarizzazioni dell'onda. \\ \\
-La soluzione è trattare, come prima giustificato, il gas di onde elettromagnetiche come un gas di oscillatori armonici, ognuno dei quali ha energia $E = \frac{1}{2}\hbar\omega$. In particolare, da $(2.7.3)$ sappiamo che
-\begin{align}
-    Q_1 = \frac{1}{e^{\beta\frac{\hbar\omega}{2}} - 1} \notag
-\end{align}
-pertanto, trascurando il fattore $1/2$ nel limite di molti fotoni, si ottiene
-\begin{align}
-    U = \frac{2L^3}{8\pi^3}\int d\mathbf{k} \, \frac{\hbar\omega}{e^{\hbar\omega} - 1} < \infty \tag{4.6.4}
-\end{align}
-
-
-\newpage
-\subsection{Correzioni quantistiche alle equazioni caratteristiche}
+\subsection{Limite classico delle equazioni caratteristiche}
 Consideriamo un sistema di $N$ fermioni indipendenti e indistinguibili governato da un hamiltoniano di singola particella della forma
 \begin{align}
-    \mathcal{H}(\mathbf{p}) = c\|\mathbf{p}\| \tag{4.5.1}
+    \mathcal{H}(\mathbf{p}) = c\|\mathbf{p}\| \tag{4.6.1}
 \end{align}
 Nel contesto dell'ensemble grancanonico quantistico si ha
 \begin{align}
-    U = \frac{4\pi g_sV}{h^3}\int_0^\infty dp p^2 \, \frac{pc}{Z^{-1}e^{\beta pc} + 1} \tag{4.5.2}
+    U = \frac{4\pi g_sV}{h^3}\int_0^\infty dp p^2 \, \frac{pc}{Z^{-1}e^{\beta pc} + 1} \tag{4.6.2}
 \end{align}
-Poniamo $x = \beta pc$, allora $p = \frac{x}{\beta c}$ e $dp = \frac{1}{\beta c}dx$. Sostituendo in $(4.5.3)$ si ottiene 
+Poniamo $x = \beta pc$, allora $p = \frac{x}{\beta c}$ e $dp = \frac{1}{\beta c}dx$. Sostituendo in $(4.6.3)$ si ottiene 
 \begin{align}
-    U = \frac{4\pi g_sV}{\beta^4c^3h^3}\int_0^\infty dx \, \frac{x^3}{Z^{-1}e^x + 1} \tag{4.5.3} 
+    U = \frac{4\pi g_sV}{\beta^4c^3h^3}\int_0^\infty dx \, \frac{x^3}{Z^{-1}e^x + 1} \tag{4.6.3} 
 \end{align}
 Facendo lo stesso per l'espressione del numero medio di particelle $\mathcal{N}$ si ottiene
 \begin{align}
-    \mathcal{N} = \frac{4\pi g_sV}{\beta^3c^3h^3}\int_0^\infty dx \, \frac{x^2}{Z^{-1}e^x + 1} \tag{4.5.4}
+    \mathcal{N} = \frac{4\pi g_sV}{\beta^3c^3h^3}\int_0^\infty dx \, \frac{x^2}{Z^{-1}e^x + 1} \tag{4.6.4}
 \end{align}
-Sviluppiamo in serie $(4.5.4)$ per $Z << 1$
+Sviluppiamo in serie $(4.6.4)$ per $Z << 1$
 \begin{align}
     \mathcal{N} &= \frac{4\pi g_sV}{\beta^3c^3h^3}\int_0^\infty dx \, \frac{Zx^2e^{-x}}{1 + Ze^{-x}} \notag \\&\sim \frac{4\pi g_sV}{\beta^3c^3h^3}\left(Z\int_0^\infty dx \, x^2e^{-x} - Z^2\int_0^\infty dx \, x^2e^{-2x}\right) \notag \\
-    &= \frac{4\pi g_s V}{\beta^3c^3h^3}(2Z - \frac{1}{4}Z^2) \tag{4.5.5}
+    &= \frac{4\pi g_s V}{\beta^3c^3h^3}(2Z - \frac{1}{4}Z^2) \tag{4.6.5}
 \end{align}
 dove si è usato 
 \begin{align}
@@ -1795,32 +1758,57 @@ dove si è usato
 \end{align}
 Poniamo $n' = \frac{\mathcal{N}}{V}\frac{(\beta ch)^3}{4\pi g_s}$ ed esprimiamo $Z$ in funzione del numero medio di particelle. Per fare ciò è necessario risolvere la seguente equazione di secondo grado
 \begin{align}
-    \frac{1}{4}Z^2 - 2Z + n' = 0 \tag{4.5.6}
+    \frac{1}{4}Z^2 - 2Z + n' = 0 \tag{4.6.6}
 \end{align}
-In particolare, $(4.5.6)$ ammette le seguenti soluzioni
+In particolare, $(4.6.6)$ ammette le seguenti soluzioni
 \begin{align}
-    Z_{\pm} = 4 \pm 2\sqrt{4 - n'} \sim 4 \pm \left(4 - \frac{1}{2}n' - \frac{1}{8}(n')^2\right) \tag{4.5.7}
+    Z_{\pm} = 4 \pm 2\sqrt{4 - n'} \sim 4 \pm \left(4 - \frac{1}{2}n' - \frac{1}{8}(n')^2\right) \tag{4.6.7}
 \end{align}
 dove si è usato $n' << 1$, dato che al limite classico $\frac{\mathcal{N}}{V} << 1$. La soluzione che ha senso fisicamente è quella minore al limite $n' \rightarrow 0$. In questo caso si tratta di $Z_-$, pertanto scegliamo
 \begin{align}
-    Z = \frac{1}{2}n' + \frac{1}{8}(n')^2 \tag{4.5.8}
+    Z = \frac{1}{2}n' + \frac{1}{8}(n')^2 \tag{4.6.8}
 \end{align}
 Ora sviluppiamo anche $U$ in termini di $Z$
 \begin{align}
     U &\sim \frac{4\pi g_sV}{\beta^4(ch)^3}\left(Z\int_0^\infty dx \, x^3e^{-x} - Z^2\int_0^\infty dx \, x^3e^{-2x}\right) \notag \\
-    &= \frac{4\pi g_sV}{\beta^4(ch)^3}\left(6Z - \frac{3}{8}Z^2\right) \tag{4.5.9}
+    &= \frac{4\pi g_sV}{\beta^4(ch)^3}\left(6Z - \frac{3}{8}Z^2\right) \tag{4.6.9}
 \end{align}
-e sostituendo la soluzione ottenuta in $(4.5.8)$, tenendo conto solamente dei contributi fino all'ordine $2$, si ha
+e sostituendo la soluzione ottenuta in $(4.6.8)$, tenendo conto solamente dei contributi fino all'ordine $2$, si ha
 \begin{align}
     U &\sim \frac{4\pi g_sV}{\beta^4(ch)^3}\left(3n' - \frac{3}{4}(n')^2 - \frac{3}{16}(n')^2\right) \notag \\
     &= \frac{4\pi g_sV}{\beta^4(ch)^3}3n'\left(1 + \frac{5}{16}n'\right) \notag \\
-    &= 3\mathcal{N}kT\left(1 + \frac{5}{16}n'\right) \tag{4.5.10}
+    &= 3\mathcal{N}kT\left(1 + \frac{5}{16}n'\right) \tag{4.6.10}
 \end{align}
 Pertanto, dato che $PV = \frac{1}{3}U$, abbiamo ottenuto
 \begin{align}
-    PV = \mathcal{N}kT\left(1 + \frac{5}{16}n'\right) \tag{4.5.11}
+    PV = \mathcal{N}kT\left(1 + \frac{5}{16}n'\right) \tag{4.6.11}
 \end{align}
 ovvero la prima correzione alla pressione è positiva, ciò è dovuto al principio di esclusione di Pauli.
+
+\newpage
+\subsection{Gas di onde elettromagnetiche}
+Consideriamo un corpo nero di volume $V$ ed a temperatura $T$ contenente radizione elettromagnetica. \\
+Dalle equazioni di Maxwell nel vuoto notiamo che il vettore campo elettrico $\mathbf{E}$ soddisfa l'equazione dell'oscillatore armonico, pertanto possiamo trattare tale sistema come un gas di oscillatori armonici quantistici. Questo segue dal fatto che possiamo esprimere il campo elettrico come sovrapposizione di onde piane a diverse frequenze, ovvero
+\begin{align}
+    E(\mathbf{r}, t) = \hat{\boldsymbol{\epsilon}}\int d\omega \, A(\omega)e^{i(\mathbf{k} \cdot \mathbf{r} - \omega t - \delta_\omega)} \tag{4.7.1}
+\end{align}
+La condizione $\nabla \cdot \mathbf{E} = 0$ comporta $\hat{\boldsymbol{\epsilon}} \cdot \mathbf{k} = 0$, pertanto, assegnata una direzione di propagazione $\mathbf{k}$, esistono solamente due direzioni di polarizzazione indipendenti ammesse per il campo elettrico. \\ \\
+Imponendo condizioni al contorno periodiche per il campo elettrico si ottengono i vettori d'onda $\mathbf{k}$ ammessi. In particolare
+\begin{align}
+    k_i = \frac{2\pi n_i}{L} \qquad i = x, y, z \quad n_i \in \mathbf{N} \tag{4.7.2}
+\end{align}
+Come nel caso di particelle libere, al limite termodinamico è possibile passare da sommatoria a integrale
+\begin{align}
+    \sum_{k_x, k_y, k_z} 1 \sim \left(\frac{L}{2\pi}\right)^3\int_{-\infty}^\infty dk_x \int_{-\infty}^\infty dk_y \int_{-\infty}^\infty dk_z \notag
+\end{align}
+L'energia di un oscillatore armonico quantistico unidimensionale è
+\begin{align}
+    E_n = \hbar\omega\left(n + \frac{1}{2}\right) \qquad n \in \mathbf{N} \notag
+\end{align}
+Questo fa pensare i fotoni sono i quanti di energia dell'oscillatore armonico, pertanto l'energia $E_n$ di oscillatore con frequenza $\omega$ dipende da quanti elettroni si trovano alla frequenza $\omega$. \\ \\
+Sappiamo che i fotoni hanno massa nulla, pertanto viaggiano alla velocità della luce, spin $\hbar$ e impulso $p = \hbar k$, dove $k = \omega/c$ (si trova dalle equazione di Maxwell). Segue che l'energia di ogni fotone libero è $E = pc$. \\ \\
+Nel contesto
+
 
 
 

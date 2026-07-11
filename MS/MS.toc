@@ -26,5 +26,5 @@
 \contentsline {subsection}{\numberline {4.3}Gas ideali quantistici}{52}{}%
 \contentsline {subsection}{\numberline {4.4}Particelle libere}{55}{}%
 \contentsline {subsection}{\numberline {4.5}Equivalente quantistico del teorema di equipartizione dell'energia}{65}{}%
-\contentsline {subsection}{\numberline {4.6}Gas di onde elettromagnetiche}{67}{}%
-\contentsline {subsection}{\numberline {4.7}Correzioni quantistiche alle equazioni caratteristiche}{69}{}%
+\contentsline {subsection}{\numberline {4.6}Limite classico delle equazioni caratteristiche}{67}{}%
+\contentsline {subsection}{\numberline {4.7}Gas di onde elettromagnetiche}{69}{}%
