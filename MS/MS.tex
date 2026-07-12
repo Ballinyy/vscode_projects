@@ -1163,6 +1163,52 @@ Pertanto $(3.2.7)$ è dimostrata. Segue che
 \begin{align}
     \braket{(\Delta N)^2} = Z\frac{\partial}{\partial Z}\left(Z\frac{\partial}{\partial Z}\log \tilde{Q}\right)_{T, V} \tag{3.2.9}
 \end{align}
+Definiamo il potenziale termodinamico di Gibbs $G$
+\begin{align}
+    G = U - TS + PV = F + PV \tag{3.2.10}
+\end{align}
+Il differenziale di $G$ è dato da
+\begin{align}
+    dG = -SdT + VdP + \mu dN \tag{3.2.11}
+\end{align}
+$G$ è un potenziale termodinamico, pertanto è una funzione estensiva delle variabili termodinamiche. Confrontando con $(3.2.11)$ concludiamo che 
+\begin{align}
+    G = N\mu(T, P) \tag{3.2.12}
+\end{align}
+Infatti, $T$ e $P$ sono grandezze intensive e necessariamente la dipendenza da $N$ deve essere fattorizzata per far sì che $G$ sia estensiva nel complesso. Allora, otteniamo una nuova espressione per il differenziale $dG$
+\begin{align}
+    dG = Nd\mu + \mu dN \tag{3.2.13}
+\end{align}
+Confrontando $(3.2.11)$ e $(3.2.13)$ e ricordando che il sistema è termalizzato a temperatura $T$ ($dT = 0$), si ottiene
+\begin{align}
+    VdP + \mu dN = Nd\mu + \mu dN \notag
+\end{align}
+ovvero
+\begin{align}
+    d\mu = \frac{V}{N}dP \tag{3.2.14}
+\end{align}
+Riscriviamo $(3.2.9)$ come segue
+\begin{align}
+    \braket{(\Delta N)^2} = Z\frac{\partial}{\partial Z}\left(Z\frac{\partial}{\partial Z}\left(\frac{PV}{kT}\right)\right)_{T, V} \tag{3.2.15}
+\end{align}
+Osserviamo che 
+\begin{align}
+    Z\frac{\partial}{\partial Z} = \frac{\partial}{\partial \log Z} = \frac{\partial}{\partial(\beta\mu)} = \frac{1}{\beta}\frac{\partial}{\partial\mu} = \frac{1}{\beta}\frac{\partial P}{\partial \mu}\frac{\partial}{\partial P} = \frac{1}{\beta v}\frac{\partial}{\partial P} \notag
+\end{align}
+Sostituendo in $(3.2.15)$
+\begin{align}
+    \braket{(\Delta N)^2} &= \frac{1}{\beta v}\frac{\partial}{\partial P}\left(\frac{1}{\beta v}\frac{\partial}{\partial P}\left(\frac{PV}{kT}\right)\right)_{T, V} \notag \\
+    &= \frac{V}{\beta v}\frac{\partial}{\partial P}\left(\frac{1}{v}\right)_{T, V} \notag \\
+    &= -\frac{V}{\beta v^3}\left(\frac{\partial v}{\partial P}\right)_{T, V} \notag \\
+    &= -\frac{\mathcal{N}}{\beta v^2}\underbrace{\left(\frac{\partial P}{\partial v}\right)^{-1}_{T, V}}_{\text{compressibilità isoterma}} \tag{3.2.16}
+\end{align}
+Osserviamo che le fluttuzioni del numero di particelle sono legate alla compressibilità isoterma $\kappa_T = \left(\frac{\partial P}{\partial v}\right)^{-1}_T$. Inoltre
+\begin{align}
+    \frac{\sqrt{\braket{(\Delta N)^2}}}{\mathcal{N}} = \left(-\frac{1}{\beta v^2}\left(\frac{\partial P}{\partial v}\right)^{-1}_T\right)^{1/2}\left(\frac{1}{\mathcal{N}}\right)^{1/2} \tag{3.2.17}
+\end{align}
+ovvero le fluttuazioni diventano trascurabili al limite termodinamico $\mathcal{N} \rightarrow \infty$ ($v$ è fissata dato che al limite termidinamico $V \rightarrow \infty$ e $\mathcal{N} \rightarrow \infty$ in modo tale che $V/N \propto 1$).
+
+
 
 
 \newpage

@@ -19,12 +19,12 @@
 \contentsline {section}{\numberline {3}Ensemble grancanonico}{40}{}%
 \contentsline {subsection}{\numberline {3.1}Legge di stato}{40}{}%
 \contentsline {subsection}{\numberline {3.2}Fluttuazioni del numero medio di particelle (spettro discreto)}{44}{}%
-\contentsline {subsection}{\numberline {3.3}Particelle libere in una scatola}{46}{}%
-\contentsline {section}{\numberline {4}Meccanica Statistica Quantistica}{47}{}%
-\contentsline {subsection}{\numberline {4.1}Indistinguibilità quantistica}{47}{}%
-\contentsline {subsection}{\numberline {4.2}Concetto di ensemble in meccanica quantistica}{49}{}%
-\contentsline {subsection}{\numberline {4.3}Gas ideali quantistici}{52}{}%
-\contentsline {subsection}{\numberline {4.4}Particelle libere}{55}{}%
-\contentsline {subsection}{\numberline {4.5}Equivalente quantistico del teorema di equipartizione dell'energia}{65}{}%
-\contentsline {subsection}{\numberline {4.6}Limite classico delle equazioni caratteristiche}{67}{}%
-\contentsline {subsection}{\numberline {4.7}Gas di onde elettromagnetiche}{69}{}%
+\contentsline {subsection}{\numberline {3.3}Particelle libere in una scatola}{48}{}%
+\contentsline {section}{\numberline {4}Meccanica Statistica Quantistica}{49}{}%
+\contentsline {subsection}{\numberline {4.1}Indistinguibilità quantistica}{49}{}%
+\contentsline {subsection}{\numberline {4.2}Concetto di ensemble in meccanica quantistica}{51}{}%
+\contentsline {subsection}{\numberline {4.3}Gas ideali quantistici}{54}{}%
+\contentsline {subsection}{\numberline {4.4}Particelle libere}{57}{}%
+\contentsline {subsection}{\numberline {4.5}Equivalente quantistico del teorema di equipartizione dell'energia}{67}{}%
+\contentsline {subsection}{\numberline {4.6}Limite classico delle equazioni caratteristiche}{69}{}%
+\contentsline {subsection}{\numberline {4.7}Gas di onde elettromagnetiche}{71}{}%
