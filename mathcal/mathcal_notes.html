@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>\mathcal notes — Appunti Universitari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+        /* --- Palette deep space / scientific --- */
+        :root {
+            --deep-navy: #080c1a;
+            --slate: #111827;
+            --steel: #1a2438;
+            --ice-blue: #d6e4f0;
+            --ice-dim: #8aa3c0;
+            --cyan: #4fc3f7;
+            --cyan-dark: #1a73e8;
+            --gold: #fdd835;
+            --magenta: #ce93d8;
+            --accent: #64b5f6;
+            --glass: #1e2a3a;
+            --ink: #05080f;
+            --display: 'Fraunces', serif;
+            --body: 'Work Sans', sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        body {
+            background: var(--deep-navy);
+            color: var(--ice-blue);
+            font-family: var(--body);
+            overflow-x: hidden;
+        }
+        ::selection {
+            background: var(--cyan);
+            color: var(--deep-navy);
+        }
+        a {
+            color: inherit;
+        }
+
+        /* rumore di fondo */
+        .noise {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.04;
+            z-index: 1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+        }
+
+        /* --- Layout --- */
+        .scene {
+            display: grid;
+            grid-template-columns: 50vw 1fr;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .mobius-rail {
+            position: relative;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .mobius-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, #0f1a2b 0%, #080c1a 100%);
+            will-change: transform;
+        }
+
+        #three-container {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            position: relative;
+        }
+        #three-container canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* badge fisso sotto al nastro */
+        .subject-badge-overlay {
+            position: absolute;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--display);
+            font-style: italic;
+            font-weight: 600;
+            font-size: clamp(1rem, 2.2vw, 1.8rem);
+            color: var(--ice-blue);
+            background: rgba(8, 12, 26, 0.7);
+            backdrop-filter: blur(6px);
+            padding: 0.4rem 1.8rem;
+            border-radius: 40px;
+            border: 1px solid rgba(79, 195, 247, 0.25);
+            pointer-events: none;
+            text-align: center;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            box-shadow: 0 0 30px rgba(79, 195, 247, 0.08);
+        }
+        .subject-badge-overlay .subj-small {
+            font-family: var(--mono);
+            font-weight: 400;
+            font-size: 0.45em;
+            color: var(--ice-dim);
+            letter-spacing: 0.15em;
+            display: block;
+            margin-top: 0.15rem;
+        }
+
+        /* --- Content rail --- */
+        .content-rail {
+            display: flex;
+            flex-direction: column;
+        }
+
+        section.panel {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8vh 5vw 8vh 3vw;
+            position: relative;
+        }
+
+        /* --- Typography --- */
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .eyebrow::before {
+            content: '';
+            width: 2.2em;
+            height: 1px;
+            background: var(--cyan);
+        }
+
+        h1,
+        h2 {
+            font-family: var(--display);
+            font-weight: 600;
+            line-height: 1.02;
+            letter-spacing: -0.01em;
+        }
+        h2 {
+            font-size: clamp(2rem, 4.2vw, 3.4rem);
+            color: var(--ice-blue);
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease 0.05s, transform 0.8s ease 0.05s;
+        }
+        h2 .highlight {
+            color: var(--cyan);
+        }
+        p.lede {
+            font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+            line-height: 1.7;
+            color: var(--ice-dim);
+            max-width: 34ch;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s;
+        }
+
+        .panel.is-visible .eyebrow,
+        .panel.is-visible h2,
+        .panel.is-visible p.lede {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            justify-content: center;
+        }
+        .hero .wordmark {
+            font-family: var(--display);
+            font-weight: 700;
+            font-style: italic;
+            font-size: clamp(3.6rem, 9vw, 7rem);
+            line-height: 0.92;
+            color: var(--cyan);
+            text-shadow: 0.03em 0.03em 0 var(--gold);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroIn 1s cubic-bezier(.16, 1, .3, 1) 0.2s forwards;
+        }
+        @keyframes heroIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero .tagline {
+            font-family: var(--body);
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            color: var(--ice-dim);
+            margin-top: 1.2rem;
+            max-width: 32ch;
+            opacity: 0;
+            animation: heroIn 1s cubic-bezier(.16, 1, .3, 1) 0.5s forwards;
+        }
+        .hero .scroll-hint {
+            margin-top: 3rem;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            opacity: 0;
+            animation: heroIn 1s ease 0.9s forwards;
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+        }
+        .scroll-hint::after {
+            content: '↓';
+            animation: bob 1.6s ease-in-out infinite;
+        }
+        @keyframes bob {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(6px);
+            }
+        }
+
+        /* --- Topic grid (materie) --- */
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.4rem;
+            margin-top: 1.8rem;
+            max-width: 44ch;
+        }
+        .topic-card {
+            background: var(--slate);
+            border: 1px solid rgba(79, 195, 247, 0.15);
+            padding: 1.2rem 1rem;
+            border-radius: 6px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .topic-card:hover {
+            border-color: var(--cyan);
+            box-shadow: 0 0 18px rgba(79, 195, 247, 0.25), inset 0 0 16px rgba(79, 195, 247, 0.06);
+        }
+        .panel.is-visible .topic-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .panel.is-visible .topic-card:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+        .panel.is-visible .topic-card:nth-child(2) {
+            transition-delay: 0.15s;
+        }
+        .panel.is-visible .topic-card:nth-child(3) {
+            transition-delay: 0.25s;
+        }
+        .panel.is-visible .topic-card:nth-child(4) {
+            transition-delay: 0.35s;
+        }
+        .topic-card .t-title {
+            font-family: var(--display);
+            font-size: 1.1rem;
+            color: var(--ice-blue);
+            margin-bottom: 0.2rem;
+        }
+        .topic-card .t-desc {
+            font-size: 0.82rem;
+            color: var(--ice-dim);
+            line-height: 1.5;
+        }
+        .topic-card .t-badge {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            background: var(--cyan-dark);
+            color: var(--deep-navy);
+            padding: 0.15rem 0.6rem;
+            border-radius: 12px;
+            margin-top: 0.4rem;
+        }
+
+        /* --- Feature list (argomenti) --- */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 1.4rem;
+            border-top: 1px solid rgba(214, 228, 240, 0.12);
+            max-width: 34ch;
+        }
+        .feature-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(214, 228, 240, 0.08);
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            opacity: 0;
+            transform: translateX(-14px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .panel.is-visible .feature-row {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .panel.is-visible .feature-row:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+        .panel.is-visible .feature-row:nth-child(2) {
+            transition-delay: 0.15s;
+        }
+        .panel.is-visible .feature-row:nth-child(3) {
+            transition-delay: 0.25s;
+        }
+        .panel.is-visible .feature-row:nth-child(4) {
+            transition-delay: 0.35s;
+        }
+        .panel.is-visible .feature-row:nth-child(5) {
+            transition-delay: 0.45s;
+        }
+        .panel.is-visible .feature-row:nth-child(6) {
+            transition-delay: 0.55s;
+        }
+        .panel.is-visible .feature-row:nth-child(7) {
+            transition-delay: 0.65s;
+        }
+        .panel.is-visible .feature-row:nth-child(8) {
+            transition-delay: 0.75s;
+        }
+        .feature-row .num {
+            color: var(--cyan);
+            margin-right: 1em;
+        }
+        .feature-row .name {
+            color: var(--ice-blue);
+            flex: 1;
+            font-family: var(--body);
+            font-size: 0.9rem;
+        }
+        .feature-row .pct {
+            color: var(--gold);
+            font-size: 0.7rem;
+        }
+
+        /* --- Timeline / concetti --- */
+        .concept-timeline {
+            margin-top: 1.6rem;
+            max-width: 36ch;
+        }
+        .tl-item {
+            position: relative;
+            padding-left: 1.6rem;
+            padding-bottom: 1.4rem;
+            border-left: 1px solid rgba(214, 228, 240, 0.15);
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .tl-item:last-child {
+            border-left-color: transparent;
+            padding-bottom: 0;
+        }
+        .panel.is-visible .tl-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .panel.is-visible .tl-item:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+        .panel.is-visible .tl-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        .panel.is-visible .tl-item:nth-child(3) {
+            transition-delay: 0.35s;
+        }
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 2px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 0 3px var(--deep-navy);
+        }
+        .tl-year {
+            font-family: var(--mono);
+            color: var(--gold);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+        .tl-text {
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: var(--ice-dim);
+        }
+
+        /* --- Badge qualità --- */
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.6rem;
+            max-width: 38ch;
+        }
+        .badge {
+            border: 1px solid rgba(214, 228, 240, 0.12);
+            padding: 1rem 0.9rem;
+            border-radius: 4px;
+            opacity: 0;
+            transform: translateY(16px) scale(0.97);
+            transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .badge:hover {
+            border-color: var(--cyan);
+            box-shadow: 0 0 18px rgba(79, 195, 247, 0.25), inset 0 0 16px rgba(79, 195, 247, 0.06);
+        }
+        .panel.is-visible .badge {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .panel.is-visible .badge:nth-child(1) {
+            transition-delay: 0.05s;
+        }
+        .panel.is-visible .badge:nth-child(2) {
+            transition-delay: 0.15s;
+        }
+        .panel.is-visible .badge:nth-child(3) {
+            transition-delay: 0.25s;
+        }
+        .panel.is-visible .badge:nth-child(4) {
+            transition-delay: 0.35s;
+        }
+        .badge .b-title {
+            font-family: var(--display);
+            font-size: 1rem;
+            color: var(--ice-blue);
+            margin-bottom: 0.25rem;
+        }
+        .badge .b-text {
+            font-size: 0.78rem;
+            line-height: 1.5;
+            color: var(--ice-dim);
+        }
+
+        /* --- Contatti social (CTA) --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.6rem;
+            max-width: 38ch;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s;
+        }
+        .panel.is-visible .contact-grid {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contact-box {
+            border: 1px solid rgba(214, 228, 240, 0.12);
+            background: var(--slate);
+            padding: 0.9rem 1rem;
+            border-radius: 4px;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .contact-box:hover,
+        .contact-box:focus-within {
+            border-color: var(--cyan);
+            box-shadow: 0 0 18px rgba(79, 195, 247, 0.25), inset 0 0 16px rgba(79, 195, 247, 0.06);
+        }
+        .contact-box label {
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 0.4rem;
+        }
+        .contact-box .contact-value {
+            color: var(--ice-blue);
+            font-family: var(--body);
+            font-size: 0.95rem;
+            margin: 0;
+            word-break: break-word;
+        }
+
+        /* --- CTA (rimosso pulsante) --- */
+        .cta-panel {
+            align-items: flex-start;
+        }
+
+        footer {
+            padding: 2.5rem 5vw;
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--ice-dim);
+            letter-spacing: 0.05em;
+            grid-column: 1 / -1;
+            border-top: 1px solid rgba(214, 228, 240, 0.06);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* --- Mobile --- */
+        @media (max-width: 860px) {
+            .scene {
+                grid-template-columns: 1fr;
+            }
+            .mobius-rail {
+                display: none;
+            }
+            section.panel {
+                padding: 6vh 6vw;
+                min-height: auto;
+            }
+            .badge-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            footer {
+                padding: 2rem 6vw;
+            }
+            .subject-badge-overlay {
+                display: none;
+            }
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .badge-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* fallback mobile */
+        .mobius-mobile-fallback {
+            display: none;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        @media (max-width: 860px) {
+            .mobius-mobile-fallback {
+                display: block;
+            }
+            .mobius-mobile-fallback svg {
+                max-width: 200px;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <div class="scene">
+
+        <!-- Colonna fissa con nastro di Möbius 3D (desktop) -->
+        <div class="mobius-rail">
+            <div class="mobius-sticky" id="mobiusSticky">
+                <div id="three-container">
+                    <!-- Badge FISSO: non cambia mai -->
+                    <div class="subject-badge-overlay" id="subjectBadge">
+                        <span id="badgeSubject">\mathcal notes</span>
+                        <span class="subj-small" id="badgeSub">FISICA &amp; MATEMATICA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenuto scrollabile -->
+        <div class="content-rail">
+
+            <!-- HERO -->
+            <section class="panel hero" id="panel-hero">
+                <div class="wordmark">\mathcal notes</div>
+                <div class="tagline">Appunti universitari di Fisica e Matematica. Scritti con cura, pensati per capire.</div>
+                <div class="scroll-hint">scorri per esplorare</div>
+            </section>
+
+            <!-- MATERIE -->
+            <section class="panel" id="panel-materie" data-stage="materie">
+                <div class="eyebrow">01 — Materie</div>
+                <h2>I pilastri della <br />fisica moderna.</h2>
+                <p class="lede">Appunti chiari, esempi e dimostrazioni fondamentali presentati in un schema ordinato e pulito.</p>
+                <div class="topic-grid">
+                    <div class="topic-card">
+                        <div class="t-title">Meccanica Quantistica</div>
+                        <div class="t-desc">Le basi della teoria quantistica.</div>
+                        <span class="t-badge">+ esempi</span>
+                    </div>
+                    <div class="topic-card">
+                        <div class="t-title">Meccanica Statistica</div>
+                        <div class="t-desc">Lo studio microscopico di sistemi con molti gradi di libertà.</div>
+                        <span class="t-badge">+ esempi</span>
+                    </div>
+                    <div class="topic-card">
+                        <div class="t-title">Metodi Matematici della Fisica</div>
+                        <div class="t-desc">Gli strumenti matematici necessari per comprendere la fisica moderna, presentati con rigore.</div>
+                        <span class="t-badge">+ dimostrazioni</span>
+                    </div>
+                    <div class="topic-card">
+                        <div class="t-title">Topologia Generale</div>
+                        <div class="t-desc">I concetti matematici astratti dietro i modelli fisici.</div>
+                        <span class="t-badge">+ esercizi</span>
+                    </div>
+                    <!-- placeholder per future materie: basta aggiungere un topic-card -->
+                </div>
+            </section>
+
+            <!-- MECCANICA QUANTISTICA -->
+            <section class="panel" id="panel-quantistica" data-stage="quantistica">
+                <div class="eyebrow">02 — MQ</div>
+                <h2><span class="highlight">Meccanica quantistica</span>.</h2>
+                <p class="lede">Appunti completi per un primo corso universitario di meccanica quantistica.</p>
+                <div class="feature-list">
+                    <div class="feature-row"><span class="num">01</span><span class="name">Formalismo matematico</span><span class="pct">cap.1</span></div>
+                    <div class="feature-row"><span class="num">02</span><span class="name">Posizione, impulso e traslazione</span><span class="pct">cap.2</span></div>
+                    <div class="feature-row"><span class="num">03</span><span class="name">Equazione di Schrödinger</span><span class="pct">cap.3</span></div>
+                    <div class="feature-row"><span class="num">04</span><span class="name">Oscillatore armonico</span><span class="pct">cap.4</span></div>
+                    <div class="feature-row"><span class="num">05</span><span class="name">Momento angolare &amp; spin</span><span class="pct">cap.5</span></div>
+                    <div class="feature-row"><span class="num">06</span><span class="name">Potenziali: centrale, costante, lineare</span><span class="pct">cap.6</span></div>
+                    <div class="feature-row"><span class="num">07</span><span class="name">Teoria delle perturbazioni</span><span class="pct">cap.7</span></div>
+                    <div class="feature-row"><span class="num">08</span><span class="name">Particelle identiche</span><span class="pct">cap.8</span></div>
+                </div>
+                <p class="lede" style="margin-top:1rem;font-size:0.9rem;color:var(--ice-dim);opacity:0.7;max-width:40ch;">
+                    📄 <em>MQ.pdf</em> — 68 pagine.
+                </p>
+            </section>
+
+            <!-- MECCANICA STATISTICA -->
+            <section class="panel" id="panel-statistica" data-stage="statistica">
+                <div class="eyebrow">03 — MS</div>
+                <h2><span class="highlight">Meccanica statistica</span>.</h2>
+                <p class="lede">Appunti completi per un primo corso universitario di meccanica statistica.</p>
+                <div class="concept-timeline">
+                    <div class="tl-item">
+                        <span class="tl-year">Ensemble microcanonico</span>
+                        <span class="tl-text">Postulati, entropia, teorema di equipartizione, esempi.</span>
+                    </div>
+                    <div class="tl-item">
+                        <span class="tl-year">Ensemble canonico</span>
+                        <span class="tl-text">Energia libera, fluttuazioni dell'energia, teorema di equipartizione, esempi.</span>
+                    </div>
+                    <div class="tl-item">
+                        <span class="tl-year">Ensemble grancanonico</span>
+                        <span class="tl-text">Legge di stato, fluttuazioni del numero di particelle, esempi.</span>
+                    </div>
+                    <div class="tl-item">
+                        <span class="tl-year">Meccanica statistica quantistica</span>
+                        <span class="tl-text">Indistinguibilità quantistica, concetto di ensemble quantistico, legge di stato, esempi.</span>
+                    </div>
+                </div>
+                <p class="lede" style="margin-top:1rem;font-size:0.9rem;color:var(--ice-dim);opacity:0.7;max-width:40ch;">
+                    📄 <em>MS.pdf</em> — 77 pagine.
+                </p>
+            </section>
+
+            <!-- METODI MATEMATICI DELLA FISICA -->
+            <section class="panel" id="panel-mmf" data-stage="mmf">
+                <div class="eyebrow">04 — MMF</div>
+                <h2><span class="highlight">Metodi matematici della fisica</span>.</h2>
+                <p class="lede">Le basi matematiche indispensabili: spazi di operatori, operatori limitati, operatori autoaggiunti, funzioni di operatori, analisi complessa, teoria delle distribuzioni.</p>
+                <div class="feature-list">
+                    <div class="feature-row"><span class="num">01</span><span class="name">Spazi e operatori lineari</span><span class="pct">cap.1</span></div>
+                    <div class="feature-row"><span class="num">02</span><span class="name">Analisi complessa </span><span class="pct">cap.2</span></div>
+                    <div class="feature-row"><span class="num">03</span><span class="name">Distribuzioni &amp; delta di Dirac</span><span class="pct">cap.3</span></div>
+                </div>
+                <p class="lede" style="margin-top:1rem;font-size:0.9rem;color:var(--ice-dim);opacity:0.7;max-width:40ch;">
+                    📄 <em>MMF.pdf</em> — 81 pagine.
+                </p>
+            </section>
+
+            <!-- TOPOLOGIA GENERALE + GEOMETRIA DIFFERENZIALE -->
+            <section class="panel" id="panel-topologia" data-stage="topologia">
+                <div class="eyebrow">05 — TG-GD</div>
+                <h2><br /><span class="highlight">Complementi di topologia, geometria e algebra</span>.</h2>
+                <p class="lede">Trattazione rigorosa di concetti di topologia, geometria e algebra, fondamentali in fisica teorica.</p>
+                <div class="badge-grid">
+                    <div class="badge"><div class="b-title">Spazi topologici e metrici</div><div class="b-text">Aperti e chiusi, continuità, proprietà di separazione, sottospazi.</div></div>
+                    <div class="badge"><div class="b-title">Proprietà topologiche</div><div class="b-text">Compattezza, connessione, connessione per archi, generalizzazioni.</div></div>
+                    <div class="badge"><div class="b-title">Gruppi di matrici</div><div class="b-text">Topologia dei gruppi di matrici, algebre di Lie.</div></div>
+                    <div class="badge"><div class="b-title">Tensori</div><div class="b-text">Prodotto tensoriale, proprietà fondamentale del prodotto tensoriale ed applicazioni.</div></div>
+                    <div class="badge"><div class="b-title">Varietà</div><div class="b-text">Varietà topologiche e differenziabili, spazio tangente.</div></div>
+                </div>
+                <p class="lede" style="margin-top:1rem;font-size:0.9rem;color:var(--ice-dim);opacity:0.7;max-width:40ch;">
+                    📄 <em>TG-GD.pdf</em> — 90 pagine.
+                </p>
+            </section>
+
+            <!-- CTA -->
+            <section class="panel cta-panel" id="panel-cta">
+                <div class="eyebrow">Acquista gli appunti</div>
+                <h2>Studia con semplicità.</h2>
+                <p class="lede">Ricevi i PDF completi di tutte le materie. Contattaci direttamente sui nostri profili social!</p>
+                <div class="contact-grid">
+                    <div class="contact-box">
+                        <label for="ig-account">Instagram</label>
+                        <p class="contact-value">@mathcal.notes</p>
+                    </div>
+                    <div class="contact-box">
+                        <label for="fb-account">Facebook</label>
+                        <p class="contact-value">mathcal.notes</p>
+                    </div>
+                    <div class="contact-box">
+                        <label for="account">DocSity</label>
+                        <p class="contact-value">mathcal.notes</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <span>\MATHCAL NOTES — APPUNTI DI FISICA E MATEMATICA</span>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- fallback mobile -->
+    <div class="mobius-mobile-fallback">
+        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 60 Q50 20 100 60 Q150 100 180 60" stroke="#4fc3f7" stroke-width="4" fill="none"/>
+            <path d="M20 60 Q50 100 100 60 Q150 20 180 60" stroke="#4fc3f7" stroke-width="4" fill="none" opacity="0.4"/>
+            <text x="100" y="85" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#8aa3c0" letter-spacing="2">\MATHCAL</text>
+        </svg>
+    </div>
+
+    <!-- Three.js via CDN (import map) -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // --- setup scene ---
+        const container = document.getElementById('three-container');
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x080c1a);
+
+        const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
+        camera.position.set(0, 0.8, 6.5);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.shadowMap.enabled = false;
+        container.appendChild(renderer.domElement);
+
+        // --- lights ---
+        const ambientLight = new THREE.AmbientLight(0x446688, 0.6);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0x88ccff, 1.8);
+        dirLight.position.set(1, 2, 4);
+        scene.add(dirLight);
+
+        const dirLight2 = new THREE.DirectionalLight(0xff8844, 0.6);
+        dirLight2.position.set(-2, -1, 3);
+        scene.add(dirLight2);
+
+        const rimLight = new THREE.DirectionalLight(0x4fc3f7, 0.5);
+        rimLight.position.set(-1, 1, -3);
+        scene.add(rimLight);
+
+        // --- Build Möbius strip geometry ---
+        function buildMobius(segments = 120, widthSegments = 28, radius = 1.6, width = 0.9) {
+            const vertices = [];
+            const indices = [];
+            const normals = [];
+            const uvs = [];
+
+            for (let i = 0; i <= segments; i++) {
+                const u = (i / segments) * 2 * Math.PI;
+                for (let j = 0; j <= widthSegments; j++) {
+                    const v = (j / widthSegments) * 2 - 1;
+
+                    const halfW = width * 0.5;
+                    const r = radius + v * halfW * Math.cos(u * 0.5);
+                    const x = r * Math.cos(u);
+                    const y = v * halfW * Math.sin(u * 0.5);
+                    const z = r * Math.sin(u);
+
+                    vertices.push(x, y, z);
+
+                    const eps = 0.001;
+                    const v1 = v + eps;
+                    const r1 = radius + v1 * halfW * Math.cos(u * 0.5);
+                    const x1 = r1 * Math.cos(u);
+                    const y1 = v1 * halfW * Math.sin(u * 0.5);
+                    const z1 = r1 * Math.sin(u);
+
+                    const du = new THREE.Vector3(x1 - x, y1 - y, z1 - z).normalize();
+
+                    const u2 = u + eps;
+                    const r2 = radius + v * halfW * Math.cos(u2 * 0.5);
+                    const x2 = r2 * Math.cos(u2);
+                    const y2 = v * halfW * Math.sin(u2 * 0.5);
+                    const z2 = r2 * Math.sin(u2);
+
+                    const dv = new THREE.Vector3(x2 - x, y2 - y, z2 - z).normalize();
+
+                    const normal = new THREE.Vector3().crossVectors(du, dv).normalize();
+                    normals.push(normal.x, normal.y, normal.z);
+
+                    uvs.push(i / segments, j / widthSegments);
+                }
+            }
+
+            for (let i = 0; i < segments; i++) {
+                for (let j = 0; j < widthSegments; j++) {
+                    const a = i * (widthSegments + 1) + j;
+                    const b = i * (widthSegments + 1) + j + 1;
+                    const c = (i + 1) * (widthSegments + 1) + j;
+                    const d = (i + 1) * (widthSegments + 1) + j + 1;
+                    indices.push(a, b, c);
+                    indices.push(b, d, c);
+                }
+            }
+
+            const geometry = new THREE.BufferGeometry();
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            geometry.setAttribute('normal', new THREE.Float32BufferAttribute(normals, 3));
+            geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+            geometry.setIndex(indices);
+            geometry.computeVertexNormals();
+
+            return geometry;
+        }
+
+        const mobiusGeo = buildMobius(140, 30, 1.5, 0.85);
+
+        const mobiusMat = new THREE.MeshPhysicalMaterial({
+            color: 0x4fc3f7,
+            metalness: 0.15,
+            roughness: 0.35,
+            clearcoat: 0.1,
+            clearcoatRoughness: 0.4,
+            emissive: 0x0a1a2a,
+            emissiveIntensity: 0.2,
+            side: THREE.DoubleSide,
+            envMapIntensity: 0.6,
+            wireframe: false,
+        });
+
+        const mobius = new THREE.Mesh(mobiusGeo, mobiusMat);
+        mobius.position.y = 0;
+        scene.add(mobius);
+
+        // --- bordo luminoso ---
+        const edges = new THREE.EdgesGeometry(mobiusGeo);
+        const lineMat = new THREE.LineBasicMaterial({
+            color: 0x4fc3f7,
+            transparent: true,
+            opacity: 0.08,
+        });
+        const wireframe = new THREE.LineSegments(edges, lineMat);
+        mobius.add(wireframe);
+
+        // --- particelle ---
+        const particleCount = 600;
+        const particleGeo = new THREE.BufferGeometry();
+        const pos = new Float32Array(particleCount * 3);
+        for (let i = 0; i < particleCount * 3; i++) {
+            pos[i] = (Math.random() - 0.5) * 14;
+        }
+        particleGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+
+        const particleMat = new THREE.PointsMaterial({
+            color: 0x4fc3f7,
+            size: 0.025,
+            transparent: true,
+            opacity: 0.6,
+            blending: THREE.AdditiveBlending,
+            sizeAttenuation: true,
+        });
+        const particles = new THREE.Points(particleGeo, particleMat);
+        scene.add(particles);
+
+        const starGeo = new THREE.BufferGeometry();
+        const starPos = new Float32Array(120 * 3);
+        for (let i = 0; i < 120 * 3; i++) {
+            starPos[i] = (Math.random() - 0.5) * 18;
+        }
+        starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+        const starMat = new THREE.PointsMaterial({
+            color: 0xfdd835,
+            size: 0.045,
+            transparent: true,
+            opacity: 0.4,
+            blending: THREE.AdditiveBlending,
+            sizeAttenuation: true,
+        });
+        const stars = new THREE.Points(starGeo, starMat);
+        scene.add(stars);
+
+        // --- Scroll detection per attivare le animazioni dei pannelli (senza cambiare il badge) ---
+        const panels = document.querySelectorAll('.panel');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.35 });
+        panels.forEach(p => io.observe(p));
+
+        // --- Rotazione del nastro in base allo scroll (solo rotazione, senza spostamento verticale) ---
+        let targetRotation = 0;
+        let currentRotation = 0;
+
+        function updateRotationFromScroll() {
+            const scrollY = window.scrollY;
+            const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+            const progress = scrollY / maxScroll;
+            targetRotation = progress * 4 * 2 * Math.PI; // 4 giri completi
+        }
+
+        window.addEventListener('scroll', updateRotationFromScroll, { passive: true });
+        window.addEventListener('resize', updateRotationFromScroll, { passive: true });
+        updateRotationFromScroll();
+
+        // --- Resize ---
+        function onResize() {
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        }
+        window.addEventListener('resize', onResize);
+
+        // --- Render loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // interpolazione fluida per la rotazione
+            currentRotation += (targetRotation - currentRotation) * 0.06;
+            mobius.rotation.y = currentRotation;
+            mobius.rotation.x = Math.sin(currentRotation * 0.15) * 0.04;
+            mobius.rotation.z = Math.sin(currentRotation * 0.1) * 0.02;
+
+            particles.rotation.y += 0.0002;
+            stars.rotation.y -= 0.00015;
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        console.log('✅ \mathcal notes — Möbius strip fisso, badge costante');
+    </script>
+
+</body>
+</html>
