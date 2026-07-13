@@ -293,7 +293,7 @@ dove $r = \|\mathbf{x}\|$. Inoltre vale la seguente identità
     &= \left(\frac{n}{2} - \frac{1}{2}\right)c_{n - 1}\Gamma\left(\frac{n}{2} - \frac{1}{2}\right) \notag \\
     &= c_{n - 1}\Gamma\left(\frac{n}{2} + \frac{1}{2}\right) \notag
 \end{align}
-ovvero
+in questo caso con $\Gamma$ si intende la funzione gamma di Eulero. Segue che
 \begin{gather}
     c_{n - 1} = \frac{\pi^{\frac{n - 1}{2}}}{\Gamma\left(\frac{n + 1}{2}\right)} \tag{1.4.5}
 \end{gather}
@@ -301,6 +301,10 @@ Pertanto si ottiene
 \begin{align}
     \omega_n(R) &= \frac{\pi^{\frac{n - 1}{2}}}{\Gamma\left(\frac{n + 1}{2}\right)}R^n\int_{-1}^1(1 - u^2)^{\frac{n - 1}{2}} \, du \notag \\
     &= \frac{\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2} + 1\right)}R^n \tag{1.4.6}
+\end{align}
+dove si è usato
+\begin{align}
+    \int_{-1}^1 (1 - u^2)^{\frac{n - 1}{1}} \, du = \sqrt{\pi}\frac{\Gamma\left(\frac{n}{2} + \frac{1}{2}\right)}{\Gamma\left(\frac{n}{2} + 1\right)} \notag
 \end{align}
 Sostituendo in $(1.4.3)$ si ha
 \begin{gather}
@@ -776,6 +780,11 @@ Dalla termodinamica ricordiamo che
     \frac{\partial U}{\partial T} = c_V \tag{2.3.9}
 \end{align}
 dove $c_V$ è la funzione di risposta capacità termica (a volume costante), deduciamo quindi che le fluttuazioni dell'energia sono strettamente legata alla capacità termica. \\ \\
+Inoltre, da $(2.3.8)$ notiamo che
+\begin{align}
+    \frac{\sqrt{\braket{(U - \mathcal{H})^2}}}{U} = \frac{kT^2}{\sqrt{U}} \tag{2.3.10}
+\end{align}
+pertanto le fluttuazioni dell'energia sono trascurabili al limite termodinamico ($U >> 1$),
 
 \newpage
 \subsection{Particelle libere}
