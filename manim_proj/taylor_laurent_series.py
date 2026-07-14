@@ -29,17 +29,19 @@ import numpy as np
 COL_TEXT = WHITE
 COL_ACCENT = "#4FC3F7"      # azzurro chiaro
 COL_RESULT = "#00E676"      # verde acceso per il risultato finale
-COL_R = "#40C4FF"           # contorno esterno (raggio R)
+COL_R = "#2979FF"           # contorno esterno (raggio R) -- ben distinto da COL_ACCENT
 COL_r = "#FF5252"           # contorno interno (raggio r)
 COL_Z0 = "#FFCA28"          # centro z0
-COL_Z = "#00E676"           # punto z
+COL_Z = "#EC407A"           # punto z -- distinto da COL_RESULT (verde)
 COL_ANNULUS = "#7E57C2"     # riempimento anello
 
 
-def fit_width(mobj, max_w=6.2):
-    """Evita che le formule LaTeX escano dallo schermo."""
+def fit_width(mobj, max_w=6.2, max_h=None):
+    """Evita che le formule LaTeX escano dallo schermo (in larghezza e, se richiesto, altezza)."""
     if mobj.width > max_w:
         mobj.scale_to_fit_width(max_w)
+    if max_h is not None and mobj.height > max_h:
+        mobj.scale_to_fit_height(max_h)
     return mobj
 
 
@@ -95,30 +97,38 @@ class TaylorSeriesScene(ComplexPlaneScene):
     # ------------------------------------------------------------
     def title_and_statement(self):
         title = Text("Serie di Taylor", font_size=48, weight=BOLD, color=COL_TEXT)
-        title.to_edge(UP, buff=1.0)
+        title.to_edge(UP, buff=0.6)
 
         hyp = Tex(
             r"Sia $f$ olomorfa su un aperto $\Omega$ e sia $D(z_0,R) \subset \Omega$",
-            font_size=32, color=COL_TEXT,
+            font_size=30, color=COL_TEXT,
         )
-        arrow = MathTex(r"\Downarrow", font_size=32, color=COL_TEXT)
+        arrow = MathTex(r"\Downarrow", font_size=30, color=COL_TEXT)
         concl = MathTex(
             r"f(z) = \sum_{n=0}^{\infty} a_n (z-z_0)^n, \quad \forall\, |z-z_0| < R",
-            font_size=40, color=COL_RESULT,
+            font_size=36, color=COL_RESULT,
         )
-        for m in (hyp, arrow, concl):
+        coeff = MathTex(
+            r"a_n = \frac{1}{2\pi i}\oint_{\gamma} \frac{f(w)}{(w-z_0)^{n+1}}\, dw"
+            r"= \frac{f^{(n)}(z_0)}{n!}",
+            font_size=28, color=COL_ACCENT,
+        )
+        for m in (hyp, arrow, concl, coeff):
             fit_width(m, 11.5)
 
-        stack = VGroup(hyp, arrow, concl).arrange(DOWN, buff=0.5)
-        stack.next_to(title, DOWN, buff=1.0)
+        stack = VGroup(hyp, arrow, concl, coeff).arrange(DOWN, buff=0.4)
+        fit_width(stack, 11.5, max_h=5.6)
+        stack.next_to(title, DOWN, buff=0.6)
 
         self.play(Write(title))
         self.wait(0.4)
         self.play(FadeIn(hyp, shift=UP * 0.2))
         self.play(Write(arrow))
         self.play(Write(concl))
+        self.wait(1.5)
+        self.play(FadeIn(coeff, shift=UP * 0.2))
         self.wait(3)
-        self.play(FadeOut(VGroup(title, hyp, arrow, concl)))
+        self.play(FadeOut(VGroup(title, hyp, arrow, concl, coeff)))
         self.wait(0.3)
 
     # ------------------------------------------------------------
@@ -315,30 +325,38 @@ class LaurentSeriesScene(ComplexPlaneScene):
     # ------------------------------------------------------------
     def title_and_statement(self):
         title = Text("Serie di Laurent", font_size=48, weight=BOLD, color=COL_TEXT)
-        title.to_edge(UP, buff=1.0)
+        title.to_edge(UP, buff=0.6)
 
         hyp = Tex(
             r"Sia $f$ olomorfa sull'anello $A = \{\, r < |z-z_0| < R \,\}$",
-            font_size=32, color=COL_TEXT,
+            font_size=30, color=COL_TEXT,
         )
-        arrow = MathTex(r"\Downarrow", font_size=32, color=COL_TEXT)
+        arrow = MathTex(r"\Downarrow", font_size=30, color=COL_TEXT)
         concl = MathTex(
             r"f(z) = \sum_{n=-\infty}^{\infty} c_n (z-z_0)^n, \quad \forall\, z \in A",
-            font_size=38, color=COL_RESULT,
+            font_size=34, color=COL_RESULT,
         )
-        for m in (hyp, arrow, concl):
+        coeff = MathTex(
+            r"c_n = \frac{1}{2\pi i}\oint_{\gamma} \frac{f(w)}{(w-z_0)^{n+1}}\,dw,"
+            r"\quad n \in \mathbb{Z}",
+            font_size=28, color=COL_ACCENT,
+        )
+        for m in (hyp, arrow, concl, coeff):
             fit_width(m, 11.5)
 
-        stack = VGroup(hyp, arrow, concl).arrange(DOWN, buff=0.5)
-        stack.next_to(title, DOWN, buff=1.0)
+        stack = VGroup(hyp, arrow, concl, coeff).arrange(DOWN, buff=0.4)
+        fit_width(stack, 11.5, max_h=5.6)
+        stack.next_to(title, DOWN, buff=0.6)
 
         self.play(Write(title))
         self.wait(0.4)
         self.play(FadeIn(hyp, shift=UP * 0.2))
         self.play(Write(arrow))
         self.play(Write(concl))
+        self.wait(1.5)
+        self.play(FadeIn(coeff, shift=UP * 0.2))
         self.wait(3)
-        self.play(FadeOut(VGroup(title, hyp, arrow, concl)))
+        self.play(FadeOut(VGroup(title, hyp, arrow, concl, coeff)))
         self.wait(0.3)
 
     # ------------------------------------------------------------
@@ -368,7 +386,7 @@ class LaurentSeriesScene(ComplexPlaneScene):
         gR_label = MathTex(r"\gamma_R", font_size=28, color=COL_R)
         gR_label.move_to(axes.c2p(R1 * 0.75, R1 * 0.75))
         gr_label = MathTex(r"\gamma_r", font_size=24, color=COL_r)
-        gr_label.move_to(axes.c2p(r1 * 0.75, r1 * 0.75))
+        gr_label.move_to(axes.c2p(r1 * 1.15, r1 * 1.15))
 
         self.play(FadeIn(axes), FadeIn(axes_labels))
         self.play(FadeIn(annulus))

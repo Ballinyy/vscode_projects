@@ -4,7 +4,7 @@
 \setcounter{tocdepth}{3}    % Mostra nell'indice fino alle subsubsection (livello 3)
 
 \title{Meccanica Statistica}
-\author{Alessandro Ballini}
+\author{mathcal notes}
 \date{March 2026}
 
 \begin{document}
@@ -62,7 +62,7 @@ Vediamo come $\rho$ evolve nel tempo. Consideriamo una regione $\Omega$ dello sp
 \begin{gather}
     P = \int_{\Omega}\rho \, d\mathbf{p}d\mathbf{q} \tag{1.1.6}
 \end{gather}
-Il sistema è isolato, quindi non ci sono sorgenti o pozzi. Posto $\mathbf{v} = (\dot{\mathbf{p}}, \dot{\mathbf{q}})$, segue che $P$ soddisfa la relazione di continuità
+Il sistema è isolato, quindi non ci sono sorgenti o pozzi. Posto $\mathbf{v} = (\dot{\mathbf{p}}, \dot{\mathbf{q}})$, segue che $P$ soddisfa la relazione di continuità (vedere appendice)
 \begin{gather}
     \frac{\partial P}{\partial t} = -\int_{\Sigma} \rho\mathbf{v} \cdot \hat{\boldsymbol{n}} \, d\mathbf{p}d\mathbf{q} \tag{1.1.7}
 \end{gather}
@@ -267,13 +267,13 @@ L'hamiltoniana $\mathcal{H}$ non dipende da $\mathbf{q}$, dunque possiamo subito
 \begin{gather}
     \Omega(E) = \left(\frac{V}{h^3}\right)^N\omega_{3N}(R) \tag{1.4.3}
 \end{gather}
-dove $\omega_{3N}(R)$ è la misura della sfera $3N$-dimensionale di raggio $R$. Dobbiamo quindi determinare la seguente quantità per $n$ generico
+dove $\omega_{3N}(R)$ è la misura del disco $3N$-dimensionale di raggio $R = \sqrt{2mE}$. Dobbiamo quindi determinare la seguente quantità per $n$ generico
 \begin{gather}
     \omega_n(R) = \int_{\|\mathbf{x}\| \leq R}dx_1 \dots dx_n \notag
 \end{gather}
-Ragionando per induzione, sappiamo che la misura della sfera bidimensionale di raggio $R$ è $4\pi R^2$ e la misura della sfera tridimensionale di raggio $R$ è $\frac{4}{3}\pi R^3$. Supponiamo che anche la misura della sfera $n - 1$ dimensionale sia proporzionale a $n - 1$, ovvero che esista $c_{n - 1} > 0$ tale che $m(\mathbf{S}^{n - 1}) = c_{n - 1}R^{n - 1}$ e verifichiamo se vale anche per la sfera $n$ dimensionale $\mathbf{S}^n$. $\mathbf{S}^n$ è identificata dalla seguente equazione
+Ragionando per induzione, sappiamo che la misura del disco bidimensionale di raggio $R$ è $\pi R^2$ e la misura del disco tridimensionale di raggio $R$ è $\frac{4}{3}\pi R^3$. Supponiamo che anche la misura del disco $n - 1$ dimensionale sia proporzionale a $n - 1$, ovvero che esista $c_{n - 1} > 0$ tale che $m(\mathbf{D}^{n - 1}) = c_{n - 1}R^{n - 1}$ e verifichiamo se vale anche per la sfera $n$ dimensionale $\mathbf{D}^n$. $\mathbf{D}^n$ è identificata dalla seguente equazione
 \begin{gather}
-    \mathbf{S}^n = \{\mathbf{x} \in \mathbf{R}^n : x^2_1 + \dots + x^2_n \leq R^2\} \notag
+    \mathbf{D}^n = \{\mathbf{x} \in \mathbf{R}^n : x^2_1 + \dots + x^2_n \leq R^2\} \notag
 \end{gather}
 Allora
 \begin{align}
@@ -295,11 +295,11 @@ dove $r = \|\mathbf{x}\|$. Inoltre vale la seguente identità
 \end{align}
 in questo caso con $\Gamma$ si intende la funzione gamma di Eulero. Segue che
 \begin{gather}
-    c_{n - 1} = \frac{\pi^{\frac{n - 1}{2}}}{\Gamma\left(\frac{n + 1}{2}\right)} \tag{1.4.5}
+    c_{n - 1} = \frac{\pi^{\frac{n - 1}{2}}}{\Gamma\left(\frac{n}{2} + \frac{1}{2}\right)} \tag{1.4.5}
 \end{gather}
 Pertanto si ottiene
 \begin{align}
-    \omega_n(R) &= \frac{\pi^{\frac{n - 1}{2}}}{\Gamma\left(\frac{n + 1}{2}\right)}R^n\int_{-1}^1(1 - u^2)^{\frac{n - 1}{2}} \, du \notag \\
+    \omega_n(R) &= \frac{\pi^{\frac{n - 1}{2}}}{\Gamma\left(\frac{n}{2} + \frac{1}{2}\right)}R^n\int_{-1}^1(1 - u^2)^{\frac{n - 1}{2}} \, du \notag \\
     &= \frac{\pi^{\frac{n}{2}}}{\Gamma\left(\frac{n}{2} + 1\right)}R^n \tag{1.4.6}
 \end{align}
 dove si è usato
@@ -310,11 +310,11 @@ Sostituendo in $(1.4.3)$ si ha
 \begin{gather}
     \Omega(E) = c_{3N}\left(\frac{V}{h^3}(2mE)^{3/2}\right)^N \tag{1.4.6}
 \end{gather}
-A questo punto sostituendo nella definizione di entropia otteniamo
+A questo punto, sostituendo nella definizione di entropia otteniamo
 \begin{gather}
     S(E, N, V) = k\left(\log c_{3N} + N\log \frac{V}{h^3} + \frac{3}{2}\log (2mE)\right) \tag{1.4.7}
 \end{gather}
-per poter trattare l'espressione $(1.4.7)$ dell'entropia $S$ come potenziale termodinamico dobbiamo far uso della \textit{formula di Stirling}, ovvero
+per poter trattare l'espressione $(1.4.7)$ dell'entropia $S$ come potenziale termodinamico dobbiamo far uso della \textit{formula di Stirling} (vedere appendice), ovvero
 \begin{gather}
     \log\Gamma\left(\frac{3N}{2} + 1\right) \sim \frac{3N}{2}\log\frac{3N}{2} - \frac{3N}{2} \qquad N \rightarrow \infty \notag
 \end{gather}
@@ -350,7 +350,7 @@ che comporta
     PV = NkT \notag
 \end{gather}
 ovvero ricaviamo la legge dei gas ideali. \\ \\
-Tuttavia, l'espressione $(1.4.8)$ dell'entropia non è estensiva a causa del termine $V$ all'interno del logaritmo. Questo accade perché non abbiamo tenuto conto dell'indistinguibilità classica delle particelle per il gas ideale nell'integrazione rispetto a $d\mathbf{q}$ per il calcolo di $\Omega(E)$. Necessitiamo dunque di un fattore $N!$, detto \textit{fattore di Gibbs}, a dividere $\Gamma$ (o $\Omega$) per correggere il problema. Tale fattore apparirà autonomamente quando considereremo l'indistinguibilità quantistica delle particelle. \\ \\
+Tuttavia, l'espressione $(1.4.8)$ dell'entropia non è estensiva a causa del termine $V$ all'interno del logaritmo. Questo accade perché non abbiamo tenuto conto dell'indistinguibilità classica delle particelle nell'integrazione rispetto a $d\mathbf{q}$ per il calcolo di $\Omega(E)$. Necessitiamo dunque di un fattore $N!$, detto \textit{fattore di Gibbs}, a dividere $\Gamma$ (o $\Omega$) per correggere il problema. Tale fattore non sarà necessario quando considereremo l'indistinguibilità quantistica delle particelle. \\ \\
 Poniamo $u = E/N$ e $v = V/N$ e riscriviamo $S$ come segue
 \begin{align}
     S(E, N, V) = kN\log(Vu^{2/3}) + \frac{3}{2}kNS_0 \tag{1.4.10}
