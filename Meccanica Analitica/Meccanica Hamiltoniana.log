@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  14 JUL 2026 12:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  15 JUL 2026 00:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -115,13 +115,26 @@ LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 ) (c:/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
+) (c:/texlive/2026/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks24
+\thm@bodyfont=\toks25
+\thm@headfont=\toks26
+\thm@notefont=\toks27
+\thm@headpunct=\toks28
+\thm@preskip=\skip54
+\thm@postskip=\skip55
+\thm@headsep=\skip56
+\dth@everypar=\toks29
 ) (c:/texlive/2026/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count295
-\float@exts=\toks24
+\float@exts=\toks30
 \float@box=\box55
-\@float@everytoks=\toks25
+\@float@everytoks=\toks31
 \@floatcapt=\box56
+) (c:/texlive/2026/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
 ) (c:/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count296
@@ -149,12 +162,12 @@ LaTeX Font Info:    ... okay on input line 11.
 \scratchbox=\box57
 \nofMPsegments=\count298
 \nofMParguments=\count299
-\everyMPshowfont=\toks26
+\everyMPshowfont=\toks32
 \MPscratchCnt=\count300
 \MPscratchDim=\dimen161
 \MPnumerator=\count301
 \makeMPintoPDFobject=\count302
-\everyMPtoPDFconversion=\toks27
+\everyMPtoPDFconversion=\toks33
 ) (c:/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -175,7 +188,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [1
 
 {c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
+Underfull \hbox (badness 10000) in paragraph at lines 20--23
+
+ []
+
+
+Overfull \hbox (12.26773pt too wide) in paragraph at lines 20--23
+\OT1/cmr/m/n/10 alla for-mu-lazione la-grangiana, tali van-taggi con-sistono nel fatto che $\OT1/cmr/bx/n/10 p \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 p[]; [] ; p[]\OT1/cmr/m/n/10 )$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--23
 
  []
 
@@ -184,88 +207,98 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--48
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
-
- []
-
-[3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 127--130
+[2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 99--102
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--151
+Underfull \hbox (badness 10000) in paragraph at lines 99--102
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 152--155
 
  []
 
 [5]
-Overfull \hbox (3.48332pt too wide) in paragraph at lines 176--178
-\OT1/cmr/m/n/10 detta \OT1/cmr/bx/n/10 equazione di Hamilton-Jacobi\OT1/cmr/m/n/10 . Dalla teo-ria delle equazioni alle derivate
+Underfull \hbox (badness 10000) in paragraph at lines 177--180
+
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 196--199
-
+Overfull \hbox (2.7784pt too wide) in paragraph at lines 229--231
+\OT1/cmr/m/n/10 lungo le quale in-tro-du-ci-amo le seguenti per-tur-bazioni (sem-pre a meno di ridefinire
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 213--216
+Underfull \hbox (badness 10000) in paragraph at lines 247--249
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--225
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--234
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--234
-
- []
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 272--276
-
- []
-
-LaTeX Font Info:    Trying to load font information for U+euf on input line 277.
-(c:/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 375--379
-
- []
-
-
-Overfull \hbox (0.50072pt too wide) in paragraph at lines 381--383
+Overfull \hbox (0.50072pt too wide) in paragraph at lines 253--255
 \OT1/cmr/m/n/10 Trascurando tutti il ter-mine di or-dine di in-finites-imo mag-giore, dato dal prodotto
  []
 
-[12] [13] (./Meccanica Hamiltoniana.aux)
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 298--301
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--318
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 324--327
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--336
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 374--378
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--378
+
+ []
+
+LaTeX Font Info:    Trying to load font information for U+euf on input line 379.
+(c:/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [12] [13] [14] (./Meccanica Hamiltoniana.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2658 strings out of 467525
- 38061 string characters out of 5423209
- 451335 words of memory out of 5000000
- 31551 multiletter control sequences out of 15000+600000
- 637257 words of font info for 77 fonts, out of 8000000 for 9000
+ 2793 strings out of 467525
+ 40104 string characters out of 5423209
+ 453379 words of memory out of 5000000
+ 31672 multiletter control sequences out of 15000+600000
+ 638780 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,9n,65p,476b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "Meccanica Hamiltoniana.pdf" (13 pages, 228366 bytes).
+ 57i,18n,65p,460b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb>
+Output written on "Meccanica Hamiltoniana.pdf" (14 pages, 250044 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
+ 145 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
