@@ -58,32 +58,27 @@ allora si può introdurre la probabilità infinitesima $d\omega$ data da
     d\omega = \rho(\mathbf{p}, \mathbf{q}) \, d\mathbf{p}d\mathbf{q} \tag{1.1.5}
 \end{gather}
 dove $\rho$ è una PDF (definita per ogni coppia $(\mathbf{p}, \mathbf{q})$ nello spazio delle fasi), ovviamente normalizzata. \\ \\
-Vediamo come $\rho$ evolve nel tempo. Consideriamo una regione $\Omega$ dello spazio delle fasi e sia $\Sigma = \partial \Omega$. La probabilità $P$ di trovare il sistema in un stato contenuto in $\Omega$ è data da
+Vediamo come $\rho$ evolve nel tempo. Consideriamo una regione $\Omega$ dello spazio delle fasi e sia $\Sigma = \partial \Omega$. La probabilità $P(t)$ di trovare il sistema in un stato contenuto in $\Omega$ in un dato istante $t$ è data da
 \begin{gather}
-    P = \int_{\Omega}\rho \, d\mathbf{p}d\mathbf{q} \tag{1.1.6}
+    P(t) = \int_{\Omega}\rho(\mathbf{p}(t), \mathbf{q}(t)) \, d\mathbf{p}d\mathbf{q} \tag{1.1.6}
 \end{gather}
-Il sistema è isolato, quindi non ci sono sorgenti o pozzi. Posto $\mathbf{v} = (\dot{\mathbf{p}}, \dot{\mathbf{q}})$, segue che $P$ soddisfa la relazione di continuità (vedere appendice)
+Posto $\mathbf{v} = (\dot{\mathbf{p}}, \dot{\mathbf{q}})$, calcolando la derivata totale rispetto al tempo, si ottiene
 \begin{gather}
-    \frac{\partial P}{\partial t} = -\int_{\Sigma} \rho\mathbf{v} \cdot \hat{\boldsymbol{n}} \, d\mathbf{p}d\mathbf{q} \tag{1.1.7}
+    \frac{dP}{dt} = \int_{\Omega}\frac{\partial \rho}{\partial t} \, d\mathbf{p}d\mathbf{q} + \int_{\Omega}\nabla \rho \cdot \mathbf{v} \, d\mathbf{p}d\mathbf{q} \tag{1.1.7}
 \end{gather}
-con $\hat{\boldsymbol{n}}$ versore ortogonale (uscente) alla (iper)superficie $\Sigma$. La relazione globale $(1.1.7)$ è equivalente alla seguente relazione locale
+Dato che $\mathbf{v}$ è il campo di velocità associato alle equazioni di Hamilton, per il \textit{teorema di Liouville} (appendice) si ottiene
 \begin{align}
-    \frac{\partial\rho}{\partial t} = -\nabla \cdot (\rho\mathbf{v}) \tag{1.1.8}
+    \frac{dP}{dt} = -\int_{\Omega}\rho\nabla \cdot \mathbf{v} \, d\mathbf{p}d\mathbf{q} \tag{1.1.8}
 \end{align}
-Infatti, supponendo $\rho$ è sufficientemente regolare, si ha
-\begin{align}
-    \frac{\partial P}{\partial t} &= \frac{\partial}{\partial t}\int_\Omega \rho \, d\mathbf{p}d\mathbf{q} \notag \\
-    &= \int_\Omega \frac{\partial\rho}{\partial t} \, d\mathbf{p}d\mathbf{q} \notag
-\end{align}
-quindi si ottiene
+Prendendo come positivo il flusso uscente da $\Sigma$. Confrontando $(1.1.8)$ e $(1.1.7)$ si ottiene
 \begin{gather}
-    \int_\Omega \frac{\partial \rho}{\partial t} \, d\mathbf{p}d\mathbf{q} = -\int_\Omega \rho\mathbf{v} \cdot \hat{\boldsymbol{n}} \, d\mathbf{p}d\mathbf{q} \tag{1.1.9}
+    \int_\Omega \frac{\partial \rho}{\partial t} \, d\mathbf{p}d\mathbf{q} = -\int_{\Omega}\nabla \cdot (\rho\mathbf{v}) \, d\mathbf{p}d\mathbf{q} \tag{1.1.9}
 \end{gather}
 ovvero
 \begin{gather}
-    \int_\Sigma \left(\frac{\partial \rho}{\partial t} + \rho\mathbf{v} \cdot \hat{\boldsymbol{n}}\right) \, d\mathbf{p}d\mathbf{q} = 0 \tag{1.1.10}
+    \int_\Omega \left(\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho\mathbf{v})\right) \, d\mathbf{p}d\mathbf{q} = 0 \tag{1.1.10}
 \end{gather}
-dall'arbitrarietà di $\Omega$, segue che la funzione integranda in $(1.1.10)$ è identicamente nulla (ovunque per continuità, ovvero anche su insiemi di misura nulla), pertanto concludiamo
+dall'arbitrarietà di $\Omega$ (e quindi $\Sigma$), segue che la funzione integranda in $(1.1.10)$ è identicamente nulla (ovunque per continuità, ovvero anche su insiemi di misura nulla), pertanto concludiamo
 \begin{gather}
     \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho\mathbf{v}) = 0 \tag{1.1.11}
 \end{gather}
@@ -443,7 +438,7 @@ L'equazione
 \begin{align}
     \sum_{i = 1}^N|\mathbf{p}_i| \leq \frac{E}{c} \tag{1.6.3}
 \end{align}
-identifica un rombo nello spazio $N$ dimensionale dei moduli degli impulsi. In questo caso, dato che $|\mathbf{p}_i| = \sqrt{p^2_{ix} + p^2_{iy} + p^2_{iz}}$, è conveniente passare in coordinate polari, allora si ha
+identifica un rombo nello spazio $N$ dimensionale degli impulsi. In questo caso, dato che $|\mathbf{p}_i| = \sqrt{p^2_{ix} + p^2_{iy} + p^2_{iz}}$, è conveniente passare in coordinate polari, allora si ha
 \begin{align}
     \Omega = \left(\frac{4\pi V}{h^3}\right)^N \int_{\sum p_i \leq E/c} \prod_{i = 1}^N p^2_i \, dp_i \tag{1.6.4}
 \end{align}
@@ -641,7 +636,7 @@ e dalla definizione statistica dell'entropia del sistema si ottiene
 \begin{align}
     \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) &\propto \exp\left(\frac{S_2(E)}{k}-\frac{E_1}{kT}\right) \notag
 \end{align}
-dove si è usato $\frac{\partial S_2}{\partial E_2} = \frac{1}{T_2} \sim \frac{1}{T}$. In particolare, il termine $S_2(E)$ non dipende dalle variabili microscopiche del sottosistema $X_1$, pertanto si ottiene 
+dove si è usato $\frac{\partial S_2}{\partial E} = \frac{1}{T}$. In particolare, il termine $S_2(E)$ non dipende dalle variabili microscopiche del sottosistema $X_1$, pertanto si ottiene 
 \begin{align}
     \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) &\propto \exp\left(-\frac{\mathcal{H}_{N_1}(\mathbf{p}^{(1)}, \mathbf{q}^{(1)})}{kT}\right) \tag{2.1.3}
 \end{align}
