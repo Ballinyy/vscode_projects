@@ -20,7 +20,7 @@
 \contentsline {subsection}{\numberline {3.1}Legge di stato}{39}{}%
 \contentsline {subsection}{\numberline {3.2}Fluttuazioni del numero medio di particelle (spettro discreto)}{43}{}%
 \contentsline {subsection}{\numberline {3.3}Particelle libere in una scatola}{47}{}%
-\contentsline {section}{\numberline {4}Meccanica Statistica Quantistica}{48}{}%
+\contentsline {section}{\numberline {4}Meccanica statistica quantistica}{48}{}%
 \contentsline {subsection}{\numberline {4.1}Indistinguibilità quantistica}{48}{}%
 \contentsline {subsection}{\numberline {4.2}Concetto di ensemble in meccanica quantistica}{50}{}%
 \contentsline {subsection}{\numberline {4.3}Gas ideali quantistici}{53}{}%
