@@ -728,7 +728,7 @@ poiché la prima funzione integranda si annulla agli estremi (per hamiltoniane n
 
 \newpage
 \subsection{Fluttuazioni dell'energia}
-Vediamo ora come si comportano le fluttuazioni dell'energia rispetto alla media. Notiamo che la definizione di momento di ordine due (rispetto a $\rho$) dell'hamiltoniana $\mathcal{H}$ è legata al concetto di varianza della distribuzione dell'energia, infatti si ha 
+Vediamo ora come si comportano le fluttuazioni dell'energia rispetto alla media. Notiamo che la definizione di momento di ordine due (rispetto a $\rho$) dell'hamiltoniana $\mathcal{H}$ è legata al concetto di varianza dell'energia, infatti si ha 
 \begin{align}
     \Delta \mathcal{H} = \sqrt{\braket{\mathcal{H}^2} - \braket{\mathcal{H}}^2} \tag{2.3.1}
 \end{align}
@@ -755,8 +755,8 @@ Confrontando $(2.3.2)$ e $(2.3.3)$ si ottiene
 \end{align}
 Ricaviamo un vincolo sulla varianza derivando rispetto a $\beta$, infatti 
 \begin{align}
-    0 &= \frac{\partial}{\partial \beta}\left(\frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, (\braket{\mathcal{H}} - \mathcal{H})e^{\beta(G - \mathcal{H})}\right) \notag \\
-    &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \left(\frac{\partial \braket{\mathcal{H}}}{\partial \beta} + (\braket{\mathcal{H}} - \mathcal{H})\left(G - \mathcal{H} + \beta\left(\frac{\partial G}{\partial \beta}\right)_{N, V}\right)\right)e^{\beta(G - \mathcal{H})} \tag{2.3.5}
+    0 &= \frac{\partial}{\partial \beta}\left(\frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, (\braket{\mathcal{H}} - \mathcal{H})e^{\beta(F - \mathcal{H})}\right) \notag \\
+    &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, \left(\frac{\partial \braket{\mathcal{H}}}{\partial \beta} + (\braket{\mathcal{H}} - \mathcal{H})\left(F - \mathcal{H} + \beta\left(\frac{\partial F}{\partial \beta}\right)_{N, V}\right)\right)e^{\beta(F - \mathcal{H})} \tag{2.3.5}
 \end{align}
 Il termine $\frac{\partial \braket{\mathcal{H}}}{\partial \beta}$ non dipende dalle variabili microscopiche $(\mathbf{p}, \mathbf{q})$, quindi può essere fattorizzato fuori dall'integrale (che fa 1). Inoltre, da $(2.1.10)$ notiamo che 
 \begin{align}
