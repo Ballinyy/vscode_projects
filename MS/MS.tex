@@ -978,15 +978,14 @@ Con un opportuno cambio di variabili si può esprimere la funzione di partizione
 \end{align}
 Essenzialmente stiamo integrando su tutte le ipersuperficie a energia fissata nello spazio delle fasi. Per definizione 
 \begin{align}
-    \Gamma(E) = \exp\left(-\frac{S_{mic}(E)}{k}\right) \tag{2.8.2}
+    \Gamma(E) = \exp\left(\frac{S_{mic}(E)}{k}\right) \tag{2.8.2}
 \end{align}
 Sostituendo $(2.8.2)$ in $(2.8.1)$ si ha 
 \begin{align}
-    Q_N &= \int_0^\infty dE \, \exp\left(-\frac{S_{mic}(E)}{k} - \beta E\right) \notag \\
-    &= \int_0^\infty dE \, \exp\left(-\beta\left(TS_{mic}(E) + E\right)\right) \tag{2.8.3}
+    Q_N &= \int_0^\infty dE \, \exp\left(\frac{S_{mic}(E)}{k} - \beta E\right) \notag \\
+    &= \int_0^\infty dE \, \exp\left(\beta\left(TS_{mic}(E) - E\right)\right) \tag{2.8.3}
 \end{align}
-Notiamo che la funzione integranda è prodotto di una funzione crescente e una funzione decrescente (dell'energia) ed ha quindi un punto di massimo globale. \\
-A questo punto, sotto la stessa ipotesi dell'esempio del gas libero, ha senso approssimare l'esponente attorno al punto di massimo. Si ha 
+Notiamo che la funzione integranda è prodotto di una funzione crescente e una funzione decrescente (dell'energia) ed ha quindi un punto di massimo globale. In particolare 
 \begin{align}
     \frac{\partial}{\partial E}(TS_{mic}(E) - E) = 0 \notag
 \end{align}
@@ -994,7 +993,15 @@ per $E = \overline{E}$ tale che
 \begin{align}
     T\left(\frac{\partial S_{mic}}{\partial E}\right)_{E = \overline{E}} = 1 \notag
 \end{align}
-Attorno ad $\overline{E}$ si ha 
+Se $\Gamma(E) \propto E^\alpha$, con $\alpha \propto N$, si ha
+\begin{align}
+    T\left(\frac{\partial S_{mic}}{\partial E}\right)_{E = \overline{E}} = \frac{\alpha kT}{\overline{E}} = 1 \notag
+\end{align}
+Pertanto
+\begin{align}
+    \overline{E} = \alpha kT \notag
+\end{align}
+Quindi, ha senso approssimare la funzione integranda attorno al suo punto di massimo. Attorno ad $\overline{E}$ si ha 
 \begin{align}
     TS_{mic}(E) - E \sim TS_{mic}(\overline{E}) - \overline{E} + \frac{1}{2}(E - \overline{E})^2T\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}} \tag{2.8.4}
 \end{align}
