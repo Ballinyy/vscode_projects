@@ -770,22 +770,22 @@ e sostituendo in $(2.3.5)$ si ha
 \end{align}
 ponendo $U = \braket{\mathcal{H}}$ si ha 
 \begin{align}
-    -kT^2U + \braket{(U - \mathcal{H})^2} = 0 \notag
+    -kkT^2\frac{\partial U}{\partial T} + \braket{(U - \mathcal{H})^2} = 0 \notag
 \end{align}
 ovvero 
 \begin{align}
-    \braket{(U - \mathcal{H})^2} = kT^2U \tag{2.3.8}
+    \braket{(U - \mathcal{H})^2} = kT^2\frac{\partial U}{\partial T} \tag{2.3.8}
 \end{align}
 Dalla termodinamica ricordiamo che 
 \begin{align}
     \frac{\partial U}{\partial T} = c_V \tag{2.3.9}
 \end{align}
 dove $c_V$ è la funzione di risposta capacità termica (a volume costante), deduciamo quindi che le fluttuazioni dell'energia sono strettamente legata alla capacità termica. \\ \\
-Inoltre, da $(2.3.8)$ notiamo che
+Inoltre, per il \textit{teorema dell'equipartizione dell'energia}, sappiamo che $c_V \propto N$, pertanto
 \begin{align}
-    \frac{\sqrt{\braket{(U - \mathcal{H})^2}}}{U} = \frac{kT^2}{\sqrt{U}} \tag{2.3.10}
+    \frac{\sqrt{\braket{(U - \mathcal{H})^2}}}{U} = \frac{\sqrt{kT^2c_V}}{U} \propto \frac{1}{\sqrt{N}} \tag{2.3.10}
 \end{align}
-pertanto le fluttuazioni dell'energia sono trascurabili al limite termodinamico ($U >> 1$).
+pertanto le fluttuazioni dell'energia sono trascurabili al limite termodinamico ($N >> 1$).
 
 \newpage
 \subsection{Particelle libere}
