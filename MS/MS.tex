@@ -612,7 +612,8 @@ ovvero $E = \frac{3}{2}N\hbar\omega$ (in unità di $\hbar\omega$), quindi ogni o
 Siamo interessati a descivere statisticamente un sistema a contatto con un reservoir. Possiamo immaginare un reservoir come un sistema ad energia e volume molto maggiori rispetto al sistema in esame, che quindi resta imperturbato nonostante l'interazione esterna.
 
 \subsection{Energia libera}
-Nel contesto dell'ensemble microcanonico, consideriamo un sistema $X$ descritto dalla terna $(E, N, V)$ e consideriamo un sottoinsieme $X_1$ di $X$ descritto dalla terna $(E_1, N_1, V_1)$. Poniamo $X_2 = X \setminus X_1$, il complementare di $X_1$, descritto dalla terna $(E_2, N_2, V_2)$ e supponiamo che $X_2$ sia molto più grande di $X_1$. Sotto tali ipotesi, l'interazione tra $X_1$ e $X_2$, che è essenzialmente limitata ad una regione limitrofa al bordo di $X_1$, diventa infinitesima, e quindi trascurabile, al limite termidinamico, ovvero $V_1$ molto grande e $V >> V_1$. Possiamo dunque trattare $X_1$ come un sistema isolato. \\
+Nel contesto dell'ensemble microcanonico, consideriamo un sistema $X$ descritto dalla terna $(E, N, V)$ e consideriamo un sottoinsieme $X_1$ di $X$ descritto dalla terna $(E_1, N_1, V_1)$. Poniamo $X_2 = X \setminus X_1$, il complementare di $X_1$, descritto dalla terna $(E_2, N_2, V_2)$ e supponiamo che $V_1 << V_2$ e $N_1 << N_2$. \\
+AL limite termodinamico, ovvero $V_1 >> 1$, l'interazione tra $X_1$ e $X_2$, che è essenzialmente limitata ad una regione limitrofa al bordo di $X_1$, diventa infinitesima, e quindi trascurabile. Possiamo dunque trattare $X_1$ come un sistema isolato. \\
 Fissate l'energia totale $E$ e l'energia $E_1$ di $X_1$, l'energia $E_2$ di $X_2$ deve soddisfare 
 \begin{align}
     E_2 = E - E_1 \notag
@@ -628,7 +629,7 @@ La probabilità di misurare energia $E_1$ in $X_1$ è proporzionale al numero di
 \begin{align}
     \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) \propto \Gamma_2(E - E_1) \tag{2.1.1}
 \end{align}
-Poiché $E_1 << E$ possiamo sviluppare in serie di Taylor 
+Poiché $E_1 << E$ possiamo sviluppare $(2.1.1)$ in serie di Taylor 
 \begin{align}
     \Gamma_2(E - E_1) \sim \Gamma_2(E) - E_1\frac{\partial \Gamma_2}{\partial E_2} \tag{2.1.2}
 \end{align}
@@ -636,7 +637,7 @@ e dalla definizione statistica dell'entropia del sistema si ottiene
 \begin{align}
     \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) &\propto \exp\left(\frac{S_2(E)}{k}-\frac{E_1}{kT}\right) \notag
 \end{align}
-dove si è usato $\frac{\partial S_2}{\partial E} = \frac{1}{T}$. In particolare, il termine $S_2(E)$ non dipende dalle variabili microscopiche del sottosistema $X_1$, pertanto si ottiene 
+dove si è usato $\frac{\partial S_2}{\partial E} = \frac{1}{T}$. In particolare, $S_2$ non dipende dalla variabili dinamiche microscopiche del sottosistema $X_1$, pertanto possiamo includere il fattore $e^{S_2(E)/k}$ nella costante di proporzionalità, ottenendo
 \begin{align}
     \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) &\propto \exp\left(-\frac{\mathcal{H}_{N_1}(\mathbf{p}^{(1)}, \mathbf{q}^{(1)})}{kT}\right) \tag{2.1.3}
 \end{align}
@@ -645,7 +646,7 @@ In generale, dato un sistema descritto da $(E, N, V)$ posto a contatto con un re
 \begin{align}
     \rho(\mathbf{p}, \mathbf{q}) \propto \exp\left(-\frac{\mathcal{H}_N(\mathbf{p}, \mathbf{q})}{kT}\right) \tag{2.1.4}
 \end{align}
-Resta da determinare la costante di normalizzazione, che poi, come nel paragrafo precedente, determinerà il potenziale termodinamico associato alla descrizione del sistema. Definiamo 
+Resta da determinare la costante di normalizzazione, che poi, come nel capitolo precedente, determinerà il potenziale termodinamico associato alla descrizione del sistema. Definiamo 
 \begin{align}
     Q_N = \frac{1}{h^{3N}}\int \exp\left(-\frac{\mathcal{H}_N(\mathbf{p}, \mathbf{q})}{kT}\right) \, d\mathbf{p}d\mathbf{q} \tag{2.1.5}
 \end{align}
@@ -678,8 +679,9 @@ segue che
     &= -kT\log(Q^{(1)}_{N_1}Q^{(2)}_{N_2}) \notag \\
     &= F_1 + F_2 \tag{2.1.9}
 \end{align}
-ovvero $F$ correttamente estensiva (sotto l'ipotesi di sottosistemi debolmente interagenti). \\
-Osserviamo che il termine $E$ nella definizione macroscopica dell'energia libera non è l'energia del sistema, infatti quest'ultima è una variabile stocastica per gli ensemble canonici, dato che il sistema scambia energia con il reservoir per termalizzarsi. La corretta definizione di $F$ è 
+ovvero $F$ correttamente estensiva (sotto l'ipotesi di sottosistemi debolmente interagenti). \\ \\
+L'ensemble statistico associato a sistemi all'equilibrio termodinamico che si trovano a contatto con un reservoir e sono descritti dalle variabili termodinamiche $(N, T, V)$ è detto \textit{ensemble canonico}. \\ \\
+Osserviamo che il termine $E$ nella definizione macroscopica dell'energia libera non è l'energia del sistema, infatti quest'ultima è una variabile stocastica nel contesto dell'ensemble canonico, dato che il sistema scambia energia con il reservoir per termalizzarsi. La corretta definizione di $F$ è 
 \begin{align}
     F = \braket{\mathcal{H}_N} - TS \tag{2.1.10}
 \end{align}
@@ -779,7 +781,7 @@ Inoltre, da $(2.3.8)$ notiamo che
 \begin{align}
     \frac{\sqrt{\braket{(U - \mathcal{H})^2}}}{U} = \frac{kT^2}{\sqrt{U}} \tag{2.3.10}
 \end{align}
-pertanto le fluttuazioni dell'energia sono trascurabili al limite termodinamico ($U >> 1$),
+pertanto le fluttuazioni dell'energia sono trascurabili al limite termodinamico ($U >> 1$).
 
 \newpage
 \subsection{Particelle libere}
