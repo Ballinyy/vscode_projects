@@ -627,15 +627,19 @@ La densità di probabilità $\rho$ associata a $X$ è costante sull'ipersuperfic
 \end{align}
 La probabilità di misurare energia $E_1$ in $X_1$ è proporzionale al numero di microstati di $X_2$ compatibili con il vincolo $E = E_1 + E_2$, ovvero 
 \begin{align}
-    \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) \propto \Gamma_2(E - E_1) \tag{2.1.1}
+    \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) \propto \Gamma_2(E - E_1) \notag
 \end{align}
-Poiché $E_1 << E$ possiamo sviluppare $(2.1.1)$ in serie di Taylor 
+ovvero
 \begin{align}
-    \Gamma_2(E - E_1) \sim \Gamma_2(E) - E_1\frac{\partial \Gamma_2}{\partial E_2} \tag{2.1.2}
+    \rho_1(\mathbf{p^{(1)}}, \mathbf{q}^{(1)}) \propto \exp\left(\frac{S_2(E - E_1)}{k}\right) \tag{2.1.1}
 \end{align}
-e dalla definizione statistica dell'entropia del sistema si ottiene  
+Dato che $E_1 << E$, possiamo sviluppare l'esponente in $(2.1.2)$ in serie di Taylor
 \begin{align}
-    \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) &\propto \exp\left(\frac{S_2(E)}{k}-\frac{E_1}{kT}\right) \notag
+    \rho_1(\mathbf{p^{(1)}}, \mathbf{q}^{(1)}) \propto \exp\left(\frac{S_2(E)}{k} - \frac{E_1}{k}\frac{\partial S_2(E)}{\partial E}\right) \notag
+\end{align}
+quindi
+\begin{align}
+    \rho_1(\mathbf{p}^{(1)}, \mathbf{q}^{(1)}) &\propto \exp\left(\frac{S_2(E)}{k}-\frac{E_1}{kT}\right) \tag{2.1.2}
 \end{align}
 dove si è usato $\frac{\partial S_2}{\partial E} = \frac{1}{T}$. In particolare, $S_2$ non dipende dalla variabili dinamiche microscopiche del sottosistema $X_1$, pertanto possiamo includere il fattore $e^{S_2(E)/k}$ nella costante di proporzionalità, ottenendo
 \begin{align}
