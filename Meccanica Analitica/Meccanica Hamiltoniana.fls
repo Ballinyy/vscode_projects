@@ -109,12 +109,6 @@ INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
-INPUT c:/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
-INPUT c:/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
-INPUT c:/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
-INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
-INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
-INPUT c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm
 INPUT Meccanica Hamiltoniana.aux
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -133,5 +127,4 @@ INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
-INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb
