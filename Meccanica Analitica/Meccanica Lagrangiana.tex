@@ -14,100 +14,100 @@
 \newpage
 
 \section{Studio dei moti unidimensionali}
-I sistemi unidimensionali sono quelli descritti da una equazione differenziale ordinaria del secondo ordine della seguente forma:
+I sistemi unidimensionali sono quelli descritti da una equazione differenziale ordinaria del secondo ordine della seguente forma
 \begin{equation}
     m\ddot{x} = f(x, \dot{x}, t) \tag{1.1}
 \end{equation}
-con $f$ di classe $C^{\infty}, \ m \in \mathbf{R}$. La \textbf{1.1} può sempre essere riscritta come un sistema di due equazioni differenziali ordinarie del primo ordine in forma normale:
+con $f$ di classe $C^{\infty}$ e $m \in \mathbf{R}$. La $(1.1)$ può sempre essere riscritta come un sistema di due equazioni differenziali ordinarie del primo ordine in forma normale
 \begin{equation}
     \begin{cases}
         \dot{x} = v \\
         m\dot{v} = f(x, \dot{x}, t)
     \end{cases} \tag{1.2}
 \end{equation}
-La teoria dei moti unidimensionali è, come vedremo, l'unica che fornisce soluzioni generali. \\ \\
-Tratteremo in particolare i sistemi \textbf{autonomi}, ovvero sottoposti ad un campo di forze che non dipende esplicitamente dal tempo, e \textbf{posizionali}, cioè il campo di forze non dipende dalla velocità del sistema, dunque $f = f(x), \ x \in \mathbf{R}$. \\
-Definiamo ora l'energia totale del sistema $E$:
+La teoria dei moti unidimensionali è l'unica che fornisce soluzioni generali. \\ \\
+Tratteremo in particolare i sistemi \textit{autonomi}, ovvero sottoposti ad un campo di forze che non dipende esplicitamente dal tempo, e \textit{posizionali}, cioè il campo di forze non dipende dalla velocità del sistema, dunque $f = f(x), \ x \in \mathbf{R}$. \\
+Definiamo l'energia totale del sistema $E$
 \begin{equation}
-    E = E(x, \dot{x}) := \frac{1}{2}m\dot{x}^2 + \phi(x) \tag{1.3}
+    E = E(x, \dot{x}) = \frac{1}{2}m\dot{x}^2 + \phi(x) \tag{1.3}
 \end{equation}
-dove il primo termine del secondo membro è detta \textit{energia cinetica del sistema}, mentre la quantità $\phi : \mathbf{R} \longrightarrow \mathbf{R}$ è detto il \textit{potenziale} a cui è sottoposto il sistema, definito nel seguente modo:
+dove il primo termine del secondo membro è detta \textit{energia cinetica del sistema}, mentre $\phi : \mathbf{R} \longrightarrow \mathbf{R}$ è detto il \textit{potenziale} a cui è sottoposto il sistema, definito nel seguente modo
 \begin{equation}
-    \phi(x) = - \int f(x)\mathrm{d}x \tag{1.4}
+    \phi(x) = - \int f(x) \, dx \tag{1.4}
 \end{equation}
 Passiamo ora ad un risultato molto importante. \\ \\
-\textbf{Teorema 1.1 (conservazione dell'energia in sistemi 1D):} in un sistema descritto da un'equazione differenziale come \textbf{1.1} l'energia totale è \textit{conservata}, cioè:
+\textbf{Teorema 1.1:} in un sistema descritto da un'equazione differenziale come $(1.1)$ l'energia totale è \textit{conservata}, ovvero
 \begin{equation}
-    \frac{\mathrm{d} E}{\mathrm{d} t} = 0 \notag
+    \frac{d E}{d t} = 0 \tag{1.5}
 \end{equation}
 
-\textbf{Dimostrazione:} lungo le soluzioni del moto si ha che:
+\textit{Dimostrazione} lungo le soluzioni del moto si ha
 \begin{equation}
-    \frac{\mathrm{d} E}{\mathrm{d} t} = m\dot{x}\ddot{x} + \frac{\mathrm{d}\phi}{\mathrm{d}x}\dot{x} = \dot{x}(m\ddot{x} - f(x)) = 0 \notag
+    \frac{d E}{d t} = m\dot{x}\ddot{x} + \frac{d\phi}{dx}\dot{x} = \dot{x}(m\ddot{x} - f(x)) = 0 \notag
 \end{equation}
-Possiamo dunque concludere, senza aver note le soluzioni, che l'energia totale è una costante del moto. \qed
-
-\newpage
-\subsection{Studio qualitativo dei moti 1D}
-Partendo dalla definizione di energia si ha che:
+Possiamo dunque concludere, senza aver note le soluzioni, che l'energia totale è una costante del moto. \qed \\ \\
+Partendo dalla definizione di energia si ha
 \begin{equation}
-    \frac{\mathrm{d}x}{\mathrm{d}t} = \pm \sqrt{\frac{2}{m}[E - \phi(x)]} \notag
+    \frac{dx}{dt} = \pm \sqrt{\frac{2}{m}[E - \phi(x)]} \tag{1.6}
 \end{equation}
-Dalla teoria del calcolo differenziale si ha $\frac{\mathrm{d}}{\mathrm{d}t}(f^{-1}) = \left( \frac{\mathrm{d}f}{\mathrm{d}t} \right)^{-1}$, inoltre per intervalli di tempo abbastanza piccoli possiamo considerare $t \hookrightarrow x(t)$ iniettiva e quindi invertibile, allora vale la seguente relazione integrale:
+Dalla teoria del calcolo differenziale sappiamo che $\frac{d}{dt}(f^{-1}) = \left( \frac{df}{dt} \right)^{-1}$. Inoltre, per intervalli di tempo abbastanza piccoli possiamo considerare $t \mapsto x(t)$ iniettiva e quindi invertibile. Pertanto vale la seguente relazione integrale
 \begin{equation}
-    t - t_0 = \pm \int_{x_0}^{x} \frac{\mathrm{d}x'}{\sqrt{\frac{2}{m}[E - \phi(x')]}} \tag{1.1.1}
+    t - t_0 = \pm \int_{x_0}^{x} \frac{dx'}{\sqrt{\frac{2}{m}[E - \phi(x')]}} \tag{1.7}
 \end{equation}
-Tale relazione permette di calcolare, a meno di integrare, il tempo impiegato per passare da una punto fissato $x_0$ ad un punto $x$ note le condizioni iniziali e il potenziale a cui è sottoposto il sistema. \\
-Poiché $E$ è una costante del moto è possibile determinarla note le condizioni iniziali $(x_0, \dot{x}_0)$, elemento dello spazio delle fasi. Dunque ricordando \textbf{1.3} si ha che, una volta fissato il valore dell'energia totale $E$, il moto si svolge in una determinata regione dello spazio delle fasi, infatti il moto, inteso come curva $M$ nello spazio delle fasi, deve verificare in qualsiasi istante la seguente proprietà:
+$(1.7)$ permette di calcolare, a meno di integrare, il tempo impiegato per passare da una punto fissato $x_0$ ad un punto $x$, note le condizioni iniziali e il potenziale a cui è sottoposto il sistema. \\
+Dato che $E$ è una costante del moto, è possibile determinarla evendo note solamente le condizioni iniziali $(x_0, \dot{x}_0)$, elemento dello spazio delle fasi. Dunque, ricordando $(1.3)$, si ha che una volta fissato il valore dell'energia totale $E$, il moto si svolge in una determinata regione dello spazio delle fasi. Infatti, il moto, intesto come il supporto $M$ di una curva nello spazio delle fasi, deve soddisfare la seguente proprietà
 \begin{equation}
-    M = \left\{ (x, \dot{x}) \in \mathbf{R}^2 : \frac{1}{2}m\dot{x}^2 + \phi(x) = E \right\} \tag{1.1.2}
+    M = \left\{ (x, \dot{x}) \in \mathbf{R}^2 : \frac{1}{2}m\dot{x}^2 + \phi(x) = E \right\} \tag{1.8}
 \end{equation}
-dunque tale condizione identifica una curva di livello per la funzione $E(x, \dot{x})$. Definiamo i punti di inversione $x_-, \ x_+$ dello spazio delle coordinate nel seguente modo:
+$(1.8)$ non è altro che una curva di livello per la funzione $E(x, \dot{x})$. Definiamo i punti di inversione $x_-, \ x_+$ dello spazio delle coordinate nel seguente modo
 \begin{equation}
-    \phi(x_-) = E, \quad \phi(x_+) = E \notag
+    \phi(x_-) = E, \quad \phi(x_+) = E \tag{1.9}
 \end{equation}
-ovvero i punti per i quali l'energia totale del sistema è dovuta interamente al potenziale, pertanto si ha $\dot{x} = 0$. \\
-In genere un sistema può avere più punti di inversione, ciò dipende interamente dalla funzione $\phi$, in tutti i casi però, se la posizione iniziale $x_0 \in (x_-, x_+)$, tutto il moto è vincolato a restare entro i due punti di inversione, conseguenza del teorema \textbf{1.1}. \\ \\
-Notiamo subito che in \textbf{1.1.1} per $x = x_+$ (o $x = x_-$) la funzione integranda ha una singolarità in un estremo di integrazione, vediamo allora sotto quali condizioni possiamo affremare che l'integrale è finito. \\ \\
-\textbf{Teorema 1.1.1:} sia $V(x_+) = \alpha > 0$, allora:
+ovvero i punti per i quali l'energia totale del sistema è dovuta interamente al potenziale, pertanto si ha $\dot{x}_-, \dot{x}_+ = 0$. \\
+In genere un sistema può avere più punti di inversione, ciò dipende interamente dalla funzione $\phi$. Tuttavia, in tutti i casi, se la posizione iniziale $x_0 \in (x_-, x_+)$, tutto il moto è vincolato a restare entro i due punti di inversione, conseguenza del \textit{teorema 1.1}. \\ \\
+Notiamo che per $x = x_+$ (o $x = x_-$) la funzione integranda in $(1.7)$ ha una singolarità in un estremo di integrazione, vediamo allora sotto quali condizioni possiamo affremare che l'integrale è finito. \\ \\
+\textbf{Teorema 1.2:} sia $\phi'(x_+) = \alpha > 0$, allora
 \begin{equation}
-    \int_{x_0}^{x_+} \frac{\mathrm{d}x}{\sqrt{\frac{2}{m}[E - \phi(x)]}} < \infty \notag
+    \int_{x_0}^{x_+} \frac{dx}{\sqrt{\frac{2}{m}[E - \phi(x)]}} < \infty \tag{1.10}
 \end{equation}
 
-\textbf{Dimostrazione:} sia $\varepsilon > 0$ abbastanza piccolo, definiamo $\overline{x} = x_+ - \varepsilon$ e spezziamo l'integrale lungo i due intervalli $(x_0, \overline{x})$ e $(\overline{x}, x_+)$. L'integrazione lungo il primo intervallo non presenta problemi. Resta da verificare che:
+\textit{Dimostrazione} sia $\varepsilon > 0$ abbastanza piccolo, definiamo $\overline{x} = x_+ - \varepsilon$ e spezziamo l'integrale lungo i due intervalli $(x_0, \overline{x})$ e $(\overline{x}, x_+)$. L'integrazione lungo il primo intervallo non presenta problemi. Resta da verificare che
 \begin{equation}
-    \int_{\overline{x}}^{x_+} \frac{\mathrm{d}x}{\sqrt{\frac{2}{m}[E - \phi(x)]}} < \infty \notag
+    \int_{\overline{x}}^{x_+} \frac{dx}{\sqrt{\frac{2}{m}[E - \phi(x)]}} < \infty \tag{1.11}
 \end{equation}
-Espandiamo il denominatore della funzione integranda al primo ordine con resto di Lagrange attorno al punto di inversione $x_+$:
+Espandiamo il denominatore della funzione integranda al primo ordine con \textit{resto di Lagrange} attorno al punto di inversione $x_+$, ovvero
 \begin{equation}
-    E - \phi(x) \sim E - \phi(x_+) + [E - \phi(x)]'\left|_{x = \xi} \right.(x - x_+) \notag
+    E - \phi(x) = E - \phi(x_+) + [E - \phi(x)]'\left|_{x = s} \right.(x - x_+) \tag{1.12}
 \end{equation}
-con $\xi \in (\overline{x}, x_+)$. Notiamo subito che, per definizione di punto di inversione, si ha $E - \phi(x_+) = 0$, allora per $x \rightarrow x_+$ si ha che:
+per un ooportuno $s \in (\overline{x}, x_+)$. Notiamo subito che, per definizione di punto di inversione, si ha $E - \phi(x_+) = 0$, allora
 \begin{equation}
-    E - \phi(x) \sim -\phi'(\xi)(x - x_+) \notag
+    E - \phi(x) = -\phi'(s)(x - x_+) \tag{1.13}
 \end{equation}
-Quindi sostituendo in \textbf{1.1.1}, a meno di spezzare l'integrale, si ottiene:
+Sostituendo in $(1.11)$ si ottiene
 \begin{equation}
-    \int_{\overline{x}}^{x_+} \frac{\mathrm{d}x}{\sqrt{\frac{2}{m}[E - \phi(x)]}} =  \int_{\overline{x}}^{x_+} \frac{\mathrm{d}x}{\sqrt{-\frac{2}{m}\phi'(\xi)(x - x_+)}} < \infty \notag
+    \int_{\overline{x}}^{x_+} \frac{dx}{\sqrt{\frac{2}{m}[E - \phi(x)]}} =  \int_{\overline{x}}^{x_+} \frac{dx}{\sqrt{-\frac{2}{m}\phi'(\xi)(x - x_+)}} < \infty \tag{1.14}
 \end{equation}
-per confronto. Analogamente si dimostra nel caso per $x_-$. \qed \\
-Vediamo ora sotto quali condizione si ha che \textbf{1.1.1} diverge. \\ \\
-\textbf{Teorema 1.1.2:} sia $\phi'(x_+) = 0$, allora \textbf{1.1.1} diverge. \\
+per confronto. Analogamente si dimostra nel caso per $x_-$. \qed \\ \\
+Vediamo ora sotto quali condizione si ha che $(1.7)$ diverge. \\ \\
+\textbf{Teorema 1.3:} sia $\phi'(x_+) = 0$, allora
+\begin{align}
+    t - t_0 = \int_{x_0}^{x_+} \frac{dx}{\sqrt{\frac{2}{m}[E - \phi(x)]}} \tag{1.15}
+\end{align}
+diverge. \\
 
-\textbf{Dimostrazione:} si ha che:
+\textit{Dimostrazione:} seguendo un ragionamento identico a quello fatto per il \textit{teorema 1.2}, si ha che
 \begin{equation}
-    E - \phi(x) \sim E - \phi(x_+) + [E - \phi(x)]' \left|_{x = x_+}\right. (x - x_+) + [E - \phi(x)]''\left|_{x = \xi}\right. (x - x_+)^2 \notag
+    E - \phi(x) = E - \phi(x_+) + [E - \phi(x)]''\left|_{x = \xi}\right. (x - x_+)^2 \notag
 \end{equation}
-Dunque similmente a quanto detto in precedenza, per $x \rightarrow x_+$ si ottiene che:
+dato che $\phi'(x_+) = 0$. Segue che
 \begin{equation}
-    E - \phi(x) \sim -\phi''(\xi) (x - x_+)^2 \notag
+    E - \phi(x) = -\phi''(s) (x - x_+)^2 \notag
 \end{equation}
-Ma in questo caso, sostituendo in \textbf{1.1.1}, si ottiene una funzione integranda proporzionale a $\frac{1}{x}$, dunque sappiamo per confronto che l'integrale diverge. \qed \\ \\
-Si vedrà che se $\phi'(x_+) = 0$ segue che $x_+$ è un punto di equilibrio del sistema, ovvero è una soluzione costante, perciò, intuitivamente per l'unicità della soluzione dell'equazione differenziale, deve per forza valere il teorema \textbf{1.1.2}, infatti il sistema può solamente tendere asintoticamente a $x_0$, senza mai raggiungerlo.
+Tuttavia, sostituendo in $(1.7)$, si ottiene una funzione integranda proporzionale a $\frac{1}{x}$, quindi sappiamo che l'integrale diverge, per confronto. \qed \\ \\
+Si vedrà che se $\phi'(x_+) = 0$ allora $x_+$ è un punto di equilibrio del sistema, ovvero è una soluzione costante, perciò, intuitivamente per l'unicità della soluzione dell'equazione differenziale, deve per forza valere il \textit{teorema 1.3}, infatti il sistema può solamente tendere asintoticamente a $x_0$, senza mai raggiungerlo.
 
-\newpage
 \section{Stabilità}
-Siano $\Omega \in \mathbf{R}^n$, $f : \Omega \longrightarrow \mathbf{R}^n$ di classe $C^1$ (o superiore), $y_0 \in \Omega$ tale che $f(y_0) = 0$, allora $y_0$ è un punto di equilibrio del sistema $\dot{y} = f(y)$. \\
+Siano $\Omega \in \mathbf{R}^n$, $f : \Omega \longrightarrow \mathbf{R}^n$ di classe $C^1$ (o superiore), $y_0 \in \Omega$ tale che $f(y_0) = 0$, allora $y_0$ è un \textit{punto di equilibrio} del sistema $\dot{y} = f(y)$. \\ \\
 \textbf{Definizione:} sia 
 \begin{equation}
     \begin{cases}
@@ -115,192 +115,203 @@ Siano $\Omega \in \mathbf{R}^n$, $f : \Omega \longrightarrow \mathbf{R}^n$ di cl
         y(t_0) = y_0
     \end{cases} \notag
 \end{equation}
-un sistema autonomo con soluzione $\varphi( \cdot; t_0, y_0)$. Sia $r > 0$, allora $y_0$ è detto punto di \textbf{equilibrio stabile} se:
+un sistema autonomo con soluzione $\varphi( \cdot; t_0, y_0)$. Sia $r > 0$, allora $y_0$ è detto punto di \textit{equilibrio stabile} se: \\ \\
+\textbf{1.} per ogni $p \in D_r(y_0)$ la soluzione $\varphi(\cdot; t_0, p)$ è definita almeno per ogni $t \in [0, +\infty)$. \\ \\
+\textbf{2.} per ogni $\varepsilon > 0$ esiste $\delta_\varepsilon > 0$ tale che se $p \in D_{\delta_\varepsilon}(y_0)$ si ha
 \begin{align}
-    1. &\quad \forall p \in D_r(y_0) \text{ la soluzione } \varphi(\cdot; t_0, y_0) \text{ è definita almeno per } t \in [0, + \infty). \notag \\
-    2. &\quad \forall \varepsilon > 0, \ \exists \delta_\varepsilon > 0 \text{ t.c. } p \in D_{\delta_\varepsilon}(y_0) \implies \| \varphi(t; t_0, p) - \varphi(t; t_0, y_0) \| < \varepsilon \ \forall t \geq 0 \notag
+    \|\varphi(t; t_0, p) - \varphi(t; t_0, y_0)\| < \varepsilon \tag{2.2}
 \end{align}
-A parole, un punto è di equilibrio stabile se è un punto di equilibrio (e quindi il campo di velocità è nullo in tale punto) e se partendo da punti arbitrariamente vicini si rimane in un intorno arbitrariamente piccolo di tale punto. \\ 
-Un altro caso di stabilità sono i punti \textbf{asintoticamente stabili}, vediamo come sono definiti: \\
-\textbf{Definizione:} un punto $y_0 \in \Omega$ è detto asintoticamente stabile se è stabile e se:
+per ogni $t \geq 0$. \\ \\
+A parole, un punto di equilibrio $y_0$ è detto stabile se per ogni intorno arbitrariamente piccolo $U$ di $y_0$ è possibile trovare un punto $p$ in esso contenuto, tale che la soluzione associata a $p$ come condizione iniziale rimane all'interno di $U$ per ogni $t \geq t_0$. \\ \\ 
+Un altro caso di stabilità sono i punti \textit{asintoticamente stabili}, vediamo come sono definiti. \\ \\
+\textbf{Definizione:} un punto $y_0 \in \Omega$ è detto asintoticamente stabile se è stabile e se esiste $\varepsilon > 0$ tale che, per ogni $p \in D_\varepsilon(y_0)$, si ha
+\begin{align}
+    \lim_{t \rightarrow \infty} \|\varphi(t; t_0, p) - \varphi(t; t_0, y_0)\| = 0 \tag{2.3}
+\end{align}
+Ovvero un punto è asintoticamente stabile se, per punti vicini ad esso, il moto tende a quel punto, senza però mai raggiungerlo (per unicità della soluzione). \\ \\
+Vediamo ora un importante risultato che permette di determinare la stabilità di un punto di equilibrio \\ \\
+\textbf{Teorema (stabilità di Ljapunov):} sia $y_0$ un punto di equilibrio per $\dot{y} = f(y)$, sia poi $W : \mathbf{R}^n \longrightarrow \mathbf{R}$ continua tale che $y_0$ è un punto di minimo isolato per $W$ e $\dot{W} \leq 0$ lungo le soluzioni del moto. Allora $y_0$ è un punto di equilibrio stabile. \\
+
+\textbf{Dimostrazione:} poiché ci interessa solamente che $y_0$ sia un minimo per $W$ possiamo, a meno di ridefinire la funzione, scegliere $W$ tale che $W(y_0) = 0$ e $W(y) > 0$ per ogni $y \in \mathbf{R}^n \setminus \{y_0\}$. Lungo le soluzioni del moto si ha
 \begin{equation}
-    \exists \varepsilon > 0 \text{ t.c } \forall p \in D_\varepsilon(y_0) \text{ si ha } \lim_{t \rightarrow \infty} \| \varphi(t; t_0, p) - \varphi(t; t_0, p) \| = 0 \notag
+    \frac{dW}{dt} = \nabla W \cdot \dot{y} = \nabla W \cdot f(y) \leq 0 \tag{2.4}
 \end{equation}
-Ovvero un punto è asintoticamente stabile se, per punti vicini ad esso, il moto tende a quel punto, senza però mai raggiungerlo per unicità della soluzione. \\ \\
-Vediamo ora un importante risultato che permette di determinare la stabilità di un punto di equilibrio: \\
-\textbf{Teorema 2.1 (stabilità di Ljapunov):} sia $y_0$ un punto di equilibrio per $\dot{y} = f(y)$, sia poi $W : \mathbf{R}^n \longrightarrow \mathbf{R}$ continua tale che $y_0$ è un punto di minimo isolato per $W$ e $\dot{W} \leq 0$ lungo le soluzioni del moto. Allora $y_0$ è un punto di equilibrio stabile. \\ \\
-\textbf{Dimostrazione:} poiché ci interessa solamente che $y_0$ sia un minimo per $W$ possiamo, a meno di ridefinire la funzione, scegliere $W$ tale che $W(y_0) = 0$ e $W(y) > 0 \ \forall y \in \mathbf{R}^n \setminus \{ y_0 \}$. Lungo le soluzioni del moto si ha che:
+Siano $c > 0$ e $\mathcal{G}_c = \{ y \in \mathbf{R}^n : W(y) \leq c \}$. Dato che $W$ è continua si ha che $\mathcal{G}_c$ è compatto. Pertanto, l'ipotesi $\dot{W} \leq 0$ lungo le soluzioni del moto implica, per continuità della funzione $W$, che anche la soluzione resti arbitrariamente vicina a $y_0$. Infatti sia $\varphi(\cdot; t_0, y)$ una soluzione del sistema con $y \in \mathcal{G}_c$, allora $W(\varphi(t)) \leq c$ per ogni $t \geq t_0$, quindi, per ipotesi di continuità, anche $\varphi$ resta arbitrariamente vicina al punto $y_0$ per ogni $t \geq t_0$. \\ \\
+\textbf{Teorema (di Dirichlet):} sia $x_0$ un minimo locale per il potenziale $\phi$, allora $x_0$ è un punto di equilibrio stabile per il sistema $\ddot{x} = -\nabla \phi$. \\
+
+\textbf{Dimostrazione:} dato che $x_0$ è un punto di minimo per il potenziale si ha che $\nabla \phi (x_0) = 0$, dunque in $x_0$ il campo di forze è nullo. Inoltre, $x_0$ è un minimo isolato dell'energia, posto $\dot{x}(t_0) = 0$. Quindi $W = E$ è una funzione di Ljapunov. \\ \\
+Studiamo ora come evolve il sistema per piccole oscillazioni attorno ad un punto di equilibrio stabile. Vediamo come si comporta il potenziale attorno ad un punto stabile. \\ \\
+\textbf{Proposizione 2.1:} sia $\phi : \mathbf{R}^n \longrightarrow \mathbf{R}$ il potenziale di un sistema autonomo, sia $x_0$ un punto di equilibrio stabile per il sistema tale che $\phi''(x_0) = \alpha > 0$. Allora per $x \rightarrow x_0$ si ha che $\phi(x) \sim \frac{1}{2}\alpha(x - x_0)^2$. \\
+
+\textbf{Dimostrazione:} poniamo $\phi(x_0) = 0$, poiché $x_0$ è un punto di equilibrio si ha che $\phi'(x_0) = 0$, quindi
 \begin{equation}
-    \frac{\mathrm{d}W}{\mathrm{d}t} = \mathrm{grad} \, W \cdot \dot{y} = \mathrm{grad} \, W \cdot f(y) \leq 0 \notag
-\end{equation}
-Siano $c > 0$ e $\mathcal{G}_c := \{ y \in \mathbf{R}^n : W(y) \leq c \}$, poiché $W$ è continua si ha che $\mathcal{G}_c$ è compatto. Pertanto l'ipotesi $\dot{W} \leq 0$ lungo le soluzioni del moto implica, per continuità della funzione $W$, che anche la soluzione resti arbitrariamente vicina a $y_0$. Infatti sia $\varphi(\cdot; t_0, y)$ una soluzione del sistema con $y \in \mathcal{G}_c$, allora $W(\varphi(t)) \leq c \ \forall t \geq t_0$, quindi per ipotesi di continuità anche $\varphi$ resta arbitrariamente vicina al punto $y_0 \ \forall t \geq t_0$. \\ \\ \\
-\textbf{Teorema 2.2 (di Dirichlet):} sia $x_0$ un minimo assoluto locale per il potenziale $\phi$, allora $x_0$ è un punto di equilibrio stabile per il sistema $\ddot{x} = -\nabla \phi$. \\ \\
-\textbf{Dimostrazione:} dato che $x_0$ è un punto di minimo per il potenziale si ha che $\nabla \phi (x_0) = 0$, dunque in $x_0$ il campo di forze è nullo. Inoltre si ha che $x_0$ è un minimo isolato dell'energia, posto $\dot{x}(t_0) = 0$. Quindi $W := E$ è una funzione di Ljapunov.
-\subsection{Piccole oscillazioni attorno a punti stabili}
-Studiamo ora come evolve il sistema per piccole oscillazioni attorno ad un punto di equilibrio stabile. Vediamo come si comporta il potenziale attorno ad un punto stabile: \\
-\textbf{Proposizione 2.1.1:} sia $\phi : \mathbf{R}^n \longrightarrow \mathbf{R}$ il potenziale di un sistema autonomo, sia $x_0$ un punto di equilibrio stabile per il sistema tale che $\phi''(x_0) = \alpha > 0$. Allora per $x \rightarrow x_0$ si ha che $\phi(x) = \frac{1}{2}\alpha(x - x_0)^2$. \\ \\
-\textbf{Dimostrazione:} poniamo $\phi(x_0) = 0$, poiché $x_0$ è un punto di equilibrio si ha che $\phi'(x_0) = 0$, quindi:
-\begin{equation}
-    \phi(x) = \frac{1}{2}\alpha(x - x_0)^2, \quad x \longrightarrow x_0 \notag
+    \phi(x) = \frac{1}{2}\alpha(x - x_0)^2, \quad x \longrightarrow x_0 \tag{2.5}
 \end{equation}
 ovvero il potenziale nelle vicinanze del punto di equilibrio stabile si comporta come il potenziale dell'oscillatore armonico.
+
 \section{Formalismo Lagrangiano}
-Consideriamo ora sistemi discreti a più gradi di libertà, quindi descritti da un sistema di equazioni differenziali del tipo:
+Consideriamo ora sistemi discreti a più gradi di libertà, quindi descritti da un sistema di equazioni differenziali del tipo
 \begin{equation}
     m\ddot{\mathbf{x}} = - \nabla \phi \tag{3.1}
 \end{equation}
 dove $\mathbf{x} : \mathbf{I} \subset \mathbf{R} \longrightarrow \mathbf{R}^n$, cammino liscio, e $\phi : \Omega \subset \mathbf{R}^n \longrightarrow \mathbf{R}^n$ potenziale di classe $C^2$. \\ \\
-Si mostra che le soluzioni del moto sono quelle che minimizzano una quantità detta \textbf{azione} $S$, almeno in prima approssimazione. L'azione è definita nel seguente modo:
+Si mostra che le soluzioni del moto sono quelle che minimizzano una quantità detta \textit{azione} $S$, almeno in prima approssimazione. L'azione è definita nel seguente modo
 \begin{equation}
-    S := \int_{t_1}^{t_2} \mathcal{L}(x, \dot{x}, t)\mathrm{d}t \tag{3.2}
+    S = \int_{t_1}^{t_2} L(\mathbf{x}(t), \dot{\mathbf{x}}(t), t) \, dt \tag{3.2}
 \end{equation}
-Sia $\delta$ una variazione del cammino ad estremi fissati, ovvero $\delta(t_1) = 0 = \delta(t_2)$, vediamo ora che condizioni deve rispettare la funzione $\mathcal{L} : \mathbf{R}^{n} \times \mathbf{R}^n \times \mathbf{R} \longrightarrow \mathbf{R}$ affinché l'azione sia minimizzata:
+Sia $\boldsymbol{\delta}$ una variazione del cammino ad estremi fissati, ovvero $\boldsymbol{\delta}(t_1) = 0 = \boldsymbol{\delta}(t_2)$. Vediamo che condizioni deve soddisfare $L$ affinché l'azione sia minimizzata.
 \begin{equation}
-    \delta S = \int_{t_1}^{t_2} \left( \mathcal{L}(x + \delta, \dot{x} + \dot{\delta}, t) - \mathcal{L}(x, \dot{x}, t) \right) \mathrm{d}t = 0 \notag
+    \delta S = \int_{t_1}^{t_2} \left( L(\mathbf{x} + \boldsymbol{\delta}, \dot{\mathbf{x}} + \dot{\boldsymbol{\delta}}, t) - L(\mathbf{x}, \dot{\mathbf{x}}, t) \right) \, dt = 0 \tag{3.3}
 \end{equation}
+equivale a
 \begin{equation}
-    \implies \int_{t_1}^{t_2} \left( \frac{\partial \mathcal{L}}{\partial x}\delta + \frac{\partial \mathcal{L}}{\partial \dot{x}}\dot{\delta} \right) \mathrm{d}t = 0 \tag{3.3}
+    \delta S = \int_{t_1}^{t_2} \left(\nabla_{\mathbf{x}}L \cdot \boldsymbol{\delta} + \nabla_{\dot{\mathbf{x}}} \cdot \dot{\boldsymbol{\delta}}\right) \, dt = 0 \tag{3.3}
 \end{equation}
-notando $\frac{\mathrm{d}}{\mathrm{d}t}\delta = \dot{\delta}$ e integrando per parti il secondo termine si ha:
+In particolare $\frac{d}{dt}\delta = \dot{\delta}$, quindi, integrando per parti il secondo termine, si ha
 \begin{equation}
-    \int_{t_1}^{t_2} \left( \frac{\partial \mathcal{L}}{\partial x} \right) \delta \mathrm{d}t = \int_{t_1}^{t_2} \left( \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial \dot{x}} \right) \delta \mathrm{d}t - \frac{\partial \mathcal{L}}{\partial \dot{x}}\delta\left|_{t_1}^{t_2}\right. \tag{3.4}
+    \int_{t_1}^{t_2} \nabla_{\mathbf{x}}L \cdot \boldsymbol{\delta} \, dt = \int_{t_1}^{t_2} \nabla_{\dot{\mathbf{x}}}L \cdot \boldsymbol{\delta} \, dt - \nabla_{\dot{\mathbf{x}}}L \cdot \boldsymbol{\delta}|_{t_1}^{t_2} \tag{3.4}
 \end{equation}
-il secondo termine del secondo membro è nullo per come abbiamo definito la variazione ad estremi fissati. Pertanto, dato che \textbf{3.4} deve valere per ogni variazione $\delta$ abbastanza piccola, la funzione $\mathcal{L}$ deve verificare il seguente sistema di equazioni differenziali, dette \textbf{equazioni di Eulero - Lagrange}:
+Il secondo termine del secondo membro è nullo, infatti la variazione è ad estremi fissati. Dato che $(3.4)$ deve valere per ogni variazione $\boldsymbol{\delta}$ arbitraria, la funzione $L$ deve soddisfare il seguente sistema di equazioni differenziali, dette \textit{equazioni di Eulero - Lagrange}
 \begin{equation}
-    \frac{\partial \mathcal{L}}{\partial x_i} - \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial \dot{x}_i} = 0 \quad \forall i = 1, 2, 3, ... , n \tag{3.5}
+    \frac{\partial L}{\partial x_i} - \frac{d}{dt}\frac{\partial L}{\partial \dot{x}_i} = 0 \qquad i = 1, 2, 3, ... , n \tag{3.5}
 \end{equation}
-Esse costituiscono un sistema di $n$ equazioni differenziali del secondo ordine, dipendenti da $2n$ costanti che sono determinabili a partire dalle condizioni iniziali.
-\subsection{Coordinate generalizzate}
-La principale comodità del formalismo Lagrangiano sviluppato nel paragrafo precedente sta nella sua dipendenza da una condizione di minimizzazione, pertanto, qualsiasi sia il set di variabili indipendenti $q_i$, legate alle vecchie coordinate da un diffeomorfismo $q_i = q_i (x_1, x_2, \dots, x_n)$, utilizzate per descrivere il sistema, l'azione $S$ sarà ancora minimizzata. Dunque è possibile scrivere le equazioni \textbf{3.5} nella seguente forma:
+Esse costituiscono un sistema di $n$ equazioni differenziali del secondo ordine, dipendenti da $2n$ costanti che sono determinabili a partire dalle condizioni iniziali. \\ \\
+La principale comodità del formalismo Lagrangiano sta nella sua dipendenza da una condizione di minimizzazione. Qualsiasi sia il set di variabili dinamiche indipendenti $\mathbf{q} = (q_1, \dots, q_n)$ (legate alle vecchie coordinate da un diffeomorfismo) scelte per descrivere il sistema, l'azione $S$ sarà ancora minimizzata. Dunque, è possibile scrivere le equazioni di Eulero-Lagrange nella seguente forma
 \begin{equation}
-    \frac{\partial \mathcal{L}}{\partial q_i} - \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial \dot{q}_i} = 0 \quad \forall i = 1, 2, 3, ... , n \tag{3.1.1}
+    \frac{\partial L}{\partial q_i} - \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} = 0 \qquad i = 1, 2, 3, ... , n \tag{3.6}
 \end{equation}
-\subsection{Principio di minima azione di Hamilton}
-Per sistemi meccanici è facile dimostrare che la funzione $\mathcal{L}$ prende la seguente forma:
+
+\section{Principio di minima azione di Hamilton}
+Per sistemi meccanici è facile dimostrare che la funzione $L$ prende la seguente forma
 \begin{equation}
-    \mathcal{L}(q, \dot{q}, t) = T(q, \dot{q}) - \phi(q) \tag{3.2.1}
+    L(\mathbf{q}, \dot{\mathbf{q}}, t) = T(\mathbf{q}, \dot{\mathbf{q}}) - \phi(\mathbf{q}) \tag{4.1}
 \end{equation}
-da questo risultato è molto chiaro come l'utilizzo di un set di coordinate qualsiasi non influenza la variazione prima del funzionale azione. \\ \\
-\textbf{Esempio:} in un sistema \textbf{2D} formato da una particella in moto libero, passando da coordinate cartesiane a coordinate polari, ponendo:
+Da $(4.1)$ risulta chiaro come l'utilizzo di un set di coordinate piuttosto che un altro non influenza la variazione prima del funzionale azione. \\ \\
+\textbf{Esempio:} in un sistema bidimensionale formato da una particella in moto libero, passando da coordinate cartesiane a coordinate polari ponendo
 \begin{equation}
     \begin{cases}
         x = \rho \cos \theta \\
         y = \rho \sin \theta
     \end{cases} \notag
 \end{equation}
-l'energia cinetica $T$ diventa:
+l'energia cinetica $T$ diventa
 \begin{equation}
     T = \frac{1}{2}m\rho^2 \dot{\theta}^2 \notag
 \end{equation}
-in tal caso la variazione prima dell'azione è ancora nulla e dunque le equazioni del moto restano invariate. \\ \\
-\subsubsection{Sistema linearizzato}
-Come è stato visto nel paragrafo $2.1$, attorno a punti di equilibrio stabile il sistema si comporta come un oscillatore armonico, dunque viene comodo riscrivere le equazioni del moto in tale condizioni per studiare il sistema. \\
-Definiamo una nuova variabile meccanica che tiene conto dello spostamento relativo alla posizione di equilibrio, sia $x_0$ un punto di equilibrio stabile, allora:
+in tal caso la variazione prima dell'azione è ancora nulla e quindi le equazioni del moto restano invariate.
+
+\section{Sistema linearizzato}
+Come visto nel capitolo $2$, attorno a punti di equilibrio stabile il sistema si comporta come un oscillatore armonico, dunque viene comodo riscrivere le equazioni del moto in tale condizioni per studiare il sistema. \\
+Definiamo una nuova variabile meccanica che tiene conto dello spostamento relativo alla posizione di equilibrio. Sia $x_0$ un punto di equilibrio stabile, poniamo
 \begin{equation}
-    \eta := x - x_0 \implies \dot{\eta} = \dot{x} \notag
+    \eta = x - x_0 \qquad \dot{\eta} = \dot{x} \tag{5.1}
 \end{equation}
-Riscriviamo allora la funzione di Lagrange nel seguente modo:
+Riscriviamo la funzione di Lagrange nel seguente modo
 \begin{equation}
-    \mathcal{L}(\eta, \dot{\eta}) = \frac{1}{2}\sum_{i,j} T_{i,j}(\eta)\dot{\eta}_i \dot{\eta}_j - \phi(\eta) \notag
+    L(\eta, \dot{\eta}) = \frac{1}{2}\sum_{i,j} T_{i,j}(\eta)\dot{\eta}_i \dot{\eta}_j - \phi(\eta) \tag{5.2}
 \end{equation}
-selezioniamo ora un intorno abbastanza piccolo del punto di equilibrio nello spazio delle fasi tale che è possibile trascurare le correzioni di ordine maggiore di $2$, possiamo allora approssimare $\mathcal{L}$ con:
+Selezioniamo ora un intorno abbastanza piccolo del punto di equilibrio nello spazio delle fasi tale che è possibile trascurare le correzioni di ordine maggiore di $2$, possiamo allora approssimare $L$ con
 \begin{equation}
-    \mathcal{L} = \frac{1}{2}\sum_{i,j}T_{i,j}(0)\dot{\eta}_i \dot{\eta}_j - \frac{1}{2}\sum_{i,j}\phi_{i,j}(0) \eta_i \eta_j \notag
+    L = \frac{1}{2}\sum_{i,j}T_{i,j}(0)\dot{\eta}_i \dot{\eta}_j - \frac{1}{2}\sum_{i,j}\phi_{i,j}(0) \eta_i \eta_j \tag{5.3}
 \end{equation}
-dove si è posto:
+dove si è posto
 \begin{equation}
-    \phi_{i,j} = \frac{\partial^2 \phi}{\partial \eta_i \partial \eta_j} \notag
+    \phi_{i,j} = \frac{\partial^2 \phi}{\partial \eta_i \partial \eta_j} \tag{5.4}
 \end{equation}
-Poiché supponiamo sempre $\phi$ di classe $C^2$ segue, per il teorema di Shwartz, che $\phi_{i,j}$ è una matrice simmetrica, inoltre poiché $\eta = 0$ è un punto stabile, e quindi di minimo isolato per il potenziale, segue che $\phi_{i,j}$ è definita positiva. La matrice dell'energia cinetica $T_{i,j}$ anche è definita positiva, poiché $T \geq 0$ sempre, e simmetrica. \\
-Le equazioni di Eulero - Lagrange associate sono:
+Supponendo sufficiente regolarità, per il \textit{teorema di Schwartz}, si ha $\phi_{i,j}$ è una matrice simmetrica. Inoltre, dato che $\eta = 0$ è un punto di equilibrio stabile, quindi di minimo isolato per il potenziale, segue che $\phi_{i,j}$ è definita positiva. La matrice dell'energia cinetica $T_{i,j}$ anche è definita positiva, infatti $T \geq 0$ sempre, e simmetrica. \\
+Le equazioni di Eulero-Lagrange associate sono
 \begin{equation}
-    T_{i,j}(0)\ddot{\eta} + \phi_{i,j}(0)\eta = 0 \notag
+    T_{i,j}(0)\ddot{\eta} + \phi_{i,j}(0)\eta = 0 \tag{5.5}
 \end{equation}
-Notiamo subito che il sistema è linearizzato, inoltre, per quanto visto nel paragrafo \textbf{2.1}, sappiamo che il sistema si comporta come un oscillatore armonico attorno a $\eta = 0$, perciò è ragionevole cercare una soluzione oscillante della forma:
+Notiamo subito che il sistema è linearizzato. Inoltre, per quanto visto nel capitolo $2$, sappiamo che il sistema si comporta come un oscillatore armonico attorno a $\eta = 0$, perciò è ragionevole cercare una soluzione oscillante della forma
 \begin{equation}
-    q(t) = \vec{u}\cos \omega t \notag
+    q(t) = \vec{u}\cos \omega t \tag{5.6}
 \end{equation}
-con $\vec{u} \in \mathbf{R}^n$ e $\omega \in \mathbf{R}$. Sostituendo nel sistema linearizzato si ha:
+con $\vec{u} \in \mathbf{R}^n$ e $\omega \in \mathbf{R}$. Sostituendo nel sistema linearizzato si ha
 \begin{equation}
-    \left( \phi_{i,j} - \omega^2T_{i,j} \right) q(t) = 0 \quad \forall t \geq t_0 \notag
+    \left( \phi_{i,j} - \omega^2T_{i,j} \right) q(t) = 0 \quad \forall t \geq t_0 \tag{5.7}
 \end{equation}
 Abbiamo dunque ottenuto un'equazione differenziale agli autovalori, pertanto è possibile determinare la pulsazione $\omega$ del sistema dal polinomio caratteristico dato dalla condizione $\det\left( \phi_{i,j} - \omega^2T_{i,j} \right) = 0$.
+
 \section{Il teorema di E. Noether}
-\subsection{Simmetrie}
-Sia $X$ uno spazio topologico, una simmetria è una biezione $f : X \longrightarrow X$. A parole, una simmetria è un'azione che lascia invariato l'oggetto sul quale si applica. \\
-Una simmetria banale è l'identità $\mathbf{1}_X : X \longrightarrow X$. Un altro esempio è un qualsiasi tipo di rotazione attorno ad un asse passante per il centro di una sfera.
+Sia $X$ uno spazio topologico, una simmetria è una biezione $f : X \longrightarrow X$. A parole, una simmetria è una mappa che lascia invariato l'oggetto sul quale viene applicata. \\
+Una simmetria banale è l'identità $\mathbf{1}_X : X \longrightarrow X$. Un altro esempio è un qualsiasi tipo di rotazione attorno ad un asse passante per il centro di una sfera. \\ \\
+Supponiamo di avere un sistema meccanico, descritto da una funzione di Lagrange $L$, \textit{invariante per traslazioni temporali}, cioè la biezione $t \mapsto t + \varepsilon$, dove $\varepsilon > 0$. \\
+Allora si ha che la funzione di Lagrange $L$ non dipende esplicitamente dal tempo, ovvero $\frac{\partial L}{\partial t} = 0$, dunque lungo le soluzioni del moto si ottiene
+\begin{equation}
+    \frac{dL}{dt} = \nabla_{\mathbf{q}}L \cdot \dot{\mathbf{q}} + \nabla_{\dot{\mathbf{q}}}L \cdot \ddot{\mathbf{q}} = \frac{d}{dt}\nabla_{\dot{\mathbf{q}}}L \cdot \dot{\mathbf{q}} + \nabla_{\dot{\mathbf{q}}}L \cdot \ddot{\mathbf{q}} = \frac{d}{dt}\left(\nabla_{\dot{\mathbf{q}}}L \cdot \dot{\mathbf{q}}\right) \tag{6.1}
+\end{equation}
+$(6.1)$ può essere riscritto nel seguente modo
+\begin{equation}
+    \frac{d}{dt}\left(\nabla_{\dot{\mathbf{q}}}L \cdot \dot{\mathbf{q}} - L\right) = 0 \tag{6.2}
+\end{equation}
+ovvero
+\begin{align}
+    \frac{d}{dt}E = 0 \tag{6.3}
+\end{align}
+Concludiamo che per sistemi invarianti rispetto a traslazioni temporali l'energia è conservata, ciò sussiste anche per traslazioni temporali non infinitesime. \\ \\
+Supponiamo di avere ora un sistema meccanico \textit{invariante per traslazioni spaziali}, ovvero $\mathbf{q} \mapsto \mathbf{q} + \delta\mathbf{q}$. Si ha che
+\begin{equation}
+    L' = L + \nabla_{\mathbf{q}}L \cdot \delta\mathbf{q} \tag{6.4}
+\end{equation}
+verifica ancora il principio di minima azione. Lungo le soluzioni del moto si ha che
+\begin{equation}
+    \nabla_{\mathbf{q}}L = \frac{d}{dt}\nabla_{\dot{\mathbf{q}}}L \tag{6.5}
+\end{equation}
+Sostituendo $(6.5)$ in $(6.4)$ si ottiene
+\begin{equation}
+    \frac{d}{dt}\nabla_{\dot{\mathbf{q}}}L \cdot \delta\mathbf{q} = 0 \tag{6.6}
+\end{equation}
+per ogni $\delta\mathbf{q}$ (arbitrario), ovvero
+\begin{align}
+    \mathbf{p} = \nabla_{\dot{\mathbf{q}}}L = \text{costante} \tag{6.7}
+\end{align}
+Pertanto, in sistemi invarianti per traslazioni spaziali rigide si conserva la quantità di moto. Ciò vale anche per singole componenti, infatti sarebbe corretto scrivere
+\begin{equation}
+    \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} \delta q_i = 0 \quad \forall \delta q_i \implies p_i = \frac{\partial L}{\partial \dot{q}_i} = \text{costante} \notag
+\end{equation}
+Quindi possono essere costanti anche solamente alcune delle componenti della quantità di moto. \\ \\
+Abbiamo notato con i precedenti esempi che se il sistema ammette una simmetria esiste una quantità conservata. Vediamo ora la formulazione generale di tale risultato. \\ \\
+\textbf{Definizione:} una trasformazione di coordinate $\mathbf{Q} = f(\mathbf{q})$ è detta \textit{ammissibile} per il sistema se e solo se la funzione di Lagrange è invariante per tale trasformazione, cioè
+\begin{equation}
+    L(\mathbf{Q}, \dot{\mathbf{Q}}) = L(\mathbf{q}, \dot{\mathbf{q}}) \tag{6.8}
+\end{equation}
+\textbf{Definizione:} un \textit{gruppo ad una parametro} $s \in \mathbf{R}$ è una famiglia di trasformazioni invertibili
+\begin{equation}
+    H_s = \{ h_s : \mathbf{R}^n \longrightarrow \mathbf{R}^n : Q = h_s(q),\ s \in \mathbf{R} \} \tag{4.3.2}
+\end{equation}
+che soddisfano le seguenti proprietà
+\begin{align}
+    h_0(\mathbf{q}) &= \mathbf{q} \tag{6.9} \\
+    (h_{s_1} \circ h_{s_2})(\mathbf{q}) &= h_{s_1 + s_2}(\mathbf{q}) \tag{6.10}
+\end{align}
+per ogni $\mathbf{q} \in \mathbf{R}^n$ e ogni $s_1, s_2 \in \mathbf{R}$. \\ \\
+Se per ogni $s \in \mathbf{R}$ la trasformazione $h_s$ è ammissibile per il sistema, si dice che il gruppo $H_s$ è ammissibile. \\ \\
+\textbf{Osservazione:} $(6.9)$ e $(6.10)$ comportano
+\begin{equation}
+    Q = h_s(q) \implies q = h_{-s}(Q) \tag{6.11}
+\end{equation}
+Vediamo ora il risultato principale di questo capitolo. \\ \\
+\textbf{Teorema (di E. Noether):} se un sistema lagrangiano $L$ ammette un gruppo ad un parametro $H_s$, le equazioni di EL associate a $L$ ammettono un integrale primo $I$ dato da
+\begin{equation}
+    I(\mathbf{q}, \dot{\mathbf{q}}) = \sum_i \frac{\partial L}{\partial \dot{q}_i}\frac{\partial h_s^i}{\partial s} \tag{6.12}
+\end{equation}
 
-\subsection{Conseguenze delle simmetrie in sistemi meccanici}
-Supponiamo di avere un sistema meccanico, descritto da una funzione di Lagrange $L$, \textbf{invariante per traslazioni temporali}, cioè la biezione $t \hookrightarrow t + \varepsilon$, dove $\varepsilon > 0$, è una simmetria per il sistema in esame. \\
-Allora si ha che la funzione di Lagrange $L$ non dipende esplicitamente dal tempo, ovvero $\frac{\partial L}{\partial t} = 0$, dunque lungo le soluzioni del moto si ottiene:
+\textbf{Dimostrazione:} sia $\mathbf{q}(t)$ una soluzione del moto, per ipotesi di invarianza di $L$ rispetto al gruppo di trasformazioni si ha che $\mathbf{Q}(t, \sigma) = h_\sigma(\mathbf{q})$ è ancora una soluzione del moto per ogni $\sigma \in \mathbf{R}$. Segue che
 \begin{equation}
-    \frac{\mathrm{d} L}{\mathrm{d} t} = \frac{\partial L}{\partial q}\dot{q} + \frac{\partial L}{\partial \dot{q}}\frac{\mathrm{d}\dot{q}}{\mathrm{d}t} = \left( \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{q}} \right)\dot{q} + \frac{\partial L}{\partial \dot{q}}\frac{\mathrm{d}\dot{q}}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{\partial L}{\partial \dot{q}}\dot{q} \right) \notag
+    \frac{d}{dt}\nabla_{\dot{\mathbf{Q}}} L(\mathbf{Q}, \dot{\mathbf{Q}}) = \nabla_\mathbf{Q} L(\mathbf{Q}, \dot{\mathbf{Q}}) \tag{6.13}
 \end{equation}
-tale risultato può essere riscritto nel seguente modo:
+Ovvero $L(\mathbf{Q}, \dot{\mathbf{Q}})$ verifica ancora le equazioni di EL. Inoltre, l'ipotesi di invarianza comporta la seguente condizione
 \begin{equation}
-    \frac{\mathrm{d}}{\mathrm{d}t} \left( \frac{\partial L}{\partial \dot{q}}\dot{q} - L \right) = 0 \iff \frac{\mathrm{d}}{\mathrm{d}t}E = 0 \notag
+    0 = \frac{\partial}{\partial \sigma}L(\mathbf{Q}, \dot{\mathbf{Q}}) = \nabla_\mathbf{Q} L \cdot \frac{\partial \mathbf{Q}}{\partial \sigma} + \nabla_{\dot{\mathbf{Q}}} L \cdot \frac{\partial \dot{\mathbf{Q}}}{\partial \sigma} \tag{6.14}
 \end{equation}
-Dunque si ottiene che per sistemi invarianti rispetto a traslazioni temporali l'energia è conservata, ciò sussiste anche per traslazioni temporali non infinitesime. \\ \\
-Supponiamo di avere ora un sistema meccanico \textbf{invariante per traslazioni spaziali}, ovvero $q \hookrightarrow q + \delta q$ è una simmetria per il sistema e lascia invariata $L$, allora:
+Sostituendo $(6.13)$ in $(6.14)$ e moltiplicando entrambi i membri per $\frac{\partial\mathbf{Q}}{\partial\sigma}$ si ottiene
 \begin{equation}
-    L' = L + \frac{\partial L}{\partial q}\delta q \notag
+    \frac{d}{dt}\nabla_{\dot{\mathbf{Q}}} L \cdot \frac{\partial \mathbf{Q}}{\partial \sigma} + \nabla_{\dot{\mathbf{Q}}}L \cdot \frac{\partial \dot{\mathbf{Q}}}{\partial \sigma} = 0 \tag{6.15}
 \end{equation}
-verifica ancora il principio di minima azione. Lungo le soluzioni del moto si ha che:
+Pertanto, siccome supponiamo abbastanza regolare la trasformazione $h_s$ e quindi è possibile invertire l'ordine di derivazione, possiamo scrivere $(6.15)$ come segue
 \begin{equation}
-    \frac{\partial L}{\partial q} = \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{q}} \notag
+    \frac{d}{dt}\left( \nabla_{\dot{Q}}L \cdot \frac{\partial Q}{\partial \sigma} \right) = 0 \tag{6.16}
 \end{equation}
-perciò deve valere che:
-\begin{equation}
-    \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{q}} \delta q = 0 \quad \forall \delta q \implies p := \frac{\partial L}{\partial \dot{q}} = \mathrm{costante} \notag
-\end{equation}
-Pertanto in sistemi invarianti per traslazioni rigide si conserva la quantità di moto. Ciò vale anche per singole componenti, infatti sarebbe corretto scrivere:
-\begin{equation}
-    \frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{q}_i} \delta q_i = 0 \quad \forall \delta q_i \implies p_i := \frac{\partial L}{\partial \dot{q}_i} = \mathrm{costante} \notag
-\end{equation}
-Quindi possono essere costanti anche solamente alcune delle componenti della quantità di moto.
-
-\subsection{Caso generale. Teorema di E. Noether}
-Abbiamo notato con i precedenti esempi che se il sistema ammette una simmetria allora sicuramente esiste una quantità conservata. Vediamo ora la formulazione generale di tale risultato. \\ \\
-\textbf{Definizione:} una trasformazione di coordinate $Q = f(q)$ è detta \textbf{ammissibile} per il sistema se e solo se la funzione di Lagrange è invariante per tale trasformazione, cioè:
-\begin{equation}
-    \mathcal{L}(Q, \dot{Q}) = \mathcal{L}(q, \dot{q}) \tag{4.3.1}
-\end{equation}
-\textbf{Definizione:} un \textbf{gruppo ad una parametro} $s \in \mathbf{R}$ è una famiglia di trasformazioni invertibili:
-\begin{equation}
-    H_s := \{ h_s : \mathbf{R}^n \longrightarrow \mathbf{R}^n : Q = h_s(q),\ s \in \mathbf{R} \} \tag{4.3.2}
-\end{equation}
-che verificano le seguenti proprietà:
-\begin{equation}
-    1. \quad h_0(q) = q \textbf{ per ogni } q \notag
-\end{equation}
-\begin{equation}
-    2. \quad \forall s_1, \, s_2 \in \mathbf{R} \textbf{ vale che } h_{s_1}(h_{s_2}(q)) = h_{s_1 + s_2}(q) \textbf{ per ogni } q \notag
-\end{equation}
-Se per ogni $s$ la trasformazione $h_s$ è ammissibile per il sistema si dice che il gruppo $H_s$ è ammissibile. \\
-Notiamo che $1$ e $2$ implicano:
-\begin{equation}
-    Q = h_s(q) \implies q = h_{-s}(Q) \notag
-\end{equation}
-Vediamo ora il risultato principale di questo paragrafo: \\
-\textbf{Teorema (di E. Noether):} se un sistema lagrangiano $\mathcal{L}$ ammette un gruppo ad un parametro $H_s$ segue che le equazioni di E-L associate alla funzione $\mathcal{L}$ ammettono un integrale primo $I$ dato da:
-\begin{equation}
-    I(q, \dot{q}) = \sum_i \frac{\partial \mathcal{L}}{\partial \dot{q}_i}\frac{\partial h_s^i}{\partial s} \tag{4.3.3}
-\end{equation}
-\textbf{Dimostrazione:} sia $q(t)$ una soluzione del moto, per ipotesi di invarianza di $\mathcal{L}$ rispetto al gruppo di trasformazioni si ha che $Q(t, \sigma) = h_\sigma(q)$ è una ancora una soluzione del moto $\forall \sigma \in \mathbf{R}$. Ciò comporta che:
-\begin{equation}
-    \frac{\mathrm{d}}{\mathrm{d}t}\nabla_{\dot{Q}} \mathcal{L}(Q, \dot{Q}) = \nabla_Q \mathcal{L}(Q, \dot{Q}) \tag{4.3.4}
-\end{equation}
-Ovvero $\mathcal{L}(Q, \dot{Q})$ verifica ancora le equazioni di E-L. Inoltre l'ipotesi di invarianza comporta la seguente relazione:
-\begin{equation}
-    0 = \frac{\partial}{\partial \sigma}\mathcal{L}(Q, \dot{Q}) = \nabla_Q \mathcal{L} \cdot \frac{\partial Q}{\partial \sigma} + \nabla_{\dot{Q}} \mathcal{L} \cdot \frac{\partial \dot{Q}}{\partial \sigma} \tag{4.3.5}
-\end{equation}
-Moltiplicando ambo i membri di \textbf{4.3.4} per $\frac{\partial Q}{\partial \sigma}$ e mettendola in relazione con \textbf{4.3.5} si ottiene:
-\begin{equation}
-    \frac{\mathrm{d}}{\mathrm{d}t}\nabla_{\dot{Q}} \mathcal{L} \cdot \frac{\partial Q}{\partial \sigma} + \nabla_{\dot{Q}}\mathcal{L} \cdot \frac{\partial \dot{Q}}{\partial \sigma} = 0 \tag{4.3.6}
-\end{equation}
-Pertanto, siccome supponiamo abbastanza regolare la trasformazione $h_s$ e quindi è possibile invertire l'ordine di derivazione, possiamo scrivere \textbf{4.3.6} nel seguente modo:
-\begin{equation}
-    \frac{\mathrm{d}}{\mathrm{d}t}\left( \nabla_{\dot{Q}}\mathcal{L} \cdot \frac{\partial Q}{\partial \sigma} \right) = 0 \tag{4.3.7}
-\end{equation}
-che , a meno di sviluppare il prodotto scalare, calcolato per $\sigma = 0$, non è altro che la tesi.
+che, a meno di sviluppare il prodotto scalare, calcolato per $\sigma = 0$, non è altro che la tesi. \qed
 \end{document}
