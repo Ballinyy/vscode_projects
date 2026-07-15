@@ -1001,7 +1001,7 @@ Pertanto
 \begin{align}
     \overline{E} = \alpha kT \notag
 \end{align}
-Quindi, ha senso approssimare la funzione integranda attorno al suo punto di massimo. Attorno ad $\overline{E}$ si ha 
+Quindi ha senso approssimare la funzione integranda attorno al suo punto di massimo. In particolare 
 \begin{align}
     TS_{mic}(E) - E \sim TS_{mic}(\overline{E}) - \overline{E} + \frac{1}{2}(E - \overline{E})^2T\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}} \tag{2.8.4}
 \end{align}
@@ -1009,7 +1009,11 @@ Ponendo $\eta = E - \overline{E}$ si ottiene
 \begin{align}
     Q_N \sim \frac{1}{h^{3N}}\exp\left(\beta(TS_{mic}(\overline{E}) - \overline{E})\right)\int_0^\infty d\eta \, \exp\left(\frac{1}{2k}\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}}\eta^2\right) \tag{2.8.5}
 \end{align}
-Notiamo che la derivata seconda di $S_{mic}$ calcolata per $E = \overline{E}$ è un termine negativo, infatti $\overline{E}$ è un punto di massimo per $S_{mic}$, segue che l'integrale in $(2.8.5)$ è gaussiano, quindi 
+In particolare, per il \textit{teorema di equipartizione}, si ha
+\begin{align}
+    \frac{\partial^2S_{mic}}{\partial E^2} = \frac{\partial}{\partial E}\left(\frac{1}{T}\right) = -\frac{\partial T}{\partial E} \propto \frac{1}{N} \notag
+\end{align}
+ Inoltre, la derivata seconda di $S_{mic}$ calcolata per $E = \overline{E}$ è un termine negativo, infatti $\overline{E}$ è un punto di massimo per $S_{mic}$. Concludiamo che la funzione integranda in $(2.8.5)$ è una gaussiana con varianza $\sigma = \sqrt{N}$ 
 \begin{align}
     Q_N \sim \frac{1}{2h^{3N}}\exp\left(\beta(TS_{mic}(\overline{E}) - \overline{E})\right)\left(-2\pi k\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)^{-1}_{E = \overline{E}}\right)^{1/2} \tag{2.8.6}
 \end{align}
