@@ -13,7 +13,7 @@
 \tableofcontents
 \newpage
 
-\section{Studio dei moti unidimensionali}
+\section{Moti unidimensionali}
 I sistemi unidimensionali sono quelli descritti da una equazione differenziale ordinaria del secondo ordine della seguente forma
 \begin{equation}
     m\ddot{x} = f(x, \dot{x}, t) \tag{1.1}
@@ -106,6 +106,7 @@ dato che $\phi'(x_+) = 0$. Segue che
 Tuttavia, sostituendo in $(1.7)$, si ottiene una funzione integranda proporzionale a $\frac{1}{x}$, quindi sappiamo che l'integrale diverge, per confronto. \qed \\ \\
 Si vedrà che se $\phi'(x_+) = 0$ allora $x_+$ è un punto di equilibrio del sistema, ovvero è una soluzione costante, perciò, intuitivamente per l'unicità della soluzione dell'equazione differenziale, deve per forza valere il \textit{teorema 1.3}, infatti il sistema può solamente tendere asintoticamente a $x_0$, senza mai raggiungerlo.
 
+\newpage
 \section{Stabilità}
 Siano $\Omega \in \mathbf{R}^n$, $f : \Omega \longrightarrow \mathbf{R}^n$ di classe $C^1$ (o superiore), $y_0 \in \Omega$ tale che $f(y_0) = 0$, allora $y_0$ è un \textit{punto di equilibrio} del sistema $\dot{y} = f(y)$. \\ \\
 \textbf{Definizione:} sia 
@@ -149,6 +150,7 @@ Studiamo ora come evolve il sistema per piccole oscillazioni attorno ad un punto
 \end{equation}
 ovvero il potenziale nelle vicinanze del punto di equilibrio stabile si comporta come il potenziale dell'oscillatore armonico.
 
+\newpage
 \section{Formalismo Lagrangiano}
 Consideriamo ora sistemi discreti a più gradi di libertà, quindi descritti da un sistema di equazioni differenziali del tipo
 \begin{equation}
@@ -180,11 +182,9 @@ La principale comodità del formalismo Lagrangiano sta nella sua dipendenza da u
 \begin{equation}
     \frac{\partial L}{\partial q_i} - \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i} = 0 \qquad i = 1, 2, 3, ... , n \tag{3.6}
 \end{equation}
-
-\section{Principio di minima azione di Hamilton}
 Per sistemi meccanici è facile dimostrare che la funzione $L$ prende la seguente forma
 \begin{equation}
-    L(\mathbf{q}, \dot{\mathbf{q}}, t) = T(\mathbf{q}, \dot{\mathbf{q}}) - \phi(\mathbf{q}) \tag{4.1}
+    L(\mathbf{q}, \dot{\mathbf{q}}, t) = T(\mathbf{q}, \dot{\mathbf{q}}) - \phi(\mathbf{q}) \tag{3.7}
 \end{equation}
 Da $(4.1)$ risulta chiaro come l'utilizzo di un set di coordinate piuttosto che un altro non influenza la variazione prima del funzionale azione. \\ \\
 \textbf{Esempio:} in un sistema bidimensionale formato da una particella in moto libero, passando da coordinate cartesiane a coordinate polari ponendo
@@ -196,10 +196,11 @@ Da $(4.1)$ risulta chiaro come l'utilizzo di un set di coordinate piuttosto che 
 \end{equation}
 l'energia cinetica $T$ diventa
 \begin{equation}
-    T = \frac{1}{2}m\rho^2 \dot{\theta}^2 \notag
+    T = \frac{1}{2}m\rho^2 \dot{\theta}^2 \tag{3.8}
 \end{equation}
 in tal caso la variazione prima dell'azione è ancora nulla e quindi le equazioni del moto restano invariate.
 
+\newpage
 \section{Sistema linearizzato}
 Come visto nel capitolo $2$, attorno a punti di equilibrio stabile il sistema si comporta come un oscillatore armonico, dunque viene comodo riscrivere le equazioni del moto in tale condizioni per studiare il sistema. \\
 Definiamo una nuova variabile meccanica che tiene conto dello spostamento relativo alla posizione di equilibrio. Sia $x_0$ un punto di equilibrio stabile, poniamo
@@ -233,6 +234,7 @@ con $\vec{u} \in \mathbf{R}^n$ e $\omega \in \mathbf{R}$. Sostituendo nel sistem
 \end{equation}
 Abbiamo dunque ottenuto un'equazione differenziale agli autovalori, pertanto è possibile determinare la pulsazione $\omega$ del sistema dal polinomio caratteristico dato dalla condizione $\det\left( \phi_{i,j} - \omega^2T_{i,j} \right) = 0$.
 
+\newpage
 \section{Il teorema di E. Noether}
 Sia $X$ uno spazio topologico, una simmetria è una biezione $f : X \longrightarrow X$. A parole, una simmetria è una mappa che lascia invariato l'oggetto sul quale viene applicata. \\
 Una simmetria banale è l'identità $\mathbf{1}_X : X \longrightarrow X$. Un altro esempio è un qualsiasi tipo di rotazione attorno ad un asse passante per il centro di una sfera. \\ \\
