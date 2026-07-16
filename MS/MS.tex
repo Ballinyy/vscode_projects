@@ -1031,7 +1031,7 @@ e, dato che $U \sim \overline{E}$, si ottiene
 Siamo interessati a descrivere microscopicamente un sistema a contatto con un reservoir, dunque termalizzato ad una temperatura $T$, con il quale scambia energia ed è in grado di interagire chimicamente. Segue che le grandezze termodinamiche $E, N$ diventano ora variabili stocastiche del sistema. \\
 Sistemi che soddisfano tal condizioni fanno parte dell'\textit{ensemble grancanonico}.
 \subsection{Legge di stato}
-Consideriamo un sistema $X$ a contatto con un reservoir termalizzato e suddividiamo $X$ in due sottosistemi $X_1, X_2$ caratterizzati dalle grandezze termodinamiche $N_1, V_1$ e $N_2, V_2$, che soddisfano 
+Consideriamo un sistema $X$, composto da $N$ particelle indipendenti e indistinguibili in un volume $V$, a contatto con un reservoir termalizzato e suddividiamo $X$ in due sottosistemi $X_1, X_2$ caratterizzati dalle grandezze termodinamiche $N_1, V_1$ e $N_2, V_2$, che soddisfano 
 \begin{align}
     N &= N_1 + N_2 \notag \\
     V &= V_1 + V_2 \notag
@@ -1042,11 +1042,11 @@ Al limite in cui $V$ è molto grande il contributo di interazione tra $X_1$ e $X
 \end{align}
 Per definizione
 \begin{align}
-    Q_N &= \frac{1}{h^{3N}}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\mathcal{H}_N} \notag
+    Q_N &= \frac{1}{h^{3N}N!}\int d\mathbf{p}d\mathbf{q} \, e^{-\beta\mathcal{H}_N} \notag
 \end{align}
 Cerchiamo un modo per scrivere la funzione di partizione canonica come segue
 \begin{align}
-    Q_N = \sum_{N_1}\frac{1}{h^{3N_1}}\int d\mathbf{p}_1d\mathbf{q}_1 \, (\dots) \tag{3.1.1}
+    Q_N = \sum_{N_1}\frac{1}{h^{3N_1}N_1!}\int d\mathbf{p}_1d\mathbf{q}_1 \, (\dots) \tag{3.1.1}
 \end{align}
 Poiché ora stiamo considerando $N_1$ variabile, ovvero supponiamo che il sottosistema $X_1$ possa interagire chimicamente con $X_2$, dobbiamo considerare tutte le configurazioni possibili che soddisfano il vincolo $N = N_1 + N_2$. \\
 Se $N_1$ e $N_2$ fossero fissate, sotto l'ipotesi di sistemi debolmente interagenti, si avrebbe
