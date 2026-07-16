@@ -58,17 +58,17 @@ allora si può introdurre la probabilità infinitesima $d\omega$ data da
     d\omega = \rho(\mathbf{p}, \mathbf{q}) \, d\mathbf{p}d\mathbf{q} \tag{1.1.5}
 \end{gather}
 dove $\rho$ è una PDF (definita per ogni coppia $(\mathbf{p}, \mathbf{q})$ nello spazio delle fasi), ovviamente normalizzata. \\ \\
-Vediamo come $\rho$ evolve nel tempo. Consideriamo una regione $\Omega$ dello spazio delle fasi e sia $\Sigma = \partial \Omega$. La probabilità $P(t)$ di trovare il sistema in un stato contenuto in $\Omega$ in un dato istante $t$ è data da
+Vediamo, in generale, come $\rho$ evolve nel tempo. Consideriamo una regione $\Omega$ dello spazio delle fasi e sia $\Sigma = \partial \Omega$. La probabilità $P(t)$ di trovare il sistema in un stato contenuto in $\Omega$ in un dato istante $t$ è data da
 \begin{gather}
-    P(t) = \int_{\Omega}\rho(\mathbf{p}(t), \mathbf{q}(t)) \, d\mathbf{p}d\mathbf{q} \tag{1.1.6}
+    P(t) = \int_{\Omega}\rho(\mathbf{p}, \mathbf{q}, t) \, d\mathbf{p}d\mathbf{q} \tag{1.1.6}
 \end{gather}
 Posto $\mathbf{v} = (\dot{\mathbf{p}}, \dot{\mathbf{q}})$, calcolando la derivata totale rispetto al tempo, si ottiene
 \begin{gather}
-    \frac{dP}{dt} = \int_{\Omega}\frac{\partial \rho}{\partial t} \, d\mathbf{p}d\mathbf{q} + \int_{\Omega}\nabla \rho \cdot \mathbf{v} \, d\mathbf{p}d\mathbf{q} \tag{1.1.7}
+    \frac{dP}{dt} = \int_{\Omega}\frac{\partial \rho}{\partial t} \, d\mathbf{p}d\mathbf{q} \tag{1.1.7}
 \end{gather}
 Dato che $\mathbf{v}$ è il campo di velocità associato alle equazioni di Hamilton, per il \textit{teorema di Liouville} (appendice) si ottiene
 \begin{align}
-    \frac{dP}{dt} = -\int_{\Omega}\rho\nabla \cdot \mathbf{v} \, d\mathbf{p}d\mathbf{q} \tag{1.1.8}
+    \frac{dP}{dt} = -\int_{\Omega}\nabla \cdot (\rho\mathbf{v}) \, d\mathbf{p}d\mathbf{q} \tag{1.1.8}
 \end{align}
 Prendendo come positivo il flusso uscente da $\Sigma$. Confrontando $(1.1.8)$ e $(1.1.7)$ si ottiene
 \begin{gather}
