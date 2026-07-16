@@ -298,12 +298,12 @@ Riportiamo ora l'equazione di Hamilton-Jacobi, ricavata trattando l'azione $S$ c
 \begin{equation}
     \frac{\partial S}{\partial t} + H\left(\frac{\partial S}{\partial \xi}, \frac{\partial S}{\partial \eta}, \xi, \eta\right) = 0 \tag{8.1.2} 
 \end{equation}
-Poiché la funzione di Hamilton non dipende esplicitamente dal tempo si ha che, ricordando che $H = E$, la funziona azione $S$ prende la seguente forma
+Dato che $H$ non dipende esplicitamente dal tempo e ricordando che $H = E$, si ha che , integrando $(8.1.2)$ rispetto al tempo, il funzionale azione $S$
 \begin{equation}
     S(\xi, \eta, t) = W(\xi, \eta) - E(t - t_0) \tag{8.1.3}
 \end{equation}
-dove $W(\xi, \eta)$ è una funzione arbitraria delle vecchie coordinate. Scegliamo allora come nuovi impulsi coniugati $P_1 = E$ e $P_2 = p_\xi$, che sono costanti del moto. \\ \\
-Dato che $p_\xi$ è una costante del moto, possiamo porre $W(\xi, \eta) = W_1(\eta) + p_\xi \xi$, allora $S$ prende la seguente forma
+dove $W$ è una funzione arbitraria delle vecchie coordinate. Scegliamo come nuovi impulsi coniugati $P_1 = E$ e $P_2 = p_\xi$, che sono costanti del moto. \\ \\
+Dato che $p_\xi$ è una costante del moto, trattando $S$ come una funzione generatrice di tipo due, si ha $W(\xi, \eta) = W_1(\eta) + p_\xi \xi$. Pertanto
 \begin{equation}
     S = W_1(\eta) + p_\xi \xi - E(t - t_0) \notag
 \end{equation}
@@ -324,16 +324,16 @@ Per ottenere un'espressione per $\xi (t)$ ricorriamo al risultato $Q_2 = \frac{\
 \begin{equation}
      Q_2 = \xi \mp \int \frac{p_\xi d\eta}{\sqrt{16m\left( E - \frac{p^2_\xi}{4m} -\frac{1}{2}k\eta^2 \right)}} \tag{8.1.7}  
 \end{equation}
-con $Q_2$ costante del moto determinabile a partire dalle condizioni iniziali. Notiamo inoltre che $\dot{\xi} = \frac{p_\xi}{2m}$, perciò, ponendo $\xi_0 = Q_2$, per \textit{1.6} possiamo scrivere
+con $Q_2$ costante del moto determinabile a partire dalle condizioni iniziali. Inoltre, notiamo che $\dot{\xi} = \frac{p_\xi}{2m}$, perciò, ponendo $\xi_0 = Q_2$, per $(8.1.6)$ possiamo scrivere
 \begin{equation}
     \xi (t) = \xi_0 + \dot{\xi}(t - t_0) \notag
 \end{equation}
-dove possiamo definire $\omega = \dot{\xi}$ costante del moto, poiché come abbiamo visto $p_\xi$ è una costante del moto. \\ \\
-\textit{Osservazione:} eseguendo tale trasformazione canonica si ottiene che
+dove possiamo definire $\omega = \dot{\xi}$ costante del moto, dato che $p_\xi$ è una costante del moto. \\ \\
+\textit{Osservazione:} eseguendo tale trasformazione canonica si ottiene
 \begin{equation}
     P_1 = E \implies H'(P, Q) = P_1 \tag{8.1.8}
 \end{equation}
-cioè nelle nuovi variabili si ha che $H'$ è una funzione della sola $P_1$ che è stata definita come l'energia totale del sistema, perciò si ottiene che
+cioè nelle nuovi variabili si ha che $H'$ è una funzione della sola $P_1$ che è stata definita come l'energia totale del sistema. Pertanto
 \begin{equation}
     \frac{\partial H'}{\partial P_1} = \dot{Q_1} = 1, \quad \frac{\partial H'}{\partial P_2} = \dot{Q_2} = 0 \implies Q_2 = \text{costante} \tag{8.1.9}
 \end{equation}
@@ -342,32 +342,36 @@ Questi risultati permettono di integrare con facilità il sistema, eseguendo i p
 \begin{equation}
     U(x, y) = \frac{kmM}{\sqrt{x^2 + y^2}} + \left( \frac{1}{x^2} + \frac{1}{y^2} \right) \tag{8.2.1}
 \end{equation}
-Introduciamo delle nuove variabili meccaniche per ottenere una funzione di hamilton $H = H(p_1, q_1, \phi (p_2, q_2))$ che sappiamo essere separabile e quindi integrabile. Siano allora $x = \rho \cos \theta$ e $y = \rho \sin \theta$, si ottiene
+Introduciamo delle nuove variabili dinamiche in modo tale da poter scrivere $H$ nella forma
+\begin{align}
+    H = H(p_1, q_1, \phi(p_2, q_2)) \notag 
+\end{align}
+Passando a coordinate polari si ottiene
 \begin{equation}
     U(\rho, \theta) = \frac{1}{\rho}kmM + \frac{1}{\rho^2}\left( \frac{1}{\cos^2 \theta \sin^2 \theta} \right) \tag{8.2.2}
 \end{equation}
-perciò nota l'espressione dell'energia cinetica $T$ si ha che la lagrangiana di tale sistema è
+Quindi, nota l'espressione dell'energia cinetica $T$, si ha che la lagrangiana $L$ che descrive il sistema è
 \begin{equation}
-    L = T - U = \frac{1}{2}m(\dot{\rho}^2 + \rho^2\dot{\theta}^2) - \frac{1}{\rho}kmM - \frac{1}{\rho^2}\left( \frac{1}{\cos^2 \theta \sin^2 \theta} \right) \tag{8.2.3}
+    L = \frac{1}{2}m(\dot{\rho}^2 + \rho^2\dot{\theta}^2) - \frac{1}{\rho}kmM - \frac{1}{\rho^2}\left( \frac{1}{\cos^2 \theta \sin^2 \theta} \right) \tag{8.2.3}
 \end{equation}
-gli impulsi coniugati sono dati da $p_\rho = \frac{\partial L}{\partial \dot{\rho}}$ e $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$, quindi
+Gli impulsi coniugati sono dati da $p_\rho = \frac{\partial L}{\partial \dot{\rho}}$ e $p_\theta = \frac{\partial L}{\partial \dot{\theta}}$, quindi
 \begin{equation}
     p_\rho = m\dot{\rho}, \quad p_\theta = m\rho^2\dot{\theta} \tag{8.2.4}
 \end{equation}
-perciò la funzione di Hamilton che descrive questo sistema meccanico è
+Segue che la funzione di Hamilton $H$ che descrive il sistema è data da
 \begin{equation}
     H(p_\rho, p_\theta, \rho, \theta) = \frac{p_\rho^2}{2m} + \frac{p_\theta^2}{2m\rho^2} + \frac{1}{\rho}kmM + \frac{1}{\rho^2}\left( \frac{1}{\cos^2 \theta \sin^2 \theta} \right) \tag{8.2.5}
 \end{equation}
-notiamo che possiamo scrivere $H$ nella forma separabile
+Notiamo che possiamo scrivere $H$ nella forma separabile
 \begin{equation}
     H(p_\rho, \rho, \phi(p_\theta, \theta))  = \frac{p_\rho^2}{2m} + \frac{1}{\rho}kmM + \frac{1}{\rho^2}\left( \frac{1}{\cos^2 \theta \sin^2 \theta} + \frac{p_\theta^2}{2m} \right) \tag{8.2.6}
 \end{equation}
-dove abbiamo identificato $\phi(p_\theta, \theta) = \left( \frac{1}{\cos^2 \theta \sin^2 \theta} + \frac{p_\theta^2}{2m} \right)$. Abbiamo dimostrato a partire dall'unicità del moto che la quantità $\phi(p_\theta, \theta)$ è una costante del moto e dunque possiamo procedere con il metodo di Hamilton-Jacobi. \\
-Poniamo dunque $P_1 = E$ e $P_2 = \phi(p_\theta, \theta)$, costanti del moto. Cerchiamo allora un funzione generatrice $F$ della seguente forma
+dove abbiamo identificato $\phi(p_\theta, \theta) = \left( \frac{1}{\cos^2 \theta \sin^2 \theta} + \frac{p_\theta^2}{2m} \right)$. \\
+Abbiamo dimostrato, a partire dall'unicità del moto, che la quantità $\phi(p_\theta, \theta)$ è una costante del moto e dunque possiamo procedere con il metodo di Hamilton-Jacobi. Poniamo $P_1 = E$ e $P_2 = \phi(p_\theta, \theta)$, costanti del moto. Cerchiamo una funzione generatrice $F$ della seguente forma
 \begin{equation}
     F(P_1, P_2, \rho, \theta) = F_1(P_1, P_2, \rho) + F_2(P_2, \theta) \tag{8.2.7}
 \end{equation}
-che ci permette di ottenere un sistema di due equazioni differenziali ordinarie con incognite $F_1$ e $F_2$. Allora procediamo analogamente al caso precedente, si ottiene
+che ci permette di ottenere un sistema di due equazioni differenziali ordinarie con incognite $F_1$ e $F_2$. Allora, procedendo analogamente al caso precedente, si ottiene
 \begin{equation} \tag{8.2.8}
     \begin{cases}
     \frac{dF_1}{d \rho} = p_\rho \\
@@ -378,13 +382,12 @@ che ci permette di ottenere un sistema di due equazioni differenziali ordinarie 
     \phi = \frac{1}{\cos^2 \theta \sin^2 \theta} + \left(\frac{dF_2}{d\theta}\right)^2 \frac{1}{2m}
 \end{cases}
 \end{equation} 
-questo sistema ci permette di ottenere delle espressioni integrali per $F_1$ e $F_2$ e come l'\textit{esercizio 1} di ricavare le soluzioni del moto. \\ \\ \\
-\textbf{3.} Studiamo il seguente pendolo doppio, in assenza di campi di forza esterni. \\
-La funziona lagrangiana che descrive questo sistema è
+questo sistema ci permette di ottenere delle espressioni integrali per $F_1$ e $F_2$ e, come nelll'\textit{esercizio 1}, di ricavare le soluzioni del moto. \\ \\ \\
+\textbf{3.} Studiamo il pendolo doppio in assenza di campi di forza esterni. La funziona lagrangiana che descrive il sistema è
 \begin{equation}
     L = \frac{1}{2}ml^2(2\dot{\varphi_1}^2 + \dot{\varphi_2}^2 + 2 \cos(\varphi_1 - \varphi_2)\dot{\varphi_1}\dot{\varphi_2}) \tag{8.3.1}
 \end{equation}
-Notiamo che $L$ dipende solamente dalla differenza tra gli angoli $\varphi_1$ e $\varphi_2$, perciò possiamo definire delle nuove variabili meccaniche $\alpha = \varphi_1 + \varphi_2$ e $\beta = \varphi_1 - \varphi_2$, così facendo otterremo una funzioni di Hamilton con una variabile ciclica, proprio $\alpha$. Otteniamo
+Notiamo che $L$ dipende solamente dalla differenza tra gli angoli $\varphi_1$ e $\varphi_2$, perciò possiamo definire delle nuove variabili meccaniche $\alpha = \varphi_1 + \varphi_2$ e $\beta = \varphi_1 - \varphi_2$, così facendo otterremo una funzione di Hamilton $H$ con una variabile ciclica, ovvero $\alpha$. In particolare
 \begin{equation}
     \begin{cases}
         \varphi_1 = \frac{\alpha + \beta}{2} \\
@@ -395,14 +398,14 @@ Dalla teoria di Hamilton sappiamo che nei casi in cui la matrice dei coefficient
 \begin{equation}
     T = \sum_{i,j} T_{i,j}\dot{q}_i\dot{q}_j = \sum_{i,j} T^{-1}_{i,j}p_i p_j \tag{8.3.3}
 \end{equation}
-Tuttavia resta la complicazione che l'energia cinetica espressa in termini degli impulsi coniugati continua a non essere diagonale, dunque compaiono ancora termini misti, perciò la soluzione è cercare una trasformazione di contatto della seguente forma
+Tuttavia, l'energia cinetica espressa in termini degli impulsi coniugati continua a non essere diagonale, dunque compaiono ancora termini misti. La soluzione è cercare una trasformazione di contatto della seguente forma
 \begin{equation}
     \begin{cases}
         \alpha = a\varphi_1 + b\varphi_2 \\
         \beta = \varphi_1 - \varphi_2
     \end{cases} \qquad a = a(\beta), \ b = b(\beta) \tag{8.3.4}
 \end{equation}
-Scriviamo dunque la funzione di Hamilton che descrive tale sistema, a partire da $(8.3.3)$
+A partire da $(8.3.3)$
 \begin{equation} T_{i,j} = 
     \begin{pmatrix}
         2ml^2 & ml^2\cos (\varphi_1 - \varphi_2) \\
@@ -418,35 +421,28 @@ Scriviamo dunque la funzione di Hamilton che descrive tale sistema, a partire da
 \end{equation}
 dunque otteniamo le seguenti espressioni per l'energia cinetica espressa mediante gli impulsi coniugati
 \begin{equation}
-    T = \frac{p_1^2}{ml^2(2 - \cos (\varphi_1 - \varphi_2))} + \frac{2p_2^2}{ml^2(2 - \cos (\varphi_1 - \varphi_2))} - \frac{2p_1p_2\cos(\varphi_1 - \varphi_2)}{ml^2(2 - \cos (\varphi_1 - \varphi_2))} = \notag
-\end{equation}
-\begin{equation}
-    = \frac{1}{ml^2(2 - \cos (\varphi_1 - \varphi_2))}(p_1^2 + 2p_2^2 - 2p_1p_2\cos (\varphi_1 - \varphi_2)) \notag
+    T = \frac{p_1^2 + 2p_2^2 - 2p_1p_2\cos (\varphi_1 - \varphi_2)}{ml^2(2 - \cos (\varphi_1 - \varphi_2))} \notag
 \end{equation}
 Cerchiamo una trasformazione come $(8.3.4)$ tale che l'energia cinetica espressa mediante i nuovi impulsi coniugati $p_\alpha, \, p_\beta$ sia diagonale. Definiamo la seguente funzione generatrice del secondo tipo
 \begin{equation}
     F = p_\alpha(a\varphi_1 + b\varphi_2) + p_\beta(\varphi_1 - \varphi_2) \notag
 \end{equation}
-Allora otteniamo che
+Allora
 \begin{equation}
     \frac{\partial F}{\partial \varphi_1} = ap_\alpha + p_\beta = p_1, \quad \frac{\partial F}{\partial \varphi_2} = bp_\alpha - p_\beta = p_2 \notag
 \end{equation}
-perciò si ottengolo le seguenti espressioni per i nuovi impulsi
+Quindi le espressioni per i nuovi impulsi sono
 \begin{equation}
     p_\alpha = \frac{p_1 + p_2}{a+b}, \quad p_\beta = \frac{bp_1 - ap_2}{a+b} \tag{8.3.5}
 \end{equation}
-quindi $T$ espresso in funzione dei nuovi impulsi e delle nuove coordinate è
+Esprimendo $T$ in funzione dei nuovi impulsi e delle nuove coordinate
 \begin{gather}
     T = \frac{1}{ml^2(2 - \cos \beta)}\left((a^2 + 2b^2)p_\alpha^2 + 3p_\beta^2 + (2a - 4b - 2(b - a)\cos \beta)p_\alpha p_\beta \right. +\notag \\
     - \left. 2\left[(a + b)p_\alpha^2 - p_\beta^2\right]\cos \beta\right) \notag
 \end{gather}
-dunque imponendo che non ci siano termini misti si ottiene
+Infine, imponendo che non ci siano termini misti, si ottiene
 \begin{equation}
     2a - 4b - 2(b - a)\cos \beta = 0 \implies \frac{a}{b} = \frac{2 + \cos \beta}{1 - \cos \beta} \tag{8.3.6}
 \end{equation}
-Nota $(8.3.3)$ si ricava facilmente, sfruttando il risultato seguente
-\begin{equation}
-    \frac{\partial T}{\partial \dot{q}_k} = \frac{\partial}{\partial \dot{q}_k} \frac{1}{2} \langle \dot{q}, T\dot{q} \rangle = p_k \notag
-\end{equation}
-Sostituendo poi l'espressione che si ottiene nell'espressione per l'energia cinetica si ottiene proprio $(8.3.3)$
+
 \end{document}
