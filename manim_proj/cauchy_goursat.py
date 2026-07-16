@@ -147,9 +147,10 @@ class CauchyGoursat(MovingCameraScene):
                       weight=BOLD, color=COL_TEXT)
         title.to_edge(UP, buff=1.0)
 
-        hyp = MathTex(
-            r"\text{Siano } f \text{ olomorfa su } \Omega \text{ e } \gamma \subset \Omega \text{ una curva chiusa semplice}",
-            font_size=34, color=COL_TEXT,
+        hyp = Tex(
+            r"Siano $f$ olomorfa su $\Omega \subset \mathbb{C}$ semplicemente connesso e \\"
+            r"$\gamma$ una curva chiusa semplice con supporto in $\Omega$",
+            font_size=32, color=COL_TEXT,
         )
         arrow = MathTex(r"\Downarrow", font_size=34, color=COL_TEXT)
         concl = MathTex(
@@ -324,14 +325,14 @@ class CauchyGoursat(MovingCameraScene):
     # 3. I quadrati si rimpiccioliscono: epsilon -> 0
     # ------------------------------------------------------------
     def shrinking_squares(self):
-        heading1 = Text("Ricoprimento con celle quadrate", font_size=26,
+        heading1 = Text("Ricoprimento con celle quadrate", font_size=30,
                         weight=BOLD, color=COL_TEXT)
-        heading1.to_edge(UP, buff=0.4).shift(RIGHT * 3)
+        heading1.to_edge(UP, buff=0.8).shift(RIGHT * 3)
 
         sub1 = Tex(
             r"La regione racchiusa dalla curva $\gamma$, compresa $\gamma$ stessa, è compatta, \\"
             r"pertanto possiamo ricoprirla con un numero finito di celle quadrate di lato $\varepsilon > 0$",
-            font_size=20, color=COL_TEXT
+            font_size=24, color=COL_TEXT
         )
         eps_label = MathTex(r"\varepsilon = 0.6", font_size=36, color=COL_ACCENT)
         eps_label.next_to(self.legend, DOWN, buff=0.8)
@@ -377,14 +378,14 @@ class CauchyGoursat(MovingCameraScene):
     # 3bis. Zoom su due celle verdi adiacenti: cancellazione dei lati interni
     # ------------------------------------------------------------
     def zoom_on_cancellation(self):
-        heading2 = Text("Cancellazione dei contributi interni", font_size=26,
+        heading2 = Text("Cancellazione dei contributi interni", font_size=30,
                         weight=BOLD, color=COL_TEXT)
-        heading2.to_edge(UP, buff=0.4).shift(RIGHT * 3)
+        heading2.to_edge(UP, buff=0.8).shift(RIGHT * 3)
 
         sub2 = Tex(
-            r"Il contributo dovuto all'integrazione di $f$ sui lati interni delle celle si cancella, "
-            r"infatti vengono percorsi due volte, ma in senso opposto.",
-            font_size=20, color=COL_TEXT
+            r"Il contributo dovuto all'integrazione di $f$ sui lati interni delle celle si \\"
+            r"cancella, infatti vengono percorsi due volte, ma in senso opposto.",
+            font_size=24, color=COL_TEXT
         )
         fit_width(sub2, 11.5)
         sub2.next_to(heading2, DOWN, buff=0.5)
@@ -453,14 +454,14 @@ class CauchyGoursat(MovingCameraScene):
 
         conclusion_line = Tex(
             r"Sommando su tutte le celle resta solo il contributo lungo $\gamma$",
-            font_size=20, color=COL_TEXT,
+            font_size=24, color=COL_TEXT,
         )
         equat = MathTex(
             r"\sum_j\int_{\gamma_j} f(z) \, dz = \int_\gamma f(z) \, dz",
-            font_size=26, color=COL_ACCENT,
+            font_size=28, color=COL_ACCENT,
         )
         fit_width(conclusion_line, 11.5)
-        conclusion_line.to_edge(UP, buff=1).shift(RIGHT * 3)
+        conclusion_line.to_edge(UP, buff=1.8).shift(RIGHT * 3)
         equat.next_to(conclusion_line, DOWN, buff=0.8)
 
         self.play(FadeIn(conclusion_line, shift=DOWN * 0.2))
@@ -497,7 +498,7 @@ class CauchyGoursat(MovingCameraScene):
         self.play(GrowFromCenter(d_brace), Write(d_label))
         self.wait(0.7)
 
-        heading = Text("Maggiorazione e conclusione", font_size=26,
+        heading = Text("Maggiorazione e conclusione", font_size=28,
                         weight=BOLD, color=COL_TEXT)
         heading.to_edge(UP, buff=0.5).shift(RIGHT * 2)
 
@@ -507,7 +508,7 @@ class CauchyGoursat(MovingCameraScene):
             r"Questo perché $f$ è olomorfa su $\Omega$, per ipotesi, e quindi \\"
             r"il limite del rapporto incrementale converge alla derivata prima \\"
             r"uniformemente in ogni cella quadrata.",
-            font_size=20, color=COL_TEXT,
+            font_size=22, color=COL_TEXT,
         )
         bound = MathTex(
             r"\left| \oint_{\gamma} f(z)\, dz \right| \le C \cdot \varepsilon",
@@ -515,7 +516,7 @@ class CauchyGoursat(MovingCameraScene):
         )
         line2 = Tex(
             r"In particolare",
-            font_size=20, color=COL_TEXT,
+            font_size=22, color=COL_TEXT,
         )
         bound2 = MathTex(
             r"C = \sqrt{2}D(4D + 1)",
@@ -524,7 +525,7 @@ class CauchyGoursat(MovingCameraScene):
         line3 = Tex(
             r"dove $D$ è il lato di un qualsiasi quadrato finito che contiene $\gamma$ \\",
             r"Poiché $\varepsilon > 0$ è arbitrario, mandando $\varepsilon \to 0$:",
-            font_size=20, color=COL_TEXT,
+            font_size=22, color=COL_TEXT,
         )
         result = MathTex(
             r"\oint_{\gamma} f(z)\, dz = 0",
