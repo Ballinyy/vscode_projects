@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  17 JUL 2026 18:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  19 JUL 2026 02:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -400,67 +400,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 1662--1665
  []
 
 [63]
-Underfull \hbox (badness 10000) in paragraph at lines 1699--1702
+Underfull \hbox (badness 10000) in paragraph at lines 1708--1711
 
  []
 
 <immagini/Screenshot 2026-07-10 142023.png, id=229, 154.77824pt x 128.27925pt>
 File: immagini/Screenshot 2026-07-10 142023.png Graphic file (type png)
 <use immagini/Screenshot 2026-07-10 142023.png>
-Package pdftex.def Info: immagini/Screenshot 2026-07-10 142023.png  used on input line 1705.
-(pdftex.def)             Requested size: 224.2479pt x 185.86899pt.
+Package pdftex.def Info: immagini/Screenshot 2026-07-10 142023.png  used on input line 1714.
+(pdftex.def)             Requested size: 137.9979pt x 114.37956pt.
 [64 <./immagini/Screenshot 2026-07-10 142023.png>]
 <immagini/Screenshot 2026-07-10 143224.png, id=234, 152.36925pt x 130.086pt>
 File: immagini/Screenshot 2026-07-10 143224.png Graphic file (type png)
 <use immagini/Screenshot 2026-07-10 143224.png>
-Package pdftex.def Info: immagini/Screenshot 2026-07-10 143224.png  used on input line 1737.
+Package pdftex.def Info: immagini/Screenshot 2026-07-10 143224.png  used on input line 1746.
 (pdftex.def)             Requested size: 137.9979pt x 117.82263pt.
- [65 <./immagini/Screenshot 2026-07-10 143224.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1767--1770
+ [65 <./immagini/Screenshot 2026-07-10 143224.png>] [66]
+Underfull \hbox (badness 10000) in paragraph at lines 1776--1779
 
  []
 
-[66] [67] [68] [69]
-Overfull \hbox (5.511pt too wide) in paragraph at lines 1857--1859
+[67] [68] [69] [70]
+Overfull \hbox (5.511pt too wide) in paragraph at lines 1866--1868
 \OT1/cmr/m/n/10 Consideriamo un corpo nero di vol-ume $\OML/cmm/m/it/10 V$ \OT1/cmr/m/n/10 ed a tem-per-atura $\OML/cmm/m/it/10 T$ \OT1/cmr/m/n/10 con-te-nente radizione
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1861--1864
+Underfull \hbox (badness 10000) in paragraph at lines 1870--1873
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1874--1878
+Underfull \hbox (badness 10000) in paragraph at lines 1883--1887
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1874--1878
-
- []
-
-[70]
-Underfull \hbox (badness 10000) in paragraph at lines 1893--1896
+Underfull \hbox (badness 10000) in paragraph at lines 1883--1887
 
  []
 
 [71]
-Underfull \hbox (badness 10000) in paragraph at lines 1920--1923
+Underfull \hbox (badness 10000) in paragraph at lines 1902--1905
 
  []
 
 [72]
-Underfull \hbox (badness 10000) in paragraph at lines 1944--1947
+Underfull \hbox (badness 10000) in paragraph at lines 1929--1932
 
  []
 
 [73]
-Underfull \hbox (badness 10000) in paragraph at lines 2008--2011
+Underfull \hbox (badness 10000) in paragraph at lines 1953--1956
 
  []
 
-[74] [75] [76] (./MS.aux)
+[74]
+Underfull \hbox (badness 10000) in paragraph at lines 2017--2020
+
+ []
+
+[75] [76] [77] (./MS.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -471,18 +471,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2843 strings out of 467525
- 41126 string characters out of 5423209
+ 2844 strings out of 467525
+ 41136 string characters out of 5423209
  457682 words of memory out of 5000000
- 31722 multiletter control sequences out of 15000+600000
+ 31723 multiletter control sequences out of 15000+600000
  639000 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,19n,65p,672b,297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MS.pdf (76 pages, 498427 bytes).
+Output written on MS.pdf (77 pages, 498680 bytes).
 PDF statistics:
- 378 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
+ 381 PDF objects out of 1000 (max. 8388607)
+ 245 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

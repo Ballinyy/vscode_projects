@@ -1673,19 +1673,20 @@ Analogamente a quanto fatto nel caso di fermioni, definiamo le \textit{funzioni 
 \begin{align}
     g_\nu(Z) = \frac{1}{\Gamma(\nu)}\int_0^\infty dx \, \frac{x^{\nu - 1}}{Z^{-1}e^x - 1} \tag{4.4.33}
 \end{align}
-Notiamo immediatamente che $g_\nu$ è crescente in $Z$. Inoltre, come fatto in $(4.4.16)$, possiamo riscrivere le funzioni di Bose in termini di serie note
+Notiamo immediatamente che $g_\nu$ è crescente monotona per $0 < Z < 1$. Inoltre, come fatto in $(4.4.16)$, possiamo riscrivere $g_\nu$ in termini di serie note
 \begin{align}
-    g_\nu(Z) = \sum_{l = 1}^\infty \frac{Z^l}{l^\nu}  \qquad g_\nu(1) = \zeta(\nu) \notag
+    g_\nu(Z) = \sum_{l = 1}^\infty \frac{Z^l}{l^\nu} \notag
 \end{align}
-Da $(4.4.32)$ otteniamo
+In particolare, $g_\nu(0) = 0$ e $g_\nu(1) = \zeta(\nu)$, pertanto $g_\nu(Z) \leq \zeta(\nu)$ per ogni $Z \in [0, 1]$. Da $(4.4.32)$ otteniamo
 \begin{align}
     \overbrace{\frac{\mathcal{N}}{V}}^{\text{intensivo}} = \overbrace{\frac{4\pi g_s}{h^3}\int_0^\infty dp \, p^2\frac{1}{Z^{-1}e^{\beta\frac{p^2}{2m}} - 1}}^{\text{intensivo}} + \overbrace{\frac{1}{V}\left(\frac{Z}{1 - Z}\right)}^{\text{estensivo}} \tag{4.4.34}
 \end{align}
 Per far sì che l'espressione $(4.4.34)$ abbia senso, deve valere
 \begin{align}
-    \frac{Z}{1 - Z} \rightarrow V \qquad Z \rightarrow 1 \notag
+    \frac{Z}{1 - Z} \sim V \qquad Z \rightarrow 1 \notag
 \end{align}
-in modo tale da rendere anche il terzo termine intensivo. Riscrivendo $(4.4.34)$ in termini delle funzioni di Bose e del parametro $\lambda$ introdotto precedentemente, si ottiene
+in modo tale da rendere anche il terzo termine intensivo. \\
+Riscrivendo $(4.4.34)$ in termini delle funzioni di Bose e del parametro $\lambda$ introdotto precedentemente, si ottiene
 \begin{align}
     \frac{\mathcal{N}}{V} = \frac{1}{\lambda^3}g_{3/2}(Z) + \frac{1}{V}\left(\frac{Z}{1 - Z}\right) \tag{4.4.35}
 \end{align}
@@ -1693,44 +1694,52 @@ che porta a
 \begin{align}
     \lambda^3\frac{\mathcal{N}_0}{V} = \frac{\lambda^3}{v} - g_{3/2}(Z) \tag{4.4.36}
 \end{align}
-Questa equazione comporta che il termine $\frac{\mathcal{N}_0}{V} > 0$ se la temperatura $T$ ed il volume specifico $v$ sono tali che 
+Notiamo che se 
 \begin{align}
-    \frac{\lambda^3}{v} - \overbrace{g_{3/2}(1)}^{\zeta(3/2)} > 0 \notag
+    \frac{\lambda^3}{v} < \zeta(3/2) \tag{4.4.37}
 \end{align}
-In particolare, ciò significa che la frazione di particelle che occupa lo stato fondamentale è non infinitesima. Tale fenomeno è detto \textit{condensazione di Bose-Einstein}. \\ \\
-La fugacità $Z$ che risolve $(4.4.36)$ ha il seguente comportamento
+esiste unica $Z \in [0, 1]$ tale che
+\begin{align}
+    \frac{\lambda^3}{v} = g_{3/2}(Z) \tag{4.4.38}
+\end{align}
+Pertanto si ottiene $\mathcal{N}_0 = 0$ al limite termodinamico. Mentre, se 
+\begin{align}
+    \frac{\lambda^3}{v} > \zeta(3/2) \tag{4.4.39}
+\end{align}
+non esiste $Z \in [0, 1]$ che soddisfa $(4.4.38)$, infatti, come già visto, $\zeta(3/2)$ è il valore massimo assunto da $g_{3/2}$ per $Z \in [0, 1]$. Concludiamo che, se vale $(4.4.39)$, si ha $Z = 1$, i livelli eccitati sono saturi e le particelle iniziano a condensarsi nello stato fondamentale. Tale fenomeno è detto \textit{condensazione di Bose-Einstein}. \\ \\
+Il plot di $Z$ soluzione di $(4.4.36)$ è il seguente
 \begin{center}
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.65\linewidth]{immagini/Screenshot 2026-07-10 142023.png}
+        \includegraphics[width=0.40\linewidth]{immagini/Screenshot 2026-07-10 142023.png}
         \caption{$Z$ soluzione di $(4.4.36)$}
         \label{}
     \end{figure}
 \end{center}
-Notiamo che $0 < Z < 1$. Dunque, al limite $V \rightarrow \infty$, la soluzione $Z$ diventa una funzione a gradino e si ottiene
+Notiamo che $0 < Z < 1$. Inoltre, al limite $V \rightarrow \infty$ si ottiene
 \begin{align}
     Z = \begin{cases}
-        1 \qquad &\frac{v}{\lambda^3} \leq \zeta(3/2) \\
-        \text{soluzione di} (4.4.36) \qquad &\frac{v}{\lambda^3} > \zeta(3/2)
-    \end{cases} \tag{4.4.37}
+        1 \qquad &\frac{\lambda^3}{v} \leq \zeta(3/2) \\
+        \text{soluzione di } (4.4.38) \qquad &\frac{\lambda^3}{v} > \zeta(3/2)
+    \end{cases} \tag{4.4.40}
 \end{align}
-Vediamo ora cosa emerge dall'equazione $(4.4.36)$ se facciamo variare $T$ a $v$ fissato. L'equazione
+Fissato $v$, l'equazione
 \begin{align}
-    \frac{\lambda^3}{v} = g_{3/2}(1) \tag{4.4.38}
+    \frac{\lambda^3_c}{v} = g_{3/2}(1) \tag{4.4.41}
 \end{align}
 identifica una determinata temperatura $T_c$, detta \textit{temperatura critica}, data da
 \begin{align}
-    T_c = \frac{h^2}{2\pi km}\left(\frac{1}{v\zeta(3/2)}\right)^{2/3} \tag{4.4.39}
+    T_c = \frac{h^2}{2\pi km}\left(\frac{1}{v\zeta(3/2)}\right)^{2/3} \tag{4.4.42}
 \end{align}
-Per $T > T_c$ si ha $\frac{v}{\lambda^3} > \zeta(3/2)$, pertanto
+Per $T > T_c$ si ha $\frac{\lambda^3}{v} < \zeta(3/2)$, pertanto
 \begin{align}
-    \frac{\mathcal{N}_0}{\mathcal{N}} = 1 - \frac{v}{\lambda^3}g_{3/2}(Z) = 0 \tag{4.4.40}
+    \frac{\mathcal{N}_0}{\mathcal{N}} = 1 - \frac{v}{\lambda^3}g_{3/2}(Z) = 0 \tag{4.4.43}
 \end{align}
-ovvero non ci sono particelle che occupano lo stato fondamentale (o sono una frazione infinitesima). Mentre, per $T < T_c$, ricordando che $g_{3/2}(1) = \zeta(3/2)$ e sostituendo $(4.4.39)$ in $(4.4.40)$, si ottiene
+ovvero la frazione di particelle che occupa lo stato fondamentale diventa infinitesima al limite termodinamico. Mentre, per $T < T_c$ si ottiene
 \begin{align}
-    \frac{\mathcal{N}_0}{\mathcal{N}} = 1 - \left(\frac{T}{T_c}\right)^{2/3} \tag{4.4.41}
+    \frac{\mathcal{N}_0}{\mathcal{N}} = 1 - \frac{v}{\lambda^3}\overbrace{g_{3/2}(1)}^{\lambda^3_c/v} = 1 - \left(\frac{T}{T_c}\right)^{2/3} \tag{4.4.44}
 \end{align}
-ovvero si osserva una frazione \textit{non} infinitesima di particelle che occupano lo stato fondamentale.
+ovvero la frazione di particelle che occupano lo stato fondamentale rimane finita anche al limite termodinamico, ciò significa che $\mathcal{N}_0 \sim V$.
 \begin{center}
     \begin{figure}[h]
         \centering
@@ -1743,14 +1752,14 @@ Analogamente, se si fissa la temperatura del sistema e si lascia variare $v$, si
 \begin{align}
     Z = \begin{cases}
         1 \qquad &v \leq v_c \\
-        \text{soluzione di} (4.4.36) \qquad &v > v_c
+        \text{soluzione di } (4.4.38) \qquad &v > v_c
     \end{cases} \qquad
     P = \begin{cases}
         \frac{kT}{\lambda^3}\zeta(3/2) \qquad &v \leq v_c \\
         \frac{kT}{\lambda^3}g_{3/2}(Z) \qquad &v > v_c
-    \end{cases} \tag{4.4.42}
+    \end{cases} \tag{4.4.45}
 \end{align}
-Tuttavia, non sempre esiste $T_c > 0$, infatti un primo esempio è il caso di bosoni liberi in un dominio bidimensionale. In tal caso si ottiene $Z = 1$ solo per $T = 0$.
+Per poter osservare il fenomeno di condensazione di Bose-Einstein deve esistere $T_c > 0$. Tuttavia, non tutti i sistemi ammettono temperatura critica non nulla, un primo esempio è il caso di bosoni liberi in un dominio bidimensionale.
 
 \newpage
 \subsection{Equivalente quantistico del teorema di equipartizione dell'energia}
