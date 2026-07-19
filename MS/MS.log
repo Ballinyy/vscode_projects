@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  19 JUL 2026 18:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  19 JUL 2026 19:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -320,57 +320,57 @@ Overfull \hbox (25.13956pt too wide) in paragraph at lines 947--949
  []
 
 [35] [36] [37] [38] [39] [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1105--1108
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1105
 
  []
 
 [41] [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1131--1133
+Underfull \hbox (badness 10000) in paragraph at lines 1128--1130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1153--1156
+Underfull \hbox (badness 10000) in paragraph at lines 1150--1153
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1161--1164
+Underfull \hbox (badness 10000) in paragraph at lines 1158--1161
 
  []
 
 [44] [45] [46] [47] [48] [49]
-Overfull \hbox (8.75072pt too wide) in paragraph at lines 1298--1299
+Overfull \hbox (8.75072pt too wide) in paragraph at lines 1295--1296
 \OT1/cmr/m/n/10 Consideriamo un sis-tema quan-tis-tico iso-lato a pi^^Ru corpi de-scritto dall'hamiltoniano
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1309--1313
+Underfull \hbox (badness 10000) in paragraph at lines 1306--1310
 
  []
 
 [50]
-Underfull \hbox (badness 10000) in paragraph at lines 1332--1335
+Underfull \hbox (badness 10000) in paragraph at lines 1329--1332
 
  []
 
 [51] [52] [53]
-Underfull \hbox (badness 10000) in paragraph at lines 1431--1434
+Underfull \hbox (badness 10000) in paragraph at lines 1428--1431
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1436--1439
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1436
 
  []
 
 
-Overfull \hbox (26.08392pt too wide) in paragraph at lines 1436--1439
+Overfull \hbox (26.08392pt too wide) in paragraph at lines 1433--1436
 \OT1/cmr/m/n/10 Osservato ci^^Ro, pos-si-amo riscri-vere le equazioni carat-ter-is-tiche dell'ensemble grancanon-
  []
 
 [54] [55]
-Underfull \hbox (badness 10000) in paragraph at lines 1469--1472
+Underfull \hbox (badness 10000) in paragraph at lines 1466--1469
 
  []
 
@@ -378,85 +378,85 @@ Underfull \hbox (badness 10000) in paragraph at lines 1469--1472
 <immagini/Screenshot 2026-07-10 152458.png, id=216, 199.34476pt x 130.68825pt>
 File: immagini/Screenshot 2026-07-10 152458.png Graphic file (type png)
 <use immagini/Screenshot 2026-07-10 152458.png>
-Package pdftex.def Info: immagini/Screenshot 2026-07-10 152458.png  used on input line 1632.
+Package pdftex.def Info: immagini/Screenshot 2026-07-10 152458.png  used on input line 1629.
 (pdftex.def)             Requested size: 172.5pt x 113.08763pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [61]
-Underfull \hbox (badness 10000) in paragraph at lines 1648--1653
+Underfull \hbox (badness 10000) in paragraph at lines 1645--1650
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1648--1653
+Underfull \hbox (badness 10000) in paragraph at lines 1645--1650
 
  []
 
 [62 <./immagini/Screenshot 2026-07-10 152458.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1662--1665
+Underfull \hbox (badness 10000) in paragraph at lines 1659--1662
 
  []
 
 [63]
-Underfull \hbox (badness 10000) in paragraph at lines 1708--1711
+Underfull \hbox (badness 10000) in paragraph at lines 1705--1708
 
  []
 
 <immagini/Screenshot 2026-07-10 142023.png, id=229, 154.77824pt x 128.27925pt>
 File: immagini/Screenshot 2026-07-10 142023.png Graphic file (type png)
 <use immagini/Screenshot 2026-07-10 142023.png>
-Package pdftex.def Info: immagini/Screenshot 2026-07-10 142023.png  used on input line 1714.
+Package pdftex.def Info: immagini/Screenshot 2026-07-10 142023.png  used on input line 1711.
 (pdftex.def)             Requested size: 137.9979pt x 114.37956pt.
 [64 <./immagini/Screenshot 2026-07-10 142023.png>]
 <immagini/Screenshot 2026-07-10 143224.png, id=234, 152.36925pt x 130.086pt>
 File: immagini/Screenshot 2026-07-10 143224.png Graphic file (type png)
 <use immagini/Screenshot 2026-07-10 143224.png>
-Package pdftex.def Info: immagini/Screenshot 2026-07-10 143224.png  used on input line 1746.
+Package pdftex.def Info: immagini/Screenshot 2026-07-10 143224.png  used on input line 1743.
 (pdftex.def)             Requested size: 137.9979pt x 117.82263pt.
  [65 <./immagini/Screenshot 2026-07-10 143224.png>] [66]
-Underfull \hbox (badness 10000) in paragraph at lines 1776--1779
+Underfull \hbox (badness 10000) in paragraph at lines 1773--1776
 
  []
 
 [67] [68] [69] [70]
-Overfull \hbox (5.511pt too wide) in paragraph at lines 1866--1868
+Overfull \hbox (5.511pt too wide) in paragraph at lines 1863--1865
 \OT1/cmr/m/n/10 Consideriamo un corpo nero di vol-ume $\OML/cmm/m/it/10 V$ \OT1/cmr/m/n/10 ed a tem-per-atura $\OML/cmm/m/it/10 T$ \OT1/cmr/m/n/10 con-te-nente radizione
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1870--1873
+Underfull \hbox (badness 10000) in paragraph at lines 1867--1870
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1883--1887
+Underfull \hbox (badness 10000) in paragraph at lines 1880--1884
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1883--1887
+Underfull \hbox (badness 10000) in paragraph at lines 1880--1884
 
  []
 
 [71]
-Underfull \hbox (badness 10000) in paragraph at lines 1902--1905
+Underfull \hbox (badness 10000) in paragraph at lines 1899--1902
 
  []
 
 [72]
-Underfull \hbox (badness 10000) in paragraph at lines 1929--1932
+Underfull \hbox (badness 10000) in paragraph at lines 1926--1929
 
  []
 
 [73]
-Underfull \hbox (badness 10000) in paragraph at lines 1953--1956
+Underfull \hbox (badness 10000) in paragraph at lines 1950--1953
 
  []
 
 [74]
-Underfull \hbox (badness 10000) in paragraph at lines 2017--2020
+Underfull \hbox (badness 10000) in paragraph at lines 2014--2017
 
  []
 
@@ -479,7 +479,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,19n,65p,672b,297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on MS.pdf (77 pages, 498671 bytes).
+Output written on MS.pdf (77 pages, 498851 bytes).
 PDF statistics:
  381 PDF objects out of 1000 (max. 8388607)
  245 compressed objects within 3 object streams

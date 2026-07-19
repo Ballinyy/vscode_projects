@@ -985,43 +985,40 @@ Sostituendo $(2.8.2)$ in $(2.8.1)$ si ha
     Q_N &= \int_0^\infty dE \, \exp\left(\frac{S_{mic}(E)}{k} - \beta E\right) \notag \\
     &= \int_0^\infty dE \, \exp\left(\beta\left(TS_{mic}(E) - E\right)\right) \tag{2.8.3}
 \end{align}
-Notiamo che la funzione integranda è prodotto di una funzione crescente e una funzione decrescente (dell'energia) ed ha quindi un punto di massimo globale. In particolare 
+Dato che sia $S_{mic}$ che $E$ sono proporzionali a $N$, ci aspettiamo che, nel limite termodinamico $N \rightarrow \infty$, l'integrale in $(2.8.3)$ riceva contributo solamente per $E$ attorno al punto di massimo $\overline{E}$ della funzione integranda. In particolare 
 \begin{align}
-    \frac{\partial}{\partial E}(TS_{mic}(E) - E) = 0 \notag
+    \frac{\partial}{\partial E}(TS_{mic}(E) - E)_{E = \overline{E}} = 0 \notag
 \end{align}
-per $E = \overline{E}$ tale che
+fornisce le seguenti condizioni su $\overline{E}$
 \begin{align}
-    T\left(\frac{\partial S_{mic}}{\partial E}\right)_{E = \overline{E}} = 1 \notag
+    \begin{cases}
+        T\left(\frac{\partial S_{mic}}{\partial E}\right)_{E = \overline{E}} &= 1 \\
+        \left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}} &< 0
+    \end{cases} \notag
 \end{align}
-Se $\Gamma(E) \propto E^\alpha$, con $\alpha \propto N$, si ha
+La prima condizione implica che $\overline{E} = U$. Sviluppiamo l'esponente della funzione integranda attorno ad $\overline{E}$
 \begin{align}
-    1 = T\left(\frac{\partial S_{mic}}{\partial E}\right)_{E = \overline{E}} \propto \frac{\alpha kT}{\overline{E}} \notag
+    TS_{mic}(E) - E &\sim TS_{mic}(\overline{E}) - \overline{E} + \frac{1}{2}(E - \overline{E})^2T\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}} \notag \\
+    &= TS_{mic}(U) - U + \frac{1}{2}(E - U)^2T\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = U} \tag{2.8.4}
 \end{align}
-Pertanto
+Ponendo $\eta = E - U$ si ottiene 
 \begin{align}
-    \overline{E} \propto \alpha kT \notag
-\end{align}
-In particolare
-\begin{align}
-    TS_{mic}(E) - E \sim TS_{mic}(\overline{E}) - \overline{E} + \frac{1}{2}(E - \overline{E})^2T\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}} \tag{2.8.4}
-\end{align}
-Ponendo $\eta = E - \overline{E}$ si ottiene 
-\begin{align}
-    Q_N \sim \frac{1}{h^{3N}}\exp\left(\beta(TS_{mic}(\overline{E}) - \overline{E})\right)\int_0^\infty d\eta \, \exp\left(\frac{1}{2k}\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = \overline{E}}\eta^2\right) \tag{2.8.5}
+    Q_N &\sim \exp\left(\beta(TS_{mic}(U) - U)\right)\int_{-U}^\infty d\eta \, \exp\left(\frac{1}{2k}\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = U}\eta^2\right) \notag \\
+    &\sim \exp\left(\beta(TS_{mic}(U) - U)\right)\int_{-\infty}^\infty d\eta \, \exp\left(\frac{1}{2k}\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)_{E = U}\eta^2\right) \tag{2.8.5}
 \end{align}
 In particolare, per il \textit{teorema di equipartizione}, si ha
 \begin{align}
     \frac{\partial^2S_{mic}}{\partial E^2} = \frac{\partial}{\partial E}\left(\frac{1}{T}\right) = -\frac{1}{T^2}\frac{\partial T}{\partial E} \propto \frac{1}{N} \notag
 \end{align}
- Inoltre, la derivata seconda di $S_{mic}$ calcolata per $E = \overline{E}$ è un termine negativo, infatti $\overline{E}$ è un punto di massimo per $S_{mic}$. Concludiamo che la funzione integranda in $(2.8.5)$ è una gaussiana con varianza $\sigma = \sqrt{N}$ 
+Concludiamo che la funzione integranda in $(2.8.5)$ è una gaussiana con varianza $\sigma = \sqrt{N}$ 
 \begin{align}
-    Q_N \sim \frac{1}{2h^{3N}}\exp\left(\beta(TS_{mic}(\overline{E}) - \overline{E})\right)\left(-2\pi k\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)^{-1}_{E = \overline{E}}\right)^{1/2} \tag{2.8.6}
+    Q_N \sim \exp\left(\beta(TS_{mic}(U) - U)\right)\left(-2\pi k\left(\frac{\partial^2S_{mic}}{\partial E^2}\right)^{-1}_{E = U}\right)^{1/2} \tag{2.8.6}
 \end{align}
-Concludiamo che l'entropia canonica è maggiore dell'entropia microcanonica (a causa delle fluttazioni) e differisce da quest'ultima per un termine che va come $\log N$. In particolare, usando la definizione statistica dell'energia libera, si ottiene 
+Pertanto l'entropia canonica è maggiore dell'entropia microcanonica (a causa delle fluttazioni) e differisce da quest'ultima di un termine che va come $\log N$. In particolare, usando la definizione statistica dell'energia libera, si ottiene 
 \begin{align}
-    U - TS_{can} \sim \overline{E} - TS_{mic} - \frac{kT}{2}\log\left(2\pi kT^2\frac{\partial \overline{E}}{\partial T}\right) \tag{2.8.7}
+    F = U - TS_{can} \sim U - TS_{mic} - \frac{kT}{2}\log\left(2\pi kT^2c_V\right) \tag{2.8.7}
 \end{align}
-e, dato che $U \sim \overline{E}$, si ottiene 
+quindi 
 \begin{align}
     S_{can} \sim S_{mic} + \frac{kT}{2}\log\left(2\pi kT^2c_V\right) \tag{2.8.8}
 \end{align}
