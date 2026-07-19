@@ -209,7 +209,7 @@ dove è stato trascurato il primo termine del membro di destra per $N \rightarro
 \end{align}
 per ogni $i, j = 1, \dots, 6N$. \\
 
-\textbf{Dimostrazione:} per un ensemble microcanico la media di una qualsiasi osservabile $A$ è data da 
+\textbf{Dimostrazione:} nel contesto dell'ensemble microcanico la media di una qualsiasi osservabile $A$ è data da 
 \begin{align}
     \braket{A} = \int A(\mathbf{p}, \mathbf{q})\rho(\mathbf{p}, \mathbf{q}) \, d\mathbf{p}d\mathbf{q} \tag{1.3.2}
 \end{align}
@@ -228,15 +228,15 @@ dunque, sostituendo in $(1.3.3)$, si ottiene
 \begin{align}
     \braket{x_i\frac{\partial \mathcal{H}}{\partial x_j}} &= \frac{1}{\Gamma(E)}\int_{E \leq \mathcal{H} \leq E + \Delta} x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}, d\mathbf{q} \notag \\
     &= \frac{1}{\Gamma(E)}\left(\int_{\mathcal{H} \leq E + \Delta}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q} - \int_{E \leq \mathcal{H}}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q}\right) \notag \\
-    &\sim \frac{\Delta}{\Gamma(E)}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q} \notag \\
-    &= \left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q} \notag \\
-    &= \left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}x_i\frac{\partial}{\partial x_j}(\mathcal{H} - E) \, d\mathbf{p}d\mathbf{q} \notag \\
-    &= \left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\left(\cancel{\int_{E \leq \mathcal{H}}\frac{\partial}{\partial x_j}(x_i(\mathcal{H} - E)) \, d\mathbf{p}d\mathbf{q}} - \delta_{ij}\int_{E \leq \mathcal{H}}(\mathcal{H} - E) \, d\mathbf{p}d\mathbf{q}\right) \notag
+    &\sim \frac{\Delta}{\Gamma(E)}\frac{\partial}{\partial E}\int_{\mathcal{H} \leq E}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q} \notag \\
+    &= \left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{\mathcal{H} \leq E}x_i\frac{\partial \mathcal{H}}{\partial x_j} \, d\mathbf{p}d\mathbf{q} \notag \\
+    &= \left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{\mathcal{H} \leq E}x_i\frac{\partial}{\partial x_j}(\mathcal{H} - E) \, d\mathbf{p}d\mathbf{q} \notag \\
+    &= \left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\left(\cancel{\int_{\mathcal{H} \leq E}\frac{\partial}{\partial x_j}(x_i(\mathcal{H} - E)) \, d\mathbf{p}d\mathbf{q}} - \delta_{ij}\int_{\mathcal{H} \leq E}(\mathcal{H} - E) \, d\mathbf{p}d\mathbf{q}\right) \notag
 \end{align}
 Il primo integrale è nullo dato che $x_i(\mathcal{H} - E) = 0$ per $\mathcal{H} = E$, ovvero lungo il bordo dell'insieme di integrazione. Allora si ha 
 \begin{align}
-    \braket{x_i\frac{\partial \mathcal{H}}{\partial x_j}} &= \delta_{ij}\left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{E \leq \mathcal{H}}(E - \mathcal{H}) \, d\mathbf{p}d\mathbf{q} \notag \\
-    &= \delta_{ij}\left(\frac{\partial\Omega}{\partial E}\right)^{-1}\int_{E \leq \mathcal{H}}\frac{\partial}{\partial E}(E - \mathcal{H}) \, d\mathbf{p}d\mathbf{q} + \cancel{(E - \mathcal{H})|_{\mathcal{H} = E}} \notag \\
+    \braket{x_i\frac{\partial \mathcal{H}}{\partial x_j}} &= \delta_{ij}\left(\frac{\partial \Omega}{\partial E}\right)^{-1}\frac{\partial}{\partial E}\int_{\mathcal{H} \leq E}(E - \mathcal{H}) \, d\mathbf{p}d\mathbf{q} \notag \\
+    &= \delta_{ij}\left(\frac{\partial\Omega}{\partial E}\right)^{-1}\int_{\mathcal{H} \leq E}\frac{\partial}{\partial E}(E - \mathcal{H}) \, d\mathbf{p}d\mathbf{q} + \cancel{(E - \mathcal{H})|_{\mathcal{H} = E}} \notag \\
     &= \delta_{ij}\Omega\left(\frac{\partial \Omega}{\partial E}\right)^{-1} \notag \\
     &= \delta_{ij}\left(\frac{\partial \log\Omega}{\partial E}\right)^{-1} \notag \\
     &= \delta_{ij}k\left(\frac{\partial S}{\partial E}\right)^{-1} \notag \\
