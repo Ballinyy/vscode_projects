@@ -1350,11 +1350,11 @@ L'elemento di diagonale $n$-esimo della matrice densità non è altro che una mi
 Inoltre, la dipendenza di $\rho$ da $E_n$ cambia in base a quale ensemble stiamo considerando
 \begin{align}
     \rho(E_n) &= \begin{cases}
-        \frac{1}{\Gamma(E)} \qquad E &\leq E_n \leq E + \Delta \\
+        \frac{1}{\Gamma(E_n)} \qquad E &\leq E_n \leq E + \Delta \\
         0 \qquad &\text{altrimenti}
     \end{cases} \qquad &\text{microcanonico} \notag \\
-    \rho(E_n) &= \frac{1}{Q_N(\beta)}e^{-\beta E_n} \qquad &\text{canonico} \notag \\
-    \rho(E_n, N) &= \frac{1}{\tilde{Q}}e^{-\beta E_n - \beta\mu N} \qquad &\text{grancanonico} \notag 
+    \rho(E_n) &= \frac{1}{Q_N}e^{-\beta E_n} \qquad &\text{canonico} \notag \\
+    \rho(E_n, N) &= \frac{1}{\tilde{Q}}e^{-\beta(E_n + \mu N)} \qquad &\text{grancanonico} \notag 
 \end{align}
 Scegliendo di usare una rappresentazione differente dalla rappresentazione nella base dell'hamiltoniano per la matrice densità, diventa necessario introdurre un postulato che garantisce la compatibilità con $(4.2.11)$. Tale postulato è detto \textit{postulato delle fasi random}, in pratica afferma
 \begin{align}
