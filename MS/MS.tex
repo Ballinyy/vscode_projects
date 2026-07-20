@@ -86,12 +86,12 @@ Esplicitiamo la divergenza di $\rho\mathbf{v}$ ricordando che $\mathbf{v} = (\do
 \begin{align}
     \frac{\partial \rho}{\partial t} + \nabla\cdot(\rho\mathbf{v}) &= \frac{\partial \rho}{\partial t} + \sum_{i = 1}^{3N}\rho\left(\frac{\partial\dot{p}_i}{\partial p_i} + \frac{\partial\dot{q}_i}{\partial q_i}\right) + \left(\dot{p}_i\frac{\partial\rho}{\partial p_i} + \dot{q}_i\frac{\partial\rho}{\partial q_i}\right) \notag \\
     &= \frac{\partial \rho}{\partial t} + \sum_{i = 1}^{3N}\rho\cancel{\left(-\frac{\partial^2\mathcal{H}}{\partial p_i \partial q_i} + \frac{\partial^2\mathcal{H}}{\partial q_i\partial p_i}\right)} + \left(-\frac{\partial\mathcal{H}}{\partial q_i}\frac{\partial\rho}{\partial p_i} + \frac{\partial \mathcal{H}}{\partial p_i}\frac{\partial\rho}{\partial q_i}\right) \notag \\
-    &= \frac{\partial \rho}{\partial t} + \{\rho, \mathcal{H}\} = 0 \tag{1.1.12}
+    &= \frac{\partial \rho}{\partial t} + \{\mathcal{H}, \rho\} = 0 \tag{1.1.12}
 \end{align}
-Come detto in precedenza, se il sistema si trova all'equilibrio termodinamico deve per forza valere $\frac{\partial\rho}{\partial t} = 0$, pertanto $\rho$ soddisfa $\{\rho, \mathcal{H}\} = 0$. \\
+Come detto in precedenza, se il sistema si trova all'equilibrio termodinamico deve per forza valere $\frac{\partial\rho}{\partial t} = 0$, pertanto $\rho$ soddisfa $\{\mathcal{H}, \rho\} = 0$. \\
 Tuttavia, $(1.1.12)$ è ancora di un'equazione differenziale impossibile da risolvere per $N$ molto grande. Si semplifica molto se è possibile scrivere $\rho$ come funzione di $\mathcal{H}(\mathbf{p}, \mathbf{q})$ stesso, ovvero se è possibile scrivere $\rho = \rho(\mathcal{H}(\mathbf{p}, \mathbf{q}))$. In tal caso
 \begin{align}
-    \{\rho, \mathcal{H}\} &= \frac{\partial \rho}{\partial \mathcal{H}}\sum_{i = 1}^{3N}\cancel{\left(-\frac{\partial \mathcal{H}}{\partial q_i}\frac{\partial \mathcal{H}}{\partial p_i} + \frac{\partial \mathcal{H}}{\partial p_i}\frac{\partial \mathcal{H}}{\partial q_i}\right)} \tag{1.1.13}
+    \{\mathcal{H}, \rho\} &= \frac{\partial \rho}{\partial \mathcal{H}}\sum_{i = 1}^{3N}\cancel{\left(-\frac{\partial \mathcal{H}}{\partial q_i}\frac{\partial \mathcal{H}}{\partial p_i} + \frac{\partial \mathcal{H}}{\partial p_i}\frac{\partial \mathcal{H}}{\partial q_i}\right)} \tag{1.1.13}
 \end{align}
 ovvero ogni termine della somma è identicamente nullo. \\ \\
 Abbiamo essenzialmente dimostrato che l'equazione di continuità per $\rho$ equivale a $\frac{d\rho}{dt} = 0$. Segue che la distribuzione di probabilità $\rho$ è uniforme lungo tutta la (iper)superficie definita dall'energia (fissata) del sistema. Poniamo
