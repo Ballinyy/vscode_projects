@@ -1218,13 +1218,13 @@ Sostituendo in $(3.2.15)$
     \braket{(\Delta N)^2} &= \frac{1}{\beta v}\frac{\partial}{\partial P}\left(\frac{1}{\beta v}\frac{\partial}{\partial P}\left(\frac{PV}{kT}\right)\right)_{T, V} \notag \\
     &= \frac{V}{\beta v}\frac{\partial}{\partial P}\left(\frac{1}{v}\right)_{T, V} \notag \\
     &= -\frac{V}{\beta v^3}\left(\frac{\partial v}{\partial P}\right)_{T, V} \notag \\
-    &= -\frac{\mathcal{N}}{\beta v^2}\underbrace{\left(\frac{\partial P}{\partial v}\right)^{-1}_{T, V}}_{\text{compressibilità isoterma}} \tag{3.2.16}
+    &= -\frac{\braket{N}}{\beta v^2}\underbrace{\left(\frac{\partial P}{\partial v}\right)^{-1}_{T, V}}_{\text{compressibilità isoterma}} \tag{3.2.16}
 \end{align}
 Osserviamo che le fluttuzioni del numero di particelle sono legate alla compressibilità isoterma $\kappa_T = -\frac{1}{v}\left(\frac{\partial P}{\partial v}\right)^{-1}_T$. Inoltre
 \begin{align}
-    \frac{\sqrt{\braket{(\Delta N)^2}}}{\mathcal{N}} = \left(\frac{\kappa_T}{\beta v}\right)^{1/2}\left(\frac{1}{\mathcal{N}}\right)^{1/2} \tag{3.2.17}
+    \frac{\sqrt{\braket{(\Delta N)^2}}}{\braket{N}} = \left(\frac{\kappa_T}{\beta v}\right)^{1/2}\left(\frac{1}{\braket{N}}\right)^{1/2} \tag{3.2.17}
 \end{align}
-ovvero le fluttuazioni diventano trascurabili al limite termodinamico $\mathcal{N} \rightarrow \infty$ ($v$ è fissata dato che al limite termidinamico $V \rightarrow \infty$ e $\mathcal{N} \rightarrow \infty$ in modo tale che $V/N \propto 1$).
+ovvero le fluttuazioni diventano trascurabili al limite termodinamico $\braket{N} \rightarrow \infty$ ($v$ è fissata dato che al limite termidinamico $V \rightarrow \infty$ e $\braket{N} \rightarrow \infty$ in modo tale che $V/N \propto 1$).
 
 
 
@@ -1411,7 +1411,7 @@ Mentre, nel caso di fermioni $n_\varepsilon$ può essere $0$ o $1$, pertanto
 \begin{align}
     \tilde{Q}_{FD} = \prod_\varepsilon 1 + Ze^{-\beta\varepsilon} \tag{4.3.10}
 \end{align}
-Nota la funzione di partizione grancanonica, possiamo determinare le espressioni caratteristiche dell'ensemble grancanonico. In particolare
+Nota la funzione di partizione grancanonica, possiamo determinare le espressioni caratteristiche dell'ensemble grancanonico. In particolare, indicando con $\mathcal{N}$ il numero medio di particelle, si ha
 \begin{align}
     \frac{PV}{kT} &= \log \tilde{Q} = \begin{cases}
         -\sum_\varepsilon \log\left(1 - Ze^{-\beta\varepsilon}\right) &\qquad \text{BE}\\
