@@ -595,7 +595,7 @@ Il \textit{campo vettoriale hamiltoniano} $X_H$ indotto da $H$ tramite le equazi
 \end{align}
 Notiamo immediatamente che $\nabla H \cdot X_H = 0$, il gradiente euclideo di $H$ è ortogonale al campo vettoriale hamiltoniano $X_H$. Infatti 
 \begin{align}
-    \nabla H \cdot X_H &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\dot{\theta}_j - \frac{\partial H}{\partial r_j}\dot{r}_j\right) \notag \\
+    \nabla H \cdot X_H &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\dot{\theta}_j + \frac{\partial H}{\partial r_j}\dot{r}_j\right) \notag \\
     &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\frac{\partial H}{\partial r_j} - \frac{\partial H}{\partial r_j}\frac{\partial H}{\partial \theta_j}\right) = 0 \tag{2.2}
 \end{align}
 In particolare, la proiezione sul piano $\{(\theta_j, r_j)\}$ del campo vettoriale hamiltoniano $X_H$ e del gradiente euclideo $\nabla H$ sono ortogonali (ogni termine della somma è nullo). Questo segue dal fatto che $X_H$ è tangente alle curve di livello di $H$ (curve ad energia fissata), mentre $\nabla H$ punta verso la direzione di massima pendenza (positiva) di $H$.
@@ -622,12 +622,17 @@ Notiamo che lo spazio delle fasi è costituito da tori invarianti, infatti fissa
     \varphi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} \tag{3.3}
 \end{align}
 Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \nabla_rH(r_0) \in \mathbb{R}^n$. \\ \\
-\textbf{Definizione:} sia $M$ una varietà differenziabile e siano $\Phi_1, \Phi_2$ campi vettoriali definiti su $M$. Inoltre, siano $\varphi_1$ e $\varphi_2$ rispettivamente il flusso di $\Phi_1$ e $\Phi_2$. I flussi $\varphi_1$ e $\varphi_2$ vengono detti \textit{topologicamente coniugati} se esiste un omeomorfismo $h$ su $M$ tale che
+\textbf{Definizione:} siano $f : X \longrightarrow X$ e $g : Y \longrightarrow Y$ due applicazioni continue di spazi topologici. $f$ e $g$ sono \textit{topologicamente coniugate} se esiste un omeomorfismo $h : X \longrightarrow Y$ tale che
 \begin{align}
-    h(\varphi_1(t, x)) = \varphi_2(t, h(x)) \tag{3.4}
+    h \circ f = g \circ h \tag{3.4}
 \end{align}
-Notiamo che la coniugazione topologica è una condizione più forte dell'equivalenza topologica, infatti si richiede che venga rispettato anche l'ordine temporale. \\ \\
-\textbf{Definizione:} un'applicazione continua $p : R \longrightarrow X$ di spazi topologici è detta rivestimento se è suriettiva e se per ogni $x \in X$ ammette un intorno aperto $U_x$ tale che $p^{-1}(U_x)$ è unione disgiunta di aperti di $R$ e $p^{-1}(U_x)$ ognuno dei quali viene mappato omeomorficamente su $U_x$. \\ \\
+ovvero se per ogni $x \in X$ vale $h(f(x)) = g(h(x))$. \\ \\
+\textbf{Osservazione:} sia $M$ una varietà differenziabile, siano $\Phi_1, \Phi_2 : M \longrightarrow TM$ campi vettoriali e indichiamo con $\varphi^{(1)}, \varphi^{(2)}$ i loro rispettivi flussi. In particolare, $\varphi^{(1)}$ e $\varphi^{(2)}$ sono detti topologicamente coniugati se esiste un omeomorfismo $h : M \longrightarrow M$ tale che
+\begin{align}
+    h(\varphi^{(1)}(t, x)) = \varphi^{(2)}(t, h(x)) \tag{3.5}
+\end{align}
+per ogni $x \in M$ e ogni $t \in \mathbb{R}$. \\ \\
+\textbf{Definizione:} un'applicazione continua $p : R \longrightarrow X$ di spazi topologici è detta \textit{rivestimento} se è suriettiva e se ogni $x \in X$ ammette un intorno aperto $U_x$ tale che $p^{-1}(U_x)$ è unione disgiunta di aperti di $R$, ognuno dei quali viene mappato omeomorficamente su $U_x$ da $p$. \\ \\
 \textbf{Definizione:} sia $f : X \longrightarrow Y$ un'applicazione continua di spazi topologici e siano
 $p : \tilde{X} \longrightarrow X$ e $q : \tilde{Y} \longrightarrow Y$ rivestimenti. $\tilde{f} : \tilde{X} \longrightarrow \tilde{Y}$ è detto \textit{sollevamento} di $f$ se $q \circ \tilde{f} = f \circ p$. \\ \\
 \textbf{Osservazione:} Notiamo che il sollevamento di un'applicazione continua non è unico, infatti, in base alle proprietà del rivestimento si possono trovare più sollevamenti. La non unicità dipende dal fatto che in generale $p$ non è iniettiva, quindi $p^{-1}(x)$ può contenere più di un punto. \\ \\
@@ -648,23 +653,23 @@ Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso
     \varphi_t : &\mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
 \end{align}
 dove $\alpha = \nabla_rH(r)$. \\ \\
-\textbf{Lemma 3.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$ con $\alpha, \beta \in \mathbb{R}^n$ sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
+\textbf{Lemma 3.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
 
 \textbf{Dimostrazione:} supponiamo che i flussi definiti da $\theta + t\alpha$ e $\theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
 \begin{align}
-    h(\theta + t\alpha) = h(\theta) + t\beta \tag{3.5}
+    h(\theta + t\alpha) = h(\theta) + t\beta \tag{3.6}
 \end{align}
-A meno di sostituire $h(\theta)$ con $h(\theta) - h(0)$ possiamo supporre $h(0) = 0$. Sia $H : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ l'unico sollevamento di $h$ tale che $H(0) = 0$. Allora 
+A meno di sostituire $h(\theta)$ con $h(\theta) - h(0)$, possiamo supporre $h(0) = 0$. Sia $H : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ l'unico sollevamento di $h$ tale che $H(0) = 0$. Allora 
 \begin{align}
-    H(\theta + t\alpha) = H(\theta) + t\beta \tag{3.6}
+    H(\theta + t\alpha) = H(\theta) + t\beta \tag{3.7}
 \end{align}
 è soddisfatta per $\theta = 0$ e $t = 0$. Inoltre, sia $\pi : \mathbb{R}^n \longrightarrow \mathbb{T}^n$ la proiezione canonica, per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$ si ha 
 \begin{align}
-    \pi(H(\theta + t\alpha)) = \pi(H(\theta) + t\beta) \tag{3.7}
+    \pi(H(\theta + t\alpha)) = \pi(H(\theta) + t\beta) \tag{3.8}
 \end{align}
-ovvero, dato che la proiezione canonica $\pi$ è $\mathbb{Z}^n$ periodica
+Dato che la proiezione canonica $\pi$ è $\mathbb{Z}^n$ periodica, si ottiene
 \begin{align}
-    H(\theta + t\alpha) - H(\theta) - t\beta \in \mathbb{Z}^n \tag{3.8}
+    H(\theta + t\alpha) - H(\theta) - t\beta \in \mathbb{Z}^n \tag{3.9}
 \end{align}
 per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$.
 
