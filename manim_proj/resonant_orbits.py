@@ -11,9 +11,9 @@ class ResonantOrbit3D(ThreeDScene):
         self.begin_ambient_camera_rotation(rate=0.08)
 
         # 2. Testi e Formule (Fissati alla telecamera 2D/Fixed in Frame)
-        title = Text("Caso Risonante: Moto Periodico", font_size=32, color=WHITE).to_edge(UP)
-        formula = MathTex(
-            r"\exists k \in \mathbb{Z}^2 \setminus \{(0,0)\} \quad \text{t.c.} \quad k \cdot \alpha = 0",
+        title = Text("Caso risonante: moto periodico", font_size=32, color=WHITE).to_edge(UP)
+        formula = Tex(
+            r"esiste $k \in \mathbb{Z}^2 \setminus \{(0,0)\}$ tale che $k \cdot \alpha = 0$",
             font_size=28, color=YELLOW
         ).next_to(title, DOWN, buff=0.2)
         
@@ -82,9 +82,9 @@ class NonResonantOrbit3D(ThreeDScene):
         self.begin_ambient_camera_rotation(rate=0.08)
 
         # 2. Testi e Formule (Fissati alla telecamera 2D/Fixed in Frame)
-        title = Text("Caso Non Risonante: Moto Quasi-Periodico", font_size=32, color=WHITE).to_edge(UP)
-        formula = MathTex(
-            r"\forall k \in \mathbb{Z}^2 \setminus \{(0,0)\}, \quad k \cdot \alpha \neq 0",
+        title = Text("Caso non risonante: moto quasi-periodico", font_size=32, color=WHITE).to_edge(UP)
+        formula = Tex(
+            r"Per ogni $k \in \mathbb{Z}^2$ si ha $k \cdot \alpha \neq 0$",
             font_size=28, color=RED_B
         ).next_to(title, DOWN, buff=0.2)
         
