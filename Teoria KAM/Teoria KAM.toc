@@ -8,3 +8,4 @@
 \contentsline {subsection}{\numberline {1.7}$k$-forme differenziali}{20}{}%
 \contentsline {section}{\numberline {2}Sistemi hamiltoniani}{21}{}%
 \contentsline {section}{\numberline {3}Moti quasiperiodici}{22}{}%
+\contentsline {section}{\numberline {4}Punto di vista geometrico}{28}{}%
