@@ -717,25 +717,32 @@ In particolare, per $\theta = 0$, si ha
 Il membro di sinistra è limitato (dato che $V$ è $\mathbb{Z}^n$-periodico), allora deve valere $\beta = A\alpha$. \qed \\ \\
 \textbf{Proposizione 3.1:} le seguenti affermazioni sono equivalenti: \\
 \textbf{1.} Il vettore frequenza $\alpha$ è \textit{non risonante}, ovvero $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\
-\textbf{2.} Il flusso $\varphi_t$ del campo vettoriale costante $\alpha$ è \textit{ergotico}, ovvero tutte le funzioni $f$ che soddisfano
+\textbf{2.} Il flusso $\varphi_t$ del campo vettoriale costante $\alpha$ è \textit{ergotico}, ovvero tutte le funzioni $f$ di $\mathbb{T}^n$ che soddisfano
 \begin{align}
     f(\theta + t\alpha) = f(\theta) \tag{3.18}
 \end{align}
 per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$ sono costanti. \\
 \textbf{3.} Per ogni funzione continua su $\mathbb{T}^n$ esiste la media temporale $\overline{f}$ e combacia con la media spaziale su $\mathbb{T}^n$, ovvero
 \begin{align}
-    \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt = \int_{\mathbb{T}^n} f(\theta) \, d\theta \tag{3.19}
+    \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt = \frac{1}{\Omega}\int_{\mathbb{T}^n} f(\theta) \, d\theta \tag{3.19}
 \end{align}
+dove $\Omega$ è la misura di $\mathbb{T}^n$. \\
 \textbf{4.} Ogni traiettoria di $\varphi_t$ è densa in $\mathbb{T}^n$. \\
 
-\textbf{Dimostrazione:} $(1 \rightarrow 2)$ supponiamo $f \circ \varphi_t = f$ per ogni $t \in \mathbb{R}$. Il $k$-esimo coefficiente di Fourier di $f \circ \varphi_t$ è dato da 
+\textbf{Dimostrazione:} $(1 \rightarrow 2)$ sia $f$ una funzione di $\mathbb{T}^n$ tale che $f \circ \varphi_t = f$ per ogni $t \in \mathbb{R}$. Il $k$-esimo coefficiente di Fourier di $f \circ \varphi_t$ è dato da 
 \begin{align}
     \widehat{f \circ \varphi_t}(k) = \int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta}f(\theta + t\alpha) \, d\theta \tag{3.20}
 \end{align}
 Poniamo $\theta' = \theta + t\alpha$, allora $\theta = \theta' - t\alpha$ e $d\theta = d\theta'$. Sostituendo in $(3.20)$ si ottiene
 \begin{align}
-    \widehat{f \circ \varphi_t}(k) = e^{i2\pi k \cdot \alpha}\int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta'}f(\theta')d\theta' = e^{i2\pi k \cdot \alpha}\widehat{f}(k) \tag{3.21}
+    \widehat{f \circ \varphi_t}(k) = e^{i2\pi k \cdot \alpha}\int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta'}f(\theta') \, d\theta' = e^{i2\pi k \cdot \alpha}\widehat{f}(k) \tag{3.21}
 \end{align}
 Per ipotesi $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, pertanto, per unicità dei coefficienti di Fourier, concludiamo che $\widehat{f}(k) = 0$ per ogni $k \in \mathbb{Z} \setminus \{0\}$, quindi $f$ costante. \\ \\
-$(2 \rightarrow 1)$
+$(2 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ tale che $k \cdot \alpha = 0$. Allora la funzione $f$, definita da
+\begin{align}
+    f(\theta) = e^{i2\pi k \cdot \theta} \tag{3.22}
+\end{align}
+per ogni $\theta \in \mathbb{R}^n$, è invariante ma non costante, pertanto si ottiene un assurdo. \\
+$(1 \rightarrow 3)$
+
 \end{document}

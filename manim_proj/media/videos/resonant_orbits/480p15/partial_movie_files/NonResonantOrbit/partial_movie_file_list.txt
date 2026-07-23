@@ -1,0 +1,4 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/resonant_orbits/480p15/partial_movie_files/NonResonantOrbit/1584795214_4205831131_223132457.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/resonant_orbits/480p15/partial_movie_files/NonResonantOrbit/4072820271_1761698779_2549177535.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/resonant_orbits/480p15/partial_movie_files/NonResonantOrbit/4072820271_1391709230_2683949263.mp4'
