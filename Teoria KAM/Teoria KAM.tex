@@ -564,68 +564,91 @@ Allora, data $\omega$ una $1$-forma differenziale su $M$ e fissato $x \in M$, si
 \begin{align}
     \omega_x = a_1dx_1 + \dots + a_ndx_n \tag{1.6.19}
 \end{align}
- per opportuni $a_1, \dots, a_n \in \mathbb{R}$, dove $dx_1, \dots, dx_n$ sono ora le forme esterne di base dello spazio lineare $(T_xM)^*$, ben definite grazie al sistema di coordinare locali introdotto da $\varphi$. Lasciando $x$ libero di variare in $M$ si ottiene naturalmente 
- \begin{align}
-    \omega = a_1dx_1 + \dots + a_ndx_n \tag{1.6.20}
- \end{align}
- dove $a_1, \dots, a_n$ sono ora funzioni differenziabili di $M$ sulla retta reale (per definizione di forma differenziale). \\
- Data l'arbitrarietà della carta scelta, il risultato è valido per ogni carta dell'atlante definito su $M$. \qed
+per opportuni $a_1, \dots, a_n \in \mathbb{R}$, dove $dx_1, \dots, dx_n$ sono ora le forme esterne di base dello spazio lineare $(T_xM)^*$, ben definite grazie al sistema di coordinare locali introdotto da $\varphi$. Lasciando $x$ libero di variare in $M$ si ottiene naturalmente 
+\begin{align}
+   \omega = a_1dx_1 + \dots + a_ndx_n \tag{1.6.20}
+\end{align}
+dove $a_1, \dots, a_n$ sono ora funzioni differenziabili di $M$ sulla retta reale (per definizionedi forma differenziale). \\
+Data l'arbitrarietà della carta scelta, il risultato è valido per ogni carta dell'atlante definito su $M$. \qed
 
- \newpage
- \subsection{$k$-forme differenziali}
- \textbf{Definizione:} è detta $k$-\textit{forma differenziale} su $M$ un'applicazione 
- \begin{align}
-    \omega^{(k)} : TM^k \longrightarrow \mathbb{R} \tag{1.7.1}
- \end{align}
- differenziabile in $x$, multilineare e anticommutativa su $T_xM$ per ogni $x \in M$. \\
- Analogamente a quanto osservato nel caso di $1$-forme differenziali su una varietà $M$, una $k$-forma differenziale su $M$ è una $k$-forma algebrica (esterna) su $T_xM$ per ogni $x \in M$, che dipende da $x$ in modo differenziabile. \\ \\
- La composizione, moltiplicazione per scalare e prodotto esterno di $k$-forme differenziali su una varietà $M$ sono definiti puntualmente, ovvero si opera sulle forme algebriche definite su $T_xM$ per ogni $x \in M$ singolarmente. \\ \\
- \textbf{Teorema 1.7.1:} data $M$ varietà differenziabile e $(U, \varphi)$ una carta che definisce delle coordinate locali su $M$, ogni $k$-forma differenziale $\omega^{(k)}$ su $M$ può essere scritta come
- \begin{align}
-    \omega^{(k)} = \sum_{i_1 < \dots < i_k} a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.7.2}
- \end{align}
- dove $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ è differenziabile per ogni $i_1 < \dots < i_k$. \\
+\newpage
+\subsection{$k$-forme differenziali}
+\textbf{Definizione:} è detta $k$-\textit{forma differenziale} su $M$ un'applicazione 
+\begin{align}
+   \omega^{(k)} : TM^k \longrightarrow \mathbb{R} \tag{1.7.1}
+\end{align}
+differenziabile in $x$, multilineare e anticommutativa su $T_xM$ per ogni $x \in M$. \\
+Analogamente a quanto osservato nel caso di $1$-forme differenziali su una varietà $M$, una$k$-forma differenziale su $M$ è una $k$-forma algebrica (esterna) su $T_xM$ per ogni $x \in M$, che dipende da $x$ in modo differenziabile. \\ \\
+La composizione, moltiplicazione per scalare e prodotto esterno di $k$-forme differenziali su una varietà $M$ sono definiti puntualmente, ovvero si opera sulle forme algebriche definite su $T_xM$ per ogni $x \in M$ singolarmente. \\ \\
+\textbf{Teorema 1.7.1:} data $M$ varietà differenziabile e $(U, \varphi)$ una carta che definisce delle coordinate locali su $M$, ogni $k$-forma differenziale $\omega^{(k)}$ su $M$ può essere scritta come
+\begin{align}
+   \omega^{(k)} = \sum_{i_1 < \dots < i_k} a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.7.2}
+\end{align}
+dove $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ è differenziabile per ogni $i_1 < \dots <i_k$. \\
 
- \textbf{Dimostrazione:} la dimostrazione è analoga a quella del \textit{teorema 1.6.1}. Osserviamo che, per definizione, fissato $x \in M$, $\omega^{(k)}_x$ è una $k$-forma esterna su $T_xM$, pertanto può essere scritta come combinazione lineare degli elementi della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Inoltre, dato che la dipendenza da $x$ deve essere differenziabile, si ottiene la tesi. \qed \\ \\
- \textbf{Proposizione 1.7.1:} l'insieme $\Lambda^{(k)}(M)$ delle $k$-forme differenziali sulla varietà $M$ è uno spazio vettoriale (di dimensione infinita se $k \leq \dim M$). \\
-
- \textbf{Dimostrazione:} si vede immediatamente che su $\Lambda^{(k)}(M)$ è possibile definire una struttura naturale di spazio vettoriale. Dimostriamo che $\dim \Lambda^{(k)}(M) = \infty$ se $k \leq \dim M$. \\
- Sia $k \leq \dim M$, data $\omega \in \Lambda^{(k)}(M)$ si ha 
- \begin{align}
-    \omega^{(k)} = \sum_{i_1 < \dots < i_k}a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.7.3}
- \end{align}
- per opportune $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ sufficientemente regolari. Concludiamo che $\dim \Lambda^{(k)}(M) = \infty$, infatti la condizione di dipendenza lineare su un qualsiasi insieme di $k$-forme differenziali su $M$ si riduce ad una condizione di dipendenza lineare sull'insieme delle funzioni $\{a_{i_1, \dots, i_k}\}_{i_1 < \dots < i_k}$ che ne definiscono lo sviluppo in termini della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Tuttavia, lo spazio vettoriale $\mathcal{C}^{(k)}(M)$ è infinito dimensionale per ogni $k \in \mathbb{Z}_{\geq 0}$. \qed \\ \\
- \textbf{Esempio:} supponiamo che in $\mathbb{R}^3$ si abbiano due sistemi di coordinate
- \begin{align}
-    \mathbf{x} = (x_1, x_2, x_3) \qquad \mathbf{y} = (y_1, y_2, y_3) \tag{1.7.4}
- \end{align}
- e che si conoscano le leggi di trasformazione delle variabili $\mathbf{x} = \mathbf{x}(\mathbf{y})$. Nota $\omega^{(2)}$, una $2$-forma differenziale su $\mathbb{R}^3$, in termini del sistema di coordinate $\mathbf{x}$
- \begin{align}
-    \omega^{(2)} = X_1dx_2 \wedge dx_3 + X_2dx_1 \wedge dx_3 + X_3dx_1 \wedge dx_2 \tag{1.7.5}
- \end{align}
- dove $X_1, X_2, X_3$ sono funzioni differenziabili di $\mathbf{x}$, determiniamo l'espressione di $\omega^{(2)}$ in termini del sistema di coordinate $\mathbf{y}$. \\
- Trattando $x_1, x_2, x_3$ come funzioni di $\mathbf{y}$ si ha
- \begin{align}
-    dx_i = \frac{\partial x_i}{\partial y_1}dy_1 + \frac{\partial x_i}{\partial y_2}dy_2 + \frac{\partial x_i}{\partial y_3}dy_3 \tag{1.7.6}
- \end{align}
- con $i = 1, 2, 3$. In particolare
- \begin{align}
-    dx_i \wedge dx_j &= \left(\frac{\partial x_i}{\partial y_1}dy_1 + \frac{\partial x_i}{\partial y_2}dy_2 + \frac{\partial x_i}{\partial y_3}dy_3\right) \wedge \left(\frac{\partial x_j}{\partial y_1}dy_1 + \frac{\partial x_j}{\partial y_2}dy_2 + \frac{\partial x_j}{\partial y_3}dy_3\right) \notag \\
-    &= \left|\frac{\partial(x_i, x_j)}{\partial(y_2, y_3)}\right|dy_2 \wedge dy_3 + \left|\frac{\partial(x_i, x_j)}{\partial(y_1, y_3)}\right|dy_1 \wedge dy_3 + \left|\frac{\partial(x_i, x_j)}{\partial(y_1, y_2)}\right|dy_1 \wedge dy_2 \tag{1.7.7}
- \end{align}
- Segue che 
- \begin{align}
-    \omega^{(2)} = Y_1dy_2 \wedge dy_3 + Y_2dy_1 \wedge dy_3 + Y_3dy_1 \wedge dy_2 \tag{1.7.8}
- \end{align}
- con
- \begin{align}
-    Y_k = \left|\frac{\partial(x_2, x_3)}{\partial(y_i, y_j)}\right|X_1 + \left|\frac{\partial(x_1, x_3)}{\partial(y_i, y_j)}\right|X_2 + \left|\frac{\partial(x_1, x_2)}{\partial(y_i, y_j)}\right|X_3 \tag{1.7.9}
- \end{align}
- per $k = 1, 2, 3$, $i < j$ e $i, j \neq k$.
-
- \newpage
- \subsection{Integrazione delle forme differenziali}
- Introduciamo ora il concetto di integrazione di una $k$-forma differenziale su una varietà $n$-dimensionale. \\ \\
+\textbf{Dimostrazione:} la dimostrazione è analoga a quella del \textit{teorema 1.6.1}. Osserviamo che, per definizione, fissato $x \in M$, $\omega^{(k)}_x$ è una $k$-forma esterna su $T_xM$, pertanto può essere scritta come combinazione lineare degli elementi della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Inoltre, dato che la dipendenza da $x$ deve essered ifferenziabile, si ottiene la tesi. \qed \\ \\
+\textbf{Proposizione 1.7.1:} l'insieme $\Lambda^{(k)}(M)$ delle $k$-forme differenziali sulla varietà $M$ è uno spazio vettoriale (di dimensione infinita se $k \leq \dim M$). \\
+\textbf{Dimostrazione:} si vede immediatamente che su $\Lambda^{(k)}(M)$ è possibile definire una struttura naturale di spazio vettoriale. Dimostriamo che $\dim \Lambda^{(k)}(M) = \infty$ se $k \leq \dim M$. \\
+Sia $k \leq \dim M$, data $\omega \in \Lambda^{(k)}(M)$ si ha 
+\begin{align}
+   \omega^{(k)} = \sum_{i_1 < \dots < i_k}a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.7.3}
+\end{align}
+per opportune $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ sufficientemente regolari.Concludiamo che $\dim \Lambda^{(k)}(M) = \infty$, infatti la condizione di dipendenza lineare su un qualsiasi insieme di $k$-forme differenziali su $M$ si riduce ad una condizione di dipendenza lineare sull'insieme delle funzioni $\{a_{i_1, \dots, i_k}\}_{i_1 < \dots < i_k}$ che ne definiscono lo sviluppo in termini della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$.Tuttavia, lo spazio vettoriale $\mathcal{C}^{(k)}(M)$ è infinito dimensionale per ogni $k \in \mathbb{Z}_{\geq 0}$. \qed \\ \\
+\textbf{Esempio:} supponiamo che in $\mathbb{R}^3$ si abbiano due sistemi di coordinate
+\begin{align}
+   \mathbf{x} = (x_1, x_2, x_3) \qquad \mathbf{y} = (y_1, y_2, y_3) \tag{1.7.4}
+\end{align}
+e che si conoscano le leggi di trasformazione delle variabili $\mathbf{x} = \mathbf{x}(\mathbf{y})$.Nota $\omega^{(2)}$, una $2$-forma differenziale su $\mathbb{R}^3$, in termini del sistema di coordinate $\mathbf{x}$
+\begin{align}
+   \omega^{(2)} = X_1dx_2 \wedge dx_3 + X_2dx_1 \wedge dx_3 + X_3dx_1 \wedge dx_2 \tag{1.7.5}
+\end{align}
+dove $X_1, X_2, X_3$ sono funzioni differenziabili di $\mathbf{x}$, determiniamo l'espressione di $\omega^{(2)}$ in termini del sistema di coordinate $\mathbf{y}$. \\
+Trattando $x_1, x_2, x_3$ come funzioni di $\mathbf{y}$ si ha
+\begin{align}
+   dx_i = \frac{\partial x_i}{\partial y_1}dy_1 + \frac{\partial x_i}{\partial y_2}dy_2 + \frac{\partial x_i}{\partial y_3}dy_3 \tag{1.7.6}
+\end{align}
+con $i = 1, 2, 3$. In particolare
+\begin{align}
+   dx_i \wedge dx_j &= \left(\frac{\partial x_i}{\partial y_1}dy_1 + \frac{\partial x_i}{\partial y_2}dy_2 + \frac{\partial x_i}{\partial y_3}dy_3\right) \wedge \left(\frac{\partial x_j}{\partial y_1}dy_1 + \frac{\partial x_j}{\partial y_2}dy_2 + \frac{\partial x_j}{\partial y_3}dy_3\right) \notag \\
+   &= \left|\frac{\partial(x_i, x_j)}{\partial(y_2, y_3)}\right|dy_2 \wedge dy_3 + \left|\frac{\partial(x_i, x_j)}{\partial(y_1, y_3)}\right|dy_1 \wedge dy_3 + \left|\frac{\partial(x_i, x_j)}{\partial(y_1, y_2)}\right|dy_1 \wedge dy_2 \tag{1.7.7}
+\end{align}
+Segue che 
+\begin{align}
+   \omega^{(2)} = Y_1dy_2 \wedge dy_3 + Y_2dy_1 \wedge dy_3 + Y_3dy_1 \wedge dy_2 \tag{1.7.8}
+\end{align}
+con
+\begin{align}
+   Y_k = \left|\frac{\partial(x_2, x_3)}{\partial(y_i, y_j)}\right|X_1 + \left|\frac{\partial(x_1, x_3)}{\partial(y_i, y_j)}\right|X_2 + \left|\frac{\partial(x_1, x_2)}{\partial(y_i, y_j)}\right|X_3 \tag{1.7.9}
+\end{align}
+per $k = 1, 2, 3$, $i < j$ e $i, j \neq k$.
+\newpage
+\subsection{Integrazione delle forme differenziali}
+Introduciamo ora il concetto di integrazione di una $k$-forma differenziale su una varietà $n$-dimensionale. \\ \\
+Sia $M$ una varietà differenziale e $\gamma : [0, 1] \longrightarrow M$ una curva differenziabile.Data $\omega$, una $1$-forma su $M$, definiamo l'integrale di $\omega$ lungo $\gamma$ facendo uso delle solite somme integrali. \\
+In particolare, consideriamo $s$ punti $0 = t_1 < t_2 < \dots < t_s = 1$. Si definiscono così $s -1$ intervalli della forma $[t_i, t_{i + 1}]$ e di lunghezza $\Delta_i = t_{i + 1} - t_i$, per $0 \leq i \leq s - 1$. Sia $\Delta = \max_i \Delta_i$, definiamo l'integrale di $\omega$ lungo $\gamma$ come segue
+\begin{align}
+   \int_\gamma \omega = \lim_{\Delta \rightarrow 0}\sum_i \omega(v_i) \tag{1.8.1}
+\end{align}
+dove $v_i$ è il vettore tangente a $\gamma$ in $t_i$, ovvero
+\begin{align}
+   v_i = \dot{\gamma}(t_i) \tag{1.8.2}
+\end{align}
+$0 \leq i \leq s - 1$. Osserviamo che il limite $\Delta \rightarrow 0$ corrisponde al limite $s\rightarrow \infty$. \\ \\
+Analogamente si definisce l'integrale di una $k$-forma differenziale su una superficie $k$-dimensionale, ovvero suddividendo la superficie in parallelepipedi ai quali sostituiamo poi parallelepipedi dello spazio tangente, ognuno dei quali identificato da opportuni $k$ vettori tangenti alla superficie, e sommando i valori che la $k$-forma differenziale assume su di essi. \\
+Prendendo il limite di parallelepipedi tangenti sempre più piccoli (e sempre più numerosi) si ottiene la definizione di integrale di una $k$-forma differenziale su una $k$-varietà differenziabile. \\ \\
+Per $k$-forme differenziali su $\mathbb{R}^k$ è possibile ricondurre la definizione di integrale di una curva su un poliedro convesso limitato $k$ alla definizione di integrale di funzione in termini della somme di Riemann. In particolare, data $\omega^{(k)}$ una $k$-forma differenziale su $\mathbb{R}^k$, esiste $a : \mathbb{R}^k \longrightarrow \mathbb{R}$ differenziabile tale che 
+\begin{align}
+    \omega^{(k)} = adx_1 \wedge \dots \wedge dx_k \tag{1.8.3}
+\end{align}
+Definiamo
+\begin{align}
+    \int_D \omega^{(k)} = \int_D a(x) \, dx_1 \dots dx_k \tag{1.8.4}
+\end{align}
+Segue che anche $\int_D \omega^{(k)}$ dipende da $\omega^{(k)}$ e da $D$ linearmente (per le proprietà dell'integrale di Riemann), ovvero
+\begin{align}
+    \int_{D_1 + D_2} \omega^{(k)}_1 + \omega^{(k)}_2 = \int_{D_1}\omega^{(k)}_1 + \int_{D_2}\omega^{(k)}_2 + \int_{D_1}\omega^{(k)}_2 + \int_{D_2}\omega^{(k)}_1 \tag{1.8.5}
+\end{align}
+per ogni $\omega^{(k)}_1, \omega^{(k)}_2 \in \Lambda^{(k)}(\mathbb{R}^k)$ e ogni $D_1, D_2$ poliedri convessi limitati in $\mathbb{R}^k$.
  
 
 

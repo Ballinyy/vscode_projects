@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  25 JUL 2026 13:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  25 JUL 2026 15:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -691,127 +691,127 @@ Underfull \hbox (badness 10000) in paragraph at lines 586--588
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--591
+Underfull \hbox (badness 10000) in paragraph at lines 589--593
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--591
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 596--599
+Underfull \hbox (badness 10000) in paragraph at lines 595--598
 
  []
 
 [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 628--629
+Underfull \hbox (badness 10000) in paragraph at lines 626--629
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 628--629
+Underfull \hbox (badness 10000) in paragraph at lines 635--640
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 635--640
 
  []
 
 [22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 670--673
+Underfull \hbox (badness 10000) in paragraph at lines 693--696
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 675--678
+Underfull \hbox (badness 10000) in paragraph at lines 698--701
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--688
+Underfull \hbox (badness 10000) in paragraph at lines 703--711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--688
+Underfull \hbox (badness 10000) in paragraph at lines 703--711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--688
+Underfull \hbox (badness 10000) in paragraph at lines 703--711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--688
+Underfull \hbox (badness 10000) in paragraph at lines 703--711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--688
+Underfull \hbox (badness 10000) in paragraph at lines 703--711
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--688
+Underfull \hbox (badness 10000) in paragraph at lines 703--711
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 694--699
+Underfull \hbox (badness 10000) in paragraph at lines 717--722
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 694--699
+Underfull \hbox (badness 10000) in paragraph at lines 717--722
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 701--704
+Underfull \hbox (badness 10000) in paragraph at lines 724--727
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 701--704
+Underfull \hbox (badness 10000) in paragraph at lines 724--727
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--728
+Underfull \hbox (badness 10000) in paragraph at lines 748--751
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 763--768
+Underfull \hbox (badness 10000) in paragraph at lines 786--791
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 775--778
+Underfull \hbox (badness 10000) in paragraph at lines 798--801
 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 786--789
+Underfull \hbox (badness 10000) in paragraph at lines 809--812
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 791--794
+Underfull \hbox (badness 10000) in paragraph at lines 814--817
 
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 817--820
+Underfull \hbox (badness 10000) in paragraph at lines 840--843
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--828
+Underfull \hbox (badness 10000) in paragraph at lines 845--851
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--828
+Underfull \hbox (badness 10000) in paragraph at lines 845--851
 
  []
 
@@ -822,15 +822,15 @@ L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14039 strings out of 467525
- 290990 string characters out of 5423209
+ 14040 strings out of 467525
+ 290999 string characters out of 5423209
  682228 words of memory out of 5000000
- 42704 multiletter control sequences out of 15000+600000
+ 42705 multiletter control sequences out of 15000+600000
  636549 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,17n,118p,966b,227s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Teoria KAM.pdf" (30 pages, 283146 bytes).
+Output written on "Teoria KAM.pdf" (30 pages, 286832 bytes).
 PDF statistics:
  194 PDF objects out of 1000 (max. 8388607)
  124 compressed objects within 2 object streams
