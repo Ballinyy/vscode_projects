@@ -465,7 +465,7 @@ dove $(i_1, \dots, i_k, j_1, \dots, j_l)$ è una permutazione di $(1, \dots, k +
 ovvero la tesi. \qed
 
 \newpage
-\subsection{Forme differenziali su varietà}
+\subsection{$1$-forme differenziali}
 Diamo ora la definizione di forma differenziale definita su una varietà differenziabile $M$. Vediamo prima qualche esempio. \\ \\
 \textbf{Esempio:} il differenziale di una funzione è una $1$-forma differenziabile. Consideriamo ad esempio la funzione reale $x \mapsto x^2$, che chiameremo $f$. Il suo differenziale $df$ è
 \begin{align}
@@ -515,7 +515,7 @@ dove $\omega_x$ è un'applicazione lineare dello spazio tangente a $M$ in $x$ ne
 Uno può dire che una $1$-forma su $M$ è una \textit{forma algebrica} (forma esterna) su $T_xM$ differenziabile in $x$. \\ \\
 \textbf{Proposizione 1.6.1:} ogni $1$-forma su $\mathbb{R}$ è il differenziale di qualche funzione. \\
 
-\textbf{Dimostrazione:} sia $\omega$ una $1$-forma su $\mathbb{R}$. Allora $\omega$ si può scrivere come 
+\textbf{Dimostrazione:} sia $\omega$ una $1$-forma differenziale su $\mathbb{R}$. Allora $\omega$ si può scrivere come 
 \begin{align}
     \omega = adx \tag{1.6.9}
 \end{align}
@@ -566,20 +566,67 @@ Allora, data $\omega$ una $1$-forma differenziale su $M$ e fissato $x \in M$, si
 \end{align}
  per opportuni $a_1, \dots, a_n \in \mathbb{R}$, dove $dx_1, \dots, dx_n$ sono ora le forme esterne di base dello spazio lineare $(T_xM)^*$, ben definite grazie al sistema di coordinare locali introdotto da $\varphi$. Lasciando $x$ libero di variare in $M$ si ottiene naturalmente 
  \begin{align}
-    \omega = a_1(x)dx_1 + \dots + a_n(x)dx_n \tag{1.6.20}
+    \omega = a_1dx_1 + \dots + a_ndx_n \tag{1.6.20}
  \end{align}
- dove $a_1, \dots, a_n$ sono funzioni differenziabili di $M$ sulla retta reale (per definizione di forma differenziale). \\
+ dove $a_1, \dots, a_n$ sono ora funzioni differenziabili di $M$ sulla retta reale (per definizione di forma differenziale). \\
  Data l'arbitrarietà della carta scelta, il risultato è valido per ogni carta dell'atlante definito su $M$. \qed
 
  \newpage
  \subsection{$k$-forme differenziali}
  \textbf{Definizione:} è detta $k$-\textit{forma differenziale} su $M$ un'applicazione 
  \begin{align}
-    \omega^{(k)} : TM \longrightarrow \mathbb{R} \tag{1.7.1}
+    \omega^{(k)} : TM^k \longrightarrow \mathbb{R} \tag{1.7.1}
  \end{align}
  differenziabile in $x$, multilineare e anticommutativa su $T_xM$ per ogni $x \in M$. \\
  Analogamente a quanto osservato nel caso di $1$-forme differenziali su una varietà $M$, una $k$-forma differenziale su $M$ è una $k$-forma algebrica (esterna) su $T_xM$ per ogni $x \in M$, che dipende da $x$ in modo differenziabile. \\ \\
- La composizione, moltiplicazione per scalare e prodotto esterno di $k$-forme differenziali su una varietà $M$ sono definiti puntualmente, ovvero si opera sulle forme algebriche definite su $T_xM$ per ogni $x \in M$ singolarmente.
+ La composizione, moltiplicazione per scalare e prodotto esterno di $k$-forme differenziali su una varietà $M$ sono definiti puntualmente, ovvero si opera sulle forme algebriche definite su $T_xM$ per ogni $x \in M$ singolarmente. \\ \\
+ \textbf{Teorema 1.7.1:} data $M$ varietà differenziabile e $(U, \varphi)$ una carta che definisce delle coordinate locali su $M$, ogni $k$-forma differenziale $\omega^{(k)}$ su $M$ può essere scritta come
+ \begin{align}
+    \omega^{(k)} = \sum_{i_1 < \dots < i_k} a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.7.2}
+ \end{align}
+ dove $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ è differenziabile per ogni $i_1 < \dots < i_k$. \\
+
+ \textbf{Dimostrazione:} la dimostrazione è analoga a quella del \textit{teorema 1.6.1}. Osserviamo che, per definizione, fissato $x \in M$, $\omega^{(k)}_x$ è una $k$-forma esterna su $T_xM$, pertanto può essere scritta come combinazione lineare degli elementi della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Inoltre, dato che la dipendenza da $x$ deve essere differenziabile, si ottiene la tesi. \qed \\ \\
+ \textbf{Proposizione 1.7.1:} l'insieme $\Lambda^{(k)}(M)$ delle $k$-forme differenziali sulla varietà $M$ è uno spazio vettoriale (di dimensione infinita se $k \leq \dim M$). \\
+
+ \textbf{Dimostrazione:} si vede immediatamente che su $\Lambda^{(k)}(M)$ è possibile definire una struttura naturale di spazio vettoriale. Dimostriamo che $\dim \Lambda^{(k)}(M) = \infty$ se $k \leq \dim M$. \\
+ Sia $k \leq \dim M$, data $\omega \in \Lambda^{(k)}(M)$ si ha 
+ \begin{align}
+    \omega^{(k)} = \sum_{i_1 < \dots < i_k}a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.7.3}
+ \end{align}
+ per opportune $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ sufficientemente regolari. Concludiamo che $\dim \Lambda^{(k)}(M) = \infty$, infatti la condizione di dipendenza lineare su un qualsiasi insieme di $k$-forme differenziali su $M$ si riduce ad una condizione di dipendenza lineare sull'insieme delle funzioni $\{a_{i_1, \dots, i_k}\}_{i_1 < \dots < i_k}$ che ne definiscono lo sviluppo in termini della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Tuttavia, lo spazio vettoriale $\mathcal{C}^{(k)}(M)$ è infinito dimensionale per ogni $k \in \mathbb{Z}_{\geq 0}$. \qed \\ \\
+ \textbf{Esempio:} supponiamo che in $\mathbb{R}^3$ si abbiano due sistemi di coordinate
+ \begin{align}
+    \mathbf{x} = (x_1, x_2, x_3) \qquad \mathbf{y} = (y_1, y_2, y_3) \tag{1.7.4}
+ \end{align}
+ e che si conoscano le leggi di trasformazione delle variabili $\mathbf{x} = \mathbf{x}(\mathbf{y})$. Nota $\omega^{(2)}$, una $2$-forma differenziale su $\mathbb{R}^3$, in termini del sistema di coordinate $\mathbf{x}$
+ \begin{align}
+    \omega^{(2)} = X_1dx_2 \wedge dx_3 + X_2dx_1 \wedge dx_3 + X_3dx_1 \wedge dx_2 \tag{1.7.5}
+ \end{align}
+ dove $X_1, X_2, X_3$ sono funzioni differenziabili di $\mathbf{x}$, determiniamo l'espressione di $\omega^{(2)}$ in termini del sistema di coordinate $\mathbf{y}$. \\
+ Trattando $x_1, x_2, x_3$ come funzioni di $\mathbf{y}$ si ha
+ \begin{align}
+    dx_i = \frac{\partial x_i}{\partial y_1}dy_1 + \frac{\partial x_i}{\partial y_2}dy_2 + \frac{\partial x_i}{\partial y_3}dy_3 \tag{1.7.6}
+ \end{align}
+ con $i = 1, 2, 3$. In particolare
+ \begin{align}
+    dx_i \wedge dx_j &= \left(\frac{\partial x_i}{\partial y_1}dy_1 + \frac{\partial x_i}{\partial y_2}dy_2 + \frac{\partial x_i}{\partial y_3}dy_3\right) \wedge \left(\frac{\partial x_j}{\partial y_1}dy_1 + \frac{\partial x_j}{\partial y_2}dy_2 + \frac{\partial x_j}{\partial y_3}dy_3\right) \notag \\
+    &= \left|\frac{\partial(x_i, x_j)}{\partial(y_2, y_3)}\right|dy_2 \wedge dy_3 + \left|\frac{\partial(x_i, x_j)}{\partial(y_1, y_3)}\right|dy_1 \wedge dy_3 + \left|\frac{\partial(x_i, x_j)}{\partial(y_1, y_2)}\right|dy_1 \wedge dy_2 \tag{1.7.7}
+ \end{align}
+ Segue che 
+ \begin{align}
+    \omega^{(2)} = Y_1dy_2 \wedge dy_3 + Y_2dy_1 \wedge dy_3 + Y_3dy_1 \wedge dy_2 \tag{1.7.8}
+ \end{align}
+ con
+ \begin{align}
+    Y_k = \left|\frac{\partial(x_2, x_3)}{\partial(y_i, y_j)}\right|X_1 + \left|\frac{\partial(x_1, x_3)}{\partial(y_i, y_j)}\right|X_2 + \left|\frac{\partial(x_1, x_2)}{\partial(y_i, y_j)}\right|X_3 \tag{1.7.9}
+ \end{align}
+ per $k = 1, 2, 3$, $i < j$ e $i, j \neq k$.
+
+ \newpage
+ \subsection{Integrazione delle forme differenziali}
+ Introduciamo ora il concetto di integrazione di una $k$-forma differenziale su una varietà $n$-dimensionale. \\ \\
+ 
 
 
 
@@ -774,10 +821,40 @@ $(3 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ t
     \frac{1}{T}\int_0^T e^{i2\pi k \cdot (\theta + \alpha t)} \, dt = e^{i2\pi k \cdot \theta} \tag{3.28}
 \end{align}
 mentre $\overline{f} = 0$. \\ \\
-$(1 \rightarrow 4)$ Supponiamo che $\varphi_t$ ammetta una traiettoria \textit{non} densa. Allora esiste $\theta_0 \in \mathbb{T}^n$ che possiede un intorno aperto $U$ che non interseca con la traiettoria. Segue che la traiettoria è periodica (indichiamo con $\tau$ il periodo), questo perché le soluzioni del moto sono definite per ogni $t \in \mathbb{R}$ e $\mathbb{T}^n$ è compatto.
+$(1 \rightarrow 4)$ Supponiamo che $\varphi_t$ ammetta una traiettoria \textit{non} densa. Allora esiste $\theta_0 \in \mathbb{T}^n$ che possiede un intorno aperto $U$ che non interseca con la traiettoria. \\
+Consideriamo una funzione continua $f$ definita su $\mathbb{T}^n$ tale che $f(\theta) > 0$ per ogni $\theta \in U$ e $f(\theta) = 0$ per ogni $\theta \in \mathbb{T}^n \setminus U$. La media tempotale di $f$ calcolata lungo la traiettoria non densa è nulla, mentre la media spaziale di $f$ è strettamente positiva. Pertanto, per il punto $(3)$ prima dimostrato, si ottiene un assurdo. \\ \\
+$(4 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n$ tale che $k \cdot \alpha = 0$. Consideriamo $\theta_0 = k/2\mod\mathbb{Z}^n$, mostriamo che esiste un intorno aperto $U$ di $\theta_0$ che non viene mai visitato dalla traiettoria $t \mapsto t\alpha$ su $\mathbb{T}^n$. \\
+Supponiamo che esista $\theta \in U$ tale che $t\alpha = \theta$ per qualche $t \in \mathbb{R}$. Equivalentemente, esistono $t \in \mathbb{T}^n$ e $l \in \mathbb{Z}^n$ tali che $t\alpha = \theta + l$ ($\mathbb{T}^n$ è $\mathbb{Z}^n$-periodico). Facendo il prodotto scalare con $k$ si ottiene
+\begin{align}
+    0 = k \cdot \theta + k \cdot l \tag{3.29}
+\end{align}
+Tuttavia, possiamo scegliere $U$ in modo tale che $0 < |k \cdot \theta| < 1$, mentre $k \cdot l \in \mathbb{Z}$, pertanto si ottiene un assurdo. \qed
+
 
 \newpage
 \section{Punto di vista geometrico}
+Tutta l'informazione riguardante un determinato sistema dinamico è contenuta nella funzione di Hamilton $\mathcal{H}$. $\mathcal{H}$ è una funzione scalare regolare definita sullo spazio delle fasi, da $\mathcal{H}$ possiamo ricavare, tramite le equazioni del moto di Hamilton, il campo di velocità hamiltoniano $X_\mathcal{H}$ associato al sistema in esame e quindi anche il flusso hamiltoniano $\varphi$. \\
+Il vantaggio di partire da una funzione scalare risiede nel fatto che è molto più semplice eseguire un cambio di coordinate per una funzione scalare che per campi vettoriali. Tuttavia, solamente una particolare classe di cambi di coordinate è ammessa, ovvero i diffeomorfismi $\phi$ che lasciano invariato $X_\mathcal{H}$ (e quindi le equazioni del moto), cioè
+\begin{align}
+    \phi^*X_{\mathcal{H} \circ \phi} = X_\mathcal{H} \tag{4.1}
+\end{align}
+Per caratterizzare tali diffeomorfismi diamo una defizione di $X_\mathcal{H}$ che non necessita di un sistema di coordinate. Sia
+\begin{align}
+    \omega = \sum_j d\theta_j \wedge dr_j \tag{4.2}
+\end{align}
+$\omega$ è detta \textit{forma simplettica} sullo spazio delle fasi $\mathbb{T}^n \times \mathbb{R}^n$. In particolare, $\omega$ è una mappa bilineare del fibrato tangente dello spazio delle fasi nella retta reale. \\
+Dato $X = (\dot{\theta}, \dot{r})$ campo vettoriale su $\mathbb{T}^n \times \mathbb{R}^n$, si ha
+\begin{align}
+    \omega(X, \cdot) = \sum_j (\dot{\theta}_jdr_j - \dot{r}_jd\theta_j) \tag{4.3}
+\end{align}
+Segue che $X_\mathcal{H}$ è definito implicitamente dall'equazione
+\begin{align}
+    \omega(X_\mathcal{H}, \cdot) = d\mathcal{H} \tag{4.4}
+\end{align}
+Pertanto le uniche trasformazioni che preservano le equazioni del moto sono ora caratterizzate dall'equazione
+\begin{align}
+    \phi^*\omega = \omega \tag{4.5}
+\end{align}
 
 
 \end{document}
