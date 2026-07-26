@@ -1,7 +1,7 @@
 
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
-\usepackage{amsfonts, amsmath, amssymb, amsthm, float}
+\usepackage{amsfonts, amsmath, amssymb, amsthm, float, cancel}
 \usepackage{tikz-cd}
 
 \title{Teoria KAM}
@@ -878,6 +878,50 @@ Pertanto le uniche trasformazioni che preservano le equazioni del moto sono ora 
 \begin{align}
     \phi^*\omega = \omega \tag{4.5}
 \end{align}
+che garantisce l'invarianza del differenziali di $\mathcal{H}$ rispetto a $\phi$. Tali trasformazioni sono dette \textit{simplettiche} o \textit{canoniche}. \\ \\
+\textbf{Esempio:} consideriamo una $1$-forma differenziale chiusa $\rho$ su $\mathbb{T}^n$
+\begin{align}
+    \rho = \sum_j \rho_i(\theta)d\theta_i \qquad d\rho = 0 \tag{4.6}
+\end{align}
+Il diffeomorfismo $\phi$ definito da 
+\begin{align}
+    (\theta, r) \mapsto (\theta, r + \rho(\theta)) \tag{4.7}
+\end{align}
+dove $\rho(\theta) = (\rho_1(\theta), \dots, \rho_n(\theta))$, per $\theta \in \mathbb{T}^n$, è simplettico. Infatti
+\begin{align}
+    \phi^*\omega = \sum_j d\tilde{\theta}_j \wedge d\tilde{r}_j \tag{4.8}
+\end{align}
+dove si è posto $\tilde{\theta} = \theta$ e $\tilde{r} = r + \rho$, segue che $d\tilde{\theta}_j = d\theta_j$ e $d\tilde{r}_j = dr_j + d\rho_j$ per ogni $j = 1, \dots, n$. Pertanto
+\begin{align}
+    \phi^*\omega &= \sum_j d\theta_j \wedge (dr_j + d\rho_j) \notag \\
+    &= \sum_j d\theta_j \wedge dr_j + \sum_j d\theta_j \wedge d\rho_j \notag \\
+    &= \omega - \cancel{d\rho} = \omega \tag{4.9} 
+\end{align}
+ovvero $\phi^*\omega = \omega$. \\ \\
+\textbf{Esempio:} sia $\varphi$ un diffeomorfismo su $\mathbb{T}^n$. Definiamo il sollevamento $\phi$ di $\varphi$ a $\mathbb{T}^n \times \mathbb{R}^n$
+\begin{align}
+    \phi: \quad (\theta, r) \mapsto (\varphi(\theta), (\varphi'(\theta)^{-1})r) \tag{4.10}
+\end{align}
+dove con $\varphi'$ si intende lo jacobiano. Il diffeomorfismo $\phi$ preserva la $1$-forma differenziale $\lambda = \sum_j r_jd\theta_j$, infatti
+\begin{align}
+    \phi^*\lambda = \tilde{r}d\tilde{\theta} = r \cdot (\varphi'(\theta))^{-1}(\varphi'(\theta)) \cdot d\theta = \lambda \tag{4.11}
+\end{align}
+Concludiamo che $\phi$ è simplettico. \\ \\
+\textbf{Proposizione 4.1:} sia $\phi_t$ è il flusso associato ad un campo vettoriale hamiltoniano $X_\mathcal{H}$, allora $\phi^*_t\omega = \omega$ per ogni $t$ nell'intervallo di definizione del flusso. \\
+
+\textbf{Dimostrazione:} per il \textit{teorema fondamentale del calcolo} si ha
+\begin{align}
+    \phi^*_t\omega - \omega &= \int_0^t \frac{d}{ds}(\phi^*_s\omega) \, ds \notag \\
+    &= \int_0^t \phi^*_s(\mathcal{L}_{X_\mathcal{H}}\omega) \, ds \tag{4.12}
+\end{align}
+per definizione di derivata di Lie. Per la \textit{formula d'omotopia di Cartan} si ha
+\begin{align}
+    \mathcal{L}_{X_\mathcal{H}}\omega = di_{X_\mathcal{H}}\omega + i_{X_\mathcal{H}}d\omega \tag{4.13}
+\end{align}
+In particolare, $d\omega = 0$, dato che che $\omega$ ha tutti coefficienti costanti, mentre $i_{X_\mathcal{H}}\omega = d\mathcal{H}$, pertanto $di_{X_\mathcal{H}}\omega = d^2\mathcal{H} = 0$ (dato che $d^2 = 0$, operatore di coomologia). \qed
+
+\newpage
+\subsection{Serie perturbative}
 
 
 \end{document}

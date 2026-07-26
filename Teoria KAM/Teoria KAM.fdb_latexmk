@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1784985254.33583 "c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex" "Teoria KAM.pdf" "Teoria KAM" 1784985255.97428 0
-  "Teoria KAM.aux" 1784985255 1420 f775a3fa264868bb2fb49b2a7a10b528 "pdflatex"
-  "Teoria KAM.tex" 1784985253 64816 03e4b4a0cb363927bda6bbbf0820cb95 ""
-  "Teoria KAM.toc" 1784985255 895 4c3d53d463833c97214a645d18e47f2b "pdflatex"
-  "c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex" 1784985253 64816 03e4b4a0cb363927bda6bbbf0820cb95 ""
+["pdflatex"] 1785084074.00028 "c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex" "Teoria KAM.pdf" "Teoria KAM" 1785084076.77053 0
+  "Teoria KAM.aux" 1785084076 1532 b0e211ae78f4178ead22429ccb5e91db "pdflatex"
+  "Teoria KAM.tex" 1785084070 67604 4e8299f1d98b8695388c31b89d3ad5d0 ""
+  "Teoria KAM.toc" 1785084076 966 da8084187243d037b6b7ac88f4b416fd "pdflatex"
+  "c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex" 1785084070 67604 4e8299f1d98b8695388c31b89d3ad5d0 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1773573954 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1773573954 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -45,6 +45,7 @@
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1773573954 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1773573954 32716 08e384dc442464e7285e891af9f45947 ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1773573954 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb" 1773573954 11493 4f5ed183a47d3197cf8cd322325db6de ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1773573954 34694 870c211f62cb72718a00e353f14f254d ""
   "c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1773573954 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "c:/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1773582138 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -116,6 +117,7 @@
   "c:/texlive/2026/texmf-dist/tex/latex/amsmath/amstext.sty" 1773573960 2444 9983e1d0683f102e3b190c64a49313aa ""
   "c:/texlive/2026/texmf-dist/tex/latex/base/article.cls" 1773581446 20144 b966087dda3b194755eb460d32e2ef75 ""
   "c:/texlive/2026/texmf-dist/tex/latex/base/size10.clo" 1773581446 8448 686612a86f0e04f41ea577f5ec7e83d8 ""
+  "c:/texlive/2026/texmf-dist/tex/latex/cancel/cancel.sty" 1773575315 7592 dd751af313a16a0308545d5bfd7aaaa2 ""
   "c:/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1773578051 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "c:/texlive/2026/texmf-dist/tex/latex/float/float.sty" 1773580344 6749 16d2656a1984957e674b149555f1ea1d ""
   "c:/texlive/2026/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1773580705 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""

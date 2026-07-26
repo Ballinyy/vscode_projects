@@ -41,6 +41,8 @@ INPUT c:/texlive/2026/texmf-dist/tex/latex/amscls/amsthm.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/amscls/amsthm.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/float/float.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/float/float.sty
+INPUT c:/texlive/2026/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT c:/texlive/2026/texmf-dist/tex/latex/cancel/cancel.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
@@ -234,5 +236,6 @@ INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
+INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb

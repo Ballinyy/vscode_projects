@@ -10,3 +10,4 @@
 \contentsline {section}{\numberline {2}Sistemi hamiltoniani}{23}{}%
 \contentsline {section}{\numberline {3}Moti quasiperiodici}{24}{}%
 \contentsline {section}{\numberline {4}Punto di vista geometrico}{30}{}%
+\contentsline {subsection}{\numberline {4.1}Serie perturbative}{32}{}%
