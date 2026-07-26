@@ -1,0 +1,9 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/invarianza_simplettica/480p15/partial_movie_files/SymplecticInvariance/1584795214_1218313602_223132457.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/invarianza_simplettica/480p15/partial_movie_files/SymplecticInvariance/4072820271_280727921_4118920287.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/invarianza_simplettica/480p15/partial_movie_files/SymplecticInvariance/4072820271_2759217386_460947691.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/invarianza_simplettica/480p15/partial_movie_files/SymplecticInvariance/4072820271_734346282_2825411096.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/invarianza_simplettica/480p15/partial_movie_files/SymplecticInvariance/4072820271_2788645687_1594691133.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/invarianza_simplettica/480p15/partial_movie_files/SymplecticInvariance/4072820271_558462121_2924285661.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/invarianza_simplettica/480p15/partial_movie_files/SymplecticInvariance/4072820271_1384876139_2284204731.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/invarianza_simplettica/480p15/partial_movie_files/SymplecticInvariance/4072820271_2844360058_831797326.mp4'
