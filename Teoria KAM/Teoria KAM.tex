@@ -1,7 +1,7 @@
 
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
-\usepackage{amsfonts, amsmath, amssymb, amsthm, float, cancel}
+\usepackage{amsfonts, amsmath, amssymb, amsthm, float, cancel, bm, mathrsfs}
 \usepackage{tikz-cd}
 
 \title{Teoria KAM}
@@ -586,19 +586,20 @@ La composizione, moltiplicazione per scalare e prodotto esterno di $k$-forme dif
 \end{align}
 dove $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ è differenziabile per ogni $i_1 < \dots <i_k$. \\
 
-\textbf{Dimostrazione:} la dimostrazione è analoga a quella del \textit{teorema 1.6.1}. Osserviamo che, per definizione, fissato $x \in M$, $\omega^{(k)}_x$ è una $k$-forma esterna su $T_xM$, pertanto può essere scritta come combinazione lineare degli elementi della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Inoltre, dato che la dipendenza da $x$ deve essered ifferenziabile, si ottiene la tesi. \qed \\ \\
+\textbf{Dimostrazione:} la dimostrazione è analoga a quella del \textit{teorema 1.6.1}. Osserviamo che, per definizione, fissato $x \in M$, $\omega^{(k)}_x$ è una $k$-forma esterna su $T_xM$, pertanto può essere scritta come combinazione lineare degli elementi della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Inoltre, dato che la dipendenza da $x$ deve essere differenziabile, si ottiene la tesi. \qed \\ \\
 \textbf{Proposizione 1.7.1:} l'insieme $\Lambda^{(k)}(M)$ delle $k$-forme differenziali sulla varietà $M$ è uno spazio vettoriale (di dimensione infinita se $k \leq \dim M$). \\
+
 \textbf{Dimostrazione:} si vede immediatamente che su $\Lambda^{(k)}(M)$ è possibile definire una struttura naturale di spazio vettoriale. Dimostriamo che $\dim \Lambda^{(k)}(M) = \infty$ se $k \leq \dim M$. \\
 Sia $k \leq \dim M$, data $\omega \in \Lambda^{(k)}(M)$ si ha 
 \begin{align}
    \omega^{(k)} = \sum_{i_1 < \dots < i_k}a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.7.3}
 \end{align}
-per opportune $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ sufficientemente regolari.Concludiamo che $\dim \Lambda^{(k)}(M) = \infty$, infatti la condizione di dipendenza lineare su un qualsiasi insieme di $k$-forme differenziali su $M$ si riduce ad una condizione di dipendenza lineare sull'insieme delle funzioni $\{a_{i_1, \dots, i_k}\}_{i_1 < \dots < i_k}$ che ne definiscono lo sviluppo in termini della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$.Tuttavia, lo spazio vettoriale $\mathcal{C}^{(k)}(M)$ è infinito dimensionale per ogni $k \in \mathbb{Z}_{\geq 0}$. \qed \\ \\
+per opportune $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ sufficientemente regolari. Concludiamo che $\dim \Lambda^{(k)}(M) = \infty$, infatti la condizione di dipendenza lineare su un qualsiasi insieme di $k$-forme differenziali su $M$ si riduce ad una condizione di dipendenza lineare sull'insieme delle funzioni $\{a_{i_1, \dots, i_k}\}_{i_1 < \dots < i_k}$ che ne definiscono lo sviluppo in termini della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Tuttavia, lo spazio vettoriale $\mathcal{C}^{(k)}(M)$ è infinito dimensionale per ogni $k \in \mathbb{Z}_{\geq 0}$. \qed \\ \\
 \textbf{Esempio:} supponiamo che in $\mathbb{R}^3$ si abbiano due sistemi di coordinate
 \begin{align}
    \mathbf{x} = (x_1, x_2, x_3) \qquad \mathbf{y} = (y_1, y_2, y_3) \tag{1.7.4}
 \end{align}
-e che si conoscano le leggi di trasformazione delle variabili $\mathbf{x} = \mathbf{x}(\mathbf{y})$.Nota $\omega^{(2)}$, una $2$-forma differenziale su $\mathbb{R}^3$, in termini del sistema di coordinate $\mathbf{x}$
+e che si conoscano le leggi di trasformazione delle variabili $\mathbf{x} = \mathbf{x}(\mathbf{y})$. Nota $\omega^{(2)}$, una $2$-forma differenziale su $\mathbb{R}^3$, in termini del sistema di coordinate $\mathbf{x}$
 \begin{align}
    \omega^{(2)} = X_1dx_2 \wedge dx_3 + X_2dx_1 \wedge dx_3 + X_3dx_1 \wedge dx_2 \tag{1.7.5}
 \end{align}
@@ -624,7 +625,7 @@ per $k = 1, 2, 3$, $i < j$ e $i, j \neq k$.
 \newpage
 \subsection{Integrazione delle forme differenziali}
 Introduciamo ora il concetto di integrazione di una $k$-forma differenziale su una varietà $n$-dimensionale. \\ \\
-Sia $M$ una varietà differenziale e $\gamma : [0, 1] \longrightarrow M$ una curva differenziabile.Data $\omega$, una $1$-forma su $M$, definiamo l'integrale di $\omega$ lungo $\gamma$ facendo uso delle solite somme integrali. \\
+Sia $M$ una varietà differenziale e $\gamma : [0, 1] \longrightarrow M$ una curva differenziabile. Data $\omega$, una $1$-forma su $M$, definiamo l'integrale di $\omega$ lungo $\gamma$ facendo uso delle solite somme integrali. \\
 In particolare, consideriamo $s$ punti $0 = t_1 < t_2 < \dots < t_s = 1$. Si definiscono così $s -1$ intervalli della forma $[t_i, t_{i + 1}]$ e di lunghezza $\Delta_i = t_{i + 1} - t_i$, per $0 \leq i \leq s - 1$. Sia $\Delta = \max_i \Delta_i$, definiamo l'integrale di $\omega$ lungo $\gamma$ come segue
 \begin{align}
    \int_\gamma \omega = \lim_{\Delta \rightarrow 0}\sum_i \omega(v_i) \tag{1.8.1}
@@ -655,43 +656,43 @@ per ogni $\omega^{(k)}_1, \omega^{(k)}_2 \in \Lambda^{(k)}(\mathbb{R}^k)$ e ogni
 
 \newpage
 \section{Sistemi hamiltoniani}
-Consideriamo una funzione liscia $\mathcal{H}$ definita su un aperto $M$ di $\mathbb{T}^n \times \mathbb{R}^n$ = $\{(\theta, r)\}$ (dove $\mathbb{T}^n = \mathbb{R}^n/\mathbb{Z}^n$ è il toro $n$-dimensionale e $(\theta, r) = (\theta_1, \dots, \theta_n, r_1, \dots, r_n)$). \\
-Il \textit{campo vettoriale hamiltoniano} $X_\mathcal{H}$ indotto da $\mathcal{H}$ tramite le equazioni di Hamilton è dato da 
-\begin{align} X_\mathcal{H} =
+Consideriamo una funzione liscia $H$ definita su un aperto $M$ di $\mathbb{T}^n \times \mathbb{R}^n$ = $\{(\theta, r)\}$ (dove $\mathbb{T}^n = \mathbb{R}^n/\mathbb{Z}^n$ è il toro $n$-dimensionale e $(\theta, r) = (\theta_1, \dots, \theta_n, r_1, \dots, r_n)$). \\
+Il \textit{campo vettoriale hamiltoniano} $X_H$ indotto da $H$ tramite le equazioni di Hamilton è dato da 
+\begin{align} X_H =
     \begin{cases}
-        \dot{\theta}_j &= \frac{\partial \mathcal{H}}{\partial r_j} \\
-        \dot{r}_j &= -\frac{\partial \mathcal{H}}{\partial \theta_j}
+        \dot{\theta}_j &= \frac{\partial H}{\partial r_j} \\
+        \dot{r}_j &= -\frac{\partial H}{\partial \theta_j}
     \end{cases} \tag{2.1}
 \end{align}
-Notiamo immediatamente che $\nabla \mathcal{H} \cdot X_\mathcal{H} = 0$, il gradiente euclideo di $\mathcal{H}$ è ortogonale al campo vettoriale hamiltoniano $X_\mathcal{H}$. Infatti 
+Notiamo immediatamente che $\nabla H \cdot X_H = 0$, il gradiente euclideo di $H$ è ortogonale al campo vettoriale hamiltoniano $X_H$. Infatti 
 \begin{align}
-    \nabla \mathcal{H} \cdot X_\mathcal{H} &= \sum_{j = 1}^n \left(\frac{\partial \mathcal{H}}{\partial \theta_j}\dot{\theta}_j + \frac{\partial \mathcal{H}}{\partial r_j}\dot{r}_j\right) \notag \\
-    &= \sum_{j = 1}^n \left(\frac{\partial \mathcal{H}}{\partial \theta_j}\frac{\partial \mathcal{H}}{\partial r_j} - \frac{\partial \mathcal{H}}{\partial r_j}\frac{\partial \mathcal{H}}{\partial \theta_j}\right) = 0 \tag{2.2}
+    \nabla H \cdot X_H &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\dot{\theta}_j + \frac{\partial H}{\partial r_j}\dot{r}_j\right) \notag \\
+    &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\frac{\partial H}{\partial r_j} - \frac{\partial H}{\partial r_j}\frac{\partial H}{\partial \theta_j}\right) = 0 \tag{2.2}
 \end{align}
-In particolare, la proiezione sul piano $\{(\theta_j, r_j)\}$ del campo vettoriale hamiltoniano $X_\mathcal{H}$ e del gradiente euclideo $\nabla \mathcal{H}$ sono ortogonali (ogni termine della somma è nullo). Questo segue dal fatto che $X_\mathcal{H}$ è tangente alle curve di livello di $\mathcal{H}$ (curve ad energia fissata), mentre $\nabla \mathcal{H}$ punta verso la direzione di massima pendenza (positiva) di $\mathcal{H}$.
+In particolare, la proiezione sul piano $\{(\theta_j, r_j)\}$ del campo vettoriale hamiltoniano $X_H$ e del gradiente euclideo $\nabla H$ sono ortogonali (ogni termine della somma è nullo). Questo segue dal fatto che $X_H$ è tangente alle curve di livello di $H$ (curve ad energia fissata), mentre $\nabla H$ punta verso la direzione di massima pendenza (positiva) di $H$.
 
 \newpage
 \section{Moti quasiperiodici}
 Studiamo ora una classe particolare di sistemi hamiltoniani: i sistemi hamiltoniani \textit{integrabili}. Un sistema hamiltoniano integrabile non dipende dalla variabile del moto $\theta$. Pertanto, fissato $r$ si ottiene 
 \begin{align}
     \begin{cases}
-        \dot{\theta} &= \nabla_r\mathcal{H} = cst \\
+        \dot{\theta} &= \nabla_rH = cst \\
         \dot{r} &= 0
     \end{cases} \tag{3.1}
 \end{align}
-dove con $\nabla_r\mathcal{H}$ si intende il gradiente rispetto alla coordinata $r = (r_1, \dots, r_n)$, ovvero 
+dove con $\nabla_rH$ si intende il gradiente rispetto alla coordinata $r = (r_1, \dots, r_n)$, ovvero 
 \begin{align}
-    \nabla_r\mathcal{H} = \left(\frac{\partial \mathcal{H}}{\partial r_1}, \dots, \frac{\partial \mathcal{H}}{\partial r_n}\right) \notag
+    \nabla_rH = \left(\frac{\partial H}{\partial r_1}, \dots, \frac{\partial H}{\partial r_n}\right) \notag
 \end{align}
-Possiamo facilmente determinare il flusso associato a $X_\mathcal{H}$ usando la definizione di flusso di un campo vettoriale 
+Possiamo facilmente determinare il flusso associato a $X_H$ usando la definizione di flusso di un campo vettoriale 
 \begin{align}
-    \varphi_t(\theta, r) = \left(\theta + t\nabla_r\mathcal{H}, r\right) \tag{3.2}
+    \varphi_t(\theta, r) = \left(\theta + t\nabla_rH, r\right) \tag{3.2}
 \end{align}
 per ogni $t \in \mathbb{R}$ (intervallo massimale di definizioni delle soluzioni). Notiamo che lo spazio delle fasi è costituito da tori invarianti, infatti fissato $r_0 \in \mathbb{R}^n$ si ha 
 \begin{align}
     \varphi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} \tag{3.3}
 \end{align}
-Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \nabla_r\mathcal{H}(r_0) \in \mathbb{R}^n$. \\ \\
+Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \nabla_rH(r_0) \in \mathbb{R}^n$. \\ \\
 \textbf{Definizione:} siano $f : X \longrightarrow X$ e $g : Y \longrightarrow Y$ due applicazioni continue di spazi topologici. $f$ e $g$ sono \textit{topologicamente coniugate} se esiste un omeomorfismo $h : X \longrightarrow Y$ tale che
 \begin{align}
     h \circ f = g \circ h \tag{3.4}
@@ -722,7 +723,7 @@ Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso
 \begin{align}
     \varphi_t : \mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
 \end{align}
-dove $\alpha = \nabla_r\mathcal{H}(r)$. \\ \\
+dove $\alpha = \nabla_rH(r)$. \\ \\
 \textbf{Lemma 3.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
 
 \textbf{Dimostrazione:} supponiamo che i flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
@@ -794,9 +795,9 @@ Il membro di sinistra è limitato (dato che $V$ è $\mathbb{Z}^n$-periodico), al
 per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$ sono costanti. \\
 \textbf{3.} Per ogni funzione continua su $\mathbb{T}^n$ esiste la media temporale $\overline{f}$ e combacia con la media spaziale su $\mathbb{T}^n$, ovvero
 \begin{align}
-    \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt = \frac{1}{\Omega}\int_{\mathbb{T}^n} f(\theta) \, d\theta \tag{3.19}
+    \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt = \int_{\mathbb{T}^n} f(\theta) \, d\theta \tag{3.19}
 \end{align}
-dove $\Omega$ è la misura di $\mathbb{T}^n$. \\
+ricordando che $\mathbb{T}^n$ ha misura di Lebesgue unitaria dato che è identificato con il cubo $[0, 1)^n$ ad estremi "incollati". \\
 \textbf{4.} Ogni traiettoria di $\varphi_t$ è densa in $\mathbb{T}^n$. \\
 
 \textbf{Dimostrazione:} $(1 \rightarrow 2)$ sia $f$ una funzione di $\mathbb{T}^n$ tale che $f \circ \varphi_t = f$ per ogni $t \in \mathbb{R}$. Il $k$-esimo coefficiente di Fourier di $f \circ \varphi_t$ è dato da 
@@ -856,12 +857,12 @@ Tuttavia, possiamo scegliere $U$ in modo tale che $0 < |k \cdot \theta| < 1$, me
 
 \newpage
 \section{Punto di vista geometrico}
-Tutta l'informazione riguardante un determinato sistema dinamico è contenuta nella funzione di Hamilton $\mathcal{H}$. $\mathcal{H}$ è una funzione scalare regolare definita sullo spazio delle fasi, da $\mathcal{H}$ possiamo ricavare, tramite le equazioni del moto di Hamilton, il campo di velocità hamiltoniano $X_\mathcal{H}$ associato al sistema in esame e quindi anche il flusso hamiltoniano $\varphi$. \\
-Il vantaggio di partire da una funzione scalare risiede nel fatto che è molto più semplice eseguire un cambio di coordinate per una funzione scalare che per campi vettoriali. Tuttavia, solamente una particolare classe di cambi di coordinate è ammessa, ovvero i diffeomorfismi $\phi$ che lasciano invariato $X_\mathcal{H}$ (e quindi le equazioni del moto), cioè
+Tutta l'informazione riguardante un determinato sistema dinamico è contenuta nella funzione di Hamilton $H$. $H$ è una funzione scalare regolare definita sullo spazio delle fasi, da $H$ possiamo ricavare, tramite le equazioni del moto di Hamilton, il campo di velocità hamiltoniano $X_H$ associato al sistema in esame e quindi anche il flusso hamiltoniano $\varphi$. \\
+Il vantaggio di partire da una funzione scalare risiede nel fatto che è molto più semplice eseguire un cambio di coordinate per una funzione scalare che per campi vettoriali. Tuttavia, solamente una particolare classe di cambi di coordinate è ammessa, ovvero i diffeomorfismi $\phi$ che lasciano invariato $X_H$ (e quindi le equazioni del moto), cioè
 \begin{align}
-    \phi^*X_{\mathcal{H} \circ \phi} = X_\mathcal{H} \tag{4.1}
+    \phi^*X_{H \circ \phi} = X_H \tag{4.1}
 \end{align}
-Per caratterizzare tali diffeomorfismi diamo una defizione di $X_\mathcal{H}$ che non necessita di un sistema di coordinate. Sia
+Per caratterizzare tali diffeomorfismi diamo una defizione di $X_H$ che non necessita di un sistema di coordinate. Sia
 \begin{align}
     \omega = \sum_j d\theta_j \wedge dr_j \tag{4.2}
 \end{align}
@@ -870,15 +871,15 @@ Dato $X = (\dot{\theta}, \dot{r})$ campo vettoriale su $\mathbb{T}^n \times \mat
 \begin{align}
     \omega(X, \cdot) = \sum_j (\dot{\theta}_jdr_j - \dot{r}_jd\theta_j) \tag{4.3}
 \end{align}
-Segue che $X_\mathcal{H}$ è definito implicitamente dall'equazione
+Segue che $X_H$ è definito implicitamente dall'equazione
 \begin{align}
-    \omega(X_\mathcal{H}, \cdot) = d\mathcal{H} \tag{4.4}
+    \omega(X_H, \cdot) = dH \tag{4.4}
 \end{align}
 Pertanto le uniche trasformazioni che preservano le equazioni del moto sono ora caratterizzate dall'equazione
 \begin{align}
     \phi^*\omega = \omega \tag{4.5}
 \end{align}
-che garantisce l'invarianza del differenziali di $\mathcal{H}$ rispetto a $\phi$. Tali trasformazioni sono dette \textit{simplettiche} o \textit{canoniche}. \\ \\
+che garantisce l'invarianza del differenziali di $H$ rispetto a $\phi$. Tali trasformazioni sono dette \textit{simplettiche} o \textit{canoniche}. \\ \\
 \textbf{Esempio:} consideriamo una $1$-forma differenziale chiusa $\rho$ su $\mathbb{T}^n$
 \begin{align}
     \rho = \sum_j \rho_i(\theta)d\theta_i \qquad d\rho = 0 \tag{4.6}
@@ -900,28 +901,139 @@ dove si è posto $\tilde{\theta} = \theta$ e $\tilde{r} = r + \rho$, segue che $
 ovvero $\phi^*\omega = \omega$. \\ \\
 \textbf{Esempio:} sia $\varphi$ un diffeomorfismo su $\mathbb{T}^n$. Definiamo il sollevamento $\phi$ di $\varphi$ a $\mathbb{T}^n \times \mathbb{R}^n$
 \begin{align}
-    \phi: \quad (\theta, r) \mapsto (\varphi(\theta), (\varphi'(\theta)^{-1})r) \tag{4.10}
+    \phi: \quad (\theta, r) \mapsto \underbrace{(\varphi(\theta), r(\varphi'(\theta)^{-1}))}_{(\tilde{\theta}, \tilde{r})} \tag{4.10}
 \end{align}
 dove con $\varphi'$ si intende lo jacobiano. Il diffeomorfismo $\phi$ preserva la $1$-forma differenziale $\lambda = \sum_j r_jd\theta_j$, infatti
 \begin{align}
-    \phi^*\lambda = \tilde{r}d\tilde{\theta} = r \cdot (\varphi'(\theta))^{-1}(\varphi'(\theta)) \cdot d\theta = \lambda \tag{4.11}
+    \phi^*\lambda = \tilde{r} \cdot d\tilde{\theta} = r \cdot (\varphi'(\theta))^{-1}(\varphi'(\theta)) \cdot d\theta = \lambda \tag{4.11}
 \end{align}
-Concludiamo che $\phi$ è simplettico. \\ \\
-\textbf{Proposizione 4.1:} sia $\phi_t$ è il flusso associato ad un campo vettoriale hamiltoniano $X_\mathcal{H}$, allora $\phi^*_t\omega = \omega$ per ogni $t$ nell'intervallo di definizione del flusso. \\
+Inoltre, dato che $d\lambda = -\omega$, si ha
+\begin{align}
+    \phi^*\omega = -\phi^*d\lambda = -d\phi^*\lambda = -d\lambda = \omega \tag{4.12}
+\end{align}
+ovvero $\phi$ simplettico. \\ \\
+\textbf{Proposizione 4.1:} sia $\phi_t$ è il flusso associato ad un campo vettoriale hamiltoniano $X_H$, allora $\phi^*_t\omega = \omega$ per ogni $t$ nell'intervallo di definizione del flusso. \\
 
 \textbf{Dimostrazione:} per il \textit{teorema fondamentale del calcolo} si ha
 \begin{align}
     \phi^*_t\omega - \omega &= \int_0^t \frac{d}{ds}(\phi^*_s\omega) \, ds \notag \\
-    &= \int_0^t \phi^*_s(\mathcal{L}_{X_\mathcal{H}}\omega) \, ds \tag{4.12}
+    &= \int_0^t \phi^*_s(\mathcal{L}_{X_H}\omega) \, ds \tag{4.13}
 \end{align}
 per definizione di derivata di Lie. Per la \textit{formula d'omotopia di Cartan} si ha
 \begin{align}
-    \mathcal{L}_{X_\mathcal{H}}\omega = di_{X_\mathcal{H}}\omega + i_{X_\mathcal{H}}d\omega \tag{4.13}
+    \mathcal{L}_{X_H}\omega = di_{X_H}\omega + i_{X_H}d\omega \tag{4.14}
 \end{align}
-In particolare, $d\omega = 0$, dato che che $\omega$ ha tutti coefficienti costanti, mentre $i_{X_\mathcal{H}}\omega = d\mathcal{H}$, pertanto $di_{X_\mathcal{H}}\omega = d^2\mathcal{H} = 0$ (dato che $d^2 = 0$, operatore di coomologia). \qed
+In particolare, $d\omega = 0$, dato che che $\omega$ ha tutti coefficienti costanti, mentre $i_{X_H}\omega = dH$, pertanto $di_{X_H}\omega = d^2H = 0$ (dato che $d^2 = 0$, \textit{operatore di coomologia}). \qed
 
 \newpage
-\subsection{Serie perturbative}
+\section{Serie perturbativa}
+Consideriamo un hamiltoniana $H$ definita in un intorno di $\mathbb{T}^n \times \{0\}$ in $\mathbb{T}^n \times \mathbb{R}^n$. Supponiamo che $H$ dipenda formalmente da un parametro $\varepsilon > 0$ nella forma
+\begin{align}
+    H(\theta, r) = H_0(r) + \varepsilon H_1(\theta, r) + \varepsilon^2H_2(\theta, r) + O(\varepsilon^3) \tag{5.1}
+\end{align}
+Siamo interessati a trovare un opportuno cambio di variabili, sufficientemente vicino all'identità ($\varepsilon$ vicino), tale da rimuovere la dipendeza di $H_1$ da $\theta$. Se ciò è possibile vogliamo estendere questo procedimento in moda tale da poter gestire anche i termine di ordine $\varepsilon$ superiore. \\ \\
+A tal proposito, consideriamo un'hamiltoniana ausiliaria $F$ con flusso $\phi_t$. In particolare, vogliamo che $F$ sia tale che $\phi^*_1H = H \circ \phi_1$ non dipenda da $\theta$, almeno fino a termini di secondo ordine in $\varepsilon$. \\ \\
+Per definizione di flusso di un campo vettoriale si ha
+\begin{align}
+    \frac{d}{ds}\left|_{s = 0}\right.(\phi^*_{t + s}H) = \frac{d}{ds}\left|_{s = 0}\right.(H \circ \phi_{t + s}) = (\nabla H \cdot X_F) \circ \phi_t = \phi^*_t(X_F \cdot H) \tag{5.2}
+\end{align}
+dove nell'ultima uguaglianza si è trattato $X_F$ come un operatore di derivazione
+\begin{align}
+    X_F = \partial_rF \cdot \partial_\theta - \partial_\theta F \cdot \partial_r \tag{5.3}
+\end{align}
+Sviluppando la mappa $t \mapsto \phi^*_tH$ in serie di Taylor (con resto integrale di Lagrange) per $0 \leq t \leq 1$ si ottiene la seguente uguaglianza
+\begin{align}
+    \phi^*_1H = H + \varepsilon(X_F \cdot H) + \varepsilon^2\int_0^1 (1 - t)\phi^*_t(X^2_F \cdot H) \, dt \tag{5.4}
+\end{align}
+I fattori $\varepsilon$ che compaiono a moltiplicare i termini in $(5.4)$ derivano dal fatto che stiamo sviluppando attorno ad un $\tilde{t}$ che dista $\varepsilon$ da $0$. Infatti, come detto in precedenza, cerchiamo una trasformazione $\varepsilon$-vicina all'identità ($\phi^*_0 = \mathbf{1}$). \\
+Sostituendo $(5.1)$ in $(5.4)$ si ottiene
+\begin{align}
+    \phi^*_1H = H_0 + \varepsilon(H_1 + X_F \cdot H_0) + O(r^2) \tag{5.5}
+\end{align}
+Riscriviamo $H_1$ come somma della sua media spaziale su $\mathbb{T}^n$ e dei termini di deviazione
+\begin{align}
+    H_1(\theta, r) = \overline{H}_1(r) + \tilde{H}_1(\theta, r) \qquad \overline{H}_1(\theta) = \int_{\mathbb{T}^n} H_1(\theta, r) \, d\theta \tag{5.6}
+\end{align}
+In assenza di simmetrie particolari, il termine $\overline{H}_1$ è non nullo. Questo comporta che la variazione di $\alpha$ su $\mathbb{T}^n \times \{r\}$ è dettata da termini di primo ordine in $\varepsilon$. Per quanto visto nel \textit{lemma 3.1}, $\alpha$ è invariante per coniugazione topologica, quindi l'azione di $\phi^*$ non può assorbire il termine di media spaziale. \\ \\
+Concludiamo che la condizione che $F$ deve soddisfare diventa
+\begin{align}
+    \tilde{H}_1 + X_F \cdot H_0 = 0 \tag{5.7}
+\end{align}
+quindi, ricordando $\partial_\theta H_0 = 0$ e esplicitando l'operazione di $X_F$ su $H$, si ha
+\begin{align}
+    \partial_rH_0 \cdot \partial_\theta F = \tilde{H}_1 \tag{5.8}
+\end{align}
+Dato che l'equazione $(5.7)$ coinvolge solamente la derivata parziale di $F$ rispetto a $\theta$, possiamo trattare $r$ come un parametro fissato. Ponendo $\alpha = \partial_rH(r)$, $(5.7)$ diventa
+\begin{align}
+    \alpha \cdot \partial_\theta F = \tilde{H}_1 \tag{5.9}
+\end{align}
+In termini della derivata di Lie associata al campo vettoriale costante definito da $\alpha$
+\begin{align}
+    \mathcal{L}_\alpha F = \tilde{H}_1 \tag{5.10}
+\end{align}
+detta \textit{equazione omologica}. \\ \\
+Sia $\mathcal{F}$ l'insieme delle serie di Fourier (formali, quindi ancora non associate ad una particolare funzione) su $\mathbb{T}^n$ prive di termine costante. \\ \\
+\textbf{Lemma 5.1:} se $\alpha$ è non risonante, data $g \in \mathcal{F}$ esiste unica $f \in \mathcal{F}$ tale che $\mathcal{L}_\alpha f = g$. \\
+
+\textbf{Dimostrazione:} dato che $g \in \mathcal{F}$, $g$ è della forma
+\begin{align}
+    g(\theta) = \sum_{k \neq 0} g_ke^{i2\pi k \cdot \theta} \tag{5.11}
+\end{align}
+per ogni $\theta \in \mathbb{T}^n$. Cerchiamo $f$ della forma
+\begin{align}
+    f(\theta) = \sum_{k \neq 0} f_ke^{i2\pi k \cdot \theta} \tag{5.12}
+\end{align}
+per ogni $\theta \in \mathbb{T}^n$, tale che $\mathcal{L}_\alpha f = g$. Esplicitando l'azione di $\mathcal{L}_\alpha$ su $f$ si ottiene la seguente equazione per $f_k$
+\begin{align}
+    i2\pi k \cdot \alpha f_k = g_k \tag{5.13} 
+\end{align}
+che ammette come unica soluzione
+\begin{align}
+    f_k = \frac{g_k}{i2\pi k \cdot \alpha} \tag{5.14}
+\end{align}
+per $k \in \mathbb{Z}^n \setminus \{0\}$. \qed \\ \\
+Dato $s > 0$, sia
+\begin{align}
+    \mathbb{T}^n_s = \{\theta \in \mathbb{C}^n/\mathbb{Z}^n : |\mathrm{Im}\theta_j| < s\} \tag{5.15}
+\end{align}
+l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{O}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni olomorfe definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $\|\cdot\|_\infty$. \\
+In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa è continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Dimostrato nell'appendice.}.
+
+
+
+\newpage
+\section*{Appendice}
+\subsection*{Completezza di spazi di funzioni}
+\textbf{Teorema A.1:} sia $S$ un insieme, allora
+\begin{align*}
+    l^\infty(S) := \{f : S \longrightarrow \mathbb{C} : \|f\|_\infty < \infty\} 
+\end{align*}
+è uno spazio di Banach rispetto alla metrica indotta da $\|\cdot\|_\infty$ \\
+
+\textbf{Dimostrazione:} sia $\{f_n : n \in \mathbb{N}\}$ una successione di Cauchy contenuta in $l^\infty(S)$. Fissato $\varepsilon > 0$, esiste $N_\varepsilon \in \mathbb{N}$ tale che
+\begin{align*}
+    \|f_n - f_m\|_\infty < \varepsilon 
+\end{align*}
+per ogni $n, m > N_\varepsilon$. Allora, per ogni $t \in S$ si ha
+\begin{align*}
+    |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \varepsilon 
+\end{align*}
+per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbb{N}\}$ è una successione di Cauchy a termini complessi per ogni $t \in S$. Dato che $\mathbb{C}$ è di Banach, per ogni $t \in S$ esistono $f(t) \in \mathbb{C}$ e $M_{\varepsilon, t} \in \mathbb{N}$ tali che
+\begin{align*}
+    |f_n(t) - f(t)| < \varepsilon 
+\end{align*}
+per ogni $n > M_{\varepsilon, t}$. Resta da dimostrare che $\|f_n - f\|_\infty \rightarrow 0$ per $n \rightarrow \infty$ e che $f \in l^\infty(S)$. Per ipotesi, fissato $m > N_\varepsilon$
+\begin{align*}
+    \|f_n - f\|_\infty &\leq \|f_n - f_m\|_\infty + \|f_m - f\|_\infty  \\
+    &= \|f_n - f_m\|_\infty + \lim_{n \rightarrow \infty}\|f_m - f_n\|_{\infty}  \\
+    &< 2\varepsilon 
+\end{align*}
+per continuità della norma, per ogni $n > N_\varepsilon$. Inoltre, notiamo che esiste $N_1 \in \mathbb{N}$ tale che fissato $n > N_1$ si ha
+\begin{align*}
+    \|f\|_\infty &\leq \|f - f_n\|_\infty + \|f_n\|_\infty  \\
+    &< 1 + \|f_n\|_\infty 
+\end{align*}
+ovvero $f$ limitata in $S$, pertanto si ottiene la tesi. \qed \\ \\
 
 
 \end{document}

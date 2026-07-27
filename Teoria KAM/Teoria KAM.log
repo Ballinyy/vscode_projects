@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  26 JUL 2026 18:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  27 JUL 2026 19:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -135,6 +135,18 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box56
 ) (c:/texlive/2026/texmf-dist/tex/latex/cancel/cancel.sty
 Package: cancel 2013/04/12 v2.2 Cancel math terms
+) (c:/texlive/2026/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+) (c:/texlive/2026/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup9
 ) (c:/texlive/2026/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
  (c:/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (c:/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
@@ -386,6 +398,10 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
  (c:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 13.
+ (c:/texlive/2026/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) (./Teoria KAM.toc)
 \tf@toc=\write4
 \openout4 = `"Teoria KAM.toc"'.
@@ -693,169 +709,224 @@ Underfull \hbox (badness 10000) in paragraph at lines 586--588
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--593
+Underfull \hbox (badness 10000) in paragraph at lines 589--591
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 595--598
+Underfull \hbox (badness 10000) in paragraph at lines 589--591
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 596--599
 
  []
 
 [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 626--629
+Underfull \hbox (badness 10000) in paragraph at lines 627--630
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--640
+Underfull \hbox (badness 10000) in paragraph at lines 636--641
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 635--640
+Underfull \hbox (badness 10000) in paragraph at lines 636--641
 
  []
 
 [22] [23]
-Underfull \hbox (badness 10000) in paragraph at lines 693--696
+Underfull \hbox (badness 10000) in paragraph at lines 694--697
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 698--701
+Underfull \hbox (badness 10000) in paragraph at lines 699--702
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--711
+Underfull \hbox (badness 10000) in paragraph at lines 704--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--711
+Underfull \hbox (badness 10000) in paragraph at lines 704--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--711
+Underfull \hbox (badness 10000) in paragraph at lines 704--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--711
+Underfull \hbox (badness 10000) in paragraph at lines 704--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--711
+Underfull \hbox (badness 10000) in paragraph at lines 704--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--711
+Underfull \hbox (badness 10000) in paragraph at lines 704--712
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 717--722
+Underfull \hbox (badness 10000) in paragraph at lines 718--723
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 717--722
+Underfull \hbox (badness 10000) in paragraph at lines 718--723
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 724--727
+Underfull \hbox (badness 10000) in paragraph at lines 725--728
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 724--727
+Underfull \hbox (badness 10000) in paragraph at lines 725--728
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 748--751
+Underfull \hbox (badness 10000) in paragraph at lines 749--752
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 786--791
+Underfull \hbox (badness 10000) in paragraph at lines 787--792
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 798--801
+Underfull \hbox (badness 10000) in paragraph at lines 799--802
 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 809--812
+Underfull \hbox (badness 10000) in paragraph at lines 810--813
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 814--817
+Underfull \hbox (badness 10000) in paragraph at lines 815--818
 
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 840--843
+Underfull \hbox (badness 10000) in paragraph at lines 841--844
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 845--851
+Underfull \hbox (badness 10000) in paragraph at lines 846--852
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 845--851
+Underfull \hbox (badness 10000) in paragraph at lines 846--852
 
  []
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 880--883
+Underfull \hbox (badness 10000) in paragraph at lines 881--884
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 899--902
+Underfull \hbox (badness 10000) in paragraph at lines 900--903
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--911
+Underfull \hbox (badness 10000) in paragraph at lines 913--916
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--911
+Underfull \hbox (badness 10000) in paragraph at lines 913--916
 
  []
 
-[31] [32] (./Teoria KAM.aux)
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 933--937
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 933--937
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 956--959
+
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 973--977
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 973--977
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 973--977
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 993--996
+
+ []
+
+[33] [34]
+Underfull \hbox (badness 10000) in paragraph at lines 1010--1012
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1037
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1037
+
+ []
+
+[35] (./Teoria KAM.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14081 strings out of 467525
- 291731 string characters out of 5423209
- 683122 words of memory out of 5000000
- 42742 multiletter control sequences out of 15000+600000
- 636549 words of font info for 74 fonts, out of 8000000 for 9000
+ 14238 strings out of 467525
+ 294073 string characters out of 5423209
+ 685175 words of memory out of 5000000
+ 42873 multiletter control sequences out of 15000+600000
+ 641830 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,18n,118p,966b,227s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Teoria KAM.pdf" (32 pages, 294652 bytes).
+ 98i,18n,118p,966b,230s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on "Teoria KAM.pdf" (35 pages, 324648 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
- 132 compressed objects within 2 object streams
+ 225 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
