@@ -11,3 +11,4 @@
 \contentsline {section}{\numberline {3}Moti quasiperiodici}{24}{}%
 \contentsline {section}{\numberline {4}Punto di vista geometrico}{30}{}%
 \contentsline {section}{\numberline {5}Serie perturbativa}{32}{}%
+\contentsline {section}{\numberline {A}Risultati di analisi funzionale}{35}{}%

@@ -676,23 +676,23 @@ In particolare, la proiezione sul piano $\{(\theta_j, r_j)\}$ del campo vettoria
 Studiamo ora una classe particolare di sistemi hamiltoniani: i sistemi hamiltoniani \textit{integrabili}. Un sistema hamiltoniano integrabile non dipende dalla variabile del moto $\theta$. Pertanto, fissato $r$ si ottiene 
 \begin{align}
     \begin{cases}
-        \dot{\theta} &= \nabla_rH = cst \\
+        \dot{\theta} &= \partial_rH = cst \\
         \dot{r} &= 0
     \end{cases} \tag{3.1}
 \end{align}
-dove con $\nabla_rH$ si intende il gradiente rispetto alla coordinata $r = (r_1, \dots, r_n)$, ovvero 
+dove con $\partial_rH$ si intende il gradiente rispetto alla coordinata $r = (r_1, \dots, r_n)$, ovvero 
 \begin{align}
-    \nabla_rH = \left(\frac{\partial H}{\partial r_1}, \dots, \frac{\partial H}{\partial r_n}\right) \notag
+    \partial_rH = \left(\frac{\partial H}{\partial r_1}, \dots, \frac{\partial H}{\partial r_n}\right) \notag
 \end{align}
 Possiamo facilmente determinare il flusso associato a $X_H$ usando la definizione di flusso di un campo vettoriale 
 \begin{align}
-    \varphi_t(\theta, r) = \left(\theta + t\nabla_rH, r\right) \tag{3.2}
+    \varphi_t(\theta, r) = \left(\theta + t\partial_rH, r\right) \tag{3.2}
 \end{align}
 per ogni $t \in \mathbb{R}$ (intervallo massimale di definizioni delle soluzioni). Notiamo che lo spazio delle fasi è costituito da tori invarianti, infatti fissato $r_0 \in \mathbb{R}^n$ si ha 
 \begin{align}
     \varphi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} \tag{3.3}
 \end{align}
-Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \nabla_rH(r_0) \in \mathbb{R}^n$. \\ \\
+Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \partial_rH(r_0) \in \mathbb{R}^n$. \\ \\
 \textbf{Definizione:} siano $f : X \longrightarrow X$ e $g : Y \longrightarrow Y$ due applicazioni continue di spazi topologici. $f$ e $g$ sono \textit{topologicamente coniugate} se esiste un omeomorfismo $h : X \longrightarrow Y$ tale che
 \begin{align}
     h \circ f = g \circ h \tag{3.4}
@@ -723,7 +723,7 @@ Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso
 \begin{align}
     \varphi_t : \mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
 \end{align}
-dove $\alpha = \nabla_rH(r)$. \\ \\
+dove $\alpha = \partial_rH(r)$. \\ \\
 \textbf{Lemma 3.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
 
 \textbf{Dimostrazione:} supponiamo che i flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
@@ -825,7 +825,7 @@ per ogni $\theta \in \mathbb{R}^n$, con $k \in \mathbb{Z}^n \setminus \{0\}$, si
 \end{align}
 per $T \rightarrow \infty$, ovvero la media temporale è nulla come la media spaziale (per simmetria del toro $n$-dimensionale e disparità della funzione $f$). \\
 Se $f$ è un polinomio trigonometrico può essere espressa come somma finita di termini della forma $e^{i2\pi m \cdot \theta}$, per $m \in \mathbb{Z}^n$. Pertanto $(3.19)$ è verificata grazie a $(3.24)$ per linearità dell'integrale. \\
-Per il \textit{teorema di Stone-Weierstrass}, se $f$ è continua, fissato $\varepsilon > 0$, esiste $P$ polinomio trigonometrico tale che
+Per il \textit{teorema di Stone-Weierstrass}\footnote{In appendice A}, se $f$ è continua, fissato $\varepsilon > 0$, esiste $P$ polinomio trigonometrico tale che
 \begin{align}
     \max_{\theta \in \mathbb{T}^n} |f(\theta) - P(\theta)| < \varepsilon \tag{3.25}
 \end{align}
@@ -997,13 +997,25 @@ Dato $s > 0$, sia
     \mathbb{T}^n_s = \{\theta \in \mathbb{C}^n/\mathbb{Z}^n : |\mathrm{Im}\theta_j| < s\} \tag{5.15}
 \end{align}
 l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{O}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni olomorfe definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $\|\cdot\|_\infty$. \\
-In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa è continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Dimostrato nell'appendice.}.
+In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa è continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema A.$1$ in appendice A.}. \\ \\
+Invertendo $(5.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni olomorfe a funzioni olomorfe, necessitiamo delle condizioni aritmetiche sul vettore frequenza $\alpha$, che garantiscono sufficiente 'lontananza' dalla risonanza. \\ \\
+\textbf{Definizione 5.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
+\begin{align}
+    |k \cdot \alpha| \leq |k|^{-\tau}\gamma \tag{5.16}
+\end{align}
+per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, dove
+\begin{align}
+    |k| = |k_1| + \dots + |k_n| \tag{5.17}
+\end{align}
+In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $\alpha \in \mathbb{R}^n$ che sono $(\gamma, \tau)$-Diofantei, mentra
+\begin{align}
+    D_\tau = \bigcup_{\gamma > 0}D_{\gamma, \tau} \tag{5.18}
+\end{align}
 
 
-
+\appendix
 \newpage
-\section*{Appendice}
-\subsection*{Completezza di spazi di funzioni}
+\section{Risultati di analisi funzionale}
 \textbf{Teorema A.1:} sia $S$ un insieme, allora
 \begin{align*}
     l^\infty(S) := \{f : S \longrightarrow \mathbb{C} : \|f\|_\infty < \infty\} 
@@ -1034,6 +1046,55 @@ per continuità della norma, per ogni $n > N_\varepsilon$. Inoltre, notiamo che 
     &< 1 + \|f_n\|_\infty 
 \end{align*}
 ovvero $f$ limitata in $S$, pertanto si ottiene la tesi. \qed \\ \\
+\textbf{Teorema (di Stone-Weierstrass):} sia $Pol([a, b])$ lo spazio delle funzioni polinomiali a coefficienti complessi definite sull'intervallo $[a, b]$. Si ha che $Pol([a, b])$ è denso (in norma $\|\cdot\|_\infty$) in $\mathcal{C}^0([a, b], \mathbb{C})$. \\
+
+\textbf{Dimostrazione:} dato che la densità è una proprietà topologica, possiamo assumere $[a, b] = [0, 1]$ senza perdita di generalità. Inoltre, data $f \in \mathcal{C}^0([0, 1])$ possiamo assumere $f(0) = 0 = f(1)$, infatti se così non fosse basterebbe definire
+\begin{align*}
+    g(x) = f(x) - f(0) - (f(1) - f(0))x \notag
+\end{align*} 
+per ogni $x \in [0, 1]$, che soddisfa $g(0) = 0 = g(1)$ ed è continua, ed è immediato notare che se il teorema è valido per $g$ è valido anche per $f$. \\
+Vogliamo costruire una successione di funzioni polinomiali $\{q_n\}_{n \in \mathbb{N}}$ che approssima la delta di Dirac. Data $f \in \mathcal{C}^0([0, 1], \mathbb{C})$ possiamo estenderla per continuità in modo tale che sia identicamente nulla fuori da $[0, 1]$. Per ogni $n \in \mathbb{N}$ definiamo 
+\begin{align*}
+    q_n = c_n(1 - x^2)^n \notag
+\end{align*}
+dove $c_n$ è una costante (fissato $n$) che garantisce la normalizzazione di $q_n$ sull'intervallo $[-1, 1]$, ovvero 
+\begin{align*}
+    \int_{-1}^1 c_n(1 - x^2)^n \, dx = 1 \notag
+\end{align*}
+Cerchiamo una stima per $c_n$. Per la \textit{disuguaglianza di Bernoulli} si ha 
+\begin{align*}
+    \int_{-1}^1 (1 - x^2)^n \, dx &= 2\int_0^1 (1 - x^2)^n \, dx \notag \\
+    &\geq 2\int_0^{1/\sqrt{n}} (1 - x^2)^n \, dx \notag \\
+    &\geq 2\int_0^{1/\sqrt{n}} (1 - nx^2) \, dx \notag \\
+    &= 2\left(x - \frac{nx^3}{3}\right)_0^{1/\sqrt{n}} \notag \\
+    &= \frac{4}{3\sqrt{n}} \geq \frac{1}{\sqrt{n}} \notag
+\end{align*}
+Pertanto concludiamo che $c_n \leq \sqrt{n}$. Segue che dato $\delta > 0$ si ha 
+\begin{align*}
+    q_n(x) \leq \sqrt{n}(1 - \delta^2)^n \notag
+\end{align*}
+per ogni $x \in [\delta, 1]$. Per ogni $n \in \mathbb{N}$ poniamo 
+\begin{align*}
+    p_n(x) = \int_{-1}^1 q_n(t)f(x + t) \, dt \notag
+\end{align*}
+per ogni $x \in [0, 1]$. Notiamo immediatamente che $\{p_n\}_{n \in \mathbb{N}} \subset Pol([0, 1])$. Mostriamo che $p_n(x) \rightarrow f(x)$ in norma $\|\cdot\|_\infty$ per $n \rightarrow \infty$. Fissato $0 < \delta < 1$ si ha
+\begin{align*}
+    |p_n(x) - f(x)| &= \left|\int_{-1}^1 q_n(t)f(x + t) \, dt - f(x)\right| \notag \\
+    &= \left|\int_{-1}^1 q_n(x)(f(x + t) - f(x)) \, dt\right| \notag \\
+    &\leq \int_{-1}^1 q_n(x)|f(x + t) - f(x)| \, dt \notag \\
+    &= \int_{-1}^\delta (\dots) \, dt + \int_{-\delta}^\delta (\dots) \, dt  + \int_{\delta}^1 (\dots)  \, dt \notag \\
+    &\leq 2\int_{\delta}^1 q_n(x)\|f\|_\infty \, dt + \int_{-\delta}^\delta q_n(x)|f(x + t) - f(x)| \, dt \notag
+\end{align*}
+dove nel secondo passaggio si è usato il fatto che $q_n$ è normalizzata su $[-1, 1]$, nel terzo la subadditività dell'integrale, quinto il fatto che $q_n$ è pari. \\
+A questo punto, dato che $f$ è continua su un compatto ($[-1, 1]$) è valido il \textit{teorema di Heine-Cantor}, pertanto $f$ è uniformemente continua su $[-1, 1]$ e quindi anche su $[-\delta, \delta]$. Concludiamo che per ogni $\varepsilon > 0$ esiste $\delta > 0$ tale che se $|(x + t) - x| = |t| < \delta$ si ha $|f(x + t) - f(x)| < \varepsilon$ per ogni $x \in [-\delta, \delta]$. Quindi, a meno di ridefinire $\delta$, si ha
+\begin{align*}
+    |p_n(x) - f(x)| \leq 2\|f\|_\infty\sqrt{n}(1 - \delta^2)^n(1 - \delta) + 2\varepsilon\delta\sqrt{n}(1 - \delta^2)^n \rightarrow 0 \notag
+\end{align*}
+per $n \rightarrow \infty$. Inoltre, la convergenza è uniforme, infatti la condizione per l'uniforme continuità dipende solamente da $|t|$ e non da $x$. Concludiamo quindi che 
+\begin{align*}
+    \|p_n - f\|_{\infty} \rightarrow 0 \notag
+\end{align*}
+per $n \rightarrow \infty$. \qed
 
 
 \end{document}
