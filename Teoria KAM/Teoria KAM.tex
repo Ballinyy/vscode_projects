@@ -997,20 +997,25 @@ Dato $s > 0$, sia
     \mathbb{T}^n_s = \{\theta \in \mathbb{C}^n/\mathbb{Z}^n : |\mathrm{Im}\theta_j| < s\} \tag{5.15}
 \end{align}
 l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{O}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni olomorfe definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $\|\cdot\|_\infty$. \\
-In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa è continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema A.$1$ in appendice A.}. \\ \\
-Invertendo $(5.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni olomorfe a funzioni olomorfe, necessitiamo delle condizioni aritmetiche sul vettore frequenza $\alpha$, che garantiscono sufficiente 'lontananza' dalla risonanza. \\ \\
+In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa su un insieme è ivi continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema A.$1$ in appendice A.}. \\ \\
+Invertendo $(5.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni olomorfe a funzioni olomorfe, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza. \\ \\
 \textbf{Definizione 5.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
 \begin{align}
-    |k \cdot \alpha| \leq |k|^{-\tau}\gamma \tag{5.16}
+    |k \cdot \alpha| \geq \gamma|k|^{-\tau} \tag{5.16}
 \end{align}
 per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, dove
 \begin{align}
     |k| = |k_1| + \dots + |k_n| \tag{5.17}
 \end{align}
-In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $\alpha \in \mathbb{R}^n$ che sono $(\gamma, \tau)$-Diofantei, mentra
+In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $\alpha \in \mathbb{R}^n$ che sono $(\gamma, \tau)$-Diofantei. Inoltre, poniamo
 \begin{align}
     D_\tau = \bigcup_{\gamma > 0}D_{\gamma, \tau} \tag{5.18}
-\end{align}
+\end{align} \\
+\textbf{Teorema (di Dirichlet):} dato $\tau > 0$, $D_\tau \neq \emptyset$ se e solo se $\tau \geq n - 1$. \\
+
+\textbf{Dimostrazione:} $(\rightarrow)$ supponiamo $D_\tau \neq \emptyset$. Allora esiste $\alpha \in \mathbb{R}^n$ che soddisfa $(5.16)$ per un opportuno $\gamma > 0$ e ogni $k \in \mathbb{Z}^n \setminus \{0\}$. Inoltre, ciò comporta che ogni vettore della forma $\lambda\alpha$, con $|\lambda| > 1$, soddisfa $(5.16)$ per ogni $\gamma' \leq \gamma/|\lambda|$ e per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\
+
+
 
 
 \appendix
