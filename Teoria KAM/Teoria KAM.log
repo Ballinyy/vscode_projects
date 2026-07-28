@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  28 JUL 2026 12:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  28 JUL 2026 18:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -858,77 +858,102 @@ Underfull \hbox (badness 10000) in paragraph at lines 913--916
 
  []
 
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 933--937
+
+Underfull \hbox (badness 10000) in paragraph at lines 925--928
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 933--937
+Underfull \hbox (badness 10000) in paragraph at lines 925--928
+
+ []
+
+[31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 936--940
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 956--959
-
- []
-
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 973--977
+Underfull \hbox (badness 10000) in paragraph at lines 936--940
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 973--977
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 973--977
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 993--996
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 998--1003
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 998--1003
+Underfull \hbox (badness 10000) in paragraph at lines 959--962
 
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1015
+Underfull \hbox (badness 10000) in paragraph at lines 976--980
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1016--1017
-
- []
-
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 1027--1029
+Underfull \hbox (badness 10000) in paragraph at lines 976--980
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1052--1055
+Underfull \hbox (badness 10000) in paragraph at lines 976--980
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1052--1055
+Underfull \hbox (badness 10000) in paragraph at lines 996--999
 
  []
 
-[35] [36] [37] (./Teoria KAM.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1006
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1006
+
+ []
+
+[34] [35]
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1039
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1039
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1039
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1041
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1041
+
+ []
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1053
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1079
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1079
+
+ []
+
+[37] [38] [39] (./Teoria KAM.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -943,10 +968,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  98i,18n,118p,966b,230s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Teoria KAM.pdf" (37 pages, 335072 bytes).
+Output written on "Teoria KAM.pdf" (39 pages, 338525 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
+ 240 PDF objects out of 1000 (max. 8388607)
+ 155 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

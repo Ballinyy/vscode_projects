@@ -923,7 +923,10 @@ per definizione di derivata di Lie. Per la \textit{formula d'omotopia di Cartan}
 \begin{align}
     \mathcal{L}_{X_H}\omega = di_{X_H}\omega + i_{X_H}d\omega \tag{4.14}
 \end{align}
-In particolare, $d\omega = 0$, dato che che $\omega$ ha tutti coefficienti costanti, mentre $i_{X_H}\omega = dH$, pertanto $di_{X_H}\omega = d^2H = 0$ (dato che $d^2 = 0$, \textit{operatore di coomologia}). \qed
+In particolare, $d\omega = 0$, dato che che $\omega$ ha tutti coefficienti costanti, mentre $i_{X_H}\omega = dH$, pertanto $di_{X_H}\omega = d^2H = 0$ (dato che $d^2 = 0$, \textit{operatore di coomologia}). \qed \\ \\
+\textbf{Proposizione 4.2 (Herman):} (...) \\
+
+\textbf{Dimostrazione:} (...)
 
 \newpage
 \section{Serie perturbativa}
@@ -1001,19 +1004,40 @@ In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa su un insi
 Invertendo $(5.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni olomorfe a funzioni olomorfe, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza. \\ \\
 \textbf{Definizione 5.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
 \begin{align}
-    |k \cdot \alpha| \geq \gamma|k|^{-\tau} \tag{5.16}
+    |k \cdot \alpha| \geq \frac{\gamma}{\|k\|^{\tau}_\infty} \tag{5.16}
 \end{align}
 per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, dove
 \begin{align}
-    |k| = |k_1| + \dots + |k_n| \tag{5.17}
+    \|k\|_\infty = |k_1| + \dots + |k_n| \tag{5.17}
 \end{align}
 In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $\alpha \in \mathbb{R}^n$ che sono $(\gamma, \tau)$-Diofantei. Inoltre, poniamo
 \begin{align}
     D_\tau = \bigcup_{\gamma > 0}D_{\gamma, \tau} \tag{5.18}
 \end{align} \\
-\textbf{Teorema (di Dirichlet):} dato $\tau > 0$, $D_\tau \neq \emptyset$ se e solo se $\tau \geq n - 1$. \\
+\textbf{Teorema (di Dirichlet):} dato $\alpha \in \mathbb{R}^n$ e $q \in \mathbb{N}$, $q > 1$, esistono $k \in \mathbb{Z}^n \setminus \{0\}$ e $m \in \mathbb{Z}$ tali che $\|k\|_\infty \leq q$ e 
+\begin{align}
+    |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{5.19}
+\end{align}
 
-\textbf{Dimostrazione:} $(\rightarrow)$ supponiamo $D_\tau \neq \emptyset$. Allora esiste $\alpha \in \mathbb{R}^n$ che soddisfa $(5.16)$ per un opportuno $\gamma > 0$ e ogni $k \in \mathbb{Z}^n \setminus \{0\}$. Inoltre, ciò comporta che ogni vettore della forma $\lambda\alpha$, con $|\lambda| > 1$, soddisfa $(5.16)$ per ogni $\gamma' \leq \gamma/|\lambda|$ e per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\
+\textbf{Dimostrazione:} fissato $q \in \mathbb{N}$, $q > 1$, consideriamo tutti i vettori $\kappa \in \mathbb{Z}^n$ della forma
+\begin{align}
+    \kappa = (\kappa_1, \dots, \kappa_n) \qquad 0 \leq \kappa_i \leq q \tag{5.20}
+\end{align}
+per ogni $i = 1, \dots, n$. In particolare, esistono $(q + 1)^n$ vettori in $\mathbb{Z}^n$ che soddisfano $(5.20)$, infatti ogni componente ha $q + 1$ possibili valori da assumere (compreso $0$) e ci sono $n$ componenti totali. \\
+Per ogni $\kappa \in \mathbb{Z}^n$ che soddisfa $(5.20)$ poniamo $x_\kappa = |\{\kappa \cdot \alpha\}|$, dove $\{\cdot\}$ indica l'operazione di parte frazionaria. La parte frazionaria di un numero qualsiasi è sempre compresa tra $0$ e $1$ (escluso). \\
+Dividiamo l'intervallo $[0, 1)$ in $q^n$ sottointervalli di lunghezza $1/q^n$. Avendo considerato solamente i vettori interi con tutte componenti positive, per ogni $a, b \in \mathbb{Z}^n$ distinti che soddisfano $(5.20)$ si ha $x_a \neq x_b$. Pertanto l'insieme $\{x_\kappa\}_\kappa$ è costituito da $(q + 1)^n$ elementi distinti che si dispongono nell'intervallo $[0, 1)$. Dato che $(q + 1)^n > q^n$, esistono $x_a, x_b \in \{x_\kappa\}_\kappa$ tali che $|x_a - x_b| \leq 1/q^n$, ovvero
+\begin{align}
+    |\{(a - b) \cdot \alpha\}| \leq \frac{1}{q^n} \tag{5.21}
+\end{align}
+Ponendo $k = a - b$ si ha $k \neq 0$ e 
+\begin{align}
+    |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{5.22}
+\end{align}
+dove $m$ è la parte intera di $k \cdot \alpha$, pertanto si ottiene la tesi. \qed \\ \\
+\textbf{Osservazione:} se poniamo $q = \|k\|_\infty$, $(5.22)$ è valida per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\ \\
+\textbf{Corollario 5.1:} $D_\tau \neq \emptyset$ se e solo se $\tau \geq n - 1$. \\
+
+\textbf{Dimostrazione:} (...) \\ \\
 
 
 
