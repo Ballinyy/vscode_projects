@@ -232,7 +232,7 @@ Dall'arbitrarietà di $x_1, \dots, x_k$ si ottiene
     \omega^{(k)} = \sum_{i_1 < \dots < i_k} \omega_{i_1, \dots, i_k}dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.3.5}
 \end{align}
 I coefficienti $\{\omega_{i_1, \dots, i_k}\}$ sono unici per come sono state costruite le forme di base. \qed \\ \\
-Notiamo che la dimensione dello spazio delle $k$-forme su $\mathbb{R}^n$, che denotiamo con $\Lambda^{(k)}(\mathbb{R}^n)$, è $C^k_n$. \\
+Notiamo che la dimensione dello spazio delle $k$-forme su $\mathbb{R}^n$, che denotiamo con $\Omega^{(k)}(\mathbb{R}^n)$, è $C^k_n$. \\
 Per $k = n$ si ha $C^k_n = 1$, pertanto ogni $n$-forma su $\mathbb{R}^n$ o è il volume orientato di un parallelepipedo, con una scelta opportuna di unità di volume, o è nulla
 \begin{align}
     \omega^{(n)} = adx_1 \wedge \dots \wedge dx_n \tag{1.3.6}
@@ -378,8 +378,8 @@ e la $2$-forma $\omega^{(2)}_v$ definita da
 \end{align}
 per ogni $x, x_1, x_2 \in \mathbb{R}^3$. Dimostriamo che le mappe 
 \begin{align}
-    v \in \mathbb{R}^3 \mapsto \omega^{(1)}_v \in \Lambda^{(1)}(\mathbb{R}^3) \tag{1.4.13} \\
-    v \in \mathbb{R}^3 \mapsto \omega^{(2)}_v \in \Lambda^{(2)}(\mathbb{R}^3) \tag{1.4.14}
+    v \in \mathbb{R}^3 \mapsto \omega^{(1)}_v \in \Omega^{(1)}(\mathbb{R}^3) \tag{1.4.13} \\
+    v \in \mathbb{R}^3 \mapsto \omega^{(2)}_v \in \Omega^{(2)}(\mathbb{R}^3) \tag{1.4.14}
 \end{align}
 sono isomorfismi di spazi lineari. \\
 
@@ -391,7 +391,7 @@ Dimostriamo che sono iniettive e suriettive. Siano $u, v \in \mathbb{R}^3$, allo
     &= (u - v, x) = 0 \notag
 \end{align}
 per ogni $x \in \mathbb{R}^3$ se e solo se $u = v$. Pertanto la mappa definita in $(1.4.13)$ è iniettiva. Identicamente si dimostra che $v \mapsto \omega^{(2)}_v$ è iniettiva. \\
-Fissiamo una base ortonormale $\{e_1, e_2, e_3\}$ di $\mathbb{R}^3$. Data $\omega^{(1)} \in \Lambda^{(1)}(\mathbb{R}^3)$, possiamo rappresentarla come combinazione lineare delle forme di base $dx_1, dx_2, dx_3$ indotte dalla base fissata. In particolare 
+Fissiamo una base ortonormale $\{e_1, e_2, e_3\}$ di $\mathbb{R}^3$. Data $\omega^{(1)} \in \Omega^{(1)}(\mathbb{R}^3)$, possiamo rappresentarla come combinazione lineare delle forme di base $dx_1, dx_2, dx_3$ indotte dalla base fissata. In particolare 
 \begin{align}
     \omega^{(1)} = adx_1 + bdx_2 + cdx_3 \tag{1.4.15}
 \end{align}
@@ -405,7 +405,7 @@ per opportuni $a, b, c \in \mathbb{R}$. Dunque, per ogni $x \in \mathbb{R}^3$ si
     &= \omega^{(1)}_v(x) \tag{1.4.16}
 \end{align}
 dove si è definito $v = ae_1 + be_2 + ce_3$. Concludiamo che ogni $1$-forma su $\mathbb{R}^3$ è del tipo $\omega^{(1)}_v$ per qualche $v \in \mathbb{R}^3$. Segue che la mappa $v \mapsto \omega^{(1)}_v$ è un omomorfismo biettivo, ovvero un isomorfismo. \\ \\
-Analogamente, ogni $2$-forma può essere rappresentata come combinazione lineare dei monomi di base $\{dx_i \wedge dx_j\}_{i < j}$. In particolare, data $\omega^{(2)} \in \Lambda^{(2)}(\mathbb{R}^3)$, si ha 
+Analogamente, ogni $2$-forma può essere rappresentata come combinazione lineare dei monomi di base $\{dx_i \wedge dx_j\}_{i < j}$. In particolare, data $\omega^{(2)} \in \Omega^{(2)}(\mathbb{R}^3)$, si ha 
 \begin{align}
     \omega^{(2)} = Adx_2 \wedge dx_3 + Bdx_1 \wedge dx_3 + Cdx_1 \wedge dx_2 \tag{1.4.17}
 \end{align}
@@ -423,16 +423,16 @@ per opportuni $A, B, C \in \mathbb{R}^3$. Dunque, per ogni $x, y \in \mathbb{R}^
 dove si è definito $u = Ae_1 + Be_2 + Ce_3$. Concludiamo che ogni $2$-forma su $\mathbb{R}^3$ è del tipo $\omega^{(2)}_u$ per qualche $u \in \mathbb{R}^3$. Segue che anche la mappa $u \mapsto \omega^{(2)}_u$ è un isomorfismo. \qed
 
 \newpage
-\subsection{Comportamento sotto applicazioni lineari}
+\subsection{Pullback di forme esterne}
 Sia $f : \mathbb{R}^m \longrightarrow \mathbb{R}^n$ un'applicazione lineare e sia $\omega^{(k)}$ una $k$-forma su $\mathbb{R}^n$. Allora, $f$ definisce la $k$-forma $f^*\omega$ su $\mathbb{R}^m$ tramite \textit{pullback}. In particolare, si pone
 \begin{align}
     (f^*\omega^{(k)})(x_1, \dots, x_k) = \omega^{(k)}(f(x_1), \dots, f(x_k)) \tag{1.5.1}
 \end{align}
 per ogni $x_1, \dots, x_k \in \mathbb{R}^m$. \\ \\
 Verichiamo che $f^*\omega^{(k)}$ sia effettivamente una $k$-forma su $\mathbb{R}^m$. $f^*\omega^{(k)}$ è multilineare, infatti $f$ è un'applicazione lineare (che agisce su ogni entrata di $\omega^{(k)}$) e $\omega^{(k)}$ è multilineare per definizione. Infine, l'anticommutatività graduata si vede immediatamente, infatti $f$ non altera in alcun modo questa proprietà della $k$-forma. \\ \\
-\textbf{Proposizione 1.5.1:} $f^*$ è un operatore lineare da $\Lambda^{(k)}(\mathbb{R}^n)$ a $\Lambda^{(k)}(\mathbb{R}^m)$. \\
+\textbf{Proposizione 1.5.1:} $f^*$ è un operatore lineare da $\Omega^{(k)}(\mathbb{R}^n)$ a $\Omega^{(k)}(\mathbb{R}^m)$. \\
 
-\textbf{Dimostrazione:} dati $\omega_1, \omega_2 \in \Lambda^{(k)}(\mathbb{R}^n)$ e $\lambda_1, \lambda_2 \in \mathbb{R}$ si ha
+\textbf{Dimostrazione:} dati $\omega_1, \omega_2 \in \Omega^{(k)}(\mathbb{R}^n)$ e $\lambda_1, \lambda_2 \in \mathbb{R}$ si ha
 \begin{align}
     (f^*(\lambda_1\omega_1 + \lambda_2\omega_2))(x_1, \dots, x_k) &= (\lambda_1\omega_1 + \lambda_2\omega_2)(f(x_1), \dots, f(x_k)) \notag \\
     &= \lambda_1\omega_1(f(x_1), \dots, f(x_k)) \notag \\
@@ -508,9 +508,9 @@ dove $TM = \bigcup_x T_xM$, lineare su ogni spazio tangente $T_xM$ e differenzia
 \end{align}
 del fibrato tangente della varietà nella retta reale, lineare in $T_xM$ per ogni $x \in M$. \\
 In particolare, dati $(x, v) \in M \times T_xM$, si ha 
-\begin{align*}
+\begin{align}
     \omega(x, v) = \omega_x(v) \tag{1.6.8}
-\end{align*}
+\end{align}
 dove $\omega_x$ è un'applicazione lineare dello spazio tangente a $M$ in $x$ nella retta reale. \\
 Uno può dire che una $1$-forma su $M$ è una \textit{forma algebrica} (forma esterna) su $T_xM$ differenziabile in $x$. \\ \\
 \textbf{Proposizione 1.6.1:} ogni $1$-forma su $\mathbb{R}$ è il differenziale di qualche funzione. \\
@@ -520,36 +520,36 @@ Uno può dire che una $1$-forma su $M$ è una \textit{forma algebrica} (forma es
     \omega = adx \tag{1.6.9}
 \end{align}
 dove $a : \mathbb{R} \longrightarrow \mathbb{R}$ è un opportuna funzione e $dx$ è la $1$-forma di base. In particolare, dati $(x, v) \in \mathbb{R} \times T_x\mathbb{R}$ (dove $T_x\mathbb{R} = \mathbb{R}$ essenzialmente), si ha 
-\begin{align*}
+\begin{align}
     \omega(x, v) = a(x)dx(v) \tag{1.6.10}
-\end{align*}
+\end{align}
 La dipendenza da $x$ è liscia, mentre $\omega$ dipende da $v$ linearmente. Dato che $a$ è sufficientemente regolare (per ipotesi), $a$ ammette primitiva $A$. Pertanto, il differenziale di $A$ è dato da
-\begin{align*}
+\begin{align}
     dA = adx \tag{1.6.11}
-\end{align*}
+\end{align}
 ovvero $\omega = dA$. \qed \\ \\
 \textbf{Osservazione:} esibiamo una $1$-forma su $\mathbb{R}^2$ che non è il differenziale di alcuna funzione del piano nella retta. \\
 Definiamo la $1$-forma $\omega$ su $\mathbb{R}^2$ ponendo
-\begin{align*}
+\begin{align}
     \omega = a_1dx_1 + a_2dx_2 \tag{1.6.12}
-\end{align*}
+\end{align}
 dove $a_1, a_2$ sono date da 
-\begin{align*}
+\begin{align}
     a_1(x_1, x_2) &= x_1 \tag{1.6.13} \\
     a_2(x_1, x_2) &= x_1x_2 \tag{1.6.14}
-\end{align*}
+\end{align}
 Notiamo che non esiste una funzione $f$ del piano nella retta tale che 
-\begin{align*}
+\begin{align}
     a_1 = \frac{\partial f}{\partial x_1} \qquad a_2 = \frac{\partial f}{\partial x_2} \tag{1.6.15}
-\end{align*}
+\end{align}
 Infatti, possiamo pensare di "costruire" $f$ a partire dalla condizione in $(1.6.13)$, ovvero
-\begin{align*}
+\begin{align}
     f(x_1, x_2) = \frac{1}{2}x^2_1 + g(x_2) \tag{1.6.16}
-\end{align*}
+\end{align}
 dove $g$ è una funzione arbitraria della sola $x_2$ da determinare imponendo
-\begin{align*}
+\begin{align}
     \frac{\partial g}{\partial x_2} = x_1x_2 \tag{1.6.17}
-\end{align*}
+\end{align}
 Tuttavia, non esiste una funzione $g$ della sola $x_2$ che soddisfa tale condizione. \\ \\
 -- ESIBIRE 1-FORMA SULLA CIRCONFERENZA CHE NON SIA IL DIFFERENZIALE DI UNA FUNZIONE-- \\ \\
 \textbf{Teorema 1.6.1:} una $1$-forma differenziale su $M$ può essere scritta, in ogni intorno coordinato $U$, come combinazione lineare delle $n$-forme differenziali di base ($1$-forme algebriche), ovvero
@@ -587,14 +587,14 @@ La composizione, moltiplicazione per scalare e prodotto esterno di $k$-forme dif
 dove $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ è differenziabile per ogni $i_1 < \dots <i_k$. \\
 
 \textbf{Dimostrazione:} la dimostrazione è analoga a quella del \textit{teorema 1.6.1}. Osserviamo che, per definizione, fissato $x \in M$, $\omega^{(k)}_x$ è una $k$-forma esterna su $T_xM$, pertanto può essere scritta come combinazione lineare degli elementi della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Inoltre, dato che la dipendenza da $x$ deve essere differenziabile, si ottiene la tesi. \qed \\ \\
-\textbf{Proposizione 1.7.1:} l'insieme $\Lambda^{(k)}(M)$ delle $k$-forme differenziali sulla varietà $M$ è uno spazio vettoriale (di dimensione infinita se $k \leq \dim M$). \\
+\textbf{Proposizione 1.7.1:} l'insieme $\Omega^{(k)}(M)$ delle $k$-forme differenziali sulla varietà $M$ è uno spazio vettoriale (di dimensione infinita se $k \leq \dim M$). \\
 
-\textbf{Dimostrazione:} si vede immediatamente che su $\Lambda^{(k)}(M)$ è possibile definire una struttura naturale di spazio vettoriale. Dimostriamo che $\dim \Lambda^{(k)}(M) = \infty$ se $k \leq \dim M$. \\
-Sia $k \leq \dim M$, data $\omega \in \Lambda^{(k)}(M)$ si ha 
+\textbf{Dimostrazione:} si vede immediatamente che su $\Omega^{(k)}(M)$ è possibile definire una struttura naturale di spazio vettoriale. Dimostriamo che $\dim \Omega^{(k)}(M) = \infty$ se $k \leq \dim M$. \\
+Sia $k \leq \dim M$, data $\omega \in \Omega^{(k)}(M)$ si ha 
 \begin{align}
    \omega^{(k)} = \sum_{i_1 < \dots < i_k}a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.7.3}
 \end{align}
-per opportune $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ sufficientemente regolari. Concludiamo che $\dim \Lambda^{(k)}(M) = \infty$, infatti la condizione di dipendenza lineare su un qualsiasi insieme di $k$-forme differenziali su $M$ si riduce ad una condizione di dipendenza lineare sull'insieme delle funzioni $\{a_{i_1, \dots, i_k}\}_{i_1 < \dots < i_k}$ che ne definiscono lo sviluppo in termini della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Tuttavia, lo spazio vettoriale $\mathcal{C}^{(k)}(M)$ è infinito dimensionale per ogni $k \in \mathbb{Z}_{\geq 0}$. \qed \\ \\
+per opportune $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ sufficientemente regolari. Concludiamo che $\dim \Omega^{(k)}(M) = \infty$, infatti la condizione di dipendenza lineare su un qualsiasi insieme di $k$-forme differenziali su $M$ si riduce ad una condizione di dipendenza lineare sull'insieme delle funzioni $\{a_{i_1, \dots, i_k}\}_{i_1 < \dots < i_k}$ che ne definiscono lo sviluppo in termini della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Tuttavia, lo spazio vettoriale $\mathcal{C}^{(k)}(M)$ è infinito dimensionale per ogni $k \in \mathbb{Z}_{\geq 0}$. \qed \\ \\
 \textbf{Esempio:} supponiamo che in $\mathbb{R}^3$ si abbiano due sistemi di coordinate
 \begin{align}
    \mathbf{x} = (x_1, x_2, x_3) \qquad \mathbf{y} = (y_1, y_2, y_3) \tag{1.7.4}
@@ -622,34 +622,101 @@ con
    Y_k = \left|\frac{\partial(x_2, x_3)}{\partial(y_i, y_j)}\right|X_1 + \left|\frac{\partial(x_1, x_3)}{\partial(y_i, y_j)}\right|X_2 + \left|\frac{\partial(x_1, x_2)}{\partial(y_i, y_j)}\right|X_3 \tag{1.7.9}
 \end{align}
 per $k = 1, 2, 3$, $i < j$ e $i, j \neq k$.
+
+\newpage
+\subsection{Pullback di forme differenziali}
+Analogamente a quanto fatto per le $k$-forme esterne, date $f : M \longrightarrow N$ applicazione differenziabile di varietà differenziabili e $\omega^{(k)} \in \Omega^{(k)}(N)$, definiamo il \textit{pullback} di $\omega^{(k)}$ tramite $f$ come segue
+\begin{align}
+    f^*\omega = \omega \circ f_* \tag{1.8.1}
+\end{align}
+dove $f_*$ è il differenziale di $f$
+\begin{align}
+    f_* : TM \longrightarrow TN \tag{1.8.2}
+\end{align}
+lineare in ogni spazio tangente. Ovviamente, $f$ agisce anche sulla dipendenza di $\omega$ da $x \in M$, ovvero
+\begin{align}
+    f^*\omega_x(v_1, \dots, v_k) = \omega_{f(x)}(f_*(v_1), \dots, f_*(v_k)) \tag{1.8.3}
+\end{align}
+per ogni $x \in M$ e $v_1, \dots, v_k \in T_xM$. \\ \\ 
+\textbf{Esempio:} sia $M = \mathbb{R}^2$, $N = \mathbb{R}_{\geq 0}$ e $f$ la mappa
+\begin{align}
+    (x_1, x_2) \mapsto x^2_1 + x^2_2 \tag{1.8.4}
+\end{align}
+Data $\omega = dy$ $1$-forma su $\mathbb{R}$, si ha che 
+\begin{align}
+    f^*\omega = \omega \circ f_* = 2x_1dx_1 + 2x_2dx_2 \tag{1.8.5}
+\end{align}
+Dalla definizione di pullback si vede facilmente che $f^*\omega$ è una $k$-forma differenziale su $N$ e che $f^*$ è un omomorfismo da $\Omega^{(k)}(N)$ a $\Omega^{(k)}(M)$. \\ \\
+\textbf{Proposizione 1.8.1:} sia $g : L \longrightarrow M$ un'applicazione differenziabile di varietà differenziabili. Allora $(f \circ g)^* = g^* \circ f^*$. \\
+
+\textbf{Dimostrazione:} data $\omega^{(k)} \in \Omega^{(k)}(N)$ si ha
+\begin{align}
+    (f \circ g)^*\omega = \omega \circ (f \circ g)_* \tag{1.8.6}
+\end{align}
+In particolare, dati $v_1, \dots, v_s \in L$ si ha
+\begin{align}
+    (f \circ g)^*\omega(v_1, \dots, v_s) &= \omega((f \circ g)_*v_1, \dots, (f \circ g)_*v_s) \notag \\
+    &= \omega(f_*(g_*(v_1)), \dots, f_*(g_*(v_s))) \notag \\
+    &= f^*\omega(g_*(v_1), \dots, g_*(v_s)) \notag \\
+    &= g^*f^*\omega(v_1, \dots, v_s) \tag{1.8.7}
+\end{align}
+
 \newpage
 \subsection{Integrazione delle forme differenziali}
 Introduciamo ora il concetto di integrazione di una $k$-forma differenziale su una varietà $n$-dimensionale. \\ \\
-Sia $M$ una varietà differenziale e $\gamma : [0, 1] \longrightarrow M$ una curva differenziabile. Data $\omega$, una $1$-forma su $M$, definiamo l'integrale di $\omega$ lungo $\gamma$ facendo uso delle solite somme integrali. \\
+Sia $M$ una $n$-varietà differenziale e $\gamma : [0, 1] \longrightarrow M$ una curva differenziabile. Data $\omega$, una $1$-forma su $M$, definiamo l'integrale di $\omega$ lungo $\gamma$ facendo uso delle solite somme integrali. \\
 In particolare, consideriamo $s$ punti $0 = t_1 < t_2 < \dots < t_s = 1$. Si definiscono così $s -1$ intervalli della forma $[t_i, t_{i + 1}]$ e di lunghezza $\Delta_i = t_{i + 1} - t_i$, per $0 \leq i \leq s - 1$. Sia $\Delta = \max_i \Delta_i$, definiamo l'integrale di $\omega$ lungo $\gamma$ come segue
 \begin{align}
-   \int_\gamma \omega = \lim_{\Delta \rightarrow 0}\sum_i \omega(v_i) \tag{1.8.1}
+   \int_\gamma \omega = \lim_{\Delta \rightarrow 0}\sum_i \omega(v_i) \tag{1.9.1}
 \end{align}
 dove $v_i$ è il vettore tangente a $\gamma$ in $t_i$, ovvero
 \begin{align}
-   v_i = \dot{\gamma}(t_i) \tag{1.8.2}
+   v_i = \dot{\gamma}(t_i) \tag{1.9.2}
 \end{align}
 $0 \leq i \leq s - 1$. Osserviamo che il limite $\Delta \rightarrow 0$ corrisponde al limite $s\rightarrow \infty$. \\ \\
+In particolare, se $\omega = a_1dx_1 + \dots + a_ndx_n$, con $a_1, \dots, a_n : M \rightarrow \mathbb{R}$ differenziabili, $(1.9.1)$ è equivalente a
+\begin{align}
+    \int_0^1 \sum_{i = 1}^n a_i(\gamma(t))\dot{\gamma}_i(t) \, dt \tag{1.9.3}
+\end{align}
+definito tramite somme di Riemann. \\ \\
 Analogamente si definisce l'integrale di una $k$-forma differenziale su una superficie $k$-dimensionale, ovvero suddividendo la superficie in parallelepipedi ai quali sostituiamo poi parallelepipedi dello spazio tangente, ognuno dei quali identificato da opportuni $k$ vettori tangenti alla superficie, e sommando i valori che la $k$-forma differenziale assume su di essi. \\
 Prendendo il limite di parallelepipedi tangenti sempre più piccoli (e sempre più numerosi) si ottiene la definizione di integrale di una $k$-forma differenziale su una $k$-varietà differenziabile. \\ \\
-Per $k$-forme differenziali su $\mathbb{R}^k$ è possibile ricondurre la definizione di integrale di una curva su un poliedro convesso limitato $k$ alla definizione di integrale di funzione in termini della somme di Riemann. In particolare, data $\omega^{(k)}$ una $k$-forma differenziale su $\mathbb{R}^k$, esiste $a : \mathbb{R}^k \longrightarrow \mathbb{R}$ differenziabile tale che 
+Per $k$-forme differenziali su $\mathbb{R}^k$ è possibile ricondurre la definizione di integrale di una forma differenziale su un poliedro convesso limitato $k$ alla definizione di integrale di funzione in termini di somme di Riemann. In particolare, data $\omega^{(k)}$ una $k$-forma differenziale su $\mathbb{R}^k$, esiste $a : \mathbb{R}^k \longrightarrow \mathbb{R}$ differenziabile tale che 
 \begin{align}
-    \omega^{(k)} = adx_1 \wedge \dots \wedge dx_k \tag{1.8.3}
+    \omega^{(k)} = adx_1 \wedge \dots \wedge dx_k \tag{1.9.4}
 \end{align}
 Definiamo
 \begin{align}
-    \int_D \omega^{(k)} = \int_D a(x) \, dx_1 \dots dx_k \tag{1.8.4}
+    \int_D \omega^{(k)} = \int_D a(x) \, dx_1 \dots dx_k \tag{1.9.5}
 \end{align}
-Segue che anche $\int_D \omega^{(k)}$ dipende da $\omega^{(k)}$ e da $D$ linearmente (per le proprietà dell'integrale di Riemann), ovvero
+dato che identifichiamo $T\mathbb{R}^k$ con $\mathbb{R}^k$ stesso. \\ \\
+Da $(1.9.5)$ segue che anche $\int_D \omega^{(k)}$ dipende da $\omega^{(k)}$ e da $D$ linearmente (per le proprietà dell'integrale di Riemann), ovvero
 \begin{align}
-    \int_{D_1 + D_2} \omega^{(k)}_1 + \omega^{(k)}_2 = \int_{D_1}\omega^{(k)}_1 + \int_{D_2}\omega^{(k)}_2 + \int_{D_1}\omega^{(k)}_2 + \int_{D_2}\omega^{(k)}_1 \tag{1.8.5}
+    \int_{D_1 + D_2} \omega^{(k)}_1 + \omega^{(k)}_2 = \int_{D_1}\omega^{(k)}_1 + \int_{D_2}\omega^{(k)}_2 + \int_{D_1}\omega^{(k)}_2 + \int_{D_2}\omega^{(k)}_1 \tag{1.9.6}
 \end{align}
-per ogni $\omega^{(k)}_1, \omega^{(k)}_2 \in \Lambda^{(k)}(\mathbb{R}^k)$ e ogni $D_1, D_2$ poliedri convessi limitati in $\mathbb{R}^k$.
+per ogni $\omega^{(k)}_1, \omega^{(k)}_2 \in \Omega^{(k)}(\mathbb{R}^k)$ e ogni $D_1, D_2$ poliedri convessi limitati in $\mathbb{R}^k$. \\ \\
+\textbf{Proposizione 1.9.1:} siano $D_1, D_2$ poliedri convessi limitati di $\mathbb{R}^k$ e sia $f : D_1 \longrightarrow D_2$ un diffeomorfismo che conserva l'orientazione dell'interno di $D_1$ nell'interno di $D_2$. Data $\omega^{(k)} \in \Omega^{(k)}(\mathbb{R}^k)$ si ha
+\begin{align}
+    \int_{D_1} f^*\omega^{(k)} = \int_{D_2} \omega^{(k) \tag{1.9.7}}
+\end{align} \\
+
+\textbf{Dimostrazione:} nel sistema di coordinate $y = f(x)$ identificato da $f$ si ha
+\begin{align}
+    \omega^{(k)} = a(y)dy_1 \wedge \dots \wedge dy_k \tag{1.9.8}
+\end{align}
+per un'opportuna funzione differenziabile $a : D_2 \longrightarrow \mathbb{R}$. Trattando $y_i$ come funzione di $x$ per ogni $i = 1, \dots, k$, si ha
+\begin{align}
+    dy_i = \sum_{j = 1}^k \frac{\partial y_i}{\partial x_j}dx_j \tag{1.9.9}
+\end{align}
+Allora
+\begin{align}
+    \int_{D_2} \omega^{(k)} &= \int_{D_2} a(y) \, dy_1 \dots dy_k \notag \\
+    &= \int_{D_1} a(y(x))\left|\frac{\partial(x_1, \dots, x_k)}{\partial(y_1, \dots, y_k)}\right| \, dx_1 \dots dx_k \notag \\
+    &= \int_{D_1} f^*\omega^{(k)} \tag{1.9.10}
+\end{align}
+ovvero la tesi. \qed \\ \\
+Vogliamo estendere la definizione di integrazione di $k$-forme differenziali su $\mathbb{R}^k$ per integrali di $k$-forme differenziali su varietà $n$-dimensionali. \\ \\
+Siano $\omega^{(k)}$ una $k$-forma differenziale su una varietà $n$-dimensionale $M$, $D$ un poliedro convesso limitato in $\mathbb{R}^k$ e $f : D \longrightarrow M$ un'applicazione differenziabile.
  
 
 
@@ -693,32 +760,6 @@ per ogni $t \in \mathbb{R}$ (intervallo massimale di definizioni delle soluzioni
     \varphi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} \tag{3.3}
 \end{align}
 Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \partial_rH(r_0) \in \mathbb{R}^n$. \\ \\
-\textbf{Definizione:} siano $f : X \longrightarrow X$ e $g : Y \longrightarrow Y$ due applicazioni continue di spazi topologici. $f$ e $g$ sono \textit{topologicamente coniugate} se esiste un omeomorfismo $h : X \longrightarrow Y$ tale che
-\begin{align}
-    h \circ f = g \circ h \tag{3.4}
-\end{align}
-ovvero se per ogni $x \in X$ vale $h(f(x)) = g(h(x))$. \\ \\
-\textbf{Osservazione:} sia $M$ una varietà differenziabile, siano $\Phi_1, \Phi_2 : M \longrightarrow TM$ campi vettoriali e indichiamo con $\varphi^{(1)}, \varphi^{(2)}$ i loro rispettivi flussi. In particolare, $\varphi^{(1)}$ e $\varphi^{(2)}$ sono detti topologicamente coniugati se esiste un omeomorfismo $h : M \longrightarrow M$ tale che
-\begin{align}
-    h(\varphi^{(1)}(t, x)) = \varphi^{(2)}(t, h(x)) \tag{3.5}
-\end{align}
-per ogni $x \in M$ e ogni $t \in \mathbb{R}$. \\ \\
-\textbf{Definizione:} un'applicazione continua $p : R \longrightarrow X$ di spazi topologici è detta \textit{rivestimento} se è suriettiva e se ogni $x \in X$ ammette un intorno aperto $U_x$ tale che $p^{-1}(U_x)$ è unione disgiunta di aperti di $R$, ognuno dei quali viene mappato omeomorficamente su $U_x$ da $p$. \\ \\
-\textbf{Definizione:} sia $f : X \longrightarrow Y$ un'applicazione continua di spazi topologici e siano
-$p : \tilde{X} \longrightarrow X$ e $q : \tilde{Y} \longrightarrow Y$ rivestimenti. $\tilde{f} : \tilde{X} \longrightarrow \tilde{Y}$ è detto \textit{sollevamento} di $f$ se $q \circ \tilde{f} = f \circ p$. \\ \\
-\textbf{Osservazione:} Notiamo che il sollevamento di un'applicazione continua non è unico. Infatti, in base alle proprietà del rivestimento, si possono trovare più sollevamenti. La non unicità dipende dal fatto che in generale $p$ non è iniettiva, quindi $p^{-1}(x)$ può contenere più di un punto. \\ \\
-Dato $X$ spazio topologico e $x_0 \in X$ chiamiamo spazio topologico \textit{puntato} o \textit{con punto base} la coppia $(X, x_0)$. Inoltre, dati due spazi topologici puntati $(X, x_0), (Y, y_0)$ chiamiamo \textit{applicazione continua di spazi topologici} una mappa continua $f : (X, x_0) \longrightarrow (Y, y_0)$ tale che $f(x_0) = y_0$. \\ \\
-\textbf{Teorema (di unicità del sollevamento):} siano $p : (R, r_0) \longrightarrow (Y, y_0)$ un rivestimento e $f : (X, x_0) \longrightarrow (Y, y_0)$ un'applicazione continua di spazi topologici puntati con $X$ connesso. Se esiste $\tilde{f} : (X, x_0) \longrightarrow (R, r_0)$ continua tale che $p \circ \tilde{f} = f$, è unica. \\
-
-\textbf{Dimostrazione:} supponiamo che esistano $\tilde{f}_1, \tilde{f}_2 : (X, x_0) \longrightarrow (R, r_0)$ tali che $p \circ \tilde{f}_1 = f = p \circ \tilde{f}_2$. \\
-Poniamo 
-\begin{align}
-    A &= \{x \in X : \tilde{f}_1(x) = \tilde{f}_2(x)\} \notag \\
-    B &= \{x \in X : \tilde{f}_1(x) \neq \tilde{f}_2(x)\} \notag
-\end{align}
-Dimostriamo che $A$ e $B$ sono aperti di $X$. \\
-Per ipotesi $x_0 \in A$, infatti $\tilde{f}_1(x_0) = r_0 = \tilde{f}_2(x_0)$, pertanto $A \neq \emptyset$. Dato $z \in A$, poniamo $\tilde{f}_1(z) = r = \tilde{f}_2(z)$. Sia $y = p(r)$, per definizione di rivestimento esiste un intorno aperto $U_y$ di $y$ tale che la restrizione di $p$ a $V_y := p^{-1}(U_y)$ è un omeomorfismo. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni di $z$ tali che $\tilde{f}_1(W_1) \subset V_y$ e $\tilde{f}_2(W_2) \subset V_y$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1 \cap W_2$ e, dato che $p|_{V_y}$ è un omeomorfismo, si ha che $\tilde{f}_1 = \tilde{f}_2$ in $W_1 \cap W_2$. Allora $W_1 \cap W_2 \subset A$ e dall'arbitrarietà del punto $z$ scelto segue che $A$ è un aperto. \\
-Supponiamo per assurdo che esista un elemento $z \in B$ e poniamo $\tilde{f}_1(z) = r_1$ e $\tilde{f}_2(z) = r_2$. Siano $y_1 = p(r_1)$ e $y_2 = p(r_2)$. Per definizione di rivestimento, esistono $U_{y_1}$ e $U_{y_2}$, rispettivamente intorno aperto di $y_1$ e $y_2$, tali che la restrizione di $p$ a $V_{y_1} := p^{-1}(U_{y_1})$ e la restrizione di $p$ a $V_{y_2} := p^{-1}(U_{y_2})$ sono omeomorfismi. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni aperti di $z$ tali che $\tilde{f}_1(W_1) \subset V_{y_1}$ e $\tilde{f}_2(W_2) \subset V_{y_2}$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1$ e ogni $x \in W_2$. Allora $\tilde{f}_1 = \tilde{f}_2$ per ogni $x \in W_1$ e ogni $x \in W_2$, in particolare per $z$, quindi si ottiene un assurdo. Segue che $B = \emptyset$ e di conseguenza $A = X \setminus B = X$. \qed \\ \\ \\
 Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso 
 \begin{align}
     \varphi_t : \mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
@@ -728,42 +769,42 @@ dove $\alpha = \partial_rH(r)$. \\ \\
 
 \textbf{Dimostrazione:} supponiamo che i flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
 \begin{align}
-    h(\theta + t\alpha) = h(\theta) + t\beta \tag{3.6}
+    h(\theta + t\alpha) = h(\theta) + t\beta \tag{3.4}
 \end{align}
 A meno di sostituire $h(\theta)$ con $h(\theta) - h(0)$, possiamo supporre $h(0) = 0$. Sia $H : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ l'unico sollevamento di $h$ tale che $H(0) = 0$. Allora 
 \begin{align}
-    H(\theta + t\alpha) = H(\theta) + t\beta \tag{3.7}
+    H(\theta + t\alpha) = H(\theta) + t\beta \tag{3.5}
 \end{align}
 è soddisfatta per $\theta = 0$ e $t = 0$. Sia $\pi : \mathbb{R}^n \longrightarrow \mathbb{T}^n$ la proiezione canonica, per definizione di sollevamento
 \begin{align}
-    \pi(H(\theta + t\alpha)) = \pi(H(\theta) + t\beta) \tag{3.8}
+    \pi(H(\theta + t\alpha)) = \pi(H(\theta) + t\beta) \tag{3.6}
 \end{align}
  per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$. Concludiamo che 
 \begin{align}
-    H(\theta + t\alpha) - H(\theta) - t\beta \in \mathbb{Z}^n \tag{3.9}
+    H(\theta + t\alpha) - H(\theta) - t\beta \in \mathbb{Z}^n \tag{3.7}
 \end{align}
 per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$, dato che $\pi$ è una mappa $\mathbb{Z}^n$-periodica. \\
 Fissato $t \in \mathbb{R}$, sia $\Delta_H$ la mappa
 \begin{align}
-    \theta \mapsto H(\theta + t\alpha) - H(\theta) - t\beta \tag{3.10}
+    \theta \mapsto H(\theta + t\alpha) - H(\theta) - t\beta \tag{3.8}
 \end{align}
-Notiamo immediatamente che $\Delta_H$ è continua, infatti $H$ è continua. Inoltre, dato che $\mathbb{R}^n$ è connesso, $\Delta_H$ continua e $\mathbb{Z}^n$ uno spazio con topologia discreta, concludiamo che $\Delta_H$ è costante. Pertanto $(3.7)$ è soddisfatta per ogni $\theta \in \mathbb{R}^n$ (e ogni $t \in \mathbb{R}^n$). \\ \\
+Notiamo immediatamente che $\Delta_H$ è continua, infatti $H$ è continua. Inoltre, dato che $\mathbb{R}^n$ è connesso, $\Delta_H$ continua e $\mathbb{Z}^n$ uno spazio con topologia discreta, concludiamo che $\Delta_H$ è costante. Pertanto $(3.5)$ è soddisfatta per ogni $\theta \in \mathbb{R}^n$ (e ogni $t \in \mathbb{R}^n$). \\ \\
 Notiamo che esiste $A \in GL_n(\mathbb{Z})$ tale che
  \begin{align}
-    H(\theta + k) = H(\theta) + Ak \tag{3.11}
+    H(\theta + k) = H(\theta) + Ak \tag{3.9}
  \end{align}
 per ogni $k \in \mathbb{Z}^n$. Infatti, per definizione di sollevamento, si ha
 \begin{align}
-    \pi(H(\theta + k)) = h(\pi(\theta + k)) = h(\pi(\theta)) = \pi(H(\theta)) \tag{3.12}
+    \pi(H(\theta + k)) = h(\pi(\theta + k)) = h(\pi(\theta)) = \pi(H(\theta)) \tag{3.10}
  \end{align}
 ovvero
 \begin{align}
-    H(\theta + m) - H(\theta) \in \mathbb{Z}^n \tag{3.13}
+    H(\theta + m) - H(\theta) \in \mathbb{Z}^n \tag{3.11}
  \end{align}
 ed è costante per ogni $\theta \in \mathbb{R}^n$ (si verifica analogamente a come fatto per $\Delta_H$). \\
 $A$ è invertibile, perché $H$ lo è. Consideriamo il campo vettoriale
 \begin{align}
-    V := A^{-1}H - \mathbf{1} : \mathbb{R}^n \longrightarrow \mathbb{R}^n \tag{3.13}
+    V := A^{-1}H - \mathbf{1} : \mathbb{R}^n \longrightarrow \mathbb{R}^n \tag{3.12}
 \end{align}
 $V$ è $\mathbb{Z}^n$-periodico, infatti, dato $\theta \in \mathbb{R}^n$, si ha
 \begin{align}
@@ -771,78 +812,78 @@ $V$ è $\mathbb{Z}^n$-periodico, infatti, dato $\theta \in \mathbb{R}^n$, si ha
     &= A^{-1}H(\theta + m) - \theta + m \notag \\
     &= A^{-1}H(\theta) + m - \theta + m \notag \\
     &= (A^{-1}H - \mathbf{1})(\theta) \notag \\
-    &= V(\theta) \tag{3.14}
+    &= V(\theta) \tag{3.13}
 \end{align}
-per ogni $m \in \mathbb{Z}^n$. Riscrivendo $(3.7)$ in termini di $V$ si ottiene
+per ogni $m \in \mathbb{Z}^n$. Riscrivendo $(3.5)$ in termini di $V$ si ottiene
 \begin{align}
-    (AV + A)(\theta + t\alpha) = (AV + A)(\theta) + t\beta \tag{3.15}
+    (AV + A)(\theta + t\alpha) = (AV + A)(\theta) + t\beta \tag{3.14}
 \end{align}
 ovvero
 \begin{align}
-    AV(\theta + t\alpha) - AV(\theta) = t(\beta - A\alpha) \tag{3.16}
+    AV(\theta + t\alpha) - AV(\theta) = t(\beta - A\alpha) \tag{3.15}
 \end{align}
 In particolare, per $\theta = 0$, si ha
 \begin{align}
-    A(V(t\alpha) - V(0)) = t(\beta - A\alpha) \tag{3.17}
+    A(V(t\alpha) - V(0)) = t(\beta - A\alpha) \tag{3.16}
 \end{align}
 Il membro di sinistra è limitato (dato che $V$ è $\mathbb{Z}^n$-periodico), allora deve valere $\beta = A\alpha$. \qed \\ \\
 \textbf{Proposizione 3.1:} le seguenti affermazioni sono equivalenti: \\
 \textbf{1.} Il vettore frequenza $\alpha$ è \textit{non risonante}, ovvero $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\
 \textbf{2.} Il flusso $\varphi_t$ del campo vettoriale costante $\alpha$ è \textit{ergotico}, ovvero tutte le funzioni continue $f$ di $\mathbb{T}^n$ che soddisfano
 \begin{align}
-    f(\theta + t\alpha) = f(\theta) \tag{3.18}
+    f(\theta + t\alpha) = f(\theta) \tag{3.17}
 \end{align}
 per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$ sono costanti. \\
 \textbf{3.} Per ogni funzione continua su $\mathbb{T}^n$ esiste la media temporale $\overline{f}$ e combacia con la media spaziale su $\mathbb{T}^n$, ovvero
 \begin{align}
-    \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt = \int_{\mathbb{T}^n} f(\theta) \, d\theta \tag{3.19}
+    \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt = \int_{\mathbb{T}^n} f(\theta) \, d\theta \tag{3.18}
 \end{align}
 ricordando che $\mathbb{T}^n$ ha misura di Lebesgue unitaria dato che è identificato con il cubo $[0, 1)^n$ ad estremi "incollati". \\
 \textbf{4.} Ogni traiettoria di $\varphi_t$ è densa in $\mathbb{T}^n$. \\
 
 \textbf{Dimostrazione:} $(1 \rightarrow 2)$ sia $f$ una funzione di $\mathbb{T}^n$ tale che $f \circ \varphi_t = f$ per ogni $t \in \mathbb{R}$. Il $k$-esimo coefficiente di Fourier di $f \circ \varphi_t$ è dato da 
 \begin{align}
-    \widehat{f \circ \varphi_t}(k) = \int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta}f(\theta + t\alpha) \, d\theta \tag{3.20}
+    \widehat{f \circ \varphi_t}(k) = \int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta}f(\theta + t\alpha) \, d\theta \tag{3.19}
 \end{align}
-Poniamo $\theta' = \theta + t\alpha$, allora $\theta = \theta' - t\alpha$ e $d\theta = d\theta'$. Sostituendo in $(3.20)$ si ottiene
+Poniamo $\theta' = \theta + t\alpha$, allora $\theta = \theta' - t\alpha$ e $d\theta = d\theta'$. Sostituendo in $(3.19)$ si ottiene
 \begin{align}
-    \widehat{f \circ \varphi_t}(k) = e^{i2\pi k \cdot \alpha t}\int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta'}f(\theta') \, d\theta' = e^{i2\pi k \cdot \alpha t}\widehat{f}(k) \tag{3.21}
+    \widehat{f \circ \varphi_t}(k) = e^{i2\pi k \cdot \alpha t}\int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta'}f(\theta') \, d\theta' = e^{i2\pi k \cdot \alpha t}\widehat{f}(k) \tag{3.20}
 \end{align}
 Per ipotesi $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, pertanto, per unicità dei coefficienti di Fourier, concludiamo che $\widehat{f}(k) = 0$ per ogni $k \in \mathbb{Z} \setminus \{0\}$, quindi $f$ costante. \\ \\
 $(2 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ tale che $k \cdot \alpha = 0$. Allora la funzione $f$, definita da
 \begin{align}
-    f(\theta) = e^{i2\pi k \cdot \theta} \tag{3.22}
+    f(\theta) = e^{i2\pi k \cdot \theta} \tag{3.21}
 \end{align}
 per ogni $\theta \in \mathbb{R}^n$, è invariante ma non costante, pertanto si ottiene un assurdo. \\ \\
-$(1 \rightarrow 3)$ Se $f$ è costante $(3.19)$ è immediatamente verificata. Se $f$ è della forma
+$(1 \rightarrow 3)$ Se $f$ è costante $(3.18)$ è immediatamente verificata. Se $f$ è della forma
 \begin{align}
-    f(\theta) = e^{i2\pi k \cdot \theta} \tag{3.23}
+    f(\theta) = e^{i2\pi k \cdot \theta} \tag{3.22}
 \end{align}
 per ogni $\theta \in \mathbb{R}^n$, con $k \in \mathbb{Z}^n \setminus \{0\}$, si ottiene
 \begin{align}
     \frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt &= \frac{1}{T}e^{i2\pi k \cdot \theta}\int_0^T e^{i2\pi k \cdot \alpha t} \, dt \notag \\
-    &= \frac{1}{T}e^{i2\pi k \cdot \theta}\frac{e^{i2\pi k \cdot aT} - 1}{ik \cdot \alpha} \rightarrow 0 \tag{3.24}
+    &= \frac{1}{T}e^{i2\pi k \cdot \theta}\frac{e^{i2\pi k \cdot aT} - 1}{ik \cdot \alpha} \rightarrow 0 \tag{3.23}
 \end{align}
 per $T \rightarrow \infty$, ovvero la media temporale è nulla come la media spaziale (per simmetria del toro $n$-dimensionale e disparità della funzione $f$). \\
-Se $f$ è un polinomio trigonometrico può essere espressa come somma finita di termini della forma $e^{i2\pi m \cdot \theta}$, per $m \in \mathbb{Z}^n$. Pertanto $(3.19)$ è verificata grazie a $(3.24)$ per linearità dell'integrale. \\
-Per il \textit{teorema di Stone-Weierstrass}\footnote{In appendice A}, se $f$ è continua, fissato $\varepsilon > 0$, esiste $P$ polinomio trigonometrico tale che
+Se $f$ è un polinomio trigonometrico può essere espressa come somma finita di termini della forma $e^{i2\pi m \cdot \theta}$, per $m \in \mathbb{Z}^n$. Pertanto $(3.18)$ è verificata grazie a $(3.23)$ per linearità dell'integrale. \\
+Per il \textit{teorema di Stone-Weierstrass}\footnote{In appendice B}, se $f$ è continua, fissato $\varepsilon > 0$, esiste $P$ polinomio trigonometrico tale che
 \begin{align}
-    \max_{\theta \in \mathbb{T}^n} |f(\theta) - P(\theta)| < \varepsilon \tag{3.25}
+    \max_{\theta \in \mathbb{T}^n} |f(\theta) - P(\theta)| < \varepsilon \tag{3.24}
 \end{align}
 In particolare, per polinomi trigonometrici abbiamo appena dimostrato che 
 \begin{align}
-    \left|\frac{1}{T}\int_0^T P(\theta + t\alpha) \, dt\right| \rightarrow 0 \tag{3.26}
+    \left|\frac{1}{T}\int_0^T P(\theta + t\alpha) \, dt\right| \rightarrow 0 \tag{3.25}
 \end{align}
 per $T \rightarrow \infty$. Indichiamo con $\overline{\cdot}$ l'operazione di media spaziale, allora
 \begin{align}
     \left|\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt - \overline{f}\right| &\leq \frac{1}{T}\int_0^T \left|f(\theta + t\alpha) - P(\theta + t\alpha)\right| \, dt \, + \notag \\
     &+ \left|\frac{1}{T}\int_0^T P(\theta + t\alpha) \, dt - \overline{P}\right| \, + \notag \\
-    &+ \left|\overline{P} - \overline{f}\right| < 3\varepsilon \tag{3.27}
+    &+ \left|\overline{P} - \overline{f}\right| < 3\varepsilon \tag{3.26}
 \end{align}
 per $T$ sufficientemente grande. \\ \\
-$(3 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ tale che $k \cdot \alpha = 0$. Allora $f$ definita in $(3.22)$ è una funzione invariante e continua che ha media temporale diversa dalla media spaziale, infatti
+$(3 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ tale che $k \cdot \alpha = 0$. Allora $f$ definita in $(3.21)$ è una funzione invariante e continua che ha media temporale diversa dalla media spaziale, infatti
 \begin{align}
-    \frac{1}{T}\int_0^T e^{i2\pi k \cdot (\theta + \alpha t)} \, dt = e^{i2\pi k \cdot \theta} \tag{3.28}
+    \frac{1}{T}\int_0^T e^{i2\pi k \cdot (\theta + \alpha t)} \, dt = e^{i2\pi k \cdot \theta} \tag{3.27}
 \end{align}
 mentre $\overline{f} = 0$. \\ \\
 $(1 \rightarrow 4)$ Supponiamo che $\varphi_t$ ammetta una traiettoria \textit{non} densa. Allora esiste $\theta_0 \in \mathbb{T}^n$ che possiede un intorno aperto $U$ che non interseca con la traiettoria. \\
@@ -850,7 +891,7 @@ Consideriamo una funzione continua $f$ definita su $\mathbb{T}^n$ tale che $f(\t
 $(4 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n$ tale che $k \cdot \alpha = 0$. Consideriamo $\theta_0 = k/2\mod\mathbb{Z}^n$, mostriamo che esiste un intorno aperto $U$ di $\theta_0$ che non viene mai visitato dalla traiettoria $t \mapsto t\alpha$ su $\mathbb{T}^n$. \\
 Supponiamo che esista $\theta \in U$ tale che $t\alpha = \theta$ per qualche $t \in \mathbb{R}$. Equivalentemente, esistono $t \in \mathbb{T}^n$ e $l \in \mathbb{Z}^n$ tali che $t\alpha = \theta + l$ ($\mathbb{T}^n$ è $\mathbb{Z}^n$-periodico). Facendo il prodotto scalare con $k$ si ottiene
 \begin{align}
-    0 = k \cdot \theta + k \cdot l \tag{3.29}
+    0 = k \cdot \theta + k \cdot l \tag{3.28}
 \end{align}
 Tuttavia, possiamo scegliere $U$ in modo tale che $0 < |k \cdot \theta| < 1$, mentre $k \cdot l \in \mathbb{Z}$, pertanto si ottiene un assurdo. \qed
 
@@ -901,11 +942,11 @@ dove si è posto $\tilde{\theta} = \theta$ e $\tilde{r} = r + \rho$, segue che $
 ovvero $\phi^*\omega = \omega$. \\ \\
 \textbf{Esempio:} sia $\varphi$ un diffeomorfismo su $\mathbb{T}^n$. Definiamo il sollevamento $\phi$ di $\varphi$ a $\mathbb{T}^n \times \mathbb{R}^n$
 \begin{align}
-    \phi: \quad (\theta, r) \mapsto \underbrace{(\varphi(\theta), r(\varphi'(\theta)^{-1}))}_{(\tilde{\theta}, \tilde{r})} \tag{4.10}
+    \phi: \quad (\theta, r) \mapsto \underbrace{(\varphi(\theta), r(\varphi_*(\theta)^{-1}))}_{(\tilde{\theta}, \tilde{r})} \tag{4.10}
 \end{align}
-dove con $\varphi'$ si intende lo jacobiano. Il diffeomorfismo $\phi$ preserva la $1$-forma differenziale $\lambda = \sum_j r_jd\theta_j$, infatti
+dove con $\varphi_*$ si indica il differenziale di $\varphi$. Il diffeomorfismo $\phi$ preserva la $1$-forma differenziale $\lambda = \sum_j r_jd\theta_j$, infatti
 \begin{align}
-    \phi^*\lambda = \tilde{r} \cdot d\tilde{\theta} = r \cdot (\varphi'(\theta))^{-1}(\varphi'(\theta)) \cdot d\theta = \lambda \tag{4.11}
+    \phi^*\lambda = \tilde{r} \cdot d\tilde{\theta} = r \cdot (\varphi_*(\theta))^{-1}(\varphi_*(\theta)) \cdot d\theta = \lambda \tag{4.11}
 \end{align}
 Inoltre, dato che $d\lambda = -\omega$, si ha
 \begin{align}
@@ -1000,7 +1041,7 @@ Dato $s > 0$, sia
     \mathbb{T}^n_s = \{\theta \in \mathbb{C}^n/\mathbb{Z}^n : |\mathrm{Im}\theta_j| < s\} \tag{5.15}
 \end{align}
 l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{O}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni olomorfe definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $\|\cdot\|_\infty$. \\
-In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa su un insieme è ivi continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema A.$1$ in appendice A.}. \\ \\
+In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa su un insieme è ivi continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema B.$1$ in appendice B.}. \\ \\
 Invertendo $(5.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni olomorfe a funzioni olomorfe, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza. \\ \\
 \textbf{Definizione 5.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
 \begin{align}
@@ -1044,85 +1085,115 @@ dove $m$ è la parte intera di $k \cdot \alpha$, pertanto si ottiene la tesi. \q
 
 \appendix
 \newpage
+\section{Coniugazione topologica, rivestimenti e sollevamenti}
+\textbf{Definizione:} siano $f : X \longrightarrow X$ e $g : Y \longrightarrow Y$ due applicazioni continue di spazi topologici. $f$ e $g$ sono \textit{topologicamente coniugate} se esiste un omeomorfismo $h : X \longrightarrow Y$ tale che
+\begin{align}
+    h \circ f = g \circ h \tag{A.1}
+\end{align}
+ovvero se per ogni $x \in X$ vale $h(f(x)) = g(h(x))$. \\ \\
+\textbf{Osservazione:} sia $M$ una varietà differenziabile, siano $\Phi_1, \Phi_2 : M \longrightarrow TM$ campi vettoriali e indichiamo con $\varphi^{(1)}, \varphi^{(2)}$ i loro rispettivi flussi. In particolare, $\varphi^{(1)}$ e $\varphi^{(2)}$ sono detti topologicamente coniugati se esiste un omeomorfismo $h : M \longrightarrow M$ tale che
+\begin{align}
+    h(\varphi^{(1)}(t, x)) = \varphi^{(2)}(t, h(x)) \tag{A.2}
+\end{align}
+per ogni $x \in M$ e ogni $t \in \mathbb{R}$. \\ \\
+\textbf{Definizione:} un'applicazione continua $p : R \longrightarrow X$ di spazi topologici è detta \textit{rivestimento} se è suriettiva e se ogni $x \in X$ ammette un intorno aperto $U_x$ tale che $p^{-1}(U_x)$ è unione disgiunta di aperti di $R$, ognuno dei quali viene mappato omeomorficamente su $U_x$ da $p$. \\ \\
+\textbf{Definizione:} sia $f : X \longrightarrow Y$ un'applicazione continua di spazi topologici e siano
+$p : \tilde{X} \longrightarrow X$ e $q : \tilde{Y} \longrightarrow Y$ rivestimenti. $\tilde{f} : \tilde{X} \longrightarrow \tilde{Y}$ è detto \textit{sollevamento} di $f$ se $q \circ \tilde{f} = f \circ p$. \\ \\
+\textbf{Osservazione:} Notiamo che il sollevamento di un'applicazione continua non è unico. Infatti, in base alle proprietà del rivestimento, si possono trovare più sollevamenti. La non unicità dipende dal fatto che in generale $p$ non è iniettiva, quindi $p^{-1}(x)$ può contenere più di un punto. \\ \\
+Dato $X$ spazio topologico e $x_0 \in X$ chiamiamo spazio topologico \textit{puntato} o \textit{con punto base} la coppia $(X, x_0)$. Inoltre, dati due spazi topologici puntati $(X, x_0), (Y, y_0)$ chiamiamo \textit{applicazione continua di spazi topologici} una mappa continua $f : (X, x_0) \longrightarrow (Y, y_0)$ tale che $f(x_0) = y_0$. \\ \\
+\textbf{Teorema (di unicità del sollevamento):} siano $p : (R, r_0) \longrightarrow (Y, y_0)$ un rivestimento e $f : (X, x_0) \longrightarrow (Y, y_0)$ un'applicazione continua di spazi topologici puntati con $X$ connesso. Se esiste $\tilde{f} : (X, x_0) \longrightarrow (R, r_0)$ continua tale che $p \circ \tilde{f} = f$, è unica. \\
+
+\textbf{Dimostrazione:} supponiamo che esistano $\tilde{f}_1, \tilde{f}_2 : (X, x_0) \longrightarrow (R, r_0)$ tali che $p \circ \tilde{f}_1 = f = p \circ \tilde{f}_2$. \\
+Poniamo 
+\begin{align}
+    A &= \{x \in X : \tilde{f}_1(x) = \tilde{f}_2(x)\} \tag{A.3} \\
+    B &= \{x \in X : \tilde{f}_1(x) \neq \tilde{f}_2(x)\} \tag{A.4}
+\end{align}
+Dimostriamo che $A$ e $B$ sono aperti di $X$. \\
+Per ipotesi $x_0 \in A$, infatti $\tilde{f}_1(x_0) = r_0 = \tilde{f}_2(x_0)$, pertanto $A \neq \emptyset$. Dato $z \in A$, poniamo $\tilde{f}_1(z) = r = \tilde{f}_2(z)$. Sia $y = p(r)$, per definizione di rivestimento esiste un intorno aperto $U_y$ di $y$ tale che la restrizione di $p$ a $V_y := p^{-1}(U_y)$ è un omeomorfismo. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni di $z$ tali che $\tilde{f}_1(W_1) \subset V_y$ e $\tilde{f}_2(W_2) \subset V_y$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1 \cap W_2$ e, dato che $p|_{V_y}$ è un omeomorfismo, si ha che $\tilde{f}_1 = \tilde{f}_2$ in $W_1 \cap W_2$. Allora $W_1 \cap W_2 \subset A$ e dall'arbitrarietà del punto $z$ scelto segue che $A$ è un aperto. \\
+Supponiamo per assurdo che esista un elemento $z \in B$ e poniamo $\tilde{f}_1(z) = r_1$ e $\tilde{f}_2(z) = r_2$. Siano $y_1 = p(r_1)$ e $y_2 = p(r_2)$. Per definizione di rivestimento, esistono $U_{y_1}$ e $U_{y_2}$, rispettivamente intorno aperto di $y_1$ e $y_2$, tali che la restrizione di $p$ a $V_{y_1} := p^{-1}(U_{y_1})$ e la restrizione di $p$ a $V_{y_2} := p^{-1}(U_{y_2})$ sono omeomorfismi. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni aperti di $z$ tali che $\tilde{f}_1(W_1) \subset V_{y_1}$ e $\tilde{f}_2(W_2) \subset V_{y_2}$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1$ e ogni $x \in W_2$. Allora $\tilde{f}_1 = \tilde{f}_2$ per ogni $x \in W_1$ e ogni $x \in W_2$, in particolare per $z$, quindi si ottiene un assurdo. Segue che $B = \emptyset$ e di conseguenza $A = X \setminus B = X$. \qed
+
+
+\newpage
 \section{Risultati di analisi funzionale}
-\textbf{Teorema A.1:} sia $S$ un insieme, allora
-\begin{align*}
-    l^\infty(S) := \{f : S \longrightarrow \mathbb{C} : \|f\|_\infty < \infty\} 
-\end{align*}
+\textbf{Teorema B.1:} sia $S$ un insieme, allora
+\begin{align}
+    l^\infty(S) := \{f : S \longrightarrow \mathbb{C} : \|f\|_\infty < \infty\} \tag{B.1}
+\end{align}
 è uno spazio di Banach rispetto alla metrica indotta da $\|\cdot\|_\infty$ \\
 
 \textbf{Dimostrazione:} sia $\{f_n : n \in \mathbb{N}\}$ una successione di Cauchy contenuta in $l^\infty(S)$. Fissato $\varepsilon > 0$, esiste $N_\varepsilon \in \mathbb{N}$ tale che
-\begin{align*}
-    \|f_n - f_m\|_\infty < \varepsilon 
-\end{align*}
+\begin{align}
+    \|f_n - f_m\|_\infty < \varepsilon \tag{B.2}
+\end{align}
 per ogni $n, m > N_\varepsilon$. Allora, per ogni $t \in S$ si ha
-\begin{align*}
-    |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \varepsilon 
-\end{align*}
+\begin{align}
+    |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \varepsilon \tag{B.3}
+\end{align}
 per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbb{N}\}$ è una successione di Cauchy a termini complessi per ogni $t \in S$. Dato che $\mathbb{C}$ è di Banach, per ogni $t \in S$ esistono $f(t) \in \mathbb{C}$ e $M_{\varepsilon, t} \in \mathbb{N}$ tali che
-\begin{align*}
-    |f_n(t) - f(t)| < \varepsilon 
-\end{align*}
+\begin{align}
+    |f_n(t) - f(t)| < \varepsilon \tag{B.4}
+\end{align}
 per ogni $n > M_{\varepsilon, t}$. Resta da dimostrare che $\|f_n - f\|_\infty \rightarrow 0$ per $n \rightarrow \infty$ e che $f \in l^\infty(S)$. Per ipotesi, fissato $m > N_\varepsilon$
-\begin{align*}
-    \|f_n - f\|_\infty &\leq \|f_n - f_m\|_\infty + \|f_m - f\|_\infty  \\
-    &= \|f_n - f_m\|_\infty + \lim_{n \rightarrow \infty}\|f_m - f_n\|_{\infty}  \\
-    &< 2\varepsilon 
-\end{align*}
+\begin{align}
+    \|f_n - f\|_\infty &\leq \|f_n - f_m\|_\infty + \|f_m - f\|_\infty \notag \\
+    &= \|f_n - f_m\|_\infty + \lim_{n \rightarrow \infty}\|f_m - f_n\|_{\infty} \notag \\
+    &< 2\varepsilon \tag{B.5}
+\end{align}
 per continuità della norma, per ogni $n > N_\varepsilon$. Inoltre, notiamo che esiste $N_1 \in \mathbb{N}$ tale che fissato $n > N_1$ si ha
-\begin{align*}
-    \|f\|_\infty &\leq \|f - f_n\|_\infty + \|f_n\|_\infty  \\
-    &< 1 + \|f_n\|_\infty 
-\end{align*}
+\begin{align}
+    \|f\|_\infty &\leq \|f - f_n\|_\infty + \|f_n\|_\infty \notag \\
+    &< 1 + \|f_n\|_\infty \tag{B.6}
+\end{align}
 ovvero $f$ limitata in $S$, pertanto si ottiene la tesi. \qed \\ \\
 \textbf{Teorema (di Stone-Weierstrass):} sia $Pol([a, b])$ lo spazio delle funzioni polinomiali a coefficienti complessi definite sull'intervallo $[a, b]$. Si ha che $Pol([a, b])$ è denso (in norma $\|\cdot\|_\infty$) in $\mathcal{C}^0([a, b], \mathbb{C})$. \\
 
 \textbf{Dimostrazione:} dato che la densità è una proprietà topologica, possiamo assumere $[a, b] = [0, 1]$ senza perdita di generalità. Inoltre, data $f \in \mathcal{C}^0([0, 1])$ possiamo assumere $f(0) = 0 = f(1)$, infatti se così non fosse basterebbe definire
-\begin{align*}
-    g(x) = f(x) - f(0) - (f(1) - f(0))x \notag
-\end{align*} 
+\begin{align}
+    g(x) = f(x) - f(0) - (f(1) - f(0))x \tag{B.7}
+\end{align} 
 per ogni $x \in [0, 1]$, che soddisfa $g(0) = 0 = g(1)$ ed è continua, ed è immediato notare che se il teorema è valido per $g$ è valido anche per $f$. \\
 Vogliamo costruire una successione di funzioni polinomiali $\{q_n\}_{n \in \mathbb{N}}$ che approssima la delta di Dirac. Data $f \in \mathcal{C}^0([0, 1], \mathbb{C})$ possiamo estenderla per continuità in modo tale che sia identicamente nulla fuori da $[0, 1]$. Per ogni $n \in \mathbb{N}$ definiamo 
-\begin{align*}
-    q_n = c_n(1 - x^2)^n \notag
-\end{align*}
+\begin{align}
+    q_n = c_n(1 - x^2)^n \tag{B.8}
+\end{align}
 dove $c_n$ è una costante (fissato $n$) che garantisce la normalizzazione di $q_n$ sull'intervallo $[-1, 1]$, ovvero 
-\begin{align*}
-    \int_{-1}^1 c_n(1 - x^2)^n \, dx = 1 \notag
-\end{align*}
+\begin{align}
+    \int_{-1}^1 c_n(1 - x^2)^n \, dx = 1 \tag{B.9}
+\end{align}
 Cerchiamo una stima per $c_n$. Per la \textit{disuguaglianza di Bernoulli} si ha 
-\begin{align*}
+\begin{align}
     \int_{-1}^1 (1 - x^2)^n \, dx &= 2\int_0^1 (1 - x^2)^n \, dx \notag \\
     &\geq 2\int_0^{1/\sqrt{n}} (1 - x^2)^n \, dx \notag \\
     &\geq 2\int_0^{1/\sqrt{n}} (1 - nx^2) \, dx \notag \\
     &= 2\left(x - \frac{nx^3}{3}\right)_0^{1/\sqrt{n}} \notag \\
-    &= \frac{4}{3\sqrt{n}} \geq \frac{1}{\sqrt{n}} \notag
-\end{align*}
+    &= \frac{4}{3\sqrt{n}} \geq \frac{1}{\sqrt{n}} \tag{B.10}
+\end{align}
 Pertanto concludiamo che $c_n \leq \sqrt{n}$. Segue che dato $\delta > 0$ si ha 
-\begin{align*}
-    q_n(x) \leq \sqrt{n}(1 - \delta^2)^n \notag
-\end{align*}
+\begin{align}
+    q_n(x) \leq \sqrt{n}(1 - \delta^2)^n \tag{B.11}
+\end{align}
 per ogni $x \in [\delta, 1]$. Per ogni $n \in \mathbb{N}$ poniamo 
-\begin{align*}
-    p_n(x) = \int_{-1}^1 q_n(t)f(x + t) \, dt \notag
-\end{align*}
+\begin{align}
+    p_n(x) = \int_{-1}^1 q_n(t)f(x + t) \, dt \tag{B.12}
+\end{align}
 per ogni $x \in [0, 1]$. Notiamo immediatamente che $\{p_n\}_{n \in \mathbb{N}} \subset Pol([0, 1])$. Mostriamo che $p_n(x) \rightarrow f(x)$ in norma $\|\cdot\|_\infty$ per $n \rightarrow \infty$. Fissato $0 < \delta < 1$ si ha
-\begin{align*}
+\begin{align}
     |p_n(x) - f(x)| &= \left|\int_{-1}^1 q_n(t)f(x + t) \, dt - f(x)\right| \notag \\
     &= \left|\int_{-1}^1 q_n(x)(f(x + t) - f(x)) \, dt\right| \notag \\
     &\leq \int_{-1}^1 q_n(x)|f(x + t) - f(x)| \, dt \notag \\
     &= \int_{-1}^\delta (\dots) \, dt + \int_{-\delta}^\delta (\dots) \, dt  + \int_{\delta}^1 (\dots)  \, dt \notag \\
-    &\leq 2\int_{\delta}^1 q_n(x)\|f\|_\infty \, dt + \int_{-\delta}^\delta q_n(x)|f(x + t) - f(x)| \, dt \notag
-\end{align*}
+    &\leq 2\int_{\delta}^1 q_n(x)\|f\|_\infty \, dt + \int_{-\delta}^\delta q_n(x)|f(x + t) - f(x)| \, dt \tag{B.13}
+\end{align}
 dove nel secondo passaggio si è usato il fatto che $q_n$ è normalizzata su $[-1, 1]$, nel terzo la subadditività dell'integrale, quinto il fatto che $q_n$ è pari. \\
 A questo punto, dato che $f$ è continua su un compatto ($[-1, 1]$) è valido il \textit{teorema di Heine-Cantor}, pertanto $f$ è uniformemente continua su $[-1, 1]$ e quindi anche su $[-\delta, \delta]$. Concludiamo che per ogni $\varepsilon > 0$ esiste $\delta > 0$ tale che se $|(x + t) - x| = |t| < \delta$ si ha $|f(x + t) - f(x)| < \varepsilon$ per ogni $x \in [-\delta, \delta]$. Quindi, a meno di ridefinire $\delta$, si ha
-\begin{align*}
-    |p_n(x) - f(x)| \leq 2\|f\|_\infty\sqrt{n}(1 - \delta^2)^n(1 - \delta) + 2\varepsilon\delta\sqrt{n}(1 - \delta^2)^n \rightarrow 0 \notag
-\end{align*}
+\begin{align}
+    |p_n(x) - f(x)| \leq 2\|f\|_\infty\sqrt{n}(1 - \delta^2)^n(1 - \delta) + 2\varepsilon\delta\sqrt{n}(1 - \delta^2)^n \rightarrow 0 \tag{B.14}
+\end{align}
 per $n \rightarrow \infty$. Inoltre, la convergenza è uniforme, infatti la condizione per l'uniforme continuità dipende solamente da $|t|$ e non da $x$. Concludiamo quindi che 
-\begin{align*}
-    \|p_n - f\|_{\infty} \rightarrow 0 \notag
-\end{align*}
+\begin{align}
+    \|p_n - f\|_{\infty} \rightarrow 0 \tag{B.15}
+\end{align}
 per $n \rightarrow \infty$. \qed
 
 

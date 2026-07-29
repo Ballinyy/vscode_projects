@@ -3,12 +3,14 @@
 \contentsline {subsection}{\numberline {1.2}Prodotto esterno di $1$-forme}{5}{}%
 \contentsline {subsection}{\numberline {1.3}Monomi esterni}{7}{}%
 \contentsline {subsection}{\numberline {1.4}Prodotto esterno}{10}{}%
-\contentsline {subsection}{\numberline {1.5}Comportamento sotto applicazioni lineari}{15}{}%
+\contentsline {subsection}{\numberline {1.5}Pullback di forme esterne}{15}{}%
 \contentsline {subsection}{\numberline {1.6}$1$-forme differenziali}{17}{}%
 \contentsline {subsection}{\numberline {1.7}$k$-forme differenziali}{20}{}%
-\contentsline {subsection}{\numberline {1.8}Integrazione delle forme differenziali}{22}{}%
-\contentsline {section}{\numberline {2}Sistemi hamiltoniani}{23}{}%
-\contentsline {section}{\numberline {3}Moti quasiperiodici}{24}{}%
-\contentsline {section}{\numberline {4}Punto di vista geometrico}{30}{}%
-\contentsline {section}{\numberline {5}Serie perturbativa}{33}{}%
-\contentsline {section}{\numberline {A}Risultati di analisi funzionale}{37}{}%
+\contentsline {subsection}{\numberline {1.8}Pullback di forme differenziali}{22}{}%
+\contentsline {subsection}{\numberline {1.9}Integrazione delle forme differenziali}{23}{}%
+\contentsline {section}{\numberline {2}Sistemi hamiltoniani}{25}{}%
+\contentsline {section}{\numberline {3}Moti quasiperiodici}{26}{}%
+\contentsline {section}{\numberline {4}Punto di vista geometrico}{31}{}%
+\contentsline {section}{\numberline {5}Serie perturbativa}{34}{}%
+\contentsline {section}{\numberline {A}Coniugazione topologica, rivestimenti e sollevamenti}{38}{}%
+\contentsline {section}{\numberline {B}Risultati di analisi funzionale}{40}{}%
