@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  29 JUL 2026 16:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.15)  31 JUL 2026 17:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -147,14 +147,42 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 ) (c:/texlive/2026/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup9
+) (c:/texlive/2026/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
+ (c:/texlive/2026/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count296
+\calc@Bcount=\count297
+\calc@Adimen=\dimen160
+\calc@Bdimen=\dimen161
+\calc@Askip=\skip57
+\calc@Bskip=\skip58
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count298
+\calc@Cskip=\skip59
+) (c:/texlive/2026/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count299
+\l_MT_multwidth_dim=\dimen162
+\origjot=\skip60
+\l_MT_shortvdotswithinadjustabove_dim=\dimen163
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen164
+\l_MT_above_intertext_sep=\dimen165
+\l_MT_below_intertext_sep=\dimen166
+\l_MT_above_shortintertext_sep=\dimen167
+\l_MT_below_shortintertext_sep=\dimen168
+\xmathstrut@box=\box57
+\xmathstrut@dim=\dimen169
 ) (c:/texlive/2026/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
  (c:/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (c:/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks32
-\pgfutil@tempdima=\dimen160
-\pgfutil@tempdimb=\dimen161
+\pgfutil@tempdima=\dimen170
+\pgfutil@tempdimb=\dimen171
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box57
+\pgfutil@abb=\box58
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (c:/texlive/2026/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
 ))
@@ -167,26 +195,26 @@ Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
  (c:/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
 \pgfkeys@tmptoks=\toks35
 ))
-\pgf@x=\dimen162
-\pgf@y=\dimen163
-\pgf@xa=\dimen164
-\pgf@ya=\dimen165
-\pgf@xb=\dimen166
-\pgf@yb=\dimen167
-\pgf@xc=\dimen168
-\pgf@yc=\dimen169
-\pgf@xd=\dimen170
-\pgf@yd=\dimen171
+\pgf@x=\dimen172
+\pgf@y=\dimen173
+\pgf@xa=\dimen174
+\pgf@ya=\dimen175
+\pgf@xb=\dimen176
+\pgf@yb=\dimen177
+\pgf@xc=\dimen178
+\pgf@yc=\dimen179
+\pgf@xd=\dimen180
+\pgf@yd=\dimen181
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count296
-\c@pgf@countb=\count297
-\c@pgf@countc=\count298
-\c@pgf@countd=\count299
+\c@pgf@counta=\count300
+\c@pgf@countb=\count301
+\c@pgf@countc=\count302
+\c@pgf@countd=\count303
 \t@pgf@toka=\toks36
 \t@pgf@tokb=\toks37
 \t@pgf@tokc=\toks38
-\pgf@sys@id@count=\count300
+\pgf@sys@id@count=\count304
  (c:/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
@@ -197,8 +225,8 @@ File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
 ))) (c:/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count301
-\pgfsyssoftpath@bigbuffer@items=\count302
+\pgfsyssoftpath@smallbuffer@items=\count305
+\pgfsyssoftpath@bigbuffer@items=\count306
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )) (c:/texlive/2026/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -220,52 +248,52 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
  (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen172
-\pgfmath@count=\count303
-\pgfmath@box=\box58
+\pgfmath@dimen=\dimen182
+\pgfmath@count=\count307
+\pgfmath@box=\box59
 \pgfmath@toks=\toks39
 \pgfmath@stack@operand=\toks40
 \pgfmath@stack@operation=\toks41
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count304
+\c@pgfmathroundto@lastzeros=\count308
 )) (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@picminx=\dimen173
-\pgf@picmaxx=\dimen174
-\pgf@picminy=\dimen175
-\pgf@picmaxy=\dimen176
-\pgf@pathminx=\dimen177
-\pgf@pathmaxx=\dimen178
-\pgf@pathminy=\dimen179
-\pgf@pathmaxy=\dimen180
-\pgf@xx=\dimen181
-\pgf@xy=\dimen182
-\pgf@yx=\dimen183
-\pgf@yy=\dimen184
-\pgf@zx=\dimen185
-\pgf@zy=\dimen186
+\pgf@picminx=\dimen183
+\pgf@picmaxx=\dimen184
+\pgf@picminy=\dimen185
+\pgf@picmaxy=\dimen186
+\pgf@pathminx=\dimen187
+\pgf@pathmaxx=\dimen188
+\pgf@pathminy=\dimen189
+\pgf@pathmaxy=\dimen190
+\pgf@xx=\dimen191
+\pgf@xy=\dimen192
+\pgf@yx=\dimen193
+\pgf@yy=\dimen194
+\pgf@zx=\dimen195
+\pgf@zy=\dimen196
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
 File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@path@lastx=\dimen187
-\pgf@path@lasty=\dimen188
+\pgf@path@lastx=\dimen197
+\pgf@path@lasty=\dimen198
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@shorten@end@additional=\dimen189
-\pgf@shorten@start@additional=\dimen190
+\pgf@shorten@end@additional=\dimen199
+\pgf@shorten@start@additional=\dimen256
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfpic=\box59
-\pgf@hbox=\box60
-\pgf@layerbox@main=\box61
-\pgf@picture@serial@count=\count305
+\pgfpic=\box60
+\pgf@hbox=\box61
+\pgf@layerbox@main=\box62
+\pgf@picture@serial@count=\count309
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgflinewidth=\dimen191
+\pgflinewidth=\dimen257
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@pt@x=\dimen192
-\pgf@pt@y=\dimen193
-\pgf@pt@temp=\dimen194
+\pgf@pt@x=\dimen258
+\pgf@pt@y=\dimen259
+\pgf@pt@temp=\dimen260
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
@@ -274,17 +302,17 @@ File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowsep=\dimen195
+\pgfarrowsep=\dimen261
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@max=\dimen196
-\pgf@sys@shading@range@num=\count306
-\pgf@shadingcount=\count307
+\pgf@max=\dimen262
+\pgf@sys@shading@range@num=\count310
+\pgf@shadingcount=\count311
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfexternal@startupbox=\box62
+\pgfexternal@startupbox=\box63
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
@@ -295,51 +323,51 @@ File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (c:/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfnodeparttextbox=\box63
+\pgfnodeparttextbox=\box64
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/texlive/2026/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@nodesepstart=\dimen197
-\pgf@nodesepend=\dimen198
+\pgf@nodesepstart=\dimen263
+\pgf@nodesepend=\dimen264
 ) (c:/texlive/2026/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
 )) (c:/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (c:/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (c:/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (c:/texlive/2026/texmf-dist/tex/latex/pgf/math/pgfmath.sty (c:/texlive/2026/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (c:/texlive/2026/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
-\pgffor@iter=\dimen199
-\pgffor@skip=\dimen256
+\pgffor@iter=\dimen265
+\pgffor@skip=\dimen266
 \pgffor@stack=\toks42
 \pgffor@toks=\toks43
 )) (c:/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
  (c:/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count308
-\pgfplotmarksize=\dimen257
+\pgf@plot@mark@count=\count312
+\pgfplotmarksize=\dimen267
 )
-\tikz@lastx=\dimen258
-\tikz@lasty=\dimen259
-\tikz@lastxsaved=\dimen260
-\tikz@lastysaved=\dimen261
-\tikz@lastmovetox=\dimen262
-\tikz@lastmovetoy=\dimen263
-\tikzleveldistance=\dimen264
-\tikzsiblingdistance=\dimen265
-\tikz@figbox=\box64
-\tikz@figbox@bg=\box65
-\tikz@tempbox=\box66
-\tikz@tempbox@bg=\box67
-\tikztreelevel=\count309
-\tikznumberofchildren=\count310
-\tikznumberofcurrentchild=\count311
-\tikz@fig@count=\count312
+\tikz@lastx=\dimen268
+\tikz@lasty=\dimen269
+\tikz@lastxsaved=\dimen270
+\tikz@lastysaved=\dimen271
+\tikz@lastmovetox=\dimen272
+\tikz@lastmovetoy=\dimen273
+\tikzleveldistance=\dimen274
+\tikzsiblingdistance=\dimen275
+\tikz@figbox=\box65
+\tikz@figbox@bg=\box66
+\tikz@tempbox=\box67
+\tikz@tempbox@bg=\box68
+\tikztreelevel=\count313
+\tikznumberofchildren=\count314
+\tikznumberofcurrentchild=\count315
+\tikz@fig@count=\count316
  (c:/texlive/2026/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count313
-\pgfmatrixcurrentcolumn=\count314
-\pgf@matrix@numberofcolumns=\count315
+\pgfmatrixcurrentrow=\count317
+\pgfmatrixcurrentcolumn=\count318
+\pgf@matrix@numberofcolumns=\count319
 )
-\tikz@expandcount=\count316
+\tikz@expandcount=\count320
  (c:/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ))) (c:/texlive/2026/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (c:/texlive/2026/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
@@ -348,13 +376,13 @@ File: tikzlibrarymatrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 File: tikzlibraryquotes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (c:/texlive/2026/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfarrowinset=\dimen266
-\pgfarrowlength=\dimen267
-\pgfarrowwidth=\dimen268
-\pgfarrowlinewidth=\dimen269
+\pgfarrowinset=\dimen276
+\pgfarrowlength=\dimen277
+\pgfarrowwidth=\dimen278
+\pgfarrowlinewidth=\dimen279
 ))) (c:/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count317
+\l__color_backend_stack_int=\count321
 ) (./Teoria KAM.aux)
 \openout1 = `"Teoria KAM.aux"'.
 
@@ -374,16 +402,16 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
  (c:/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count318
-\scratchdimen=\dimen270
-\scratchbox=\box68
-\nofMPsegments=\count319
-\nofMParguments=\count320
+\scratchcounter=\count322
+\scratchdimen=\dimen280
+\scratchbox=\box69
+\nofMPsegments=\count323
+\nofMParguments=\count324
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count321
-\MPscratchDim=\dimen271
-\MPnumerator=\count322
-\makeMPintoPDFobject=\count323
+\MPscratchCnt=\count325
+\MPscratchDim=\dimen281
+\MPnumerator=\count326
+\makeMPintoPDFobject=\count327
 \everyMPtoPDFconversion=\toks45
 ) (c:/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -408,611 +436,636 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
  [1
 
-{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 19--21
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--26
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 28--31
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--47
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--52
-
- []
-
-[2]
+{c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 Underfull \hbox (badness 10000) in paragraph at lines 58--61
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--70
+Underfull \hbox (badness 10000) in paragraph at lines 63--66
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--76
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 72--76
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 72--76
+Underfull \hbox (badness 10000) in paragraph at lines 63--66
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 102--105
+Underfull \hbox (badness 10000) in paragraph at lines 87--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--122
+Underfull \hbox (badness 10000) in paragraph at lines 125--130
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 125--127
+Underfull \hbox (badness 10000) in paragraph at lines 137--140
 
  []
 
 
-Overfull \hbox (1.07458pt too wide) in paragraph at lines 133--136
-\OT1/cmr/m/n/10 L'interpretazione ge-o-met-rica del prodotto es-terno tra $\OML/cmm/m/it/10 ![]$ \OT1/cmr/m/n/10 e $\OML/cmm/m/it/10 ![]$ \OT1/cmr/m/n/10 cal-co-lato in $(\OML/cmm/m/it/10 x[]; x[]\OT1/cmr/m/n/10 )$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--136
+Underfull \hbox (badness 10000) in paragraph at lines 148--151
 
  []
 
 
-Overfull \hbox (0.6043pt too wide) detected at line 172
-[]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--175
+Underfull \hbox (badness 10000) in paragraph at lines 153--156
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 177--180
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 179--182
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 177--180
-
- []
-
-[5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 197--201
+Underfull \hbox (badness 10000) in paragraph at lines 184--190
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--201
+Underfull \hbox (badness 10000) in paragraph at lines 184--190
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 203--206
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 213--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 213--216
-
- []
-
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 233--237
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 239--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 244--247
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 249--251
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 219--222
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 264--267
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 284--287
+Underfull \hbox (badness 10000) in paragraph at lines 238--241
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--287
+Underfull \hbox (badness 10000) in paragraph at lines 251--254
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--305
+Underfull \hbox (badness 10000) in paragraph at lines 251--254
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--305
+Underfull \hbox (badness 10000) in paragraph at lines 263--266
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 306--308
+Underfull \hbox (badness 10000) in paragraph at lines 263--266
 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 310--314
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 340--344
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 274--278
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--344
+Underfull \hbox (badness 10000) in paragraph at lines 274--278
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--300
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 346--350
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 369--372
+Underfull \hbox (badness 10000) in paragraph at lines 314--318
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 383--385
+Underfull \hbox (badness 10000) in paragraph at lines 314--318
 
  []
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 406--409
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--318
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--337
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--344
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--344
+
+ []
+
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 373--377
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--377
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--377
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--379
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--379
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 430--434
+Underfull \hbox (badness 10000) in paragraph at lines 389--392
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--434
+Underfull \hbox (badness 10000) in paragraph at lines 394--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 430--434
+Underfull \hbox (badness 10000) in paragraph at lines 394--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--445
+Underfull \hbox (badness 10000) in paragraph at lines 394--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--445
+Underfull \hbox (badness 10000) in paragraph at lines 394--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--455
+Underfull \hbox (badness 10000) in paragraph at lines 394--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--455
+Underfull \hbox (badness 10000) in paragraph at lines 394--402
 
  []
 
 [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 469--471
+Underfull \hbox (badness 10000) in paragraph at lines 417--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 503--506
+Underfull \hbox (badness 10000) in paragraph at lines 421--424
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 426--429
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--445
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--450
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 513--517
+Underfull \hbox (badness 10000) in paragraph at lines 456--459
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--517
+Underfull \hbox (badness 10000) in paragraph at lines 465--468
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 529--533
+Underfull \hbox (badness 10000) in paragraph at lines 470--474
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--474
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--474
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 552--556
+Underfull \hbox (badness 10000) in paragraph at lines 500--503
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 552--556
+Underfull \hbox (badness 10000) in paragraph at lines 517--520
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 558--560
-
- []
-
-
-Overfull \hbox (5.11177pt too wide) in paragraph at lines 570--573
-\OT1/cmr/m/n/10 Data l'arbitrariet^^Ra della carta scelta, il risul-tato ^^Re valido per ogni carta dell'atlante
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 579--584
+Underfull \hbox (badness 10000) in paragraph at lines 523--525
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 579--584
+Overfull \hbox (1.07458pt too wide) in paragraph at lines 531--534
+\OT1/cmr/m/n/10 L'interpretazione ge-o-met-rica del prodotto es-terno tra $\OML/cmm/m/it/10 ![]$ \OT1/cmr/m/n/10 e $\OML/cmm/m/it/10 ![]$ \OT1/cmr/m/n/10 cal-co-lato in $(\OML/cmm/m/it/10 x[]; x[]\OT1/cmr/m/n/10 )$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--534
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 586--588
+Overfull \hbox (0.6043pt too wide) detected at line 570
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 570--573
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--591
+Underfull \hbox (badness 10000) in paragraph at lines 575--578
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 589--591
-
- []
-
-
-Overfull \hbox (0.30342pt too wide) in paragraph at lines 592--594
-[]\OT1/cmr/bx/n/10 Dimostrazione: \OT1/cmr/m/n/10 si vede im-me-di-ata-mente che su $
-[](\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 )$ ^^Re pos-si-bile definire
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 596--599
+Underfull \hbox (badness 10000) in paragraph at lines 575--578
 
  []
 
 [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 639--642
+Underfull \hbox (badness 10000) in paragraph at lines 595--599
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 648--651
+Underfull \hbox (badness 10000) in paragraph at lines 595--599
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 648--651
+Underfull \hbox (badness 10000) in paragraph at lines 601--604
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 611--614
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 611--614
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 666--669
+Underfull \hbox (badness 10000) in paragraph at lines 631--635
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 675--678
+Underfull \hbox (badness 10000) in paragraph at lines 637--640
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--685
+Underfull \hbox (badness 10000) in paragraph at lines 642--645
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--685
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 691--694
+Underfull \hbox (badness 10000) in paragraph at lines 647--649
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 696--699
+Underfull \hbox (badness 10000) in paragraph at lines 662--665
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 682--685
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 701--702
+Underfull \hbox (badness 10000) in paragraph at lines 682--685
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 716--720
+Underfull \hbox (badness 10000) in paragraph at lines 699--703
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 716--720
-
- []
-
-[24] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 761--764
+Underfull \hbox (badness 10000) in paragraph at lines 699--703
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 766--769
+Underfull \hbox (badness 10000) in paragraph at lines 704--706
+
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 708--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 766--769
+Underfull \hbox (badness 10000) in paragraph at lines 738--742
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 738--742
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 790--793
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 828--833
+Underfull \hbox (badness 10000) in paragraph at lines 744--748
 
  []
 
 [27]
+Underfull \hbox (badness 10000) in paragraph at lines 767--770
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 781--783
+
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 804--807
+
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 828--832
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 828--832
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 828--832
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 840--843
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--854
+Underfull \hbox (badness 10000) in paragraph at lines 840--843
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 856--859
-
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 882--885
+Underfull \hbox (badness 10000) in paragraph at lines 850--853
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 887--893
+Underfull \hbox (badness 10000) in paragraph at lines 850--853
+
+ []
+
+[30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 867--869
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 887--893
+Underfull \hbox (badness 10000) in paragraph at lines 901--904
 
  []
 
-[29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 922--925
-
- []
-
-[31]
-Underfull \hbox (badness 10000) in paragraph at lines 941--944
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 911--915
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 954--957
+Underfull \hbox (badness 10000) in paragraph at lines 911--915
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 954--957
+Underfull \hbox (badness 10000) in paragraph at lines 927--931
+
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 950--954
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 966--969
+Underfull \hbox (badness 10000) in paragraph at lines 950--954
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 966--969
-
- []
-
-[32] [33]
-Underfull \hbox (badness 10000) in paragraph at lines 977--981
+Underfull \hbox (badness 10000) in paragraph at lines 956--958
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 977--981
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1000--1003
-
+Overfull \hbox (5.11177pt too wide) in paragraph at lines 968--971
+\OT1/cmr/m/n/10 Data l'arbitrariet^^Ra della carta scelta, il risul-tato ^^Re valido per ogni carta dell'atlante
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1017--1021
+Underfull \hbox (badness 10000) in paragraph at lines 977--982
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1017--1021
+Underfull \hbox (badness 10000) in paragraph at lines 977--982
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1017--1021
+Underfull \hbox (badness 10000) in paragraph at lines 984--986
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 987--989
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 987--989
+
+ []
+
+
+Overfull \hbox (0.30342pt too wide) in paragraph at lines 990--992
+[]\OT1/cmr/bx/n/10 Dimostrazione: \OT1/cmr/m/n/10 si vede im-me-di-ata-mente che su $
+[](\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 )$ ^^Re pos-si-bile definire
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 994--997
+
+ []
+
+[35] [36]
 Underfull \hbox (badness 10000) in paragraph at lines 1037--1040
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1042--1047
+Underfull \hbox (badness 10000) in paragraph at lines 1046--1049
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1042--1047
-
- []
-
-[35] [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1076--1080
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1076--1080
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1076--1080
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1081--1082
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1081--1082
+Underfull \hbox (badness 10000) in paragraph at lines 1046--1049
 
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1095
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1067
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1097--1105
+Underfull \hbox (badness 10000) in paragraph at lines 1073--1076
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1097--1105
+Underfull \hbox (badness 10000) in paragraph at lines 1078--1083
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1097--1105
+Underfull \hbox (badness 10000) in paragraph at lines 1078--1083
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1097--1105
+Underfull \hbox (badness 10000) in paragraph at lines 1089--1092
+
+ []
+
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1097
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1097--1105
+Underfull \hbox (badness 10000) in paragraph at lines 1099--1100
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1097--1105
-
- []
-
-[38] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1122--1124
+Underfull \hbox (badness 10000) in paragraph at lines 1114--1118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1147--1150
+Underfull \hbox (badness 10000) in paragraph at lines 1114--1118
+
+ []
+
+[39]
+Overfull \hbox (5.93932pt too wide) in paragraph at lines 1125--1128
+\OT1/cmr/m/n/10 so-la-mente per la scelta di ori-en-tazione (in $\U/msb/m/n/10 R[]$\OT1/cmr/m/n/10 ). In par-ti-co-lare in-dichi-amo l'opposto
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1125--1128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1147--1150
+Underfull \hbox (badness 10000) in paragraph at lines 1130--1131
 
  []
 
-[40] [41] [42] (./Teoria KAM.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 1143--1147
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1143--1147
+
+ []
+
+[40] [41] [42]
+Underfull \hbox (badness 10000) in paragraph at lines 1166--1168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1191--1194
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1191--1194
+
+ []
+
+[43] [44] [45] (./Teoria KAM.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14236 strings out of 467525
- 294017 string characters out of 5423209
- 685175 words of memory out of 5000000
- 42871 multiletter control sequences out of 15000+600000
+ 14870 strings out of 467525
+ 305656 string characters out of 5423209
+ 699165 words of memory out of 5000000
+ 43495 multiletter control sequences out of 15000+600000
  641830 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,18n,118p,957b,230s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on "Teoria KAM.pdf" (42 pages, 345391 bytes).
+Output written on "Teoria KAM.pdf" (45 pages, 349869 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
+ 259 PDF objects out of 1000 (max. 8388607)
+ 168 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

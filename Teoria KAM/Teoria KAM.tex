@@ -1,7 +1,7 @@
 
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
-\usepackage{amsfonts, amsmath, amssymb, amsthm, float, cancel, bm, mathrsfs}
+\usepackage{amsfonts, amsmath, amssymb, amsthm, float, cancel, bm, mathrsfs, mathtools}
 \usepackage{tikz-cd}
 
 \title{Teoria KAM}
@@ -13,110 +13,508 @@
 \maketitle
 \tableofcontents
 \newpage
+
+ 
+
+
+
+\newpage
+\section{Sistemi hamiltoniani}
+Consideriamo una funzione liscia $H$ definita su un aperto $M$ di $\mathbb{T}^n \times \mathbb{R}^n$ = $\{(\theta, r)\}$ (dove $\mathbb{T}^n = \mathbb{R}^n/\mathbb{Z}^n$ è il toro $n$-dimensionale e $(\theta, r) = (\theta_1, \dots, \theta_n, r_1, \dots, r_n)$). \\
+Il \textit{campo vettoriale hamiltoniano} $X_H$ indotto da $H$ tramite le equazioni di Hamilton è dato da 
+\begin{flalign} X_H =
+    \begin{cases}
+        \dot{\theta}_j &= \frac{\partial H}{\partial r_j} \\
+        \dot{r}_j &= -\frac{\partial H}{\partial \theta_j}
+    \end{cases} \tag{2.1}
+\end{flalign}
+Notiamo immediatamente che $\nabla H \cdot X_H = 0$, il gradiente euclideo di $H$ è ortogonale al campo vettoriale hamiltoniano $X_H$. Infatti 
+\begin{flalign}
+    \nabla H \cdot X_H &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\dot{\theta}_j + \frac{\partial H}{\partial r_j}\dot{r}_j\right) \notag \\
+    &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\frac{\partial H}{\partial r_j} - \frac{\partial H}{\partial r_j}\frac{\partial H}{\partial \theta_j}\right) = 0 \tag{1.2}
+\end{flalign}
+In particolare, la proiezione sul piano $\{(\theta_j, r_j)\}$ del campo vettoriale hamiltoniano $X_H$ e del gradiente euclideo $\nabla H$ sono ortogonali (ogni termine della somma è nullo). Questo segue dal fatto che $X_H$ è tangente alle curve di livello di $H$ (curve ad energia fissata), mentre $\nabla H$ punta verso la direzione di massima pendenza (positiva) di $H$.
+
+\newpage
+\section{Moti quasiperiodici}
+Studiamo ora una classe particolare di sistemi hamiltoniani: i sistemi hamiltoniani \textit{integrabili}. Un sistema hamiltoniano integrabile non dipende dalla variabile del moto $\theta$. Pertanto, fissato $r$ si ottiene 
+\begin{flalign}
+    \begin{cases}
+        \dot{\theta} &= \partial_rH = cst \\
+        \dot{r} &= 0
+    \end{cases} \tag{2.1}
+\end{flalign}
+dove con $\partial_rH$ si intende il gradiente rispetto alla coordinata $r = (r_1, \dots, r_n)$, ovvero 
+\begin{flalign}
+    \partial_rH = \left(\frac{\partial H}{\partial r_1}, \dots, \frac{\partial H}{\partial r_n}\right) \notag
+\end{flalign}
+Possiamo facilmente determinare il flusso associato a $X_H$ usando la definizione di flusso di un campo vettoriale 
+\begin{flalign}
+    \varphi_t(\theta, r) = \left(\theta + t\partial_rH, r\right) \tag{2.2}
+\end{flalign}
+per ogni $t \in \mathbb{R}$ (intervallo massimale di definizioni delle soluzioni). Notiamo che lo spazio delle fasi è costituito da tori invarianti, infatti fissato $r_0 \in \mathbb{R}^n$ si ha 
+\begin{flalign}
+    \varphi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} \tag{2.3}
+\end{flalign}
+Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \partial_rH(r_0) \in \mathbb{R}^n$. \\ \\
+Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso 
+\begin{flalign}
+    \varphi_t : \mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
+\end{flalign}
+dove $\alpha = \partial_rH(r)$. \\ \\
+\textbf{Lemma 3.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
+
+\textbf{Dimostrazione:} supponiamo che i flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
+\begin{flalign}
+    h(\theta + t\alpha) = h(\theta) + t\beta \tag{2.4}
+\end{flalign}
+A meno di sostituire $h(\theta)$ con $h(\theta) - h(0)$, possiamo supporre $h(0) = 0$. Sia $H : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ l'unico sollevamento di $h$ tale che $H(0) = 0$. Allora 
+\begin{flalign}
+    H(\theta + t\alpha) = H(\theta) + t\beta \tag{2.5}
+\end{flalign}
+è soddisfatta per $\theta = 0$ e $t = 0$. Sia $\pi : \mathbb{R}^n \longrightarrow \mathbb{T}^n$ la proiezione canonica, per definizione di sollevamento
+\begin{flalign}
+    \pi(H(\theta + t\alpha)) = \pi(H(\theta) + t\beta) \tag{2.6}
+\end{flalign}
+ per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$. Concludiamo che 
+\begin{flalign}
+    H(\theta + t\alpha) - H(\theta) - t\beta \in \mathbb{Z}^n \tag{2.7}
+\end{flalign}
+per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$, dato che $\pi$ è una mappa $\mathbb{Z}^n$-periodica. \\
+Fissato $t \in \mathbb{R}$, sia $\Delta_H$ la mappa
+\begin{flalign}
+    \theta \mapsto H(\theta + t\alpha) - H(\theta) - t\beta \tag{2.8}
+\end{flalign}
+Notiamo immediatamente che $\Delta_H$ è continua, infatti $H$ è continua. Inoltre, dato che $\mathbb{R}^n$ è connesso, $\Delta_H$ continua e $\mathbb{Z}^n$ uno spazio con topologia discreta, concludiamo che $\Delta_H$ è costante. Pertanto $(2.5)$ è soddisfatta per ogni $\theta \in \mathbb{R}^n$ (e ogni $t \in \mathbb{R}^n$). \\ \\
+Notiamo che esiste $A \in GL_n(\mathbb{Z})$ tale che
+ \begin{flalign}
+    H(\theta + k) = H(\theta) + Ak \tag{2.9}
+ \end{flalign}
+per ogni $k \in \mathbb{Z}^n$. Infatti, per definizione di sollevamento, si ha
+\begin{flalign}
+    \pi(H(\theta + k)) = h(\pi(\theta + k)) = h(\pi(\theta)) = \pi(H(\theta)) \tag{2.10}
+ \end{flalign}
+ovvero
+\begin{flalign}
+    H(\theta + m) - H(\theta) \in \mathbb{Z}^n \tag{2.11}
+ \end{flalign}
+ed è costante per ogni $\theta \in \mathbb{R}^n$ (si verifica analogamente a come fatto per $\Delta_H$). \\
+$A$ è invertibile, perché $H$ lo è. Consideriamo il campo vettoriale
+\begin{flalign}
+    V := A^{-1}H - \mathbf{1} : \mathbb{R}^n \longrightarrow \mathbb{R}^n \tag{2.12}
+\end{flalign}
+$V$ è $\mathbb{Z}^n$-periodico, infatti, dato $\theta \in \mathbb{R}^n$, si ha
+\begin{flalign}
+    V(\theta + m) &= (A^{-1}H - \mathbf{1})(\theta + m) \notag \\
+    &= A^{-1}H(\theta + m) - \theta + m \notag \\
+    &= A^{-1}H(\theta) + m - \theta + m \notag \\
+    &= (A^{-1}H - \mathbf{1})(\theta) \notag \\
+    &= V(\theta) \tag{2.13}
+\end{flalign}
+per ogni $m \in \mathbb{Z}^n$. Riscrivendo $(2.5)$ in termini di $V$ si ottiene
+\begin{flalign}
+    (AV + A)(\theta + t\alpha) = (AV + A)(\theta) + t\beta \tag{2.14}
+\end{flalign}
+ovvero
+\begin{flalign}
+    AV(\theta + t\alpha) - AV(\theta) = t(\beta - A\alpha) \tag{2.15}
+\end{flalign}
+In particolare, per $\theta = 0$, si ha
+\begin{flalign}
+    A(V(t\alpha) - V(0)) = t(\beta - A\alpha) \tag{2.16}
+\end{flalign}
+Il membro di sinistra è limitato (dato che $V$ è $\mathbb{Z}^n$-periodico), allora deve valere $\beta = A\alpha$. \qed \\ \\
+\textbf{Proposizione 3.1:} le seguenti affermazioni sono equivalenti: \\
+\textbf{1.} Il vettore frequenza $\alpha$ è \textit{non risonante}, ovvero $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\
+\textbf{2.} Il flusso $\varphi_t$ del campo vettoriale costante $\alpha$ è \textit{ergotico}, ovvero tutte le funzioni continue $f$ di $\mathbb{T}^n$ che soddisfano
+\begin{flalign}
+    f(\theta + t\alpha) = f(\theta) \tag{2.17}
+\end{flalign}
+per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$ sono costanti. \\
+\textbf{3.} Per ogni funzione continua su $\mathbb{T}^n$ esiste la media temporale $\overline{f}$ e combacia con la media spaziale su $\mathbb{T}^n$, ovvero
+\begin{flalign}
+    \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt = \int_{\mathbb{T}^n} f(\theta) \, d\theta \tag{2.18}
+\end{flalign}
+ricordando che $\mathbb{T}^n$ ha misura di Lebesgue unitaria dato che è identificato con il cubo $[0, 1)^n$ ad estremi "incollati". \\
+\textbf{4.} Ogni traiettoria di $\varphi_t$ è densa in $\mathbb{T}^n$. \\
+
+\textbf{Dimostrazione:} $(1 \rightarrow 2)$ sia $f$ una funzione di $\mathbb{T}^n$ tale che $f \circ \varphi_t = f$ per ogni $t \in \mathbb{R}$. Il $k$-esimo coefficiente di Fourier di $f \circ \varphi_t$ è dato da 
+\begin{flalign}
+    \widehat{f \circ \varphi_t}(k) = \int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta}f(\theta + t\alpha) \, d\theta \tag{2.19}
+\end{flalign}
+Poniamo $\theta' = \theta + t\alpha$, allora $\theta = \theta' - t\alpha$ e $d\theta = d\theta'$. Sostituendo in $(2.19)$ si ottiene
+\begin{flalign}
+    \widehat{f \circ \varphi_t}(k) = e^{i2\pi k \cdot \alpha t}\int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta'}f(\theta') \, d\theta' = e^{i2\pi k \cdot \alpha t}\widehat{f}(k) \tag{2.20}
+\end{flalign}
+Per ipotesi $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, pertanto, per unicità dei coefficienti di Fourier, concludiamo che $\widehat{f}(k) = 0$ per ogni $k \in \mathbb{Z} \setminus \{0\}$, quindi $f$ costante. \\ \\
+$(2 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ tale che $k \cdot \alpha = 0$. Allora la funzione $f$, definita da
+\begin{flalign}
+    f(\theta) = e^{i2\pi k \cdot \theta} \tag{2.21}
+\end{flalign}
+per ogni $\theta \in \mathbb{R}^n$, è invariante ma non costante, pertanto si ottiene un assurdo. \\ \\
+$(1 \rightarrow 3)$ Se $f$ è costante $(2.18)$ è immediatamente verificata. Se $f$ è della forma
+\begin{flalign}
+    f(\theta) = e^{i2\pi k \cdot \theta} \tag{2.22}
+\end{flalign}
+per ogni $\theta \in \mathbb{R}^n$, con $k \in \mathbb{Z}^n \setminus \{0\}$, si ottiene
+\begin{flalign}
+    \frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt &= \frac{1}{T}e^{i2\pi k \cdot \theta}\int_0^T e^{i2\pi k \cdot \alpha t} \, dt \notag \\
+    &= \frac{1}{T}e^{i2\pi k \cdot \theta}\frac{e^{i2\pi k \cdot aT} - 1}{ik \cdot \alpha} \rightarrow 0 \tag{2.23}
+\end{flalign}
+per $T \rightarrow \infty$, ovvero la media temporale è nulla come la media spaziale (per simmetria del toro $n$-dimensionale e disparità della funzione $f$). \\
+Se $f$ è un polinomio trigonometrico può essere espressa come somma finita di termini della forma $e^{i2\pi m \cdot \theta}$, per $m \in \mathbb{Z}^n$. Pertanto $(2.18)$ è verificata grazie a $(2.23)$ per linearità dell'integrale. \\
+Per il \textit{teorema di Stone-Weierstrass}\footnote{In appendice D}, se $f$ è continua, fissato $\varepsilon > 0$, esiste $P$ polinomio trigonometrico tale che
+\begin{flalign}
+    \max_{\theta \in \mathbb{T}^n} |f(\theta) - P(\theta)| < \varepsilon \tag{2.24}
+\end{flalign}
+In particolare, per polinomi trigonometrici abbiamo appena dimostrato che 
+\begin{flalign}
+    \left|\frac{1}{T}\int_0^T P(\theta + t\alpha) \, dt\right| \rightarrow 0 \tag{2.25}
+\end{flalign}
+per $T \rightarrow \infty$. Indichiamo con $\overline{\cdot}$ l'operazione di media spaziale, allora
+\begin{flalign}
+    \left|\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt - \overline{f}\right| &\leq \frac{1}{T}\int_0^T \left|f(\theta + t\alpha) - P(\theta + t\alpha)\right| \, dt \, + \notag \\
+    &+ \left|\frac{1}{T}\int_0^T P(\theta + t\alpha) \, dt - \overline{P}\right| \, + \notag \\
+    &+ \left|\overline{P} - \overline{f}\right| < 3\varepsilon \tag{2.26}
+\end{flalign}
+per $T$ sufficientemente grande. \\ \\
+$(3 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ tale che $k \cdot \alpha = 0$. Allora $f$ definita in $(2.21)$ è una funzione invariante e continua che ha media temporale diversa dalla media spaziale, infatti
+\begin{flalign}
+    \frac{1}{T}\int_0^T e^{i2\pi k \cdot (\theta + \alpha t)} \, dt = e^{i2\pi k \cdot \theta} \tag{2.27}
+\end{flalign}
+mentre $\overline{f} = 0$. \\ \\
+$(1 \rightarrow 4)$ Supponiamo che $\varphi_t$ ammetta una traiettoria \textit{non} densa. Allora esiste $\theta_0 \in \mathbb{T}^n$ che possiede un intorno aperto $U$ che non interseca con la traiettoria. \\
+Consideriamo una funzione continua $f$ definita su $\mathbb{T}^n$ tale che $f(\theta) > 0$ per ogni $\theta \in U$ e $f(\theta) = 0$ per ogni $\theta \in \mathbb{T}^n \setminus U$. La media tempotale di $f$ calcolata lungo la traiettoria non densa è nulla, mentre la media spaziale di $f$ è strettamente positiva. Pertanto, per il punto $(3)$ prima dimostrato, si ottiene un assurdo. \\ \\
+$(4 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n$ tale che $k \cdot \alpha = 0$. Consideriamo $\theta_0 = k/2\mod\mathbb{Z}^n$, mostriamo che esiste un intorno aperto $U$ di $\theta_0$ che non viene mai visitato dalla traiettoria $t \mapsto t\alpha$ su $\mathbb{T}^n$. \\
+Supponiamo che esista $\theta \in U$ tale che $t\alpha = \theta$ per qualche $t \in \mathbb{R}$. Equivalentemente, esistono $t \in \mathbb{T}^n$ e $l \in \mathbb{Z}^n$ tali che $t\alpha = \theta + l$ ($\mathbb{T}^n$ è $\mathbb{Z}^n$-periodico). Facendo il prodotto scalare con $k$ si ottiene
+\begin{flalign}
+    0 = k \cdot \theta + k \cdot l \tag{2.28}
+\end{flalign}
+Tuttavia, possiamo scegliere $U$ in modo tale che $0 < |k \cdot \theta| < 1$, mentre $k \cdot l \in \mathbb{Z}$, pertanto si ottiene un assurdo. \qed
+
+
+\newpage
+\section{Punto di vista geometrico}
+Tutta l'informazione riguardante un determinato sistema dinamico è contenuta nella funzione di Hamilton $H$. $H$ è una funzione scalare regolare definita sullo spazio delle fasi, da $H$ possiamo ricavare, tramite le equazioni del moto di Hamilton, il campo di velocità hamiltoniano $X_H$ associato al sistema in esame e quindi anche il flusso hamiltoniano $\varphi$. \\
+Il vantaggio di partire da una funzione scalare risiede nel fatto che è molto più semplice eseguire un cambio di coordinate per una funzione scalare che per campi vettoriali. Tuttavia, solamente una particolare classe di cambi di coordinate è ammessa, ovvero i diffeomorfismi $\phi$ che lasciano invariato $X_H$ (e quindi le equazioni del moto), cioè
+\begin{flalign}
+    \phi^*X_{H \circ \phi} = X_H \tag{3.1}
+\end{flalign}
+Per caratterizzare tali diffeomorfismi diamo una defizione di $X_H$ che non necessita di un sistema di coordinate. Sia
+\begin{flalign}
+    \omega = \sum_j d\theta_j \wedge dr_j \tag{3.2}
+\end{flalign}
+$\omega$ è detta \textit{forma simplettica} sullo spazio delle fasi $\mathbb{T}^n \times \mathbb{R}^n$. In particolare, $\omega$ è una mappa bilineare del fibrato tangente dello spazio delle fasi nella retta reale. \\
+Dato $X = (\dot{\theta}, \dot{r})$ campo vettoriale su $\mathbb{T}^n \times \mathbb{R}^n$, si ha
+\begin{flalign}
+    \omega(X, \cdot) = \sum_j (\dot{\theta}_jdr_j - \dot{r}_jd\theta_j) \tag{3.3}
+\end{flalign}
+Segue che $X_H$ è definito implicitamente dall'equazione
+\begin{flalign}
+    \omega(X_H, \cdot) = dH \tag{3.4}
+\end{flalign}
+Pertanto le uniche trasformazioni che preservano le equazioni del moto sono ora caratterizzate dall'equazione
+\begin{flalign}
+    \phi^*\omega = \omega \tag{3.5}
+\end{flalign}
+che garantisce l'invarianza del differenziali di $H$ rispetto a $\phi$. Tali trasformazioni sono dette \textit{simplettiche} o \textit{canoniche}. \\ \\
+\textbf{Esempio:} consideriamo una $1$-forma differenziale chiusa $\rho$ su $\mathbb{T}^n$
+\begin{flalign}
+    \rho = \sum_j \rho_i(\theta)d\theta_i \qquad d\rho = 0 \tag{3.6}
+\end{flalign}
+Il diffeomorfismo $\phi$ definito da 
+\begin{flalign}
+    (\theta, r) \mapsto (\theta, r + \rho(\theta)) \tag{3.7}
+\end{flalign}
+dove $\rho(\theta) = (\rho_1(\theta), \dots, \rho_n(\theta))$, per $\theta \in \mathbb{T}^n$, è simplettico. Infatti
+\begin{flalign}
+    \phi^*\omega = \sum_j d\tilde{\theta}_j \wedge d\tilde{r}_j \tag{3.8}
+\end{flalign}
+dove si è posto $\tilde{\theta} = \theta$ e $\tilde{r} = r + \rho$, segue che $d\tilde{\theta}_j = d\theta_j$ e $d\tilde{r}_j = dr_j + d\rho_j$ per ogni $j = 1, \dots, n$. Pertanto
+\begin{flalign}
+    \phi^*\omega &= \sum_j d\theta_j \wedge (dr_j + d\rho_j) \notag \\
+    &= \sum_j d\theta_j \wedge dr_j + \sum_j d\theta_j \wedge d\rho_j \notag \\
+    &= \omega - \cancel{d\rho} = \omega \tag{3.9} 
+\end{flalign}
+ovvero $\phi^*\omega = \omega$. \\ \\
+\textbf{Esempio:} sia $\varphi$ un diffeomorfismo su $\mathbb{T}^n$. Definiamo il sollevamento $\phi$ di $\varphi$ a $\mathbb{T}^n \times \mathbb{R}^n$
+\begin{flalign}
+    \phi: \quad (\theta, r) \mapsto \underbrace{(\varphi(\theta), r(\varphi_*(\theta)^{-1}))}_{(\tilde{\theta}, \tilde{r})} \tag{3.10}
+\end{flalign}
+dove con $\varphi_*$ si indica il differenziale di $\varphi$. Il diffeomorfismo $\phi$ preserva la $1$-forma differenziale $\lambda = \sum_j r_jd\theta_j$, infatti
+\begin{flalign}
+    \phi^*\lambda = \tilde{r} \cdot d\tilde{\theta} = r \cdot (\varphi_*(\theta))^{-1}(\varphi_*(\theta)) \cdot d\theta = \lambda \tag{3.11}
+\end{flalign}
+Inoltre, dato che $d\lambda = -\omega$, si ha
+\begin{flalign}
+    \phi^*\omega = -\phi^*d\lambda = -d\phi^*\lambda = -d\lambda = \omega \tag{3.12}
+\end{flalign}
+ovvero $\phi$ simplettico. \\ \\
+\textbf{Proposizione 4.1:} sia $\phi_t$ è il flusso associato ad un campo vettoriale hamiltoniano $X_H$, allora $\phi^*_t\omega = \omega$ per ogni $t$ nell'intervallo di definizione del flusso. \\
+
+\textbf{Dimostrazione:} per il \textit{teorema fondamentale del calcolo} si ha
+\begin{flalign}
+    \phi^*_t\omega - \omega &= \int_0^t \frac{d}{ds}(\phi^*_s\omega) \, ds \notag \\
+    &= \int_0^t \phi^*_s(\mathcal{L}_{X_H}\omega) \, ds \tag{3.13}
+\end{flalign}
+per definizione di derivata di Lie. Per la \textit{formula d'omotopia di Cartan} si ha
+\begin{flalign}
+    \mathcal{L}_{X_H}\omega = di_{X_H}\omega + i_{X_H}d\omega \tag{3.14}
+\end{flalign}
+In particolare, $d\omega = 0$, dato che che $\omega$ ha tutti coefficienti costanti, mentre $i_{X_H}\omega = dH$, pertanto $di_{X_H}\omega = d^2H = 0$ (dato che $d^2 = 0$, \textit{operatore di coomologia}). \qed \\ \\
+\textbf{Proposizione 4.2 (Herman):} (...) \\
+
+\textbf{Dimostrazione:} (...)
+
+\newpage
+\section{Serie perturbativa}
+Consideriamo un hamiltoniana $H$ definita in un intorno di $\mathbb{T}^n \times \{0\}$ in $\mathbb{T}^n \times \mathbb{R}^n$. Supponiamo che $H$ dipenda formalmente da un parametro $\varepsilon > 0$ nella forma
+\begin{flalign}
+    H(\theta, r) = H_0(r) + \varepsilon H_1(\theta, r) + \varepsilon^2H_2(\theta, r) + O(\varepsilon^3) \tag{5.1}
+\end{flalign}
+Siamo interessati a trovare un opportuno cambio di variabili, sufficientemente vicino all'identità ($\varepsilon$ vicino), tale da rimuovere la dipendeza di $H_1$ da $\theta$. Se ciò è possibile vogliamo estendere questo procedimento in moda tale da poter gestire anche i termine di ordine $\varepsilon$ superiore. \\ \\
+A tal proposito, consideriamo un'hamiltoniana ausiliaria $F$ con flusso $\phi_t$. In particolare, vogliamo che $F$ sia tale che $\phi^*_1H = H \circ \phi_1$ non dipenda da $\theta$, almeno fino a termini di secondo ordine in $\varepsilon$. \\ \\
+Per definizione di flusso di un campo vettoriale si ha
+\begin{flalign}
+    \frac{d}{ds}\left|_{s = 0}\right.(\phi^*_{t + s}H) = \frac{d}{ds}\left|_{s = 0}\right.(H \circ \phi_{t + s}) = (\nabla H \cdot X_F) \circ \phi_t = \phi^*_t(X_F \cdot H) \tag{5.2}
+\end{flalign}
+dove nell'ultima uguaglianza si è trattato $X_F$ come un operatore di derivazione
+\begin{flalign}
+    X_F = \partial_rF \cdot \partial_\theta - \partial_\theta F \cdot \partial_r \tag{5.3}
+\end{flalign}
+Sviluppando la mappa $t \mapsto \phi^*_tH$ in serie di Taylor (con resto integrale di Lagrange) per $0 \leq t \leq 1$ si ottiene la seguente uguaglianza
+\begin{flalign}
+    \phi^*_1H = H + \varepsilon(X_F \cdot H) + \varepsilon^2\int_0^1 (1 - t)\phi^*_t(X^2_F \cdot H) \, dt \tag{5.4}
+\end{flalign}
+I fattori $\varepsilon$ che compaiono a moltiplicare i termini in $(4.4)$ derivano dal fatto che stiamo sviluppando attorno ad un $\tilde{t}$ che dista $\varepsilon$ da $0$. Infatti, come detto in precedenza, cerchiamo una trasformazione $\varepsilon$-vicina all'identità ($\phi^*_0 = \mathbf{1}$). \\
+Sostituendo $(4.1)$ in $(4.4)$ si ottiene
+\begin{flalign}
+    \phi^*_1H = H_0 + \varepsilon(H_1 + X_F \cdot H_0) + O(r^2) \tag{5.5}
+\end{flalign}
+Riscriviamo $H_1$ come somma della sua media spaziale su $\mathbb{T}^n$ e dei termini di deviazione
+\begin{flalign}
+    H_1(\theta, r) = \overline{H}_1(r) + \tilde{H}_1(\theta, r) \qquad \overline{H}_1(\theta) = \int_{\mathbb{T}^n} H_1(\theta, r) \, d\theta \tag{5.6}
+\end{flalign}
+In assenza di simmetrie particolari, il termine $\overline{H}_1$ è non nullo. Questo comporta che la variazione di $\alpha$ su $\mathbb{T}^n \times \{r\}$ è dettata da termini di primo ordine in $\varepsilon$. Per quanto visto nel \textit{lemma 3.1}, $\alpha$ è invariante per coniugazione topologica, quindi l'azione di $\phi^*$ non può assorbire il termine di media spaziale. \\ \\
+Concludiamo che la condizione che $F$ deve soddisfare diventa
+\begin{flalign}
+    \tilde{H}_1 + X_F \cdot H_0 = 0 \tag{5.7}
+\end{flalign}
+quindi, ricordando $\partial_\theta H_0 = 0$ e esplicitando l'operazione di $X_F$ su $H$, si ha
+\begin{flalign}
+    \partial_rH_0 \cdot \partial_\theta F = \tilde{H}_1 \tag{5.8}
+\end{flalign}
+Dato che l'equazione $(4.7)$ coinvolge solamente la derivata parziale di $F$ rispetto a $\theta$, possiamo trattare $r$ come un parametro fissato. Ponendo $\alpha = \partial_rH(r)$, $(4.7)$ diventa
+\begin{flalign}
+    \alpha \cdot \partial_\theta F = \tilde{H}_1 \tag{5.9}
+\end{flalign}
+In termini della derivata di Lie associata al campo vettoriale costante definito da $\alpha$
+\begin{flalign}
+    \mathcal{L}_\alpha F = \tilde{H}_1 \tag{5.10}
+\end{flalign}
+detta \textit{equazione omologica}. \\ \\
+Sia $\mathcal{F}$ l'insieme delle serie di Fourier (formali, quindi ancora non associate ad una particolare funzione) su $\mathbb{T}^n$ prive di termine costante. \\ \\
+\textbf{Lemma 5.1:} se $\alpha$ è non risonante, data $g \in \mathcal{F}$ esiste unica $f \in \mathcal{F}$ tale che $\mathcal{L}_\alpha f = g$. \\
+
+\textbf{Dimostrazione:} dato che $g \in \mathcal{F}$, $g$ è della forma
+\begin{flalign}
+    g(\theta) = \sum_{k \neq 0} g_ke^{i2\pi k \cdot \theta} \tag{5.11}
+\end{flalign}
+per ogni $\theta \in \mathbb{T}^n$. Cerchiamo $f$ della forma
+\begin{flalign}
+    f(\theta) = \sum_{k \neq 0} f_ke^{i2\pi k \cdot \theta} \tag{5.12}
+\end{flalign}
+per ogni $\theta \in \mathbb{T}^n$, tale che $\mathcal{L}_\alpha f = g$. Esplicitando l'azione di $\mathcal{L}_\alpha$ su $f$ si ottiene la seguente equazione per $f_k$
+\begin{flalign}
+    i2\pi k \cdot \alpha f_k = g_k \tag{5.13} 
+\end{flalign}
+che ammette come unica soluzione
+\begin{flalign}
+    f_k = \frac{g_k}{i2\pi k \cdot \alpha} \tag{5.14}
+\end{flalign}
+per $k \in \mathbb{Z}^n \setminus \{0\}$. \qed \\ \\
+Dato $s > 0$, sia
+\begin{flalign}
+    \mathbb{T}^n_s = \{\theta \in \mathbb{C}^n/\mathbb{Z}^n : |\mathrm{Im}\theta_j| < s\} \tag{5.15}
+\end{flalign}
+l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{O}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni olomorfe definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $\|\cdot\|_\infty$. \\
+In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa su un insieme è ivi continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema D.$1$ in appendice D.}. \\ \\
+Invertendo $(4.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni olomorfe a funzioni olomorfe, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza. \\ \\
+\textbf{Definizione 5.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
+\begin{flalign}
+    |k \cdot \alpha| \geq \frac{\gamma}{\|k\|^{\tau}_\infty} \tag{5.16}
+\end{flalign}
+per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, dove
+\begin{flalign}
+    \|k\|_\infty = |k_1| + \dots + |k_n| \tag{5.17}
+\end{flalign}
+In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $\alpha \in \mathbb{R}^n$ che sono $(\gamma, \tau)$-Diofantei. Inoltre, poniamo
+\begin{flalign}
+    D_\tau = \bigcup_{\gamma > 0}D_{\gamma, \tau} \tag{5.18}
+\end{flalign} \\
+\textbf{Teorema (di Dirichlet):} dato $\alpha \in \mathbb{R}^n$ e $q \in \mathbb{N}$, $q > 1$, esistono $k \in \mathbb{Z}^n \setminus \{0\}$ e $m \in \mathbb{Z}$ tali che $\|k\|_\infty \leq q$ e 
+\begin{flalign}
+    |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{5.19}
+\end{flalign}
+
+\textbf{Dimostrazione:} fissato $q \in \mathbb{N}$, $q > 1$, consideriamo tutti i vettori $\kappa \in \mathbb{Z}^n$ della forma
+\begin{flalign}
+    \kappa = (\kappa_1, \dots, \kappa_n) \qquad 0 \leq \kappa_i \leq q \tag{5.20}
+\end{flalign}
+per ogni $i = 1, \dots, n$. In particolare, esistono $(q + 1)^n$ vettori in $\mathbb{Z}^n$ che soddisfano $(4.20)$, infatti ogni componente ha $q + 1$ possibili valori da assumere (compreso $0$) e ci sono $n$ componenti totali. \\
+Per ogni $\kappa \in \mathbb{Z}^n$ che soddisfa $(4.20)$ poniamo $x_\kappa = |\{\kappa \cdot \alpha\}|$, dove $\{\cdot\}$ indica l'operazione di parte frazionaria. La parte frazionaria di un numero qualsiasi è sempre compresa tra $0$ e $1$ (escluso). \\
+Dividiamo l'intervallo $[0, 1)$ in $q^n$ sottointervalli di lunghezza $1/q^n$. Avendo considerato solamente i vettori interi con tutte componenti positive, per ogni $a, b \in \mathbb{Z}^n$ distinti che soddisfano $(4.20)$ si ha $x_a \neq x_b$. Pertanto l'insieme $\{x_\kappa\}_\kappa$ è costituito da $(q + 1)^n$ elementi distinti che si dispongono nell'intervallo $[0, 1)$. Dato che $(q + 1)^n > q^n$, esistono $x_a, x_b \in \{x_\kappa\}_\kappa$ tali che $|x_a - x_b| \leq 1/q^n$, ovvero
+\begin{flalign}
+    |\{(a - b) \cdot \alpha\}| \leq \frac{1}{q^n} \tag{5.21}
+\end{flalign}
+Ponendo $k = a - b$ si ha $k \neq 0$ e 
+\begin{flalign}
+    |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{5.22}
+\end{flalign}
+dove $m$ è la parte intera di $k \cdot \alpha$, pertanto si ottiene la tesi. \qed \\ \\
+\textbf{Osservazione:} se poniamo $q = \|k\|_\infty$, $(4.22)$ è valida per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\ \\
+\textbf{Corollario 5.1:} $D_\tau \neq \emptyset$ se e solo se $\tau \geq n - 1$. \\
+
+\textbf{Dimostrazione:} (...) \\ \\
+
+
+
+
+\appendix
+\newpage
+\section{Coniugazione topologica, rivestimenti e sollevamenti}
+\textbf{Definizione:} siano $f : X \longrightarrow X$ e $g : Y \longrightarrow Y$ due applicazioni continue di spazi topologici. $f$ e $g$ sono \textit{topologicamente coniugate} se esiste un omeomorfismo $h : X \longrightarrow Y$ tale che
+\begin{flalign}
+    h \circ f = g \circ h \tag{A.1}
+\end{flalign}
+ovvero se per ogni $x \in X$ vale $h(f(x)) = g(h(x))$. \\ \\
+\textbf{Osservazione:} sia $M$ una varietà differenziabile, siano $\Phi_1, \Phi_2 : M \longrightarrow TM$ campi vettoriali e indichiamo con $\varphi^{(1)}, \varphi^{(2)}$ i loro rispettivi flussi. In particolare, $\varphi^{(1)}$ e $\varphi^{(2)}$ sono detti topologicamente coniugati se esiste un omeomorfismo $h : M \longrightarrow M$ tale che
+\begin{flalign}
+    h(\varphi^{(1)}(t, x)) = \varphi^{(2)}(t, h(x)) \tag{A.2}
+\end{flalign}
+per ogni $x \in M$ e ogni $t \in \mathbb{R}$. \\ \\
+\textbf{Definizione:} un'applicazione continua $p : R \longrightarrow X$ di spazi topologici è detta \textit{rivestimento} se è suriettiva e se ogni $x \in X$ ammette un intorno aperto $U_x$ tale che $p^{-1}(U_x)$ è unione disgiunta di aperti di $R$, ognuno dei quali viene mappato omeomorficamente su $U_x$ da $p$. \\ \\
+\textbf{Definizione:} sia $f : X \longrightarrow Y$ un'applicazione continua di spazi topologici e siano
+$p : \tilde{X} \longrightarrow X$ e $q : \tilde{Y} \longrightarrow Y$ rivestimenti. $\tilde{f} : \tilde{X} \longrightarrow \tilde{Y}$ è detto \textit{sollevamento} di $f$ se $q \circ \tilde{f} = f \circ p$. \\ \\
+\textbf{Osservazione:} Notiamo che il sollevamento di un'applicazione continua non è unico. Infatti, in base alle proprietà del rivestimento, si possono trovare più sollevamenti. La non unicità dipende dal fatto che in generale $p$ non è iniettiva, quindi $p^{-1}(x)$ può contenere più di un punto. \\ \\
+Dato $X$ spazio topologico e $x_0 \in X$ chiamiamo spazio topologico \textit{puntato} o \textit{con punto base} la coppia $(X, x_0)$. Inoltre, dati due spazi topologici puntati $(X, x_0), (Y, y_0)$ chiamiamo \textit{applicazione continua di spazi topologici} una mappa continua $f : (X, x_0) \longrightarrow (Y, y_0)$ tale che $f(x_0) = y_0$. \\ \\
+\textbf{Teorema (di unicità del sollevamento):} siano $p : (R, r_0) \longrightarrow (Y, y_0)$ un rivestimento e $f : (X, x_0) \longrightarrow (Y, y_0)$ un'applicazione continua di spazi topologici puntati con $X$ connesso. Se esiste $\tilde{f} : (X, x_0) \longrightarrow (R, r_0)$ continua tale che $p \circ \tilde{f} = f$, è unica. \\
+
+\textbf{Dimostrazione:} supponiamo che esistano $\tilde{f}_1, \tilde{f}_2 : (X, x_0) \longrightarrow (R, r_0)$ tali che $p \circ \tilde{f}_1 = f = p \circ \tilde{f}_2$. \\
+Poniamo 
+\begin{flalign}
+    A &= \{x \in X : \tilde{f}_1(x) = \tilde{f}_2(x)\} \tag{A.3} \\
+    B &= \{x \in X : \tilde{f}_1(x) \neq \tilde{f}_2(x)\} \tag{A.4}
+\end{flalign}
+Dimostriamo che $A$ e $B$ sono aperti di $X$. \\
+Per ipotesi $x_0 \in A$, infatti $\tilde{f}_1(x_0) = r_0 = \tilde{f}_2(x_0)$, pertanto $A \neq \emptyset$. Dato $z \in A$, poniamo $\tilde{f}_1(z) = r = \tilde{f}_2(z)$. Sia $y = p(r)$, per definizione di rivestimento esiste un intorno aperto $U_y$ di $y$ tale che la restrizione di $p$ a $V_y := p^{-1}(U_y)$ è un omeomorfismo. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni di $z$ tali che $\tilde{f}_1(W_1) \subset V_y$ e $\tilde{f}_2(W_2) \subset V_y$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1 \cap W_2$ e, dato che $p|_{V_y}$ è un omeomorfismo, si ha che $\tilde{f}_1 = \tilde{f}_2$ in $W_1 \cap W_2$. Allora $W_1 \cap W_2 \subset A$ e dall'arbitrarietà del punto $z$ scelto segue che $A$ è un aperto. \\
+Supponiamo per assurdo che esista un elemento $z \in B$ e poniamo $\tilde{f}_1(z) = r_1$ e $\tilde{f}_2(z) = r_2$. Siano $y_1 = p(r_1)$ e $y_2 = p(r_2)$. Per definizione di rivestimento, esistono $U_{y_1}$ e $U_{y_2}$, rispettivamente intorno aperto di $y_1$ e $y_2$, tali che la restrizione di $p$ a $V_{y_1} := p^{-1}(U_{y_1})$ e la restrizione di $p$ a $V_{y_2} := p^{-1}(U_{y_2})$ sono omeomorfismi. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni aperti di $z$ tali che $\tilde{f}_1(W_1) \subset V_{y_1}$ e $\tilde{f}_2(W_2) \subset V_{y_2}$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1$ e ogni $x \in W_2$. Allora $\tilde{f}_1 = \tilde{f}_2$ per ogni $x \in W_1$ e ogni $x \in W_2$, in particolare per $z$, quindi si ottiene un assurdo. Segue che $B = \emptyset$ e di conseguenza $A = X \setminus B = X$. \qed
+
+\newpage
 \section{Forme differenziali}
 Descriviamo la struttura geometrica definita sugli spazi in esame. In particolare, introdurremo i concetti di \textit{forma esterna}, di \textit{prodotto esterno}, di \textit{forma differenziale}, di \textit{derivata esterna} e definiremo l'integrazione delle forme differenziali.
 \subsection{$k$-forme esterne}
 Sia $\mathbb{R}^n$ uno spazio lineare $n$-dimensionale (senza struttura euclidea fissata). \\ \\
 \textbf{Definizione:} una mappa lineare $\omega : \mathbb{R}^n \longrightarrow \mathbb{R}$ è detta $1$-\textit{forma}. In particolare 
-\begin{align}
-    \omega(x_1 + x_2) = \omega(x_1) + \omega(x_2) \qquad \omega(\lambda x) = \lambda\omega(x) \tag{1.1.1}
-\end{align}
+\begin{flalign}
+    \omega(x_1 + x_2) = \omega(x_1) + \omega(x_2) \qquad \omega(\lambda x) = \lambda\omega(x) \tag{B.1.1}
+\end{flalign}
 per ogni $x, x_1, x_2 \in \mathbb{R}^n$ e ogni $\lambda \in \mathbb{R}$. \\ \\
 Sull'insieme delle $1$-forme su $\mathbb{R}^n$ è possibile definire struttura di spazio lineare introducendo le operazioni di somma tra $1$-forme e di prodotto per scalare. Date $\omega_1, \omega_2$ $1$-forme lineari, si pone 
-\begin{align}
-    (\omega_1 + \omega_2)(x) = \omega_1(x) + \omega_2(x) \qquad (\lambda\omega)(x) = \lambda\omega(x) \tag{1.1.2}
-\end{align}
+\begin{flalign}
+    (\omega_1 + \omega_2)(x) = \omega_1(x) + \omega_2(x) \qquad (\lambda\omega)(x) = \lambda\omega(x) \tag{B.1.2}
+\end{flalign}
 per ogni $x \in \mathbb{R}^n$ e ogni $\lambda \in \mathbb{R}$. Lo spazio lineare delle $1$-forme si indica con $(\mathbb{R}^n)^*$ ed è detto \textit{spazio duale}. \\ \\
 Fissata una base $\{e_1, \dots, e_n\}$ di $\mathbb{R}^n$, essa induce una base sullo spazio duale. Per ogni $i, j = 1, \dots, n$, poniamo
-\begin{align}
-    dx_i(e_j) = \delta_{ij} \tag{1.1.3}
-\end{align}
+\begin{flalign}
+    dx_i(e_j) = \delta_{ij} \tag{B.1.3}
+\end{flalign}
 ed estensione lineare, dove $\delta_{ij}$ è la \textit{delta di Kronecker}. Data $\omega \in (\mathbb{R}^n)^*$ e $x \in \mathbb{R}^n$ si ha 
-\begin{align}
+\begin{flalign}
     \omega(x) &= \omega(a_1e_1 + \dots + a_ne_n) \notag \\
     &= a_1\omega(e_1) + \dots + a_n\omega(e_n) \notag \\
     &= b_1dx_1(x) + \dots + b_ndx_n(x) \notag
-\end{align}
+\end{flalign}
 dove $b_i = \omega(e_i)$, $i = 1, \dots, n$. Segue che 
-\begin{align}
-    \omega = b_1dx_1 + \dots b_ndx_n \tag{1.1.4}
-\end{align}
+\begin{flalign}
+    \omega = b_1dx_1 + \dots b_ndx_n \tag{B.1.4}
+\end{flalign}
 ovvero ogni $1$-forma su $\mathbb{R}^n$ può essere espressa come combinazione lineare di elementi della base duale $\{dx_i\}$. \\
 Osserviamo che uno spazio lineare ed il suo duale hanno la stessa dimensione. \\ \\
 \textbf{Esempio:} dato un campo vettoriale uniforme $F$ (campo di forze) su $\mathbb{R}^n$ e un vettore $x \in \mathbb{R}^n$ (vettore spostamento), l'applicazione lineare 
-\begin{align}
-    \omega(x) = (F, x) \tag{1.1.5}
-\end{align}
+\begin{flalign}
+    \omega(x) = (F, x) \tag{B.1.5}
+\end{flalign}
 è una $1$-forma su $\mathbb{R}^n$. \\ \\
 \textbf{Definizione:} una mappa bilineare antisimmetrica $\omega^{(2)} : \mathbb{R}^n \times \mathbb{R}^n \longrightarrow \mathbb{R}$ è detta $2$-\textit{forma}. In particolare 
-\begin{align}
-    \omega^{(2)}(\lambda_1x_1 + \lambda_2x_2, x) = \lambda_1\omega^{(2)}(x_1, x) + \lambda_2\omega^{(2)}(x_2, x) \tag{1.1.6}
-\end{align}
+\begin{flalign}
+    \omega^{(2)}(\lambda_1x_1 + \lambda_2x_2, x) = \lambda_1\omega^{(2)}(x_1, x) + \lambda_2\omega^{(2)}(x_2, x) \tag{B.1.6}
+\end{flalign}
 e
-\begin{align}
-    \omega^{(2)}(x_1, x_2) = -\omega^{(2)}(x_2, x_1) \tag{1.1.7} 
-\end{align}
+\begin{flalign}
+    \omega^{(2)}(x_1, x_2) = -\omega^{(2)}(x_2, x_1) \tag{B.1.7} 
+\end{flalign}
 per ogni $x, x_1, x_2 \in \mathbb{R}^n$ e ogni $\lambda_1, \lambda_2 \in \mathbb{R}$. \\ \\
 \textbf{Esempio:} sia $s : \mathbb{R}^n \times \mathbb{R}^n \longrightarrow \mathbb{R}$ la mappa 
-\begin{align}
+\begin{flalign}
     (x_1, x_2) \mapsto \det
     \begin{pmatrix}
         x_{11} & x_{12} \\
         x_{21} & x_{22}
-    \end{pmatrix} \tag{1.1.8}
-\end{align}
+    \end{pmatrix} \tag{B.1.8}
+\end{flalign}
 dove $x_1 = x_{11}e_1 + x_{12}e_2$ e $x_2 = x_{21}e_1 + x_{22}e_2$. Dalle proprietà della funzione $\det$ segue che $s$ è bilineare e antisimmetrica, dunque $s$ è una $2$-forma. $s(x_1, x_2)$ si interpreta geometricamente come l'area orientata del parallelogramma identificato dai vettori $x_1, x_2$ in $\mathbb{R}^n$. \\ \\
 \textbf{Osservazione:} sia $\omega^{(2)}$ una $2$-forma. $\omega$ è antilineare, quindi
-\begin{align}
-    \omega^{(2)}(x, x) = -\omega^{(2)}(x, x) \tag{1.1.10}
-\end{align}
+\begin{flalign}
+    \omega^{(2)}(x, x) = -\omega^{(2)}(x, x) \tag{B.1.10}
+\end{flalign}
 segue che $\omega^{(2)}(x, x) = 0$ per ogni $x \in \mathbb{R}^n$. \\ \\
 Introducendo le operazioni di somma e prodotto per scalare per le $2$-forme in maniera identica a come fatto per le $1$-forme su $\mathbb{R}^n$, si definisce struttura di spazio lineare sull'insieme delle $2$-forme su $\mathbb{R}^n \times \mathbb{R}^n$. \\ \\
-\textbf{Proposizione 1.1.1:} lo spazio duale $(\mathbb{R}^n \times \mathbb{R}^n)^*$ ha dimensione $\frac{n(n - 1)}{2}$. \\
+\textbf{Proposizione B.1.1:} lo spazio duale $(\mathbb{R}^n \times \mathbb{R}^n)^*$ ha dimensione $\frac{n(n - 1)}{2}$. \\
 
 \textbf{Dimostrazione:} sia $\omega^{(2)}$ una $2$-forma su $\mathbb{R}^n \times \mathbb{R}^n$. Fissiamo una base $\{e_1, \dots, e_n\}$ su $\mathbb{R}^n$. Dati $x, y \in \mathbb{R}^n$, indichiamo con $a_1, \dots, a_n$ e $b_1, \dots, b_n$ rispettivamente le coordinate di $x$ e $y$ rispetto alla base $\{e_1, \dots, e_n\}$. Allora 
-\begin{align}
+\begin{flalign}
     \omega^{(2)}(x, y) &= \omega^{(2)}(a_1e_1 + \dots + a_ne_n, b_1e_1 + \dots + b_ne_n) \notag \\
     &= \sum_{i,j = 1}^n a_ib_j\omega^{(2)}(e_i, e_j) \notag \\
     &= \sum_{i \neq j} a_ib_j\omega^{(2)}(e_i, e_j) \notag
-\end{align}
+\end{flalign}
 Per ogni $i,j = 1, \dots, n$ definiamo $\omega_{ij} = \omega^{(2)}(e_i, e_j)$. Sappiamo che $\omega_{ii} = 0$ e $\omega_{ij} = -\omega_{ji}$ per ogni $i, j = 1, \dots, n$, pertanto i coefficienti "liberi" si hanno per $1 \leq i < j \leq n$. Inoltre, per ogni $1 \leq i < j \leq n$, definiamo la $2$-forma 
-\begin{align}
+\begin{flalign}
     dx_{ij}(e_k, e_l) = \begin{cases}
         1 \qquad &(k, l) = (i, j) \\
         -1 \qquad &(k, l) = (j, i) \\
         0 \qquad &\text{altrimenti}
-    \end{cases} \tag{1.1.12}
-\end{align}
+    \end{cases} \tag{B.1.12}
+\end{flalign}
 ed estensione bilineare, con $k, l = 1, \dots, n$. Allora 
-\begin{align}
-    \omega^{(2)}(x, y) = \sum_{1 \leq i < j \leq n}\omega_{ij}dx_{ij}(x, y) \tag{1.1.13}
-\end{align}
+\begin{flalign}
+    \omega^{(2)}(x, y) = \sum_{1 \leq i < j \leq n}\omega_{ij}dx_{ij}(x, y) \tag{B.1.13}
+\end{flalign}
 Dall'arbitrarietà della coppia $(x, y)$ segue che 
-\begin{align}
-    \omega^{(2)} = \sum_{1 \leq i < j \leq n} \omega_{ij}dx_{ij} \tag{1.1.14}
-\end{align}
+\begin{flalign}
+    \omega^{(2)} = \sum_{1 \leq i < j \leq n} \omega_{ij}dx_{ij} \tag{B.1.14}
+\end{flalign}
 Inoltre 
-\begin{align}
-    \sum_{1 \leq i < j \leq n} 1 = \frac{n(n - 1)}{2} \tag{1.1.15}
-\end{align}
+\begin{flalign}
+    \sum_{1 \leq i < j \leq n} 1 = \frac{n(n - 1)}{2} \tag{B.1.15}
+\end{flalign}
 ovvero la dimensione del duale è $\frac{n(n - 1)}{2}$. \qed \\ \\
 In generale, si possono definire le $k$-forme, ovvero le mappe $k$-lineari e antisimmetriche definite su $k$ copie di $\mathbb{R}^n$. In particolare, data $\omega$ una $k$-forma, si ha 
-\begin{align}
-    \omega(\lambda x + \mu y, z_2, \dots, z_k) = \lambda\omega(x, z_2, \dots, z_k) + \mu\omega(y, z_2, \dots, z_k) \tag{1.1.16}
-\end{align}
+\begin{flalign}
+    \omega(\lambda x + \mu y, z_2, \dots, z_k) = \lambda\omega(x, z_2, \dots, z_k) + \mu\omega(y, z_2, \dots, z_k) \tag{B.1.16}
+\end{flalign}
 e
-\begin{align}
-    \omega(z_{i_1}, \dots, z_{i_k}) = (-1)^\nu\omega(z_1, \dots, z_k) \tag{1.1.17}
-\end{align}
+\begin{flalign}
+    \omega(z_{i_1}, \dots, z_{i_k}) = (-1)^\nu\omega(z_1, \dots, z_k) \tag{B.1.17}
+\end{flalign}
 dove 
-\begin{align}
+\begin{flalign}
     \nu = 
     \begin{cases}
         0 \qquad &\text{se la permutazione } i_1, \dots, i_k \text{ è pari} \\
         1 \qquad &\text{se la permutazione } i_1, \dots, i_k \text{ è dispari}
     \end{cases} \notag
-\end{align}
+\end{flalign}
 per ogni $x, y, z_1, \dots, z_k \in \mathbb{R}^k$ e ogni $\lambda, \mu \in \mathbb{R}$. \\ \\
 Identicamente a come visto per le $1$-forme e le $2$-forme, è possibile definire struttura di spazio lineare sull'insieme delle $k$-forme e tale spazio ha dimensione finita.
 
@@ -124,16 +522,16 @@ Identicamente a come visto per le $1$-forme e le $2$-forme, è possibile definir
 \subsection{Prodotto esterno di $1$-forme}
 Introduciamo l'operazione di \textit{prodotto esterno} $\wedge$ di due $1$-forme, che poi estenderemo in modo tale da definire il prodotto esterno di $k$ $1$-forme e il prodotto esterno tra una $k$-forma e una $l$-forma. \\ \\
 Date $\omega_1, \omega_2$ $1$-forme su $\mathbb{R}^n$, poniamo 
-\begin{align}
+\begin{flalign}
     (\omega_1 \wedge \omega_2)(x_1, x_2) = \det
     \begin{pmatrix}
         \omega_1(x_1) & \omega_2(x_1) \\
         \omega_1(x_2) & \omega_2(x_2)
-    \end{pmatrix} \tag{1.2.1}
-\end{align}
+    \end{pmatrix} \tag{B.2.1}
+\end{flalign}
 L'interpretazione geometrica del prodotto esterno tra $\omega_1$ e $\omega_2$ calcolato in $(x_1, x_2)$ è l'area del parallelogramma di lati $x_1, x_2$ nel piano $(\omega_1, \omega_2)$. \\ \\
 \textbf{Osservazione:} $\omega_1 \wedge \omega_2$ è una $2$-forma, infatti
-\begin{align}
+\begin{flalign}
     (\omega_1 \wedge \omega_2)(x_2, x_1) &= \det
     \begin{pmatrix}
         \omega_1(x_2) & \omega_2(x_2) \\
@@ -146,10 +544,10 @@ L'interpretazione geometrica del prodotto esterno tra $\omega_1$ e $\omega_2$ ca
         \omega_1(x_2) & \omega_2(x_2)
     \end{pmatrix}
     \notag \\
-    &= -(\omega_1 \wedge \omega_2)(x_1, x_2) \tag{1.2.2}
-\end{align}
+    &= -(\omega_1 \wedge \omega_2)(x_1, x_2) \tag{B.1.2}
+\end{flalign}
 e
-\begin{align}
+\begin{flalign}
     (\omega_1 \wedge \omega_2)(\lambda_1x_1 + \lambda_2x_2, x) &= \det
     \begin{pmatrix}
         \lambda_1\omega_1(x_1) + \lambda_2\omega_1(x_2) & \lambda_1\omega_2(x_1) + \lambda_2\omega_2(x_2) \\
@@ -168,249 +566,249 @@ e
         \omega_1(x) & \omega_2(x)
     \end{pmatrix}
     \notag \\
-    &= \lambda_1(\omega_1 \wedge \omega_2)(x_1, x) + \lambda_2(\omega_1 \wedge \omega_2)(x_2, x) \tag{1.2.3}
-\end{align}
+    &= \lambda_1(\omega_1 \wedge \omega_2)(x_1, x) + \lambda_2(\omega_1 \wedge \omega_2)(x_2, x) \tag{B.2.3}
+\end{flalign}
 Analogamente si mostra che l'applicazione $(\omega_1, \omega_2) \mapsto \omega_1 \wedge \omega_2$ è bilineare e antisimmetrica. \\ \\
 Fissiamo una base $\{e_i\}$ per $\mathbb{R}^n$ e consideriamo la base duale indotta $\{dx_i\}$. I prodotti esterni $dx_i \wedge dx_j$ sono delle $2$-forme, inoltre, per antisimmetricità del prodotto esterno, si ha 
-\begin{align}
-    dx_i \wedge dx_i = 0 \qquad dx_i \wedge dx_j = -dx_j \wedge dx_j \tag{1.2.4}
-\end{align}
+\begin{flalign}
+    dx_i \wedge dx_i = 0 \qquad dx_i \wedge dx_j = -dx_j \wedge dx_j \tag{B.2.4}
+\end{flalign}
 per ogni $i, j = 1, \dots, n$. Possiamo interpretare geometricamente il prodotto esterno $(dx_i \wedge dx_j)(x_1, x_2)$ come l'area orientata della proiezione sul piano $(e_i, e_j)$ del parallelogramma con lati $x_1, x_2$ sul piano coordinato $(e_i, e_j)$. \\ \\
-\textbf{Proposizione 1.2.1:} ogni $2$-forma $\omega^{(2)}$ può essere rappresentata univocamente come combinazione lineare di $\{dx_i \wedge dx_j\}_{i < j}$. \\
+\textbf{Proposizione B.2.1:} ogni $2$-forma $\omega^{(2)}$ può essere rappresentata univocamente come combinazione lineare di $\{dx_i \wedge dx_j\}_{i < j}$. \\
 
 \textbf{Dimostrazione:} notiamo che 
-\begin{align}
-    (dx_i \wedge dx_j)(e_k, e_k) = dx_{ij}(e_k, e_l) \tag{1.2.5}
-\end{align}
-per ogni $1 \leq i < j \leq n$ e ogni $k, l = 1, \dots, n$, dove $dx_{ij}$ è la $2$-forma definita nella \textit{proposizione 1.1.1}. La tesi segue. \qed
+\begin{flalign}
+    (dx_i \wedge dx_j)(e_k, e_k) = dx_{ij}(e_k, e_l) \tag{B.2.5}
+\end{flalign}
+per ogni $1 \leq i < j \leq n$ e ogni $k, l = 1, \dots, n$, dove $dx_{ij}$ è la $2$-forma definita nella \textit{proposizione B.1.1}. La tesi segue. \qed
 
 \newpage
 \subsection{Monomi esterni}
 Date $k$ $1$-forme $\omega_1, \dots, \omega_k$, definiamo il prodotto esterno $\omega_1 \wedge \dots \wedge \omega_k$ come segue
-\begin{align}
+\begin{flalign}
     (\omega_1 \wedge \dots \wedge \omega_k)(x_1, \dots, x_k) = \det
     \begin{pmatrix}
         \omega_1(x_1) & \dots & \omega_k(x_1) \\
         . & & . \\
         \omega_1(x_k) & \dots & \omega_k(x_k)
-    \end{pmatrix} \tag{1.3.1}
-\end{align}
+    \end{pmatrix} \tag{B.3.1}
+\end{flalign}
 Il prodotto esterno delle $k$ $1$-forme $\omega_1, \dots, \omega_k$ valutato in $(x_1, \dots, x_k)$ può essere interpretato geometricamente come il volume orientato del parallelepipedo in $\mathbb{R}^k$ individuato da $\omega_1, \dots, \omega_k$ tramite la mappa $x \mapsto (\omega_1(x), \dots, \omega_k(x))$. \\ \\
 Come visto in precedenza, dato che il determinante è una funzione multilineare e antisimmetrica (rispetto a righe e colonne), il prodotto di $k$ $1$-forme è una $k$-forma e anche $(\omega_1, \dots, \omega_k) \mapsto \omega_1 \wedge \dots \wedge \omega_k$ è una mappa multilineare e antisimmetrica. \\ \\
 Data la base duale $\{dx_i\}$ di $\mathbb{R}^n$, il prodotto esterno di $k$ elementi di base 
-\begin{align}
-    dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.3.2}
-\end{align}
+\begin{flalign}
+    dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{B.3.2}
+\end{flalign}
 dove $1 \leq i_m \leq n$, $m = 1, \dots, k$,  valutato in $(x_1, \dots, x_k)$ fornisce il volume orientato della proiezione sul $k$-piano $(x_{i_1}, \dots, x_{i_k})$ del parallelepipedo di lati $(x_{i_1}, \dots, x_{1_k})$. \\ \\
 \textbf{Osservazione:} se tra gli indici $i_1, \dots, i_k$ ce ne sono due identici, la forma $dx_{i_1} \wedge \dots \wedge dx_{i_k} = 0$. Infatti, dati $x_1, \dots, x_k \in \mathbb{R}^n$, si ha 
-\begin{align}
+\begin{flalign}
     (dx_{i_1} \wedge \dots \wedge dx_{i_k})(x_1, \dots, x_k) &= \det
     \begin{pmatrix}
         x_{1, i_1} & \dots & x_{1, i_k} \\
         . & & . \\
         x_{k, i_1} & \dots & x_{k, i_k}
-    \end{pmatrix} = 0 \tag{1.3.3}
-\end{align}
+    \end{pmatrix} = 0 \tag{B.3.3}
+\end{flalign}
 dato che si tratta del determinante di una matrice con due colonne identiche. \\ \\
-\textbf{Proposizione 1.3.1:} ogni $k$-forma in $\mathbb{R}^n$ può essere rappresentata univocamente come combinazione lineare di $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. \\
+\textbf{Proposizione B.3.1:} ogni $k$-forma in $\mathbb{R}^n$ può essere rappresentata univocamente come combinazione lineare di $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. \\
 
 \textbf{Dimostrazione:} data $\omega^{(k)}$ $k$-forma in $\mathbb{R}^n$ e dati $x_1, \dots, x_k \in \mathbb{R}^n$ si ha
-\begin{align}
+\begin{flalign}
     \omega^{(k)}(x_1, \dots, x_k) &= \omega^{(k)}\left(\sum_{i_1 = 1}^n a_{i_1}e_{i_1}, \dots, \sum_{i_k = 1}^n a_{i_k}e_{i_k}\right) \notag \\
     &= \sum_{i_1, \dots, i_k} a_{i_1} \cdot \dots \cdot a_{i_k}\omega^{(k)}(e_{i_1}, \dots, e_{i_k}) \notag
-\end{align}
-Poniamo $\omega_{i_1, \dots, i_k} = \omega^{(k)}(e_{i_1}, \dots, e_{i_k})$. Notiamo che $\omega_{i_1, \dots, i_k} = 0$ se tra $i_1, \dots, i_k$ ci sono due indici identici. Inoltre, per l'antisimmetricità, si ha che \begin{align}
+\end{flalign}
+Poniamo $\omega_{i_1, \dots, i_k} = \omega^{(k)}(e_{i_1}, \dots, e_{i_k})$. Notiamo che $\omega_{i_1, \dots, i_k} = 0$ se tra $i_1, \dots, i_k$ ci sono due indici identici. Inoltre, per l'antisimmetricità, si ha che \begin{flalign}
     \omega_{i_1, \dots, i_s, \dots, i_t, \dots, i_k} = -\omega_{i_1, \dots, i_t, \dots, i_s, \dots, i_k} \notag
-\end{align}
+\end{flalign}
 per ogni $1 \leq s < t \leq k$. Segue che 
-\begin{align}
+\begin{flalign}
     \omega^{(k)}(x_1, \dots, x_k) &= \sum_{i_1 < \dots < i_k}a_{i_1} \cdot \dots \cdot a_{i_k}\omega_{i_1, \dots, i_k}(dx_{i_1} \wedge \dots \wedge dx_{i_k})(e_{i_1}, \dots, e_{i_k}) \notag \\
-    &= \sum_{i_1 < \dots < i_k} \omega_{i_1, \dots, i_k}(dx_{i_1} \wedge \dots \wedge dx_{i_k})(x_1, \dots, x_k) \tag{1.3.4}
-\end{align}
+    &= \sum_{i_1 < \dots < i_k} \omega_{i_1, \dots, i_k}(dx_{i_1} \wedge \dots \wedge dx_{i_k})(x_1, \dots, x_k) \tag{B.3.4}
+\end{flalign}
 Dall'arbitrarietà di $x_1, \dots, x_k$ si ottiene 
-\begin{align}
-    \omega^{(k)} = \sum_{i_1 < \dots < i_k} \omega_{i_1, \dots, i_k}dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.3.5}
-\end{align}
+\begin{flalign}
+    \omega^{(k)} = \sum_{i_1 < \dots < i_k} \omega_{i_1, \dots, i_k}dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{B.3.5}
+\end{flalign}
 I coefficienti $\{\omega_{i_1, \dots, i_k}\}$ sono unici per come sono state costruite le forme di base. \qed \\ \\
 Notiamo che la dimensione dello spazio delle $k$-forme su $\mathbb{R}^n$, che denotiamo con $\Omega^{(k)}(\mathbb{R}^n)$, è $C^k_n$. \\
 Per $k = n$ si ha $C^k_n = 1$, pertanto ogni $n$-forma su $\mathbb{R}^n$ o è il volume orientato di un parallelepipedo, con una scelta opportuna di unità di volume, o è nulla
-\begin{align}
-    \omega^{(n)} = adx_1 \wedge \dots \wedge dx_n \tag{1.3.6}
-\end{align}
+\begin{flalign}
+    \omega^{(n)} = adx_1 \wedge \dots \wedge dx_n \tag{B.3.6}
+\end{flalign}
 con $a \in \mathbb{R}$. \\ \\
 \textbf{Osservazione:} sia $k > n$, ogni $k$-forma in $\mathbb{R}^n$ è identicamente nulla, infatti 
-\begin{align}
+\begin{flalign}
     (dx_{i_1} \wedge \dots \wedge dx_{i_k})(e_{i_1}, \dots, e_{i_k}) = 0 \notag
-\end{align}
+\end{flalign}
 dato che si avranno sempre due indici identici in $i_1, \dots, i_k$. \\ \\
 Consideriamo ora due monomi $\omega^{(k)} = \omega_1 \wedge \dots \wedge \omega_k$ e $\omega^{(l)} = \omega_{k + 1} \wedge \dots \wedge \omega_{k + l}$, dove $\omega_1, \dots, \omega_{k + l}$ sono $1$-forme su $\mathbb{R}^n$. Definiremo il prodotto $\omega^{(k)} \wedge \omega^{(l)}$ come il monomio 
-\begin{align}
-    (\omega_1 \wedge \dots \wedge \omega_k) \wedge (\omega_{k + 1} \wedge \dots \wedge \omega_{k + l}) = \omega_1 \wedge \dots \wedge \omega_{k + l} \tag{1.3.7}
-\end{align} \\
-\textbf{Proposizione 1.3.2:} il prodotto esterno di monomi è associativo e anticommutativo graduato. \\
+\begin{flalign}
+    (\omega_1 \wedge \dots \wedge \omega_k) \wedge (\omega_{k + 1} \wedge \dots \wedge \omega_{k + l}) = \omega_1 \wedge \dots \wedge \omega_{k + l} \tag{B.3.7}
+\end{flalign} \\
+\textbf{Proposizione B.3.2:} il prodotto esterno di monomi è associativo e anticommutativo graduato. \\
 
 \textbf{Dimostrazione:} siano $\omega^{(k)}, \omega^{(l)}, \omega^{(m)}$ monomi esterni. Allora 
-\begin{align}
+\begin{flalign}
     (\omega^{(k)} \wedge \omega^{(l)}) \wedge \omega^{(m)} &= (\omega_1 \wedge \dots \wedge \omega_{k + l}) \wedge (\omega_{k + l + 1} \wedge \dots \wedge \omega_{k + l + m}) \notag \\
     &= \omega_1 \wedge \dots \wedge \omega_{k + l + m} \notag \\
     &= (\omega_1 \wedge \dots \wedge \omega_{k}) \wedge (\omega_{k + 1} \wedge \dots \wedge \omega_{k + l + m}) \notag \\
     &= \omega^{(k)} \wedge (\omega^{(l)} \wedge \omega^{(m)}) \notag
-\end{align}
+\end{flalign}
 ovvero il prodotto esterno tra monomi è associativo. Inoltre 
-\begin{align}
+\begin{flalign}
     \omega^{(k)} \wedge \omega^{(l)} &= \omega_1 \wedge \dots \wedge \omega_{k + l} \notag \\
     &= (-1)^{kl}\omega_{k + l} \wedge \dots \wedge \omega_k \wedge \omega_1 \wedge \dots \wedge \omega_k \notag \\
     &= (-1)^{kl}\omega^{(l)} \wedge \omega^{(k)} \notag
-\end{align}
+\end{flalign}
 dato che per "spostare" ogni termine $\omega_i$, $i = k + 1, \dots, k + l$, a "sinistra" di $\omega_{i - k}$ si devono compiere $k$ inversioni. \qed \\ \\
 Il termine \textit{anticommutativo graduato} sta a sottolineare una particolare proprietà del prodotto esterno di monomi: il prodotto è (anti)commutativo se $kl$ è (dispari) pari.
 
 \newpage
 \subsection{Prodotto esterno}
 \textbf{Definizione:} date $\omega^{(k)}$ e $\omega^{(l)}$, rispettivamente una $k$-forma e una $l$-forma su $\mathbb{R}^n$, definiamo il prodotto esterno $\omega^{(k)} \wedge \omega^{(l)}$ come
-\begin{align}
-    (\omega^{(k)} \wedge \omega^{(l)})(x_1, \dots, x_{k + l}) = \sum_{\substack{i_1 < \dots < i_k \\ j_1 < \dots < j_l}}(-1)^\nu \omega^{(k)}(x_{i_1}, \dots, x_{i_k})\omega^{(l)}(x_{j_1}, \dots, x_{j_l}) \tag{1.4.1}
-\end{align}
+\begin{flalign}
+    (\omega^{(k)} \wedge \omega^{(l)})(x_1, \dots, x_{k + l}) = \sum_{\substack{i_1 < \dots < i_k \\ j_1 < \dots < j_l}}(-1)^\nu \omega^{(k)}(x_{i_1}, \dots, x_{i_k})\omega^{(l)}(x_{j_1}, \dots, x_{j_l}) \tag{B.4.1}
+\end{flalign}
 dove $(i_1, \dots, i_k, j_1, \dots, j_l)$ è una permutazione di $(1, \dots, k, k + 1, \dots, k + l)$, mentre 
-\begin{align}
+\begin{flalign}
     \nu = \begin{cases}
         0 \qquad &\text{se la permutazione è pari} \\
         1 \qquad &\text{se la permutazione è dispari}
     \end{cases} \notag
-\end{align}
+\end{flalign}
 \textbf{Esempio:} per due $1$-forme $\omega_1, \omega_2$ si ha 
-\begin{align}
+\begin{flalign}
     (\omega_1 \wedge \omega_2)(x_1, x_2) = \omega_1(x_1)\omega_2(x_2) - \omega_2(x_1)\omega_1(x_2) \notag
-\end{align}
+\end{flalign}
 in accordo con la definizione di prodotto esterno di due $1$-forme. \\ \\
-\textbf{Proposizione 1.4.1:} il prodotto $\omega^{(k)} \wedge \omega^{(l)}$ è una $k + l$-forma. \\
+\textbf{Proposizione B.4.1:} il prodotto $\omega^{(k)} \wedge \omega^{(l)}$ è una $k + l$-forma. \\
 
 \textbf{Dimostrazione:} fissata una qualsiasi permutazione $\sigma$
-\begin{align}
+\begin{flalign}
     (1, \dots, k + l) \mapsto (\sigma(1), \dots, \sigma(k + l)) \notag
-\end{align}
+\end{flalign}
 si ha
-\begin{align}
+\begin{flalign}
     \omega^{(k)}(\dots, \overbrace{\lambda x_1 + \mu y_1}^{\sigma(1)-\text{esima}}, \dots)\omega^{(l)}(\dots) &= (\lambda\omega^{(k)}(\dots, x_1, \dots) + \notag \\
     &+ \mu\omega^{(k)}(\dots, y_1, \dots))\omega^{(l)}(\dots) \notag
-\end{align}
+\end{flalign}
 e analogamente 
-\begin{align}
+\begin{flalign}
     \omega^{(k)}(\dots)\omega^{(l)}(\dots, \overbrace{\lambda x_1 + \mu y_1}^{\sigma(1)-\text{esima}}, \dots) &= (\lambda\omega^{(l)}(\dots, x_1, \dots) + \notag \\
     &+ \mu\omega^{(l)}(\dots, y_1, \dots))\omega^{(k)}(\dots) \notag
-\end{align}
+\end{flalign}
 ovvero ogni termine della somma è multineare, segue che anche $\omega^{(k)} \wedge \omega^{(l)}$ è multilineare. \\
 Inoltre, $\omega^{(k)} \wedge \omega^{(l)}$ è antisimmetrico perché $\omega^{(k)}$ e $\omega^{(l)}$ lo sono singolarmente (si vede facilmente fissando una permutazione $\sigma$ come fatto per mostrare la multilinearità). \\ \\
 \textbf{Teorema (proprietà del prodotto esterno):} il prodotto esterno è anticommutativo, distributivo e associativo. \\
 
-\textbf{Dimostrazione:} per la \textit{proposizione 1.3.1} sappiamo che $\omega^{(k)}$ e $\omega^{(l)}$ possono essere rappresentate come combinazione lineare dei monomi di base. Inoltre, per la \textit{proposizione 1.3.2}, sappiamo che il prodotto di monomi è anticommutativo graduato. Pertanto, concludiamo che $\omega^{(k)} \wedge \omega^{(l)}$ può essere rappresentato come somma di prodotti di monomi, ognuno anticommutativo graduato. \\ \\
+\textbf{Dimostrazione:} per la \textit{proposizione B.3.1} sappiamo che $\omega^{(k)}$ e $\omega^{(l)}$ possono essere rappresentate come combinazione lineare dei monomi di base. Inoltre, per la \textit{proposizione B.3.2}, sappiamo che il prodotto di monomi è anticommutativo graduato. Pertanto, concludiamo che $\omega^{(k)} \wedge \omega^{(l)}$ può essere rappresentato come somma di prodotti di monomi, ognuno anticommutativo graduato. \\ \\
 La distributività si vede immediatamente notando che la mappa
-\begin{align}
+\begin{flalign}
     (\omega^{(k)}, \omega^{(l)}) \mapsto \omega^{(k)} \wedge \omega^{(l)} \notag
-\end{align}
-è bilineare, infatti ogni termine della $(1.4.1)$ è lineare rispetto a $\omega^{(k)}$ e $\omega^{(l)}$. \\ \\
+\end{flalign}
+è bilineare, infatti ogni termine della $(B.4.1)$ è lineare rispetto a $\omega^{(k)}$ e $\omega^{(l)}$. \\ \\
 Infine, per dimostrare l'associatività facciamo uso del \textit{teorema di Laplace}, che permette di sviluppare il determinante secondi i minori delle colonne. \\
 Notiamo che se l'associatività vale separatemente per $\omega'_1, \omega''_1$, allora vale anche per la somma $\omega'_1 + \omega''_1$, ovvero 
-\begin{align}
+\begin{flalign}
     \begin{cases}
-        (\omega'_1 \wedge \omega_2) \wedge \omega_3 &= \omega'_1 \wedge (\omega_2 \wedge \omega_3) \\
-        (\omega''_1 \wedge \omega_2) \wedge \omega_3 &= \omega''_1 \wedge (\omega_2 \wedge \omega_3)
-    \end{cases} \tag{1.4.2}
-\end{align}
+        (\omega'_1 \wedge \omega_2) \wedge \omega_3 = \omega'_1 \wedge (\omega_2 \wedge \omega_3) \\
+        (\omega''_1 \wedge \omega_2) \wedge \omega_3 = \omega''_1 \wedge (\omega_2 \wedge \omega_3)
+    \end{cases} \tag{B.4.2}
+\end{flalign}
 implica
-\begin{align}
-    ((\omega'_1 + \omega''_1) \wedge \omega_2) \wedge \omega_3 = (\omega'_1 + \omega''_1) \wedge (\omega_2 \wedge \omega_3) \tag{1.4.3}
-\end{align}
+\begin{flalign}
+    ((\omega'_1 + \omega''_1) \wedge \omega_2) \wedge \omega_3 = (\omega'_1 + \omega''_1) \wedge (\omega_2 \wedge \omega_3) \tag{B.4.3}
+\end{flalign}
 Per la bilinearità della mappa $(\omega, \omega') \mapsto \omega \wedge \omega'$. Inoltre, per la distributività, si ha 
-\begin{align}
+\begin{flalign}
     \begin{cases}
-        ((\omega'_1 + \omega''_1) \wedge \omega_2) \wedge \omega_3 &= (\omega'_1 \wedge \omega_2) \wedge \omega_3 + (\omega''_1 \wedge \omega_2) \wedge \omega_3 \\
-        (\omega'_1 + \omega''_1) \wedge (\omega_2 \wedge \omega_3) &= \omega'_1 \wedge (\omega_2 \wedge \omega_3) + \omega''_1 \wedge (\omega_2 \wedge \omega_3)
-    \end{cases} \tag{1.4.4}
-\end{align}
-Per la \textit{proposizione 1.3.1} sappiamo che ogni forma è somma di monomi, pertanto è sufficiente dimostrare l'associatività per i monomi. \\
-Per ora indicheremo il prodotto esterno tra monomi con il simbolo $*$, dato che ancora non è stata verificata l'uguaglianza con al definizione $(1.4.1)$. \\
+        ((\omega'_1 + \omega''_1) \wedge \omega_2) \wedge \omega_3 = (\omega'_1 \wedge \omega_2) \wedge \omega_3 + (\omega''_1 \wedge \omega_2) \wedge \omega_3 \\
+        (\omega'_1 + \omega''_1) \wedge (\omega_2 \wedge \omega_3) = \omega'_1 \wedge (\omega_2 \wedge \omega_3) + \omega''_1 \wedge (\omega_2 \wedge \omega_3)
+    \end{cases} \tag{B.4.4}
+\end{flalign}
+Per la \textit{proposizione B.3.1} sappiamo che ogni forma è somma di monomi, pertanto è sufficiente dimostrare l'associatività per i monomi. \\
+Per ora indicheremo il prodotto esterno tra monomi con il simbolo $*$, dato che ancora non è stata verificata l'uguaglianza con al definizione $(B.4.1)$. \\
 Mostriamo che il prodotto esterno tra monomi è il monomio 
-\begin{align}
-    (\omega_1 * \dots * \omega_k) \wedge (\omega_{k + 1} * \dots * \omega_{k + l}) = \omega_1 * \dots * \omega_{k + l} \tag{1.4.5}
-\end{align}
-Valutiamo le espressioni dei due membri della $(1.4.5)$ in $(x_1, \dots, x_{k + l})$. Il membro di destra è uguale al determinante $\det\{\omega_i(x_j)\}$. Il membro di sinistra è uguale a 
-\begin{align}
-    \sum_{\substack{i_1 < \dots < i_k \\ j_1 < \dots < j_l}} (\pm) \det\{\omega_\nu(x_{i_m})\} \cdot \det\{\omega_\mu(x_{j_m})\} \tag{1.4.6}
-\end{align}
-dove $1 \leq \nu \leq k$ e $k + 1 \leq \mu \leq k + l$. Per il \textit{teorema di Laplace}, il termine $\det\{\omega_i(x_j)\}$ è uguale alla $(1.4.6)$, scegliendo opportunamente i segni di ogni termine. \\ \\
-Concludiamo che le operazioni $*$ e $\wedge$ coincidono. Inoltre, per quanto sopra osservato, dall'associatività del prodotto di $1$-forme segue l'associatività per il prodotto definito in $(1.4.1)$ e quindi si ottiene la tesi. \qed \\ \\
+\begin{flalign}
+    (\omega_1 * \dots * \omega_k) \wedge (\omega_{k + 1} * \dots * \omega_{k + l}) = \omega_1 * \dots * \omega_{k + l} \tag{B.4.5}
+\end{flalign}
+Valutiamo le espressioni dei due membri della $(B.4.5)$ in $(x_1, \dots, x_{k + l})$. Il membro di destra è uguale al determinante $\det\{\omega_i(x_j)\}$. Il membro di sinistra è uguale a 
+\begin{flalign}
+    \sum_{\substack{i_1 < \dots < i_k \\ j_1 < \dots < j_l}} (\pm) \det\{\omega_\nu(x_{i_m})\} \cdot \det\{\omega_\mu(x_{j_m})\} \tag{B.4.6}
+\end{flalign}
+dove $1 \leq \nu \leq k$ e $k + 1 \leq \mu \leq k + l$. Per il \textit{teorema di Laplace}, il termine $\det\{\omega_i(x_j)\}$ è uguale alla $(B.4.6)$, scegliendo opportunamente i segni di ogni termine. \\ \\
+Concludiamo che le operazioni $*$ e $\wedge$ coincidono. Inoltre, per quanto sopra osservato, dall'associatività del prodotto di $1$-forme segue l'associatività per il prodotto definito in $(B.4.1)$ e quindi si ottiene la tesi. \qed \\ \\
 \textbf{Osservazione:} l'anticommutatività graduata comporta $\omega^{(k)} \wedge \omega^{(k)} = 0$ se $k$ è dispari. Infatti
-\begin{align}
-    \omega^{(k)} \wedge \omega^{(k)} = (-1)^{k^2}\omega^{(k)} \wedge \omega^{(k)} = -\omega^{(k)} \wedge \omega^{(k)} \tag{1.4.7}
-\end{align}
+\begin{flalign}
+    \omega^{(k)} \wedge \omega^{(k)} = (-1)^{k^2}\omega^{(k)} \wedge \omega^{(k)} = -\omega^{(k)} \wedge \omega^{(k)} \tag{B.4.7}
+\end{flalign}
 dato che $k^2$ è dispari per $k$ dispari. \\
 Il prodotto esterno di una $k$-forma con se stessa è detto \textit{quadrato esterno}. \\ \\
 \textbf{Esempio:} in $\mathbb{R}^{2n}$ con il sistema di coordinate $(p_1, \dots, p_n, q_1, \dots, q_n)$, consideriamo la $2$-forma 
-\begin{align}
-    \omega^{(2)} = \sum_{i = 1}^n dp_i \wedge dq_i \tag{1.4.8}
-\end{align}
+\begin{flalign}
+    \omega^{(2)} = \sum_{i = 1}^n dp_i \wedge dq_i \tag{B.4.8}
+\end{flalign}
 Geometricamente, $\omega^{(2)}$ valutata in $(x_1, x_2)$ viene interpretata come la somma delle aree orientate delle proiezioni di un parallelogramma sui piani coordinati $(p_1, q_1), \dots, (p_n, q_n)$. \\
 Determiniamo il quadrato esterno di $\omega^{(2)}$
-\begin{align}
+\begin{flalign}
     \omega^{(2)} \wedge \omega^{(2)} &= \left(\sum_i dp_i \wedge dq_i\right) \wedge \left(\sum_j dp_j \wedge dq_j\right) \notag \\
     &= \sum_{i, j}dp_i \wedge dq_i \wedge dp_j \wedge dq_j \notag \\
     &= -\sum_{i \neq j} dp_i \wedge dp_j \wedge dq_i \wedge dq_j \notag \\
-    &= -2\sum_{i < j} dp_i \wedge dp_j \wedge dq_i \wedge dq_j \tag{1.4.9}
-\end{align}
+    &= -2\sum_{i < j} dp_i \wedge dp_j \wedge dq_i \wedge dq_j \tag{B.4.9}
+\end{flalign}
 dove nell'ultimo passaggio si è usata l'(anti)commutatività graduata della $4$-forma $dp_i \wedge dp_j \wedge dq_i \wedge dq_j$. \\
 Determiamo la potenza $k$-esima della forma $\omega^{(2)}$
-\begin{align}
+\begin{flalign}
     \overbrace{\omega^{(2)} \wedge \dots \wedge \omega^{(2)}}^{k \text{ volte}} &= \left(\sum_{i_1}dp_{i_1} \wedge dq_{i_1}\right) \dots \left(\sum_{i_k}dp_{i_k} \wedge dq_{i_k}\right) \notag \\
     &= \sum_{i_1, \dots, i_k} dp_{i_1} \wedge dq_{i_1} \wedge \dots \wedge dp_{i_k} \wedge dq_{i_k} \notag \\
     &= \sum_{i_1 \neq \dots \neq i_k} dp_{i_1} \wedge dq_{i_1} \wedge \dots \wedge dp_{i_k} \wedge dq_{i_k} \notag \\
     &= (-1)^{k - 1}\sum_{i_1 \neq \dots \neq i_k} dp_{i_1} \wedge \dots \wedge dp_{i_k} \wedge dq_{i_1} \wedge \dots \wedge dq_{i_k} \notag \\
-    &= (-1)^{k - 1}k!\sum_{i_1 < \dots < i_k} dp_{i_1} \wedge \dots \wedge dp_{i_k} \wedge dq_{i_1} \wedge \dots \wedge dq_{i_k} \tag{1.4.10}
-\end{align}
+    &= (-1)^{k - 1}k!\sum_{i_1 < \dots < i_k} dp_{i_1} \wedge \dots \wedge dp_{i_k} \wedge dq_{i_1} \wedge \dots \wedge dq_{i_k} \tag{B.4.10}
+\end{flalign}
 dove nell'ultimo passaggio si è notato che ogni permutazione di indici porta un segno positivo fuori dalla somma, dato che avviene sia per le coordinate $\{p_i\}$ che per le $\{q_i\}$, e le possibili permutazioni sono $k!$. \\ \\
 \textbf{Esercizio:} per ogni $v \in \mathbb{R}^3$ consideriamo la $1$-forma $\omega^{(1)}_v$ definita da
-\begin{align}
-    \omega^{(1)}_v(x) = (v, x) \tag{1.4.11}
-\end{align}
+\begin{flalign}
+    \omega^{(1)}_v(x) = (v, x) \tag{B.4.11}
+\end{flalign}
 e la $2$-forma $\omega^{(2)}_v$ definita da
-\begin{align}
-    \omega^{(2)}_v(x_1, x_2) = v \cdot (x_1 \times x_2) \tag{1.4.12}
-\end{align}
+\begin{flalign}
+    \omega^{(2)}_v(x_1, x_2) = v \cdot (x_1 \times x_2) \tag{B.4.12}
+\end{flalign}
 per ogni $x, x_1, x_2 \in \mathbb{R}^3$. Dimostriamo che le mappe 
-\begin{align}
-    v \in \mathbb{R}^3 \mapsto \omega^{(1)}_v \in \Omega^{(1)}(\mathbb{R}^3) \tag{1.4.13} \\
-    v \in \mathbb{R}^3 \mapsto \omega^{(2)}_v \in \Omega^{(2)}(\mathbb{R}^3) \tag{1.4.14}
-\end{align}
+\begin{flalign}
+    v \in \mathbb{R}^3 \mapsto \omega^{(1)}_v \in \Omega^{(1)}(\mathbb{R}^3) \tag{B.4.13} \\
+    v \in \mathbb{R}^3 \mapsto \omega^{(2)}_v \in \Omega^{(2)}(\mathbb{R}^3) \tag{B.4.14}
+\end{flalign}
 sono isomorfismi di spazi lineari. \\
 
-\textbf{Soluzione:} si vede immediatamente che le mappe definite in $(1.4.13)$ e $(1.4.14)$ sono lineari, pertanto preservano la struttura di spazio lineare, ovvero sono omomorfismi. \\
+\textbf{Soluzione:} si vede immediatamente che le mappe definite in $(B.4.13)$ e $(B.4.14)$ sono lineari, pertanto preservano la struttura di spazio lineare, ovvero sono omomorfismi. \\
 Dimostriamo che sono iniettive e suriettive. Siano $u, v \in \mathbb{R}^3$, allora 
-\begin{align}
+\begin{flalign}
     (\omega^{(1)}_u - \omega^{(1)}_v)(x) &= \omega^{(1)}_u(x) - \omega^{(1)}_v(x) \notag \\
     &= (u, x) - (v, x) \notag \\
     &= (u - v, x) = 0 \notag
-\end{align}
-per ogni $x \in \mathbb{R}^3$ se e solo se $u = v$. Pertanto la mappa definita in $(1.4.13)$ è iniettiva. Identicamente si dimostra che $v \mapsto \omega^{(2)}_v$ è iniettiva. \\
+\end{flalign}
+per ogni $x \in \mathbb{R}^3$ se e solo se $u = v$. Pertanto la mappa definita in $(B.4.13)$ è iniettiva. Identicamente si dimostra che $v \mapsto \omega^{(2)}_v$ è iniettiva. \\
 Fissiamo una base ortonormale $\{e_1, e_2, e_3\}$ di $\mathbb{R}^3$. Data $\omega^{(1)} \in \Omega^{(1)}(\mathbb{R}^3)$, possiamo rappresentarla come combinazione lineare delle forme di base $dx_1, dx_2, dx_3$ indotte dalla base fissata. In particolare 
-\begin{align}
-    \omega^{(1)} = adx_1 + bdx_2 + cdx_3 \tag{1.4.15}
-\end{align}
+\begin{flalign}
+    \omega^{(1)} = adx_1 + bdx_2 + cdx_3 \tag{B.4.15}
+\end{flalign}
 per opportuni $a, b, c \in \mathbb{R}$. Dunque, per ogni $x \in \mathbb{R}^3$ si ha
-\begin{align}
+\begin{flalign}
     \omega^{(1)}(x) &= adx_1(x) + bdx_2(x) + cdx_3(x) \notag \\
     &= ax_1 + bx_2 + cx_3 \notag \\
     &= a(e_1, x) + b(e_2, x) + c(e_3, x) \notag \\
     &= (ae_1 + be_2 + ce_3, x) \notag \\
     &= (v, x) \notag \\
-    &= \omega^{(1)}_v(x) \tag{1.4.16}
-\end{align}
+    &= \omega^{(1)}_v(x) \tag{B.4.16}
+\end{flalign}
 dove si è definito $v = ae_1 + be_2 + ce_3$. Concludiamo che ogni $1$-forma su $\mathbb{R}^3$ è del tipo $\omega^{(1)}_v$ per qualche $v \in \mathbb{R}^3$. Segue che la mappa $v \mapsto \omega^{(1)}_v$ è un omomorfismo biettivo, ovvero un isomorfismo. \\ \\
 Analogamente, ogni $2$-forma può essere rappresentata come combinazione lineare dei monomi di base $\{dx_i \wedge dx_j\}_{i < j}$. In particolare, data $\omega^{(2)} \in \Omega^{(2)}(\mathbb{R}^3)$, si ha 
-\begin{align}
-    \omega^{(2)} = Adx_2 \wedge dx_3 + Bdx_1 \wedge dx_3 + Cdx_1 \wedge dx_2 \tag{1.4.17}
-\end{align}
+\begin{flalign}
+    \omega^{(2)} = Adx_2 \wedge dx_3 + Bdx_1 \wedge dx_3 + Cdx_1 \wedge dx_2 \tag{B.4.17}
+\end{flalign}
 per opportuni $A, B, C \in \mathbb{R}^3$. Dunque, per ogni $x, y \in \mathbb{R}^3$ si ha 
-\begin{align}
+\begin{flalign}
     \omega^{(2)}(x, y) &= A(dx_2 \wedge dx_3)(x, y) + B(dx_1 \wedge dx_3)(x, y) + C(dx_1 \wedge dx_2) \notag \\
     &= A(x_2y_3 - y_2x_3) + B(x_1y_3 - y_1x_3) + C(x_1y_2 - y_1x_2) \notag \\
     &= \det\begin{pmatrix}
@@ -418,782 +816,428 @@ per opportuni $A, B, C \in \mathbb{R}^3$. Dunque, per ogni $x, y \in \mathbb{R}^
         x_1 & x_2 & x_3 \\
         y_1 & y_2 & y_3
     \end{pmatrix} \notag \\
-    &= u \cdot (x \times y) \tag{1.4.18}
-\end{align}
+    &= u \cdot (x \times y) \tag{B.4.18}
+\end{flalign}
 dove si è definito $u = Ae_1 + Be_2 + Ce_3$. Concludiamo che ogni $2$-forma su $\mathbb{R}^3$ è del tipo $\omega^{(2)}_u$ per qualche $u \in \mathbb{R}^3$. Segue che anche la mappa $u \mapsto \omega^{(2)}_u$ è un isomorfismo. \qed
 
 \newpage
 \subsection{Pullback di forme esterne}
 Sia $f : \mathbb{R}^m \longrightarrow \mathbb{R}^n$ un'applicazione lineare e sia $\omega^{(k)}$ una $k$-forma su $\mathbb{R}^n$. Allora, $f$ definisce la $k$-forma $f^*\omega$ su $\mathbb{R}^m$ tramite \textit{pullback}. In particolare, si pone
-\begin{align}
-    (f^*\omega^{(k)})(x_1, \dots, x_k) = \omega^{(k)}(f(x_1), \dots, f(x_k)) \tag{1.5.1}
-\end{align}
+\begin{flalign}
+    (f^*\omega^{(k)})(x_1, \dots, x_k) = \omega^{(k)}(f(x_1), \dots, f(x_k)) \tag{B.5.1}
+\end{flalign}
 per ogni $x_1, \dots, x_k \in \mathbb{R}^m$. \\ \\
 Verichiamo che $f^*\omega^{(k)}$ sia effettivamente una $k$-forma su $\mathbb{R}^m$. $f^*\omega^{(k)}$ è multilineare, infatti $f$ è un'applicazione lineare (che agisce su ogni entrata di $\omega^{(k)}$) e $\omega^{(k)}$ è multilineare per definizione. Infine, l'anticommutatività graduata si vede immediatamente, infatti $f$ non altera in alcun modo questa proprietà della $k$-forma. \\ \\
-\textbf{Proposizione 1.5.1:} $f^*$ è un operatore lineare da $\Omega^{(k)}(\mathbb{R}^n)$ a $\Omega^{(k)}(\mathbb{R}^m)$. \\
+\textbf{Proposizione B.5.1:} $f^*$ è un operatore lineare da $\Omega^{(k)}(\mathbb{R}^n)$ a $\Omega^{(k)}(\mathbb{R}^m)$. \\
 
 \textbf{Dimostrazione:} dati $\omega_1, \omega_2 \in \Omega^{(k)}(\mathbb{R}^n)$ e $\lambda_1, \lambda_2 \in \mathbb{R}$ si ha
-\begin{align}
+\begin{flalign}
     (f^*(\lambda_1\omega_1 + \lambda_2\omega_2))(x_1, \dots, x_k) &= (\lambda_1\omega_1 + \lambda_2\omega_2)(f(x_1), \dots, f(x_k)) \notag \\
     &= \lambda_1\omega_1(f(x_1), \dots, f(x_k)) \notag \\
     &+ \lambda_2\omega_2(f(x_1), \dots, f(x_k)) \notag \\ \notag \\
     &= \lambda_1(f^*\omega_1)(x_1, \dots, x_k) \notag \\
-    &+ \lambda_2(f^*\omega_2)(x_1, \dots, x_k) \tag{1.5.2}
-\end{align}
+    &+ \lambda_2(f^*\omega_2)(x_1, \dots, x_k) \tag{B.5.2}
+\end{flalign}
 per ogni $x_1, \dots, x_k \in \mathbb{R}^m$, ovvero la tesi. \qed \\ \\
-\textbf{Proposizione 1.5.2:} siano $f : \mathbb{R}^m \longrightarrow \mathbb{R}^n$ e $g : \mathbb{R}^n \longrightarrow \mathbb{R}^l$, allora $(g \circ f)^* = f^* \circ g^*$. \\
+\textbf{Proposizione B.5.2:} siano $f : \mathbb{R}^m \longrightarrow \mathbb{R}^n$ e $g : \mathbb{R}^n \longrightarrow \mathbb{R}^l$, allora $(g \circ f)^* = f^* \circ g^*$. \\
 
 \textbf{Dimostrazione:} sia $\omega$ una $k$-forma su $\mathbb{R}^l$, allora 
-\begin{align}
+\begin{flalign}
     ((g \circ f)^*\omega)(x_1, \dots, x_k) &= \omega(g \circ f(x_1), \dots, g \circ f(x_k)) \notag \\
     &= \omega(g(f(x_1)), \dots, g(f(x_k))) \notag \\
     &= (g^*\omega)(f(x_1), \dots, f(x_k)) \notag \\
-    &= (f^* \circ g^*(\omega))(x_1, \dots, x_k) \tag{1.5.3}
-\end{align}
+    &= (f^* \circ g^*(\omega))(x_1, \dots, x_k) \tag{B.5.3}
+\end{flalign}
 per ogni $x_1, \dots, x_k \in \mathbb{R}^m$, ovvero la tesi. \qed \\ \\
-\textbf{Proposizione 1.5.3:} $f^*$ preserva il prodotto esterno. \\
+\textbf{Proposizione B.5.3:} $f^*$ preserva il prodotto esterno. \\
 
 \textbf{Dimostrazione:} siano $\omega^{(k)}$ e $\omega^{(l)}$ rispettivamente una $k$-forma e una $l$-forma su $\mathbb{R}^n$. Si ha 
-\begin{align}
+\begin{flalign}
     f^*(\omega^{(k)} \wedge \omega^{(l)})(x_1, \dots, x_{k + l}) &= \sum_{\substack{i_1 < \dots < i_k \\ j_1 < \dots < j_l}}(-1)^\nu\omega^{(k)}(f(x_{i_1}), \dots, f(x_{i_k})) \cdot \notag \\
-    &\cdot \omega^{(l)}(f(x_{j_1}), \dots, f(x_{j_l})) \tag{1.5.4}
-\end{align}
-dove $(i_1, \dots, i_k, j_1, \dots, j_l)$ è una permutazione di $(1, \dots, k + l)$ e $\nu$ è determinato in base al segno della permutazione. Da $(1.5.4)$ si vede immediatamente che
-\begin{align}
-    f^*(\omega^{(k)} \wedge \omega^{(l)}) = (f^*\omega^{(k)}) \wedge (f^*\omega^{(l)}) \tag{1.5.5}
-\end{align}
+    &\cdot \omega^{(l)}(f(x_{j_1}), \dots, f(x_{j_l})) \tag{B.5.4}
+\end{flalign}
+dove $(i_1, \dots, i_k, j_1, \dots, j_l)$ è una permutazione di $(1, \dots, k + l)$ e $\nu$ è determinato in base al segno della permutazione. Da $(B.5.4)$ si vede immediatamente che
+\begin{flalign}
+    f^*(\omega^{(k)} \wedge \omega^{(l)}) = (f^*\omega^{(k)}) \wedge (f^*\omega^{(l)}) \tag{B.5.5}
+\end{flalign}
 ovvero la tesi. \qed
 
 \newpage
 \subsection{$1$-forme differenziali}
 Diamo ora la definizione di forma differenziale definita su una varietà differenziabile $M$. Vediamo prima qualche esempio. \\ \\
 \textbf{Esempio:} il differenziale di una funzione è una $1$-forma differenziabile. Consideriamo ad esempio la funzione reale $x \mapsto x^2$, che chiameremo $f$. Il suo differenziale $df$ è
-\begin{align}
-    df = 2x \, dx \tag{1.6.1}
-\end{align}
+\begin{flalign}
+    df = 2x \, dx \tag{B.6.1}
+\end{flalign}
 Notiamo che, fissato $x \in \mathbb{R}$, il differenziale dipende linearmente dal termine $dx$, incremento dell'argomento. Pertanto, se fissiamo $x = 1$, si ha 
-\begin{align}
+\begin{flalign}
     df(dx = 1) = 2 \qquad df(dx = 10) = 20 \notag
-\end{align} \\
+\end{flalign} \\
 \textbf{Definizione:} sia $f : M \longrightarrow \mathbb{R}$ una funzione differenziabile. Il differenziale $df_x$ della funzione $f$ nel punto $x \in M$ è un'applicazione lineare 
-\begin{align}
-    df_x : T_xM \longrightarrow \mathbb{R} \tag{1.6.2}
-\end{align}
+\begin{flalign}
+    df_x : T_xM \longrightarrow \mathbb{R} \tag{B.6.2}
+\end{flalign}
 dello spazio tangente a $M$ in $x$ nella retta reale. \\
 In particolare, data una curva $\gamma : [-\varepsilon, \varepsilon] \longrightarrow M$ tale che $\gamma(0) = x$ e $\dot{\gamma}(0) = v$, si ha 
-\begin{align}
-    df_x(v) = \frac{d}{dt}f(\gamma(t))|_{t = 0} \tag{1.6.3}
-\end{align}
+\begin{flalign}
+    df_x(v) = \frac{d}{dt}f(\gamma(t))|_{t = 0} \tag{B.6.3}
+\end{flalign}
 \textbf{Esempio:} sia $\alpha$ la curva piana
-\begin{align}
-    t \in \mathbb{R} \mapsto (x(t), y(t)) \in \mathbb{R}^2 \tag{1.6.4}
-\end{align}
+\begin{flalign}
+    t \in \mathbb{R} \mapsto (x(t), y(t)) \in \mathbb{R}^2 \tag{B.6.4}
+\end{flalign}
 dove $x(t) = \cos t$ e $y(t) = \sin t$. Posto $v$ il vettore tangente ad $\alpha$ per $t = 0$, ovvero 
-\begin{align}
-    v = \frac{d}{dt}\alpha(t)|_{t = 0} = (0, 1) \tag{1.6.5}
-\end{align}
+\begin{flalign}
+    v = \frac{d}{dt}\alpha(t)|_{t = 0} = (0, 1) \tag{B.6.5}
+\end{flalign}
 Allora, i differenziali in $(1, 0)$ delle funzioni $x$ e $y$ calcolati sul vettore $v$ sono 
-\begin{align}
+\begin{flalign}
     dx_{(1, 0)}(v) &= 0 \notag \\
     dy_{(1, 0)}(v) &= 1 \notag
-\end{align}
+\end{flalign}
 In generale, il differenziale $df$ di una funzione $f$ definita su una varietà $M$ è un'applicazione 
-\begin{align}
-    df : TM \longrightarrow \mathbb{R} \tag{1.6.6}
-\end{align}
+\begin{flalign}
+    df : TM \longrightarrow \mathbb{R} \tag{B.6.6}
+\end{flalign}
 dove $TM = \bigcup_x T_xM$, lineare su ogni spazio tangente $T_xM$ e differenziabile. \\ \\
 \textbf{Definizione:} è detta $1$-\textit{forma differenziale} su $M$ un'applicazione regolare
-\begin{align}
-    \omega : TM \longrightarrow \mathbb{R} \tag{1.6.7}
-\end{align}
+\begin{flalign}
+    \omega : TM \longrightarrow \mathbb{R} \tag{B.6.7}
+\end{flalign}
 del fibrato tangente della varietà nella retta reale, lineare in $T_xM$ per ogni $x \in M$. \\
 In particolare, dati $(x, v) \in M \times T_xM$, si ha 
-\begin{align}
-    \omega(x, v) = \omega_x(v) \tag{1.6.8}
-\end{align}
+\begin{flalign}
+    \omega(x, v) = \omega_x(v) \tag{B.6.8}
+\end{flalign}
 dove $\omega_x$ è un'applicazione lineare dello spazio tangente a $M$ in $x$ nella retta reale. \\
 Uno può dire che una $1$-forma su $M$ è una \textit{forma algebrica} (forma esterna) su $T_xM$ differenziabile in $x$. \\ \\
-\textbf{Proposizione 1.6.1:} ogni $1$-forma su $\mathbb{R}$ è il differenziale di qualche funzione. \\
+\textbf{Proposizione B.6.1:} ogni $1$-forma su $\mathbb{R}$ è il differenziale di qualche funzione. \\
 
 \textbf{Dimostrazione:} sia $\omega$ una $1$-forma differenziale su $\mathbb{R}$. Allora $\omega$ si può scrivere come 
-\begin{align}
-    \omega = adx \tag{1.6.9}
-\end{align}
+\begin{flalign}
+    \omega = adx \tag{B.6.9}
+\end{flalign}
 dove $a : \mathbb{R} \longrightarrow \mathbb{R}$ è un opportuna funzione e $dx$ è la $1$-forma di base. In particolare, dati $(x, v) \in \mathbb{R} \times T_x\mathbb{R}$ (dove $T_x\mathbb{R} = \mathbb{R}$ essenzialmente), si ha 
-\begin{align}
-    \omega(x, v) = a(x)dx(v) \tag{1.6.10}
-\end{align}
+\begin{flalign}
+    \omega(x, v) = a(x)dx(v) \tag{B.6.10}
+\end{flalign}
 La dipendenza da $x$ è liscia, mentre $\omega$ dipende da $v$ linearmente. Dato che $a$ è sufficientemente regolare (per ipotesi), $a$ ammette primitiva $A$. Pertanto, il differenziale di $A$ è dato da
-\begin{align}
-    dA = adx \tag{1.6.11}
-\end{align}
+\begin{flalign}
+    dA = adx \tag{B.6.11}
+\end{flalign}
 ovvero $\omega = dA$. \qed \\ \\
 \textbf{Osservazione:} esibiamo una $1$-forma su $\mathbb{R}^2$ che non è il differenziale di alcuna funzione del piano nella retta. \\
 Definiamo la $1$-forma $\omega$ su $\mathbb{R}^2$ ponendo
-\begin{align}
-    \omega = a_1dx_1 + a_2dx_2 \tag{1.6.12}
-\end{align}
+\begin{flalign}
+    \omega = a_1dx_1 + a_2dx_2 \tag{B.6.12}
+\end{flalign}
 dove $a_1, a_2$ sono date da 
-\begin{align}
-    a_1(x_1, x_2) &= x_1 \tag{1.6.13} \\
-    a_2(x_1, x_2) &= x_1x_2 \tag{1.6.14}
-\end{align}
+\begin{flalign}
+    a_1(x_1, x_2) &= x_1 \tag{B.6.13} \\
+    a_2(x_1, x_2) &= x_1x_2 \tag{B.6.14}
+\end{flalign}
 Notiamo che non esiste una funzione $f$ del piano nella retta tale che 
-\begin{align}
-    a_1 = \frac{\partial f}{\partial x_1} \qquad a_2 = \frac{\partial f}{\partial x_2} \tag{1.6.15}
-\end{align}
-Infatti, possiamo pensare di "costruire" $f$ a partire dalla condizione in $(1.6.13)$, ovvero
-\begin{align}
-    f(x_1, x_2) = \frac{1}{2}x^2_1 + g(x_2) \tag{1.6.16}
-\end{align}
+\begin{flalign}
+    a_1 = \frac{\partial f}{\partial x_1} \qquad a_2 = \frac{\partial f}{\partial x_2} \tag{B.6.15}
+\end{flalign}
+Infatti, possiamo pensare di "costruire" $f$ a partire dalla condizione in $(B.6.13)$, ovvero
+\begin{flalign}
+    f(x_1, x_2) = \frac{1}{2}x^2_1 + g(x_2) \tag{B.6.16}
+\end{flalign}
 dove $g$ è una funzione arbitraria della sola $x_2$ da determinare imponendo
-\begin{align}
-    \frac{\partial g}{\partial x_2} = x_1x_2 \tag{1.6.17}
-\end{align}
+\begin{flalign}
+    \frac{\partial g}{\partial x_2} = x_1x_2 \tag{B.6.17}
+\end{flalign}
 Tuttavia, non esiste una funzione $g$ della sola $x_2$ che soddisfa tale condizione. \\ \\
 -- ESIBIRE 1-FORMA SULLA CIRCONFERENZA CHE NON SIA IL DIFFERENZIALE DI UNA FUNZIONE-- \\ \\
-\textbf{Teorema 1.6.1:} una $1$-forma differenziale su $M$ può essere scritta, in ogni intorno coordinato $U$, come combinazione lineare delle $n$-forme differenziali di base ($1$-forme algebriche), ovvero
-\begin{align}
-    \omega = a_1(x)dx_1 + \dots + a_n(x)dx_n \tag{1.6.18}
-\end{align}
+\textbf{Teorema B.6.1:} una $1$-forma differenziale su $M$ può essere scritta, in ogni intorno coordinato $U$, come combinazione lineare delle $n$-forme differenziali di base ($1$-forme algebriche), ovvero
+\begin{flalign}
+    \omega = a_1(x)dx_1 + \dots + a_n(x)dx_n \tag{B.6.18}
+\end{flalign}
 dove $a_1, \dots, a_n$ sono funzioni differenziabili di $M$ sulla retta reale. \\
 
 \textbf{Dimostrazione:} come visto nel paragrafo $1.1$, ogni $1$-forma esterna definita su uno spazio lineare $n$-dimensionale può essere scritta come combinazione lineare delle $n$ forme esterne di base, $dx_1, \dots, dx_n$. \\
 Sia $(U, \varphi)$ una carta dell'atlante definito su $M$. La mappa $\varphi$ introduce un sistema di coordinate locali su $M$. \\
 Allora, data $\omega$ una $1$-forma differenziale su $M$ e fissato $x \in M$, si ha 
-\begin{align}
-    \omega_x = a_1dx_1 + \dots + a_ndx_n \tag{1.6.19}
-\end{align}
+\begin{flalign}
+    \omega_x = a_1dx_1 + \dots + a_ndx_n \tag{B.6.19}
+\end{flalign}
 per opportuni $a_1, \dots, a_n \in \mathbb{R}$, dove $dx_1, \dots, dx_n$ sono ora le forme esterne di base dello spazio lineare $(T_xM)^*$, ben definite grazie al sistema di coordinare locali introdotto da $\varphi$. Lasciando $x$ libero di variare in $M$ si ottiene naturalmente 
-\begin{align}
-   \omega = a_1dx_1 + \dots + a_ndx_n \tag{1.6.20}
-\end{align}
+\begin{flalign}
+   \omega = a_1dx_1 + \dots + a_ndx_n \tag{B.6.20}
+\end{flalign}
 dove $a_1, \dots, a_n$ sono ora funzioni differenziabili di $M$ sulla retta reale (per definizionedi forma differenziale). \\
 Data l'arbitrarietà della carta scelta, il risultato è valido per ogni carta dell'atlante definito su $M$. \qed
 
 \newpage
 \subsection{$k$-forme differenziali}
 \textbf{Definizione:} è detta $k$-\textit{forma differenziale} su $M$ un'applicazione 
-\begin{align}
-   \omega^{(k)} : TM^k \longrightarrow \mathbb{R} \tag{1.7.1}
-\end{align}
+\begin{flalign}
+   \omega^{(k)} : TM^k \longrightarrow \mathbb{R} \tag{B.7.1}
+\end{flalign}
 differenziabile in $x$, multilineare e anticommutativa su $T_xM$ per ogni $x \in M$. \\
 Analogamente a quanto osservato nel caso di $1$-forme differenziali su una varietà $M$, una$k$-forma differenziale su $M$ è una $k$-forma algebrica (esterna) su $T_xM$ per ogni $x \in M$, che dipende da $x$ in modo differenziabile. \\ \\
 La composizione, moltiplicazione per scalare e prodotto esterno di $k$-forme differenziali su una varietà $M$ sono definiti puntualmente, ovvero si opera sulle forme algebriche definite su $T_xM$ per ogni $x \in M$ singolarmente. \\ \\
-\textbf{Teorema 1.7.1:} data $M$ varietà differenziabile e $(U, \varphi)$ una carta che definisce delle coordinate locali su $M$, ogni $k$-forma differenziale $\omega^{(k)}$ su $M$ può essere scritta come
-\begin{align}
-   \omega^{(k)} = \sum_{i_1 < \dots < i_k} a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.7.2}
-\end{align}
+\textbf{Teorema B.7.1:} data $M$ varietà differenziabile e $(U, \varphi)$ una carta che definisce delle coordinate locali su $M$, ogni $k$-forma differenziale $\omega^{(k)}$ su $M$ può essere scritta come
+\begin{flalign}
+   \omega^{(k)} = \sum_{i_1 < \dots < i_k} a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{B.7.2}
+\end{flalign}
 dove $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ è differenziabile per ogni $i_1 < \dots <i_k$. \\
 
-\textbf{Dimostrazione:} la dimostrazione è analoga a quella del \textit{teorema 1.6.1}. Osserviamo che, per definizione, fissato $x \in M$, $\omega^{(k)}_x$ è una $k$-forma esterna su $T_xM$, pertanto può essere scritta come combinazione lineare degli elementi della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Inoltre, dato che la dipendenza da $x$ deve essere differenziabile, si ottiene la tesi. \qed \\ \\
-\textbf{Proposizione 1.7.1:} l'insieme $\Omega^{(k)}(M)$ delle $k$-forme differenziali sulla varietà $M$ è uno spazio vettoriale (di dimensione infinita se $k \leq \dim M$). \\
+\textbf{Dimostrazione:} la dimostrazione è analoga a quella del \textit{teorema B.6.1}. Osserviamo che, per definizione, fissato $x \in M$, $\omega^{(k)}_x$ è una $k$-forma esterna su $T_xM$, pertanto può essere scritta come combinazione lineare degli elementi della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Inoltre, dato che la dipendenza da $x$ deve essere differenziabile, si ottiene la tesi. \qed \\ \\
+\textbf{Proposizione B.7.1:} l'insieme $\Omega^{(k)}(M)$ delle $k$-forme differenziali sulla varietà $M$ è uno spazio vettoriale (di dimensione infinita se $k \leq \dim M$). \\
 
 \textbf{Dimostrazione:} si vede immediatamente che su $\Omega^{(k)}(M)$ è possibile definire una struttura naturale di spazio vettoriale. Dimostriamo che $\dim \Omega^{(k)}(M) = \infty$ se $k \leq \dim M$. \\
 Sia $k \leq \dim M$, data $\omega \in \Omega^{(k)}(M)$ si ha 
-\begin{align}
-   \omega^{(k)} = \sum_{i_1 < \dots < i_k}a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{1.7.3}
-\end{align}
+\begin{flalign}
+   \omega^{(k)} = \sum_{i_1 < \dots < i_k}a_{i_1, \dots, i_k}(x)dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{B.7.3}
+\end{flalign}
 per opportune $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ sufficientemente regolari. Concludiamo che $\dim \Omega^{(k)}(M) = \infty$, infatti la condizione di dipendenza lineare su un qualsiasi insieme di $k$-forme differenziali su $M$ si riduce ad una condizione di dipendenza lineare sull'insieme delle funzioni $\{a_{i_1, \dots, i_k}\}_{i_1 < \dots < i_k}$ che ne definiscono lo sviluppo in termini della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Tuttavia, lo spazio vettoriale $\mathcal{C}^{(k)}(M)$ è infinito dimensionale per ogni $k \in \mathbb{Z}_{\geq 0}$. \qed \\ \\
 \textbf{Esempio:} supponiamo che in $\mathbb{R}^3$ si abbiano due sistemi di coordinate
-\begin{align}
-   \mathbf{x} = (x_1, x_2, x_3) \qquad \mathbf{y} = (y_1, y_2, y_3) \tag{1.7.4}
-\end{align}
+\begin{flalign}
+   \mathbf{x} = (x_1, x_2, x_3) \qquad \mathbf{y} = (y_1, y_2, y_3) \tag{B.7.4}
+\end{flalign}
 e che si conoscano le leggi di trasformazione delle variabili $\mathbf{x} = \mathbf{x}(\mathbf{y})$. Nota $\omega^{(2)}$, una $2$-forma differenziale su $\mathbb{R}^3$, in termini del sistema di coordinate $\mathbf{x}$
-\begin{align}
-   \omega^{(2)} = X_1dx_2 \wedge dx_3 + X_2dx_1 \wedge dx_3 + X_3dx_1 \wedge dx_2 \tag{1.7.5}
-\end{align}
+\begin{flalign}
+   \omega^{(2)} = X_1dx_2 \wedge dx_3 + X_2dx_1 \wedge dx_3 + X_3dx_1 \wedge dx_2 \tag{B.7.5}
+\end{flalign}
 dove $X_1, X_2, X_3$ sono funzioni differenziabili di $\mathbf{x}$, determiniamo l'espressione di $\omega^{(2)}$ in termini del sistema di coordinate $\mathbf{y}$. \\
 Trattando $x_1, x_2, x_3$ come funzioni di $\mathbf{y}$ si ha
-\begin{align}
-   dx_i = \frac{\partial x_i}{\partial y_1}dy_1 + \frac{\partial x_i}{\partial y_2}dy_2 + \frac{\partial x_i}{\partial y_3}dy_3 \tag{1.7.6}
-\end{align}
+\begin{flalign}
+   dx_i = \frac{\partial x_i}{\partial y_1}dy_1 + \frac{\partial x_i}{\partial y_2}dy_2 + \frac{\partial x_i}{\partial y_3}dy_3 \tag{B.7.6}
+\end{flalign}
 con $i = 1, 2, 3$. In particolare
-\begin{align}
+\begin{flalign}
    dx_i \wedge dx_j &= \left(\frac{\partial x_i}{\partial y_1}dy_1 + \frac{\partial x_i}{\partial y_2}dy_2 + \frac{\partial x_i}{\partial y_3}dy_3\right) \wedge \left(\frac{\partial x_j}{\partial y_1}dy_1 + \frac{\partial x_j}{\partial y_2}dy_2 + \frac{\partial x_j}{\partial y_3}dy_3\right) \notag \\
-   &= \left|\frac{\partial(x_i, x_j)}{\partial(y_2, y_3)}\right|dy_2 \wedge dy_3 + \left|\frac{\partial(x_i, x_j)}{\partial(y_1, y_3)}\right|dy_1 \wedge dy_3 + \left|\frac{\partial(x_i, x_j)}{\partial(y_1, y_2)}\right|dy_1 \wedge dy_2 \tag{1.7.7}
-\end{align}
+   &= \left|\frac{\partial(x_i, x_j)}{\partial(y_2, y_3)}\right|dy_2 \wedge dy_3 + \left|\frac{\partial(x_i, x_j)}{\partial(y_1, y_3)}\right|dy_1 \wedge dy_3 + \left|\frac{\partial(x_i, x_j)}{\partial(y_1, y_2)}\right|dy_1 \wedge dy_2 \tag{B.7.7}
+\end{flalign}
 Segue che 
-\begin{align}
-   \omega^{(2)} = Y_1dy_2 \wedge dy_3 + Y_2dy_1 \wedge dy_3 + Y_3dy_1 \wedge dy_2 \tag{1.7.8}
-\end{align}
+\begin{flalign}
+   \omega^{(2)} = Y_1dy_2 \wedge dy_3 + Y_2dy_1 \wedge dy_3 + Y_3dy_1 \wedge dy_2 \tag{B.7.8}
+\end{flalign}
 con
-\begin{align}
-   Y_k = \left|\frac{\partial(x_2, x_3)}{\partial(y_i, y_j)}\right|X_1 + \left|\frac{\partial(x_1, x_3)}{\partial(y_i, y_j)}\right|X_2 + \left|\frac{\partial(x_1, x_2)}{\partial(y_i, y_j)}\right|X_3 \tag{1.7.9}
-\end{align}
+\begin{flalign}
+   Y_k = \left|\frac{\partial(x_2, x_3)}{\partial(y_i, y_j)}\right|X_1 + \left|\frac{\partial(x_1, x_3)}{\partial(y_i, y_j)}\right|X_2 + \left|\frac{\partial(x_1, x_2)}{\partial(y_i, y_j)}\right|X_3 \tag{B.7.9}
+\end{flalign}
 per $k = 1, 2, 3$, $i < j$ e $i, j \neq k$.
 
 \newpage
 \subsection{Pullback di forme differenziali}
 Analogamente a quanto fatto per le $k$-forme esterne, date $f : M \longrightarrow N$ applicazione differenziabile di varietà differenziabili e $\omega^{(k)} \in \Omega^{(k)}(N)$, definiamo il \textit{pullback} di $\omega^{(k)}$ tramite $f$ come segue
-\begin{align}
-    f^*\omega = \omega \circ f_* \tag{1.8.1}
-\end{align}
+\begin{flalign}
+    f^*\omega = \omega \circ f_* \tag{B.8.1}
+\end{flalign}
 dove $f_*$ è il differenziale di $f$
-\begin{align}
-    f_* : TM \longrightarrow TN \tag{1.8.2}
-\end{align}
+\begin{flalign}
+    f_* : TM \longrightarrow TN \tag{B.8.2}
+\end{flalign}
 lineare in ogni spazio tangente. Ovviamente, $f$ agisce anche sulla dipendenza di $\omega$ da $x \in M$, ovvero
-\begin{align}
-    f^*\omega_x(v_1, \dots, v_k) = \omega_{f(x)}(f_*(v_1), \dots, f_*(v_k)) \tag{1.8.3}
-\end{align}
+\begin{flalign}
+    f^*\omega_x(v_1, \dots, v_k) = \omega_{f(x)}(f_*(v_1), \dots, f_*(v_k)) \tag{B.8.3}
+\end{flalign}
 per ogni $x \in M$ e $v_1, \dots, v_k \in T_xM$. \\ \\ 
 \textbf{Esempio:} sia $M = \mathbb{R}^2$, $N = \mathbb{R}_{\geq 0}$ e $f$ la mappa
-\begin{align}
-    (x_1, x_2) \mapsto x^2_1 + x^2_2 \tag{1.8.4}
-\end{align}
+\begin{flalign}
+    (x_1, x_2) \mapsto x^2_1 + x^2_2 \tag{B.8.4}
+\end{flalign}
 Data $\omega = dy$ $1$-forma su $\mathbb{R}$, si ha che 
-\begin{align}
-    f^*\omega = \omega \circ f_* = 2x_1dx_1 + 2x_2dx_2 \tag{1.8.5}
-\end{align}
+\begin{flalign}
+    f^*\omega = \omega \circ f_* = 2x_1dx_1 + 2x_2dx_2 \tag{B.8.5}
+\end{flalign}
 Dalla definizione di pullback si vede facilmente che $f^*\omega$ è una $k$-forma differenziale su $N$ e che $f^*$ è un omomorfismo da $\Omega^{(k)}(N)$ a $\Omega^{(k)}(M)$. \\ \\
-\textbf{Proposizione 1.8.1:} sia $g : L \longrightarrow M$ un'applicazione differenziabile di varietà differenziabili. Allora $(f \circ g)^* = g^* \circ f^*$. \\
+\textbf{Proposizione B.8.1:} sia $g : L \longrightarrow M$ un'applicazione differenziabile di varietà differenziabili. Allora $(f \circ g)^* = g^* \circ f^*$. \\
 
 \textbf{Dimostrazione:} data $\omega^{(k)} \in \Omega^{(k)}(N)$ si ha
-\begin{align}
-    (f \circ g)^*\omega = \omega \circ (f \circ g)_* \tag{1.8.6}
-\end{align}
+\begin{flalign}
+    (f \circ g)^*\omega = \omega \circ (f \circ g)_* \tag{B.8.6}
+\end{flalign}
 In particolare, dati $v_1, \dots, v_s \in L$ si ha
-\begin{align}
+\begin{flalign}
     (f \circ g)^*\omega(v_1, \dots, v_s) &= \omega((f \circ g)_*v_1, \dots, (f \circ g)_*v_s) \notag \\
     &= \omega(f_*(g_*(v_1)), \dots, f_*(g_*(v_s))) \notag \\
     &= f^*\omega(g_*(v_1), \dots, g_*(v_s)) \notag \\
-    &= g^*f^*\omega(v_1, \dots, v_s) \tag{1.8.7}
-\end{align}
+    &= g^*f^*\omega(v_1, \dots, v_s) \tag{B.8.7}
+\end{flalign}
 
 \newpage
 \subsection{Integrazione delle forme differenziali}
 Introduciamo ora il concetto di integrazione di una $k$-forma differenziale su una varietà $n$-dimensionale. \\ \\
 Sia $M$ una $n$-varietà differenziale e $\gamma : [0, 1] \longrightarrow M$ una curva differenziabile. Data $\omega$, una $1$-forma su $M$, definiamo l'integrale di $\omega$ lungo $\gamma$ facendo uso delle solite somme integrali. \\
 In particolare, consideriamo $s$ punti $0 = t_1 < t_2 < \dots < t_s = 1$. Si definiscono così $s -1$ intervalli della forma $[t_i, t_{i + 1}]$ e di lunghezza $\Delta_i = t_{i + 1} - t_i$, per $0 \leq i \leq s - 1$. Sia $\Delta = \max_i \Delta_i$, definiamo l'integrale di $\omega$ lungo $\gamma$ come segue
-\begin{align}
-   \int_\gamma \omega = \lim_{\Delta \rightarrow 0}\sum_i \omega(v_i) \tag{1.9.1}
-\end{align}
+\begin{flalign}
+   \int_\gamma \omega = \lim_{\Delta \rightarrow 0}\sum_i \omega(v_i) \tag{B.9.1}
+\end{flalign}
 dove $v_i$ è il vettore tangente a $\gamma$ in $t_i$, ovvero
-\begin{align}
-   v_i = \dot{\gamma}(t_i) \tag{1.9.2}
-\end{align}
+\begin{flalign}
+   v_i = \dot{\gamma}(t_i) \tag{B.9.2}
+\end{flalign}
 $0 \leq i \leq s - 1$. Osserviamo che il limite $\Delta \rightarrow 0$ corrisponde al limite $s\rightarrow \infty$. \\ \\
-In particolare, se $\omega = a_1dx_1 + \dots + a_ndx_n$, con $a_1, \dots, a_n : M \rightarrow \mathbb{R}$ differenziabili, $(1.9.1)$ è equivalente a
-\begin{align}
-    \int_0^1 \sum_{i = 1}^n a_i(\gamma(t))\dot{\gamma}_i(t) \, dt \tag{1.9.3}
-\end{align}
+In particolare, se $\omega = a_1dx_1 + \dots + a_ndx_n$, con $a_1, \dots, a_n : M \rightarrow \mathbb{R}$ differenziabili, $(B.9.1)$ è equivalente a
+\begin{flalign}
+    \int_0^1 \sum_{i = 1}^n a_i(\gamma(t))\dot{\gamma}_i(t) \, dt \tag{B.9.3}
+\end{flalign}
 definito tramite somme di Riemann. \\ \\
 Analogamente si definisce l'integrale di una $k$-forma differenziale su una superficie $k$-dimensionale, ovvero suddividendo la superficie in parallelepipedi ai quali sostituiamo poi parallelepipedi dello spazio tangente, ognuno dei quali identificato da opportuni $k$ vettori tangenti alla superficie, e sommando i valori che la $k$-forma differenziale assume su di essi. \\
 Prendendo il limite di parallelepipedi tangenti sempre più piccoli (e sempre più numerosi) si ottiene la definizione di integrale di una $k$-forma differenziale su una $k$-varietà differenziabile. \\ \\
 Per $k$-forme differenziali su $\mathbb{R}^k$ è possibile ricondurre la definizione di integrale di una forma differenziale su un poliedro convesso limitato $k$ alla definizione di integrale di funzione in termini di somme di Riemann. In particolare, data $\omega^{(k)}$ una $k$-forma differenziale su $\mathbb{R}^k$, esiste $a : \mathbb{R}^k \longrightarrow \mathbb{R}$ differenziabile tale che 
-\begin{align}
-    \omega^{(k)} = adx_1 \wedge \dots \wedge dx_k \tag{1.9.4}
-\end{align}
+\begin{flalign}
+    \omega^{(k)} = adx_1 \wedge \dots \wedge dx_k \tag{B.9.4}
+\end{flalign}
 Definiamo
-\begin{align}
-    \int_D \omega^{(k)} = \int_D a(x) \, dx_1 \dots dx_k \tag{1.9.5}
-\end{align}
+\begin{flalign}
+    \int_D \omega^{(k)} = \int_D a(x) \, dx_1 \dots dx_k \tag{B.9.5}
+\end{flalign}
 dato che identifichiamo $T\mathbb{R}^k$ con $\mathbb{R}^k$ stesso. \\ \\
-Da $(1.9.5)$ segue che anche $\int_D \omega^{(k)}$ dipende da $\omega^{(k)}$ e da $D$ linearmente (per le proprietà dell'integrale di Riemann), ovvero
-\begin{align}
-    \int_{D_1 + D_2} \omega^{(k)}_1 + \omega^{(k)}_2 = \int_{D_1}\omega^{(k)}_1 + \int_{D_2}\omega^{(k)}_2 + \int_{D_1}\omega^{(k)}_2 + \int_{D_2}\omega^{(k)}_1 \tag{1.9.6}
-\end{align}
+Da $(B.9.5)$ segue che anche $\int_D \omega^{(k)}$ dipende da $\omega^{(k)}$ e da $D$ linearmente (per le proprietà dell'integrale di Riemann), ovvero
+\begin{flalign}
+    \int_{D_1 + D_2} \omega^{(k)}_1 + \omega^{(k)}_2 = \int_{D_1}\omega^{(k)}_1 + \int_{D_2}\omega^{(k)}_2 + \int_{D_1}\omega^{(k)}_2 + \int_{D_2}\omega^{(k)}_1 \tag{B.9.6}
+\end{flalign}
 per ogni $\omega^{(k)}_1, \omega^{(k)}_2 \in \Omega^{(k)}(\mathbb{R}^k)$ e ogni $D_1, D_2$ poliedri convessi limitati in $\mathbb{R}^k$. \\ \\
-\textbf{Proposizione 1.9.1:} siano $D_1, D_2$ poliedri convessi limitati di $\mathbb{R}^k$ e sia $f : D_1 \longrightarrow D_2$ un diffeomorfismo che conserva l'orientazione dell'interno di $D_1$ nell'interno di $D_2$. Data $\omega^{(k)} \in \Omega^{(k)}(\mathbb{R}^k)$ si ha
-\begin{align}
-    \int_{D_1} f^*\omega^{(k)} = \int_{D_2} \omega^{(k) \tag{1.9.7}}
-\end{align} \\
+\textbf{Proposizione B.9.1:} siano $D_1, D_2$ poliedri convessi limitati di $\mathbb{R}^k$ e sia $f : D_1 \longrightarrow D_2$ un diffeomorfismo che conserva l'orientazione dell'interno di $D_1$ nell'interno di $D_2$. Data $\omega^{(k)} \in \Omega^{(k)}(\mathbb{R}^k)$ si ha
+\begin{flalign}
+    \int_{D_1} f^*\omega^{(k)} = \int_{D_2} \omega^{(k) \tag{B.9.7}}
+\end{flalign} \\
 
 \textbf{Dimostrazione:} nel sistema di coordinate $y = f(x)$ identificato da $f$ si ha
-\begin{align}
-    \omega^{(k)} = a(y)dy_1 \wedge \dots \wedge dy_k \tag{1.9.8}
-\end{align}
+\begin{flalign}
+    \omega^{(k)} = a(y)dy_1 \wedge \dots \wedge dy_k \tag{B.9.8}
+\end{flalign}
 per un'opportuna funzione differenziabile $a : D_2 \longrightarrow \mathbb{R}$. Trattando $y_i$ come funzione di $x$ per ogni $i = 1, \dots, k$, si ha
-\begin{align}
-    dy_i = \sum_{j = 1}^k \frac{\partial y_i}{\partial x_j}dx_j \tag{1.9.9}
-\end{align}
+\begin{flalign}
+    dy_i = \sum_{j = 1}^k \frac{\partial y_i}{\partial x_j}dx_j \tag{B.9.9}
+\end{flalign}
 Allora
-\begin{align}
+\begin{flalign}
     \int_{D_2} \omega^{(k)} &= \int_{D_2} a(y) \, dy_1 \dots dy_k \notag \\
     &= \int_{D_1} a(y(x))\left|\frac{\partial(x_1, \dots, x_k)}{\partial(y_1, \dots, y_k)}\right| \, dx_1 \dots dx_k \notag \\
-    &= \int_{D_1} f^*\omega^{(k)} \tag{1.9.10}
+    &= \int_{D_1} f^*\omega^{(k)} \tag{B.9.10}
+\end{flalign}
+ovvero la tesi. \qed \\ \\
+Vogliamo estendere la definizione di integrazione di $k$-forme differenziali su $\mathbb{R}^k$ per integrali di $k$-forme differenziali su varietà $n$-dimensionali. Per farlo ricondurremo la definizione di integrale in un dominio $k$-dimensionale in $M$ alla definizione di integrale su un poliedro convesso limitato in $\mathbb{R}^k$. \\ \\
+Siano $\omega^{(k)}$ una $k$-forma differenziale su una varietà $n$-dimensionale $M$, $D$ un poliedro convesso limitato in $\mathbb{R}^k$ e $f : D \longrightarrow M$ un'applicazione differenziabile. Dato $\sigma$ dominio $k$-dimensionale in $M$, poniamo
+\begin{align}
+    \int_\sigma \omega^{(k)} = \int_D f^*\omega^{(k)} \tag{B.9.11}
+\end{align}
+con orientazione determinata dal un sistema di riferimento $\{e_1, \dots, e_k\}$ fissato in $\mathbb{R}^k$. Il dominio $\sigma$ è quindi identificato dalla terna $(D, f, Or)$, dove $Or$ è l'orientazione fissata in $\mathbb{R}^k$. \\
+Dalla definizione data in $(B.9.11)$ segue immediatamente che l'operazione di integrale su un dominio $k$-dimensionale $\sigma$ in $M$ è lineare rispetto a $\omega^{(k)}$, ovvero
+\begin{align}
+    \int_\sigma (\lambda_1\omega^{(k)}_1 + \lambda_2\omega^{(k)}_2) = \lambda_1\int_\sigma \omega^{(k)}_1 + \lambda_2\int_\sigma \omega^{(k)}_2 \tag{B.9.12}
+\end{align}
+Chiamiamo \textit{opposto} di $\sigma$ il dominio di integrazione che differisce da quest'ultimo solamente per la scelta di orientazione (in $\mathbb{R}^k$). In particolare indichiamo l'opposto di $\sigma$ con il simbolo $-\sigma$. \\ \\
+\textbf{Proposizione B.9.2:} l'integrale di una $k$-forma su $\sigma$ differsce dall'integrale della stessa su $-\sigma$ solamente per un segno $-$, ovvero
+\begin{align}
+    \int_{-\sigma} \omega^{(k)} = -\int_\sigma \omega^{(k)} \tag{B.9.13}
+\end{align} \\
+
+\textbf{Dimostrazione:} per definizione di integrale di una $k$-forma differenziale su un dominio $k$-dimensionale in $M$ si ha
+\begin{align}
+    \int_{-\sigma} \omega^{(k)} = \int_{-D} f^*\omega^{(k)} \qquad \int_\sigma \omega^{(k)} = \int_{D} f^*\omega^{(k)} \notag
+\end{align}
+dove $f : D \longrightarrow M$ è un opportuna applicazione differenziabile. Sia $g$ il diffeomorfismo che manda $D$ in $-D$, cambiando l'orientazione. Per $(B.9.10)$ si ha che
+\begin{align}
+    \int_{-D} f^*\omega^{(k)} = \int_D g^*f^*\omega^{(k)} \tag{B.9.14}
+\end{align}
+dato che $g$ cambia orientazione, lo jacobiamo associato al diffeomorfismo $g$ avrà valore $-1$, pertanto
+\begin{align}
+    \int_D g^*f^*\omega^{(k)} = -\int_D f^*\omega^{(k)} \tag{B.9.15}
 \end{align}
 ovvero la tesi. \qed \\ \\
-Vogliamo estendere la definizione di integrazione di $k$-forme differenziali su $\mathbb{R}^k$ per integrali di $k$-forme differenziali su varietà $n$-dimensionali. \\ \\
-Siano $\omega^{(k)}$ una $k$-forma differenziale su una varietà $n$-dimensionale $M$, $D$ un poliedro convesso limitato in $\mathbb{R}^k$ e $f : D \longrightarrow M$ un'applicazione differenziabile.
- 
+In generale non sappiamo se $f(D)$ è una sottovarietà regolare di $M$, infatti abbiamo solamente ipotizzato che $f$ fosse un'applicazione differenziabile, senza fare considerazioni su iniettività e suriettività. \\ \\
+\textbf{Definizione:} chiamiamo \textit{catena} $k$-\textit{dimensionale} un insieme finito di domini $k$-dimensionali $\sigma_1, \dots, \sigma_s \subset M$ orientati e di molteplicità $m_1, \dots, m_s \in \mathbb{Z}$. In particolare una catena $k$-dimensianale $c_k$ si indica con la somma formale
+\begin{align}
+    c_k = m_1\sigma_1 + \dots + m_s\sigma_s \tag{B.9.16}
+\end{align}
+Definendo l'operazione $+$ di \textit{composizione} di catene su $M$ come segue
+\begin{align}
+    (m_1\sigma_1 + \dots + m_s\sigma_s) + (m'_1\sigma'_1 + \dots + m'_s\sigma'_s) = \notag \\
+    = m_1\sigma_1 + \dots + m_s\sigma_s + m'_1\sigma'_1 + \dots + m'_s\sigma'_s \tag{B.9.17}
+\end{align}
+se definisce sull'insieme delle catene $k$-dimensionali in $M$ struttura di gruppo commutativo.
 
+\newpage
+\section{Varietà simplettiche}
 
 
 \newpage
-\section{Sistemi hamiltoniani}
-Consideriamo una funzione liscia $H$ definita su un aperto $M$ di $\mathbb{T}^n \times \mathbb{R}^n$ = $\{(\theta, r)\}$ (dove $\mathbb{T}^n = \mathbb{R}^n/\mathbb{Z}^n$ è il toro $n$-dimensionale e $(\theta, r) = (\theta_1, \dots, \theta_n, r_1, \dots, r_n)$). \\
-Il \textit{campo vettoriale hamiltoniano} $X_H$ indotto da $H$ tramite le equazioni di Hamilton è dato da 
-\begin{align} X_H =
-    \begin{cases}
-        \dot{\theta}_j &= \frac{\partial H}{\partial r_j} \\
-        \dot{r}_j &= -\frac{\partial H}{\partial \theta_j}
-    \end{cases} \tag{2.1}
-\end{align}
-Notiamo immediatamente che $\nabla H \cdot X_H = 0$, il gradiente euclideo di $H$ è ortogonale al campo vettoriale hamiltoniano $X_H$. Infatti 
-\begin{align}
-    \nabla H \cdot X_H &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\dot{\theta}_j + \frac{\partial H}{\partial r_j}\dot{r}_j\right) \notag \\
-    &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\frac{\partial H}{\partial r_j} - \frac{\partial H}{\partial r_j}\frac{\partial H}{\partial \theta_j}\right) = 0 \tag{2.2}
-\end{align}
-In particolare, la proiezione sul piano $\{(\theta_j, r_j)\}$ del campo vettoriale hamiltoniano $X_H$ e del gradiente euclideo $\nabla H$ sono ortogonali (ogni termine della somma è nullo). Questo segue dal fatto che $X_H$ è tangente alle curve di livello di $H$ (curve ad energia fissata), mentre $\nabla H$ punta verso la direzione di massima pendenza (positiva) di $H$.
-
-\newpage
-\section{Moti quasiperiodici}
-Studiamo ora una classe particolare di sistemi hamiltoniani: i sistemi hamiltoniani \textit{integrabili}. Un sistema hamiltoniano integrabile non dipende dalla variabile del moto $\theta$. Pertanto, fissato $r$ si ottiene 
-\begin{align}
-    \begin{cases}
-        \dot{\theta} &= \partial_rH = cst \\
-        \dot{r} &= 0
-    \end{cases} \tag{3.1}
-\end{align}
-dove con $\partial_rH$ si intende il gradiente rispetto alla coordinata $r = (r_1, \dots, r_n)$, ovvero 
-\begin{align}
-    \partial_rH = \left(\frac{\partial H}{\partial r_1}, \dots, \frac{\partial H}{\partial r_n}\right) \notag
-\end{align}
-Possiamo facilmente determinare il flusso associato a $X_H$ usando la definizione di flusso di un campo vettoriale 
-\begin{align}
-    \varphi_t(\theta, r) = \left(\theta + t\partial_rH, r\right) \tag{3.2}
-\end{align}
-per ogni $t \in \mathbb{R}$ (intervallo massimale di definizioni delle soluzioni). Notiamo che lo spazio delle fasi è costituito da tori invarianti, infatti fissato $r_0 \in \mathbb{R}^n$ si ha 
-\begin{align}
-    \varphi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} \tag{3.3}
-\end{align}
-Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasiperiodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \partial_rH(r_0) \in \mathbb{R}^n$. \\ \\
-Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso 
-\begin{align}
-    \varphi_t : \mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
-\end{align}
-dove $\alpha = \partial_rH(r)$. \\ \\
-\textbf{Lemma 3.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
-
-\textbf{Dimostrazione:} supponiamo che i flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
-\begin{align}
-    h(\theta + t\alpha) = h(\theta) + t\beta \tag{3.4}
-\end{align}
-A meno di sostituire $h(\theta)$ con $h(\theta) - h(0)$, possiamo supporre $h(0) = 0$. Sia $H : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ l'unico sollevamento di $h$ tale che $H(0) = 0$. Allora 
-\begin{align}
-    H(\theta + t\alpha) = H(\theta) + t\beta \tag{3.5}
-\end{align}
-è soddisfatta per $\theta = 0$ e $t = 0$. Sia $\pi : \mathbb{R}^n \longrightarrow \mathbb{T}^n$ la proiezione canonica, per definizione di sollevamento
-\begin{align}
-    \pi(H(\theta + t\alpha)) = \pi(H(\theta) + t\beta) \tag{3.6}
-\end{align}
- per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$. Concludiamo che 
-\begin{align}
-    H(\theta + t\alpha) - H(\theta) - t\beta \in \mathbb{Z}^n \tag{3.7}
-\end{align}
-per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$, dato che $\pi$ è una mappa $\mathbb{Z}^n$-periodica. \\
-Fissato $t \in \mathbb{R}$, sia $\Delta_H$ la mappa
-\begin{align}
-    \theta \mapsto H(\theta + t\alpha) - H(\theta) - t\beta \tag{3.8}
-\end{align}
-Notiamo immediatamente che $\Delta_H$ è continua, infatti $H$ è continua. Inoltre, dato che $\mathbb{R}^n$ è connesso, $\Delta_H$ continua e $\mathbb{Z}^n$ uno spazio con topologia discreta, concludiamo che $\Delta_H$ è costante. Pertanto $(3.5)$ è soddisfatta per ogni $\theta \in \mathbb{R}^n$ (e ogni $t \in \mathbb{R}^n$). \\ \\
-Notiamo che esiste $A \in GL_n(\mathbb{Z})$ tale che
- \begin{align}
-    H(\theta + k) = H(\theta) + Ak \tag{3.9}
- \end{align}
-per ogni $k \in \mathbb{Z}^n$. Infatti, per definizione di sollevamento, si ha
-\begin{align}
-    \pi(H(\theta + k)) = h(\pi(\theta + k)) = h(\pi(\theta)) = \pi(H(\theta)) \tag{3.10}
- \end{align}
-ovvero
-\begin{align}
-    H(\theta + m) - H(\theta) \in \mathbb{Z}^n \tag{3.11}
- \end{align}
-ed è costante per ogni $\theta \in \mathbb{R}^n$ (si verifica analogamente a come fatto per $\Delta_H$). \\
-$A$ è invertibile, perché $H$ lo è. Consideriamo il campo vettoriale
-\begin{align}
-    V := A^{-1}H - \mathbf{1} : \mathbb{R}^n \longrightarrow \mathbb{R}^n \tag{3.12}
-\end{align}
-$V$ è $\mathbb{Z}^n$-periodico, infatti, dato $\theta \in \mathbb{R}^n$, si ha
-\begin{align}
-    V(\theta + m) &= (A^{-1}H - \mathbf{1})(\theta + m) \notag \\
-    &= A^{-1}H(\theta + m) - \theta + m \notag \\
-    &= A^{-1}H(\theta) + m - \theta + m \notag \\
-    &= (A^{-1}H - \mathbf{1})(\theta) \notag \\
-    &= V(\theta) \tag{3.13}
-\end{align}
-per ogni $m \in \mathbb{Z}^n$. Riscrivendo $(3.5)$ in termini di $V$ si ottiene
-\begin{align}
-    (AV + A)(\theta + t\alpha) = (AV + A)(\theta) + t\beta \tag{3.14}
-\end{align}
-ovvero
-\begin{align}
-    AV(\theta + t\alpha) - AV(\theta) = t(\beta - A\alpha) \tag{3.15}
-\end{align}
-In particolare, per $\theta = 0$, si ha
-\begin{align}
-    A(V(t\alpha) - V(0)) = t(\beta - A\alpha) \tag{3.16}
-\end{align}
-Il membro di sinistra è limitato (dato che $V$ è $\mathbb{Z}^n$-periodico), allora deve valere $\beta = A\alpha$. \qed \\ \\
-\textbf{Proposizione 3.1:} le seguenti affermazioni sono equivalenti: \\
-\textbf{1.} Il vettore frequenza $\alpha$ è \textit{non risonante}, ovvero $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\
-\textbf{2.} Il flusso $\varphi_t$ del campo vettoriale costante $\alpha$ è \textit{ergotico}, ovvero tutte le funzioni continue $f$ di $\mathbb{T}^n$ che soddisfano
-\begin{align}
-    f(\theta + t\alpha) = f(\theta) \tag{3.17}
-\end{align}
-per ogni $\theta \in \mathbb{R}^n$ e ogni $t \in \mathbb{R}$ sono costanti. \\
-\textbf{3.} Per ogni funzione continua su $\mathbb{T}^n$ esiste la media temporale $\overline{f}$ e combacia con la media spaziale su $\mathbb{T}^n$, ovvero
-\begin{align}
-    \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt = \int_{\mathbb{T}^n} f(\theta) \, d\theta \tag{3.18}
-\end{align}
-ricordando che $\mathbb{T}^n$ ha misura di Lebesgue unitaria dato che è identificato con il cubo $[0, 1)^n$ ad estremi "incollati". \\
-\textbf{4.} Ogni traiettoria di $\varphi_t$ è densa in $\mathbb{T}^n$. \\
-
-\textbf{Dimostrazione:} $(1 \rightarrow 2)$ sia $f$ una funzione di $\mathbb{T}^n$ tale che $f \circ \varphi_t = f$ per ogni $t \in \mathbb{R}$. Il $k$-esimo coefficiente di Fourier di $f \circ \varphi_t$ è dato da 
-\begin{align}
-    \widehat{f \circ \varphi_t}(k) = \int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta}f(\theta + t\alpha) \, d\theta \tag{3.19}
-\end{align}
-Poniamo $\theta' = \theta + t\alpha$, allora $\theta = \theta' - t\alpha$ e $d\theta = d\theta'$. Sostituendo in $(3.19)$ si ottiene
-\begin{align}
-    \widehat{f \circ \varphi_t}(k) = e^{i2\pi k \cdot \alpha t}\int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta'}f(\theta') \, d\theta' = e^{i2\pi k \cdot \alpha t}\widehat{f}(k) \tag{3.20}
-\end{align}
-Per ipotesi $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, pertanto, per unicità dei coefficienti di Fourier, concludiamo che $\widehat{f}(k) = 0$ per ogni $k \in \mathbb{Z} \setminus \{0\}$, quindi $f$ costante. \\ \\
-$(2 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ tale che $k \cdot \alpha = 0$. Allora la funzione $f$, definita da
-\begin{align}
-    f(\theta) = e^{i2\pi k \cdot \theta} \tag{3.21}
-\end{align}
-per ogni $\theta \in \mathbb{R}^n$, è invariante ma non costante, pertanto si ottiene un assurdo. \\ \\
-$(1 \rightarrow 3)$ Se $f$ è costante $(3.18)$ è immediatamente verificata. Se $f$ è della forma
-\begin{align}
-    f(\theta) = e^{i2\pi k \cdot \theta} \tag{3.22}
-\end{align}
-per ogni $\theta \in \mathbb{R}^n$, con $k \in \mathbb{Z}^n \setminus \{0\}$, si ottiene
-\begin{align}
-    \frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt &= \frac{1}{T}e^{i2\pi k \cdot \theta}\int_0^T e^{i2\pi k \cdot \alpha t} \, dt \notag \\
-    &= \frac{1}{T}e^{i2\pi k \cdot \theta}\frac{e^{i2\pi k \cdot aT} - 1}{ik \cdot \alpha} \rightarrow 0 \tag{3.23}
-\end{align}
-per $T \rightarrow \infty$, ovvero la media temporale è nulla come la media spaziale (per simmetria del toro $n$-dimensionale e disparità della funzione $f$). \\
-Se $f$ è un polinomio trigonometrico può essere espressa come somma finita di termini della forma $e^{i2\pi m \cdot \theta}$, per $m \in \mathbb{Z}^n$. Pertanto $(3.18)$ è verificata grazie a $(3.23)$ per linearità dell'integrale. \\
-Per il \textit{teorema di Stone-Weierstrass}\footnote{In appendice B}, se $f$ è continua, fissato $\varepsilon > 0$, esiste $P$ polinomio trigonometrico tale che
-\begin{align}
-    \max_{\theta \in \mathbb{T}^n} |f(\theta) - P(\theta)| < \varepsilon \tag{3.24}
-\end{align}
-In particolare, per polinomi trigonometrici abbiamo appena dimostrato che 
-\begin{align}
-    \left|\frac{1}{T}\int_0^T P(\theta + t\alpha) \, dt\right| \rightarrow 0 \tag{3.25}
-\end{align}
-per $T \rightarrow \infty$. Indichiamo con $\overline{\cdot}$ l'operazione di media spaziale, allora
-\begin{align}
-    \left|\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt - \overline{f}\right| &\leq \frac{1}{T}\int_0^T \left|f(\theta + t\alpha) - P(\theta + t\alpha)\right| \, dt \, + \notag \\
-    &+ \left|\frac{1}{T}\int_0^T P(\theta + t\alpha) \, dt - \overline{P}\right| \, + \notag \\
-    &+ \left|\overline{P} - \overline{f}\right| < 3\varepsilon \tag{3.26}
-\end{align}
-per $T$ sufficientemente grande. \\ \\
-$(3 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ tale che $k \cdot \alpha = 0$. Allora $f$ definita in $(3.21)$ è una funzione invariante e continua che ha media temporale diversa dalla media spaziale, infatti
-\begin{align}
-    \frac{1}{T}\int_0^T e^{i2\pi k \cdot (\theta + \alpha t)} \, dt = e^{i2\pi k \cdot \theta} \tag{3.27}
-\end{align}
-mentre $\overline{f} = 0$. \\ \\
-$(1 \rightarrow 4)$ Supponiamo che $\varphi_t$ ammetta una traiettoria \textit{non} densa. Allora esiste $\theta_0 \in \mathbb{T}^n$ che possiede un intorno aperto $U$ che non interseca con la traiettoria. \\
-Consideriamo una funzione continua $f$ definita su $\mathbb{T}^n$ tale che $f(\theta) > 0$ per ogni $\theta \in U$ e $f(\theta) = 0$ per ogni $\theta \in \mathbb{T}^n \setminus U$. La media tempotale di $f$ calcolata lungo la traiettoria non densa è nulla, mentre la media spaziale di $f$ è strettamente positiva. Pertanto, per il punto $(3)$ prima dimostrato, si ottiene un assurdo. \\ \\
-$(4 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n$ tale che $k \cdot \alpha = 0$. Consideriamo $\theta_0 = k/2\mod\mathbb{Z}^n$, mostriamo che esiste un intorno aperto $U$ di $\theta_0$ che non viene mai visitato dalla traiettoria $t \mapsto t\alpha$ su $\mathbb{T}^n$. \\
-Supponiamo che esista $\theta \in U$ tale che $t\alpha = \theta$ per qualche $t \in \mathbb{R}$. Equivalentemente, esistono $t \in \mathbb{T}^n$ e $l \in \mathbb{Z}^n$ tali che $t\alpha = \theta + l$ ($\mathbb{T}^n$ è $\mathbb{Z}^n$-periodico). Facendo il prodotto scalare con $k$ si ottiene
-\begin{align}
-    0 = k \cdot \theta + k \cdot l \tag{3.28}
-\end{align}
-Tuttavia, possiamo scegliere $U$ in modo tale che $0 < |k \cdot \theta| < 1$, mentre $k \cdot l \in \mathbb{Z}$, pertanto si ottiene un assurdo. \qed
-
-
-\newpage
-\section{Punto di vista geometrico}
-Tutta l'informazione riguardante un determinato sistema dinamico è contenuta nella funzione di Hamilton $H$. $H$ è una funzione scalare regolare definita sullo spazio delle fasi, da $H$ possiamo ricavare, tramite le equazioni del moto di Hamilton, il campo di velocità hamiltoniano $X_H$ associato al sistema in esame e quindi anche il flusso hamiltoniano $\varphi$. \\
-Il vantaggio di partire da una funzione scalare risiede nel fatto che è molto più semplice eseguire un cambio di coordinate per una funzione scalare che per campi vettoriali. Tuttavia, solamente una particolare classe di cambi di coordinate è ammessa, ovvero i diffeomorfismi $\phi$ che lasciano invariato $X_H$ (e quindi le equazioni del moto), cioè
-\begin{align}
-    \phi^*X_{H \circ \phi} = X_H \tag{4.1}
-\end{align}
-Per caratterizzare tali diffeomorfismi diamo una defizione di $X_H$ che non necessita di un sistema di coordinate. Sia
-\begin{align}
-    \omega = \sum_j d\theta_j \wedge dr_j \tag{4.2}
-\end{align}
-$\omega$ è detta \textit{forma simplettica} sullo spazio delle fasi $\mathbb{T}^n \times \mathbb{R}^n$. In particolare, $\omega$ è una mappa bilineare del fibrato tangente dello spazio delle fasi nella retta reale. \\
-Dato $X = (\dot{\theta}, \dot{r})$ campo vettoriale su $\mathbb{T}^n \times \mathbb{R}^n$, si ha
-\begin{align}
-    \omega(X, \cdot) = \sum_j (\dot{\theta}_jdr_j - \dot{r}_jd\theta_j) \tag{4.3}
-\end{align}
-Segue che $X_H$ è definito implicitamente dall'equazione
-\begin{align}
-    \omega(X_H, \cdot) = dH \tag{4.4}
-\end{align}
-Pertanto le uniche trasformazioni che preservano le equazioni del moto sono ora caratterizzate dall'equazione
-\begin{align}
-    \phi^*\omega = \omega \tag{4.5}
-\end{align}
-che garantisce l'invarianza del differenziali di $H$ rispetto a $\phi$. Tali trasformazioni sono dette \textit{simplettiche} o \textit{canoniche}. \\ \\
-\textbf{Esempio:} consideriamo una $1$-forma differenziale chiusa $\rho$ su $\mathbb{T}^n$
-\begin{align}
-    \rho = \sum_j \rho_i(\theta)d\theta_i \qquad d\rho = 0 \tag{4.6}
-\end{align}
-Il diffeomorfismo $\phi$ definito da 
-\begin{align}
-    (\theta, r) \mapsto (\theta, r + \rho(\theta)) \tag{4.7}
-\end{align}
-dove $\rho(\theta) = (\rho_1(\theta), \dots, \rho_n(\theta))$, per $\theta \in \mathbb{T}^n$, è simplettico. Infatti
-\begin{align}
-    \phi^*\omega = \sum_j d\tilde{\theta}_j \wedge d\tilde{r}_j \tag{4.8}
-\end{align}
-dove si è posto $\tilde{\theta} = \theta$ e $\tilde{r} = r + \rho$, segue che $d\tilde{\theta}_j = d\theta_j$ e $d\tilde{r}_j = dr_j + d\rho_j$ per ogni $j = 1, \dots, n$. Pertanto
-\begin{align}
-    \phi^*\omega &= \sum_j d\theta_j \wedge (dr_j + d\rho_j) \notag \\
-    &= \sum_j d\theta_j \wedge dr_j + \sum_j d\theta_j \wedge d\rho_j \notag \\
-    &= \omega - \cancel{d\rho} = \omega \tag{4.9} 
-\end{align}
-ovvero $\phi^*\omega = \omega$. \\ \\
-\textbf{Esempio:} sia $\varphi$ un diffeomorfismo su $\mathbb{T}^n$. Definiamo il sollevamento $\phi$ di $\varphi$ a $\mathbb{T}^n \times \mathbb{R}^n$
-\begin{align}
-    \phi: \quad (\theta, r) \mapsto \underbrace{(\varphi(\theta), r(\varphi_*(\theta)^{-1}))}_{(\tilde{\theta}, \tilde{r})} \tag{4.10}
-\end{align}
-dove con $\varphi_*$ si indica il differenziale di $\varphi$. Il diffeomorfismo $\phi$ preserva la $1$-forma differenziale $\lambda = \sum_j r_jd\theta_j$, infatti
-\begin{align}
-    \phi^*\lambda = \tilde{r} \cdot d\tilde{\theta} = r \cdot (\varphi_*(\theta))^{-1}(\varphi_*(\theta)) \cdot d\theta = \lambda \tag{4.11}
-\end{align}
-Inoltre, dato che $d\lambda = -\omega$, si ha
-\begin{align}
-    \phi^*\omega = -\phi^*d\lambda = -d\phi^*\lambda = -d\lambda = \omega \tag{4.12}
-\end{align}
-ovvero $\phi$ simplettico. \\ \\
-\textbf{Proposizione 4.1:} sia $\phi_t$ è il flusso associato ad un campo vettoriale hamiltoniano $X_H$, allora $\phi^*_t\omega = \omega$ per ogni $t$ nell'intervallo di definizione del flusso. \\
-
-\textbf{Dimostrazione:} per il \textit{teorema fondamentale del calcolo} si ha
-\begin{align}
-    \phi^*_t\omega - \omega &= \int_0^t \frac{d}{ds}(\phi^*_s\omega) \, ds \notag \\
-    &= \int_0^t \phi^*_s(\mathcal{L}_{X_H}\omega) \, ds \tag{4.13}
-\end{align}
-per definizione di derivata di Lie. Per la \textit{formula d'omotopia di Cartan} si ha
-\begin{align}
-    \mathcal{L}_{X_H}\omega = di_{X_H}\omega + i_{X_H}d\omega \tag{4.14}
-\end{align}
-In particolare, $d\omega = 0$, dato che che $\omega$ ha tutti coefficienti costanti, mentre $i_{X_H}\omega = dH$, pertanto $di_{X_H}\omega = d^2H = 0$ (dato che $d^2 = 0$, \textit{operatore di coomologia}). \qed \\ \\
-\textbf{Proposizione 4.2 (Herman):} (...) \\
-
-\textbf{Dimostrazione:} (...)
-
-\newpage
-\section{Serie perturbativa}
-Consideriamo un hamiltoniana $H$ definita in un intorno di $\mathbb{T}^n \times \{0\}$ in $\mathbb{T}^n \times \mathbb{R}^n$. Supponiamo che $H$ dipenda formalmente da un parametro $\varepsilon > 0$ nella forma
-\begin{align}
-    H(\theta, r) = H_0(r) + \varepsilon H_1(\theta, r) + \varepsilon^2H_2(\theta, r) + O(\varepsilon^3) \tag{5.1}
-\end{align}
-Siamo interessati a trovare un opportuno cambio di variabili, sufficientemente vicino all'identità ($\varepsilon$ vicino), tale da rimuovere la dipendeza di $H_1$ da $\theta$. Se ciò è possibile vogliamo estendere questo procedimento in moda tale da poter gestire anche i termine di ordine $\varepsilon$ superiore. \\ \\
-A tal proposito, consideriamo un'hamiltoniana ausiliaria $F$ con flusso $\phi_t$. In particolare, vogliamo che $F$ sia tale che $\phi^*_1H = H \circ \phi_1$ non dipenda da $\theta$, almeno fino a termini di secondo ordine in $\varepsilon$. \\ \\
-Per definizione di flusso di un campo vettoriale si ha
-\begin{align}
-    \frac{d}{ds}\left|_{s = 0}\right.(\phi^*_{t + s}H) = \frac{d}{ds}\left|_{s = 0}\right.(H \circ \phi_{t + s}) = (\nabla H \cdot X_F) \circ \phi_t = \phi^*_t(X_F \cdot H) \tag{5.2}
-\end{align}
-dove nell'ultima uguaglianza si è trattato $X_F$ come un operatore di derivazione
-\begin{align}
-    X_F = \partial_rF \cdot \partial_\theta - \partial_\theta F \cdot \partial_r \tag{5.3}
-\end{align}
-Sviluppando la mappa $t \mapsto \phi^*_tH$ in serie di Taylor (con resto integrale di Lagrange) per $0 \leq t \leq 1$ si ottiene la seguente uguaglianza
-\begin{align}
-    \phi^*_1H = H + \varepsilon(X_F \cdot H) + \varepsilon^2\int_0^1 (1 - t)\phi^*_t(X^2_F \cdot H) \, dt \tag{5.4}
-\end{align}
-I fattori $\varepsilon$ che compaiono a moltiplicare i termini in $(5.4)$ derivano dal fatto che stiamo sviluppando attorno ad un $\tilde{t}$ che dista $\varepsilon$ da $0$. Infatti, come detto in precedenza, cerchiamo una trasformazione $\varepsilon$-vicina all'identità ($\phi^*_0 = \mathbf{1}$). \\
-Sostituendo $(5.1)$ in $(5.4)$ si ottiene
-\begin{align}
-    \phi^*_1H = H_0 + \varepsilon(H_1 + X_F \cdot H_0) + O(r^2) \tag{5.5}
-\end{align}
-Riscriviamo $H_1$ come somma della sua media spaziale su $\mathbb{T}^n$ e dei termini di deviazione
-\begin{align}
-    H_1(\theta, r) = \overline{H}_1(r) + \tilde{H}_1(\theta, r) \qquad \overline{H}_1(\theta) = \int_{\mathbb{T}^n} H_1(\theta, r) \, d\theta \tag{5.6}
-\end{align}
-In assenza di simmetrie particolari, il termine $\overline{H}_1$ è non nullo. Questo comporta che la variazione di $\alpha$ su $\mathbb{T}^n \times \{r\}$ è dettata da termini di primo ordine in $\varepsilon$. Per quanto visto nel \textit{lemma 3.1}, $\alpha$ è invariante per coniugazione topologica, quindi l'azione di $\phi^*$ non può assorbire il termine di media spaziale. \\ \\
-Concludiamo che la condizione che $F$ deve soddisfare diventa
-\begin{align}
-    \tilde{H}_1 + X_F \cdot H_0 = 0 \tag{5.7}
-\end{align}
-quindi, ricordando $\partial_\theta H_0 = 0$ e esplicitando l'operazione di $X_F$ su $H$, si ha
-\begin{align}
-    \partial_rH_0 \cdot \partial_\theta F = \tilde{H}_1 \tag{5.8}
-\end{align}
-Dato che l'equazione $(5.7)$ coinvolge solamente la derivata parziale di $F$ rispetto a $\theta$, possiamo trattare $r$ come un parametro fissato. Ponendo $\alpha = \partial_rH(r)$, $(5.7)$ diventa
-\begin{align}
-    \alpha \cdot \partial_\theta F = \tilde{H}_1 \tag{5.9}
-\end{align}
-In termini della derivata di Lie associata al campo vettoriale costante definito da $\alpha$
-\begin{align}
-    \mathcal{L}_\alpha F = \tilde{H}_1 \tag{5.10}
-\end{align}
-detta \textit{equazione omologica}. \\ \\
-Sia $\mathcal{F}$ l'insieme delle serie di Fourier (formali, quindi ancora non associate ad una particolare funzione) su $\mathbb{T}^n$ prive di termine costante. \\ \\
-\textbf{Lemma 5.1:} se $\alpha$ è non risonante, data $g \in \mathcal{F}$ esiste unica $f \in \mathcal{F}$ tale che $\mathcal{L}_\alpha f = g$. \\
-
-\textbf{Dimostrazione:} dato che $g \in \mathcal{F}$, $g$ è della forma
-\begin{align}
-    g(\theta) = \sum_{k \neq 0} g_ke^{i2\pi k \cdot \theta} \tag{5.11}
-\end{align}
-per ogni $\theta \in \mathbb{T}^n$. Cerchiamo $f$ della forma
-\begin{align}
-    f(\theta) = \sum_{k \neq 0} f_ke^{i2\pi k \cdot \theta} \tag{5.12}
-\end{align}
-per ogni $\theta \in \mathbb{T}^n$, tale che $\mathcal{L}_\alpha f = g$. Esplicitando l'azione di $\mathcal{L}_\alpha$ su $f$ si ottiene la seguente equazione per $f_k$
-\begin{align}
-    i2\pi k \cdot \alpha f_k = g_k \tag{5.13} 
-\end{align}
-che ammette come unica soluzione
-\begin{align}
-    f_k = \frac{g_k}{i2\pi k \cdot \alpha} \tag{5.14}
-\end{align}
-per $k \in \mathbb{Z}^n \setminus \{0\}$. \qed \\ \\
-Dato $s > 0$, sia
-\begin{align}
-    \mathbb{T}^n_s = \{\theta \in \mathbb{C}^n/\mathbb{Z}^n : |\mathrm{Im}\theta_j| < s\} \tag{5.15}
-\end{align}
-l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{O}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni olomorfe definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $\|\cdot\|_\infty$. \\
-In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa su un insieme è ivi continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema B.$1$ in appendice B.}. \\ \\
-Invertendo $(5.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni olomorfe a funzioni olomorfe, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza. \\ \\
-\textbf{Definizione 5.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
-\begin{align}
-    |k \cdot \alpha| \geq \frac{\gamma}{\|k\|^{\tau}_\infty} \tag{5.16}
-\end{align}
-per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, dove
-\begin{align}
-    \|k\|_\infty = |k_1| + \dots + |k_n| \tag{5.17}
-\end{align}
-In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $\alpha \in \mathbb{R}^n$ che sono $(\gamma, \tau)$-Diofantei. Inoltre, poniamo
-\begin{align}
-    D_\tau = \bigcup_{\gamma > 0}D_{\gamma, \tau} \tag{5.18}
-\end{align} \\
-\textbf{Teorema (di Dirichlet):} dato $\alpha \in \mathbb{R}^n$ e $q \in \mathbb{N}$, $q > 1$, esistono $k \in \mathbb{Z}^n \setminus \{0\}$ e $m \in \mathbb{Z}$ tali che $\|k\|_\infty \leq q$ e 
-\begin{align}
-    |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{5.19}
-\end{align}
-
-\textbf{Dimostrazione:} fissato $q \in \mathbb{N}$, $q > 1$, consideriamo tutti i vettori $\kappa \in \mathbb{Z}^n$ della forma
-\begin{align}
-    \kappa = (\kappa_1, \dots, \kappa_n) \qquad 0 \leq \kappa_i \leq q \tag{5.20}
-\end{align}
-per ogni $i = 1, \dots, n$. In particolare, esistono $(q + 1)^n$ vettori in $\mathbb{Z}^n$ che soddisfano $(5.20)$, infatti ogni componente ha $q + 1$ possibili valori da assumere (compreso $0$) e ci sono $n$ componenti totali. \\
-Per ogni $\kappa \in \mathbb{Z}^n$ che soddisfa $(5.20)$ poniamo $x_\kappa = |\{\kappa \cdot \alpha\}|$, dove $\{\cdot\}$ indica l'operazione di parte frazionaria. La parte frazionaria di un numero qualsiasi è sempre compresa tra $0$ e $1$ (escluso). \\
-Dividiamo l'intervallo $[0, 1)$ in $q^n$ sottointervalli di lunghezza $1/q^n$. Avendo considerato solamente i vettori interi con tutte componenti positive, per ogni $a, b \in \mathbb{Z}^n$ distinti che soddisfano $(5.20)$ si ha $x_a \neq x_b$. Pertanto l'insieme $\{x_\kappa\}_\kappa$ è costituito da $(q + 1)^n$ elementi distinti che si dispongono nell'intervallo $[0, 1)$. Dato che $(q + 1)^n > q^n$, esistono $x_a, x_b \in \{x_\kappa\}_\kappa$ tali che $|x_a - x_b| \leq 1/q^n$, ovvero
-\begin{align}
-    |\{(a - b) \cdot \alpha\}| \leq \frac{1}{q^n} \tag{5.21}
-\end{align}
-Ponendo $k = a - b$ si ha $k \neq 0$ e 
-\begin{align}
-    |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{5.22}
-\end{align}
-dove $m$ è la parte intera di $k \cdot \alpha$, pertanto si ottiene la tesi. \qed \\ \\
-\textbf{Osservazione:} se poniamo $q = \|k\|_\infty$, $(5.22)$ è valida per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\ \\
-\textbf{Corollario 5.1:} $D_\tau \neq \emptyset$ se e solo se $\tau \geq n - 1$. \\
-
-\textbf{Dimostrazione:} (...) \\ \\
-
-
-
-
-\appendix
-\newpage
-\section{Coniugazione topologica, rivestimenti e sollevamenti}
-\textbf{Definizione:} siano $f : X \longrightarrow X$ e $g : Y \longrightarrow Y$ due applicazioni continue di spazi topologici. $f$ e $g$ sono \textit{topologicamente coniugate} se esiste un omeomorfismo $h : X \longrightarrow Y$ tale che
-\begin{align}
-    h \circ f = g \circ h \tag{A.1}
-\end{align}
-ovvero se per ogni $x \in X$ vale $h(f(x)) = g(h(x))$. \\ \\
-\textbf{Osservazione:} sia $M$ una varietà differenziabile, siano $\Phi_1, \Phi_2 : M \longrightarrow TM$ campi vettoriali e indichiamo con $\varphi^{(1)}, \varphi^{(2)}$ i loro rispettivi flussi. In particolare, $\varphi^{(1)}$ e $\varphi^{(2)}$ sono detti topologicamente coniugati se esiste un omeomorfismo $h : M \longrightarrow M$ tale che
-\begin{align}
-    h(\varphi^{(1)}(t, x)) = \varphi^{(2)}(t, h(x)) \tag{A.2}
-\end{align}
-per ogni $x \in M$ e ogni $t \in \mathbb{R}$. \\ \\
-\textbf{Definizione:} un'applicazione continua $p : R \longrightarrow X$ di spazi topologici è detta \textit{rivestimento} se è suriettiva e se ogni $x \in X$ ammette un intorno aperto $U_x$ tale che $p^{-1}(U_x)$ è unione disgiunta di aperti di $R$, ognuno dei quali viene mappato omeomorficamente su $U_x$ da $p$. \\ \\
-\textbf{Definizione:} sia $f : X \longrightarrow Y$ un'applicazione continua di spazi topologici e siano
-$p : \tilde{X} \longrightarrow X$ e $q : \tilde{Y} \longrightarrow Y$ rivestimenti. $\tilde{f} : \tilde{X} \longrightarrow \tilde{Y}$ è detto \textit{sollevamento} di $f$ se $q \circ \tilde{f} = f \circ p$. \\ \\
-\textbf{Osservazione:} Notiamo che il sollevamento di un'applicazione continua non è unico. Infatti, in base alle proprietà del rivestimento, si possono trovare più sollevamenti. La non unicità dipende dal fatto che in generale $p$ non è iniettiva, quindi $p^{-1}(x)$ può contenere più di un punto. \\ \\
-Dato $X$ spazio topologico e $x_0 \in X$ chiamiamo spazio topologico \textit{puntato} o \textit{con punto base} la coppia $(X, x_0)$. Inoltre, dati due spazi topologici puntati $(X, x_0), (Y, y_0)$ chiamiamo \textit{applicazione continua di spazi topologici} una mappa continua $f : (X, x_0) \longrightarrow (Y, y_0)$ tale che $f(x_0) = y_0$. \\ \\
-\textbf{Teorema (di unicità del sollevamento):} siano $p : (R, r_0) \longrightarrow (Y, y_0)$ un rivestimento e $f : (X, x_0) \longrightarrow (Y, y_0)$ un'applicazione continua di spazi topologici puntati con $X$ connesso. Se esiste $\tilde{f} : (X, x_0) \longrightarrow (R, r_0)$ continua tale che $p \circ \tilde{f} = f$, è unica. \\
-
-\textbf{Dimostrazione:} supponiamo che esistano $\tilde{f}_1, \tilde{f}_2 : (X, x_0) \longrightarrow (R, r_0)$ tali che $p \circ \tilde{f}_1 = f = p \circ \tilde{f}_2$. \\
-Poniamo 
-\begin{align}
-    A &= \{x \in X : \tilde{f}_1(x) = \tilde{f}_2(x)\} \tag{A.3} \\
-    B &= \{x \in X : \tilde{f}_1(x) \neq \tilde{f}_2(x)\} \tag{A.4}
-\end{align}
-Dimostriamo che $A$ e $B$ sono aperti di $X$. \\
-Per ipotesi $x_0 \in A$, infatti $\tilde{f}_1(x_0) = r_0 = \tilde{f}_2(x_0)$, pertanto $A \neq \emptyset$. Dato $z \in A$, poniamo $\tilde{f}_1(z) = r = \tilde{f}_2(z)$. Sia $y = p(r)$, per definizione di rivestimento esiste un intorno aperto $U_y$ di $y$ tale che la restrizione di $p$ a $V_y := p^{-1}(U_y)$ è un omeomorfismo. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni di $z$ tali che $\tilde{f}_1(W_1) \subset V_y$ e $\tilde{f}_2(W_2) \subset V_y$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1 \cap W_2$ e, dato che $p|_{V_y}$ è un omeomorfismo, si ha che $\tilde{f}_1 = \tilde{f}_2$ in $W_1 \cap W_2$. Allora $W_1 \cap W_2 \subset A$ e dall'arbitrarietà del punto $z$ scelto segue che $A$ è un aperto. \\
-Supponiamo per assurdo che esista un elemento $z \in B$ e poniamo $\tilde{f}_1(z) = r_1$ e $\tilde{f}_2(z) = r_2$. Siano $y_1 = p(r_1)$ e $y_2 = p(r_2)$. Per definizione di rivestimento, esistono $U_{y_1}$ e $U_{y_2}$, rispettivamente intorno aperto di $y_1$ e $y_2$, tali che la restrizione di $p$ a $V_{y_1} := p^{-1}(U_{y_1})$ e la restrizione di $p$ a $V_{y_2} := p^{-1}(U_{y_2})$ sono omeomorfismi. Per continuità di $\tilde{f}_1$ e $\tilde{f}_2$, esistono $W_1, W_2$ intorni aperti di $z$ tali che $\tilde{f}_1(W_1) \subset V_{y_1}$ e $\tilde{f}_2(W_2) \subset V_{y_2}$. Inoltre, per ipotesi, $p(\tilde{f}_1(x)) = p(\tilde{f}_2(x))$ per ogni $x \in W_1$ e ogni $x \in W_2$. Allora $\tilde{f}_1 = \tilde{f}_2$ per ogni $x \in W_1$ e ogni $x \in W_2$, in particolare per $z$, quindi si ottiene un assurdo. Segue che $B = \emptyset$ e di conseguenza $A = X \setminus B = X$. \qed
-
-
-\newpage
-\section{Risultati di analisi funzionale}
-\textbf{Teorema B.1:} sia $S$ un insieme, allora
-\begin{align}
-    l^\infty(S) := \{f : S \longrightarrow \mathbb{C} : \|f\|_\infty < \infty\} \tag{B.1}
-\end{align}
+\section{Nozioni e risultati di analisi funzionale}
+\textbf{Teorema D.1:} sia $S$ un insieme, allora
+\begin{flalign}
+    l^\infty(S) := \{f : S \longrightarrow \mathbb{C} : \|f\|_\infty < \infty\} \tag{D.1}
+\end{flalign}
 è uno spazio di Banach rispetto alla metrica indotta da $\|\cdot\|_\infty$ \\
 
 \textbf{Dimostrazione:} sia $\{f_n : n \in \mathbb{N}\}$ una successione di Cauchy contenuta in $l^\infty(S)$. Fissato $\varepsilon > 0$, esiste $N_\varepsilon \in \mathbb{N}$ tale che
-\begin{align}
-    \|f_n - f_m\|_\infty < \varepsilon \tag{B.2}
-\end{align}
+\begin{flalign}
+    \|f_n - f_m\|_\infty < \varepsilon \tag{D.2}
+\end{flalign}
 per ogni $n, m > N_\varepsilon$. Allora, per ogni $t \in S$ si ha
-\begin{align}
-    |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \varepsilon \tag{B.3}
-\end{align}
+\begin{flalign}
+    |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \varepsilon \tag{D.3}
+\end{flalign}
 per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbb{N}\}$ è una successione di Cauchy a termini complessi per ogni $t \in S$. Dato che $\mathbb{C}$ è di Banach, per ogni $t \in S$ esistono $f(t) \in \mathbb{C}$ e $M_{\varepsilon, t} \in \mathbb{N}$ tali che
-\begin{align}
-    |f_n(t) - f(t)| < \varepsilon \tag{B.4}
-\end{align}
+\begin{flalign}
+    |f_n(t) - f(t)| < \varepsilon \tag{D.4}
+\end{flalign}
 per ogni $n > M_{\varepsilon, t}$. Resta da dimostrare che $\|f_n - f\|_\infty \rightarrow 0$ per $n \rightarrow \infty$ e che $f \in l^\infty(S)$. Per ipotesi, fissato $m > N_\varepsilon$
-\begin{align}
+\begin{flalign}
     \|f_n - f\|_\infty &\leq \|f_n - f_m\|_\infty + \|f_m - f\|_\infty \notag \\
     &= \|f_n - f_m\|_\infty + \lim_{n \rightarrow \infty}\|f_m - f_n\|_{\infty} \notag \\
-    &< 2\varepsilon \tag{B.5}
-\end{align}
+    &< 2\varepsilon \tag{D.5}
+\end{flalign}
 per continuità della norma, per ogni $n > N_\varepsilon$. Inoltre, notiamo che esiste $N_1 \in \mathbb{N}$ tale che fissato $n > N_1$ si ha
-\begin{align}
+\begin{flalign}
     \|f\|_\infty &\leq \|f - f_n\|_\infty + \|f_n\|_\infty \notag \\
-    &< 1 + \|f_n\|_\infty \tag{B.6}
-\end{align}
+    &< 1 + \|f_n\|_\infty \tag{D.6}
+\end{flalign}
 ovvero $f$ limitata in $S$, pertanto si ottiene la tesi. \qed \\ \\
 \textbf{Teorema (di Stone-Weierstrass):} sia $Pol([a, b])$ lo spazio delle funzioni polinomiali a coefficienti complessi definite sull'intervallo $[a, b]$. Si ha che $Pol([a, b])$ è denso (in norma $\|\cdot\|_\infty$) in $\mathcal{C}^0([a, b], \mathbb{C})$. \\
 
 \textbf{Dimostrazione:} dato che la densità è una proprietà topologica, possiamo assumere $[a, b] = [0, 1]$ senza perdita di generalità. Inoltre, data $f \in \mathcal{C}^0([0, 1])$ possiamo assumere $f(0) = 0 = f(1)$, infatti se così non fosse basterebbe definire
-\begin{align}
-    g(x) = f(x) - f(0) - (f(1) - f(0))x \tag{B.7}
-\end{align} 
+\begin{flalign}
+    g(x) = f(x) - f(0) - (f(1) - f(0))x \tag{D.7}
+\end{flalign} 
 per ogni $x \in [0, 1]$, che soddisfa $g(0) = 0 = g(1)$ ed è continua, ed è immediato notare che se il teorema è valido per $g$ è valido anche per $f$. \\
 Vogliamo costruire una successione di funzioni polinomiali $\{q_n\}_{n \in \mathbb{N}}$ che approssima la delta di Dirac. Data $f \in \mathcal{C}^0([0, 1], \mathbb{C})$ possiamo estenderla per continuità in modo tale che sia identicamente nulla fuori da $[0, 1]$. Per ogni $n \in \mathbb{N}$ definiamo 
-\begin{align}
-    q_n = c_n(1 - x^2)^n \tag{B.8}
-\end{align}
+\begin{flalign}
+    q_n = c_n(1 - x^2)^n \tag{D.8}
+\end{flalign}
 dove $c_n$ è una costante (fissato $n$) che garantisce la normalizzazione di $q_n$ sull'intervallo $[-1, 1]$, ovvero 
-\begin{align}
-    \int_{-1}^1 c_n(1 - x^2)^n \, dx = 1 \tag{B.9}
-\end{align}
+\begin{flalign}
+    \int_{-1}^1 c_n(1 - x^2)^n \, dx = 1 \tag{D.9}
+\end{flalign}
 Cerchiamo una stima per $c_n$. Per la \textit{disuguaglianza di Bernoulli} si ha 
-\begin{align}
+\begin{flalign}
     \int_{-1}^1 (1 - x^2)^n \, dx &= 2\int_0^1 (1 - x^2)^n \, dx \notag \\
     &\geq 2\int_0^{1/\sqrt{n}} (1 - x^2)^n \, dx \notag \\
     &\geq 2\int_0^{1/\sqrt{n}} (1 - nx^2) \, dx \notag \\
     &= 2\left(x - \frac{nx^3}{3}\right)_0^{1/\sqrt{n}} \notag \\
-    &= \frac{4}{3\sqrt{n}} \geq \frac{1}{\sqrt{n}} \tag{B.10}
-\end{align}
+    &= \frac{4}{3\sqrt{n}} \geq \frac{1}{\sqrt{n}} \tag{D.10}
+\end{flalign}
 Pertanto concludiamo che $c_n \leq \sqrt{n}$. Segue che dato $\delta > 0$ si ha 
-\begin{align}
-    q_n(x) \leq \sqrt{n}(1 - \delta^2)^n \tag{B.11}
-\end{align}
+\begin{flalign}
+    q_n(x) \leq \sqrt{n}(1 - \delta^2)^n \tag{D.11}
+\end{flalign}
 per ogni $x \in [\delta, 1]$. Per ogni $n \in \mathbb{N}$ poniamo 
-\begin{align}
-    p_n(x) = \int_{-1}^1 q_n(t)f(x + t) \, dt \tag{B.12}
-\end{align}
+\begin{flalign}
+    p_n(x) = \int_{-1}^1 q_n(t)f(x + t) \, dt \tag{D.12}
+\end{flalign}
 per ogni $x \in [0, 1]$. Notiamo immediatamente che $\{p_n\}_{n \in \mathbb{N}} \subset Pol([0, 1])$. Mostriamo che $p_n(x) \rightarrow f(x)$ in norma $\|\cdot\|_\infty$ per $n \rightarrow \infty$. Fissato $0 < \delta < 1$ si ha
-\begin{align}
+\begin{flalign}
     |p_n(x) - f(x)| &= \left|\int_{-1}^1 q_n(t)f(x + t) \, dt - f(x)\right| \notag \\
     &= \left|\int_{-1}^1 q_n(x)(f(x + t) - f(x)) \, dt\right| \notag \\
     &\leq \int_{-1}^1 q_n(x)|f(x + t) - f(x)| \, dt \notag \\
     &= \int_{-1}^\delta (\dots) \, dt + \int_{-\delta}^\delta (\dots) \, dt  + \int_{\delta}^1 (\dots)  \, dt \notag \\
-    &\leq 2\int_{\delta}^1 q_n(x)\|f\|_\infty \, dt + \int_{-\delta}^\delta q_n(x)|f(x + t) - f(x)| \, dt \tag{B.13}
-\end{align}
+    &\leq 2\int_{\delta}^1 q_n(x)\|f\|_\infty \, dt + \int_{-\delta}^\delta q_n(x)|f(x + t) - f(x)| \, dt \tag{D.13}
+\end{flalign}
 dove nel secondo passaggio si è usato il fatto che $q_n$ è normalizzata su $[-1, 1]$, nel terzo la subadditività dell'integrale, quinto il fatto che $q_n$ è pari. \\
 A questo punto, dato che $f$ è continua su un compatto ($[-1, 1]$) è valido il \textit{teorema di Heine-Cantor}, pertanto $f$ è uniformemente continua su $[-1, 1]$ e quindi anche su $[-\delta, \delta]$. Concludiamo che per ogni $\varepsilon > 0$ esiste $\delta > 0$ tale che se $|(x + t) - x| = |t| < \delta$ si ha $|f(x + t) - f(x)| < \varepsilon$ per ogni $x \in [-\delta, \delta]$. Quindi, a meno di ridefinire $\delta$, si ha
-\begin{align}
-    |p_n(x) - f(x)| \leq 2\|f\|_\infty\sqrt{n}(1 - \delta^2)^n(1 - \delta) + 2\varepsilon\delta\sqrt{n}(1 - \delta^2)^n \rightarrow 0 \tag{B.14}
-\end{align}
+\begin{flalign}
+    |p_n(x) - f(x)| \leq 2\|f\|_\infty\sqrt{n}(1 - \delta^2)^n(1 - \delta) + 2\varepsilon\delta\sqrt{n}(1 - \delta^2)^n \rightarrow 0 \tag{D.14}
+\end{flalign}
 per $n \rightarrow \infty$. Inoltre, la convergenza è uniforme, infatti la condizione per l'uniforme continuità dipende solamente da $|t|$ e non da $x$. Concludiamo quindi che 
-\begin{align}
-    \|p_n - f\|_{\infty} \rightarrow 0 \tag{B.15}
-\end{align}
+\begin{flalign}
+    \|p_n - f\|_{\infty} \rightarrow 0 \tag{D.15}
+\end{flalign}
 per $n \rightarrow \infty$. \qed
 
 

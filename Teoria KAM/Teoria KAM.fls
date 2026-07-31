@@ -47,6 +47,12 @@ INPUT c:/texlive/2026/texmf-dist/tex/latex/tools/bm.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/tools/bm.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+INPUT c:/texlive/2026/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT c:/texlive/2026/texmf-dist/tex/latex/mathtools/mathtools.sty
+INPUT c:/texlive/2026/texmf-dist/tex/latex/tools/calc.sty
+INPUT c:/texlive/2026/texmf-dist/tex/latex/tools/calc.sty
+INPUT c:/texlive/2026/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT c:/texlive/2026/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 INPUT c:/texlive/2026/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty

@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1785334464.86126 "c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex" "Teoria KAM.pdf" "Teoria KAM" 1785334466.8218 0
-  "Teoria KAM.aux" 1785334466 1898 72f2b2f7c7fa580515322e2017fac3c1 "pdflatex"
-  "Teoria KAM.tex" 1785334463 85631 de2b8a2f8afae2cac005ac39c1377ae3 ""
-  "Teoria KAM.toc" 1785334466 1209 bd2423cb57d66b938edbcac9937b9cba "pdflatex"
-  "c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex" 1785334463 85631 de2b8a2f8afae2cac005ac39c1377ae3 ""
+["pdflatex"] 1785511689.301 "c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex" "Teoria KAM.pdf" "Teoria KAM" 1785511691.07526 0
+  "Teoria KAM.aux" 1785511690 2019 229963b5241edc582933c55185fa0501 "pdflatex"
+  "Teoria KAM.tex" 1785511688 89724 3b4d2e88735a194924d4c8c61e2c53e6 ""
+  "Teoria KAM.toc" 1785511690 1289 654b75213fc4c92662d9104c04a2b4a5 "pdflatex"
+  "c:/Users/aless/Desktop/vscode_proj/Teoria KAM/Teoria KAM.tex" 1785511688 89724 3b4d2e88735a194924d4c8c61e2c53e6 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1773580396 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1773573954 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1773573954 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -149,6 +149,8 @@
   "c:/texlive/2026/texmf-dist/tex/latex/jknapltx/ursfs.fd" 1773581227 548 cc4e3557704bfed27c7002773fad6c90 ""
   "c:/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1773581412 30662 bfd6e864f4ffc5018b0e2b6260c3181c ""
   "c:/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1773581516 678 4792914a8f45be57bb98413425e4c7af ""
+  "c:/texlive/2026/texmf-dist/tex/latex/mathtools/mathtools.sty" 1773581895 62711 3b0ed1d68b598a75677c10d16646d5e5 ""
+  "c:/texlive/2026/texmf-dist/tex/latex/mathtools/mhsetup.sty" 1773581895 5582 a43dedf8e5ec418356f1e9dfe5d29fc3 ""
   "c:/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty" 1773582598 1090 bae35ef70b3168089ef166db3e66f5b2 ""
   "c:/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty" 1773582598 373 00b204b1d7d095b892ad31a7494b0373 ""
   "c:/texlive/2026/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty" 1773582598 21013 f4ff83d25bb56552493b030f27c075ae ""
@@ -161,6 +163,7 @@
   "c:/texlive/2026/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty" 1773582598 325 f9f16d12354225b7dd52a3321f085955 ""
   "c:/texlive/2026/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty" 1773583956 823 2375f30bf77af9357d3b4834b054bf52 ""
   "c:/texlive/2026/texmf-dist/tex/latex/tools/bm.sty" 1773584116 13389 9f718787b5d641dbc0271856c125f004 ""
+  "c:/texlive/2026/texmf-dist/tex/latex/tools/calc.sty" 1773584116 10374 2ffd4f27c7f90b8a300608069537743c ""
   "c:/texlive/2026/texmf-dist/tex/latex/xcolor/xcolor.sty" 1773584532 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "c:/texlive/2026/texmf-dist/web2c/texmf.cnf" 1773573724 43630 e9fa012910491fe5ae08a72c3c2997a7 ""
   "c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1773584786 5618266 85c272d09f6df628d158699e137c8ff6 ""
