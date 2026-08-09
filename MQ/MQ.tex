@@ -824,17 +824,17 @@ Notiamo che
 \begin{gather}
     H = \hbar\omega \left( a^\dagger a + \frac{1}{2} \right) \notag
 \end{gather}
-definiamo allora l'operatore numero
+definiamo allora l'operatore \textit{numero} $N$ come segue
 \begin{gather}
     N = a^\dagger a \notag
 \end{gather}
-ovviamente si ha $[H, N] = 0$ dunque possono essere diagonalizzati simultaneamente. Determiniamo le relazioni di commutazione tra $a, a^\dagger$ e $N$ per capire come agiscono sugli autostati
+ovviamente si ha $[H, N] = 0$, dunque possono essere diagonalizzati simultaneamente. Determiniamo le relazioni di commutazione tra $a, a^\dagger$ e $N$ per capire come agiscono sugli autostati
 \begin{align}
     [a, a^\dagger] &= \frac{m\omega}{2\hbar}[x + i\frac{p}{m\omega}, x - i\frac{p}{m\omega}] \notag \\
     &= \frac{m\omega}{2\hbar}\frac{i}{m\omega}\left( -[x, p] + [p, x] \right) \notag \\
     &= \frac{m\omega}{2\hbar}\frac{i}{m\omega}(-2i\hbar) = 1 \notag
 \end{align}
-segue che $[a^\dagger, a] = -1$. Mentre
+Segue che $[a^\dagger, a] = -1$, mentre
 \begin{align}
     [N, a] &= [a^\dagger a, a] \notag \\
     &= a^\dagger[a, a] + [a^\dagger, a]a = -a \notag \\ \notag \\
@@ -862,7 +862,7 @@ imponendo la normalizzazione degli autostati si ottiene
     \braket{n|a^\dagger a|n} &= |c_-|^2 = n \notag \\ \notag \\
     \braket{n|aa^\dagger|n} &= |c_+|^2 = n + 1 \notag
 \end{align}
-pertanto concludiamo che $|c_-| = \sqrt{n}$ e $|c_+| = \sqrt{n + 1}$. Inoltre notiamo che $n$ deve per forza essere positivo e deve essere quindi anche un numero intero, altrimenti, applicando un numero finito di volte l'operatore $a$ ad un autostato, si otterrebbe un livello con energia negativa, il che comporterebbe $n < 0$. \\
+Pertanto concludiamo che $|c_-| = \sqrt{n}$ e $|c_+| = \sqrt{n + 1}$. Inoltre, notiamo che $n$ deve per forza essere positivo e deve essere quindi anche un numero intero, altrimenti, applicando un numero finito di volte l'operatore $a$ ad un autostato, si otterrebbe un livello con energia negativa, il che comporterebbe $n < 0$ (impossibile perché $n$ è il quadrato del modulo di un numero complesso per quanto visto sopra). \\
 Imporre che $n$ sia un intero positivo porta all'esistenza di uno stato fondamentale $\ket{0}$ per il quale vale
 \begin{gather}
     a\ket{0} = 0 \tag{4.1.1}

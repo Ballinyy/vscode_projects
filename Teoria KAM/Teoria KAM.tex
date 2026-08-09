@@ -1061,98 +1061,62 @@ In particolare, dati $v_1, \dots, v_s \in L$ si ha
 
 \newpage
 \subsection{Integrazione delle forme differenziali}
-Introduciamo ora il concetto di integrazione di una $k$-forma differenziale su una varietà $n$-dimensionale. \\ \\
-Sia $M$ una $n$-varietà differenziale e $\gamma : [0, 1] \longrightarrow M$ una curva differenziabile. Data $\omega$, una $1$-forma su $M$, definiamo l'integrale di $\omega$ lungo $\gamma$ facendo uso delle solite somme integrali. \\
-In particolare, consideriamo $s$ punti $0 = t_1 < t_2 < \dots < t_s = 1$. Si definiscono così $s -1$ intervalli della forma $[t_i, t_{i + 1}]$ e di lunghezza $\Delta_i = t_{i + 1} - t_i$, per $0 \leq i \leq s - 1$. Sia $\Delta = \max_i \Delta_i$, definiamo l'integrale di $\omega$ lungo $\gamma$ come segue
+Introduciamo ora il concetto di integrazione di una $k$-forma differenziale su una varietà $k$-dimensionale. \\ \\
+Per $k$-forme differenziali su $\mathbb{R}^k$ è possibile ricondurre la definizione di integrale di una forma differenziale su un dominio di integrazione $D \subset \mathbb{R}^k$ alla definizione di integrale di una funzione reale in termini di somme di Riemann. In particolare, data $\omega^{(k)}$ una $k$-forma differenziale su $\mathbb{R}^k$, esiste $a : \mathbb{R}^k \longrightarrow \mathbb{R}$ differenziabile tale che 
 \begin{flalign}
-   \int_\gamma \omega = \lim_{\Delta \rightarrow 0}\sum_i \omega(v_i) \tag{B.9.1}
+    \omega^{(k)} = adx_1 \wedge \dots \wedge dx_k \tag{B.9.1}
 \end{flalign}
-dove $v_i$ è il vettore tangente a $\gamma$ in $t_i$, ovvero
+Pertanto definiamo l'integrale di $\omega^{(k)}$ su $D$ come segue
 \begin{flalign}
-   v_i = \dot{\gamma}(t_i) \tag{B.9.2}
-\end{flalign}
-$0 \leq i \leq s - 1$. Osserviamo che il limite $\Delta \rightarrow 0$ corrisponde al limite $s\rightarrow \infty$. \\ \\
-In particolare, se $\omega = a_1dx_1 + \dots + a_ndx_n$, con $a_1, \dots, a_n : M \rightarrow \mathbb{R}$ differenziabili, $(B.9.1)$ è equivalente a
-\begin{flalign}
-    \int_0^1 \sum_{i = 1}^n a_i(\gamma(t))\dot{\gamma}_i(t) \, dt \tag{B.9.3}
-\end{flalign}
-definito tramite somme di Riemann. \\ \\
-Analogamente si definisce l'integrale di una $k$-forma differenziale su una superficie $k$-dimensionale, ovvero suddividendo la superficie in parallelepipedi ai quali sostituiamo poi parallelepipedi dello spazio tangente, ognuno dei quali identificato da opportuni $k$ vettori tangenti alla superficie, e sommando i valori che la $k$-forma differenziale assume su di essi. \\
-Prendendo il limite di parallelepipedi tangenti sempre più piccoli (e sempre più numerosi) si ottiene la definizione di integrale di una $k$-forma differenziale su una $k$-varietà differenziabile. \\ \\
-Per $k$-forme differenziali su $\mathbb{R}^k$ è possibile ricondurre la definizione di integrale di una forma differenziale su un poliedro convesso limitato $k$ alla definizione di integrale di funzione in termini di somme di Riemann. In particolare, data $\omega^{(k)}$ una $k$-forma differenziale su $\mathbb{R}^k$, esiste $a : \mathbb{R}^k \longrightarrow \mathbb{R}$ differenziabile tale che 
-\begin{flalign}
-    \omega^{(k)} = adx_1 \wedge \dots \wedge dx_k \tag{B.9.4}
-\end{flalign}
-Definiamo
-\begin{flalign}
-    \int_D \omega^{(k)} = \int_D a(x) \, dx_1 \dots dx_k \tag{B.9.5}
+    \int_D \omega^{(k)} = \int_D a(x) \, dx_1 \dots dx_k \tag{B.9.2}
 \end{flalign}
 dato che identifichiamo $T\mathbb{R}^k$ con $\mathbb{R}^k$ stesso. \\ \\
-Da $(B.9.5)$ segue che anche $\int_D \omega^{(k)}$ dipende da $\omega^{(k)}$ e da $D$ linearmente (per le proprietà dell'integrale di Riemann), ovvero
+Da $(B.9.2)$ segue che anche $\int_D \omega^{(k)}$ dipende da $\omega^{(k)}$ e da $D$ linearmente (per le proprietà dell'integrale di Riemann), ovvero
 \begin{flalign}
-    \int_{D_1 + D_2} \omega^{(k)}_1 + \omega^{(k)}_2 = \int_{D_1}\omega^{(k)}_1 + \int_{D_2}\omega^{(k)}_2 + \int_{D_1}\omega^{(k)}_2 + \int_{D_2}\omega^{(k)}_1 \tag{B.9.6}
+    \int_{D_1 + D_2} \omega^{(k)}_1 + \omega^{(k)}_2 = \int_{D_1}\omega^{(k)}_1 + \int_{D_2}\omega^{(k)}_2 + \int_{D_1}\omega^{(k)}_2 + \int_{D_2}\omega^{(k)}_1 \tag{B.9.3}
 \end{flalign}
 per ogni $\omega^{(k)}_1, \omega^{(k)}_2 \in \Omega^{(k)}(\mathbb{R}^k)$ e ogni $D_1, D_2$ poliedri convessi limitati in $\mathbb{R}^k$. \\ \\
-\textbf{Proposizione B.9.1:} siano $D_1, D_2$ poliedri convessi limitati di $\mathbb{R}^k$ e sia $f : D_1 \longrightarrow D_2$ un diffeomorfismo che conserva l'orientazione dell'interno di $D_1$ nell'interno di $D_2$. Data $\omega^{(k)} \in \Omega^{(k)}(\mathbb{R}^k)$ si ha
+\textbf{Proposizione B.9.1:} siano $D_1, D_2$ domini di integrazione di $\mathbb{R}^k$ e sia $f : D_1 \longrightarrow D_2$ un diffeomorfismo che conserva l'orientazione dell'interno di $D_1$ nell'interno di $D_2$. Data $\omega^{(k)} \in \Omega^{(k)}(\mathbb{R}^k)$ si ha
 \begin{flalign}
-    \int_{D_1} f^*\omega^{(k)} = \int_{D_2} \omega^{(k) \tag{B.9.7}}
+    \int_{D_1} f^*\omega^{(k)} = \int_{D_2} \omega^{(k) \tag{B.9.4}}
 \end{flalign} \\
 
 \textbf{Dimostrazione:} nel sistema di coordinate $y = f(x)$ identificato da $f$ si ha
 \begin{flalign}
-    \omega^{(k)} = a(y)dy_1 \wedge \dots \wedge dy_k \tag{B.9.8}
+    \omega^{(k)} = a(y)dy_1 \wedge \dots \wedge dy_k \tag{B.9.5}
 \end{flalign}
 per un'opportuna funzione differenziabile $a : D_2 \longrightarrow \mathbb{R}$. Trattando $y_i$ come funzione di $x$ per ogni $i = 1, \dots, k$, si ha
 \begin{flalign}
-    dy_i = \sum_{j = 1}^k \frac{\partial y_i}{\partial x_j}dx_j \tag{B.9.9}
+    dy_i = \sum_{j = 1}^k \frac{\partial y_i}{\partial x_j}dx_j \tag{B.9.6}
 \end{flalign}
 Allora
 \begin{flalign}
     \int_{D_2} \omega^{(k)} &= \int_{D_2} a(y) \, dy_1 \dots dy_k \notag \\
     &= \int_{D_1} a(y(x))\left|\frac{\partial(x_1, \dots, x_k)}{\partial(y_1, \dots, y_k)}\right| \, dx_1 \dots dx_k \notag \\
-    &= \int_{D_1} f^*\omega^{(k)} \tag{B.9.10}
+    &= \int_{D_1} f^*\omega^{(k)} \tag{B.9.7}
 \end{flalign}
 ovvero la tesi. \qed \\ \\
-Vogliamo estendere la definizione di integrazione di $k$-forme differenziali su $\mathbb{R}^k$ per integrali di $k$-forme differenziali su varietà $n$-dimensionali. Per farlo ricondurremo la definizione di integrale in un dominio $k$-dimensionale in $M$ alla definizione di integrale su un poliedro convesso limitato in $\mathbb{R}^k$. \\ \\
-Siano $\omega^{(k)}$ una $k$-forma differenziale su una varietà $n$-dimensionale $M$, $D$ un poliedro convesso limitato in $\mathbb{R}^k$ e $f : D \longrightarrow M$ un'applicazione differenziabile. Dato $\sigma$ dominio $k$-dimensionale in $M$, poniamo
+\textbf{Corollario B.9.1:} se $f$ inverte l'orientazione si ha
 \begin{align}
-    \int_\sigma \omega^{(k)} = \int_D f^*\omega^{(k)} \tag{B.9.11}
+    \int_{D_1} f^*\omega^{(k)} = -\int_{D_2} \omega^{(k)} \tag{B.9.8}
 \end{align}
-con orientazione determinata dal un sistema di riferimento $\{e_1, \dots, e_k\}$ fissato in $\mathbb{R}^k$. Il dominio $\sigma$ è quindi identificato dalla terna $(D, f, Or)$, dove $Or$ è l'orientazione fissata in $\mathbb{R}^k$. \\
-Dalla definizione data in $(B.9.11)$ segue immediatamente che l'operazione di integrale su un dominio $k$-dimensionale $\sigma$ in $M$ è lineare rispetto a $\omega^{(k)}$, ovvero
-\begin{align}
-    \int_\sigma (\lambda_1\omega^{(k)}_1 + \lambda_2\omega^{(k)}_2) = \lambda_1\int_\sigma \omega^{(k)}_1 + \lambda_2\int_\sigma \omega^{(k)}_2 \tag{B.9.12}
-\end{align}
-Chiamiamo \textit{opposto} di $\sigma$ il dominio di integrazione che differisce da quest'ultimo solamente per la scelta di orientazione (in $\mathbb{R}^k$). In particolare indichiamo l'opposto di $\sigma$ con il simbolo $-\sigma$. \\ \\
-\textbf{Proposizione B.9.2:} l'integrale di una $k$-forma su $\sigma$ differsce dall'integrale della stessa su $-\sigma$ solamente per un segno $-$, ovvero
-\begin{align}
-    \int_{-\sigma} \omega^{(k)} = -\int_\sigma \omega^{(k)} \tag{B.9.13}
-\end{align} \\
+ovvero guadagna un segno negativo. \\ \\
+Vogliamo estendere la definizione di integrazione di $k$-forme differenziali su $\mathbb{R}^k$ per integrali di $k$-forme differenziali su varietà $k$-dimensionali. Per farlo ricondurremo la definizione di integrale su $M$ alla definizione di integrale su un dominio di integrazione in $\mathbb{R}^k$. A tal proposito ci ristringiamo al caso particolare di forme differenziali a supporto compatto. \\ \\
+\textbf{Lemma B.9.1:} sia $A \subset \mathbb{R}^n$ un aperto e $K \subset A$ un compatto. Allora esiste un plurintervallo $W$ tale che $K \subset W \subset A$. \\
 
-\textbf{Dimostrazione:} per definizione di integrale di una $k$-forma differenziale su un dominio $k$-dimensionale in $M$ si ha
+\textbf{Dimostrazione:} sia $W \subset A$ un plurintervallo. La mappa
 \begin{align}
-    \int_{-\sigma} \omega^{(k)} = \int_{-D} f^*\omega^{(k)} \qquad \int_\sigma \omega^{(k)} = \int_{D} f^*\omega^{(k)} \notag
+    x \in K \mapsto d(x, \mathbb{R}^n \setminus A) \in \mathbb{R}_{\geq 0} \tag{B.9.9}
 \end{align}
-dove $f : D \longrightarrow M$ è un opportuna applicazione differenziabile. Sia $g$ il diffeomorfismo che manda $D$ in $-D$, cambiando l'orientazione. Per $(B.9.10)$ si ha che
+è positiva e continua, pertanto ha un minimo $r > 0$ in $K$ stesso. Con un raffinamento $\mathcal{P}'$ del reticolato $\mathcal{P}$ associato a $W$ possiamo ottenere un plurintervallo $W'$ tale che
 \begin{align}
-    \int_{-D} f^*\omega^{(k)} = \int_D g^*f^*\omega^{(k)} \tag{B.9.14}
+    \min_{x \in W'} \, d(x, \mathbb{R}^n \setminus A) = \frac{r}{3} \qquad \max_{x \in W'} \, d(x, \mathbb{R}^n \setminus A) = \frac{r}{2} \tag{B.9.10}
 \end{align}
-dato che $g$ cambia orientazione, lo jacobiamo associato al diffeomorfismo $g$ avrà valore $-1$, pertanto
+pertanto $K \subset W' \subset A$. \qed \\ \\
+Sia $M$ una $k$-varietà differenziabile e $\mathcal{A} = \{(U, \varphi)\}$ un suo atlante differenziabile. Data $\omega^{(k)} \in \Omega^{(k)}(M)$ con supporto compatto, contenuto in un aperto $U$ dell'atlante $\mathcal{A}$
 \begin{align}
-    \int_D g^*f^*\omega^{(k)} = -\int_D f^*\omega^{(k)} \tag{B.9.15}
+    \int_M \omega^{(k)} = \int_{\varphi(U)} \varphi^*\omega^{(k)} \tag{B.9.11}
 \end{align}
-ovvero la tesi. \qed \\ \\
-In generale non sappiamo se $f(D)$ è una sottovarietà regolare di $M$, infatti abbiamo solamente ipotizzato che $f$ fosse un'applicazione differenziabile, senza fare considerazioni su iniettività e suriettività. \\ \\
-\textbf{Definizione:} chiamiamo \textit{catena} $k$-\textit{dimensionale} un insieme finito di domini $k$-dimensionali $\sigma_1, \dots, \sigma_s \subset M$ orientati e di molteplicità $m_1, \dots, m_s \in \mathbb{Z}$. In particolare una catena $k$-dimensianale $c_k$ si indica con la somma formale
-\begin{align}
-    c_k = m_1\sigma_1 + \dots + m_s\sigma_s \tag{B.9.16}
-\end{align}
-Definendo l'operazione $+$ di \textit{composizione} di catene su $M$ come segue
-\begin{align}
-    (m_1\sigma_1 + \dots + m_s\sigma_s) + (m'_1\sigma'_1 + \dots + m'_s\sigma'_s) = \notag \\
-    = m_1\sigma_1 + \dots + m_s\sigma_s + m'_1\sigma'_1 + \dots + m'_s\sigma'_s \tag{B.9.17}
-\end{align}
-se definisce sull'insieme delle catene $k$-dimensionali in $M$ struttura di gruppo commutativo.
 
 \newpage
 \section{Varietà simplettiche}

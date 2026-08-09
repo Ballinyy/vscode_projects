@@ -13,5 +13,5 @@
 \contentsline {subsection}{\numberline {B.7}$k$-forme differenziali}{35}{}%
 \contentsline {subsection}{\numberline {B.8}Pullback di forme differenziali}{37}{}%
 \contentsline {subsection}{\numberline {B.9}Integrazione delle forme differenziali}{38}{}%
-\contentsline {section}{\numberline {C}Varietà simplettiche}{42}{}%
-\contentsline {section}{\numberline {D}Nozioni e risultati di analisi funzionale}{43}{}%
+\contentsline {section}{\numberline {C}Varietà simplettiche}{40}{}%
+\contentsline {section}{\numberline {D}Nozioni e risultati di analisi funzionale}{41}{}%
