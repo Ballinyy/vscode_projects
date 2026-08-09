@@ -1,5 +1,12 @@
-.synctex.gz
-.log
-.fls
-.fdb_latexmk
-.aux
+# Ambiente Python
+manim-env/
+__pycache__/
+
+# File ausiliari generati da LaTeX (NON sincarli)
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.toc
+*.gz

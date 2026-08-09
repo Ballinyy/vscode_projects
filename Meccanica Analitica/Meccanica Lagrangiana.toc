@@ -1,5 +1,0 @@
-\contentsline {section}{\numberline {1}Moti unidimensionali}{2}{}%
-\contentsline {section}{\numberline {2}Stabilità}{5}{}%
-\contentsline {section}{\numberline {3}Formalismo Lagrangiano}{7}{}%
-\contentsline {section}{\numberline {4}Sistema linearizzato}{9}{}%
-\contentsline {section}{\numberline {5}Il teorema di E. Noether}{10}{}%
