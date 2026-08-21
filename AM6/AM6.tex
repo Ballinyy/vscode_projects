@@ -4,7 +4,7 @@
 \setcounter{tocdepth}{3}    % Mostra nell'indice fino alle subsubsection (livello 3)
 \numberwithin{equation}{subsection}
 
-\title{Analisi Matematica VI}
+\title{Metodi Matematici della Fisica Moderna}
 \author{Alessandro Ballini}
 \date{March 2026}
 
@@ -79,7 +79,7 @@ per come è stato definito e per le proprietà topologiche degli aperti si ha ch
 \textbf{Lemma 1.2.2:} siano $A, \ B$ aperti. Allora $m(A \cup B) \leq m(A) + m(B)$. \\
 
 \textbf{Dimostrazione:} sia $W$ un plurintervallo contenuto in $A \cup B$, per quanto visto nel \textit{lemma 1.2.1}, è possibile raffinare abbastanza il reticolato $\mathcal{P}_W$ usato per rappresentare $W$ in modo tale che gli intervalli di $\mathcal{P}_W$ sia contenuti in $A$ o in $B$ (o entrambi contemporaneamente). Siano allora $W_A$ e $W_B$ rispettivamente l'unione di tutti gli intervalli totalmente contenuti in $A$ o in $B$, si ha che $m(W) \leq m(W_A) + m(W_B)$ (ricordiamo che $W_A \cap W_B \neq \emptyset$ in generale) e dato che ciò vale per ogni plurintervallo $W$ contenuto in $A \cup B$ si ha che $m(A \cup B) \leq m(W_A) + m(W_B)$. Infine poiché $W_A \subset A$ e $W_B \subset B$ si ha, per definizione di misura sugli aperti, $m(A \cup B) \leq m(A) + m(B)$. \qed \\ \\
-\textbf{Definizione:} sia $K$ un compatto, si definisce la misura di $K$, scritto $m(K)$ (o $m_n(K)$, la quantità:
+\textbf{Definizione:} sia $K$ un compatto, si definisce la misura di $K$, scritto $m(K)$ (o $m_n(K))$, la quantità:
 \begin{equation*}
     m(K) := \inf \left\{ m(Y) : Y \text{ plurintervallo}, \ K \subset Y \right\} 
 \end{equation*}
@@ -1267,7 +1267,7 @@ Poniamo $\lambda = t(y, x)$, con $t \in \mathbf{R}$, in modo tale da ottenere un
 \begin{align*}
     0 \leq (x, x) + t^2|(x, y)|^2(y, y) + 2t|(x, y)|^2 
 \end{align*}
-pertanto il discriminante del polinomio in esame deve essere strettamente minore di zero, ovvero 
+per ogni $x, y \in H$. Pertanto il discriminante del polinomio in esame deve essere strettamente minore di zero, ovvero 
 \begin{align*}
     \Delta = 4|(x, y)|^4 - 4|(x, y)|^2(x, x)(y, y) \leq 0 
 \end{align*}
@@ -1285,8 +1285,7 @@ che è la tesi. \qed \\ \\
 
 \textbf{Dimostrazione:} sia $x_0 \in H$, dalla disuguaglianza di Cauchy-Schwartz segue che 
 \begin{align*}
-    |(x_0, y) - (x, y)| &= |(x - x_0, y)|  \\
-    \leq \|x - x_0\|\|y\| 
+    |(x_0, y) - (x, y)| &= |(x - x_0, y)| \leq \|x - x_0\|\|y\| 
 \end{align*}
 per ogni $x \in H$. Fissato $\varepsilon > 0$ si ha che 
 \begin{align*}
@@ -1617,7 +1616,7 @@ per ogni $x, y \in \mathcal{H}_1$. $T^*$ è detto \textit{aggiunto} di $T$. \\
 \end{align*}
 per il \textit{corollario 2.3.3} esiste unico $T^* \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ tale che 
 \begin{align*}
-    (x, Ty) = (Sx, y) 
+    (x, Ty) = (T^*x, y) 
 \end{align*}
 per ogni $x, y \in \mathcal{H}_1$. \qed \\ \\
 \textbf{Proposizione (proprietà dell'operatore aggiunto):} siano $T, S \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ e $\alpha, \beta \in \mathbf{C}$, si ha: \\
@@ -2525,9 +2524,11 @@ Mostriamo ora che la funzione $\lambda \mapsto \omega_\lambda$ è iniettiva e su
     \omega_{\lambda_1}(B) = f(\lambda_1) = f(\lambda_2) = \omega_{\lambda_2}(B)
 \end{align*}
 per ogni $B \in \mathcal{A}$ se e solo se $f(\lambda_1) = f(\lambda_2)$ per ogni $f \in C(\sigma(A))$, ovvero se e solo se $\lambda_1 = \lambda_2$. \\
-Dato $\omega \in X$, poniamo $\lambda = \omega(A)$. Supponiamo per assurdo che $\lambda \in \rho_{\mathcal{A}}(A)$, allora $A - \lambda\mathbf{1}$ è invertibile in $A$. Segue che 
+Dato $\omega \in X$, poniamo $\lambda = \omega(A)$. Supponiamo per assurdo che $\lambda \in \rho_{\mathcal{A}}(A)$, allora $A - \lambda\mathbf{1}$ è invertibile in $\mathcal{A}$. Segue che 
 \begin{align*}
-    1 = \omega((A - \lambda\mathbf{1})^{-1}(A - \lambda\mathbf{1})) = \omega((A - \lambda\mathbf{1})^{-1})\omega(A - \lambda\mathbf{1}) = \overbrace{(\omega(A) - \lambda)}^{0}\omega((A - \lambda\mathbf{1})^{-1}) = 0
+    1 &= \omega((A - \lambda\mathbf{1})^{-1}(A - \lambda\mathbf{1})) \notag \\
+    &= \omega((A - \lambda\mathbf{1})^{-1})\omega(A - \lambda\mathbf{1}) \notag \\
+    &= \underbrace{(\omega(A) - \lambda)}_{0}\omega((A - \lambda\mathbf{1})^{-1}) = 0
 \end{align*}
 ovvero $\lambda \in \sigma(A)$.
 

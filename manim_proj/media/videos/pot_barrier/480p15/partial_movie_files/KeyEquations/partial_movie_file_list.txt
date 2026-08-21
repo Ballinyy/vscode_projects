@@ -1,0 +1,11 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/KeyEquations/1584795214_1685858346_223132457.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/KeyEquations/4072820271_1064954573_2023165995.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/KeyEquations/4072820271_3585970359_1979700539.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/KeyEquations/4072820271_3069249504_426134541.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/KeyEquations/4072820271_3585970359_3747383078.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/KeyEquations/4072820271_3942407142_1116305026.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/KeyEquations/4072820271_3585970359_4067972242.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/KeyEquations/4072820271_2242687761_2517548962.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/KeyEquations/4072820271_3585970359_1069904688.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/KeyEquations/4072820271_2844360058_1310625392.mp4'

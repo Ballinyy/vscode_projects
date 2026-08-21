@@ -1,0 +1,13 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/3272808045_181373215_1364115247.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_1289011040_742741781.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_3248052096_3160728599.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_1484535980_2548070790.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_564796973_1817716676.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_112061218_383293165.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_364481537_798623676.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_4163490877_933174911.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_4072143496_2777271077.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_904585570_1445706765.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_2871500137_2531605000.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/1080p60/partial_movie_files/Tunneling3D/2787841912_789064381_680490496.mp4'

@@ -1,0 +1,10 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/IntroBarrier/1584795214_4001034798_223132457.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/IntroBarrier/4072820271_3946545194_3538005684.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/IntroBarrier/4072820271_1282826235_3988507816.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/IntroBarrier/4072820271_2543027310_3623881404.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/IntroBarrier/4072820271_1461455970_3383934351.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/IntroBarrier/4072820271_3001652257_210179229.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/IntroBarrier/4072820271_3621669673_568638707.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/IntroBarrier/4072820271_1678885651_2713926334.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/IntroBarrier/4072820271_2844360058_89636023.mp4'

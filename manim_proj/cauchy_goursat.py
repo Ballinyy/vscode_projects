@@ -164,12 +164,12 @@ class CauchyGoursat(MovingCameraScene):
         stack = VGroup(hyp, arrow, concl).arrange(DOWN, buff=0.5)
         stack.next_to(title, DOWN, buff=1.0)
 
-        self.play(Write(title))
+        self.play(FadeIn(title))
         self.wait(0.4)
         self.play(FadeIn(hyp, shift=UP * 0.2))
         self.play(Write(arrow))
         self.play(Write(concl))
-        self.wait(3)
+        self.wait(2.5)
 
         self.play(FadeOut(VGroup(title, hyp, arrow, concl)))
         self.wait(0.3)
@@ -307,15 +307,15 @@ class CauchyGoursat(MovingCameraScene):
         legend.to_edge(RIGHT, buff=0.8)
 
         self.play(FadeIn(axes))
-        self.play(Create(curve), run_time=2)
+        self.play(Create(curve), run_time=1.5)
         self.play(FadeIn(legend, shift=LEFT * 0.2))
-        self.wait(0.5)
+        self.wait(0.3)
 
         grid, cell_info = self.build_grid(axes, 0.6)
         self.grid_objects = grid
         self.cell_info = cell_info
         self.play(LaggedStartMap(FadeIn, grid, lag_ratio=0.03), run_time=2)
-        self.wait(1.5)
+        self.wait(1)
 
         self.axes = axes
         self.curve = curve
@@ -332,13 +332,13 @@ class CauchyGoursat(MovingCameraScene):
         sub1 = Tex(
             r"La regione racchiusa dalla curva $\gamma$, compresa $\gamma$ stessa, è compatta, \\"
             r"pertanto possiamo ricoprirla con un numero finito di celle quadrate di lato $\varepsilon > 0$",
-            font_size=24, color=COL_TEXT
+            font_size=26, color=COL_TEXT
         )
         eps_label = MathTex(r"\varepsilon = 0.6", font_size=36, color=COL_ACCENT)
         eps_label.next_to(self.legend, DOWN, buff=0.8)
 
         self.play(FadeIn(eps_label))
-        self.wait(0.5)
+        self.wait(0.3)
 
         fit_width(sub1, 11.5)
         sub1.next_to(heading1, DOWN, buff=0.5)
@@ -367,7 +367,7 @@ class CauchyGoursat(MovingCameraScene):
         limit_label = MathTex(r"\varepsilon \to 0", font_size=36, color=COL_ACCENT)
         limit_label.move_to(eps_label)
         self.play(Transform(eps_label, limit_label))
-        self.wait(1.5)
+        self.wait(1)
         self.play(FadeOut(heading1), FadeOut(sub1))
 
         self.grid_objects = current_grid
@@ -385,7 +385,7 @@ class CauchyGoursat(MovingCameraScene):
         sub2 = Tex(
             r"Il contributo dovuto all'integrazione di $f$ sui lati interni delle celle si \\"
             r"cancella, infatti vengono percorsi due volte, ma in senso opposto.",
-            font_size=24, color=COL_TEXT
+            font_size=26, color=COL_TEXT
         )
         fit_width(sub2, 11.5)
         sub2.next_to(heading2, DOWN, buff=0.5)
@@ -431,17 +431,17 @@ class CauchyGoursat(MovingCameraScene):
         # Zoom sulla coppia
         self.play(FadeIn(heading2, shift=DOWN * 0.2))
         self.play(FadeIn(sub2, shift=UP * 0.2))
-        self.wait(7)
+        self.wait(4.5)
         self.play(FadeOut(heading2), FadeOut(sub2))
 
         self.camera.frame.save_state()
         self.play(
             self.camera.frame.animate.set(width=side * 7).move_to(mid),
-            run_time=2,
+            run_time=1.5,
         )
         self.wait(0.3)
         self.play(GrowArrow(arrow_a), GrowArrow(arrow_b))
-        self.wait(1.2)
+        self.wait(1)
 
         self.play(FadeOut(arrow_a), FadeOut(arrow_b))
         self.wait(0.3)
@@ -454,7 +454,7 @@ class CauchyGoursat(MovingCameraScene):
 
         conclusion_line = Tex(
             r"Sommando su tutte le celle resta solo il contributo lungo $\gamma$",
-            font_size=24, color=COL_TEXT,
+            font_size=26, color=COL_TEXT,
         )
         equat = MathTex(
             r"\sum_j\int_{\gamma_j} f(z) \, dz = \int_\gamma f(z) \, dz",
@@ -465,9 +465,9 @@ class CauchyGoursat(MovingCameraScene):
         equat.next_to(conclusion_line, DOWN, buff=0.8)
 
         self.play(FadeIn(conclusion_line, shift=DOWN * 0.2))
-        self.wait(0.5)
+        self.wait(0.25)
         self.play(FadeIn(equat, shift=UP * 0.2))
-        self.wait(5)
+        self.wait(3)
         self.play(FadeOut(conclusion_line))
         self.play(FadeOut(equat))
         self.wait(0.3)
@@ -508,7 +508,7 @@ class CauchyGoursat(MovingCameraScene):
             r"Questo perché $f$ è olomorfa su $\Omega$, per ipotesi, e quindi \\"
             r"il limite del rapporto incrementale converge alla derivata prima \\"
             r"uniformemente in ogni cella quadrata.",
-            font_size=22, color=COL_TEXT,
+            font_size=23, color=COL_TEXT,
         )
         bound = MathTex(
             r"\left| \oint_{\gamma} f(z)\, dz \right| \le C \cdot \varepsilon",
@@ -516,7 +516,7 @@ class CauchyGoursat(MovingCameraScene):
         )
         line2 = Tex(
             r"In particolare",
-            font_size=22, color=COL_TEXT,
+            font_size=23, color=COL_TEXT,
         )
         bound2 = MathTex(
             r"C = \sqrt{2}D(4D + 1)",
@@ -525,7 +525,7 @@ class CauchyGoursat(MovingCameraScene):
         line3 = Tex(
             r"dove $D$ è il lato di un qualsiasi quadrato finito che contiene $\gamma$ \\",
             r"Poiché $\varepsilon > 0$ è arbitrario, mandando $\varepsilon \to 0$:",
-            font_size=22, color=COL_TEXT,
+            font_size=23, color=COL_TEXT,
         )
         result = MathTex(
             r"\oint_{\gamma} f(z)\, dz = 0",
@@ -541,19 +541,19 @@ class CauchyGoursat(MovingCameraScene):
 
         self.play(FadeIn(heading, shift=DOWN * 0.2))
         self.play(Write(line1))
-        self.wait(0.5)
+        self.wait(0.3)
         self.play(Write(bound))
         self.wait(1)
         self.play(Write(line2))
-        self.wait(0.5)
+        self.wait(0.3)
         self.play(Write(bound2))
-        self.wait(0.5)
+        self.wait(0.3)
         self.play(Write(line3))
-        self.wait(0.5)
+        self.wait(0.3)
         self.play(Write(result))
-        self.wait(2.5)
+        self.wait(2)
 
         qed = Text("Q.E.D.", font_size=28, color=GRAY_B)
         qed.next_to(stack, DOWN, buff=0.5)
         self.play(FadeIn(qed))
-        self.wait(4)
+        self.wait(3)

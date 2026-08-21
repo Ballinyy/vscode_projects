@@ -1,0 +1,9 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/WavePacketTunneling/1584795214_3374569006_223132457.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/WavePacketTunneling/4072820271_1939380628_583699909.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/WavePacketTunneling/4072820271_1720168687_3280463941.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/WavePacketTunneling/4072820271_3933673224_1740734260.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/WavePacketTunneling/4072820271_3761946670_4248858909.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/WavePacketTunneling/4072820271_576042377_154421846.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/WavePacketTunneling/4072820271_863206709_2856165708.mp4'
+file 'file:C:/Users/aless/Desktop/vscode_proj/manim_proj/media/videos/pot_barrier/480p15/partial_movie_files/WavePacketTunneling/4072820271_2844360058_1118102314.mp4'
