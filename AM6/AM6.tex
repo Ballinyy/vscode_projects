@@ -1166,7 +1166,7 @@ allora $f(x) = \lim_{k \rightarrow \infty}f_{n_k}(x)$. Mostriamo che $f_n \right
 \begin{align*}
     \|f - f_n\|^p_p &= \int_X |f - f_n|^p \, d\mu  \\
     &= \int_X \lim_{k \rightarrow \infty}|f_{n_k} - f_n|^p \, d\mu  \\
-    &\leq \liminf_{k \rightarrow \infty}|f_{n_k} - f_n|^p \, d\mu  \\
+    &\leq \liminf_{k \rightarrow \infty}\int_X |f_{n_k} - f_n|^p \, d\mu  \\
     &\leq \liminf_{k \rightarrow \infty}\|f_{n_k} - f_n\|^p_p < \varepsilon^p 
 \end{align*}
 per ogni $n > n_\varepsilon$. Inoltre
@@ -1490,11 +1490,11 @@ come accade per la norma in $\mathcal{B}(\mathcal{H})$. \\ \\
 \begin{align*}
     |\{x, y\}| \leq M\|x\|\|y\| 
 \end{align*}
-per ogni $x, y \in \mathcal{H}$, esiste unico $T \in \mathcal{B}(\mathcal{H})$ tale che 
+per ogni $x, y \in \mathcal{H}$, esiste unico $S \in \mathcal{B}(\mathcal{H})$ tale che 
 \begin{align*}
-    \{x, y\} = (x, Ty) 
+    \{x, y\} = (Sx, y) 
 \end{align*}
-per ogni $x, y \in \mathcal{H}$. Inoltre $\|\{\cdot, \cdot\}\| = \|T\|$. \\
+per ogni $x, y \in \mathcal{H}$. Inoltre $\|\{\cdot, \cdot\}\| = \|S\|$. \\
 
 \textbf{Dimostrazione:} per le proprietà della forma sesquilineare, fissato $x \in \mathcal{H}$ si ha 
 \begin{align*}
@@ -1559,7 +1559,7 @@ quindi
 \begin{align*}
     \{x, y\} = (x, Ty) = \frac{1}{4}\sum_{k = 0}^3(-i)^k(x + i^kTy, x + i^kTy) 
 \end{align*}
-pertanto noto $(x, Tx)$ per ogni $x \in \mathcal{H}$ è noto anche $(x, Ty)$ per ogni $x, y \in \mathcal{H}$ e quindi è noto $T$. \qed
+Pertanto noto $(x, Tx)$ per ogni $x \in \mathcal{H}$ è noto anche $(x, Ty)$ per ogni $x, y \in \mathcal{H}$ e quindi è noto $T$. \qed
 
 \newpage
 \subsection{Sistemi ortogonali}
@@ -1614,11 +1614,11 @@ per ogni $x, y \in \mathcal{H}_1$. $T^*$ è detto \textit{aggiunto} di $T$. \\
 \begin{align*}
     x, y \in \mathcal{H}_1 \mapsto (x, Ty) \in \mathbf{C} 
 \end{align*}
-per il \textit{corollario 2.3.3} esiste unico $T^* \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ tale che 
+Per il \textit{corollario 2.3.3} esiste unico $S \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ tale che 
 \begin{align*}
-    (x, Ty) = (T^*x, y) 
+    (x, Ty) = (Sx, y) 
 \end{align*}
-per ogni $x, y \in \mathcal{H}_1$. \qed \\ \\
+per ogni $x, y \in \mathcal{H}_1$, poniamo $T^* = S$. \qed \\ \\
 \textbf{Proposizione (proprietà dell'operatore aggiunto):} siano $T, S \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ e $\alpha, \beta \in \mathbf{C}$, si ha: \\
 \textbf{1.} antilinearità $(\alpha T + \beta S)^* = \alpha^*T^* + \beta^*S^*$. \\
 \textbf{2.} antimoltiplicatività $(TS)^* = S^*T^*$. \\
@@ -1748,7 +1748,7 @@ per ogni $x \in \mathcal{H}$, pertanto deve valere $T^*y = 0$, quindi $y \in \ke
     &= (T^*x, T^{-1})  \\
     &= ((T^{-1})^*T^*x, y) 
 \end{align*}
-per ogni $x, y \in \mathcal{H}$, pertanto $(T^{-1})^*T^* = \mathbf{1}$. Con un ragionamento analogo si ottiene $T^*(T^{-1})^* = \mathbf{1}$, pertanto concludiamo che $(T^*)^{-1} = (T^{-1})^*$, inoltre dato che $T^{-1} \in \mathcal{B}(\mathcal{H})$ segue che anche $(T^{-1})^* \in \mathcal{B}(\mathcal{H})$ per le \textit{proprietà dell'aggiunto}. \\ \\
+per ogni $x, y \in \mathcal{H}$, pertanto $(T^{-1})^*T^* = \mathbf{1}$. Con un ragionamento analogo si ottiene $T^*(T^{-1})^* = \mathbf{1}$, pertanto concludiamo che $(T^*)^{-1} = (T^{-1})^*$. Inoltre, dato che $T^{-1} \in \mathcal{B}(\mathcal{H})$, segue che anche $(T^{-1})^* \in \mathcal{B}(\mathcal{H})$ per le \textit{proprietà dell'aggiunto}. \\ \\
 $(2 \rightarrow 3)$ Notiamo che per un operatore $T$ essere lontano da zero comporta l'esistenza di $\varepsilon > 0$ tale che 
 \begin{align*}
     \inf_{x \neq 0}\frac{\|Tx\|}{\|x\|} \geq \varepsilon 
@@ -1783,7 +1783,7 @@ Per il \textit{lemma 3.2.2}
 \begin{align*}
     \ker(T^*) = \mathrm{Im}(T)^\perp 
 \end{align*}
-quindi dall'iniettività di $T^*$ segue che $\mathrm{Im}(T)^\perp = \{0\}$. Per il \textit{teorema della proiezione ortogonale} per ogni $x \in \mathcal{H}$ esistono $y \in \mathrm{Im}(T)$ e $z \in \mathrm{Im}(T)^\perp$ tali che $x = y + z$ (dato che $\mathrm{Im}(T)$ è un sottospazio chiuso). Tuttavia, $z = 0$ dato che è l'unico elemento contenuto in $\mathrm{Im}(T)^\perp$, segue che $T$ è suriettiva. Mentre con un ragionamento analogo al punto precedente si ottiene che $T$ è invertibile bilatelarmente in $\mathcal{B}(\mathcal{H})$ e quindi anche iniettiva (per l'esistenza dell'inverso a sinistra). A questo punto, con ragionamenti a quelli svolti per $T^*$ si dimostra che $T$ è lontano da zero. \\ \\
+quindi dall'iniettività di $T^*$ segue che $\mathrm{Im}(T)^\perp = \{0\}$. Per il \textit{teorema della proiezione ortogonale} per ogni $x \in \mathcal{H}$ esistono $y \in \mathrm{Im}(T)$ e $z \in \mathrm{Im}(T)^\perp$ tali che $x = y + z$ (dato che $\mathrm{Im}(T)$ è un sottospazio chiuso). Tuttavia $z = 0$, dato che è l'unico elemento contenuto in $\mathrm{Im}(T)^\perp$, segue che $T$ è suriettiva. Inoltre, con un ragionamento analogo al punto precedente si ottiene che $T$ è invertibile bilatelarmente in $\mathcal{B}(\mathcal{H})$ e quindi anche iniettiva (per l'esistenza dell'inverso a sinistra). A questo punto, con ragionamenti identici a quelli svolti per $T^*$, si dimostra che $T$ è lontano da zero. \\ \\
 $(3 \rightarrow 4)$ Per ipotesi esiste $\varepsilon > 0$ tale che $\|Tx\| \geq \varepsilon\|x\|$ per ogni $x \in \mathcal{H}$, segue che $\|Tx\| = 0$ se e solo se $\|x\| = 0$, ovvero se e solo se $x = 0$, pertanto $T$ iniettiva. Analogamente si dimostra per $T^*$. Il fatto che l'immagine di $T$ e $T^*$ segue dal \textit{lemma 3.2.2} usando l'involutività dell'aggiunto. \\ \\
 $(4 \rightarrow 5)$ Segue dal \textit{lemma 3.2.2}. \qed 
 
@@ -2489,20 +2489,28 @@ infatti $\|A^*\|_{1, 1} = \|A\|_{\infty, \infty}$, dove
 \end{align*}
 Concludiamo che $\mathrm{Mat}_n(\mathbf{C})$ con norma $\|\cdot\|_{1, 1}$ o $\|\cdot\|_{\infty, \infty}\|$ non è una $C^*$-algebra. In particolare la coppia $(\mathrm{Mat}_n(\mathbf{C}), \|\cdot\|_{2, 2})$ è una $C^*$-algebra (ovvero diventa $C^*$-algebra se vi si definisce la stessa norma che è stata definita in $\mathcal{B}(\mathcal{H})$). \\ \\
 \textbf{Teorema (di Gelfand):} sia $\mathcal{A}$ una $C^*$-algebra con identità, allora esiste $X$ spazio topologico compatto e di Hausdorff ed esiste $\wedge : \mathcal{A} \longrightarrow C(X)$ $*$-isomorfismo isometrico e suriettivo. \\
-In particolare $X$ è detto \textit{spettro di Gelfand di $\mathcal{A}$}, ovvero l'insieme dei \textit{caratteri} di $\mathcal{A}$ con topologia $*$-debole
+In particolare $X$ è detto \textit{spettro di Gelfand di $\mathcal{A}$}, ovvero l'insieme dei \textit{caratteri} di $\mathcal{A}$, ovvero
 \begin{align*}
     X = \{\omega : \mathcal{A} \longrightarrow \mathbf{C} : \omega \text{ lineare, moltiplicativo, unitale e preserva lo } *\}
 \end{align*}
-mentre la topologia $*$-debole è definita tramite la nozione di convergenza. Data $\{\omega_n\}_{n \in \mathbf{N}} \subset X$ diciamo che $\omega_n \rightarrow \omega$ per $n \rightarrow \infty$ se 
+Su $X$ introduciamo la topologia $*$-debole, definita tramite la nozione di convergenza, ovvero data $\{\omega_n\}_{n \in \mathbf{N}} \subset X$ diciamo che $\omega_n \rightarrow \omega$ per $n \rightarrow \infty$ se 
 \begin{align*}
-    \omega_n(A) \rightarrow \omega(A)
+    \omega_n(A) \rightarrow \omega(A) \qquad n \rightarrow \infty
 \end{align*}
 per ogni $A \in \mathcal{A}$ (ovvero delega la convergenza a $\mathbf{C}$). \\
-Inoltre $\wedge$ è continuo ed è l'inverso del calcolo funzionale $\phi$. \\
+Infine, lo $*$-isomorfismo isometrico $\wedge$ è la mappa
+\begin{align*}
+    A \in \mathcal{A} \mapsto \hat{A} \in C(X)
+\end{align*}
+dove 
+\begin{align*}
+    \hat{A}(\omega) = \omega(A)
+\end{align*}
+per ogni $\omega \in X$. In particolare $\wedge$ è l'inverso del calcolo funzionale continuo $\phi$. \\
 
 \textbf{Dimostrazione (caso $\mathcal{A} = C^*(\mathbf{1}, A)$):} dato $A \in \mathcal{A}$ autoaggiunto, sia $\mathcal{A}$ la $C^*$-algebra generata dall'insieme $\{\mathbf{1}, A\}$. Sappiamo che $\sigma(A)$ è compatto e di Hausdorff (sottoinsieme di $\mathbf{R}$). \\
 Data $f \in C(\sigma(A))$ conosciamo $f(A)$ grazie al \textit{teorema del calcolo funzionale continuo}, inoltre $f \mapsto f(A)$ è suriettivo, isometrico ed è uno $*$-isomorfismo. \\
-Mostriamo che $X \cong \sigma(A)$ e che $\wedge \circ \phi = id = \phi \circ \wedge$. Sia $\lambda \in \sigma(A)$, per ogni $B \in \mathcal{A}$ della forma $B = f(A)$, con $f \in \sigma(A)$, poniamo $\omega_\lambda(B) = f(\lambda)$. Notiamo che $\omega_\lambda$ è lineare, infatti per ogni $B_1, B_2 \in \mathcal{A}$ si ha
+Mostriamo che $X \cong \sigma(A)$ e che $\wedge \circ \phi = id = \phi \circ \wedge$. Sia $\lambda \in \sigma(A)$, per ogni $B \in \mathcal{A}$ della forma $B = f(A)$, con $f \in C(\sigma(A))$, poniamo $\omega_\lambda(B) = f(\lambda)$. Notiamo che $\omega_\lambda$ è lineare, infatti per ogni $B_1, B_2 \in \mathcal{A}$ si ha
 \begin{align*}
     \omega_{\lambda}(B_1 + B_2) = (f_1 + f_2)(\lambda) = f_1(\lambda) + f_2(\lambda) = \omega_\lambda(B_1) + \omega_\lambda(B_2)
 \end{align*}
@@ -2530,7 +2538,23 @@ Dato $\omega \in X$, poniamo $\lambda = \omega(A)$. Supponiamo per assurdo che $
     &= \omega((A - \lambda\mathbf{1})^{-1})\omega(A - \lambda\mathbf{1}) \notag \\
     &= \underbrace{(\omega(A) - \lambda)}_{0}\omega((A - \lambda\mathbf{1})^{-1}) = 0
 \end{align*}
-ovvero $\lambda \in \sigma(A)$.
+ovvero $\lambda \in \sigma(A)$. Per moltiplicatività si ha $\omega(p(A)) = \omega_\lambda(p(A))$ per ogni $p \in Pol(\sigma(A))$, infatti, per ipotesi, $\omega(A) = \lambda$, quindi, dato $n \in \mathbf{N}$, si ha
+\begin{align*}
+    \omega(a_0\mathbf{1} + a_1A + \dots + a_nA^n) &= a_0\omega(\mathbf{1}) + a_1\omega(A) + \dots a_n\omega(A^n) \\
+    &= a_0 + a_1\lambda + \dots a_n\omega(A)\omega(A) \cdot \dots \cdot \omega(A) \\
+    &= a_0 + a_1\lambda + \dots + a_n\lambda^n \\
+    &= \omega_\lambda(a_0\mathbf{1} + a_1A + \dots a_nA^n)
+\end{align*}
+Inoltre, data $f \in C(\sigma(A))$ esiste $\{p_k\}_{k \in \mathbf{N}} \subset Pol(\sigma(A))$ tale che $p_k \rightarrow f$ per $k \rightarrow \infty$. Pertanto
+\begin{align*}
+    \omega_\lambda(p_k(A)) = p_k(\lambda) \rightarrow f(\lambda) = \omega_\lambda(f(A)) \qquad n \rightarrow \infty
+\end{align*}
+e $\omega(p_k(A)) = \omega_\lambda(p_k(A))$ per ogni $k \in \mathbf{N}$ (sempre per moltiplicatività), quindi
+\begin{align*}
+    \omega(p_k(A)) \rightarrow f(\lambda) = \omega(f(A)) \qquad k \rightarrow \infty
+\end{align*}
+Pertanto $\omega_\lambda = \omega$ in $\mathcal{A}$.
+
 
 
 \subsubsection{Esercizi}
