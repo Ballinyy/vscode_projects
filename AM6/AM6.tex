@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{graphicx, amsfonts, amsmath, amssymb, amsthm, braket, float, cancel} % Required for inserting images
+\usepackage{graphicx, amsfonts, amsmath, amssymb, amsthm, braket, float, cancel, mathrsfs} % Required for inserting images
 \setcounter{secnumdepth}{3} % Numera solo fino alle subsection (livello 2)
 \setcounter{tocdepth}{3}    % Mostra nell'indice fino alle subsubsection (livello 3)
 \numberwithin{equation}{subsection}
@@ -2452,11 +2452,11 @@ Siamo ora interessati a descrivere le proprietà degli operatori indipendentemen
 \subsection{$C^*$-algebre}
 \textbf{Definizione:} sia $\mathcal{H}$ uno spazio di Hilbert, dati $A_1, \dots, A_n \in \mathcal{B}(\mathcal{H})$ autoaggiunti poniamo 
 \begin{align*}
-    \mathcal{A} = \overline{\{p(\mathbf{1}, A_1, \dots, A_n) : p \text{ funzione polinomiale}\}}^{\|\cdot\|_{\mathcal{B}(\mathcal{H})}}
+    \mathscr{A} = \overline{\{p(\mathbf{1}, A_1, \dots, A_n) : p \text{ funzione polinomiale}\}}^{\|\cdot\|_{\mathcal{B}(\mathcal{H})}}
 \end{align*}
-ovvero consideriamo l'insieme di tutte le combinazioni lineari (complesse) di potenze di $A_1, \dots, A_n$ con l'operatore identità. $\mathcal{A}$ è detta $C^*$-\textit{algebra con identità generata dall'insieme} $\{A_1, \dots, A_n\}$. \\ \\
-\textbf{Definizione:} una $C^*$-algebra è un insieme $\mathcal{A}$ dotato di struttura di spazio vettoriale complesso con norma $\|\cdot\|$ tale che la coppia $(\mathcal{A}, \|\cdot\|)$ è uno spazio di Banach. \\
-Inoltre $\mathcal{A}$ è munito di prodotto $A, B \in \mathcal{A} \mapsto A \cdot B \in \mathcal{A}$ associativo, bilineare e con identità ($\mathbf{1}$), e di involuzione $A \in \mathcal{A} \mapsto A^* \in \mathcal{A}$ antilineare, antimoltiplicativa e tale che $\|A^*\| = \|A\|$ e $\|A^*A\| = \|A\|^2$ per ogni $A \in \mathcal{A}$. \\ \\
+ovvero consideriamo l'insieme di tutte le combinazioni lineari (complesse) di potenze di $A_1, \dots, A_n$ con l'operatore identità. $\mathscr{A}$ è detta $C^*$-\textit{algebra con identità generata dall'insieme} $\{A_1, \dots, A_n\}$. \\ \\
+\textbf{Definizione:} una $C^*$-algebra è un insieme $\mathscr{A}$ dotato di struttura di spazio vettoriale complesso con norma $\|\cdot\|$ tale che la coppia $(\mathscr{A}, \|\cdot\|)$ è uno spazio di Banach. \\
+Inoltre $\mathscr{A}$ è munito di prodotto $A, B \in \mathscr{A} \mapsto A \cdot B \in \mathscr{A}$ associativo, bilineare e con identità ($\mathbf{1}$), e di involuzione $A \in \mathscr{A} \mapsto A^* \in \mathscr{A}$ antilineare, antimoltiplicativa e tale che $\|A^*\| = \|A\|$ e $\|A^*A\| = \|A\|^2$ per ogni $A \in \mathscr{A}$. \\ \\
 \textbf{Esempi:} vediamo qualche esempio di $C^*$-algebra. \\
 \textbf{1.} $\mathcal{B}(\mathcal{H})$ dato uno spazio di Hilbert $\mathcal{H}$. \\
 \textbf{2.} Una qualsiasi sotto $C^*$-algebra di $\mathcal{B}(\mathcal{H})$ generata da un numero finito di operatori autoaggiunti di $\mathcal{B}(\mathcal{H})$. \\
@@ -2488,19 +2488,19 @@ infatti $\|A^*\|_{1, 1} = \|A\|_{\infty, \infty}$, dove
     \|A\|_{\infty} = \inf\{c > 0 : \|Av\|_\infty \leq c\|v\|_\infty, v \in \mathbf{C}^n\}
 \end{align*}
 Concludiamo che $\mathrm{Mat}_n(\mathbf{C})$ con norma $\|\cdot\|_{1, 1}$ o $\|\cdot\|_{\infty, \infty}\|$ non è una $C^*$-algebra. In particolare la coppia $(\mathrm{Mat}_n(\mathbf{C}), \|\cdot\|_{2, 2})$ è una $C^*$-algebra (ovvero diventa $C^*$-algebra se vi si definisce la stessa norma che è stata definita in $\mathcal{B}(\mathcal{H})$). \\ \\
-\textbf{Teorema (di Gelfand):} sia $\mathcal{A}$ una $C^*$-algebra con identità, allora esiste $X$ spazio topologico compatto e di Hausdorff ed esiste $\wedge : \mathcal{A} \longrightarrow C(X)$ $*$-isomorfismo isometrico e suriettivo. \\
-In particolare $X$ è detto \textit{spettro di Gelfand di $\mathcal{A}$}, ovvero l'insieme dei \textit{caratteri} di $\mathcal{A}$, ovvero
+\textbf{Teorema (di Gelfand):} sia $\mathscr{A}$ una $C^*$-algebra con identità, allora esiste $X$ spazio topologico compatto e di Hausdorff ed esiste $\wedge : \mathscr{A} \longrightarrow C(X)$ $*$-isomorfismo isometrico e suriettivo. \\
+In particolare $X$ è detto \textit{spettro di Gelfand di $\mathscr{A}$}, ovvero l'insieme dei \textit{caratteri} di $\mathscr{A}$, ovvero
 \begin{align*}
-    X = \{\omega : \mathcal{A} \longrightarrow \mathbf{C} : \omega \text{ lineare, moltiplicativo, unitale e preserva lo } *\}
+    X = \{\omega : \mathscr{A} \longrightarrow \mathbf{C} : \omega \text{ lineare, moltiplicativo, unitale e preserva lo } *\}
 \end{align*}
 Su $X$ introduciamo la topologia $*$-debole, definita tramite la nozione di convergenza, ovvero data $\{\omega_n\}_{n \in \mathbf{N}} \subset X$ diciamo che $\omega_n \rightarrow \omega$ per $n \rightarrow \infty$ se 
 \begin{align*}
     \omega_n(A) \rightarrow \omega(A) \qquad n \rightarrow \infty
 \end{align*}
-per ogni $A \in \mathcal{A}$ (ovvero delega la convergenza a $\mathbf{C}$). \\
+per ogni $A \in \mathscr{A}$ (ovvero delega la convergenza a $\mathbf{C}$). \\
 Infine, lo $*$-isomorfismo isometrico $\wedge$ è la mappa
 \begin{align*}
-    A \in \mathcal{A} \mapsto \hat{A} \in C(X)
+    A \in \mathscr{A} \mapsto \hat{A} \in C(X)
 \end{align*}
 dove 
 \begin{align*}
@@ -2508,13 +2508,13 @@ dove
 \end{align*}
 per ogni $\omega \in X$. In particolare $\wedge$ è l'inverso del calcolo funzionale continuo $\phi$. \\
 
-\textbf{Dimostrazione (caso $\mathcal{A} = C^*(\mathbf{1}, A)$):} dato $A \in \mathcal{A}$ autoaggiunto, sia $\mathcal{A}$ la $C^*$-algebra generata dall'insieme $\{\mathbf{1}, A\}$. Sappiamo che $\sigma(A)$ è compatto e di Hausdorff (sottoinsieme di $\mathbf{R}$). \\
+\textbf{Dimostrazione (caso $\mathscr{A} = C^*(\mathbf{1}, A)$):} dato $A \in \mathscr{A}$ autoaggiunto, sia $\mathscr{A}$ la $C^*$-algebra generata dall'insieme $\{\mathbf{1}, A\}$. Sappiamo che $\sigma(A)$ è compatto e di Hausdorff (sottoinsieme di $\mathbf{R}$). \\
 Data $f \in C(\sigma(A))$ conosciamo $f(A)$ grazie al \textit{teorema del calcolo funzionale continuo}, inoltre $f \mapsto f(A)$ è suriettivo, isometrico ed è uno $*$-isomorfismo. \\
-Mostriamo che $X \cong \sigma(A)$ e che $\wedge \circ \phi = id = \phi \circ \wedge$. Sia $\lambda \in \sigma(A)$, per ogni $B \in \mathcal{A}$ della forma $B = f(A)$, con $f \in C(\sigma(A))$, poniamo $\omega_\lambda(B) = f(\lambda)$. Notiamo che $\omega_\lambda$ è lineare, infatti per ogni $B_1, B_2 \in \mathcal{A}$ si ha
+Mostriamo che $X \cong \sigma(A)$ e che $\wedge \circ \phi = id = \phi \circ \wedge$. Sia $\lambda \in \sigma(A)$, per ogni $B \in \mathscr{A}$ della forma $B = f(A)$, con $f \in C(\sigma(A))$, poniamo $\omega_\lambda(B) = f(\lambda)$. Notiamo che $\omega_\lambda$ è lineare, infatti per ogni $B_1, B_2 \in \mathscr{A}$ si ha
 \begin{align*}
     \omega_{\lambda}(B_1 + B_2) = (f_1 + f_2)(\lambda) = f_1(\lambda) + f_2(\lambda) = \omega_\lambda(B_1) + \omega_\lambda(B_2)
 \end{align*}
-Inoltre $\omega_\lambda$ è moltiplicativa, infatti per ogni $B_1, B_2 \in \mathcal{A}$ si ha
+Inoltre $\omega_\lambda$ è moltiplicativa, infatti per ogni $B_1, B_2 \in \mathscr{A}$ si ha
 \begin{align*}
     \omega_\lambda(B_1B_2) = (f_1f_2)(\lambda) = f_1(\lambda)f_2(\lambda) = \omega_\lambda(B_1)\omega_\lambda(B_2)
 \end{align*}
@@ -2531,8 +2531,8 @@ Mostriamo ora che la funzione $\lambda \mapsto \omega_\lambda$ è iniettiva e su
 \begin{align*}
     \omega_{\lambda_1}(B) = f(\lambda_1) = f(\lambda_2) = \omega_{\lambda_2}(B)
 \end{align*}
-per ogni $B \in \mathcal{A}$ se e solo se $f(\lambda_1) = f(\lambda_2)$ per ogni $f \in C(\sigma(A))$, ovvero se e solo se $\lambda_1 = \lambda_2$. \\
-Dato $\omega \in X$, poniamo $\lambda = \omega(A)$. Supponiamo per assurdo che $\lambda \in \rho_{\mathcal{A}}(A)$, allora $A - \lambda\mathbf{1}$ è invertibile in $\mathcal{A}$. Segue che 
+per ogni $B \in \mathscr{A}$ se e solo se $f(\lambda_1) = f(\lambda_2)$ per ogni $f \in C(\sigma(A))$, ovvero se e solo se $\lambda_1 = \lambda_2$. \\
+Dato $\omega \in X$, poniamo $\lambda = \omega(A)$. Supponiamo per assurdo che $\lambda \in \rho_{\mathscr{A}}(A)$, allora $A - \lambda\mathbf{1}$ è invertibile in $\mathscr{A}$. Segue che 
 \begin{align*}
     1 &= \omega((A - \lambda\mathbf{1})^{-1}(A - \lambda\mathbf{1})) \notag \\
     &= \omega((A - \lambda\mathbf{1})^{-1})\omega(A - \lambda\mathbf{1}) \notag \\
@@ -2547,16 +2547,142 @@ ovvero $\lambda \in \sigma(A)$. Per moltiplicatività si ha $\omega(p(A)) = \ome
 \end{align*}
 Inoltre, data $f \in C(\sigma(A))$ esiste $\{p_k\}_{k \in \mathbf{N}} \subset Pol(\sigma(A))$ tale che $p_k \rightarrow f$ per $k \rightarrow \infty$. Pertanto
 \begin{align*}
-    \omega_\lambda(p_k(A)) = p_k(\lambda) \rightarrow f(\lambda) = \omega_\lambda(f(A)) \qquad n \rightarrow \infty
+    \omega_\lambda(p_k(A)) = p_k(\lambda) \rightarrow f(\lambda) = \omega_\lambda(f(A)) \qquad k \rightarrow \infty
 \end{align*}
 e $\omega(p_k(A)) = \omega_\lambda(p_k(A))$ per ogni $k \in \mathbf{N}$ (sempre per moltiplicatività), quindi
 \begin{align*}
-    \omega(p_k(A)) \rightarrow f(\lambda) = \omega(f(A)) \qquad k \rightarrow \infty
+    \omega(p_k(A)) = p_k(\lambda) \rightarrow f(\lambda) \qquad k \rightarrow \infty
 \end{align*}
-Pertanto $\omega_\lambda = \omega$ in $\mathcal{A}$.
+Verifichiamo che $\omega(p_k(A)) \rightarrow \omega(f(A))$ per $k \rightarrow \infty$, ovvero che $\omega$ è continuo in norma. In particolare, dati $S, T \in \mathscr{A}$, si ha che
+\begin{align*}
+    |\omega(T + S) - \omega(T)| &= |\omega(T) + \omega(S) - \omega(T)| \\
+    &= |\omega(S)| \\
+    &\leq \|S\| \rightarrow 0
+\end{align*}
+per $S \rightarrow \mathcal{O}$ (operatore nullo). In particolare la maggiorazione $|\omega(S)| \leq \|S\|$ segue dal punto $3$ del \textit{teorema 3.3.1}. Concludiamo che $\omega = \omega_\lambda$ in $\mathscr{A}$. \\
+Dimostriamo ora che $X$ è compatto e di Hausdorff. A tal proposito è sufficiente verificare che la convergenza in $\sigma(A)$ comporta la convergenza in $X$. Data $\{\lambda_n\}_{n \in \mathbb{N}} \subset \sigma(A)$ tale che $\lambda_n \rightarrow \lambda$ per $n \rightarrow \infty$, si ha che $\omega_{\lambda_n} \rightarrow \omega_\lambda$ $*$-debolmente, infatti
+\begin{align*}
+    \omega_{\lambda_n}(B) = f(\lambda_n) \rightarrow f(\lambda) \qquad n \rightarrow \infty
+\end{align*}
+per continuità di $f$. Viceversa, se supponiamo che $\omega_{\lambda_n} \rightarrow \omega_\lambda$ per $n \rightarrow \infty$, basta prendere $B = f(A) = A$, ovvero $f = id$, per ottenere
+\begin{align*}
+    \omega_{\lambda_n}(B) = \lambda_n \rightarrow \lambda = \omega_\lambda(B)
+\end{align*}
+ovvero $\lambda_n \rightarrow \lambda$. \\
+Mostriamo ora che $\wedge \circ \phi = id = \phi \circ \wedge$. Data $f \in \sigma(A)$ si ha
+\begin{align*}
+    \phi &: f \mapsto f(A) \\
+    \wedge &: f(A) \mapsto \widehat{f(A)} \\
+    \widehat{f(A)} &: \omega \mapsto \omega(f(A)) = f(\lambda)
+\end{align*}
+ovvero $\widehat{f(A)} = f$ (ricordiamo che possiamo identificare $\omega$ con $\omega_\lambda$ per qualche $\lambda \in \sigma(A)$). \qed \\ \\
+\textbf{Lemma (permanenza spettrale):} sia $\mathscr{A} \subset \mathcal{B}(\mathcal{H})$ una $C^*$-sottoalgebra chiusa in norma $\|\cdot\|_{\mathcal{B}(\mathcal{H})}$ e sia $A = A^* \in \mathscr{A}$, allora $\sigma(A) = \sigma_\mathscr{A}(A)$. \\
+
+\textbf{Dimostrazione:} se $\lambda \in \sigma(A)$ si ha $A - \lambda\mathbf{1}$ non invertibile in $\mathcal{B}(\mathcal{H})$, pertanto non invertibile anche in $\mathscr{A} \subset \mathcal{B}(\mathcal{H})$, ovvero $\sigma(A) \subset \sigma_\mathscr{A}(A)$. \\
+Dato $\lambda \in \sigma(A)$ si ha che $\lambda + i\varepsilon \in \rho(A)$ per ogni $\varepsilon > 0$, infatti $\sigma(A) \subset \mathbf{R}$. Allora $A - (\lambda + i\varepsilon)\mathbf{1}$ è invertibile in $\mathcal{B}(\mathcal{H})$ e quindi anche in $\mathscr{A}$, ovvero esiste $(A - (\lambda + i\varepsilon)\mathbf{1})^{-1} \in \mathbf{A}$. Dato che l'operazione di inversione operatoriale è continua e $\mathscr{A}$ è chiuso in norma, al limite $\varepsilon \rightarrow 0$ concludiamo che $(A - \lambda\mathbf{1})^{-1} \in \mathscr{A}$, ovvero $\lambda \in \rho_\mathscr{A}(A)$ e quindi $\rho(A) \subset \rho_\mathscr{A}(A)$, cioè $\sigma_\mathscr{A}(A) \subset \sigma(A)$. Pertanto $\sigma(A) = \sigma_\mathscr{A}(A)$. \qed
+
+\newpage
+\subsection{Stati e rappresentazioni di $C^*$-algebre (con identità)}
+\textbf{Definizione:} sia $\mathscr{A}$ una $C^*$-algebra con identità, una \textit{rappresentazione} di $\mathscr{A}$ su uno spazio di Hilbert $\mathcal{H}_\pi$ è uno $*$-omomorfismo unitale $\pi : \mathscr{A} \longrightarrow \mathcal{B}(\mathcal{H}_\pi)$. \\ \\
+\textbf{Proposizione (4.2.1):} sia $\phi : \mathscr{A} \longrightarrow \mathscr{B}$ uno $*$-omomorfismo unitale tra $C^*$-algebra con identità, allora: \\
+\textbf{1.} $\|\phi(A)\| \leq \|A\|$ per ogni $A \in \mathscr{A}$. \\
+\textbf{2.} $\|\phi(A)\| = \|A\|$ per ogni $A \in \mathscr{A}$ se $\phi$ è iniettivo. \\
+
+\textbf{Dimostrazione:} $(1)$ per il \textit{teorema 3.3.1} si ha che $\|\phi(AA^*)\| = r(\phi(AA^*))$. Dato $\lambda \in \mathbf{C}$, se $\phi(AA^*) - \lambda\mathbf{1}$ non è invertibile in $\mathscr{B}$, allora $AA^* - \lambda\mathbf{1}$ non è invertibile in $\mathscr{A}$. Infatti supponiamo che $AA^* - \lambda\mathbf{1}$ sia invertibile in $\mathscr{A}$, allora
+\begin{align*}
+    \mathbf{1} = \phi(\mathbf{1}) = \phi((AA^* - \lambda\mathbf{1})(AA^* - \lambda\mathbf{1})^{-1}) = (\phi(AA^*) - \lambda\mathbf{1})\phi((AA^* - \lambda\mathbf{1})^{-1})
+\end{align*}
+ovvero $\phi((AA^* - \lambda\mathbf{1})^{-1})$ sarebbe l'inverso di $\phi(AA^*) - \lambda\mathbf{1}$ in $\mathscr{B}$, contrariamente all'ipotesi iniziale. Ciò comporta $\sigma_\mathscr{B}(\phi(AA^*)) \subset \sigma_\mathscr{A}(AA^*)$, ovvero $r(\phi(AA^*)) \leq r(AA^*)$, quindi $\|\phi(A)\| \leq \|A\|$, per identità $C^*$. \\
+$(2)$ Dimostriamo che $\sigma_\mathscr{A}(A) = \sigma_\mathscr{B}(\phi(A))$. Per quanto visto nel punto $(1)$, si ha $\sigma_\mathscr{B}(\phi(AA^*)) \subset \sigma_\mathscr{A}(AA^*)$. Supponiamo per assurdo che esista $f \in C(\sigma_\mathscr{A}(AA^*))$ tale che $f \neq 0$ (non identicamente nulla) e
+\begin{align*}
+    f\vert_{\sigma_\mathscr{B}(\phi(AA^*))} = 0
+\end{align*}
+In particolare possiamo costruire una funzione che soddisfa tali condizioni partendo dalla funzione identicamente nulla su $\sigma_\mathscr{B}(\phi(AA^*))$ ed estendendola per continuità per il \textit{teorema di Tiesze} (dato che lo spettro è compatto) a $\sigma_\mathscr{A}(AA^*)$. \\
+Per isometricità del calcolo funzionale continuo si ha
+\begin{align*}
+    f(\phi(AA^*)) = \mathcal{O}
+\end{align*}
+infatti $\|f(\phi(AA^*))\| = \|f\|_\infty = 0$ per costruzione. Mostriamo che $\phi(f(AA^*)) = f(\phi(AA^*))$. Per $f$ funzione polinomiale è vero, dato che $\phi$ preserva l'algebra ($*$-omomorfismo). Per $f$ generica consideriamo $\{p_n\}_{n \in \mathbf{N}} \subset C(\sigma_\mathscr{A}(AA^*))$ tale che $p_n \rightarrow f$ per $n \rightarrow \infty$. Allora si ha $p_n(\phi(AA^*)) = \phi(p_n(AA^*))$ per ogni $n \in \mathbf{N}$. Inoltre 
+\begin{align*}
+    p_n(\phi(AA^*)) \rightarrow f(\phi(AA^*)) \qquad n \rightarrow \infty
+\end{align*}
+per continuità del calcolo funzionale, mentre 
+\begin{align*}
+    \phi(p_n(AA^*)) \rightarrow \phi(f(AA^*)) \qquad n \rightarrow \infty
+\end{align*}
+per il punto $(1)$ del teorema. Allora si ottiene
+\begin{align*}
+    0 = f(\phi(AA^*)) = \phi(f(AA^*))
+\end{align*}
+che, per ipotesi di iniettività di $\phi$, comporta
+\begin{align*}
+    f(AA^*) = 0
+\end{align*}
+ovvero, per l'arbitrarietà di $A$, $f = 0$, ma ciò è assurdo poiché $f \neq 0$ per ipotesi. Pertanto $\sigma_\mathscr{A}(AA^*) = \sigma_\mathscr{B}(\phi(AA^*))$ e quindi $r(AA^*) = r(\phi(AA^*))$, che comporta $\|\phi(A)\| = \|A\|$, sempre per identità $C^*$. \qed \\ \\
+\textbf{Definizione:} uno \textit{stato} su una $C^*$-algebra unitale $\mathscr{A}$ è un funzionale lineare $\omega : \mathscr{A} \longrightarrow \mathbf{C}$ unitale e positivo, ovvero 
+\begin{align*}
+    \omega(B^*B) \geq 0
+\end{align*}
+per ogni $B \in \mathscr{A}$. In particolare $B^*B$ è un generico operatore positivo, infatti
+\begin{align*}
+    (x, B^*Bx) = (Bx, Bx) = \|Bx\|^2 \geq 0 
+\end{align*}
+per ogni $B \in \mathscr{A}$. \\ \\
+Indichiamo con $\mathfrak{S}(\mathscr{A})$ l'insieme degli stati di $\mathscr{A}$. \\ \\
+\textbf{Osservazione:} se $\mathscr{A}$ è una $C^*$-algebra con identità commutativa e $\omega$ un carattere di $\mathscr{A}$, $\omega$ è uno stato. Infatti
+\begin{align*}
+    \omega(B^*B) = \omega(B^*)\omega(B) = \overline{\omega(B)}\omega(B) = |\omega(B)|^2 \geq 0
+\end{align*}
+per moltiplicatività e preservazione dello $*$. \\ \\
+\textbf{Esempio:} sia $X$ uno spazio topologico compatto e di Hausdorff e consideriamo la $C^*$-algebra $\mathscr{A} = C(X)$. Data $\mu$ una misura boreliana positiva e normalizzata su $X$, poniamo
+\begin{align*}
+    \omega : f \in C(X) \mapsto \int_X f \, d\mu
+\end{align*}
+$\omega$ è uno stato su $C(X)$, infatti
+\begin{align*}
+    \omega(f^*f) = \int_X f^*f \, d\mu = \int_X |f| \, d\mu \geq 0
+\end{align*}
+per positività della misura $\mu$. \\ \\
+\textbf{Esempio:} poniamo $\mathscr{A} = \mathcal{B}(\mathcal{H})$ con $\mathcal{H}$ spazio di Hilbert, dato $\xi \in \mathcal{H}$ tale che $\|\xi\| = 1$, il funzionale lineare
+\begin{align*}
+    \omega_\xi : A \in \mathcal{B}(\mathcal{H}) \mapsto (\xi, A\xi)
+\end{align*}
+è uno stato su $\mathcal{B}(\mathcal{H})$. Infatti per ogni $B \in \mathcal{B}(\mathcal{H})$ si ha
+\begin{align*}
+    \omega_\xi(B^*B) = (\xi, B^*B\xi) = \|B\xi\|^2 \geq 0
+\end{align*}
+come già visto. \\ \\
+\textbf{Teorema (di Riesz-Markov):} ogni $\omega \in \mathfrak{S}(C(X))$ è della forma $\omega = \omega_\mu$ per qualche misura boreliana positiva e normalizzata $\mu$. \\
+
+\textbf{Dimostrazione:} omessa. \qed \\ \\
+\textbf{Proposizione (4.2.2):} data $\mathscr{A}$ una $C^*$-algebra con identità e $\omega \in \mathfrak{S}(\mathscr{A})$ si ha che $\omega$ preserva lo $*$ ed è limitato, in particolare $\|\omega\| = 1$. \\
+
+\textbf{Dimostrazione:} dato $A \in \mathscr{A}$, possiamo scrivere
+\begin{align*}
+    A = \overbrace{\frac{A + A^*}{2}}^{A_1} + i\overbrace{\frac{A - A^*}{2i}}^{A_2} = A_1 + iA_2
+\end{align*}
+con $A_1, A_2$ autoaggiunti. Allora
+\begin{align*}
+    \omega(A^*) = \omega(A_1 - iA_2) = \omega(A_1) - i\omega(A_2) = \overline{\omega(A)}
+\end{align*}
+Inoltre, definiamo la forma sesquilineare
+\begin{align*}
+    \{\cdot, \cdot\} : A, B \in \mathscr{A} \mapsto \omega(A^*B)
+\end{align*}
+Per la \textit{disuguaglianza di Cauchy-Schwartz} si ha
+\begin{align*}
+    \omega(A^*B) \leq \omega(A^*A)^{1/2}\omega(B^*B)^{1/2}
+\end{align*}
+Posto $A = \mathbf{1}$ si ottiene
+\begin{align*}
+    |\omega(B)| \leq \omega(B^*B)^{1/2} \leq \|B^*B\|^{1/2} = \|B\|
+\end{align*}
+dove si è usato $B^*B \leq \|B^*B\|\mathbf{1}$, dato che $B^*B \geq \mathcal{O}$, e che $\omega$ è lineare e positivo. \\ \\
+\textbf{Teorema (GNS):}
 
 
 
+\newpage
 \subsubsection{Esercizi}
 \textbf{1.} Sia $X$ uno spazio topologico con cardinalità finita e sia $\mu$ una misura boreliana positiva e $\sigma$-additiva. Dimostrare che $\omega_\mu \in \mathcal{S}(C(X))$ è uno stato puro se e solo se $\mu = \delta_x$ per qualche $x \in X$. \\
 
