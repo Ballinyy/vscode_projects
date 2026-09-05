@@ -286,8 +286,8 @@ Sviluppando la mappa $t \mapsto \phi^*_tH$ in serie di Taylor (con resto integra
 \begin{flalign}
     \phi^*_1H = H + \varepsilon(X_F \cdot H) + \varepsilon^2\int_0^1 (1 - t)\phi^*_t(X^2_F \cdot H) \, dt \tag{5.4}
 \end{flalign}
-I fattori $\varepsilon$ che compaiono a moltiplicare i termini in $(4.4)$ derivano dal fatto che stiamo sviluppando attorno ad un $\tilde{t}$ che dista $\varepsilon$ da $0$. Infatti, come detto in precedenza, cerchiamo una trasformazione $\varepsilon$-vicina all'identità ($\phi^*_0 = \mathbf{1}$). \\
-Sostituendo $(4.1)$ in $(4.4)$ si ottiene
+I fattori $\varepsilon$ che compaiono a moltiplicare i termini in $(5.4)$ derivano dal fatto che stiamo sviluppando attorno ad un $\tilde{t}$ che dista $\varepsilon$ da $0$. Infatti, come detto in precedenza, cerchiamo una trasformazione $\varepsilon$-vicina all'identità ($\phi^*_0 = \mathbf{1}$). \\
+Sostituendo $(5.1)$ in $(5.4)$ si ottiene
 \begin{flalign}
     \phi^*_1H = H_0 + \varepsilon(H_1 + X_F \cdot H_0) + O(r^2) \tag{5.5}
 \end{flalign}
@@ -304,7 +304,7 @@ quindi, ricordando $\partial_\theta H_0 = 0$ e esplicitando l'operazione di $X_F
 \begin{flalign}
     \partial_rH_0 \cdot \partial_\theta F = \tilde{H}_1 \tag{5.8}
 \end{flalign}
-Dato che l'equazione $(4.7)$ coinvolge solamente la derivata parziale di $F$ rispetto a $\theta$, possiamo trattare $r$ come un parametro fissato. Ponendo $\alpha = \partial_rH(r)$, $(4.7)$ diventa
+Dato che l'equazione $(5.7)$ coinvolge solamente la derivata parziale di $F$ rispetto a $\theta$, possiamo trattare $r$ come un parametro fissato. Ponendo $\alpha = \partial_rH(r)$, $(5.7)$ diventa
 \begin{flalign}
     \alpha \cdot \partial_\theta F = \tilde{H}_1 \tag{5.9}
 \end{flalign}
@@ -313,10 +313,10 @@ In termini della derivata di Lie associata al campo vettoriale costante definito
     \mathcal{L}_\alpha F = \tilde{H}_1 \tag{5.10}
 \end{flalign}
 detta \textit{equazione omologica}. \\ \\
-Sia $\mathcal{F}$ l'insieme delle serie di Fourier (formali, quindi ancora non associate ad una particolare funzione) su $\mathbb{T}^n$ prive di termine costante. \\ \\
-\textbf{Lemma 5.1:} se $\alpha$ è non risonante, data $g \in \mathcal{F}$ esiste unica $f \in \mathcal{F}$ tale che $\mathcal{L}_\alpha f = g$. \\
+Sia $\mathscr{F}$ l'insieme delle serie di Fourier (formali, quindi ancora non associate ad una particolare funzione) su $\mathbb{T}^n$ prive di termine costante. \\ \\
+\textbf{Lemma 5.1:} se $\alpha$ è non risonante, data $g \in \mathscr{F}$ esiste unica $f \in \mathscr{F}$ tale che $\mathcal{L}_\alpha f = g$. \\
 
-\textbf{Dimostrazione:} dato che $g \in \mathcal{F}$, $g$ è della forma
+\textbf{Dimostrazione:} dato che $g \in \mathscr{F}$, $g$ è della forma
 \begin{flalign}
     g(\theta) = \sum_{k \neq 0} g_ke^{i2\pi k \cdot \theta} \tag{5.11}
 \end{flalign}
@@ -342,11 +342,11 @@ In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa su un insi
 Invertendo $(4.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni olomorfe a funzioni olomorfe, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza. \\ \\
 \textbf{Definizione 5.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
 \begin{flalign}
-    |k \cdot \alpha| \geq \frac{\gamma}{\|k\|^{\tau}_\infty} \tag{5.16}
+    |k \cdot \alpha| \geq \frac{\gamma}{\|k\|^{\tau}_1} \tag{5.16}
 \end{flalign}
 per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, dove
 \begin{flalign}
-    \|k\|_\infty = |k_1| + \dots + |k_n| \tag{5.17}
+    \|k\|_1 = |k_1| + \dots + |k_n| \tag{5.17}
 \end{flalign}
 In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $\alpha \in \mathbb{R}^n$ che sono $(\gamma, \tau)$-Diofantei. Inoltre, poniamo
 \begin{flalign}
@@ -361,9 +361,9 @@ In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $
 \begin{flalign}
     \kappa = (\kappa_1, \dots, \kappa_n) \qquad 0 \leq \kappa_i \leq q \tag{5.20}
 \end{flalign}
-per ogni $i = 1, \dots, n$. In particolare, esistono $(q + 1)^n$ vettori in $\mathbb{Z}^n$ che soddisfano $(4.20)$, infatti ogni componente ha $q + 1$ possibili valori da assumere (compreso $0$) e ci sono $n$ componenti totali. \\
-Per ogni $\kappa \in \mathbb{Z}^n$ che soddisfa $(4.20)$ poniamo $x_\kappa = |\{\kappa \cdot \alpha\}|$, dove $\{\cdot\}$ indica l'operazione di parte frazionaria. La parte frazionaria di un numero qualsiasi è sempre compresa tra $0$ e $1$ (escluso). \\
-Dividiamo l'intervallo $[0, 1)$ in $q^n$ sottointervalli di lunghezza $1/q^n$. Avendo considerato solamente i vettori interi con tutte componenti positive, per ogni $a, b \in \mathbb{Z}^n$ distinti che soddisfano $(4.20)$ si ha $x_a \neq x_b$. Pertanto l'insieme $\{x_\kappa\}_\kappa$ è costituito da $(q + 1)^n$ elementi distinti che si dispongono nell'intervallo $[0, 1)$. Dato che $(q + 1)^n > q^n$, esistono $x_a, x_b \in \{x_\kappa\}_\kappa$ tali che $|x_a - x_b| \leq 1/q^n$, ovvero
+per ogni $i = 1, \dots, n$. In particolare, esistono $(q + 1)^n$ vettori in $\mathbb{Z}^n$ che soddisfano $(5.20)$, infatti ogni componente ha $q + 1$ possibili valori da assumere (compreso $0$) e ci sono $n$ componenti totali. \\
+Per ogni $\kappa \in \mathbb{Z}^n$ che soddisfa $(5.20)$ poniamo $x_\kappa = |\{\kappa \cdot \alpha\}|$, dove $\{\cdot\}$ indica l'operazione di parte frazionaria. La parte frazionaria di un numero qualsiasi è sempre compresa tra $0$ e $1$ (escluso). \\
+Dividiamo l'intervallo $[0, 1)$ in $q^n$ sottointervalli di lunghezza $1/q^n$. Pertanto l'insieme $\{x_\kappa\}_\kappa$ è costituito da $(q + 1)^n$ elementi che si dispongono nell'intervallo $[0, 1)$. Dato che $(q + 1)^n > q^n$, esistono $x_a, x_b \in \{x_\kappa\}_\kappa$ tali che $a \neq b$ e $|x_a - x_b| \leq 1/q^n$, ovvero
 \begin{flalign}
     |\{(a - b) \cdot \alpha\}| \leq \frac{1}{q^n} \tag{5.21}
 \end{flalign}
@@ -372,10 +372,44 @@ Ponendo $k = a - b$ si ha $k \neq 0$ e
     |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{5.22}
 \end{flalign}
 dove $m$ è la parte intera di $k \cdot \alpha$, pertanto si ottiene la tesi. \qed \\ \\
-\textbf{Osservazione:} se poniamo $q = \|k\|_\infty$, $(4.22)$ è valida per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\ \\
-\textbf{Corollario 5.1:} $D_\tau \neq \emptyset$ se e solo se $\tau \geq n - 1$. \\
+\textbf{Teorema [Poschel]:} per $\tau > n - 1$ si ha che la misura di Lebesgue $n$-dimensionale dell'insieme $D_\tau$ tende alla misura piena di $\mathbb{R}^n$, ovvero quasi tutti i vettori $\alpha \in \mathbb{R}^n$ soddisfano
+\begin{align}
+    |k \cdot \alpha| \geq \frac{\gamma}{\|k\|^\tau_1} \tag{5.23}
+\end{align}
+per qualche $\gamma > 0$. \\
 
-\textbf{Dimostrazione:} (...) \\ \\
+\textbf{Dimostrazione:} $D_{\gamma, \tau}$ è il complementare dell'aperto
+\begin{align}
+    R_{\gamma, \tau} = \bigcup_{0 \neq k \in \mathbb{Z}}\left\{\alpha \in \mathbb{R}^n : |k \cdot \alpha| < \frac{\gamma}{\|k\|^\tau_1}\right\} = \bigcup_{0 \neq k \in \mathbb{Z}} R_{\gamma, \tau, k} \tag{5.24}
+\end{align}
+Dato un qualsiasi dominio misurabile $\Omega \subset \mathbb{R}^n$ (ad esempio un disco), si ha che
+\begin{align}
+    m(R_{\gamma, \tau, k} \cap \Omega) = o(\gamma/\|k\|^\tau_1) \tag{5.25}
+\end{align}
+Infatti la condizione in $(5.4)$ è equivalente a
+\begin{align}
+    \left|\frac{k}{\|k\|_1} \cdot \alpha\right| \leq \frac{\gamma}{\|k\|^{\tau + 1}_1} \tag{5.26}
+\end{align}
+Essenzialmente ci dice che il modulo della proiezione di $\alpha$ (ricordiamo $\|\cdot\|_1 \geq \|\cdot\|_2$) su $k$ deve essere limitato da $\gamma/\|k\|^{\tau + 1}_1$. \\
+Tale condizione è visualizzabile in 3 dimensioni fissando un vettore $k \in \mathbb{Z}^3$. L'insieme che si ottiene è uno strato con spessore finito, controllato da
+\begin{align}
+    \delta \leq \frac{2\gamma}{\|k\|^{\tau + 1}_1} \notag
+\end{align}
+ovvero racchiuso da due superfici.
+\begin{center}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.75\linewidth]{immagini/r_gamma_tau_k_3d.png}
+        \label{fig:placeholder}
+    \end{figure}
+\end{center}
+\newpage
+Considerando l'unione per ogni $k \neq 0$ si ottiene
+\begin{align}
+    m(R_{\gamma, \tau} \cap \Omega) \leq \sum_{k \neq 0}m(R_{\gamma, \tau, k} \cap \Omega) = o(\gamma) \tag{5.27}
+\end{align}
+
+
 
 
 
@@ -1102,21 +1136,119 @@ ovvero la tesi. \qed \\ \\
 \end{align}
 ovvero guadagna un segno negativo. \\ \\
 Vogliamo estendere la definizione di integrazione di $k$-forme differenziali su $\mathbb{R}^k$ per integrali di $k$-forme differenziali su varietà $k$-dimensionali. Per farlo ricondurremo la definizione di integrale su $M$ alla definizione di integrale su un dominio di integrazione in $\mathbb{R}^k$. A tal proposito ci ristringiamo al caso particolare di forme differenziali a supporto compatto. \\ \\
-\textbf{Lemma B.9.1:} sia $A \subset \mathbb{R}^n$ un aperto e $K \subset A$ un compatto. Allora esiste un plurintervallo $W$ tale che $K \subset W \subset A$. \\
+Sia $M$ una $k$-varietà differenziabile e $\mathcal{A} = \{(U, \varphi)\}$ un suo atlante differenziabile. Data $\omega^{(k)} \in \Omega^{(k)}(M)$ con supporto compatto, contenuto in un aperto $U$ dell'atlante $\mathcal{A}$, poniamo
+\begin{align}
+    \int_M \omega^{(k)} = \pm\int_{\varphi(U)} (\varphi^{-1})^*\omega^{(k)} \tag{B.9.9}
+\end{align}
+dove il segno è positivo se e solo se il diffeomorfismo $\varphi$ preserva l'orientamento. Il termine al membro di destra è definito dalla $(B.9.2)$. \\ \\
+\textbf{Proposizione B.9.2:} l'integrale di una $k$-forma differenziale con supporto compatto non dipende dalla scelta della carta locale. \\
 
-\textbf{Dimostrazione:} sia $W \subset A$ un plurintervallo. La mappa
+\textbf{Dimostrazione:} siano $(U, \varphi)$ e $(\widetilde{U}, \widetilde{\varphi})$ due carte locali compatibili e orientate positivamente o negativamente tali che $\mathrm{supp} \, \omega^{(k)} \subset U \cap \widetilde{U}$, allora $\widetilde{\varphi} \circ \varphi^{-1}$ è un diffeomorfismo di $\varphi(U \cap \widetilde{U})$ in $\widetilde\varphi(U \cap \widetilde{U})$ che preserva l'orientamento. In particolare
 \begin{align}
-    x \in K \mapsto d(x, \mathbb{R}^n \setminus A) \in \mathbb{R}_{\geq 0} \tag{B.9.9}
+    \int_{\widetilde{\varphi}(U)} (\widetilde{\varphi}^{-1})^*\omega^{(k)} &= \int_{\widetilde{\varphi}(U \cap \widetilde{U})} (\widetilde{\varphi}^{-1})^*\omega^{(k)} \notag \\
+    &= \int_{\varphi(U \cap \widetilde{U})} (\widetilde{\varphi} \circ \varphi^{-1})^*(\widetilde{\varphi}^{-1})^*\omega^{(k)} \notag \\
+    &= \int_{\varphi(U \cap \widetilde{U})} (\varphi^{-1})^*(\widetilde{\varphi})^*(\widetilde{\varphi}^{-1})^*\omega^{(k)} \notag \\
+    &= \int_{\varphi(U)}(\varphi^{-1})^*\omega^{(k)} \tag{B.9.10}
 \end{align}
-è positiva e continua, pertanto ha un minimo $r > 0$ in $K$ stesso. Con un raffinamento $\mathcal{P}'$ del reticolato $\mathcal{P}$ associato a $W$ possiamo ottenere un plurintervallo $W'$ tale che
+ovvero la tesi. \qed \\ \\
+Per estendere questa definizione a tutto $M$ utilizziamo una partizione dell'unità. In particolare, dato $\{U_i\}_{i \in I}$ un ricoprimento aperto (finito per compattezza) di $\mathrm{supp} \, \omega^{(k)}$ e $\{\psi_\alpha\}_{\alpha \in A}$ una partizione dell'unità (subordinata al ricoprimento), poniamo
 \begin{align}
-    \min_{x \in W'} \, d(x, \mathbb{R}^n \setminus A) = \frac{r}{3} \qquad \max_{x \in W'} \, d(x, \mathbb{R}^n \setminus A) = \frac{r}{2} \tag{B.9.10}
+    \int_M \omega^{(k)} = \sum_\alpha \int_M \psi_\alpha \omega^{(k) \tag{B.9.11}}
 \end{align}
-pertanto $K \subset W' \subset A$. \qed \\ \\
-Sia $M$ una $k$-varietà differenziabile e $\mathcal{A} = \{(U, \varphi)\}$ un suo atlante differenziabile. Data $\omega^{(k)} \in \Omega^{(k)}(M)$ con supporto compatto, contenuto in un aperto $U$ dell'atlante $\mathcal{A}$
+Analogamente, si può dimostrare che la definizione $(B.9.11)$ non dipende dalla scelta della partizione dell'unità. \\ \\
+\textbf{Proposizione (proprietà dell'integrale di forme differenziali):} siano $M, N$ $k$-varietà differenziabili e siano $\omega^{(k)}, \eta^{(k)} \in \Omega(M)$ a supporto compatto. Allora: \\
+\textbf{1.} dati $\alpha, \beta \in \mathbb{R}$ si ha
 \begin{align}
-    \int_M \omega^{(k)} = \int_{\varphi(U)} \varphi^*\omega^{(k)} \tag{B.9.11}
+    \int_M (\alpha\omega^{(k)} + \beta\eta^{(k)}) = \alpha\int_M \omega^{(k)} + \beta\int_M \eta^{(k)} \tag{B.9.12}
 \end{align}
+\textbf{2.} indichiamo con $-M$ la varietà $M$ con orientazione opposta. Allora
+\begin{align}
+    \int_{-M} \omega^{(k)} = -\int_M \omega^{(k)} \tag{B.9.13}
+\end{align}
+\textbf{3.} se $F : N \longrightarrow M$ è un diffeomorfismo che preserva $(+)$ o inverte $(-)$ l'orientamento si ha
+\begin{align}
+    \int_M \omega^{(k)} = \pm\int_{N} F^*\omega^{(k)} \tag{B.9.14}
+\end{align} \\
+
+\textbf{Dimostrazione:} $(1)$ segue immediatamente dalla linearità del pushback e dalla linearità dell'integrale di Riemann in $\mathbb{R}^n$. \\
+$(2.)$ Segue dalla formula di integrazione per cambiamento di variabili. In particolare il diffeomorifsmo che mappa $M$ in $-M$ ha Jacobiano negativo (manda basi destre in basi sinistre e viceversa). \\
+$(3.)$ Dimostriamolo per una singola carta locale in $M$ e una singola carta locale in $N$, poi si estende immediatamente per un numero finito di carte locali (che ricoprono $M$). Sia $(U, \varphi)$ una carta locale di $M$ tale che $\mathrm{supp} \, \omega^{(k)} \subset U$. Allora $(F^{-1}(U), \varphi \circ F)$ è una carta locale di $N$, quindi
+\begin{align}
+    \int_{F^{-1}(U)} F^*\omega^{(k)} &= \int_{\varphi(U)} ((\varphi \circ F)^{-1})^*F^*\omega^{(k)} \notag \\
+    &= \int_{\varphi(U)} (\varphi^{-1})^*(F^{-1})^*F^*\omega^{(k)} \notag \\
+    &= \int_{\varphi(U)} (\varphi^{-1})^*\omega^{(k)} \notag \\
+    &= \int_U \omega^{(k)} \tag{B.9.15}
+\end{align}
+per definizione. \qed \\ \\
+Nonostante il fatto che la definizione generale di integrale di una $k$-forma differenziale su una $k$-varietà $M$ è data per mezzo di partizioni di unità, praticamente è più comodo dividere $M$ in un numero finito di insiemi con bordo a misura nulla e integrale ogni termini usando una parametrizzazione locale (diffeomorfismo in $\mathbb{R}^k$).
+
+\newpage
+\subsection{Derivata esterna}
+Data una generica $1$-forma 
+\begin{align}
+    \omega = \sum_{i = 1}^k \omega_i dx_i \tag{B.10.1}
+\end{align}
+in $\mathbb{R}^k$, una condizione necessaria affinché $\omega = df$ per qualche $f$ di classe $C^\infty$ (o sufficientemente regolare) è che $\omega$ sia chiusa, ovvero
+\begin{align}
+    \frac{\partial \omega_i}{\partial x_j} - \frac{\partial \omega_j}{\partial x_i} = 0 \tag{B.10.2}
+\end{align}
+per ogni $i, j = 1, \dots, k$ e ogni sistema di coordinate locale, conseguenza del \textit{teorema di Schwartz} (di inversione dell'ordine di derivazione). \\
+Possiamo definire la $2$-forma differenziale $d\omega$ come segue
+\begin{align}
+    d\omega = \sum_{i < j} \left(\frac{\partial \omega_i}{\partial x_j} - \frac{\partial \omega_j}{\partial x_i}\right)dx_i \wedge dx_j \tag{B.10.3}
+\end{align}
+in modo tale che $\omega$ è chiusa se e solo se $d\omega = 0$ in ogni sistema di coordinate locale. \\ \\
+A questo punto, data una $n$-varietà differenziabile $M$ definiremo l'operatore $d : \Omega^{(k)}(M) \longrightarrow \Omega^{(k + 1)}(M)$, il quale soddisfa $d \circ d = 0$, pertanto una condizione necessaria affinché una data $k$-forma differenziale $\omega^{(k)}$ su $M$ sia il differenziale di una funzione regolare sarà $d\omega^{(k)} = d(df) = 0$. \\ \\
+Per una $k$-forma differenziale $\omega^{(k)}$ in $\mathbb{R}^n$ poniamo
+\begin{align}
+    d\omega^{(k)} &= d\left(\sum_{i_1 < \dots < i_k} \omega_{i_1, \dots, i_k}dx_{i_1} \wedge \dots \wedge dx_{i_k}\right) \notag \\
+    &= \sum_{i_1 < \dots < i_k}\sum_{j = 1}^n \frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_j}dx_j \wedge dx_{i_1} \wedge \dots \wedge dx_{i_k} \tag{B.10.4}
+\end{align}
+notiamo che $d\omega^{(k)}$ è una $k + 1$-forma differenziale su $M$ ($k < n$, altrimenti identicamente nulla). \\
+In particolare, per $k = 1$, si ottiene
+\begin{align}
+    d\omega &= d\left(\sum_{i = 1}^n \omega_i dx_i\right) \notag \\
+    &= \sum_{i, j = 1}^n \frac{\partial \omega_i}{\partial x_j}dx_j \wedge dx_i \notag \\
+    &= \sum_{i < j}\frac{\partial \omega_i}{\partial x_j}dx_j \wedge dx_i + \sum_{i > j}\frac{\partial \omega_i}{\partial x_j}dx_j \wedge dx_i \notag \\
+    &= \sum_{i < j}\frac{\partial \omega_j}{\partial x_i}dx_i \wedge dx_j \tag{B.10.5}
+\end{align}
+per antilinearità delle forme differenziali. \\ \\
+\textbf{Proposizione (proprietà della derivata esterna in $\mathbb{R}^n$):} l'operatore di derivata esterna soddisfa le seguenti proprietà: \\
+\textbf{1.} $d$ è lineare. \\
+\textbf{2.} se $\omega^{(k)}$ è una $k$-forma differenziabile e $\eta$ una $1$-forma differenziabile in un aperto $U \subset \mathbb{R}^n$ si ha che
+\begin{align}
+    d(\omega^{(k)} \wedge \eta) = d\omega^{(k)} \wedge \eta + (-1)^k\omega^{(k)} \wedge d\eta \tag{B.10.6}
+\end{align}
+\textbf{3.} $d \circ d = 0$ operatore nullo. \\
+\textbf{4.} $d$ commuta con l'operazione di pullback di una forma: data $F : U \longrightarrow V$ mappa regolare tra un aperto $U \subset \mathbb{R}^n$ e $V \subset \mathbb{R}^m$, si ha che
+\begin{align}
+    d(F^*\omega^{(k)}) = F^*d\omega^{(k)} \tag{B.10.7}
+\end{align} \\
+
+\textbf{Dimostrazione:} $(1)$ la linearità dell'operatore derivata esterne segue immediatamente dalla struttura di spazio lineare definita sull'insieme delle $k$-forme differenziabili in $\mathbb{R}^k$ per ogni $k < n$ e dalla linearità dell'operatore derivata parziale in $\mathbb{R}^n$. \\
+$(2)$ \\
+$(3)$ Segue dalla linearità dell'operatore di derivata parziale in $\mathbb{R}^n$ e dal \textit{teorema di Schwartz} (di inversione dell'ordine di derivazione), infatti
+\begin{align}
+    \sum_{i, j}\frac{\partial}{\partial x_i}\left(\frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_j}\right)dx_i \wedge dx_j &= \sum_{i < j}\overbrace{\left(\frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_i\partial x_j} - \frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_j \partial x_i}\right)}^{0}dx_i \wedge dx_j \tag{B.10.?}
+\end{align}
+per ogni $i_1 < \dots < i_k$. \\
+$(4)$ Per definizione si ha
+\begin{align}
+    F^*\omega^{(k)} = \sum_{i_1 < \dots < i_k} (\omega_{i_1, \dots, i_k} \circ F) dx_{i_1} \wedge \dots \wedge dx_{i_k} \notag
+\end{align}
+Pertanto
+\begin{align}
+    d(F^*\omega^{(k)}) &= \sum_{i_1 < \dots < i_k}\sum_{i = 1}^n \left(\frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_i} \circ F\right)\frac{\partial F}{\partial x_i} dx_i \wedge \frac{\partial F}{\partial x_{i_1}}dx_{i_1} \wedge \dots \wedge \frac{\partial F}{\partial x_{i_k}}dx_{i_k} \notag
+\end{align}
+dove
+\begin{align}
+    \frac{\partial}{\partial x_i}(\omega_{i_1, \dots, i_k} \circ F) = \left(\frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_i} \circ F\right)\frac{\partial F}{\partial x_i} \notag
+\end{align}
+per ogni $i = 1, \dots, n$. Pertanto si vede immediatamente che
+\begin{align}
+    d(F^*\omega^{(k)}) = F^*d\omega^{(k)} \tag{B.10.?}
+\end{align}
+ovvero $d$ commuta con l'operazione di pullback. \qed
 
 \newpage
 \section{Varietà simplettiche}
