@@ -592,7 +592,7 @@ pertanto basta prendere $\delta = \varepsilon/2$ e se $\|u - w\|_\alpha < \delta
 \end{align*}
 Infine cerchiamo $\lambda > 0$ tale che
 \begin{align*}
-    \lambda\|v\|_2 \leq \|\alpha\|_\alpha 
+    \lambda\|v\|_2 \leq \|v\|_\alpha 
 \end{align*}
 che equivale a
 \begin{align*}
@@ -780,7 +780,7 @@ infatti siano $w_1, w_2 \in W$ tali che
 \end{align*}
 se $w_1 = w_2$ si ha
 \begin{align*}
-    \|T_1 \cdot T_2\|_{op} = \|T_1\|_{op} + \|T_2\|_{op} 
+    \|T_1 \cdot T_2\|_{op} = \|T_1\|_{op}\|T_2\|_{op} 
 \end{align*}
 mentre se $w_1 \neq w_2$ si ha
 \begin{align*}
@@ -788,7 +788,7 @@ mentre se $w_1 \neq w_2$ si ha
     &= \|T_1\|_{op}\|T_2\|_{op} 
 \end{align*}
 e quindi si ottiene la tesi. \qed \\ \\
-\textbf{Definizione:} sia $V$ uno spazio vettoriale su $\mathbb{R}$, una mappa $m : V \longrightarrow \mathbb{R}$ è detta \textit{funzionale di Minkowski} se è subadditiva, ovvero se $m(x + y) \leq m(x) + m(y)$ per ogni $x,y \in V$, e omogenea positiva, ovvero se $m(tx) = tm(x)$ per ogni $x \in V$. \\ \\
+\textbf{Definizione:} sia $V$ uno spazio vettoriale su $\mathbb{R}$, una mappa $m : V \longrightarrow \mathbb{R}$ è detta \textit{funzionale di Minkowski} se è subadditiva, ovvero se $m(x + y) \leq m(x) + m(y)$ per ogni $x,y \in V$, e omogenea positiva, ovvero $m(tx) = tm(x)$ per ogni $x \in V$ e ogni $t \in \mathbb{R}_{\geq 0}$. \\ \\
 \textbf{Lemma (2.1.1):} se $m$ è un funzionale di Minkowski su $V$ e $\varphi$ è un funzionale lineare su un sottospazio lineare $U$ di $V$ tale che $\varphi(x) \leq m(x)$ per ogni $x \in U$, esiste un funzionale lineare $\widetilde{\varphi}$ su $X$ tale che $\widetilde{\varphi}(x) \leq m(x)$ per ogni $x \in V$ e $\widetilde{\varphi}|_{U} = \varphi$. \\
 
 \textbf{Dimostrazione:} dato $x \in V \setminus U$, ogni estensione di $\varphi$ da $U$ a $U + \mathbb{R}x$ è determinata da
