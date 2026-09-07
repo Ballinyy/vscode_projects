@@ -788,7 +788,7 @@ mentre se $w_1 \neq w_2$ si ha
     &= \|T_1\|_{op}\|T_2\|_{op} 
 \end{align*}
 e quindi si ottiene la tesi. \qed \\ \\
-\textbf{Definizione:} sia $V$ uno spazio vettoriale $\mathbb{R}$, una mappa $m : V \longrightarrow \mathbb{R}$ è detta \textit{funzionale di Minkowski} se è subadditiva, ovvero se $m(x + y) \leq m(x) + m(y)$ per ogni $x,y \in V$, e omogenea positiva, ovvero se $m(tx) = tm(x)$ per ogni $x \in V$. \\ \\
+\textbf{Definizione:} sia $V$ uno spazio vettoriale su $\mathbb{R}$, una mappa $m : V \longrightarrow \mathbb{R}$ è detta \textit{funzionale di Minkowski} se è subadditiva, ovvero se $m(x + y) \leq m(x) + m(y)$ per ogni $x,y \in V$, e omogenea positiva, ovvero se $m(tx) = tm(x)$ per ogni $x \in V$. \\ \\
 \textbf{Lemma (2.1.1):} se $m$ è un funzionale di Minkowski su $V$ e $\varphi$ è un funzionale lineare su un sottospazio lineare $U$ di $V$ tale che $\varphi(x) \leq m(x)$ per ogni $x \in U$, esiste un funzionale lineare $\widetilde{\varphi}$ su $X$ tale che $\widetilde{\varphi}(x) \leq m(x)$ per ogni $x \in V$ e $\widetilde{\varphi}|_{U} = \varphi$. \\
 
 \textbf{Dimostrazione:} dato $x \in V \setminus U$, ogni estensione di $\varphi$ da $U$ a $U + \mathbb{R}x$ è determinata da
@@ -825,7 +825,22 @@ Notiamo che $\Lambda$ è ordinato induttivamente (ovvero ogni catena ammette mag
 Per il \textit{lemma di Zorn} esiste un elemento massimale $(\widetilde{U}, \widetilde{\varphi})$ di $(U, \varphi)$, con $\widetilde{\varphi}$ dominato da $m$. In particolare $\widetilde{U} = V$, altrimenti si violerebbe la massimalità di $(\widetilde{U}, \widetilde{\varphi})$ per quanto visto nella prima parte della dimostrazione, ovvero esibendo un'estensione dominata definita su $\widetilde{U} + \mathbb{R}x$ con $x \in V \setminus \widetilde{U}$. \qed \\ \\
 \textbf{Teorema (di estensione di Hahn-Banach):} siano $V$ uno spazio vettoriale, $m$ una seminorma definita su $V$ e $\varphi$ un funzionale lineare su un sottospazio lineare $U$ di $V$ dominato da $m$. Allora esiste $\widetilde{\varphi}$ funzionale lineare su $V$ dominato da $m$ tale che $\widetilde{\varphi}|_U = \varphi$. \\
 
-\textbf{Dimostrazione:} ...
+\textbf{Dimostrazione:} se $V$ è uno spazio vettoriale reale la tesi segue direttamente dal \textit{lemma 2.1.1}, dato che una seminorma è anche un funzionale di Minkowski. \\
+Se $V$ è uno spazio vettoriale su $\mathbb{C}$ possiamo trattare prima $V$ come uno spazio lineare reale e $\varphi$ come un funzionale lineare reale, ovvero considerando $\mathrm{Re} \, \varphi$. Per il \textit{lemma 2.1.1} esiste un funzionale lineare reale $\psi$ dominato da $m$ che estende $\mathrm{Re} \, \varphi$ a $V$. A questo punto possiamo definire $\widetilde{\varphi}$ come segue
+\begin{align*}
+    \widetilde{\varphi} : x \in V \mapsto \psi(x) - i\psi(ix) \in \mathbb{C} 
+\end{align*}
+ovviamente ricordiamo che $\psi(ix) \neq i\psi(x)$ dato che $\psi$ è un funzionale reale. Inoltre, notiamo che $\widetilde{\varphi}(ix) = i\widetilde{\varphi}(x)$ per ogni $x \in V$, ovvero è un funzionale lineare complesso. \\
+Notiamo che $\widetilde{\varphi}|_U = \varphi$, infatti
+\begin{align*}
+    \mathrm{Re} \, \widetilde{\varphi}|_U = \psi|_U =\mathrm{Re} \, \varphi
+\end{align*}
+e i funzionali lineari complessi che hanno parte reale uguale sono identici (proprio perché sono $\mathbb{C}$ lineari). \\
+Infine, se $x \in V$, scegliamo $\alpha \in \mathbb{C}$ tale che $|\alpha| = 1$ e $\widetilde{\varphi}(\alpha x) \in \mathbb{R}_{\geq 0}$, allora
+\begin{align*}
+    |\widetilde{\varphi}(x)| = \widetilde{\varphi}(\alpha x) \leq m(\alpha x) = m(x)
+\end{align*}
+ovvero $\widetilde{\varphi}$ dominato da $m$ su $V$. \qed
 
 \subsubsection{Esercizi}
 \textbf{1.} Verificare se $\|\cdot\|_2 : \mathbb{C}^n \longrightarrow \mathbb{R}^+$ definita ponendo
@@ -1642,22 +1657,22 @@ per $x \in [0, 2\pi]$ e $n \in \mathbb{Z}$. \\ \\
 \newpage
 \section{Teoria degli operatori}
 \subsection{Aggiunto di un operatore}
-\textbf{Teorema (3.1.1):} siano $\mathcal{H}_1, \mathcal{H}_2$ spazi di Hilbert e sia $T \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$, esiste unico $T^* \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ tale che 
+\textbf{Teorema (3.1.1):} siano $\mathcal{H}$ spazi di Hilbert e sia $T \in \mathcal{B}(\mathcal{H})$, esiste unico $T^* \in \mathcal{B}(\mathcal{H})$ tale che 
 \begin{align*}
     (x, Ty) = (T^*x, y) 
 \end{align*}
-per ogni $x, y \in \mathcal{H}_1$. $T^*$ è detto \textit{aggiunto} di $T$. \\
+per ogni $x, y \in \mathcal{H}$. $T^*$ è detto \textit{aggiunto} di $T$. \\
 
-\textbf{Dimostrazione:} fissato $T \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ consideriamo la forma sesquilineare
+\textbf{Dimostrazione:} fissato $T \in \mathcal{B}(\mathcal{H})$ consideriamo la forma sesquilineare
 \begin{align*}
-    x, y \in \mathcal{H}_1 \mapsto (x, Ty) \in \mathbb{C} 
+    x, y \in \mathcal{H} \mapsto (x, Ty) \in \mathbb{C} 
 \end{align*}
-Per il \textit{corollario 2.3.3} esiste unico $S \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ tale che 
+Per il \textit{corollario 2.3.3} esiste unico $S \in \mathcal{B}(\mathcal{H})$ tale che 
 \begin{align*}
     (x, Ty) = (Sx, y) 
 \end{align*}
-per ogni $x, y \in \mathcal{H}_1$, poniamo $T^* = S$. \qed \\ \\
-\textbf{Proposizione (proprietà dell'operatore aggiunto):} siano $T, S \in \mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ e $\alpha, \beta \in \mathbb{C}$, si ha: \\
+per ogni $x, y \in \mathcal{H}$, poniamo $T^* = S$. \qed \\ \\
+\textbf{Proposizione (proprietà dell'operatore aggiunto):} siano $T, S \in \mathcal{B}(\mathcal{H})$ e $\alpha, \beta \in \mathbb{C}$, si ha: \\
 \textbf{1.} antilinearità $(\alpha T + \beta S)^* = \alpha^*T^* + \beta^*S^*$. \\
 \textbf{2.} antimoltiplicatività $(TS)^* = S^*T^*$. \\
 \textbf{3.} involutività $(T^*)^* = T$. \\
@@ -1672,7 +1687,7 @@ per ogni $x, y \in \mathcal{H}_1$, poniamo $T^* = S$. \qed \\ \\
     &= (\alpha^*T^*x, y) + (\beta^*S^*, y)  \\
     &= ((\alpha^*T^* + \beta^*T^*)x, y) 
 \end{align*}
-per ogni $x, y \in \mathcal{H}_1$, ovvero la tesi. \\ \\
+per ogni $x, y \in \mathcal{H}$, ovvero la tesi. \\ \\
 $(2)$ Si ha 
 \begin{align*}
     (x, TSy) &= (x, T(Sy))  \\
@@ -1680,7 +1695,7 @@ $(2)$ Si ha
     &= (S^*(T^*x), y)  \\
     &= (S^*T^*x, y) 
 \end{align*}
-per ogni $x, y \in \mathcal{H}_1$, ovvero la tesi. \\ \\
+per ogni $x, y \in \mathcal{H}$, ovvero la tesi. \\ \\
 $(3)$ Per definizione si ha 
 \begin{align*}
     (x, T^*y) = ((T^*)^*x, y) 
@@ -1690,12 +1705,12 @@ Inoltre si ha
     (x, T^*y) &= (y, Tx)^*  \\
     &= (Tx, y) 
 \end{align*}
-per ogni $x, y \in \mathcal{H}_1$ per sesquilinearità del prodotto interno. Pertanto concludiamo che 
+per ogni $x, y \in \mathcal{H}$ per sesquilinearità del prodotto interno. Pertanto concludiamo che 
 \begin{align*}
     (Tx, y) = ((T^*)^*x, y) 
 \end{align*}
-per ogni $x, y \in \mathcal{H}_1$ e quindi $(T^*)^* = T$. \\ \\
-$(4)$ Per definizione di norma su $\mathcal{B}(\mathcal{H}_1, \mathcal{H}_2)$ si ha 
+per ogni $x, y \in \mathcal{H}$ e quindi $(T^*)^* = T$. \\ \\
+$(4)$ Per definizione di norma su $\mathcal{B}(\mathcal{H})$ si ha 
 \begin{align*}
     \|T^*\|^2 &= \sup_{x \neq 0}\frac{\|T^*x\|^2}{\|x\|^2}  \\
     &= \sup_{x \neq 0}\frac{(T^*x, T^*x)}{\|x\|^2}  \\
@@ -2619,6 +2634,21 @@ ovvero $\widehat{f(A)} = f$ (ricordiamo che possiamo identificare $\omega$ con $
 \textbf{Dimostrazione:} se $\lambda \in \sigma(A)$ si ha $A - \lambda\mathbf{1}$ non invertibile in $\mathcal{B}(\mathcal{H})$, pertanto non invertibile anche in $\mathscr{A} \subset \mathcal{B}(\mathcal{H})$, ovvero $\sigma(A) \subset \sigma_\mathscr{A}(A)$. \\
 Dato $\lambda \in \sigma(A)$ si ha che $\lambda + i\varepsilon \in \rho(A)$ per ogni $\varepsilon > 0$, infatti $\sigma(A) \subset \mathbb{R}$. Allora $A - (\lambda + i\varepsilon)\mathbf{1}$ è invertibile in $\mathcal{B}(\mathcal{H})$ e quindi anche in $\mathscr{A}$, ovvero esiste $(A - (\lambda + i\varepsilon)\mathbf{1})^{-1} \in \mathbf{A}$. Dato che l'operazione di inversione operatoriale è continua e $\mathscr{A}$ è chiuso in norma, al limite $\varepsilon \rightarrow 0$ concludiamo che $(A - \lambda\mathbf{1})^{-1} \in \mathscr{A}$, ovvero $\lambda \in \rho_\mathscr{A}(A)$ e quindi $\rho(A) \subset \rho_\mathscr{A}(A)$, cioè $\sigma_\mathscr{A}(A) \subset \sigma(A)$. Pertanto $\sigma(A) = \sigma_\mathscr{A}(A)$. \qed
 
+\subsubsection{Esercizi}
+\textbf{1.} sia $\mathscr{A}$ una $C^*$-algebra con identità, dato $A \in \mathscr{A}$ definito su $\mathcal{H}$ spazio di Hilbert, dimostrare che $(x, Ax) \geq 0$ per ogni $x \in \mathcal{H}$ se e solo se esiste $B \in \mathscr{A}$ tale che $A = B^*B$. \\
+
+\textbf{Dimostrazione:} $(\rightarrow)$ per il \textit{corollario 3.3.3} si ha che $(x, Ax) \geq 0$ per ogni $x \in \mathcal{H}$ se e solo se $A = A^*$. Per il \textit{calcolo funzionale continuo} è ben definito l'operatore $B = \sqrt{A}$ ed è autoaggiunto, dato che $A$ è autoaggiunto, pertanto
+\begin{align*}
+    A = (\sqrt{A})^2 = \sqrt{A}\sqrt{A} = \sqrt{A^*}\sqrt{A} = B^*B
+\end{align*}
+$(\leftarrow)$ Se $A = B^*B$ per qualche $B \in \mathscr{A}$ si vede immediatamente che
+\begin{align*}
+    (x, Ax) = (x, B^*Bx) = (Bx, Bx) \geq 0
+\end{align*}
+per ogni $x \in \mathcal{H}$, ovvero $A$ positivo. \qed \\ \\
+\textbf{Osservazione:} il risultato dell'\textit{esercizio 4.1.1.1} dimostra che la definizione di positività di un operatore in $\mathcal{B}(\mathcal{H})$ è equivalente a quella in una $C^*$-algebra.
+
+
 \newpage
 \subsection{Stati e rappresentazioni di $C^*$-algebre (con identità)}
 \textbf{Definizione:} sia $\mathscr{A}$ una $C^*$-algebra con identità, una \textit{rappresentazione} di $\mathscr{A}$ su uno spazio di Hilbert $\mathcal{H}_\pi$ è uno $*$-omomorfismo unitale $\pi : \mathscr{A} \longrightarrow \mathcal{B}(\mathcal{H}_\pi)$. \\ \\
@@ -2820,7 +2850,81 @@ Infine, notiamo che
 \begin{align*}
     U\pi_\omega(A)\pi_\omega(B) &= U\pi_\omega(AB) = \pi(AB) = \pi(A)\pi(B) = \pi(A)U\pi_\omega(B)
 \end{align*}
-ovvero $U\pi_\omega(A) = \pi_(A)U$ per ogni $A \in \mathscr{A}$. \qed
+ovvero $U\pi_\omega(A) = \pi_(A)U$ per ogni $A \in \mathscr{A}$. \qed \\ \\
+\textbf{Lemma (4.2.1):} si ha che
+\begin{align*}
+    \|A\| = \sup_{\omega \in \mathfrak{S}(\mathscr{A})} |\omega(A)|
+\end{align*}
+per ogni $A = A^* \in \mathscr{A}$. \\
+
+\textbf{Dimostrazione:} Dato $A = A^* \in \mathscr{A}$ vogliamo costruire un funzionale lineare complesso $g$ su $E = \mathrm{span}\{\mathbf{1, A}\}$ tale che $g \leq \|\cdot\|$ su $E$ e $g(A) = \|A\|$. Se esiste tale $g$, per il \textit{teorema di Hahn-Banach} esiste una sua estensione $f$ su $\mathscr{A}$ ancora dominata da $\|\cdot\|$. A questo punto sarebbe sufficiente dimostrare che $f$ è uno stato, ovvero lineare, positivo e unitale. \\
+Definiamo $g$ essere
+\begin{align*}
+    g : B = \lambda\mathbf{1} + \mu A \mapsto \lambda + \mu\|A\| \in \mathbb{C}
+\end{align*}
+dove $\lambda, \mu \in \mathbb{C}$. Notiamo che $g(\mathbf{1}) = 1$ e $g(A) = \|A\|$. \\
+Vogliamo dimostrare che $|g(B)| \leq \|B\|$ per ogni $B \in E$. Consideriamo $B \in E$, $B = \lambda\mathbf{1} + \mu A$ per opportuni $\lambda, \mu \in \mathbb{C}$. Sappiamo che $\|A\| = \max_{t \in \sigma(A)} |t|$, dato che $\sigma(A)$ è un compatto di $\mathbb{R}$. Allora se $\|A\| \in \sigma(A)$ si ha
+\begin{align*}
+    \|B\| = \max_{t \in \sigma(A)} |\lambda + \mu t|
+\end{align*}
+Segue che
+\begin{align*}
+    |g(B)| = |\lambda + \mu\|A\|| \leq \max_{t \in \sigma(A)}|\lambda + \mu t| = \|B\|
+\end{align*}
+Altrimenti, se $-\|A\| \in \sigma(A)$ è necessario ridefinire $g$ come la mappa $g : \lambda\mathbf{1} + \mu A \mapsto \lambda - \mu\|A\|$ per poter maggiorare $|g(B)|$ con $\|B\|$. \\
+Per il \textit{teorema di Hahn-Banach}, $g$ si estende ad un funzionale lineare $f$ su $\mathscr{A}$ dominato da $\|\cdot\|$ tale che $f|_E = g$. In particolare
+\begin{align*}
+    |f(B)| \leq \|B\|
+\end{align*}
+per ogni $B \in \mathscr{A}$, pertanto $\|f\| \leq 1$. Inoltre
+\begin{align*}
+    1 = g(\mathbf{1}) = f(\mathbf{1}) \leq \|f\|\|\mathbf{1}\| = \|f\|
+\end{align*}
+ovvero $\|f\| = 1$. \\
+Mostriamo che $f$ è positivo. In particolare questo emerge come una conseguenza del fatto che $f$ è dominato dalla norma ed è unitale. Dati $t \in \mathbb{R}$ e $B = B^* \in \mathscr{A}$ si ha che
+\begin{align*}
+    f(\mathbf{1} + itB) = 1 + itf(B)
+\end{align*}
+Inoltre, $f$ è dominato dalla norma, quindi
+\begin{align*}
+    |f(\mathbf{1} + itB)| \leq \|\mathbf{1} + itB\|
+\end{align*}
+Per \textit{identità} $C^*$ si ha
+\begin{align*}
+    \|\mathbf{1} + itB\|^2 &= \|(\mathbf{1} + itB)^*(\mathbf{1} + itB)\| \\
+    &= \|\mathbf{1} + t^2B^2\|
+\end{align*}
+Segue che
+\begin{align*}
+    \|\mathbf{1} + itB\|^2 = 1 + O(t^2)
+\end{align*}
+Mentre
+\begin{align*}
+    |1 + itf(B)| = 1 - 2t\mathrm{Im} \, f(B) + t^2f(B)^2 = 1 + O(t)
+\end{align*}
+Dato che le disuguaglianze osservate sono valide per ogni $t \in \mathbb{R}$, segue che $\mathrm{Im} \, f(B) = 0$, ovvero $f(B) \in \mathbb{R}$ per ogni $B = B^* \in \mathscr{A}$. \\
+A questo punto, per il \textit{corollario 3.3.3}, si ha che $B$ è positivo se e solo se è autoaggiunto. Pertanto
+\begin{align*}
+    1 \geq \mathbf{1} - tB \geq 0
+\end{align*}
+per $0 < t < 1/\|B\|$. Inoltre
+\begin{align*}
+    |f(\mathbf{1} - tB)| = |1 - tf(B)| \leq \|\mathbf{1} - tB\| \leq 1
+\end{align*}
+Dato che $B = B^*$ si ha $f(B) \in \mathbb{R}$, quindi
+\begin{align*}
+    -1 \leq 1 - tf(B) \leq 1
+\end{align*}
+Pertanto si ottiene $f(B) \geq 0$ per ogni $B \geq 0$, ovvero $f$ è uno stato maggiorato dalla norma. Dato che $f|_E = g$ si ha che
+\begin{align*}
+    f(A) = \|A\|
+\end{align*}
+Segue che
+\begin{align*}
+    \|A\| = f(A) = \sup_{\omega \in \mathfrak{S}(\mathscr{A})} \omega(A)
+\end{align*}
+Ripetendo questo argomento per ogni $A = A^* \in \mathscr{A}$ si ottiene la tesi. \qed \\ \\
+\textbf{Corollario (4.2.1):} dato $A = A^* \in \mathscr{A}$, $A \neq 0$, si ha che esiste $\omega \in \mathfrak{S}(\mathscr{A})$ tale che $\omega(A) \neq 0$.
 
 \newpage
 \subsection{Stati puri}
@@ -2885,13 +2989,10 @@ $(3 \rightarrow 1)$ per ipotesi
 per ogni $\xi \in \mathcal{H}_\pi$. Pertanto, dato $K \neq \emptyset$ spazio vettoriale chiuso e invariante e $\xi \in K$, $\xi \neq 0$, si ha che $\pi(A)\xi \subset \pi(A)K \subset K$ per ogni $A \in \mathscr{A}$. In particolare vale anche per la chiusura in norma, pertanto conlcudiamo $K = \mathcal{H}_\pi$. \qed \\ \\
 \textbf{Teorema (Segal):} sia $\mathscr{A}$ una $C^*$-algebra con identità e $\omega \in \mathfrak{S}(\mathscr{A})$, allora $\omega$ è uno stato puro se e solo se $\pi_\omega$ è irriducibile su $\mathcal{H}_\omega$ per $\mathscr{A}$. \\
 
-\textbf{Dimostrazione:} omessa. \qed \\ \\
-\textbf{Teorema:} dato $A \in \mathscr{A}$, $A \neq 0$, esiste $\omega \in \mathfrak{P}(\mathscr{A})$ tale che $\omega(A) \neq 0$. \\
-
-\textbf{Dimostrazione:} omessa (conseguenza del \textit{teorema di Hahn-Banach}).
+\textbf{Dimostrazione:} omessa. \qed 
 
 \subsubsection{Esercizi}
-\textbf{1.} Sia $X$ uno spazio topologico con cardinalità finita e sia $\mu$ una misura boreliana positiva e $\sigma$-additiva. Dimostrare che $\omega_\mu \in \mathcal{S}(C(X))$ è uno stato puro se e solo se $\mu = \delta_x$ per qualche $x \in X$. \\
+\textbf{1.} Sia $X$ uno spazio topologico con cardinalità finita e sia $\mu$ una misura boreliana positiva e $\sigma$-additiva. Dimostrare che $\omega_\mu \in \mathfrak{S}(C(X))$ è uno stato puro se e solo se $\mu = \delta_x$ per qualche $x \in X$. \\
 
 \textbf{Dimostrazione:} $(\rightarrow)$ Sia $\omega_\mu$ uno stato puro. Per definizione 
 \begin{align*}
@@ -2918,7 +3019,7 @@ e quindi
     \omega_\mu(f) = \mu(\{x_{i_1}\})\omega_{\delta_{x_1}} + \frac{1}{1 - \mu(\{x_1\})}\sum_{k = 2}^n \omega_{\delta_{x_k}}\mu(\{x_k\})
 \end{align*}
 per ogni $f \in C(X)$, ovvero possiamo esprimere $\omega_\mu$ come combinazione convessa non banale di stati, ma ciò è assurdo poiché $\omega_\mu$ è puro per ipotesi. \\ \\
-$(\leftarrow)$ Sia $\mu = \delta_x$ per qualche $x \in X$. Dato $\omega_\mu \in \mathcal{S}(C(X))$ lo scriviamo come combinazione convessa di due stati $\omega_1, \omega_2$
+$(\leftarrow)$ Sia $\mu = \delta_x$ per qualche $x \in X$. Dato $\omega_\mu \in \mathfrak{S}(C(X))$ lo scriviamo come combinazione convessa di due stati $\omega_1, \omega_2$
 \begin{align*}
     \omega_\mu = \alpha\omega_1 + \beta\omega_2
 \end{align*}
@@ -3099,7 +3200,7 @@ per ogni $A, B \in \mathscr{A}$. Dal \textit{teorema di Segal-Hahn-Banach} [Will
 \textbf{4.} esiste $\omega \in \mathfrak{P}(\mathscr{A})$ tale che $\dim \mathcal{H}_\omega > 1$ (gli stati puri si possono sovrapporre formando stati puri). \\
 \textbf{5.} esistono probabilità non nulle di transizione due stati puri distinti. \\
 
-\textbf{Dimostrazione:} $(1 \rightarrow 2)$ segue dal fatto che gli stati puri separano i punti. \\
+\textbf{Dimostrazione:} $(1 \rightarrow 2)$ se $\mathscr{A}$ è non commutativa, anche $\mathscr{O}$ è non commutativa, dato che ogni operatore può essere scritto come combinazione lineare di operatori autoaggiunti. Pertanto, dati $A, B \in \mathscr{O}$ tali che $[A, B] \neq 0$, per il \textit{corollario 4.2.1} esiste $\omega \in \mathfrak{S}(\mathscr{A})$ tale che $\omega([A, B]) \neq 0$. Inoltre, dato che ogni stato può essere scritto come combinazione convessa di stati puri, questo garantisce l'esistenza di uno stato puro $\widetilde{\omega}$ tale che $\widetilde{\omega}([A, B]) \neq 0$. \\
 $(2 \rightarrow 1)$ Dati $A, B \in \mathscr{O}$ e $\omega \in \mathfrak{P}(\mathscr{A})$ tali che $|\omega([A, B])| > 0$ si ha
 \begin{align*}
     \omega(AB) \neq \omega(BA)
@@ -3112,7 +3213,24 @@ $(2 \rightarrow 3)$ Dati $A, B \in \mathscr{O}$ e $\omega \in \mathfrak{P}(\math
 Pertanto uno tra $\Delta_\omega(A)$ e $\Delta_\omega(B)$ deve necessariamente essere non nullo. \\
 $(3 \rightarrow 1)$ Segue dal \textit{corollario 4.4.1}. \\
 $(3 \rightarrow 4)$ Per il punto $(1)$ si ha che $\mathscr{A}$ è non commutativa e per la \textit{proposizione di caratterizzazione della commutatività} per $C^*$-algebre con identità si ha che esiste $\omega \in \mathfrak{P}(\mathscr{A})$ tale che $\dim \mathcal{H}_\omega > 1$. \\
-$(4 \rightarrow 3)$ Supponiamo per assurdo che per ogni $A \in \mathscr{O}$ e ogni $\omega \in \mathfrak{P}(\mathscr{A})$ si abbia $\Delta_\omega(A) = 0$. Allora $\mathscr{A}$ è commutativa per il \textit{corollario 4.4.1} e $\dim \mathcal{H}_\omega = 1$ per ogni $\omega \in \mathfrak{P}(\mathscr{A})$ per la \textit{proposizione di caratterizzazione della commutatività} per $C^*$-algebre con identità, ovvero si ottiene un assurdo.
+$(4 \rightarrow 3)$ Supponiamo per assurdo che per ogni $A \in \mathscr{O}$ e ogni $\omega \in \mathfrak{P}(\mathscr{A})$ si abbia $\Delta_\omega(A) = 0$. Allora $\mathscr{A}$ è commutativa per il \textit{corollario 4.4.1} e $\dim \mathcal{H}_\omega = 1$ per ogni $\omega \in \mathfrak{P}(\mathscr{A})$ per la \textit{proposizione di caratterizzazione della commutatività} per $C^*$-algebre con identità, ovvero si ottiene un assurdo. \\
+$(4 \rightarrow 5)$ prendiamo $\eta \in \mathcal{H}_\omega$ tale che $\|\eta\| = 1$ e $(\eta, \xi_\omega) \neq 0$. Allora
+\begin{align*}
+    \omega_\eta : A \in \mathscr{A} \mapsto (\eta, \pi_\omega(A)\eta)
+\end{align*}
+è uno stato su $\mathscr{A}$. Per ipotesi $\omega$ è uno stato puro, pertanto $\pi_\omega$ è irriducibile, per il \textit{teorema di Segal}. Inoltre, per il \textit{teorema di Schur} si ha che $\eta$ è ciclico per $\pi_\omega(A)$, pertanto
+\begin{align*}
+    \mathcal{H}_\omega = \overline{\{\pi_\omega(A)\eta : A \in \mathscr{A}\}}^{\|\cdot\|_{\mathcal{H}_\omega}} = \mathcal{H}_\eta
+\end{align*}
+ovvero $\mathcal{H}_\omega$ e $\mathcal{H}_\eta$ sono legati da una trasformazione unitaria, quindi la rappresentazione GNS associata a $\omega_\eta$ è equivalente a quella associata a $\omega$. Segue che $\omega_\eta$ è puro e $|(\eta, \xi_\omega)| > 0$, ovvero la probabilità di transizione è non nulla. \\
+$(5 \rightarrow 4)$ L'esistenza di due stati puri distinti garantisce $\dim \mathcal{H}_\omega > 1$. Infatti, supponiamo che $\dim \mathcal{H}_\omega = 1$ ed esistano $\xi, \eta \in \mathcal{H}_\omega$ che definiscono due stati puri distinti $\omega_\xi$ e $\omega_\eta$. Gli stati devono essere unitali per definizione, pertanto $\|\xi\| = 1 = \|\eta\|$, segue che $\eta = e^{i\theta}\xi$ per qualche $\theta \in [0, 2\pi]$. Pertanto si ottiene
+\begin{align*}
+    \omega_\eta(A) &= (\eta, \pi(A)\eta) \\
+    &= e^{i\theta}e^{-i\theta}(\eta, \pi(A)\eta) \\
+    &= (e^{-i\theta}e^{i\theta}\xi, \pi(A)e^{i\theta}e^{-i\theta}\xi) \\
+    &= (\xi, \pi(A)\xi) = \omega_\xi(A)
+\end{align*}
+per ogni $A \in \mathscr{A}$, ovvero $\omega_\eta = \omega_\xi$. \qed
 
 
 \subsubsection{Esercizi}
@@ -3139,7 +3257,7 @@ $(\leftarrow)$ Per ipotesi $\xi_\omega$ è ciclico, pertanto
 Quindi $\dim \mathcal{H}_\omega = 1$. \qed
 
 \newpage
-\subsection*{Relazioni canoniche di commutazione}
+\subsection{Relazioni canoniche di commutazione}
 \textbf{Proposizione (4.5.1):} le relazioni canoniche di commutazione $[q, p] = i\mathbf{1}$ non si realizzando in nessuna $C^*$-algebra normata. \\
 
 \textbf{Dimostrazione:} per le proprietà del commutatore si ha
@@ -3159,7 +3277,7 @@ ovvero
     \|q\|\|p\| \geq \frac{n}{2}
 \end{align*}
 per ogni $n \in \mathbb{N}$. \\ \\
-Risciviamo gli operatori in forma di Weyl per poter esprimere le CCR in $C^*$-algebre normate. \\ \\
+Riscriviamo gli operatori in forma di Weyl per poter esprimere le CCR in $C^*$-algebre normate. \\ \\
 \textbf{Definizione:} sia $\alpha, \beta \in \mathbb{R}$, poniamo
 \begin{align*}
     U(\alpha) = e^{i\alpha q} \qquad V(\beta) = e^{i\beta p}
@@ -3271,9 +3389,50 @@ Infine
     \alpha \in \mathbb{R} \mapsto \pi(U(\alpha)) \qquad \beta \in \mathbb{R} \mapsto \pi(V(\beta))
 \end{align*}
 sono S.O.T. continua. \\ \\
-\textbf{Teorema (di unicità di Stone-von Neumann):} esiste un'unica rappresentazione $\pi$ irriducibile e regolare di $\mathscr{W}$ ed è la rappresentazione $\pi_S$ di Schrodinger. \\
+\textbf{Teorema (di unicità di Stone-von Neumann):} esiste un'unica (a meno di trasformazioni unitarie) rappresentazione $\pi$ irriducibile e regolare di $\mathscr{W}$ ed è la rappresentazione $\pi_S$ di Schrodinger, definita da
+\begin{align*}
+    \pi_S(U(\alpha)) = U_S(\alpha) = U(\alpha) \qquad \pi_S(V(\beta)) = V_S(\beta) = V(\beta)
+\end{align*}
+per ogni $\alpha, \beta \in \mathbb{R}$. \\
 
-\textbf{Dimostrazione:}... \\ \\
+\textbf{Dimostrazione:} mostriamo che $\pi_S$ è regolare, ovvero S.O.T. continua. Dati $\alpha, \alpha_0 \in \mathbb{R}$ si ha che
+\begin{align*}
+    \|U(\alpha_0)\psi - U(\alpha)\psi\|^2_{L^2} = \|U(\alpha_0 - \alpha)\psi - \psi\|^2_{L^2}
+\end{align*}
+per ogni $\psi \in L^2(\mathbb{R})$. Pertanto è sufficiente verificare che
+\begin{align*}
+    \|U(\alpha)\psi - \psi\|^2_{L^2} \rightarrow 0
+\end{align*} 
+per $\alpha \rightarrow 0$. Per definizione si ha
+\begin{align*}
+    \|U(\alpha)\psi - \psi\|^2_{L^2} &= \int_{\mathbb{R}} |e^{i\alpha t}\psi(t) - \psi(t)|^2 \, dt
+\end{align*}
+Dato che $|e^{i\alpha t}\psi(t) - \psi(t)|^2 \leq 4|\psi(t)|^2$ per ogni $t \in \mathbb{R}$, per il \textit{teorema di convergenza dominata di Lebesgue} si ha che
+\begin{align*}
+    \int_{\mathbb{R}} |e^{i\alpha t}\psi(t) - \psi(t)|^2 \, dt \rightarrow 0
+\end{align*}
+per $\alpha \rightarrow 0$. Inoltre
+\begin{align*}
+    \widehat{(U(\alpha)\psi)}(\xi) &= \int_{\mathbb{R}} e^{i\alpha t}\psi(t)e^{i\xi t} \, dt \\
+    &= \int_{\mathbb{R}} e^{it(\alpha + \xi)}\psi(t) \, dt \\
+    &= \widehat{\psi}(\xi + \alpha) = V(\alpha)\widehat{\psi}(\xi)
+\end{align*}
+per ogni $\xi \in \mathbb{R}$. Se indichiamo con $F$ l'operatore unitario di trasformazione di Fourier si ottiene
+\begin{align*}
+    V(\alpha) = F \circ U(\alpha) \circ F^{-1}
+\end{align*}
+Pertanto anche $V(\alpha)$ S.O.T. continuo per ogni $\alpha \in \mathbb{R}$. \\
+Dimostriamo che $\pi_S$ è irriducibile. Dato $K \subset L^2(\mathbb{R})$ non vuoto $\pi_S$-invariante, consideriamo $\psi \in K$ e $\phi \in K^\perp$ non nulle (almeno su un insieme di misura finita). Allora
+\begin{align*}
+    0 = (\phi, U(\alpha)V(\beta)\psi) &= \int_{\mathbb{R}} \overline{\phi(t)}e^{i\alpha t}\psi(t + \beta) \, dt \\
+    &= \widehat{(\phi^* \cdot \psi \circ T_\beta)}(\alpha)
+\end{align*}
+per ogni $\alpha, \beta \in \mathbb{R}$ (dove $T_\beta$ è l'operatore di traslazione di $\beta$). Segue che $\phi^* \cdot \psi \circ T_\beta$ è nulla quasi ovunque in $\mathbb{R}$ per ogni $\beta \in \mathbb{R}$, ovvero
+\begin{align*}
+    \mathrm{supp} \, \phi^* \cap \mathrm{supp} \, \psi \circ T_\beta
+\end{align*}
+ha misura nulla per ogni $\beta \in \mathbb{R}$. Concludiamo necessariamente che $m(\mathrm{supp} \, \phi^*) = 0$, al contrario dell'ipotesi originale. \\
+Dimostriamo l'unicità. ...
 
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che $t \in \mathbb{R} \mapsto U(t) \in \mathcal{B}(\mathcal{H})$ con $U$ unitario è S.O.T. continua se e solo se è W.O.T. continua. \\
