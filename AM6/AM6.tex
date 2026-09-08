@@ -1128,18 +1128,25 @@ per ogni $m_1, m_2 > M_\varepsilon$. Consideriamo la classe di equivalenza della
 \end{align*}
 allora si ha 
 \begin{align*}
-    \overline{d}([\{x^m_n\}_{n \in \mathbb{N}}], [\{x^n_n\}_{n \in \mathbb{N}}]) &= \lim_{n \rightarrow \infty}d(x^m_n, x^n_n)  \\
-    &\leq \lim_{n \rightarrow \infty}d(x^m_n, x^m_m) + \lim_{n \rightarrow \infty}d(x^m_m, x^n_n) 
+    \overline{d}([\{x^m_n\}_{n \in \mathbb{N}}], [\{x^n_n\}_{n \in \mathbb{N}}]) &= \lim_{n \rightarrow \infty}d(x^m_n, x^n_n) < \varepsilon
 \end{align*}
-Fissato $m$, la successione di $\{x^m_k\}_{k \in \mathbb{N}}$ è di Cauchy poiché è un elemento di $S$. Inoltre anche $\{x^k_k\}_{k \in \mathbb{N}}$ è di Cauchy, infatti 
+Fissato $m$ sufficientemente grande, dato che per ipotesi è una successione di Cauchy. Mostriamo che la classe diagonale è un elemento di $\overline{X}$, ovvero che $\{x^n_n\}_{n \in \mathbb{N}}$ è di Cauchy. Per ipotesi, per ogni $n, m > N_\varepsilon$ si ha
 \begin{align*}
-    d(x^{n_1}_{n_1}, x^{n_2}_{n_2}) &\leq d(x^{n_1}_{n_1}, x^{n_1}_{n_2}) + d(x^{n_1}_{n_2}, x^{n_2}_{n_2}) < 2\varepsilon 
+    d(x^m_m, x^m_n) < \varepsilon
 \end{align*}
-definitivamente, per ipotesi di Cauchy su entrambi gli indici. Pertanto, fissato $n$ abbastanza grande, si ottiene 
+Inoltre, per ipotesi
 \begin{align*}
-    \overline{d}([\{x^m_n\}_{n \in \mathbb{N}}], [\{x^n_n\}_{n \in \mathbb{N}}]) < 2\varepsilon 
+    \lim_{n \rightarrow \infty} d(x^m_n, x^n_n) < \varepsilon 
 \end{align*}
-definitivamente rispetto a $m$, ovvero $(\overline{X}, \overline{d})$ completo. \\
+per ogni $m, n > M_\varepsilon$. Segue che esiste $\widetilde{M}_{m, \varepsilon}$ tale che
+\begin{align*}
+    d(x^m_n, x^n_n) < \varepsilon
+\end{align*}
+per ogni $m > M_\varepsilon$ e ogni $n > \widetilde{M}_{m, \varepsilon}$. Concludiamo che
+\begin{align*}
+    d(x^m_m, x^n_n) \leq d(x^m_m, x^m_n) + d(x^m_n, x^n_n) < 2\varepsilon
+\end{align*}
+definitivamente per $m, n$. Pertanto $(\overline{X}, \overline{d})$ completo. \\
 Ora dobbiamo definire l'inclusione $i$. Dato $x \in X$ poniamo 
 \begin{align*}
     i(x) := [\{x\}_{n \in \mathbb{N}}] 
