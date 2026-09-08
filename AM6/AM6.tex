@@ -1877,11 +1877,12 @@ per ogni $t \in [0, 1]$. Allora si ha
 \begin{align*}
     (\lambda\mathbf{1} - q)\phi(t) = \psi(t) 
 \end{align*}
-ovvero esiste l'inverso di $\lambda\mathbf{1} - q$, segue che $\sigma(T) \subset [0, 1]$. Mostriamo ora che $[0, 1] \subset \sigma(T)$. Scegliamo $\psi \in L^2([0, 1])$ con $\phi(t) = 1$ per ogni $t \in [0, 1]$, supponiamo per assurdo che esiste $\psi \in L^2([0, 1])$ tale che 
+ovvero esiste l'inverso di $\lambda\mathbf{1} - q$, segue che $\sigma(T) \subset [0, 1]$. \\
+Mostriamo ora che $[0, 1] \subset \sigma(T)$. Scegliamo $\phi \in L^2([0, 1])$ tale che $\phi(t) = 1$ per ogni $t \in [0, 1]$, supponiamo per assurdo che esiste $\psi \in L^2([0, 1])$ tale che 
 \begin{align*}
-    (\lambda\mathbf{1} - q)\psi = \psi 
+    (\lambda\mathbf{1} - q)\psi = \phi 
 \end{align*}
-allora deve valere 
+Allora deve valere 
 \begin{align*}
     (\lambda - t)\psi(t) = 1 
 \end{align*}
@@ -1889,7 +1890,7 @@ per ogni $t \in [0, 1]$. Ma allora
 \begin{align*}
     \psi(t) = \frac{1}{\lambda - t} 
 \end{align*}
-il che è assurdo poiché $\psi$ così definita non sarebbe quadrato sommabile in $[0, 1]$. \\ \\
+il che è assurdo poiché $\psi$ così definita non sarebbe quadrato sommabile in $[0, 1]$ per $\lambda \in [0, 1]$. \\ \\
 \textbf{Definizione:} dato $T \in \mathcal{B}(\mathcal{H})$ chiamiamo \textit{funzione risolvente} la funzione 
 \begin{align*}
     \lambda \in \rho(T) \mapsto (\lambda\mathbf{1} - T) \in \mathcal{B}(\mathcal{H}) 
