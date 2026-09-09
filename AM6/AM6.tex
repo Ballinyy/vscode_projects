@@ -1742,11 +1742,14 @@ $(5)$ Per submoltiplicatività della norma si ha
 \begin{align*}
     \|T^*T\| \leq \|T^*\|\|T\| = \|T\|^2 
 \end{align*}
-dove si è usato il risultato del punto $(4)$. Mentre, come trovato nel punto $(4)$ si ha 
+dove si è usato il risultato del punto $(4)$. Mentre
 \begin{align*}
-    \|T\|^2 \leq \|T^*\|\|T\| 
+    \|T\|^2 &= \sup_{x \neq 0} \frac{(Tx, Tx)}{\|x\|^2} \\
+    &= \sup_{x \neq 0} \frac{(x, T^*Tx)}{\|x\|^2} \\
+    &\leq \sup_{x \neq 0} \frac{\|T^*Tx\|}{\|x\|} \\
+    &= \|T^*T\|
 \end{align*}
-pertanto concludiamo che $\|T^*T\| = \|T\|^2$. \qed
+ovvero $\|T\|^2 \leq \|T^*T\|$. Confrontando le disuguaglianze si ottiene la tesi. \qed
 
 \newpage
 \subsection{Operatori autoaggiunti}
