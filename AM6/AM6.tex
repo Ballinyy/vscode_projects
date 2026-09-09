@@ -1982,7 +1982,7 @@ per $\lambda \rightarrow \infty$. La funzione $\lambda \mapsto \|R_T(\lambda)\|$
 \begin{align*}
     \mathbf{1} - \sum_{n = 0}^k S^n &= -\sum_{n = 1}^k S^n  \\
     &= -\sum_{n = 0}^{k - 1} S^{n + 1}  \\
-    &= -S\sum_{n = 0}^{k - 1} S^n  \\
+    &= -S\sum_{n = 0}^{k - 1} S^n
 \end{align*}
 Quindi
 \begin{align*}
@@ -2005,9 +2005,8 @@ per $\|S \| \rightarrow 0$. Si ha
 \end{align*}
 pertanto per $\|S\| \rightarrow 0$ e per la \textit{serie di Neumann} si ha
 \begin{align*}
-    \|(T + S)^{-1} - T^{-1}\| &= \|((\mathbf{1} - T^{-1}S) - \mathbf{1})T^{-1}\|  \\
-    &= \|T^{-1}S\|\|T^{-1}\|  \\
-    &= \|T^{-1}\|\left\|\sum_{n = 0}^\infty (T^{-1}S)^n\right\|  \\
+    \|(T + S)^{-1} - T^{-1}\| &= \|((\mathbf{1} - T^{-1}S)^{-1} - \mathbf{1})T^{-1}\|  \\
+    &\leq \|T^{-1}\|\left\|\sum_{n = 1}^\infty (T^{-1}S)^n\right\|  \\
     &\leq \|T^{-1}\|\frac{\|T^{-1}S\|}{1 - \|T^{-1}S\|} \rightarrow 0 
 \end{align*}
 quindi si ottiene la tesi. \qed \\ \\
