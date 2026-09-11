@@ -1012,12 +1012,7 @@ per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbb{N}\}$ è una s
 \begin{align*}
     f(t) = \lim_{n \rightarrow \infty} f_n(t)
 \end{align*}
-ovvero $f : S \longrightarrow \mathbb{C}$. Notiamo che esiste $N_1 \in \mathbb{N}$ tale che fissato $n > N_1$ si ha
-\begin{align*}
-    \|f\|_\infty &\leq \|f - f_n\|_\infty + \|f_n\|_\infty  \\
-    &< 1 + \|f_n\|_\infty 
-\end{align*}
-ovvero $f \in l^\infty(S)$. Resta da dimostrare che $\|f_n - f\|_\infty \rightarrow 0$ per $n \rightarrow \infty$ e che $f \in l^\infty(S)$. Per continuità della norma in $\mathbb{C}$ si ha
+ovvero $f : S \longrightarrow \mathbb{C}$. Resta da dimostrare che $\|f_n - f\|_\infty \rightarrow 0$ per $n \rightarrow \infty$ e che $f \in l^\infty(S)$. Per continuità della norma in $\mathbb{C}$ si ha
  \begin{align*}
     |f_n(t) - f(t)| = \lim_{m \rightarrow \infty} |f_n(t) - f_m(t)| < \varepsilon
  \end{align*}
@@ -1025,7 +1020,12 @@ per ogni $t \in S$ e ogni $n > N_\varepsilon$. Prendendo il $\sup$ si ottiene
 \begin{align*}
     \|f_n - f\|_\infty < \varepsilon
 \end{align*}
-ovvero la tesi. \qed \\ \\
+Infine, notiamo che esiste $N_1 \in \mathbb{N}$ tale che fissato $n > N_1$ si ha
+\begin{align*}
+    \|f\|_\infty &\leq \|f - f_n\|_\infty + \|f_n\|_\infty  \\
+    &< 1 + \|f_n\|_\infty 
+\end{align*}
+ovvero $f \in l^\infty(S)$, quindi di ottiene la tesi. \qed \\ \\
 \textbf{Teorema (di completamento di spazi metrici):} sia $(X, d)$ uno spazio metrico, allora esiste uno spazio metrico completo $(\overline{X}, \overline{d})$ detto completamento di $(X, d)$ e un'isometria $i : X \longrightarrow \overline{X}$
 tale che $\overline{i(X)} = \overline{X}$, ovvero $i(X)$ è denso in $\overline{X}$. Inoltre il completamento è unico, nel senso che se $(\widetilde{X}, \tilde{d})$ è un altro completamento di $(X, d)$ e $j : X \longrightarrow \widetilde{X}$
 un'altra isometria, esiste un'isometria suriettiva $\phi : \overline{X} \longrightarrow \widetilde{X}$ tale che $\phi \circ i = j$. \\
@@ -1231,11 +1231,11 @@ allora $f(x) = \lim_{k \rightarrow \infty}f_{n_k}(x)$. Mostriamo che $f_n \right
     &\leq \liminf_{k \rightarrow \infty}\int_X |f_{n_k} - f_n|^p \, d\mu  \\
     &\leq \liminf_{k \rightarrow \infty}\|f_{n_k} - f_n\|^p_p < \varepsilon^p 
 \end{align*}
-per ogni $n > n_\varepsilon$. Inoltre
+definitivamente per $n$. Segue che
 \begin{align*}
-    \|f\|_p \leq \|f - f_m\| + \|f_m\| < +\infty 
+    \|f\|_p \leq \|f - f_m\|_p + \|f_m\|_p < +\infty 
 \end{align*}
-per ogni $m \in \mathbb{N}$ per ipotesi di convergenza, ovvero $f \in L^p(X, \mu)$. \qed 
+ovvero $f \in L^p(X, \mu)$. \qed 
 
 
 \subsubsection{Esercizi}
@@ -2174,7 +2174,7 @@ ovvero
     \frac{\|(A - \lambda\mathbf{1})x\|}{\|x\|} \geq \lambda 
 \end{align*}
 e quindi $A - \lambda\mathbf{1}$ è lontano da zero. Segue dalla \textit{proposizione 3.2.1} che $A - \lambda\mathbf{1}$ è invertibile e $\lambda \in \rho(A)$. \\ \\
-$(\leftarrow)$ Sia $A = A^*$, per il \textit{teorema del calcolo funzionale continuo} esiste $B \in \mathcal{B}(\mathcal{H})$ tale che $\sqrt{A} = B$. Allora 
+$(\leftarrow)$ Sia $A = A^*$ con $\sigma(A) \subset [0, \infty)$, per il \textit{teorema del calcolo funzionale continuo} esiste $B \in \mathcal{B}(\mathcal{H})$ tale che $\sqrt{A} = B$. Allora 
 \begin{align*}
     (x, Ax) = (x, B^2x) = (B^*x, Bx) = (Bx, Bx) \geq 0 
 \end{align*}
@@ -2647,7 +2647,7 @@ ovvero $\widehat{f(A)} = f$ (ricordiamo che possiamo identificare $\omega$ con $
 \textbf{Lemma (permanenza spettrale):} sia $\mathscr{A} \subset \mathcal{B}(\mathcal{H})$ una $C^*$-sottoalgebra chiusa in norma $\|\cdot\|_{\mathcal{B}(\mathcal{H})}$ e sia $A = A^* \in \mathscr{A}$, allora $\sigma(A) = \sigma_\mathscr{A}(A)$. \\
 
 \textbf{Dimostrazione:} se $\lambda \in \sigma(A)$ si ha $A - \lambda\mathbf{1}$ non invertibile in $\mathcal{B}(\mathcal{H})$, pertanto non invertibile anche in $\mathscr{A} \subset \mathcal{B}(\mathcal{H})$, ovvero $\sigma(A) \subset \sigma_\mathscr{A}(A)$. \\
-Dato $\lambda \in \sigma(A)$ si ha che $\lambda + i\varepsilon \in \rho(A)$ per ogni $\varepsilon > 0$, infatti $\sigma(A) \subset \mathbb{R}$. Allora $A - (\lambda + i\varepsilon)\mathbf{1}$ è invertibile in $\mathcal{B}(\mathcal{H})$ e quindi anche in $\mathscr{A}$, ovvero esiste $(A - (\lambda + i\varepsilon)\mathbf{1})^{-1} \in \mathbf{A}$. Dato che l'operazione di inversione operatoriale è continua e $\mathscr{A}$ è chiuso in norma, al limite $\varepsilon \rightarrow 0$ concludiamo che $(A - \lambda\mathbf{1})^{-1} \in \mathscr{A}$, ovvero $\lambda \in \rho_\mathscr{A}(A)$ e quindi $\rho(A) \subset \rho_\mathscr{A}(A)$, cioè $\sigma_\mathscr{A}(A) \subset \sigma(A)$. Pertanto $\sigma(A) = \sigma_\mathscr{A}(A)$. \qed
+Dato $\lambda \in \sigma(A)$ si ha che $\lambda + i\varepsilon \in \rho(A)$ per ogni $\varepsilon > 0$, infatti $\sigma(A) \subset \mathbb{R}$. Allora $A - (\lambda + i\varepsilon)\mathbf{1}$ è invertibile in $\mathcal{B}(\mathcal{H})$ e quindi anche in $\mathscr{A}$, ovvero esiste $(A - (\lambda + i\varepsilon)\mathbf{1})^{-1} \in \mathscr{A}$. Dato che l'operazione di inversione di un operatore è continua e $\mathscr{A}$ è chiuso in norma, al limite $\varepsilon \rightarrow 0$ concludiamo che $(A - \lambda\mathbf{1})^{-1} \in \mathscr{A}$, ovvero $\lambda \in \rho_\mathscr{A}(A)$ e quindi $\rho(A) \subset \rho_\mathscr{A}(A)$, cioè $\sigma_\mathscr{A}(A) \subset \sigma(A)$. Pertanto $\sigma(A) = \sigma_\mathscr{A}(A)$. \qed
 
 \subsubsection{Esercizi}
 \textbf{1.} sia $\mathscr{A}$ una $C^*$-algebra con identità, dato $A \in \mathscr{A}$ definito su $\mathcal{H}$ spazio di Hilbert, dimostrare che $(x, Ax) \geq 0$ per ogni $x \in \mathcal{H}$ se e solo se esiste $B \in \mathscr{A}$ tale che $A = B^*B$. \\
@@ -2712,7 +2712,7 @@ per ogni $B \in \mathscr{A}$. In particolare $B^*B$ è un generico operatore pos
 \end{align*}
 per ogni $x$ nello spazio di Hilbert su cui è definito $B$. \\ \\
 Indichiamo con $\mathfrak{S}(\mathscr{A})$ l'insieme degli stati di $\mathscr{A}$. \\ \\
-\textbf{Osservazione:} se $\mathscr{A}$ è una $C^*$-algebra con identità commutativa e $\omega$ un carattere di $\mathscr{A}$, $\omega$ è uno stato. Infatti
+\textbf{Osservazione:} se $\mathscr{A}$ è una $C^*$-algebra con identità e $\omega$ un carattere di $\mathscr{A}$, $\omega$ è uno stato. Infatti
 \begin{align*}
     \omega(B^*B) = \omega(B^*)\omega(B) = \overline{\omega(B)}\omega(B) = |\omega(B)|^2 \geq 0
 \end{align*}
@@ -2865,14 +2865,14 @@ Infine, notiamo che
 \begin{align*}
     U\pi_\omega(A)\pi_\omega(B) &= U\pi_\omega(AB) = \pi(AB) = \pi(A)\pi(B) = \pi(A)U\pi_\omega(B)
 \end{align*}
-ovvero $U\pi_\omega(A) = \pi_(A)U$ per ogni $A \in \mathscr{A}$. \qed \\ \\
+ovvero $U\pi_\omega(A) = \pi(A)U$ per ogni $A \in \mathscr{A}$. \qed \\ \\
 \textbf{Lemma (4.2.1):} si ha che
 \begin{align*}
     \|A\| = \sup_{\omega \in \mathfrak{S}(\mathscr{A})} |\omega(A)|
 \end{align*}
 per ogni $A = A^* \in \mathscr{A}$. \\
 
-\textbf{Dimostrazione:} Dato $A = A^* \in \mathscr{A}$ vogliamo costruire un funzionale lineare complesso $g$ su $E = \mathrm{span}\{\mathbf{1, A}\}$ tale che $g \leq \|\cdot\|$ su $E$ e $g(A) = \|A\|$. Se esiste tale $g$, per il \textit{teorema di Hahn-Banach} esiste una sua estensione $f$ su $\mathscr{A}$ ancora dominata da $\|\cdot\|$. A questo punto sarebbe sufficiente dimostrare che $f$ è uno stato, ovvero lineare, positivo e unitale. \\
+\textbf{Dimostrazione:} Dato $A = A^* \in \mathscr{A}$ vogliamo costruire un funzionale lineare complesso $g$ su $E = \mathrm{span}\{\mathbf{1}, A\}$ tale che $g \leq \|\cdot\|$ su $E$ e $g(A) = \|A\|$. Se esiste tale $g$, per il \textit{teorema di Hahn-Banach} esiste una sua estensione $f$ su $\mathscr{A}$ ancora dominata da $\|\cdot\|$. A questo punto sarebbe sufficiente dimostrare che $f$ è uno stato, ovvero lineare, positivo e unitale. \\
 Definiamo $g$ essere
 \begin{align*}
     g : B = \lambda\mathbf{1} + \mu A \mapsto \lambda + \mu\|A\| \in \mathbb{C}
@@ -2896,7 +2896,7 @@ per ogni $B \in \mathscr{A}$, pertanto $\|f\| \leq 1$. Inoltre
     1 = g(\mathbf{1}) = f(\mathbf{1}) \leq \|f\|\|\mathbf{1}\| = \|f\|
 \end{align*}
 ovvero $\|f\| = 1$. \\
-Mostriamo che $f$ è positivo. In particolare questo emerge come una conseguenza del fatto che $f$ è dominato dalla norma ed è unitale. Dati $t \in \mathbb{R}$ e $B = B^* \in \mathscr{A}$ si ha che
+Mostriamo che $f$ è positivo. In particolare questo emerge come una conseguenza del fatto che $f$ è dominato dalla norma ed è unitale. Dati $t \in \mathbb{R}$ e $B \in \mathscr{A}$, $B \geq 0$, per il \textit{corollario 3.3.3} si ha che $B = B^*$ e $\sigma(B) \subset [0, \infty)$. Pertanto
 \begin{align*}
     f(\mathbf{1} + itB) = 1 + itf(B)
 \end{align*}
@@ -2915,10 +2915,10 @@ Segue che
 \end{align*}
 Mentre
 \begin{align*}
-    |1 + itf(B)| = 1 - 2t\mathrm{Im} \, f(B) + t^2f(B)^2 = 1 + O(t)
+    |1 + itf(B)|^2 = 1 - 2t\mathrm{Im} \, f(B) + t^2f(B)^2 = 1 + O(t)
 \end{align*}
 Dato che le disuguaglianze osservate sono valide per ogni $t \in \mathbb{R}$, segue che $\mathrm{Im} \, f(B) = 0$, ovvero $f(B) \in \mathbb{R}$ per ogni $B = B^* \in \mathscr{A}$. \\
-A questo punto, per il \textit{corollario 3.3.3}, si ha che $B$ è positivo se e solo se è autoaggiunto. Pertanto
+Pertanto
 \begin{align*}
     1 \geq \mathbf{1} - tB \geq 0
 \end{align*}
@@ -2939,6 +2939,7 @@ Segue che
     \|A\| = f(A) = \sup_{\omega \in \mathfrak{S}(\mathscr{A})} \omega(A)
 \end{align*}
 Ripetendo questo argomento per ogni $A = A^* \in \mathscr{A}$ si ottiene la tesi. \qed \\ \\
+Il risultato del \textit{lemma 4.2.1} può essere esteso a operatori normali. Infatti, se $A \in \mathscr{A}$ è un operatore normale si ha che $r(A) = \|A\|$, tuttavia $\sigma(A) \subset \mathbb{C}$ in generale, quindi sappiamo che $e^{i\theta}\|A\| \in \sigma(A)$ per qualche $\theta \in [0, 2\pi]$. A questo punto è sufficiente sostituire $\|A\|$ con $e^{i\theta}\|A\|$ nella definizione di $g$ per ottenere lo stesso risultato. \\ \\
 \textbf{Corollario (4.2.1):} dato $A = A^* \in \mathscr{A}$, $A \neq 0$, si ha che esiste $\omega \in \mathfrak{S}(\mathscr{A})$ tale che $\omega(A) \neq 0$.
 
 \newpage
@@ -2990,8 +2991,11 @@ per ogni $y \in K^\perp$, ovvero $\pi(A)$ e $P^\perp$ commutano in $K^\perp$, qu
 \begin{align*}
     (x, \pi(A)y) = (\pi(A)^*x, y) = (\pi(A^*)x, y) = (\pi(A)x, y) = 0
 \end{align*}
-dove si è usato che $\pi$ preserva lo $*$. \\
-In particolare $\mathcal{H}_\pi = K \oplus K^\perp$, pertanto $P = \mathbf{1}_{\mathcal{H}_\pi}$ e quindi $K = \mathcal{H}_\pi$, ovvero $\pi$ irriducibile. \\
+dove si è usato che $\pi$ preserva lo $*$. Dato $z \in \mathcal{H}_\pi$ esistono unici $x \in K$ e $y \in K^\perp$ tali che $z = x + y$, quindi
+\begin{align*}
+    P\pi(A)z = P\pi(A)(x + y) = P\pi(A)x = \pi(A)Px = \pi(A)Pz
+\end{align*}
+dato che $\pi(A)y \subset K^\perp$ e $PK^\perp = \{0\}$. Allora $\pi(A)$ e $P = P_K$ commutano in tutto $\mathcal{H}_\pi$, pertanto $P = \mathbf{1}_{\mathcal{H}_\pi}$ e quindi $K = \mathcal{H}_\pi$, ovvero $\pi$ irriducibile. \\
 $(1 \rightarrow 3)$ Dato $\xi \in \mathcal{H}_\pi$, poniamo
 \begin{align*}
     K = \overline{\{\pi(A)\xi : A \in \mathscr{A}\}}^{\|\cdot\|_{\mathcal{H}_\pi}}

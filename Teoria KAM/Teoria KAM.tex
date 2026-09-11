@@ -62,7 +62,7 @@ Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso
     \varphi_t : \mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
 \end{flalign}
 dove $\alpha = \partial_rH(r)$. \\ \\
-\textbf{Lemma 3.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
+\textbf{Lemma 2.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
 
 \textbf{Dimostrazione:} supponiamo che i flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
 \begin{flalign}
@@ -124,7 +124,7 @@ In particolare, per $\theta = 0$, si ha
     A(V(t\alpha) - V(0)) = t(\beta - A\alpha) \tag{2.16}
 \end{flalign}
 Il membro di sinistra è limitato (dato che $V$ è $\mathbb{Z}^n$-periodico), allora deve valere $\beta = A\alpha$. \qed \\ \\
-\textbf{Proposizione 3.1:} le seguenti affermazioni sono equivalenti: \\
+\textbf{Proposizione 2.1:} le seguenti affermazioni sono equivalenti: \\
 \textbf{1.} Il vettore frequenza $\alpha$ è \textit{non risonante}, ovvero $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\
 \textbf{2.} Il flusso $\varphi_t$ del campo vettoriale costante $\alpha$ è \textit{ergotico}, ovvero tutte le funzioni continue $f$ di $\mathbb{T}^n$ che soddisfano
 \begin{flalign}
@@ -140,29 +140,29 @@ ricordando che $\mathbb{T}^n$ ha misura di Lebesgue unitaria dato che è identif
 
 \textbf{Dimostrazione:} $(1 \rightarrow 2)$ sia $f$ una funzione di $\mathbb{T}^n$ tale che $f \circ \varphi_t = f$ per ogni $t \in \mathbb{R}$. Il $k$-esimo coefficiente di Fourier di $f \circ \varphi_t$ è dato da 
 \begin{flalign}
-    \widehat{f \circ \varphi_t}(k) = \int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta}f(\theta + t\alpha) \, d\theta \tag{2.19}
+    \widehat{f \circ \varphi_t}(k) = \int_{\mathbb{T}^n} e^{-i k \cdot \theta}f(\theta + t\alpha) \, d\theta \tag{2.19}
 \end{flalign}
 Poniamo $\theta' = \theta + t\alpha$, allora $\theta = \theta' - t\alpha$ e $d\theta = d\theta'$. Sostituendo in $(2.19)$ si ottiene
 \begin{flalign}
-    \widehat{f \circ \varphi_t}(k) = e^{i2\pi k \cdot \alpha t}\int_{\mathbb{T}^n} e^{-i2\pi k \cdot \theta'}f(\theta') \, d\theta' = e^{i2\pi k \cdot \alpha t}\widehat{f}(k) \tag{2.20}
+    \widehat{f \circ \varphi_t}(k) = e^{i k \cdot \alpha t}\int_{\mathbb{T}^n} e^{-i k \cdot \theta'}f(\theta') \, d\theta' = e^{i k \cdot \alpha t}\widehat{f}(k) \tag{2.20}
 \end{flalign}
 Per ipotesi $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, pertanto, per unicità dei coefficienti di Fourier, concludiamo che $\widehat{f}(k) = 0$ per ogni $k \in \mathbb{Z} \setminus \{0\}$, quindi $f$ costante. \\ \\
 $(2 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ tale che $k \cdot \alpha = 0$. Allora la funzione $f$, definita da
 \begin{flalign}
-    f(\theta) = e^{i2\pi k \cdot \theta} \tag{2.21}
+    f(\theta) = e^{i k \cdot \theta} \tag{2.21}
 \end{flalign}
 per ogni $\theta \in \mathbb{R}^n$, è invariante ma non costante, pertanto si ottiene un assurdo. \\ \\
 $(1 \rightarrow 3)$ Se $f$ è costante $(2.18)$ è immediatamente verificata. Se $f$ è della forma
 \begin{flalign}
-    f(\theta) = e^{i2\pi k \cdot \theta} \tag{2.22}
+    f(\theta) = e^{i k \cdot \theta} \tag{2.22}
 \end{flalign}
 per ogni $\theta \in \mathbb{R}^n$, con $k \in \mathbb{Z}^n \setminus \{0\}$, si ottiene
 \begin{flalign}
-    \frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt &= \frac{1}{T}e^{i2\pi k \cdot \theta}\int_0^T e^{i2\pi k \cdot \alpha t} \, dt \notag \\
-    &= \frac{1}{T}e^{i2\pi k \cdot \theta}\frac{e^{i2\pi k \cdot aT} - 1}{ik \cdot \alpha} \rightarrow 0 \tag{2.23}
+    \frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt &= \frac{1}{T}e^{i k \cdot \theta}\int_0^T e^{i k \cdot \alpha t} \, dt \notag \\
+    &= \frac{1}{T}e^{i k \cdot \theta}\frac{e^{i k \cdot aT} - 1}{ik \cdot \alpha} \rightarrow 0 \tag{2.23}
 \end{flalign}
 per $T \rightarrow \infty$, ovvero la media temporale è nulla come la media spaziale (per simmetria del toro $n$-dimensionale e disparità della funzione $f$). \\
-Se $f$ è un polinomio trigonometrico può essere espressa come somma finita di termini della forma $e^{i2\pi m \cdot \theta}$, per $m \in \mathbb{Z}^n$. Pertanto $(2.18)$ è verificata grazie a $(2.23)$ per linearità dell'integrale. \\
+Se $f$ è un polinomio trigonometrico può essere espressa come somma finita di termini della forma $e^{i m \cdot \theta}$, per $m \in \mathbb{Z}^n$. Pertanto $(2.18)$ è verificata grazie a $(2.23)$ per linearità dell'integrale. \\
 Per il \textit{teorema di Stone-Weierstrass}\footnote{In appendice D}, se $f$ è continua, fissato $\varepsilon > 0$, esiste $P$ polinomio trigonometrico tale che
 \begin{flalign}
     \max_{\theta \in \mathbb{T}^n} |f(\theta) - P(\theta)| < \varepsilon \tag{2.24}
@@ -180,7 +180,7 @@ per $T \rightarrow \infty$. Indichiamo con $\overline{\cdot}$ l'operazione di me
 per $T$ sufficientemente grande. \\ \\
 $(3 \rightarrow 1)$ Supponiamo che esista $k \in \mathbb{Z}^n \setminus \{0\}$ tale che $k \cdot \alpha = 0$. Allora $f$ definita in $(2.21)$ è una funzione invariante e continua che ha media temporale diversa dalla media spaziale, infatti
 \begin{flalign}
-    \frac{1}{T}\int_0^T e^{i2\pi k \cdot (\theta + \alpha t)} \, dt = e^{i2\pi k \cdot \theta} \tag{2.27}
+    \frac{1}{T}\int_0^T e^{i k \cdot (\theta + \alpha t)} \, dt = e^{i k \cdot \theta} \tag{2.27}
 \end{flalign}
 mentre $\overline{f} = 0$. \\ \\
 $(1 \rightarrow 4)$ Supponiamo che $\varphi_t$ ammetta una traiettoria \textit{non} densa. Allora esiste $\theta_0 \in \mathbb{T}^n$ che possiede un intorno aperto $U$ che non interseca con la traiettoria. \\
@@ -250,7 +250,7 @@ Inoltre, dato che $d\lambda = -\omega$, si ha
     \phi^*\omega = -\phi^*d\lambda = -d\phi^*\lambda = -d\lambda = \omega \tag{3.12}
 \end{flalign}
 ovvero $\phi$ simplettico. \\ \\
-\textbf{Proposizione 4.1:} sia $\phi_t$ è il flusso associato ad un campo vettoriale hamiltoniano $X_H$, allora $\phi^*_t\omega = \omega$ per ogni $t$ nell'intervallo di definizione del flusso. \\
+\textbf{Proposizione 3.1:} sia $\phi_t$ è il flusso associato ad un campo vettoriale hamiltoniano $X_H$, allora $\phi^*_t\omega = \omega$ per ogni $t$ nell'intervallo di definizione del flusso. \\
 
 \textbf{Dimostrazione:} per il \textit{teorema fondamentale del calcolo} si ha
 \begin{flalign}
@@ -261,139 +261,136 @@ per definizione di derivata di Lie. Per la \textit{formula d'omotopia di Cartan}
 \begin{flalign}
     \mathcal{L}_{X_H}\omega = di_{X_H}\omega + i_{X_H}d\omega \tag{3.14}
 \end{flalign}
-In particolare, $d\omega = 0$, dato che che $\omega$ ha tutti coefficienti costanti, mentre $i_{X_H}\omega = dH$, pertanto $di_{X_H}\omega = d^2H = 0$ (dato che $d^2 = 0$, \textit{operatore di coomologia}). \qed \\ \\
-\textbf{Proposizione 4.2 (Herman):} (...) \\
-
-\textbf{Dimostrazione:} (...)
+In particolare, $d\omega = 0$, dato che che $\omega$ ha tutti coefficienti costanti, mentre $i_{X_H}\omega = dH$, pertanto $di_{X_H}\omega = d^2H = 0$ (dato che $d^2 = 0$, \textit{operatore di coomologia}). \qed
 
 \newpage
 \section{Serie perturbativa}
 Consideriamo un hamiltoniana $H$ definita in un intorno di $\mathbb{T}^n \times \{0\}$ in $\mathbb{T}^n \times \mathbb{R}^n$. Supponiamo che $H$ dipenda formalmente da un parametro $\varepsilon > 0$ nella forma
 \begin{flalign}
-    H(\theta, r) = H_0(r) + \varepsilon H_1(\theta, r) + \varepsilon^2H_2(\theta, r) + O(\varepsilon^3) \tag{5.1}
+    H(\theta, r) = H_0(r) + \varepsilon H_1(\theta, r) + \varepsilon^2H_2(\theta, r) + O(\varepsilon^3) \tag{4.1}
 \end{flalign}
 Siamo interessati a trovare un opportuno cambio di variabili, sufficientemente vicino all'identità ($\varepsilon$ vicino), tale da rimuovere la dipendeza di $H_1$ da $\theta$. Se ciò è possibile vogliamo estendere questo procedimento in moda tale da poter gestire anche i termine di ordine $\varepsilon$ superiore. \\ \\
 A tal proposito, consideriamo un'hamiltoniana ausiliaria $F$ con flusso $\phi_t$. In particolare, vogliamo che $F$ sia tale che $\phi^*_1H = H \circ \phi_1$ non dipenda da $\theta$, almeno fino a termini di secondo ordine in $\varepsilon$. \\ \\
 Per definizione di flusso di un campo vettoriale si ha
 \begin{flalign}
-    \frac{d}{ds}\left|_{s = 0}\right.(\phi^*_{t + s}H) = \frac{d}{ds}\left|_{s = 0}\right.(H \circ \phi_{t + s}) = (\nabla H \cdot X_F) \circ \phi_t = \phi^*_t(X_F \cdot H) \tag{5.2}
+    \frac{d}{ds}\left|_{s = 0}\right.(\phi^*_{t + s}H) = \frac{d}{ds}\left|_{s = 0}\right.(H \circ \phi_{t + s}) = (\nabla H \cdot X_F) \circ \phi_t = \phi^*_t(X_F \cdot H) \tag{4.2}
 \end{flalign}
 dove nell'ultima uguaglianza si è trattato $X_F$ come un operatore di derivazione
 \begin{flalign}
-    X_F = \partial_rF \cdot \partial_\theta - \partial_\theta F \cdot \partial_r \tag{5.3}
+    X_F = \partial_rF \cdot \partial_\theta - \partial_\theta F \cdot \partial_r \tag{4.3}
 \end{flalign}
 Sviluppando la mappa $t \mapsto \phi^*_tH$ in serie di Taylor (con resto integrale di Lagrange) per $0 \leq t \leq 1$ si ottiene la seguente uguaglianza
 \begin{flalign}
-    \phi^*_1H = H + \varepsilon(X_F \cdot H) + \varepsilon^2\int_0^1 (1 - t)\phi^*_t(X^2_F \cdot H) \, dt \tag{5.4}
+    \phi^*_1H = H + \varepsilon(X_F \cdot H) + \varepsilon^2\int_0^1 (1 - t)\phi^*_t(X^2_F \cdot H) \, dt \tag{4.4}
 \end{flalign}
-I fattori $\varepsilon$ che compaiono a moltiplicare i termini in $(5.4)$ derivano dal fatto che stiamo sviluppando attorno ad un $\tilde{t}$ che dista $\varepsilon$ da $0$. Infatti, come detto in precedenza, cerchiamo una trasformazione $\varepsilon$-vicina all'identità ($\phi^*_0 = \mathbf{1}$). \\
-Sostituendo $(5.1)$ in $(5.4)$ si ottiene
+I fattori $\varepsilon$ che compaiono a moltiplicare i termini in $(4.4)$ derivano dal fatto che stiamo sviluppando attorno ad un $\tilde{t}$ che dista $\varepsilon$ da $0$. Infatti, come detto in precedenza, cerchiamo una trasformazione $\varepsilon$-vicina all'identità ($\phi^*_0 = \mathbf{1}$). \\
+Sostituendo $(4.1)$ in $(4.4)$ si ottiene
 \begin{flalign}
-    \phi^*_1H = H_0 + \varepsilon(H_1 + X_F \cdot H_0) + O(r^2) \tag{5.5}
+    \phi^*_1H = H_0 + \varepsilon(H_1 + X_F \cdot H_0) + O(r^2) \tag{4.5}
 \end{flalign}
 Riscriviamo $H_1$ come somma della sua media spaziale su $\mathbb{T}^n$ e dei termini di deviazione
 \begin{flalign}
-    H_1(\theta, r) = \overline{H}_1(r) + \tilde{H}_1(\theta, r) \qquad \overline{H}_1(\theta) = \int_{\mathbb{T}^n} H_1(\theta, r) \, d\theta \tag{5.6}
+    H_1(\theta, r) = \overline{H}_1(r) + \tilde{H}_1(\theta, r) \qquad \overline{H}_1(\theta) = \int_{\mathbb{T}^n} H_1(\theta, r) \, d\theta \tag{4.6}
 \end{flalign}
-In assenza di simmetrie particolari, il termine $\overline{H}_1$ è non nullo. Questo comporta che la variazione di $\alpha$ su $\mathbb{T}^n \times \{r\}$ è dettata da termini di primo ordine in $\varepsilon$. Per quanto visto nel \textit{lemma 3.1}, $\alpha$ è invariante per coniugazione topologica, quindi l'azione di $\phi^*$ non può assorbire il termine di media spaziale. \\ \\
+In assenza di simmetrie particolari, il termine $\overline{H}_1$ è non nullo. Questo comporta che la variazione di $\alpha$ su $\mathbb{T}^n \times \{r\}$ è dettata da termini di primo ordine in $\varepsilon$. Per quanto visto nel \textit{lemma 2.1}, $\alpha$ è invariante per coniugazione topologica, quindi l'azione di $\phi^*$ non può assorbire il termine di media spaziale. \\ \\
 Concludiamo che la condizione che $F$ deve soddisfare diventa
 \begin{flalign}
-    \tilde{H}_1 + X_F \cdot H_0 = 0 \tag{5.7}
+    \tilde{H}_1 + X_F \cdot H_0 = 0 \tag{4.7}
 \end{flalign}
 quindi, ricordando $\partial_\theta H_0 = 0$ e esplicitando l'operazione di $X_F$ su $H$, si ha
 \begin{flalign}
-    \partial_rH_0 \cdot \partial_\theta F = \tilde{H}_1 \tag{5.8}
+    \partial_rH_0 \cdot \partial_\theta F = \tilde{H}_1 \tag{4.8}
 \end{flalign}
-Dato che l'equazione $(5.7)$ coinvolge solamente la derivata parziale di $F$ rispetto a $\theta$, possiamo trattare $r$ come un parametro fissato. Ponendo $\alpha = \partial_rH(r)$, $(5.7)$ diventa
+Dato che l'equazione $(4.7)$ coinvolge solamente la derivata parziale di $F$ rispetto a $\theta$, possiamo trattare $r$ come un parametro fissato. Ponendo $\alpha = \partial_rH(r)$, $(4.7)$ diventa
 \begin{flalign}
-    \alpha \cdot \partial_\theta F = \tilde{H}_1 \tag{5.9}
+    \alpha \cdot \partial_\theta F = \tilde{H}_1 \tag{4.9}
 \end{flalign}
 In termini della derivata di Lie associata al campo vettoriale costante definito da $\alpha$
 \begin{flalign}
-    \mathcal{L}_\alpha F = \tilde{H}_1 \tag{5.10}
+    \mathcal{L}_\alpha F = \tilde{H}_1 \tag{4.10}
 \end{flalign}
 detta \textit{equazione omologica}. \\ \\
 Sia $\mathscr{F}$ l'insieme delle serie di Fourier (formali, quindi ancora non associate ad una particolare funzione) su $\mathbb{T}^n$ prive di termine costante. \\ \\
-\textbf{Lemma 5.1:} se $\alpha$ è non risonante, data $g \in \mathscr{F}$ esiste unica $f \in \mathscr{F}$ tale che $\mathcal{L}_\alpha f = g$. \\
+\textbf{Lemma 4.1:} se $\alpha$ è non risonante, data $g \in \mathscr{F}$ esiste unica $f \in \mathscr{F}$ tale che $\mathcal{L}_\alpha f = g$. \\
 
 \textbf{Dimostrazione:} dato che $g \in \mathscr{F}$, $g$ è della forma
 \begin{flalign}
-    g(\theta) = \sum_{k \neq 0} g_ke^{i2\pi k \cdot \theta} \tag{5.11}
+    g(\theta) = \sum_{k \neq 0} g_ke^{i k \cdot \theta} \tag{4.11}
 \end{flalign}
 per ogni $\theta \in \mathbb{T}^n$. Cerchiamo $f$ della forma
 \begin{flalign}
-    f(\theta) = \sum_{k \neq 0} f_ke^{i2\pi k \cdot \theta} \tag{5.12}
+    f(\theta) = \sum_{k \neq 0} f_ke^{i k \cdot \theta} \tag{4.12}
 \end{flalign}
 per ogni $\theta \in \mathbb{T}^n$, tale che $\mathcal{L}_\alpha f = g$. Esplicitando l'azione di $\mathcal{L}_\alpha$ su $f$ si ottiene la seguente equazione per $f_k$
 \begin{flalign}
-    i2\pi k \cdot \alpha f_k = g_k \tag{5.13} 
+    i k \cdot \alpha f_k = g_k \tag{4.13} 
 \end{flalign}
 che ammette come unica soluzione
 \begin{flalign}
-    f_k = \frac{g_k}{i2\pi k \cdot \alpha} \tag{5.14}
+    f_k = \frac{g_k}{i k \cdot \alpha} \tag{4.14}
 \end{flalign}
 per $k \in \mathbb{Z}^n \setminus \{0\}$. \qed \\ \\
 Dato $s > 0$, sia
 \begin{flalign}
-    \mathbb{T}^n_s = \{\theta \in \mathbb{C}^n/\mathbb{Z}^n : |\mathrm{Im}\theta_j| < s\} \tag{5.15}
+    \mathbb{T}^n_s = \{\theta \in \mathbb{C}^n/\mathbb{Z}^n : |\mathrm{Im}\theta_j| < s\} \tag{4.15}
 \end{flalign}
 l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{O}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni olomorfe definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $\|\cdot\|_\infty$. \\
 In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa su un insieme è ivi continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema D.$1$ in appendice D.}. \\ \\
 Invertendo $(4.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni olomorfe a funzioni olomorfe, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza. \\ \\
-\textbf{Definizione 5.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
+\textbf{Definizione 4.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
 \begin{flalign}
-    |k \cdot \alpha| \geq \frac{\gamma}{\|k\|^{\tau}_1} \tag{5.16}
+    |k \cdot \alpha| \geq \frac{\gamma}{|k|^\tau_1} \tag{4.16}
 \end{flalign}
 per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, dove
 \begin{flalign}
-    \|k\|_1 = |k_1| + \dots + |k_n| \tag{5.17}
+    |k| = |k_1| + \dots + |k_n| \tag{4.17}
 \end{flalign}
 In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $\alpha \in \mathbb{R}^n$ che sono $(\gamma, \tau)$-Diofantei. Inoltre, poniamo
 \begin{flalign}
-    D_\tau = \bigcup_{\gamma > 0}D_{\gamma, \tau} \tag{5.18}
+    D_\tau = \bigcup_{\gamma > 0}D_{\gamma, \tau} \tag{4.18}
 \end{flalign} \\
 \textbf{Teorema (di Dirichlet):} dato $\alpha \in \mathbb{R}^n$ e $q \in \mathbb{N}$, $q > 1$, esistono $k \in \mathbb{Z}^n \setminus \{0\}$ e $m \in \mathbb{Z}$ tali che $\|k\|_\infty \leq q$ e 
 \begin{flalign}
-    |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{5.19}
+    |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{4.19}
 \end{flalign}
 
 \textbf{Dimostrazione:} fissato $q \in \mathbb{N}$, $q > 1$, consideriamo tutti i vettori $\kappa \in \mathbb{Z}^n$ della forma
 \begin{flalign}
-    \kappa = (\kappa_1, \dots, \kappa_n) \qquad 0 \leq \kappa_i \leq q \tag{5.20}
+    \kappa = (\kappa_1, \dots, \kappa_n) \qquad 0 \leq \kappa_i \leq q \tag{4.20}
 \end{flalign}
-per ogni $i = 1, \dots, n$. In particolare, esistono $(q + 1)^n$ vettori in $\mathbb{Z}^n$ che soddisfano $(5.20)$, infatti ogni componente ha $q + 1$ possibili valori da assumere (compreso $0$) e ci sono $n$ componenti totali. \\
-Per ogni $\kappa \in \mathbb{Z}^n$ che soddisfa $(5.20)$ poniamo $x_\kappa = |\{\kappa \cdot \alpha\}|$, dove $\{\cdot\}$ indica l'operazione di parte frazionaria. La parte frazionaria di un numero qualsiasi è sempre compresa tra $0$ e $1$ (escluso). \\
+per ogni $i = 1, \dots, n$. In particolare, esistono $(q + 1)^n$ vettori in $\mathbb{Z}^n$ che soddisfano $(4.20)$, infatti ogni componente ha $q + 1$ possibili valori da assumere (compreso $0$) e ci sono $n$ componenti totali. \\
+Per ogni $\kappa \in \mathbb{Z}^n$ che soddisfa $(4.20)$ poniamo $x_\kappa = |\{\kappa \cdot \alpha\}|$, dove $\{\cdot\}$ indica l'operazione di parte frazionaria. La parte frazionaria di un numero qualsiasi è sempre compresa tra $0$ e $1$ (escluso). \\
 Dividiamo l'intervallo $[0, 1)$ in $q^n$ sottointervalli di lunghezza $1/q^n$. Pertanto l'insieme $\{x_\kappa\}_\kappa$ è costituito da $(q + 1)^n$ elementi che si dispongono nell'intervallo $[0, 1)$. Dato che $(q + 1)^n > q^n$, esistono $x_a, x_b \in \{x_\kappa\}_\kappa$ tali che $a \neq b$ e $|x_a - x_b| \leq 1/q^n$, ovvero
 \begin{flalign}
-    |\{(a - b) \cdot \alpha\}| \leq \frac{1}{q^n} \tag{5.21}
+    |\{(a - b) \cdot \alpha\}| \leq \frac{1}{q^n} \tag{4.21}
 \end{flalign}
 Ponendo $k = a - b$ si ha $k \neq 0$ e 
 \begin{flalign}
-    |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{5.22}
+    |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{4.22}
 \end{flalign}
 dove $m$ è la parte intera di $k \cdot \alpha$, pertanto si ottiene la tesi. \qed \\ \\
-\textbf{Teorema [Poschel]:} per $\tau > n - 1$ si ha che la misura di Lebesgue $n$-dimensionale dell'insieme $D_\tau$ tende alla misura piena di $\mathbb{R}^n$, ovvero quasi tutti i vettori $\alpha \in \mathbb{R}^n$ soddisfano
+\textbf{Teorema 4.1:} per $\tau > n - 1$ si ha che la misura di Lebesgue $n$-dimensionale dell'insieme $D_\tau$ tende alla misura piena di $\mathbb{R}^n$, ovvero quasi tutti i vettori $\alpha \in \mathbb{R}^n$ soddisfano
 \begin{align}
-    |k \cdot \alpha| \geq \frac{\gamma}{\|k\|^\tau_1} \tag{5.23}
+    |k \cdot \alpha| \geq \frac{\gamma}{|k|^\tau} \tag{4.23}
 \end{align}
 per qualche $\gamma > 0$. \\
 
 \textbf{Dimostrazione:} $D_{\gamma, \tau}$ è il complementare dell'aperto
 \begin{align}
-    R_{\gamma, \tau} = \bigcup_{0 \neq k \in \mathbb{Z}}\left\{\alpha \in \mathbb{R}^n : |k \cdot \alpha| < \frac{\gamma}{\|k\|^\tau_1}\right\} = \bigcup_{0 \neq k \in \mathbb{Z}} R_{\gamma, \tau, k} \tag{5.24}
+    R_{\gamma, \tau} = \bigcup_{0 \neq k \in \mathbb{Z}}\left\{\alpha \in \mathbb{R}^n : |k \cdot \alpha| < \frac{\gamma}{|k|^\tau}\right\} = \bigcup_{0 \neq k \in \mathbb{Z}} R_{\gamma, \tau, k} \tag{4.24}
 \end{align}
 Dato un qualsiasi dominio misurabile $\Omega \subset \mathbb{R}^n$ (ad esempio un disco), si ha che
 \begin{align}
-    m(R_{\gamma, \tau, k} \cap \Omega) = o(\gamma/\|k\|^\tau_1) \tag{5.25}
+    m(R_{\gamma, \tau, k} \cap \Omega) = O(\gamma/|k|^\tau) \tag{4.25}
 \end{align}
-Infatti la condizione in $(5.4)$ è equivalente a
+Infatti la condizione in $(4.4)$ è equivalente a
 \begin{align}
-    \left|\frac{k}{\|k\|_1} \cdot \alpha\right| \leq \frac{\gamma}{\|k\|^{\tau + 1}_1} \tag{5.26}
+    \left|\frac{k}{|k|} \cdot \alpha\right| \leq \frac{\gamma}{|k|^{\tau + 1}} \tag{4.26}
 \end{align}
-Essenzialmente ci dice che il modulo della proiezione di $\alpha$ (ricordiamo $\|\cdot\|_1 \geq \|\cdot\|_2$) su $k$ deve essere limitato da $\gamma/\|k\|^{\tau + 1}_1$. \\
+Essenzialmente ci dice che il modulo della proiezione di $\alpha$ (ricordiamo $\|\cdot\|_1 \geq \|\cdot\|_2$) su $k$ deve essere limitato da $\gamma/|k|^{\tau + 1}$. \\
 Tale condizione è visualizzabile in 3 dimensioni fissando un vettore $k \in \mathbb{Z}^3$. L'insieme che si ottiene è uno strato con spessore finito, controllato da
 \begin{align}
-    \delta \leq \frac{2\gamma}{\|k\|^{\tau + 1}_1} \notag
+    \delta \leq \frac{2\gamma}{|k|^{\tau + 1}} \notag
 \end{align}
 ovvero racchiuso da due superfici.
 \begin{center}
@@ -406,8 +403,64 @@ ovvero racchiuso da due superfici.
 \newpage
 Considerando l'unione per ogni $k \neq 0$ si ottiene
 \begin{align}
-    m(R_{\gamma, \tau} \cap \Omega) \leq \sum_{k \neq 0}m(R_{\gamma, \tau, k} \cap \Omega) = o(\gamma) \tag{5.27}
+    m(R_{\gamma, \tau} \cap \Omega) \leq \sum_{k \neq 0}m(R_{\gamma, \tau, k} \cap \Omega) = O(\gamma) \tag{4.27}
 \end{align}
+se $\tau > n - 1$, in modo da far sì che la serie converga. Pertanto
+\begin{align*}
+    m(R_\tau) \leq \sum_\gamma m\left(R_{\gamma, \tau}\right) = 0
+\end{align*}
+ovvero $R_\tau$ ha misura di Lebesgue piena in $\mathbb{R}^n$. \qed \\ \\
+Data una funzione $f$ olomorfa su un dominio $D \subset \mathbb{C}$, sappiamo, per la \textit{formula integrale di Cauchy}, che 
+\begin{align*}
+    f(z) = \frac{1}{2\pi i}\int_{\mathcal{C}} \frac{f(\omega)}{\omega - z} \, d\omega \tag{4.28}
+\end{align*}
+dove $\mathbb{C}$ è una circonferenza contenuta in $\mathring{D}$, per ogni $z$ racchiuso dalla circonferenza $\mathcal{C}$. Inoltre, si può dimostrare che differenziando si ottiene
+\begin{align*}
+    f'(z) = \frac{1}{2\pi i}\int_{\mathcal{C}} \frac{f(\omega)}{(\omega - z)^2} \, d\omega \tag{4.29}
+\end{align*}
+Notiamo che usando la \textit{formula integrale di Cauchy} è possibile determinare $f'$ solamente per i punti interni di $D$, infatti se $z \in \partial D$ non esiste nessuna circonferenza che lo racchiude e che è contenuta interamente in $D$. Segue che
+\begin{align*}
+    |f'|_s \leq \sigma^{-1}|f|_{s + \sigma} \tag{4.30}
+\end{align*}
+ovvero è possibile al più stimare la norma di $f'$ su un dominio ridotto di $\sigma > 0$, che può però essere arbitrariamente piccolo. \\
+In generale, ogni operatore differenziale soddisferà una stima simile. \\ \\
+\textbf{Proposizione 4.1:} siano $\alpha \in D_{\gamma, \tau}$ e $s, \sigma > 0$. Se $g \in \mathcal{O}(\mathbb{T}^n_{s + \sigma})$ esiste unica $f \in \mathcal{O}(\mathbb{T}^n_s)$ tale che $\mathcal{L}_\alpha f = g$. In particolare
+\begin{flalign}
+    |f|_s \leq C\gamma^{-1}\sigma^{-n-\tau}|g|_{s + \sigma} \tag{4.31}
+\end{flalign}
+dove $C$ è una costante che dipende solamente dalla dimensionalità dello spazio e da $\tau$. \\
+
+\textbf{Dimostrazione:} consideriamo l'espansione di Fourier di $g$
+\begin{align*}
+    g(\theta) = \sum_{k \in \mathbb{Z}^n\setminus\{0\}} g_k e^{ik \cdot \theta} \tag{4.32}
+\end{align*}
+Come visto in $(4.14)$, l'equazione $\mathcal{L}_\alpha f = g$ ammette come unica soluzione
+\begin{align*}
+    f(\theta) = \sum_{k \in \mathbb{Z}^n\setminus\{0\}} \frac{g_k}{ik \cdot \alpha}e^{ik \cdot \theta} \tag{4.33}
+\end{align*}
+Per definizione
+\begin{align*}
+    |g_k| = \left|\frac{1}{2\pi}\int_{\mathbb{T}^n} g(\theta)e^{-ik \cdot \theta} \, d\theta\right| \tag{4.34}
+\end{align*}
+Per ipotesi $g$ è olomorfa in $\mathbb{T}^n_{s + \sigma}$, pertanto, per ogni $k \in \mathbb{Z}\setminus\{0\}$, trasliamo il toro di integrazione attraverso il diffeomorfismo
+\begin{align*}
+    \theta_j \in \mathbb{T}^n \mapsto \theta_j - i\mathrm{sign}(k_j)(s + \sigma) \in \mathbb{T}^n_{s + \sigma} \tag{4.35}
+\end{align*}
+per ogni $j = 1, \dots, n$. In particolare $(4.35)$ viene ora maggiorata da
+\begin{align*}
+    |g_k| \leq |g|_{s + \sigma}e^{-|k|(s + \sigma)} \tag{4.36}
+\end{align*}
+ovvero i coefficienti di Fourier decadono esponenzialmente (questo è vero per ogni funzione olomorfa reale). \\
+Dato che per ipotesi $\alpha \in D_{\gamma, \tau}$, si ottiene
+\begin{align}
+    |f|_s \leq \frac{|g|_{s + \sigma}}{\gamma}\sum_{k \in \mathbb{Z}^n\setminus\{0\}} |k|^\tau e^{-|k|(s + \sigma)} \tag{4.37}
+\end{align}
+Siamo ora interessati a ricondurre la sommatoria ad una sommatoria su $\mathbb{N}$, pertanto, fissato $m \in \mathbb{N}$, dobbiamo contare quanti $k \in \mathbb{Z}^n\setminus\{0\}$ soddisfano $|k| = m$. Notiamo subito che se un dato $k$ soddisfa $|k| = m$, anche $-k$ soddisfa $|-k| = m$, pertanto ottieniamo un fattore $2^n$ a moltiplicare. Pertanto, fissata una base ortonormale destra $\{e_i\}_{i = 1, \dots, n}$ di $\mathbb{Z}^n$, ci resta da contare quanti $k$ nell'insieme
+\begin{align*}
+    \left\{k \in \mathbb{Z}^n\setminus\{0\} : \sum_{i = 1}^n k \cdot e_i > 0\right\} \tag{4.38}
+\end{align*}
+soddisfano contemporaneamente $|k| = m$, fissato $m \in \mathbb{N}$.
+
 
 
 
@@ -983,7 +1036,6 @@ dove $g$ è una funzione arbitraria della sola $x_2$ da determinare imponendo
     \frac{\partial g}{\partial x_2} = x_1x_2 \tag{B.6.17}
 \end{flalign}
 Tuttavia, non esiste una funzione $g$ della sola $x_2$ che soddisfa tale condizione. \\ \\
--- ESIBIRE 1-FORMA SULLA CIRCONFERENZA CHE NON SIA IL DIFFERENZIALE DI UNA FUNZIONE-- \\ \\
 \textbf{Teorema B.6.1:} una $1$-forma differenziale su $M$ può essere scritta, in ogni intorno coordinato $U$, come combinazione lineare delle $n$-forme differenziali di base ($1$-forme algebriche), ovvero
 \begin{flalign}
     \omega = a_1(x)dx_1 + \dots + a_n(x)dx_n \tag{B.6.18}
@@ -1250,9 +1302,6 @@ per ogni $i = 1, \dots, n$. Pertanto si vede immediatamente che
 \end{align}
 ovvero $d$ commuta con l'operazione di pullback. \qed
 
-\newpage
-\section{Varietà simplettiche}
-
 
 \newpage
 \section{Nozioni e risultati di analisi funzionale}
@@ -1264,42 +1313,46 @@ ovvero $d$ commuta con l'operazione di pullback. \qed
 
 \textbf{Dimostrazione:} sia $\{f_n : n \in \mathbb{N}\}$ una successione di Cauchy contenuta in $l^\infty(S)$. Fissato $\varepsilon > 0$, esiste $N_\varepsilon \in \mathbb{N}$ tale che
 \begin{flalign}
-    \|f_n - f_m\|_\infty < \varepsilon \tag{D.2}
+    \|f_n - f_m\|_\infty < \frac{\varepsilon}{2} \tag{D.2}
 \end{flalign}
 per ogni $n, m > N_\varepsilon$. Allora, per ogni $t \in S$ si ha
 \begin{flalign}
-    |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \varepsilon \tag{D.3}
+    |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \frac{\varepsilon}{2} \tag{D.3}
 \end{flalign}
-per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbb{N}\}$ è una successione di Cauchy a termini complessi per ogni $t \in S$. Dato che $\mathbb{C}$ è di Banach, per ogni $t \in S$ esistono $f(t) \in \mathbb{C}$ e $M_{\varepsilon, t} \in \mathbb{N}$ tali che
+per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbb{N}\}$ è una successione di Cauchy a termini complessi per ogni $t \in S$. Dato che $\mathbb{C}$ è di Banach, per ogni $t \in S$ è ben definito il limite puntale di $f_n(t)$. In particolare poniamo
 \begin{flalign}
-    |f_n(t) - f(t)| < \varepsilon \tag{D.4}
+    f(t) = \lim_{n \rightarrow \infty} f_n(t) \tag{D.4}
 \end{flalign}
-per ogni $n > M_{\varepsilon, t}$. Resta da dimostrare che $\|f_n - f\|_\infty \rightarrow 0$ per $n \rightarrow \infty$ e che $f \in l^\infty(S)$. Per ipotesi, fissato $m > N_\varepsilon$
+abbiamo quindi definito la funzione $f : S \longrightarrow \mathbb{C}$. \\
+Resta da dimostrare che $\|f_n - f\|_\infty \rightarrow 0$ per $n \rightarrow \infty$ e che $f \in l^\infty(S)$. Per costruzione di $f$ si ha
 \begin{flalign}
-    \|f_n - f\|_\infty &\leq \|f_n - f_m\|_\infty + \|f_m - f\|_\infty \notag \\
-    &= \|f_n - f_m\|_\infty + \lim_{n \rightarrow \infty}\|f_m - f_n\|_{\infty} \notag \\
-    &< 2\varepsilon \tag{D.5}
+    |f_n(t) - f(t)| &= \lim_{m \rightarrow \infty} |f_n(t) - f_m(t)| \leq \frac{\varepsilon}{2} < \varepsilon \tag{D.5}
 \end{flalign}
-per continuità della norma, per ogni $n > N_\varepsilon$. Inoltre, notiamo che esiste $N_1 \in \mathbb{N}$ tale che fissato $n > N_1$ si ha
+per continuità della norma, per ogni $n > N_\varepsilon$ e ogni $t \in S$. Prendendo il $\sup$ si ottiene
+\begin{align*}
+    \sup_{t \in S} |f_n(t) - f(t)| = \|f_n - f\|_\infty < \varepsilon \tag{D.6}
+\end{align*}
+per ogni $n > N_\varepsilon$. \\
+Infine, per definizione di convergenza, esiste $N_1 \in \mathbb{N}$ tale che fissato $n > N_1$ si ha
 \begin{flalign}
     \|f\|_\infty &\leq \|f - f_n\|_\infty + \|f_n\|_\infty \notag \\
-    &< 1 + \|f_n\|_\infty \tag{D.6}
+    &< 1 + \|f_n\|_\infty \tag{D.7}
 \end{flalign}
 ovvero $f$ limitata in $S$, pertanto si ottiene la tesi. \qed \\ \\
 \textbf{Teorema (di Stone-Weierstrass):} sia $Pol([a, b])$ lo spazio delle funzioni polinomiali a coefficienti complessi definite sull'intervallo $[a, b]$. Si ha che $Pol([a, b])$ è denso (in norma $\|\cdot\|_\infty$) in $\mathcal{C}^0([a, b], \mathbb{C})$. \\
 
 \textbf{Dimostrazione:} dato che la densità è una proprietà topologica, possiamo assumere $[a, b] = [0, 1]$ senza perdita di generalità. Inoltre, data $f \in \mathcal{C}^0([0, 1])$ possiamo assumere $f(0) = 0 = f(1)$, infatti se così non fosse basterebbe definire
 \begin{flalign}
-    g(x) = f(x) - f(0) - (f(1) - f(0))x \tag{D.7}
+    g(x) = f(x) - f(0) - (f(1) - f(0))x \tag{D.8}
 \end{flalign} 
 per ogni $x \in [0, 1]$, che soddisfa $g(0) = 0 = g(1)$ ed è continua, ed è immediato notare che se il teorema è valido per $g$ è valido anche per $f$. \\
 Vogliamo costruire una successione di funzioni polinomiali $\{q_n\}_{n \in \mathbb{N}}$ che approssima la delta di Dirac. Data $f \in \mathcal{C}^0([0, 1], \mathbb{C})$ possiamo estenderla per continuità in modo tale che sia identicamente nulla fuori da $[0, 1]$. Per ogni $n \in \mathbb{N}$ definiamo 
 \begin{flalign}
-    q_n = c_n(1 - x^2)^n \tag{D.8}
+    q_n = c_n(1 - x^2)^n \tag{D.9}
 \end{flalign}
 dove $c_n$ è una costante (fissato $n$) che garantisce la normalizzazione di $q_n$ sull'intervallo $[-1, 1]$, ovvero 
 \begin{flalign}
-    \int_{-1}^1 c_n(1 - x^2)^n \, dx = 1 \tag{D.9}
+    \int_{-1}^1 c_n(1 - x^2)^n \, dx = 1 \tag{D.10}
 \end{flalign}
 Cerchiamo una stima per $c_n$. Per la \textit{disuguaglianza di Bernoulli} si ha 
 \begin{flalign}
@@ -1307,15 +1360,15 @@ Cerchiamo una stima per $c_n$. Per la \textit{disuguaglianza di Bernoulli} si ha
     &\geq 2\int_0^{1/\sqrt{n}} (1 - x^2)^n \, dx \notag \\
     &\geq 2\int_0^{1/\sqrt{n}} (1 - nx^2) \, dx \notag \\
     &= 2\left(x - \frac{nx^3}{3}\right)_0^{1/\sqrt{n}} \notag \\
-    &= \frac{4}{3\sqrt{n}} \geq \frac{1}{\sqrt{n}} \tag{D.10}
+    &= \frac{4}{3\sqrt{n}} \geq \frac{1}{\sqrt{n}} \tag{D.11}
 \end{flalign}
 Pertanto concludiamo che $c_n \leq \sqrt{n}$. Segue che dato $\delta > 0$ si ha 
 \begin{flalign}
-    q_n(x) \leq \sqrt{n}(1 - \delta^2)^n \tag{D.11}
+    q_n(x) \leq \sqrt{n}(1 - \delta^2)^n \tag{D.12}
 \end{flalign}
 per ogni $x \in [\delta, 1]$. Per ogni $n \in \mathbb{N}$ poniamo 
 \begin{flalign}
-    p_n(x) = \int_{-1}^1 q_n(t)f(x + t) \, dt \tag{D.12}
+    p_n(x) = \int_{-1}^1 q_n(t)f(x + t) \, dt \tag{D.13}
 \end{flalign}
 per ogni $x \in [0, 1]$. Notiamo immediatamente che $\{p_n\}_{n \in \mathbb{N}} \subset Pol([0, 1])$. Mostriamo che $p_n(x) \rightarrow f(x)$ in norma $\|\cdot\|_\infty$ per $n \rightarrow \infty$. Fissato $0 < \delta < 1$ si ha
 \begin{flalign}
@@ -1323,16 +1376,16 @@ per ogni $x \in [0, 1]$. Notiamo immediatamente che $\{p_n\}_{n \in \mathbb{N}} 
     &= \left|\int_{-1}^1 q_n(x)(f(x + t) - f(x)) \, dt\right| \notag \\
     &\leq \int_{-1}^1 q_n(x)|f(x + t) - f(x)| \, dt \notag \\
     &= \int_{-1}^\delta (\dots) \, dt + \int_{-\delta}^\delta (\dots) \, dt  + \int_{\delta}^1 (\dots)  \, dt \notag \\
-    &\leq 2\int_{\delta}^1 q_n(x)\|f\|_\infty \, dt + \int_{-\delta}^\delta q_n(x)|f(x + t) - f(x)| \, dt \tag{D.13}
+    &\leq 2\int_{\delta}^1 q_n(x)\|f\|_\infty \, dt + \int_{-\delta}^\delta q_n(x)|f(x + t) - f(x)| \, dt \tag{D.14}
 \end{flalign}
 dove nel secondo passaggio si è usato il fatto che $q_n$ è normalizzata su $[-1, 1]$, nel terzo la subadditività dell'integrale, quinto il fatto che $q_n$ è pari. \\
 A questo punto, dato che $f$ è continua su un compatto ($[-1, 1]$) è valido il \textit{teorema di Heine-Cantor}, pertanto $f$ è uniformemente continua su $[-1, 1]$ e quindi anche su $[-\delta, \delta]$. Concludiamo che per ogni $\varepsilon > 0$ esiste $\delta > 0$ tale che se $|(x + t) - x| = |t| < \delta$ si ha $|f(x + t) - f(x)| < \varepsilon$ per ogni $x \in [-\delta, \delta]$. Quindi, a meno di ridefinire $\delta$, si ha
 \begin{flalign}
-    |p_n(x) - f(x)| \leq 2\|f\|_\infty\sqrt{n}(1 - \delta^2)^n(1 - \delta) + 2\varepsilon\delta\sqrt{n}(1 - \delta^2)^n \rightarrow 0 \tag{D.14}
+    |p_n(x) - f(x)| \leq 2\|f\|_\infty\sqrt{n}(1 - \delta^2)^n(1 - \delta) + 2\varepsilon\delta\sqrt{n}(1 - \delta^2)^n \rightarrow 0 \tag{D.15}
 \end{flalign}
 per $n \rightarrow \infty$. Inoltre, la convergenza è uniforme, infatti la condizione per l'uniforme continuità dipende solamente da $|t|$ e non da $x$. Concludiamo quindi che 
 \begin{flalign}
-    \|p_n - f\|_{\infty} \rightarrow 0 \tag{D.15}
+    \|p_n - f\|_{\infty} \rightarrow 0 \tag{D.16}
 \end{flalign}
 per $n \rightarrow \infty$. \qed
 
