@@ -2920,7 +2920,7 @@ Mentre
 Dato che le disuguaglianze osservate sono valide per ogni $t \in \mathbb{R}$, segue che $\mathrm{Im} \, f(B) = 0$, ovvero $f(B) \in \mathbb{R}$ per ogni $B = B^* \in \mathscr{A}$. \\
 Pertanto
 \begin{align*}
-    1 \geq \mathbf{1} - tB \geq 0
+    \mathbf{1} \geq \mathbf{1} - tB \geq 0
 \end{align*}
 per $0 < t < 1/\|B\|$. Inoltre
 \begin{align*}
@@ -2940,7 +2940,8 @@ Segue che
 \end{align*}
 Ripetendo questo argomento per ogni $A = A^* \in \mathscr{A}$ si ottiene la tesi. \qed \\ \\
 Il risultato del \textit{lemma 4.2.1} può essere esteso a operatori normali. Infatti, se $A \in \mathscr{A}$ è un operatore normale si ha che $r(A) = \|A\|$, tuttavia $\sigma(A) \subset \mathbb{C}$ in generale, quindi sappiamo che $e^{i\theta}\|A\| \in \sigma(A)$ per qualche $\theta \in [0, 2\pi]$. A questo punto è sufficiente sostituire $\|A\|$ con $e^{i\theta}\|A\|$ nella definizione di $g$ per ottenere lo stesso risultato. \\ \\
-\textbf{Corollario (4.2.1):} dato $A = A^* \in \mathscr{A}$, $A \neq 0$, si ha che esiste $\omega \in \mathfrak{S}(\mathscr{A})$ tale che $\omega(A) \neq 0$.
+\textbf{Corollario (4.2.1):} l'estensione tramite \textit{Hahn-Banach} di una funzionale lineare unitale, positivo e dominato dalla norma è ancora un funzionale lineare positivo. \\ \\
+\textbf{Corollario (4.2.2):} dato $A = A^* \in \mathscr{A}$, $A \neq 0$, si ha che esiste $\omega \in \mathfrak{S}(\mathscr{A})$ tale che $\omega(A) \neq 0$.
 
 \newpage
 \subsection{Stati puri}
@@ -3100,7 +3101,7 @@ Sia ora $\lambda \in \sigma_\mathscr{A}(A)$, allora $\omega_\lambda \in \Omega(C
 \begin{align*}
     \Delta_{\omega_\lambda}(A) = \omega_\lambda(A^2) - \omega_\lambda(A)^2 = \omega_\lambda(A)^2 - \omega_\lambda(A)^2 = 0
 \end{align*}
-per moltiplicatività dei caratteri. Inoltre, per il \textit{teorema di estensione di Hahn-Banach} (non dimostrato) esiste $\omega \in \mathfrak{S}(\mathscr{A})$ che estende $\omega_\lambda$ e tale che $\omega(A) = \lambda$, pertanto $\Delta_\omega(A) = 0$, ovvero $\lambda \in \sigma_{fis}(A)$. \\ \\
+per moltiplicatività dei caratteri. Inoltre, per il \textit{teorema di estensione di Hahn-Banach} e il \textit{corollario 4.2.1}, esiste $\omega \in \mathfrak{S}(\mathscr{A})$ che estende $\omega_\lambda$ e tale che $\omega(A) = \lambda$, pertanto $\Delta_\omega(A) = 0$, ovvero $\lambda \in \sigma_{fis}(A)$. \\ \\
 \textbf{Lemma (4.4.2):} sia $\mathscr{A}$ una $C^*$-algebra commutativa con identità, allora $\omega \in \mathfrak{S}(\mathscr{A})$ è puro se e solo se è un carattere. \\
 
 \textbf{Dimostrazione:} $(\rightarrow)$ sia $\omega \in \mathfrak{P}(\mathscr{A})$, allora per il \textit{teorema GNS} e il \textit{teorema di Segal} esiste $(\mathcal{H}_\omega, \pi_\omega, \xi_\omega)$ terna GNS con $\pi_\omega$ irriducibile. Inoltre, per il \textit{teorema di Schur} sappiamo che $\pi(\mathscr{A})' = \mathbb{C}\mathbf{1}_{\mathcal{H}_\omega}$, pertanto $\pi_\omega(A) = \omega(A)\mathbf{1}_{\mathcal{H}_\omega}$ per ogni $A \in \mathscr{A}$. Segue che
