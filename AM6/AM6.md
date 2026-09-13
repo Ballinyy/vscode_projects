@@ -1,4 +1,6 @@
-# AM6 — Schema di studio
+# AM6 — Schema di studio per l'esame orale
+
+*(Sezione sulla misura di Lebesgue tralasciata, salvo i tre risultati richiesti, riportati senza dimostrazione all'inizio)*
 
 ---
 
@@ -42,14 +44,16 @@
 *Bozza (caso reale)*: dato $x\notin U$, si estende $\varphi$ a $U+\mathbb R x$ scegliendo $\alpha=\widetilde\varphi(x)$ in un intervallo non vuoto determinato dalla subadditività di $m$: $\sup_y(\varphi(y)-m(y-x)) \le \inf_z(m(z+x)-\varphi(z))$, disuguaglianza che segue da $m(z+x)+m(y-x)\ge m(y+z)\ge\varphi(y+z)$. Poi si applica il **lemma di Zorn** all'insieme delle estensioni parziali ordinato per inclusione (ogni catena ha maggiorante = unione), ottenendo un elemento massimale che deve essere definito su tutto $V$.
 *Caso complesso*: si estende $\mathrm{Re}\,\varphi$ come funzionale reale con il caso reale, poi si ricostruisce $\widetilde\varphi(x)=\psi(x)-i\psi(ix)$, che è $\mathbb C$-lineare e ha la parte reale corretta; la dominanza da $m$ segue scegliendo una fase $\alpha$ con $|\alpha|=1$ tale che $\widetilde\varphi(\alpha x)\ge0$.
 
-**Teorema di completamento degli spazi metrici** (solo enunciato/idea: si completano le successioni di Cauchy modulo equivalenza).
+**Teorema di completamento degli spazi metrici**.
+*Bozza*: si considera l'insieme $S$ di tutte le successioni di Cauchy in $X$, con la relazione di equivalenza $\{x_n\}\sim\{y_n\}$ se $d(x_n,y_n)\to0$; si pone $\overline X = S/\sim$. Si definisce $\overline d([\{x_n\}],[\{y_n\}]) = \lim_n d(x_n,y_n)$: il limite esiste perché $\{d(x_n,y_n)\}_n$ è di Cauchy in $\mathbb R$ (per la disuguaglianza quadrilatera $|d(x_n,y_n)-d(x_m,y_m)|\le d(x_n,x_m)+d(y_n,y_m)$), ed è ben definito indipendentemente dai rappresentanti (per disuguaglianza triangolare incrociata tra due scelte di rappresentanti). **Completezza di $\overline X$**: data una successione di Cauchy di classi $\{[\{x^m_n\}_n]\}_m$, si costruisce la successione "diagonale" $\{x^n_n\}_n$ (di Cauchy in $X$, per una stima a "doppia $\varepsilon$" che combina Cauchy-in-$m$ e Cauchy-in-$n$ dentro ogni classe) e si mostra che la sua classe è il limite cercato. **Densità dell'immersione**: si definisce $i(x)=[\{x\}_n]$ (successione costante), isometria; dato $w=[\{x_n\}_n]\in\overline X$, la successione costante $\{x_N\}_n$ approssima $w$ arbitrariamente bene per $N$ grande (Cauchy). **Unicità**: dato un altro completamento $(\widetilde X,\tilde d)$ con immersione $j$, si definisce $\phi$ su $i(X)$ come $\phi(i(x))=j(x)$ (isometria per costruzione) e si estende per continuità/densità a tutto $\overline X$, verificando che il limite non dipende dalla successione approssimante (sempre perché $j$ è un'isometria).
 
 **Proposizione 2.2.1** — Cauchy + sottosuccessione convergente $\Rightarrow$ convergente. *Bozza*: disuguaglianza triangolare $d(x_n,x)\le d(x_n,x_{\nu(k)})+d(x_{\nu(k)},x)$, entrambi i termini piccoli per $n,k$ grandi.
 
 **Proposizione 2.2.4 / Corollario 2.2.1** — $\mathbb R,\mathbb C,\mathbb R^n,\mathbb C^n$ Banach.
 *Bozza*: ogni successione di Cauchy ha una sottosuccessione a variazione finita (si costruisce induttivamente $\nu(k)$ con incrementi $<2^{-k}$); una successione a variazione finita converge (telescopica + convergenza assoluta); si applica Prop. 2.2.1. In alternativa: Cauchy $\Rightarrow$ limitata $\Rightarrow$ (Bolzano-Weierstrass, per bisezione degli intervalli) ammette sottosuccessione convergente $\Rightarrow$ Prop. 2.2.1.
 
-**Teorema di Riesz-Fischer** — $L^p(X,\mu)$ è completo. (solo enunciato)
+**Teorema di Riesz-Fischer** — $L^p(X,\mu)$ è completo.
+*Bozza*: data $\{f_n\}$ di Cauchy in $L^p$, si estrae una sottosuccessione $\{f_{n_k}\}$ con $\|f_{n_{k+1}}-f_{n_k}\|_p<2^{-k}$ (possibile per definizione di Cauchy). Si pone $g_s=\sum_{k=1}^s|f_{n_{k+1}}-f_{n_k}|$ e $g=\lim_s g_s$ (esiste perché $g_s$ è crescente e positiva). Per la **disuguaglianza di Minkowski**, $\|g_s\|_p<1$ per ogni $s$; per il **lemma di Fatou** applicato a $g_s^p$, $\|g\|_p^p\le\liminf_s\|g_s\|_p^p<1$, quindi $g<\infty$ q.o., il che garantisce che la serie telescopica $f_{n_1}+\sum_k(f_{n_{k+1}}-f_{n_k})$ converge q.o. a una funzione $f$ (limite puntuale di $f_{n_k}$). Si mostra $f_{n_k}\to f$ in norma $L^p$ tramite **Fatou** su $|f_{n_k}-f_n|^p$, ottenendo $\|f-f_n\|_p\to0$; infine $f\in L^p$ per la disuguaglianza triangolare $\|f\|_p\le\|f-f_m\|_p+\|f_m\|_p<\infty$. Poiché una successione di Cauchy con una sottosuccessione convergente (in norma) è essa stessa convergente allo stesso limite, si conclude $f_n\to f$ in $L^p$.
 
 **Disuguaglianza di Cauchy-Schwarz** in spazi pre-hilbertiani. *Bozza standard*: si studia $0\le(x-ty,x-ty)$ come polinomio reale di secondo grado in $t\in\mathbb R$ (dopo aver ruotato la fase di $y$ per rendere $(x,y)$ reale) e si impone discriminante $\le0$.
 

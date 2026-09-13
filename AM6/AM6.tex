@@ -3165,7 +3165,15 @@ Pertanto, dato che $\xi_\omega$ è ciclico, si ottiene
 \begin{align*}
     \mathcal{H}_\omega = \overline{\{\pi_\omega(S)\xi_\omega : S \in \mathscr{A}\}}^{\|\cdot\|_{\mathcal{H}_\omega}} = \mathbb{C}\xi_\omega
 \end{align*}
-Segue che $\pi_\omega(S) = \lambda_S\mathbf{1}_{\mathcal{H}_\omega}$ per ogni $S \in \mathscr{A}$, con $\lambda_S \in \mathbb{C}$ opportuno scalare. Concludiamo che $[\pi_\omega(S), \pi_\omega(T)] = 0$ per ogni $S, T \in \mathscr{A}$ e quindi, per isometricità di $\pi_\omega$, $[S, T] = 0$ per ogni $S, T \in \mathscr{A}$, ovvero $\mathscr{A}$ commutativa. \qed \\ \\
+Segue che $\pi_\omega(S) = \lambda_S\mathbf{1}_{\mathcal{H}_\omega}$ per ogni $S \in \mathscr{A}$, con $\lambda_S \in \mathbb{C}$ opportuno scalare. Concludiamo che $[\pi_\omega(S), \pi_\omega(T)] = 0$ per ogni $S, T \in \mathscr{A}$ e quindi $\pi_\omega([S, T]) = 0$ per ogni $S, T \in \mathscr{A}$. Dati $A, B \in \mathscr{O}$, segue che
+\begin{align*}
+    \omega([A, B]) = (\xi_\omega, \pi_\omega([A, B])\xi_\omega) = 0
+\end{align*}
+per ogni $\omega \in \mathfrak{P}(\mathscr{A})$. Dato che ogni stato è combinazione convessa di stati puri distinti, si ottiene che
+\begin{align*}
+    \|[A, B]\| = \sup_{\omega \in \mathfrak{S}(\mathscr{A})} |\omega([A, B])| = 0
+\end{align*}
+ovvero $[A, B] = 0$. \qed \\ \\
 \textbf{Corollario (4.4.1):} $\mathscr{A}$ è commutativa se e solo se $\Delta_\omega(A) = 0$ per ogni $A \in \mathscr{A}$ e ogni $\omega \in \mathfrak{P}(\mathscr{A})$. \\ \\
 \textbf{Proposizione (principio di indeterminazione generalizzato):} dati $A, B \in \mathscr{O}$ e $\omega \in \mathfrak{S}(\mathscr{A})$ si ha che $\Delta_\omega(A)\Delta_\omega(B) \geq \frac{1}{2}|\omega([A, B])|$. \\
 
@@ -3450,7 +3458,21 @@ per ogni $\alpha, \beta \in \mathbb{R}$ (dove $T_\beta$ è l'operatore di trasla
     \mathrm{supp} \, \phi^* \cap \mathrm{supp} \, \psi \circ T_\beta
 \end{align*}
 ha misura nulla per ogni $\beta \in \mathbb{R}$. Concludiamo necessariamente che $m(\mathrm{supp} \, \phi^*) = 0$, al contrario dell'ipotesi originale. \\
-Dimostriamo l'unicità. ...
+Dimostriamo l'unicità. Data $\pi$ su $\mathcal{H}_\pi$, poniamo
+\begin{align*}
+    P = \frac{1}{2\pi}\int_{\mathbb{R}}\int_{\mathbb{R}} e^{-\frac{|z|^2}{4}}\pi(W(z)) \, dz
+\end{align*}
+Osserviamo che $P = P^*$
+\begin{align*}
+    P^* = \frac{1}{2\pi}\int_{\mathbb{R}}\int_{\mathbb{R}} e^{-\frac{|z|^2}{4}}\pi(W(-z)) \, dz = P
+\end{align*}
+dato che stiamo integrando su tutto $\mathbb{C}$. Verifichiamo $P \neq 0$, supponiamo per assurdo $P = 0$, allora
+\begin{align*}
+    0 &= \pi(W(x))P\pi(W(-x)) \\
+    &= \frac{1}{2\pi}\int_{\mathbb{R}}\int_{\mathbb{R}} e^{-\frac{|z|^2}{4}}\pi(W(x)W(z)W(-x)) \, dz \\
+    &= \frac{1}{2\pi}\int_{\mathbb{R}}\int_{\mathbb{R}} e^{-\frac{|z|^2}{4}}e^{-i\mathrm{Im}(\overline{x}z)}\pi(W(z)) \, dz
+\end{align*}
+ovvero $F^{-1}(e^{-|z|^2/4}\pi(W(z)))(x) = 0$ per ogni $x \in \mathbb{C}$, ma ciò è un assurdo. ...
 
 \subsubsection{Esercizi}
 \textbf{1.} Dimostrare che $t \in \mathbb{R} \mapsto U(t) \in \mathcal{B}(\mathcal{H})$ con $U$ unitario è S.O.T. continua se e solo se è W.O.T. continua. \\
