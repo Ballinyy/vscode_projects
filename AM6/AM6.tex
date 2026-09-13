@@ -3101,7 +3101,7 @@ Sia ora $\lambda \in \sigma_\mathscr{A}(A)$, allora $\omega_\lambda \in \Omega(C
 \begin{align*}
     \Delta_{\omega_\lambda}(A) = \omega_\lambda(A^2) - \omega_\lambda(A)^2 = \omega_\lambda(A)^2 - \omega_\lambda(A)^2 = 0
 \end{align*}
-per moltiplicatività dei caratteri. Inoltre, per il \textit{teorema di estensione di Hahn-Banach} e il \textit{corollario 4.2.1}, esiste $\omega \in \mathfrak{S}(\mathscr{A})$ che estende $\omega_\lambda$ e tale che $\omega(A) = \lambda$, pertanto $\Delta_\omega(A) = 0$, ovvero $\lambda \in \sigma_{fis}(A)$. \\ \\
+per moltiplicatività dei caratteri. Inoltre, per il \textit{teorema di estensione di Hahn-Banach} e il \textit{corollario 4.2.2}, esiste $\omega \in \mathfrak{S}(\mathscr{A})$ che estende $\omega_\lambda$ e tale che $\omega(A) = \lambda$, pertanto $\Delta_\omega(A) = 0$, ovvero $\lambda \in \sigma_{fis}(A)$. \\ \\
 \textbf{Lemma (4.4.2):} sia $\mathscr{A}$ una $C^*$-algebra commutativa con identità, allora $\omega \in \mathfrak{S}(\mathscr{A})$ è puro se e solo se è un carattere. \\
 
 \textbf{Dimostrazione:} $(\rightarrow)$ sia $\omega \in \mathfrak{P}(\mathscr{A})$, allora per il \textit{teorema GNS} e il \textit{teorema di Segal} esiste $(\mathcal{H}_\omega, \pi_\omega, \xi_\omega)$ terna GNS con $\pi_\omega$ irriducibile. Inoltre, per il \textit{teorema di Schur} sappiamo che $\pi(\mathscr{A})' = \mathbb{C}\mathbf{1}_{\mathcal{H}_\omega}$, pertanto $\pi_\omega(A) = \omega(A)\mathbf{1}_{\mathcal{H}_\omega}$ per ogni $A \in \mathscr{A}$. Segue che
@@ -3213,11 +3213,7 @@ per ogni $A, B \in \mathscr{A}$. Inoltre, per il \textit{teorema di Segal} e il 
     \mathcal{H}_\omega = \overline{\{\pi_\omega(A)\xi_\omega : A \in \mathscr{A}\}}^{\|\cdot\|_{\mathcal{H}_\omega}} = \braket{\xi_\omega}
 \end{align*}
 Quindi concludiamo che $\dim \mathcal{H}_\omega = 1$. \\
-$(\leftarrow)$ Se $\dim \mathcal{H}_\omega = 1$ si ha $\omega$ moltiplicativo (proprio perché $\mathcal{H}_\omega = \mathbb{C}\xi_\omega$), allora
-\begin{align*}
-    \omega([A, B]) = 0
-\end{align*}
-per ogni $A, B \in \mathscr{A}$. Dal \textit{teorema di Segal-Hahn-Banach} [Williams, 4.25] segue che $[A, B] = 0$ per ogni $A, B \in \mathscr{A}$. \qed \\ \\
+$(\leftarrow)$ Se $\dim \mathcal{H}_\omega = 1$ si ha $\omega$ moltiplicativo (proprio perché $\mathcal{H}_\omega = \mathbb{C}\xi_\omega$ e quindi $\pi_\omega(A) = \omega(A)\xi_\omega$ per ogni $A \in \mathscr{A}$), allora $\omega$ è un carattere. Data l'arbitrarietà di $\omega$, la tesi segue dal \textit{lemma 4.4.2}. \qed \\ \\
 \textbf{Corollario (4.4.2):} $\mathscr{A}$ è non commutativa se e solo se esiste $\omega \in \mathfrak{P}(\mathscr{A})$ tale che $\dim \mathcal{H}_\omega > 1$. In particolare questo significa che $\mathscr{A}$ è non commutativa quando si possono creare stati puri con sovrapposizione di stati puri distinti. \\ \\
 \textbf{Teorema (di caratterizzazione di sistemi quantistici):} data una $C^*$-algebra con identità $\mathscr{A}$, le seguenti sono equivalenti: \\
 \textbf{1.} $\mathscr{A}$ è non commutativa. \\
