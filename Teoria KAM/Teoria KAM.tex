@@ -239,11 +239,11 @@ dove si è posto $\tilde{\theta} = \theta$ e $\tilde{r} = r + \rho$, segue che $
 ovvero $\phi^*\omega = \omega$. \\ \\
 \textbf{Esempio:} sia $\varphi$ un diffeomorfismo su $\mathbb{T}^n$. Definiamo il sollevamento $\phi$ di $\varphi$ a $\mathbb{T}^n \times \mathbb{R}^n$
 \begin{flalign}
-    \phi: \quad (\theta, r) \mapsto \underbrace{(\varphi(\theta), r(\varphi_*(\theta)^{-1}))}_{(\tilde{\theta}, \tilde{r})} \tag{3.10}
+    \phi: \quad (\theta, r) \mapsto \underbrace{(\varphi(\theta), r\varphi'(\theta)^{-1})}_{(\tilde{\theta}, \tilde{r})} \tag{3.10}
 \end{flalign}
-dove con $\varphi_*$ si indica il differenziale di $\varphi$. Il diffeomorfismo $\phi$ preserva la $1$-forma differenziale $\lambda = \sum_j r_jd\theta_j$, infatti
+dove con $\varphi'$ si indica il differenziale di $\varphi$. Il diffeomorfismo $\phi$ preserva la $1$-forma differenziale $\lambda = \sum_j r_jd\theta_j$, infatti
 \begin{flalign}
-    \phi^*\lambda = \tilde{r} \cdot d\tilde{\theta} = r \cdot (\varphi_*(\theta))^{-1}(\varphi_*(\theta)) \cdot d\theta = \lambda \tag{3.11}
+    \phi^*\lambda = \tilde{r} \cdot d\tilde{\theta} = r \cdot \varphi'(\theta)^{-1}\varphi'(\theta) \cdot d\theta = \lambda \tag{3.11}
 \end{flalign}
 Inoltre, dato che $d\lambda = -\omega$, si ha
 \begin{flalign}
@@ -335,7 +335,7 @@ Dato $s > 0$, sia
     \mathbb{T}^n_s = \{\theta \in \mathbb{C}^n/\mathbb{Z}^n : |\mathrm{Im}\theta_j| < s\} \tag{4.15}
 \end{flalign}
 l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{O}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni olomorfe definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $\|\cdot\|_\infty$. \\
-In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa su un insieme è ivi continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema D.$1$ in appendice D.}. \\ \\
+In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni olomorfa su un insieme è ivi continua, pertanto se $f \in \mathcal{O}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{O}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema C.$1$ in appendice C.}. \\ \\
 Invertendo $(4.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni olomorfe a funzioni olomorfe, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza. \\ \\
 \textbf{Definizione 4.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
 \begin{flalign}
@@ -442,7 +442,7 @@ Per definizione
 \begin{align*}
     |g_k| = \left|\frac{1}{2\pi}\int_{\mathbb{T}^n} g(\theta)e^{-ik \cdot \theta} \, d\theta\right| \tag{4.34}
 \end{align*}
-Per ipotesi $g$ è olomorfa in $\mathbb{T}^n_{s + \sigma}$, pertanto, per ogni $k \in \mathbb{Z}\setminus\{0\}$, trasliamo il toro di integrazione attraverso il diffeomorfismo
+Per ipotesi $g$ è olomorfa in $\mathbb{T}^n_{s + \sigma}$, pertanto, per ogni $k \in \mathbb{Z}^n\setminus\{0\}$, trasliamo il toro di integrazione attraverso il diffeomorfismo
 \begin{align*}
     \theta_j \in \mathbb{T}^n \mapsto \theta_j - i\mathrm{sign}(k_j)(s + \sigma) \in \mathbb{T}^n_{s + \sigma} \tag{4.35}
 \end{align*}
@@ -455,11 +455,220 @@ Dato che per ipotesi $\alpha \in D_{\gamma, \tau}$, si ottiene
 \begin{align}
     |f|_s \leq \frac{|g|_{s + \sigma}}{\gamma}\sum_{k \in \mathbb{Z}^n\setminus\{0\}} |k|^\tau e^{-|k|(s + \sigma)} \tag{4.37}
 \end{align}
-Siamo ora interessati a ricondurre la sommatoria ad una sommatoria su $\mathbb{N}$, pertanto, fissato $m \in \mathbb{N}$, dobbiamo contare quanti $k \in \mathbb{Z}^n\setminus\{0\}$ soddisfano $|k| = m$. Notiamo subito che se un dato $k$ soddisfa $|k| = m$, anche $-k$ soddisfa $|-k| = m$, pertanto ottieniamo un fattore $2^n$ a moltiplicare. Pertanto, fissata una base ortonormale destra $\{e_i\}_{i = 1, \dots, n}$ di $\mathbb{Z}^n$, ci resta da contare quanti $k$ nell'insieme
+Siamo ora interessati a ricondurre la sommatoria ad una sommatoria su $\mathbb{N}$, pertanto, fissato $m \in \mathbb{N}$, dobbiamo contare quanti $k \in \mathbb{Z}^n\setminus\{0\}$ soddisfano $|k| = m$. Notiamo subito che se un dato $k$ soddisfa $|k| = m$, anche $-k$ soddisfa $|-k| = m$, pertanto ottieniamo un fattore $2^n$ a moltiplicare. Ragioniamo quadrante per quadrante, quindi contiamo quanti $k$ nell'insieme
 \begin{align*}
-    \left\{k \in \mathbb{Z}^n\setminus\{0\} : \sum_{i = 1}^n k \cdot e_i > 0\right\} \tag{4.38}
+    \left\{k \in \mathbb{Z}^n\setminus\{0\} : k_i > 0 \text{ per ogni } i = 1, \dots, n\right\} \tag{4.38}
 \end{align*}
-soddisfano contemporaneamente $|k| = m$, fissato $m \in \mathbb{N}$.
+soddisfano $|k| = m$, fissato $m \in \mathbb{N}$. Se $n = 1$ si ha solamente un elemento, ovvero $k = m$. Se $n = 2$ le soluzioni sono
+\begin{align*}
+    (k_1, k_2) = (m - 1, 1), (m - 2, 2), \dots, (1, m - 1) \tag{4.39}
+\end{align*}
+che sono $m - 1$. A questi dobbiamo aggiungere i punti
+\begin{align*}
+    (k_1, k_2) = (m, 0), (0, m), (-m, 0), (0, -m) \tag{4.40}
+\end{align*}
+Pertanto, in totale, si hanno $4(m - 1) + 4 = 4m$ punti. Per $n = 3$, conviene visualizzare il problema, quindi contiamo in quante configurazioni distinte possiamo distribuire $m$ oggetti indistinguibili in $3$ scatole. Equivalentemente possiamo contare quante configurazioni distinte esistono per un insieme composto da $m$ oggetti indistinguibili e $2$ pareti (che separano componenti diverse). Tuttavia, per ragionare su un singolo ottante, dobbiamo escludere gli elementi che hanno almeno una delle componenti nulla, in modo da poter poi moltiplicare per il numero di ottanti ($2^3$) e aggiungere separatamente i termini prima esclusi. Quindi in totale abbiamo
+\begin{align*}
+    8\left(\begin{pmatrix}
+        m + 2 \\
+        2
+    \end{pmatrix} - 3 - 3(m - 1)\right) + 6 + 12(m - 1) &= 4m^2 + 2 \tag{4.41}
+\end{align*}
+Per $n$ arbitrario si ottiene
+\begin{align*}
+    N_n(m) = \sum_{i = 1}^{\min(n, m)} 2^j\begin{pmatrix}
+        n \\
+        j
+    \end{pmatrix} \begin{pmatrix}
+        m - 1 \\
+        j - 1
+    \end{pmatrix} \tag{4.42}
+\end{align*}
+In particolare, il termine
+\begin{align*}
+    \begin{pmatrix}
+        n \\
+        j
+    \end{pmatrix} \tag{4.43}
+\end{align*}
+è il numero di modi in cui si possono scegliere $j$ coordinate non nulle (positive), mentre
+\begin{align*}
+    \begin{pmatrix}
+        m - 1 \\
+        j - 1
+    \end{pmatrix} \tag{4.44}
+\end{align*}
+è il numero di elementi che vivono in un quadrante $j$-dimensionale, si ottiene considerando tutte le configurazione distinte per un insieme di $m - j$ ($-j$ per imporre che nessuna componente sia nulla) oggetti indistinguibili e $j - 1$ pareti. Pertanto $(4.37)$ diventa
+\begin{align*}
+    |f|_s \leq \frac{|g|_{s + \sigma}}{\gamma} \sum_{m \in \mathbb{N}}\sum_{j = 1}^{\min(n, m)} 2^j\begin{pmatrix}
+        n \\
+        j
+    \end{pmatrix} \begin{pmatrix}
+        m - 1 \\
+        j - 1
+    \end{pmatrix} m^\tau e^{-m(s + \sigma)} \tag{4.45}
+\end{align*}
+La somma termina a $\min(n, m)$ perché stiamo considerando $j$ componenti non nulle e imponiamo $|k| = m$. Osserviamo che, fissato $n \in \mathbb{N}$, $N_n(m)$ è un polinomio di grado $n - 1$, infatti
+\begin{align*}
+    \begin{pmatrix}
+        m - 1 \\
+        j - 1
+    \end{pmatrix} = \frac{(m - 1)\cdot \dots \cdot(m - j + 1)}{(j - 1)!} \tag{4.46}
+\end{align*}
+e il valore massimo che $j$ può assumere è $n$. Pertanto esiste $C_n \in \mathbb{R}$ tale che
+\begin{align*}
+    N_n(m) \leq C_n m^{n - 1} \tag{4.47}
+\end{align*}
+per ogni $m \in \mathbb{N}$. Quindi possiamo maggiorare $|f|_s$ con
+\begin{align*}
+    |f|_s \leq \frac{C_n |g|_{s + \sigma}}{\gamma}\sum_{m \in \mathbb{N}} m^{\tau + n - 1}e^{-m\sigma} \tag{4.48}
+\end{align*}
+dove si è maggiorato $e^{-m(s + \sigma)} = e^{-sm}e^{-m\sigma}$ con $e^{-s\sigma}$ dato che $e^{-ms} < 1$ per ogni $s > 0$ e ogni $m \in \mathbb{N}$. \\
+A questo punto siamo interessati a maggiorare la sommatoria con un integrale. In particolare si può dimostrare che
+\begin{align*}
+    \sum_{m \in \mathbb{N}} m^{\tau + n - 1}e^{-m\sigma} \leq \int_1^\infty m^{\tau + n - 1}e^{-(m - 1)\sigma} \, dm \tag{4.49}
+\end{align*}
+Poniamo $t = m\sigma$, allora $dt = \sigma dm$, quindi
+\begin{align*}
+    \int_1^\infty m^{\tau + n - 1}e^{-(m - 1)\sigma} \, dm &= \frac{e^\sigma}{\sigma^{\tau + n}}\int_\sigma^\infty t^{\tau + n - 1}e^{-t} \, dt = \frac{e^\sigma}{\sigma^{\tau + n}}\Gamma(\tau + n) \tag{4.50}
+\end{align*}
+Ponendo $C_{n, \tau} = e^\sigma\Gamma(\tau + n)C_n$ si ottiene
+\begin{align*}
+    |f|_s \leq C_{n, \tau}\gamma^{-1}\sigma^{-\tau - n}|g|_{s + \sigma} \tag{4.51}
+\end{align*}
+ovvero la tesi. \qed
+
+\newpage
+\section{Twisted conjugacy}
+Consideriamo lo spazio $\mathcal{H}$ dei germi lungo $T^n_0 = \mathbb{T}^n \times \{0\}$ delle hamiltoniane analitiche reali. Sia $\mathcal{K}$ lo spazio affine dell'hamiltoniane analitiche reali della forma
+\begin{align*}
+    K(\theta, r) = c + \alpha \cdot r + O(r^2) \tag{5.1}
+\end{align*}
+con $c, \alpha \in \mathbb{R}$. Tali hamiltoniane soddisfano
+\begin{align*}
+    X_K|_{T^n_0} = (\alpha, 0) \tag{5.2}
+\end{align*}
+ovvero $T^n_0$ è un toro invariante di frequenza $\alpha$ per il flusso associato a $X_K$. \\
+Infine sia $\mathcal{G}$ lo spazio dei germi lungo $T^n_0$ dei simplettomorfismi esatti della forma
+\begin{align*}
+    G(\theta, r) = (\varphi(\theta), (r + \rho(\theta))\psi_*(\theta)) \tag{5.3}
+\end{align*}
+dove $\varphi$ è isomorfismo del toro $\mathbb{T}^n$ che fissa l'origine, mentre $\rho$ è una $1$-forma esatta su $\mathbb{T}^n$. \\ \\
+Ricordiamo la notazione per lo spazio delle fasi
+\begin{align*}
+    \mathbb{T}^n = \mathbb{R}^n/\mathbb{Z}^n \qquad T^n_0 = \mathbb{T}^n \times \{0\} \subset \mathbb{T}^n \times \mathbb{R}^n
+\end{align*}
+le estensioni complesse
+\begin{align*}
+    \mathbb{T}^n_\mathbb{C} = \mathbb{C}^n/\mathbb{Z}^n \qquad T^n_{\mathbb{C}} = \mathbb{T}^n_\mathbb{C} \times \mathbb{C}^n
+\end{align*}
+e gli intorni
+\begin{align*}
+    \mathbb{T}^n_s &= \{\theta \in \mathbb{T}^n_\mathbb{C} : \max_j |\mathrm{Im} \, \theta_j| \leq s\} \\
+    T^n_s &= \{ (\theta, r) \in T^n_\mathbb{C} : \max_j \max(|\mathrm{Im} \, \theta_j|, |r_j|) \leq s\}
+\end{align*}
+Lo scopo che ci poniamo ora è formulare il seguente teorema in modo da ricondurre la dimostrazione ad un problema di inversione locale di un operatore. \\ \\
+\textbf{Teorema (twisted conjugacy):} dati $\alpha \in D_{\gamma, \tau}$ e $K^0 \in \mathcal{K}$, per ogni $H \in \mathcal{H}$ sufficientemente vicina a $K^0$ esiste unico $(K, G, \beta) \in \mathcal{K} \times \mathcal{G} \times \mathbb{R}^n$ vicina a $(K^0, \mathrm{id}, 0)$ tale che
+\begin{align*}
+    H = K \circ G + \beta \cdot r \tag{5.4}
+\end{align*}
+in un intorno di $T^n_0$. \\ \\
+Il termine $\beta \cdot r$ rompe la coniugazione dinamica tra $K$ e $H$, ovvero $H$ avrà un toro invariante con frequenza $\alpha + \beta$. Una volta dimostrato il risultato in $(5.4)$, mostreremo che il termine $\beta$ scompare sotto opportune ipotesi di non degenerazione. \\ \\
+Impostiamo gli spazi funzionali necessari per introdurre e lavorare con l'operatore
+\begin{align*}
+    \phi : (K, G, \beta) \mapsto H = K \circ G + \beta \cdot r \tag{5.5}
+\end{align*}
+e determinarne l'invertibilità per $\alpha$ $(\gamma, \tau)$-diofanteo. \\ \\
+Sia $\mathcal{H}_s = \mathcal{O}(T^n_s)$, su cui definiamo la seguente norma
+\begin{align*}
+    |H|_s = \sup_{(\theta, r) \in T^n_s} |H(\theta, r)| \tag{5.6}
+\end{align*}
+in modo tale che sia uno spazio di Banach. \\
+Dato $\alpha \in \mathbb{R}^n$ poniamo $\mathcal{K}_s$ lo spazio affine composto dai $K \in \mathcal{H}_s$ tali che
+\begin{align*}
+    K = c + \alpha \cdot r + O(r^2) \tag{5.7}
+\end{align*}
+per qualche $c \in \mathbb{R}$. \\
+Dato $G$ isomorfismo analitico reale definito su un aperto di $T^n_{\mathbb{C}}$, poniamo
+\begin{align*}
+    G^*\mathcal{O}(T^n_s) = \mathcal{O}(G^{-1}(T^n_s)) \notag
+\end{align*}
+e vi definiamo la norma
+\begin{align*}
+    |H|_{G, s} = |H \circ G^{-1}|_s \tag{5.8}
+\end{align*}
+Così facendo, $|\cdot|_{G, s}$ rende $\mathcal{H}_{s - |G - \mathrm{id}|_s}$ uno spazio di Banach. In particolare si ha che
+\begin{align*}
+    G^* : H \in \mathcal{O}(T^n_s) \mapsto G^*H = H \circ G \in \mathcal{O}(G^{-1}(T^n_s)) \tag{5.9}
+\end{align*}
+è un isometria suriettiva, infatti
+\begin{align*}
+    |G^*H|_{G, s} = |H \circ G|_{G, s} = |H \circ G \circ G^{-1}|_s = |H|_s \tag{5.10}
+\end{align*}
+e, dato che $G$ è un isomorfismo, data $\widetilde{H} \in G^*\mathcal{O}(T^n_s)$, si ha che $G_*\widetilde{H} = \widetilde{H} \circ G^{-1}$ è un elemento di $\mathcal{O}(T^n_s)$ che soddisfa
+\begin{align*}
+    G^*(G_*\widetilde{H}) = G^*(\widetilde{H} \circ G^{-1}) = (\widetilde{H} \circ G^{-1}) \circ G = \widetilde{H} \tag{5.11}
+\end{align*}
+Gli isomorfismi suriettivi preservano la completezza, quindi anche $G^*\mathcal{O}(T^n_s)$ è uno spazio di Banach. \\
+La perdità di $|G - \mathrm{id}|_s$ nell'estensione del dominio di analiticità segue dal fatto che $G$ deforma $T^n_s$, pertanto è necessario restringere il dominio di $\sigma > |G - \mathrm{id}|_s$ in modo tale da ottenere $G(T^n_{s - \sigma}) \subset T^n_s$. Così facendo, ad ogni passo lavoreremo con funzioni analitiche su insiemi del tipo $T^n_{s - \sigma_k}$ e quindi la sarà valida la maggiorazione naturale
+\begin{align*}
+    |G^*H|_{s - \sigma} \leq |H|_s \tag{5.12}
+\end{align*}
+Sia $\mathcal{D}_s$ lo spazio degli isomorfismi analitici reali $\varphi : \mathbb{T}^n_s \longrightarrow \varphi(\mathbb{T}^n_s)$ che fissano l'origine. \\
+Inoltre, sia $\chi_s$ lo spazio dei campi vettoriali su $\mathbb{T}^n_s$ nulli all'origine, con norma
+\begin{align*}
+    |v|_s = \max_j \sup_{\theta \in \mathbb{T}^n_s} |v_j(\theta)| \tag{5.13}
+\end{align*}
+che lo rende uno spazio di Banach. \\
+Vogliamo fornire a un intorno dell'identità in $\mathcal{D}_s$ struttura di varietà di Banach, in modo da poter definire uno spazio tangente e derivare in senso di Fréchet (vedere Appendice C). In particolare si può dimostrare che la mappa
+\begin{align*}
+    v \mapsto \mathrm{id} + v \tag{5.14}
+\end{align*}
+definita dall'aperto
+\begin{align*}
+    \sigma\mathring{B}^\chi_{s + \sigma} = \{v \in \chi_{s + \sigma} : |v|_s < \sigma\} \tag{5.15}
+\end{align*}
+a $\mathcal{D}_s$ è biettiva [Féjoz], pertanto fornisce a $\mathcal{D}_s$ struttura di varietà di Banach in un intorno dell'identità. \\ \\
+Siamo interessati in particolare all'azione controgradiente di degli elementi di $\mathcal{D}_s$ su $T^n_s$, come visto in $(3.10)$, in modo da linearizzare la dinamica sul toro invariante. \\ \\
+Inoltre, consideriamo lo spazio $\mathcal{B}_s$ delle $1$-forme differenziali esatte su $\mathbb{T}^n_s$ della forma
+\begin{align*}
+    \rho : (\theta, r) \mapsto (\theta, r + \rho(\theta)) \tag{5.16}
+\end{align*}
+ovvero che agiscono per traslazione delle azioni, in modo da raddrizzare il toro invariante perturbato. Su $\mathcal{B}_s$ definiamo la norma
+\begin{align*}
+    |\rho|_s = \max_j \sup_{\theta \in \mathbb{T}^n_s} |\rho_j(\theta)| \tag{5.17}
+\end{align*}
+Indichiamo quindi con $\mathcal{G}_s = \mathcal{D}_s \times \mathcal{B}_s$ lo spazio dei simplettomorfismi (come visto in $(3.12)$) del tipo
+\begin{align*}
+    (\varphi, \rho)(\theta, r) = \varphi \circ \rho (\theta, r) = (\varphi(\theta), (r + \rho(\theta))\varphi'(\theta)^{-1}) \tag{5.18}
+\end{align*}
+Definiamo su $T_{\mathrm{id}}\mathcal{G}_s = \mathfrak{g}_s = \chi_s \times \mathcal{B}_s$ la norma
+\begin{align*}
+    |\dot{G}|_s = |(v, \rho)|_s = \max(|v|_s, |\rho|_s) \tag{5.19}
+\end{align*}
+Mentre su $T_G\mathcal{G}_s$ la norma
+\begin{align*}
+    |\delta G|_s = |\delta G \circ G^{-1}|_s \qquad \delta G \in T_G\mathcal{G}_s \tag{5.20}
+\end{align*}
+Come accade per le varietà classiche, anche per varietà di Banach lo spazio tangente ad un punto può essere identificato con lo spazio di Banach modello (per isomorfismi), pertanto, in questo contesto, $\dot{G}$ e $\delta G$ non sono altro che elementi di $\chi_s \times \mathcal{B}_s$. Segue che $\delta G \circ G^{-1}$ è un elemento dello spazio tangente all'identità. \\ \\
+Infine, consideriamo l'intorno dell'identità
+\begin{align*}
+    \mathcal{G}^\sigma_s = \{G \in \mathcal{G}_s : \sup_{(\theta, r) \in T^n_s} |(\Theta - \theta, R - r)| \leq \sigma, (\Theta, R) = G(\theta, r)\} \tag{5.21}
+\end{align*}
+i cui elementi sono essenzialmente tutti i simplettomorfismi che sono al più $\sigma$-lontani dall'identità, come prima discusso. \\ \\
+A questo punto è ben definito l'operatore
+\begin{align*}
+    \phi : (K, G, \beta) \in \mathcal{K}_{s + \sigma} \times \mathcal{G}^\sigma_s \times \mathbb{R}^n \mapsto H = K \circ G + \beta \cdot r \in \mathcal{H}_s \tag{5.22}
+\end{align*}
+Inoltre, posto $E_s = \mathcal{K}_s \times \mathcal{G}_s \times \mathbb{R}^n$ e il suo aperto
+\begin{align*}
+    \sigma B^E_s = \{x \in E_s : |x|_s < \sigma\} \tag{5.23}
+\end{align*}
+è ben definita la restrizione
+\begin{align*}
+    \phi : \sigma B^E_{s + \sigma} \longrightarrow \mathcal{H}_s \tag{5.24}
+\end{align*}
+a cui applicheremo il \textit{teorema della funzione inversa} (alla Nash-Moser).
 
 
 
@@ -1267,9 +1476,9 @@ In particolare, per $k = 1$, si ottiene
 per antilinearità delle forme differenziali. \\ \\
 \textbf{Proposizione (proprietà della derivata esterna in $\mathbb{R}^n$):} l'operatore di derivata esterna soddisfa le seguenti proprietà: \\
 \textbf{1.} $d$ è lineare. \\
-\textbf{2.} se $\omega^{(k)}$ è una $k$-forma differenziabile e $\eta$ una $1$-forma differenziabile in un aperto $U \subset \mathbb{R}^n$ si ha che
+\textbf{2.} se $\omega$ è una $k$-forma differenziabile e $\eta$ una $l$-forma differenziabile in un aperto $U \subset \mathbb{R}^n$ si ha che
 \begin{align}
-    d(\omega^{(k)} \wedge \eta) = d\omega^{(k)} \wedge \eta + (-1)^k\omega^{(k)} \wedge d\eta \tag{B.10.6}
+    d(\omega \wedge \eta) = d\omega \wedge \eta + (-1)^k\omega \wedge d\eta \tag{B.10.6}
 \end{align}
 \textbf{3.} $d \circ d = 0$ operatore nullo. \\
 \textbf{4.} $d$ commuta con l'operazione di pullback di una forma: data $F : U \longrightarrow V$ mappa regolare tra un aperto $U \subset \mathbb{R}^n$ e $V \subset \mathbb{R}^m$, si ha che
@@ -1278,10 +1487,23 @@ per antilinearità delle forme differenziali. \\ \\
 \end{align} \\
 
 \textbf{Dimostrazione:} $(1)$ la linearità dell'operatore derivata esterne segue immediatamente dalla struttura di spazio lineare definita sull'insieme delle $k$-forme differenziabili in $\mathbb{R}^k$ per ogni $k < n$ e dalla linearità dell'operatore derivata parziale in $\mathbb{R}^n$. \\
-$(2)$ \\
+$(2)$ Date
+\begin{align*}
+    \omega &= \sum_{i_1 < \dots < i_k} u_{i_1, \dots, i_k} \, dx_{i_1} \wedge \dots \wedge dx_{i_k} \quad \eta = \sum_{j_1 < \dots < j_l} v_{j_1, \dots, j_k} \, dx_{j_1} \wedge \dots \wedge dx_{j_l} \tag{B.10.8}
+\end{align*}
+si ha che
+\begin{align*}
+    d(\omega \wedge \eta) &= d(uv \, dx_I \wedge dx_J) \tag{B.10.9}
+\end{align*}
+per linearità (compattando la notazione degli indici). In particolare
+\begin{align*}
+    d(uv \, dx_I \wedge dx_J) &= (vdu + udv) \wedge dx_I \wedge dx_J \\
+    &= (du \wedge dx_I) \wedge (vdx_J) + (-1)^k(udx_I) \wedge (dv \wedge dx_J) \tag{B.10.10}
+\end{align*}
+dove si è usata la multilinearità e il fatto che $udv \wedge dx_I \wedge dx_J = (-1)^k udx_I \wedge (dv \wedge dx_J)$. \\
 $(3)$ Segue dalla linearità dell'operatore di derivata parziale in $\mathbb{R}^n$ e dal \textit{teorema di Schwartz} (di inversione dell'ordine di derivazione), infatti
 \begin{align}
-    \sum_{i, j}\frac{\partial}{\partial x_i}\left(\frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_j}\right)dx_i \wedge dx_j &= \sum_{i < j}\overbrace{\left(\frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_i\partial x_j} - \frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_j \partial x_i}\right)}^{0}dx_i \wedge dx_j \tag{B.10.?}
+    \sum_{i, j}\frac{\partial}{\partial x_i}\left(\frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_j}\right)dx_i \wedge dx_j &= \sum_{i < j}\overbrace{\left(\frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_i\partial x_j} - \frac{\partial \omega_{i_1, \dots, i_k}}{\partial x_j \partial x_i}\right)}^{0}dx_i \wedge dx_j \tag{B.10.11}
 \end{align}
 per ogni $i_1 < \dots < i_k$. \\
 $(4)$ Per definizione si ha
@@ -1298,96 +1520,216 @@ dove
 \end{align}
 per ogni $i = 1, \dots, n$. Pertanto si vede immediatamente che
 \begin{align}
-    d(F^*\omega^{(k)}) = F^*d\omega^{(k)} \tag{B.10.?}
+    d(F^*\omega^{(k)}) = F^*d\omega^{(k)} \tag{B.10.12}
 \end{align}
-ovvero $d$ commuta con l'operazione di pullback. \qed
+ovvero $d$ commuta con l'operazione di pullback. \qed \\ \\
+A questo punto postiamo estendere la definizione di derivata esterna a forma differenziali su varietà per mezzo dei pullback tramite la struttura di atlante differenziabile. \\ \\
+\textbf{Teorema (esistenza e unicità della differenziazione esterna):} sia $M$ una varietà differenziabile, per ogni $k \in \mathbb{N}$ esiste unico
+\begin{align*}
+    d : \Omega^{(k)}(M) \longrightarrow \Omega^{(k + 1)}(M) \tag{B.10.13}
+\end{align*}
+chiamiato \textit{differenziazione esterna}, che soddisfa le seguenti proprietà: \\
+\textbf{1.} $d$ è lineare. \\
+\textbf{2.} se $\omega$ è una $k$-forma su $M$ e $\eta$ è una $l$-forma su $M$ si ha
+\begin{align*}
+    d(\omega \wedge \eta) = d\omega \wedge \eta + (-1)^k\omega \wedge d\eta \tag{B.10.14}
+\end{align*}
+\textbf{3.} $d \circ d = 0$. \\
+\textbf{4.} per ogni $f \in \Omega^{(0)}(M) = C^\infty(M)$ si ha che $df$ è il suo differenziale, dato da $df(X) = Xf$ ($X$ campo vettoriale su $M$). \\
+Definiamo $d$ per ogni carta locale come in $B.10.4$. \\
 
+\textbf{Dimostrazione:} date $(U, \varphi)$ una carta locale di $M$ e $\omega$ una $k$-forma differenziale su $M$, definiamo la derivata esterna di $\omega$ su $U$ come segue
+\begin{align*}
+    d\omega = \varphi^*d(\varphi_*\omega) \tag{B.10.15}
+\end{align*}
+Se $(V, \psi)$ è una carta locale compatibile con $(U, \varphi)$ si ha che $\varphi \circ \psi^{-1}$ è un diffeomorfismo di aperti di $\mathbb{R}^n$, pertanto
+\begin{align*}
+    (\varphi \circ \psi^{-1})^*d(\varphi_*\omega) = d((\varphi \circ \psi^{-1})^*\varphi_*\omega) = d(\psi_*\varphi^*\varphi_*\omega) = d(\psi_*\omega) \tag{B.10.16}
+\end{align*}
+ovvero è indipendente dalla carta locale scelta. \\
+Dimostriamo l'unicità di $d$. Per farlo mostriamo prima che $d\omega$ è determinata localmente, ovvero che se $\omega_1 = \omega_2$ su un aperto $U$ della carta locale si ha che $d\omega_1 = d\omega_2$ in $U$. A tal proposito, consideriamo $p \in U$ arbitrario e $\psi$ la funzione scalino che è uguale a $1$ in un intorno di $p$ e identicamente nulla al di fuori. Allora, data $\eta = \omega_1 - \omega_2$, si ha che $\psi\eta$ è identicamente nulla. Segue che
+\begin{align*}
+    d(\psi\eta) = d\psi \wedge \eta + \psi d\eta = 0 \tag{B.10.17}
+\end{align*}
+Calcolando in $p$ si ottiene
+\begin{align*}
+    0 = d(\psi\eta)_p = \psi(p)d\eta_p = d\eta_p = d\omega_1|_p - d\omega_2|_p \tag{B.10.18}
+\end{align*}
+ovvero $d\omega_1|_p = d\omega_2|_p$. \\
+A questo punto, data $\omega \in \Omega^{(k)}(M)$ arbitraria, in $(U, \varphi)$ possiamo scrivere $\omega$ in termini coordinate locali
+\begin{align*}
+    \omega = \sum_I \omega_I dx_I \tag{B.10.19}
+\end{align*}
+Questo significa che $d\omega$ è definita tramite $B.10.14$. Dato $\widetilde{d}$, altro operatore di differenziazione esterna che soddisfa $(1)-(4)$, possiamo costruire, come prima fatto con una funzione a scalino, delle funzioni $\widetilde{\omega}_I$ e $\widetilde{x}_I$ che sono identiche a $\omega_I$ e $x_I$ in un intorno di $p$ in $U$. Segue che $d = \widetilde{d}$ in $p$ e quindi, dall'arbitrarietà di $p$, si ottiene la tesi. \qed \\ \\
+\textbf{Proposizione B.10.1:} siano $M, N$ varietà differenziabili e $F \in C^\infty(M, N)$. Allora il pullback tramite $F$ commuta con la derivata esterna. \\
+
+\textbf{Dimostrazione:} date $\omega \in \Omega^{(k)}(N)$ e $(U, \varphi)$ e $(V, \psi)$ rispettiamente carte locali di $M$ e $N$, si ha che
+\begin{align*}
+    F^*d\omega &= F^*\psi^*d(\psi_*\omega) \\
+    &= (\psi \circ F)^*d(\psi_*\omega) \\
+    &= \varphi^*(\psi \circ F \circ \varphi^{-1})^*d(\psi_*\omega) \\
+    &= \varphi^*d(\varphi_*F^*\psi^*\psi_*\omega) \\
+    &= \varphi^*d(\varphi_*F^*\omega) \\
+    &= d(F^*\omega) \tag{B.10.20}
+\end{align*}
+dove si è usato che $\phi^*\phi_* = 1 = \phi_*\phi^*$ ($1$ inteso come identità). \qed \\ \\
+A questo punto si estende naturalmente il concetto di forma differenziale chiusa e esatta a forme su varietà differenziabili.
 
 \newpage
-\section{Nozioni e risultati di analisi funzionale}
-\textbf{Teorema D.1:} sia $S$ un insieme, allora
+\subsection{Derivata di Lie di forme differenziali}
+Sia $M$ una varietà differenziabile e $X$ un campo vettoriale regolare su $M$. Dato $\varphi_t$, il flusso di $X$ su $M$, chiamiamo \textit{derivata di Lie} di una funzione $f \in C^\infty(M)$ in $p \in M$ la seguente
+\begin{align*}
+    \mathcal{L}_Xf = \left.\frac{d}{dt}\right|_{t = 0}f(\varphi_t(p)) \tag{B.11.1}
+\end{align*}
+ovvero la derivata di $f$ lungo le curve integrali di $X$. \\
+Analogamente, per una $k$-forma differenziale su $M$
+\begin{align*}
+    \mathcal{L}_X\omega = \left.\frac{d}{dt}\right|_{t = 0}(\varphi^*_t\omega) \tag{B.11.2}
+\end{align*}
+Essenzialmente, la derivata di Lie tiene conto del cambiamento lungo le curve integrali del campo vettoriale associato. In particolare per forme differenziali deve tener conto anche della variazione dei vettori tangenti lungo tali curve. \\ \\
+\textbf{Proposizione B.11.1:} siano $M$ una varietà differenziabile e $X$ un campo vettoriale regolare su $M$, date $\omega$ un $k$-forma su $M$ e $\eta$ una $l$-forma su $M$ si ha che
+\begin{align*}
+    \mathcal{L}_X(\omega \wedge \eta) = \mathcal{L}_X\omega \wedge \eta + \omega \wedge \mathcal{L}_X\eta \tag{B.11.3}
+\end{align*}
+ovvero $\mathcal{L}_X$ soddisfa la regola del prodotto per il prodotto esterno. \\
+
+\textbf{Dimostrazione:} l'operazione di pullback si distribuisce sul prodotto esterno, pertanto
+\begin{align*}
+    \varphi^*_t(\omega \wedge \eta) = \varphi^*_t\omega \wedge \varphi^*_t\eta \tag{B.11.4}
+\end{align*}
+Dalla regolare di Leibniz segue
+\begin{align*}
+    \left.\frac{d}{dt}\right|_{t = 0}\varphi^*_t(\omega \wedge \eta) &= \left.\frac{d}{dt}\right|_{t = 0}\varphi^*_t\omega \wedge \varphi^*_t\eta \\
+    &= \left(\left.\frac{d}{dt}\right|_{t = 0}\varphi^*_t\omega\right) \wedge \eta + \omega \wedge \left(\left.\frac{d}{dt}\right|_{t = 0} \varphi^*_t\eta\right) \\
+    &= \mathcal{L}_X\omega \wedge \eta + \omega \wedge \mathcal{L}_X \eta \tag{B.11.5}
+\end{align*}
+ovvero la tesi. \qed \\ \\
+\textbf{Definizione:} sia $M$ una varietà differenziabile e sia $X$ un campo vettoriale su $M$, data $\omega$ una $k$-forma su $M$ definiamo la contrazione
+\begin{align*}
+    \iota_X : \omega \in \Omega^{(k)}(M) \mapsto \omega_X \in \Omega^{(k - 1)}(M) \tag{B.11.6}
+\end{align*}
+dove $\omega_X$ è la $k - 1$-forma su $M$ definita da
+\begin{align*}
+    \omega_X : (p, v_1, \dots, v_{k - 1}) \mapsto \omega_p(X_p, v_1, \dots, v_{k - 1}) \tag{B.11.7}
+\end{align*}
+ovvero la prima entrata della forma è fissata a $X$. \\
+Per una $1$-forma di base $dx_i$ si ha
+\begin{align*}
+    \iota_X(dx_i) = dx_i(X) = dx_i\left(\sum_j X_j\frac{\partial}{\partial x_j}\right) = X_i\delta_{ij} \tag{B.11.8}
+\end{align*}
+dove si è scomposto $X$ in termine della base delle derivazioni (vettori base dello spazio tangente). Osserviamo che
+\begin{align*}
+    \iota_X(dx_{i_1} \wedge \dots \wedge dx_{i_k}) = \sum_{r = 1}^k (-1)^{r - 1}X_{i_r}dx_{i_1} \wedge \dots \cancel{dx_{i_r}} \dots \wedge dx_{i_k} \tag{B.11.9}
+\end{align*}
+sviluppando il calcolo del determinante rispetto alla prima colonna. \\
+Per definizione poniamo $\iota_X f = 0$ se $f$ è una $0$-forma, ovvero una funzione differenziabile. \\ \\
+\textbf{Teorema (formula magica di Cartan):} siano $M$ una varietà differenziabile, $X$ un campo vettoriale su $M$ e $\omega$ una $k$-forma differenziale su $M$, allora
+\begin{align*}
+    \mathcal{L}_X\omega = \iota_X(d\omega) + d(\iota_X \omega) \tag{B.11.10}
+\end{align*} \\
+
+\textbf{Dimostrazione:} ragioniamo per induzione. Data $f$ una $0$-forma su $M$ si ha
+\begin{align*}
+    \iota_X(df) + d(\iota_X f) = \iota_X df = df(X) = \mathcal{L}_X f \tag{B.11.11}
+\end{align*}
+Supponiamo che sia vero per $k - 1$-forme e dimostriamolo per $k$-forme. Sia $\omega$ una $k$-forma su $M$
+\begin{align*}
+    \omega = \sum_I \omega_I \, dx_{i_1} \wedge \dots \wedge dx_{i_k} 
+\end{align*}
+Notiamo che, posto $\eta = \omega_I dx_{i_2} \wedge \dots \wedge dx_{i_k}$ per ogni sottinsieme di indici strettamente crescenti di $I$, si ha $\omega = \sum_I dx_{i_1} \wedge \eta$. Pertanto
+\begin{align*}
+    \mathcal{L}_X \omega = \sum_I \mathcal{L}_X dx_{i_1} \wedge \eta + dx_{i_1} \wedge \mathcal{L}_X \eta \tag{B.11.12}
+\end{align*}
+Per ipotesi induttiva si ottiene
+\begin{align*}
+    \mathcal{L}_X \omega &= \sum_I (\cancel{\iota_X(d^2x_{i_1})} + dX_{i_1}) \wedge \eta + dx_{i_1} \wedge (\iota_X(d\eta) + d(\iota_X \eta)) \\
+    &= \sum_I dX_{i_1} \wedge \eta + dx_{i_1} \wedge (\iota_X(d\eta) + d(\iota_X\eta)) \tag{B.11.13}
+\end{align*}
+Notiamo che
+\begin{align*}
+    d\omega = -\sum_I dx_{i_1} \wedge d\eta
+\end{align*}
+Pertanto
+\begin{align*}
+    \iota_X(d\omega) = -\sum_I X_{i_1}d\eta + dx_{i_1} \wedge \iota_X(d\eta) \tag{B.11.14}
+\end{align*}
+Mentre
+\begin{align*}
+    d(\iota_X \omega) &= d\left(\sum_I -X_{i_1}\eta + dx_{i_1} \wedge \iota_X\eta\right) \\
+    &= \sum_I -dX_{i_1} \wedge \eta + X_{i_1}d\eta - dx_{i_1} \wedge d(\iota_X \eta) \tag{B.11.15}
+\end{align*}
+Sommando $(B.11.14)$ e $(B.11.15)$ si cancellano i termini $X_{i_1}d\eta$ e si ottiene
+\begin{align}
+    \iota_X(d\omega) + d(\iota_X\omega) = -\sum_I dX_{i_1} \wedge \eta + dx_{i_1} \wedge (\iota_X(d\eta) + d(\iota_X\eta)) = \mathcal{L}_X\omega \tag{B.11.16}
+\end{align}
+confrontando con $(B.11.13)$. \qed \\ \\
+\textbf{Corollario B.11.1:} la derivata di Lie commuta con il differenziale esterno. \\
+
+\textbf{Dimostrazione:} si ha
+\begin{align*}
+    \mathcal{L}_X(d\omega) = \iota_X(\cancel{d^2\omega}) + d(\iota_X d\omega) \tag{B.11.17}
+\end{align*}
+Mentre
+\begin{align*}
+    d\left(\mathcal{L}_X\omega\right) = d(\iota_X d\omega) + \cancel{d^2(\iota_X \omega)} \tag{B.11.18}
+\end{align*}
+Confrontando si ottiene la tesi. \qed
+
+\newpage
+\section{Setting funzionale}
+\textbf{Teorema C.1:} sia $S$ un insieme, allora
 \begin{flalign}
-    l^\infty(S) := \{f : S \longrightarrow \mathbb{C} : \|f\|_\infty < \infty\} \tag{D.1}
+    l^\infty(S) := \{f : S \longrightarrow \mathbb{C} : \|f\|_\infty < \infty\} \tag{C.1}
 \end{flalign}
 è uno spazio di Banach rispetto alla metrica indotta da $\|\cdot\|_\infty$ \\
 
 \textbf{Dimostrazione:} sia $\{f_n : n \in \mathbb{N}\}$ una successione di Cauchy contenuta in $l^\infty(S)$. Fissato $\varepsilon > 0$, esiste $N_\varepsilon \in \mathbb{N}$ tale che
 \begin{flalign}
-    \|f_n - f_m\|_\infty < \frac{\varepsilon}{2} \tag{D.2}
+    \|f_n - f_m\|_\infty < \frac{\varepsilon}{2} \tag{C.2}
 \end{flalign}
 per ogni $n, m > N_\varepsilon$. Allora, per ogni $t \in S$ si ha
 \begin{flalign}
-    |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \frac{\varepsilon}{2} \tag{D.3}
+    |f_n(t) - f_m(t)| \leq \|f_n - f_m\|_\infty < \frac{\varepsilon}{2} \tag{C.3}
 \end{flalign}
 per ogni $n, m > N_\varepsilon$, ovvero $\{f_n(t) : n \in \mathbb{N}\}$ è una successione di Cauchy a termini complessi per ogni $t \in S$. Dato che $\mathbb{C}$ è di Banach, per ogni $t \in S$ è ben definito il limite puntale di $f_n(t)$. In particolare poniamo
 \begin{flalign}
-    f(t) = \lim_{n \rightarrow \infty} f_n(t) \tag{D.4}
+    f(t) = \lim_{n \rightarrow \infty} f_n(t) \tag{C.4}
 \end{flalign}
 abbiamo quindi definito la funzione $f : S \longrightarrow \mathbb{C}$. \\
 Resta da dimostrare che $\|f_n - f\|_\infty \rightarrow 0$ per $n \rightarrow \infty$ e che $f \in l^\infty(S)$. Per costruzione di $f$ si ha
 \begin{flalign}
-    |f_n(t) - f(t)| &= \lim_{m \rightarrow \infty} |f_n(t) - f_m(t)| \leq \frac{\varepsilon}{2} < \varepsilon \tag{D.5}
+    |f_n(t) - f(t)| &= \lim_{m \rightarrow \infty} |f_n(t) - f_m(t)| \leq \frac{\varepsilon}{2} < \varepsilon \tag{C.5}
 \end{flalign}
 per continuità della norma, per ogni $n > N_\varepsilon$ e ogni $t \in S$. Prendendo il $\sup$ si ottiene
 \begin{align*}
-    \sup_{t \in S} |f_n(t) - f(t)| = \|f_n - f\|_\infty < \varepsilon \tag{D.6}
+    \sup_{t \in S} |f_n(t) - f(t)| = \|f_n - f\|_\infty < \varepsilon \tag{C.6}
 \end{align*}
 per ogni $n > N_\varepsilon$. \\
 Infine, per definizione di convergenza, esiste $N_1 \in \mathbb{N}$ tale che fissato $n > N_1$ si ha
 \begin{flalign}
     \|f\|_\infty &\leq \|f - f_n\|_\infty + \|f_n\|_\infty \notag \\
-    &< 1 + \|f_n\|_\infty \tag{D.7}
+    &< 1 + \|f_n\|_\infty \tag{C.7}
 \end{flalign}
 ovvero $f$ limitata in $S$, pertanto si ottiene la tesi. \qed \\ \\
-\textbf{Teorema (di Stone-Weierstrass):} sia $Pol([a, b])$ lo spazio delle funzioni polinomiali a coefficienti complessi definite sull'intervallo $[a, b]$. Si ha che $Pol([a, b])$ è denso (in norma $\|\cdot\|_\infty$) in $\mathcal{C}^0([a, b], \mathbb{C})$. \\
+\textbf{Definizione:} la derivata in senso di Fréchet è l'estensione del concetto di differenziale totale per spazi di Banach generali. L'idea è sempre quella di linearizzare localmente una funzione in punto, quindi la definizione è sempre data per mezzo del rapporto incrementale. \\ \\
+\textbf{Definizione:} le varietà di Banach sono l'estensione del concetto di varietà classica a spazi infinito dimensionali. \\
+Una varietà classica $M$ localmente diffeomorfa ad un aperto $\mathbb{R}^n$, per qualche $n \in \mathbb{N}$, ovvero è uno oggetto che viene modellato a partire da uno spazio euclideo $n$-dimensionale. \\
+Per estendere questo concetto a spazi infinito dimensianali, come spazi di funzioni, si modella la varietà a partire da uno spazio di Banach (che va a sostituire lo spazio lineare), pertanto si costruisce un atlante differenziabile a partire dagli aperti dello spazio di Banach modello.
 
-\textbf{Dimostrazione:} dato che la densità è una proprietà topologica, possiamo assumere $[a, b] = [0, 1]$ senza perdita di generalità. Inoltre, data $f \in \mathcal{C}^0([0, 1])$ possiamo assumere $f(0) = 0 = f(1)$, infatti se così non fosse basterebbe definire
-\begin{flalign}
-    g(x) = f(x) - f(0) - (f(1) - f(0))x \tag{D.8}
-\end{flalign} 
-per ogni $x \in [0, 1]$, che soddisfa $g(0) = 0 = g(1)$ ed è continua, ed è immediato notare che se il teorema è valido per $g$ è valido anche per $f$. \\
-Vogliamo costruire una successione di funzioni polinomiali $\{q_n\}_{n \in \mathbb{N}}$ che approssima la delta di Dirac. Data $f \in \mathcal{C}^0([0, 1], \mathbb{C})$ possiamo estenderla per continuità in modo tale che sia identicamente nulla fuori da $[0, 1]$. Per ogni $n \in \mathbb{N}$ definiamo 
-\begin{flalign}
-    q_n = c_n(1 - x^2)^n \tag{D.9}
-\end{flalign}
-dove $c_n$ è una costante (fissato $n$) che garantisce la normalizzazione di $q_n$ sull'intervallo $[-1, 1]$, ovvero 
-\begin{flalign}
-    \int_{-1}^1 c_n(1 - x^2)^n \, dx = 1 \tag{D.10}
-\end{flalign}
-Cerchiamo una stima per $c_n$. Per la \textit{disuguaglianza di Bernoulli} si ha 
-\begin{flalign}
-    \int_{-1}^1 (1 - x^2)^n \, dx &= 2\int_0^1 (1 - x^2)^n \, dx \notag \\
-    &\geq 2\int_0^{1/\sqrt{n}} (1 - x^2)^n \, dx \notag \\
-    &\geq 2\int_0^{1/\sqrt{n}} (1 - nx^2) \, dx \notag \\
-    &= 2\left(x - \frac{nx^3}{3}\right)_0^{1/\sqrt{n}} \notag \\
-    &= \frac{4}{3\sqrt{n}} \geq \frac{1}{\sqrt{n}} \tag{D.11}
-\end{flalign}
-Pertanto concludiamo che $c_n \leq \sqrt{n}$. Segue che dato $\delta > 0$ si ha 
-\begin{flalign}
-    q_n(x) \leq \sqrt{n}(1 - \delta^2)^n \tag{D.12}
-\end{flalign}
-per ogni $x \in [\delta, 1]$. Per ogni $n \in \mathbb{N}$ poniamo 
-\begin{flalign}
-    p_n(x) = \int_{-1}^1 q_n(t)f(x + t) \, dt \tag{D.13}
-\end{flalign}
-per ogni $x \in [0, 1]$. Notiamo immediatamente che $\{p_n\}_{n \in \mathbb{N}} \subset Pol([0, 1])$. Mostriamo che $p_n(x) \rightarrow f(x)$ in norma $\|\cdot\|_\infty$ per $n \rightarrow \infty$. Fissato $0 < \delta < 1$ si ha
-\begin{flalign}
-    |p_n(x) - f(x)| &= \left|\int_{-1}^1 q_n(t)f(x + t) \, dt - f(x)\right| \notag \\
-    &= \left|\int_{-1}^1 q_n(x)(f(x + t) - f(x)) \, dt\right| \notag \\
-    &\leq \int_{-1}^1 q_n(x)|f(x + t) - f(x)| \, dt \notag \\
-    &= \int_{-1}^\delta (\dots) \, dt + \int_{-\delta}^\delta (\dots) \, dt  + \int_{\delta}^1 (\dots)  \, dt \notag \\
-    &\leq 2\int_{\delta}^1 q_n(x)\|f\|_\infty \, dt + \int_{-\delta}^\delta q_n(x)|f(x + t) - f(x)| \, dt \tag{D.14}
-\end{flalign}
-dove nel secondo passaggio si è usato il fatto che $q_n$ è normalizzata su $[-1, 1]$, nel terzo la subadditività dell'integrale, quinto il fatto che $q_n$ è pari. \\
-A questo punto, dato che $f$ è continua su un compatto ($[-1, 1]$) è valido il \textit{teorema di Heine-Cantor}, pertanto $f$ è uniformemente continua su $[-1, 1]$ e quindi anche su $[-\delta, \delta]$. Concludiamo che per ogni $\varepsilon > 0$ esiste $\delta > 0$ tale che se $|(x + t) - x| = |t| < \delta$ si ha $|f(x + t) - f(x)| < \varepsilon$ per ogni $x \in [-\delta, \delta]$. Quindi, a meno di ridefinire $\delta$, si ha
-\begin{flalign}
-    |p_n(x) - f(x)| \leq 2\|f\|_\infty\sqrt{n}(1 - \delta^2)^n(1 - \delta) + 2\varepsilon\delta\sqrt{n}(1 - \delta^2)^n \rightarrow 0 \tag{D.15}
-\end{flalign}
-per $n \rightarrow \infty$. Inoltre, la convergenza è uniforme, infatti la condizione per l'uniforme continuità dipende solamente da $|t|$ e non da $x$. Concludiamo quindi che 
-\begin{flalign}
-    \|p_n - f\|_{\infty} \rightarrow 0 \tag{D.16}
-\end{flalign}
-per $n \rightarrow \infty$. \qed
+\newpage
+\section{Teorema della funzione inversa}
+Siano $E = (E_s)_{0 < s < 1}$ una famiglia decrescente ($E_s \subset E_{s'}$ se $s > s'$) di spazi di Banach con norme crescenti $|\cdot|_s$ (norme del $\sup$) e
+\begin{align*}
+    \epsilon B^E_s = \{x \in E_s : |x|_s < \epsilon\} \tag{D.1}
+\end{align*}
+il disco di raggio $s$ centrato nell'origine in $E_s$. Sia $F = (F_s)$ una famiglia analoga e $\phi : \sigma B^E_{s + \sigma} \longrightarrow F_s$, $0 < s < s + \sigma$, una mappa di classe $C^2$ che fissa l'origine e commuta con le inclusioni. \\
+Inoltre, consideriamo varie norme deformate del tipo $|\cdot|_{x, s}$ che sono necessarie per per trattare la composizione di mappe senza dover restringere brutalmente i domini di analiticità. Gli spazi vengono invece deformati e le norme $|\cdot|_{x, s}$ ci permettono di vederli come 'dritti'. In particolare supponiamo che tali norme soddisfino
+\begin{align*}
+    |y|_{0, s} = |y|_s \qquad |y|_{x', s} \leq |y|_{x, s + |x - x'|_s} \tag{D.2}
+\end{align*}
+dove l'uguaglianza ci dice che la composizione con l'identità non deforma, mentre la disuguaglianza è ovvia, infatti basta notare che l'estensione di $s + |x - x'|_s$ contiene gli elementi di entrambe le deformazioni ($x$ e $x'$). \\
+Quindi, se denotiamo con $F_{x, s}$ lo spazio normato $(F_s, |\cdot|_{x, s})$, si ottiene che se $x \in \sigma B^E_{s + \sigma}$ allora $\phi(x) \in F_{x, s}$. \\ \\
+La cosa fondamentale da notare è che la perdita di estensione di $\sigma$ può essere scelta arbitrariamente piccola, independentemente da $s$, a patto di sostituire la norma con la norma deformata.
 
 
 \end{document}
