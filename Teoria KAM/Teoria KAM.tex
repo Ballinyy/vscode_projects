@@ -1722,14 +1722,95 @@ Siano $E = (E_s)_{0 < s < 1}$ una famiglia decrescente ($E_s \subset E_{s'}$ se 
 \begin{align*}
     \epsilon B^E_s = \{x \in E_s : |x|_s < \epsilon\} \tag{D.1}
 \end{align*}
-il disco di raggio $s$ centrato nell'origine in $E_s$. Sia $F = (F_s)$ una famiglia analoga e $\phi : \sigma B^E_{s + \sigma} \longrightarrow F_s$, $0 < s < s + \sigma$, una mappa di classe $C^2$ che fissa l'origine e commuta con le inclusioni. \\
-Inoltre, consideriamo varie norme deformate del tipo $|\cdot|_{x, s}$ che sono necessarie per per trattare la composizione di mappe senza dover restringere brutalmente i domini di analiticità. Gli spazi vengono invece deformati e le norme $|\cdot|_{x, s}$ ci permettono di vederli come 'dritti'. In particolare supponiamo che tali norme soddisfino
+il disco di raggio $\epsilon$ centrato nell'origine in $E_s$. Sia $F = (F_s)$ una famiglia analoga e $\phi : \sigma B^E_{s + \sigma} \longrightarrow F_s$, $0 < s < s + \sigma$, una mappa di classe $C^2$ che fissa l'origine e commuta con le inclusioni. Consideriamo mappe definite su $\sigma B^E_{s + \sigma}$ in particolare perché siamo interessati solamente a simplettomorfismi al più $\sigma$-lontani dall'identità, in modo da poter sempre lavorare con funzione analitiche su estensioni complesse rettangolari di tori $n$-dimensionali. \\
+Inoltre, consideriamo varie norme deformate del tipo $|\cdot|_{x, s}$ per $x \in sB^E_{s}$ che sono necessarie per per trattare la composizione di mappe senza dover restringere brutalmente i domini di analiticità. Gli spazi vengono invece deformati e le norme $|\cdot|_{x, s}$ ci permettono di vederli come 'dritti'. In particolare supponiamo che tali norme soddisfino
 \begin{align*}
     |y|_{0, s} = |y|_s \qquad |y|_{x', s} \leq |y|_{x, s + |x - x'|_s} \tag{D.2}
 \end{align*}
 dove l'uguaglianza ci dice che la composizione con l'identità non deforma, mentre la disuguaglianza è ovvia, infatti basta notare che l'estensione di $s + |x - x'|_s$ contiene gli elementi di entrambe le deformazioni ($x$ e $x'$). \\
 Quindi, se denotiamo con $F_{x, s}$ lo spazio normato $(F_s, |\cdot|_{x, s})$, si ottiene che se $x \in \sigma B^E_{s + \sigma}$ allora $\phi(x) \in F_{x, s}$. \\ \\
-La cosa fondamentale da notare è che la perdita di estensione di $\sigma$ può essere scelta arbitrariamente piccola, independentemente da $s$, a patto di sostituire la norma con la norma deformata.
+La cosa fondamentale da notare è che la perdita di estensione di $\sigma$ può essere scelta arbitrariamente piccola, independentemente da $s$, a patto di sostituire la norma con la norma deformata. \\ \\
+\textbf{Teorema (della funzione inversa alla Nash-Moser):} supponiamo che per $x \in sB^E_{s + \sigma}$ il differenziale $\phi'(x) : E_{s + \sigma} \longrightarrow F_s$ ammette inversa destra. Inoltre, supponiamo che $\phi'(x)$ e $\phi''(x)$ soddisfino le seguenti stime
+\begin{align*}
+    \begin{cases}
+        |\phi'(x)^{-1}\delta x|_s \leq C'\sigma^{-\tau'}|\delta x|_{x, s + \sigma} \\
+        |\phi''(x)\delta x^{\otimes 2}|_{x, s} \leq C''\sigma^{-\tau''}|\delta x|^2_{s + \sigma}
+    \end{cases} \tag{D.3}
+\end{align*}
+con $C', C'', \tau', \tau'' \geq 1$. Allora $\phi$ è localmente suriettiva, in particolare, per ogni $s, \sigma, \eta > 0$, $\eta < s$, si ha
+\begin{align*}
+    \epsilon B^F_{s + \sigma} \subset \phi(\eta B^E_s) \tag{D.4}
+\end{align*}
+$C = C'C''$, $\tau = \tau' + \tau''$, ovvero $\phi$ ammette inversa locale destra $\psi : \eta B^F_{s + \sigma} \longrightarrow \epsilon B^E_s$. \\ \\
+\textbf{Dimostrazione:} il problema di identificare una preimmagine di $y$ tramite $\phi$ equivale a cercare gli zeri della funzione
+\begin{align*}
+    F: x \in \sigma B^E_{s + \sigma} \mapsto \phi(x) - y \tag{D.5}
+\end{align*}
+In particolare adottiamo l'algoritmo di Newton per la ricerca degli zeri, pertanto approssimiamo linearmente $F(x)$ attorno a $x$
+\begin{align*}
+    F(z) \sim \phi(x) - y + \phi'(x)(z - x) \tag{D.6}
+\end{align*}
+e cerchiamo $\widetilde{z}$ tale che l'approssimazione lineare sia nulla. In particolare ciò accade per
+\begin{align*}
+    \widetilde{z} = x + \phi'(x)^{-1}(y - \phi(x)) \tag{D.7}
+\end{align*}
+Posta
+\begin{align*}
+    f : x \in \sigma B^E_{s + \sigma + \eta} \mapsto x + \phi'(x)^{-1}(y - \phi(x)) \tag{D.8}
+\end{align*}
+dove l'estensione ulteriore di $\eta$ è necessaria per far ricadere tutto in $E_s$ dopo l'applicazione di $\phi$ e $\phi'(x)^{-1}$, definiamo induttivamente la seguente successione di punti
+\begin{align*}
+    x_0 = 0 = (K^0, \mathrm{id}, 0) \qquad x_n = f^n(0) = f(f(\dots f(0))) \tag{D.9}
+\end{align*}
+Poniamo
+\begin{align*}
+    Q : (\hat{x}, x) \in \sigma B^E_{s + \sigma + \eta} \times \sigma B^E_{s + \sigma + \eta} \mapsto \phi(\hat{x}) - \phi(x) - \phi'(x)(\hat{x} - x) \tag{D.10}
+\end{align*}
+In particolare $|Q|_{x, s}$ ci fornisce l'informazione sull'errore dovuto al fatto che stiamo considerando l'approssimazione lineare. \\ \\
+\textit{Lemma D.1:} la mappa $Q$ soddisfa la seguente stima
+\begin{align*}
+    |Q(\hat{x}, x)|_{x, s} \leq \frac{1}{2}C''\sigma^{-\tau''}|\hat{x} - x|^2_{s + \sigma + |\hat{x} - x|_s} \tag{D.11}
+\end{align*} \\
+
+\textit{Dimostrazione:} sviluppando $Q$ in serie di Taylor con resto di Lagrange si ottiene solamente il contributo integrale del secondo ordine, pertanto
+\begin{align*}
+    Q(\hat{x}, x) = \int_0^1 (1 - t)\phi''(x_t)(\hat{x} - x)^{\otimes 2} \, dt \tag{D.12}
+\end{align*}
+dove $x_t = (1 - t)\hat{x} + tx$. Pertanto
+\begin{align*}
+    |Q(\hat{x}, x)|_{x, s} &\leq \int_0^1 (1 - t)|\phi''(x_t)(\hat{x} - x)^{\otimes 2}|_{x, s} \, dt \\
+    &\leq \int_0^1 (1 - t)|\phi''(x_t)(\hat{x} - x)^{\otimes 2}|_{x_t, s + |x_t - x|_s} \, dt \\
+    &\leq \frac{1}{2}C''\sigma^{-\tau''}|(\hat{x} - x)|^2_{s + \sigma + |\hat{x} - x|_s} \tag{D.13}
+\end{align*}
+dove il fattore $1/2$ deriva dall'integrale e si sono usate le stime in $(D.2)$ e $(D.3)$. \qed \\ \\
+Siano $(\sigma_n)_{n \geq 0}$ una successione  di termini positivi tale che $3\sum \sigma_n = \sigma$ e $(s_n)_{n \geq 0}$ la successione definita per induzione
+\begin{align*}
+    s_0 = s + \sigma \qquad s_{n + 1} = s_n - 3\sigma_n \notag
+\end{align*} 
+Ad ogni passo scegliamo di perdere una quantità sufficientemente piccola di analiticità, in modo tale che dopo infiniti passi avremo ancora un'estensione finita $s > 0$. \\ \\
+A questo punto, per costruzione dell'algoritmo di Newton via la mappa $f$ definita in $(D.7)$ e $(D.8)$, si ha
+\begin{align}
+    x_{k + 1} - x_k = \phi'(x_k)^{-1}(y - \phi(x_k)) \tag{D.14}
+\end{align}
+Componendo a destra con $\phi'(x_k)$ si ottiene
+\begin{align*}
+    \phi'(x_k)(x_{k + 1} - x_k) = y - \phi(x_k) \notag
+\end{align*}
+ovvero
+\begin{align*}
+    \phi(x_{k + 1}) = y + Q(x_k, x_{k + 1}) \tag{D.15}
+\end{align*}
+Sostituendo in $(D.14)$ si ottiene
+\begin{align*}
+    x_{k + 1} - x_k = \phi'(x_k)^{-1}(y - \phi(x_k)) = -\phi'(x_k)^{-1}Q(x_k, x_{k + 1}) \tag{D.16}
+\end{align*}
+A questo punto, tenendo a mente le stime in $(D.3)$, osserviamo che è necessario che la successione $(x_n)_{n \geq 0}$ converga abbastanza velocemente. Questo perché la perdità sempre più piccola di analiticità ad ogni passo dell'algoritmo comporta una stima sempre più debole sulla norma del differenziale inverso $\phi'(x)^{-1}$. \\ \\
+Supponiamo che $|x_{k + 1} - x_k|_{s_k} \leq \sigma_k$, per il risultato del \textit{lemma D.1} e per le proprietà delle norme deformate citate in $(D.2)$, si ottiene
+\begin{align*}
+    |x_{n + 1} - x_n|_{s_{n + 1}} \leq c_n|x_n - x_{n - 1}|^2_{s_{n - 1}} \leq \dots \leq c_n c^2_{n - 1} \dots c^{2^{n - 1}}_1|x_1|_{s_1} \tag{D.17}
+\end{align*}
+dove $c_k = \frac{1}{2}C''\sigma^{-\tau''}_k$.
+
 
 
 \end{document}
