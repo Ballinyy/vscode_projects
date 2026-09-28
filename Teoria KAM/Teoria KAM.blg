@@ -1,0 +1,15 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[1] Config.pm:331> INFO - Logfile is 'Teoria KAM.blg'
+[166] biber-MSWIN64:342> INFO - === 
+[232] Biber.pm:421> INFO - Reading 'Teoria KAM.bcf'
+[419] Biber.pm:1002> INFO - Found 6 citekeys in bib section 0
+[439] Biber.pm:4487> INFO - Processing section 0
+[454] Biber.pm:4678> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[557] bibtex.pm:1713> INFO - LaTeX decoding ...
+[573] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[694] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[694] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[695] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[695] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[704] bbl.pm:676> INFO - Writing 'Teoria KAM.bbl' with encoding 'UTF-8'
+[710] bbl.pm:779> INFO - Output to Teoria KAM.bbl
