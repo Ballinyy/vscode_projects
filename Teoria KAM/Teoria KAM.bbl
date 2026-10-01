@@ -67,6 +67,7 @@
       \strng{authornamehash}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
       \strng{authorfullhash}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
       \strng{authorfullhashraw}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
+      \field{extraname}{1}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{labelnamesource}{author}
@@ -74,6 +75,31 @@
       \field{journaltitle}{preprint}
       \field{title}{A Simple Proof of Invariant Tori Theorems}
       \field{year}{2010}
+    \endentry
+    \entry{Fejoz01}{unpublished}{}{}
+      \name{author}{1}{}{%
+        {{hash=5f0a05c9e8ab9b70e45ed9f5be536aeb}{%
+           family={Féjoz},
+           familyi={F\bibinitperiod},
+           given={Jacques},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
+      \strng{fullhash}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
+      \strng{fullhashraw}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
+      \strng{bibnamehash}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
+      \strng{authorbibnamehash}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
+      \strng{authornamehash}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
+      \strng{authorfullhash}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
+      \strng{authorfullhashraw}{5f0a05c9e8ab9b70e45ed9f5be536aeb}
+      \field{extraname}{2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{A short course at Università degli Studi di Milano--Bicocca}
+      \field{title}{Introduction to {KAM} Theory}
+      \field{year}{2011}
     \endentry
     \entry{Lee}{book}{}{}
       \name{author}{1}{}{%

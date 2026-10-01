@@ -39,7 +39,7 @@ Il \textit{campo vettoriale hamiltoniano} $X_H$ indotto da $H$ tramite le equazi
         \dot{r}_j &= -\frac{\partial H}{\partial \theta_j}
     \end{cases} \tag{2.1}
 \end{flalign}
-Notiamo immediatamente che $\nabla H \cdot X_H = 0$, il gradiente euclideo di $H$ è ortogonale al campo vettoriale hamiltoniano $X_H$. Infatti 
+Notiamo immediatamente che $\nabla H \cdot X_H = 0$, il gradiente di $H$ è ortogonale al campo vettoriale hamiltoniano $X_H$. Infatti 
 \begin{flalign}
     \nabla H \cdot X_H &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\dot{\theta}_j + \frac{\partial H}{\partial r_j}\dot{r}_j\right) \notag \\
     &= \sum_{j = 1}^n \left(\frac{\partial H}{\partial \theta_j}\frac{\partial H}{\partial r_j} - \frac{\partial H}{\partial r_j}\frac{\partial H}{\partial \theta_j}\right) = 0 \tag{1.2}
@@ -73,7 +73,7 @@ Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso
     \varphi_t : \mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
 \end{flalign}
 dove $\alpha = \partial_rH(r)$. \\ \\
-\textbf{Lemma 2.1:} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati\footnote{Appendince A}, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
+\textbf{Lemma 2.1 (\cite{Fejoz01}):} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati\footnote{Appendince A}, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li allaccia preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$. \\
 
 \textbf{Dimostrazione:} supponiamo che i flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
 \begin{flalign}
@@ -135,7 +135,7 @@ In particolare, per $\theta = 0$, si ha
     A(V(t\alpha) - V(0)) = t(\beta - A\alpha) \tag{2.16}
 \end{flalign}
 Il membro di sinistra è limitato (dato che $V$ è $\mathbb{Z}^n$-periodico), allora deve valere $\beta = A\alpha$. \qed \\ \\
-\textbf{Proposizione 2.1:} le seguenti affermazioni sono equivalenti: \\
+\textbf{Proposizione 2.1 (cfr. \cite{Fejoz01}):} le seguenti affermazioni sono equivalenti: \\
 \textbf{1.} Il vettore frequenza $\alpha$ è \textit{non risonante}, ovvero $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\
 \textbf{2.} Il flusso $\varphi_t$ del campo vettoriale costante $\alpha$ è \textit{ergotico}, ovvero tutte le funzioni continue $f$ di $\mathbb{T}^n$ che soddisfano
 \begin{flalign}
@@ -267,7 +267,7 @@ Nel caso in esame, se $\mathbb{T}^n$ è un \textit{toro lagrangiano} si ottiene
     \omega_x(X_H(x), v) = 0
 \end{align*}
 per ogni $v \in T_x\mathbb{T}^n$, ovvero $X_H(x) \in T_x\mathbb{T}^n$ per ogni $x \in \mathbb{T}^n \times \mathbb{R}^n$. Essendo $X_H$ tangente a $\mathbb{T}^n$ si ottiene che $\mathbb{T}^n$ è invariante rispetto al flusso associato a $X_H$. \\ \\
-\textbf{Proposizione 3.1:} sia $\phi_t$ è il flusso associato ad un campo vettoriale hamiltoniano $X_H$, allora $\phi^*_t\omega = \omega$ per ogni $t$ nell'intervallo di definizione del flusso. \\
+\textbf{Proposizione 3.1 (cfr. \cite{Fejoz01}):} sia $\phi_t$ è il flusso associato ad un campo vettoriale hamiltoniano $X_H$, allora $\phi^*_t\omega = \omega$ per ogni $t$ nell'intervallo di definizione del flusso. \\
 
 \textbf{Dimostrazione:} per il \textit{teorema fondamentale del calcolo} si ha
 \begin{flalign}
@@ -328,7 +328,7 @@ In termini della derivata di Lie associata al campo vettoriale costante definito
 \end{flalign}
 detta \textit{equazione omologica}. \\ \\
 Sia $\mathscr{F}$ l'insieme delle serie di Fourier (formali, quindi ancora non associate ad una particolare funzione) su $\mathbb{T}^n$ prive di termine costante. \\ \\
-\textbf{Lemma 4.1:} se $\alpha$ è non risonante, data $g \in \mathscr{F}$ esiste unica $f \in \mathscr{F}$ tale che $\mathcal{L}_\alpha f = g$. \\
+\textbf{Lemma 4.1 (cfr. \cite{Fejoz01}):} se $\alpha$ è non risonante, data $g \in \mathscr{F}$ esiste unica $f \in \mathscr{F}$ tale che $\mathcal{L}_\alpha f = g$. \\
 
 \textbf{Dimostrazione:} dato che $g \in \mathscr{F}$, $g$ è della forma
 \begin{flalign}
@@ -441,7 +441,7 @@ Notiamo che usando la \textit{formula integrale di Cauchy} è possibile determin
 \end{align*}
 ovvero è possibile al più stimare la norma di $f'$ su un dominio ridotto di $\sigma > 0$, che può però essere arbitrariamente piccolo. \\
 In generale, ogni operatore differenziale soddisferà una stima simile. \\ \\
-\textbf{Proposizione 4.1:} siano $\alpha \in D_{\gamma, \tau}$ e $s, \sigma > 0$. Se $g \in \mathcal{A}(\mathbb{T}^n_{s + \sigma})$ esiste unica $f \in \mathcal{A}(\mathbb{T}^n_s)$ tale che $\mathcal{L}_\alpha f = g$. In particolare
+\textbf{Proposizione 4.1 (cfr. \cite{Fejoz02}):} siano $\alpha \in D_{\gamma, \tau}$ e $s, \sigma > 0$. Se $g \in \mathcal{A}(\mathbb{T}^n_{s + \sigma})$ esiste unica $f \in \mathcal{A}(\mathbb{T}^n_s)$ tale che $\mathcal{L}_\alpha f = g$. In particolare
 \begin{flalign}
     |f|_s \leq C\gamma^{-1}\sigma^{-n-\tau}|g|_{s + \sigma} \tag{4.31}
 \end{flalign}
@@ -568,7 +568,7 @@ con $c, \alpha \in \mathbb{R}$. Tali hamiltoniane soddisfano
 ovvero $T^n_0$ è un toro invariante di frequenza $\alpha$ per il flusso associato a $X_K$. \\
 Infine sia $\mathcal{G}$ lo spazio dei germi lungo $T^n_0$ dei simplettomorfismi esatti della forma
 \begin{align*}
-    G(\theta, r) = (\varphi(\theta), (r + \rho(\theta))\psi_*(\theta)) \tag{5.3}
+    G(\theta, r) = (\varphi(\theta), \null^t\varphi'(\theta)(r + \rho(\theta))) \tag{5.3}
 \end{align*}
 dove $\varphi$ è isomorfismo del toro $\mathbb{T}^n$ che fissa l'origine, mentre $\rho$ è una $1$-forma esatta su $\mathbb{T}^n$. \\ \\
 Ricordiamo la notazione per lo spazio delle fasi
@@ -693,7 +693,7 @@ A questo punto possiamo riformulare il \textit{teorema twist di Herman} in termi
 \end{align*}
 su $T^n_s$. Inoltre, $\beta \circ \phi^{-1}$ è di classe $C^1$ in un $|\cdot|_{s + \sigma}$-intorno di $K^0$. \\ \\
 Verifichiamo che $\phi$ soddisfa le condizioni necessarie per applicare i risultati dell'appendice D. \\
-Poniamo $x = (K, G, \beta)$ e $\delta x = (\delta K, \delta G, \delta \beta)$. \\ \\
+Poniamo $x = (K, G, \beta)$ e $\delta x = (\delta K, \delta G, \delta \beta)$ e fissiamo $0 < s < s + \sigma < 1$. \\ \\
 \textbf{Lemma 5.1 (cfr. \cite{Fejoz02}):} esiste $C' > 0$ localmente uniforme rispetto a $x \in E_{s + \sigma}$ in un intorno di $G = \mathrm{id}$ tale che la mappa $\phi'(x)$ ammette inversa locale $\phi'(x)^{-1}$ che soddisfa
 \begin{align*}
     |\phi'(x)^{-1}\delta H|_{s} \leq C'\sigma^{-\tau - n - 1}|\delta H|_{G, s + \sigma} \tag{5.26}
@@ -703,7 +703,7 @@ Poniamo $x = (K, G, \beta)$ e $\delta x = (\delta K, \delta G, \delta \beta)$. \
 \begin{align}
     \lim_{|\delta x|_{s + \sigma} \rightarrow 0} \frac{|\phi(x + \delta x) - \phi(x) - \phi'(x)\delta x|_{G, s}}{|\delta x|_{s + \sigma}} = 0 \tag{5.27}
 \end{align}
-A tal proposito individuiamo tutti i termini lineare in $\delta x$ presenti nel rapporto incrementale e li annulliamo, incorporandoli in $\phi'(x)\delta x$. In particolare
+A tal proposito individuiamo tutti i termini lineari in $\delta x$ presenti nel rapporto incrementale e li annulliamo, incorporandoli in $\phi'(x)\delta x$. In particolare
 \begin{align*}
     \phi(x + \delta x) &= (K + \delta K) \circ (G + \delta G) + (\beta + \delta \beta) \cdot r \\
     &= K \circ (G + \delta G) + \delta K \circ (G + \delta G) + (\beta + \delta \beta) \cdot r \tag{5.28}
@@ -716,7 +716,7 @@ Prendendo la norma $|\cdot|_{G, s}$ si ottiene
 \begin{gather*}
     |\phi(x + \delta x) - \phi(x) - \phi'(x)\delta x|_{G, s} = \\
     = |((K + \delta K )\circ (G + \delta G) - K \circ G + (\delta\beta \cdot r) - \phi'(x)\delta x) \circ G^{-1}|_{s}  \\
-    = |(K \circ (G + \delta G) + \delta K \circ (G + \delta G) - K \circ G + (\delta\beta \cdot r) - \phi'(x)\delta x)\circ G^{-1}|_s
+    = |(K \circ (G + \delta G) - K \circ G + \delta K \circ (G + \delta G) + (\delta\beta \cdot r) - \phi'(x)\delta x)\circ G^{-1}|_s
 \end{gather*}
 Quindi
 \begin{align*}
@@ -791,12 +791,12 @@ dove si è usato
     \end{pmatrix}
 \end{align*}
 In particolare i termini $O(r^2)$ dipendono esclusivamente da $K$ e da $\dot{G}$. \\ 
-A questo punto (applicando \textit{proposizione 24} in \cite{Fejoz02} per garantire la definizione di $\delta\beta$), posto
+A questo punto (applicando \textit{proposizione 24} in \cite{Fejoz02} per garantire che $\delta\beta$ sia ben definito), posto
 \begin{align*}
     \delta\beta &= \left(\int_{\mathbb{T}^n} \varphi' \circ \varphi^{-1} \, d\theta\right)^{-1}\int_{\mathbb{T}^n} \dot{H}_1 \, d\theta \tag{5.39} \\
     \delta c &= \int_{\mathbb{T}^n} \dot{H}_0 \, d\theta + \int_{\mathbb{T}^n} \rho \circ \varphi^{-1} \, d\theta \cdot \delta\beta \tag{5.40}
 \end{align*}
-e applicata la \textit{proposizione 4.1} per $f' = \dot{\rho}$ e, analogamente, per $\dot{\varphi}$, si risolve al primo ordine. Iterando si ottiene la tesi. \qed \\ \\
+e applicata la \textit{proposizione 4.1} per $f' = \dot{\rho}$ e, analogamente, per $\dot{\varphi}$, si risolve fino al primo ordine in $r$. I termini $O(r^2)$ determinano $\delta K$. \qed \\ \\
 \textbf{Lemma 5.2 (cfr. \cite{Fejoz02}):} esiste $C'' > 0$ localmente uniforme rispetto a $x \in E_{s + \sigma}$ in un intorno di $G = \mathrm{id}$ tale che la mappa bilineare $\phi''(x)$ soddisfa
 \begin{align*}
     |\phi''(x)\delta x^{\otimes 2}|_{G, s} \leq \sigma^{-2}C''|\delta x|^2_{s + \sigma} \tag{5.41}
@@ -817,10 +817,22 @@ Pertanto
 \begin{align*}
     \phi''(x)\delta x^{\otimes 2} \circ G^{-1} = 2\delta K' \cdot \dot{G} + K'' \cdot \dot{G}^{\otimes 2} \tag{5.43}
 \end{align*}
-La tesi segue immediatamente applicando due volte il risultato della \textit{proposizione 4.1}. \qed
+La tesi segue immediatamente applicando due volte il risultato della \textit{proposizione 4.1}, notando che $|\delta K' \cdot \dot{G}|_s \leq |K' \cdot \dot{G}|_s$. \qed
 
 \newpage
 \section{Il teorema di Kolmogorov}
+\textbf{Teorema (di Kolmogorov per forte non degenerazione, cfr. \cite{Fejoz02}):} siano $\alpha \in D_{\gamma, \tau}$ e $K^0 \in \mathcal{K}$ tale che
+\begin{align*}
+    \det \int_{\mathbb{T}^n} \frac{\partial^2 K}{\partial r^2}(\theta, 0) \, d\theta \neq 0 \tag{6.1}
+\end{align*}
+Per ogni $H \in \mathcal{H}$ vicino a $K^0$ esiste unico $(K, G, R) \in \mathcal{K} \times \mathcal{G} \times \mathbb{R}^n$ vicino a $(K^0, \mathrm{id}, 0)$ tale che
+\begin{align*}
+    H(\theta, r + R) = K \circ G \, (\theta, r) \tag{6.2}
+\end{align*}
+in un intorno di $T^n_0$ (che è localmente uniforme rispetto a $H$), quindi $H$ possiede un toro invariante $\alpha$-quasi-periodico. \\
+
+\textbf{Dimostrazione:}
+
 
 
 
