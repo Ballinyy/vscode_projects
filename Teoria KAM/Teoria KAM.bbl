@@ -51,6 +51,37 @@
       \field{volume}{60}
       \field{year}{1978}
     \endentry
+    \entry{Bost}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=1d592050a928477a0fa50efc7562e813}{%
+           family={Bost},
+           familyi={B\bibinitperiod},
+           given={Jean-Benoit},
+           giveni={J\bibinithyphendelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Société Mathématique de France}%
+      }
+      \strng{namehash}{1d592050a928477a0fa50efc7562e813}
+      \strng{fullhash}{1d592050a928477a0fa50efc7562e813}
+      \strng{fullhashraw}{1d592050a928477a0fa50efc7562e813}
+      \strng{bibnamehash}{1d592050a928477a0fa50efc7562e813}
+      \strng{authorbibnamehash}{1d592050a928477a0fa50efc7562e813}
+      \strng{authornamehash}{1d592050a928477a0fa50efc7562e813}
+      \strng{authorfullhash}{1d592050a928477a0fa50efc7562e813}
+      \strng{authorfullhashraw}{1d592050a928477a0fa50efc7562e813}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Séminaire Bourbaki, 1984--1985, exp. no. 639}
+      \field{series}{Astérisque}
+      \field{title}{Tores invariants des systèmes dynamiques hamiltoniens}
+      \field{volume}{133--134}
+      \field{year}{1986}
+      \field{pages}{113\bibrangedash 157}
+      \range{pages}{45}
+    \endentry
     \entry{Fejoz02}{article}{}{}
       \name{author}{1}{}{%
         {{hash=5f0a05c9e8ab9b70e45ed9f5be536aeb}{%

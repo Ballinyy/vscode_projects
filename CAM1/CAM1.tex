@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts, amsmath, amssymb, amsthm, float, cancel, bm, mathrsfs, mathtools}
+
+\title{CAM1}
+\author{Alessandro Ballini}
+\date{October 2026}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Misure}
+\textbf{Definizione:} sia $X$ un insieme, $\mathcal{A} \subset \mathcal{P}(X)$ è detta \textit{algebra} se: \\
+\textbf{1.} $\emptyset \in \mathcal{A}$. \\
+\textbf{2.} $A \cup B \in \mathcal{A}$ per ogni $A, B \in \mathcal{A}$ (chiusa rispetto a unioni finite). \\
+\textbf{3.} $X \setminus A \in \mathcal{A}$ per ogni $A \in \mathcal{A}$ (chiusu rispetto al passaggio al complementare). \\ \\
+\textbf{Osservazione:} se $A, B \in \mathcal{A}$ anche $A \cap B \in \mathcal{A}$, infatti $X \setminus A, X \setminus B \in \mathcal{A}$, per ipotesi, e
+\begin{align*}
+    (X \setminus A) \cup (X \setminus B) = X \setminus (A \cap B)
+\end{align*}
+per il \textit{teorema di De Morgan}, quindi anche $X \setminus (X \setminus (A \cap B)) = A \cap B \in \mathcal{A}$. Concludiamo che un'algebra è anche chiusa per intersezioni finite. \\ \\
+\textbf{Definizione:} $\mathcal{A} \subset \mathcal{P}(X)$ è detta $\sigma$-\textit{algebra} se $\mathcal{A}$ è un'algebra e data $(A_n)_{n \in \mathbb{N}} \subset \mathcal{A}$ si ha $A = \bigcup_{n \in \mathbb{N}} A_n \in \mathcal{A}$, ovvero se è chiusa anche per unioni numeribili. \\ \\
+\textbf{Osservazione:} sempre per il \textit{teorema di De Morgan}, se $\mathcal{A}$ è una $\sigma$-algebra è anche chiusa per intersezioni numerabili. \\ \\
+\textbf{Esempi:} $(1)$ $\mathcal{P}(X)$ e $\{\emptyset, X\}$ sono esempi banali di $\sigma$-algebre. \\ \\
+$(2)$ Dato $X$ insieme tale che $|X| = \infty$ si ha che
+\begin{align*}
+    \mathcal{A} = \{E \in \mathcal{P}(X) : |E| < \infty \text{ o } |X \setminus E| < \infty|\}
+\end{align*}
+è un'algebra. Infatti, dati $E_1, E_2 \in \mathcal{A}$ tali che $|E_1|, |E_2| < \infty$ si ha
+\begin{align*}
+    |E_1 \cup E_2| = |E_1| + |E_2| - |E_1 \cap E_2| < \infty
+\end{align*}
+Invece, se $|X \setminus E_1|, |X \setminus E_2| < \infty$ si ha
+\begin{align*}
+    |X \setminus (E_1 \cup E_2)| = |(X \setminus E_1) \cap (X \setminus E_2)| < \infty
+\end{align*}
+ovvero $X \setminus (E_1 \cup E_2) \in \mathcal{A}$, quindi, per definizione di $\mathcal{A}$, anche $E_1 \cup E_2 \in \mathcal{A}$. \\
+Tuttavia, $\mathcal{A}$ non è una $\sigma$-algebra, infatti se $(E_n)_{n \in \mathbb{N}} \subset \mathcal{A}$ non è detto che $E = \bigcup_{n \in \mathbb{N}} E_n$ sia finito o che $X \setminus E$ lo sia (nel primo caso è sufficiente prendere una successione di insieme disgiunti, anche finiti, nel secondo, se $X \cong \mathbb{N}$, è sufficiente porre $E_k = \{k^2\}$, $k \in \mathbb{N}$, lo stesso se $X$ è non numerabile) \\ \\
+$(3)$ Posto $X = [0, 1)$ e
+\begin{align*}
+    \mathcal{A} = \emptyset \cup \left\{\bigcup_{i = 1}^n [a_i, b_i) : 0 \leq a_1 < b_1 \leq a_2 < b_2 \leq \dots \leq a_n < b_n \leq 1, n \in \mathbb{N}\right\}
+\end{align*}
+si ha che $\mathcal{A}$ è un'algebra. Infatti, dati $[a, b), [c, d) \in \mathcal{A}$, $0 < a < b < 1, 0 < c < d < 1$, si ha
+\begin{align*}
+    [0, 1) \setminus [a, b) = [0, a) \cup [b, 1) \in \mathcal{A}
+\end{align*}
+per definizione di $\mathcal{A}$, se $a = 0$ e/o $d = 1$ uno dei due insiemi diventa l'insieme vuoto, mentre se $a = 0$ e $b = 1$ si ottiene il vuoto, che è contenuto in $\mathcal{A}$. \\
+Mentre
+\begin{align*}
+    [a, b) \cup [c, d) = \begin{cases}
+        [a, d) \qquad &a < c \leq b < d \\
+        [a, b) \cup [c, d) \qquad &a < b \leq c < d \\
+        [c, b) \qquad & c < a \leq d < b \\
+        [a, b) \qquad &a \leq c < d \leq b \\
+        [c, d) \qquad &c \leq a < b \leq d
+    \end{cases}
+\end{align*}
+In ogni caso appartiene ad $\mathcal{A}$ per definizione. \\
+Tuttavia, $\mathcal{A}$ non è una $\sigma$-algebra, infatti, posto
+\begin{align*}
+    I_k = (\frac{1}{4k + 1}, \frac{1}{4k}) \qquad k \in \mathbb{N}
+\end{align*}
+si ha $I_k \in \mathcal{A}$ per ogni $k \in \mathbb{N}$ ma
+\begin{align*}
+    \bigcup_{k \in \mathbb{N}} I_k
+\end{align*}
+è unione numerabile disgiunta, pertanto non può essere espresso come unione finita di intervalli della forma $[a, b)$, $a < b$.
+
+
+
+
+
+\end{document}

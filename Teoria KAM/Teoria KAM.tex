@@ -27,7 +27,8 @@
 
  
 
-
+\newpage
+\section*{Introduzione}
 
 \newpage
 \section{Sistemi hamiltoniani}
@@ -235,9 +236,9 @@ che garantisce l'invarianza del differenziali di $H$ rispetto a $\phi$. Tali tra
 \end{flalign}
 Il diffeomorfismo $\phi$ definito da 
 \begin{flalign}
-    (\theta, r) \mapsto (\theta, r + \rho(\theta)) \tag{3.7}
+    (\theta, r) \mapsto (\theta, r + \rho_\theta) \tag{3.7}
 \end{flalign}
-dove $\rho(\theta) = (\rho_1(\theta), \dots, \rho_n(\theta))$, per $\theta \in \mathbb{T}^n$, è simplettico. Infatti
+dove $\rho_\theta = (\rho_1(\theta), \dots, \rho_n(\theta))$, per $\theta \in \mathbb{T}^n$, è simplettico. Infatti
 \begin{flalign}
     \phi^*\omega = \sum_j d\tilde{\theta}_j \wedge d\tilde{r}_j \tag{3.8}
 \end{flalign}
@@ -261,20 +262,40 @@ Inoltre, dato che $d\lambda = -\omega$, si ha
     \phi^*\omega = -\phi^*d\lambda = -d\phi^*\lambda = -d\lambda = \omega \tag{3.12}
 \end{flalign}
 ovvero $\phi$ simplettico. \\ \\
-\textbf{Definizione:} sia $M$ una varietà di dimensione $2n$, una sottovarietà $N$ è detta \textit{lagrangiana} se $\dim L = n$ e la  $2$-forma simplettica si annulla su $L$. \\ \\
-Nel caso in esame, se $\mathbb{T}^n$ è un \textit{toro lagrangiano} si ottiene
+\textbf{Definizione:} sia $M$ una varietà di dimensione $2n$, una sottovarietà $L$ è detta \textit{lagrangiana} se $\dim L = n$ e la  $2$-forma simplettica si annulla su $L$. \\ \\
+\textbf{Osservazione:} $\mathbb{T}^n \cong \mathbb{T}^n \times \{0\} \subset \mathbb{T}^n \times \mathbb{R}^n$ è una sottovarietà lagrangiana, infatti $\dim \mathbb{T}^n \times \{0\} = n$ e $\omega|_{\mathbb{T}^n \times \{0\}} = 0$ proprio perché $dr_i(v) = 0$ per ogni $v \in T_{(\theta, 0)}\mathbb{T}^n$, per ogni $i = 1, \dots, n$. \\ \\
+Data $\phi$ come in $(3.6)$, notiamo che le seguenti sono equivalenti: \\
+\textbf{1.} il grafico di $\rho$ ($\subset T^*\mathbb{T}^n \cong \mathbb{T}^n \times \mathbb{R}^n$) è una sottovarietà lagrangiana. \\
+\textbf{2.} la forma di Liouville $\sum_j \rho_j \, d\theta_j$ su $\mathbb{T}^n$ è chiusa. \\
+\textbf{3.} la mappa $(\theta, r) \mapsto (\theta, r + \rho_\theta)$ è simplettica. \\
+Infatti $1 \rightarrow 2$ segue immediatamente dalla definizione di varietà lagrangiana. $2 \rightarrow 3$ lo abbiamo visto in $(3.9)$. Mentre $3 \rightarrow 1$ perché il fatto che $(\theta, r) \mapsto (\theta, r + \rho_\theta)$ è simplettica implica che $d\rho = 0$ e $d\rho$ non è altro che la $2$-forma simplettica definita sul grafico di $\rho$, che è $\{(\theta, \rho_\theta)\}$. \\ \\
+\textbf{Lemma 3.1 (cfr. \cite{Bost}):} se $Gr \, \rho$, grafico di $\rho$, è una sottovarietà lagrangiana di $\mathbb{T}^n \times \mathbb{R}^n$, data $H$ hamiltoniana definita su $Gr \, \rho$, è necessario e sufficiente che $H$ sia costante su $Gr \, \rho$ affinché $Gr \, \rho$ sia invariante per il flusso hamiltoniano di $H$. \\
+
+\textbf{Dimostrazione:} dato $p \in Gr \, \rho$ poniamo
 \begin{align*}
-    \omega_x(X_H(x), v) = 0
+    (T_pGr \, \rho)^\omega = \{v \in T_p \, \mathbb{T}^n \times \mathbb{R}^n : \omega_p(u, v) = 0 \text{ per ogni } u \in T_pGr \, \rho\}
 \end{align*}
-per ogni $v \in T_x\mathbb{T}^n$, ovvero $X_H(x) \in T_x\mathbb{T}^n$ per ogni $x \in \mathbb{T}^n \times \mathbb{R}^n$. Essendo $X_H$ tangente a $\mathbb{T}^n$ si ottiene che $\mathbb{T}^n$ è invariante rispetto al flusso associato a $X_H$. \\ \\
+detto \textit{ortogonale simplettico}. Per ipotesi $Gr \, \rho$ è una sottovarietà lagrangiana, quindi $\omega|_{Gr \rho} = 0$, segue che $T_pGr \, \rho = (T_pGr \, \rho)^\omega$. Inoltre
+\begin{align*}
+    \iota_{X_H}\omega_p(v) = dH_p(v) = 0
+\end{align*}
+per ogni $v \in T_pGr \, \rho$, dato che $H$ è costante su $Gr \, \rho$, per ipotesi. Segue che $X(p) \in T_pGr \, \rho$ per ogni $p \in Gr \, \rho$, quindi $Gr \, \rho$ invariante per il flusso di $X_H$. \qed \\ \\
+\textbf{Osservazione:} una qualsiasi sottovarietà lagrangiana $L$ su cui $H$ è costante soddisfa $T_pL = (T_pL)^\omega$ per ogni $p$ in $L$. Inoltre, se $H$ è costante su $L$, $L$ è invariante per il flusso generato da $X_H$. \\ \\
+\textbf{Osservazione:} consideriamo $H - \beta \cdot r = K \circ G$, con $G$ simplettomorfismo della forma $\varphi \circ \rho$ e $K$ hamiltoniana definita su $\mathbb{T}^n \times \mathbb{R}^n$ della forma $K = c + \alpha \cdot r + O(r^2)$, $c \in \mathbb{R}$, $\alpha \in \mathbb{R}^n$. \\
+$\mathbb{T}^n \times \{0\}$ è invariante per il flusso di $X_K$ dato che è una varietà lagrangiana e $K|_{\mathbb{T}^n \times \{0\}} = c$ costante. \\
+Inoltre, $X_{H - \beta \cdot r} = G^*X_K$, dato che $G$ è un simplettomorfismo si ottiene che $G^{-1}(\mathbb{T}^n \times \{0\})$ è invariante per il flusso di $H - \beta \cdot r$. Notiamo che $H$ è costante su $G^{-1}(\mathbb{T}^n \times \{0\}) = Gr(-\rho)$ varietà lagrangiana (poiché simplettomorfa a $\mathbb{T}^n \times \{0\})$. \\ 
+Concludiamo che $G^{-1}(\mathbb{T}^n \times \{0\})$ è invariante per il flusso di $X_H$. \\ \\
 \textbf{Proposizione 3.1 (cfr. \cite{Fejoz01}):} sia $\phi_t$ è il flusso associato ad un campo vettoriale hamiltoniano $X_H$, allora $\phi^*_t\omega = \omega$ per ogni $t$ nell'intervallo di definizione del flusso. \\
 
 \textbf{Dimostrazione:} per il \textit{teorema fondamentale del calcolo} si ha
-\begin{flalign}
+\begin{flalign*}
     \phi^*_t\omega - \omega &= \int_0^t \frac{d}{ds}(\phi^*_s\omega) \, ds \notag \\
+    &= \int_0^t \left.\frac{d}{d\tau}\right|_{\tau = 0}(\phi^*_{s + \tau}\omega) \, ds \\
+    &= \int_0^t \left.\frac{d}{d\tau}\right|_{\tau = 0}(\phi^*_s\phi^*_\tau \omega) \, ds \\
+    &= \int_0^t \phi^*_s\left.\frac{d}{d\tau}\right|_{\tau = 0}(\phi^*_\tau \omega) \, ds \\
     &= \int_0^t \phi^*_s(\mathcal{L}_{X_H}\omega) \, ds \tag{3.13}
-\end{flalign}
-per definizione di derivata di Lie. Per la \textit{formula magica di Cartan}\footnote{Appendice B, sezione B.11} si ha
+\end{flalign*}
+Per la \textit{formula magica di Cartan}\footnote{Appendice B, sezione B.11} si ha
 \begin{flalign}
     \mathcal{L}_{X_H}\omega = di_{X_H}\omega + i_{X_H}d\omega \tag{3.14}
 \end{flalign}
@@ -290,7 +311,7 @@ Siamo interessati a trovare un opportuno cambio di variabili, sufficientemente v
 A tal proposito, consideriamo un'hamiltoniana ausiliaria $F$ con flusso $\phi_t$. In particolare, vogliamo che $F$ sia tale che $\phi^*_1H = H \circ \phi_1$ non dipenda da $\theta$, almeno fino a termini di secondo ordine in $\varepsilon$. \\ \\
 Per definizione di flusso di un campo vettoriale si ha
 \begin{flalign}
-    \frac{d}{ds}\left|_{s = 0}\right.(\phi^*_{t + s}H) = \frac{d}{ds}\left|_{s = 0}\right.(H \circ \phi_{t + s}) = (\nabla H \cdot X_F) \circ \phi_t = \phi^*_t(X_F \cdot H) \tag{4.2}
+    \left.\frac{d}{ds}\right|_{s = 0}(\phi^*_{t + s}H) = \left.\frac{d}{ds}\right|_{s = 0}(H \circ \phi_{t + s}) = (\nabla H \cdot X_F) \circ \phi_t = \phi^*_t(X_F \cdot H) \tag{4.2}
 \end{flalign}
 dove nell'ultima uguaglianza si è trattato $X_F$ come un operatore di derivazione
 \begin{flalign}
@@ -354,7 +375,7 @@ Dato $s > 0$, sia
 l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{A}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni analitiche definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $\|\cdot\|_\infty$. \\
 In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni analitica su un insieme è ivi continua, pertanto se $f \in \mathcal{A}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{A}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach\footnote{Teorema C.$1$ in appendice C.}. \\ \\
 Invertendo $(4.10)$, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni analitiche a funzioni analitiche, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza. \\ \\
-\textbf{Definizione 4.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{Diofanteo} se 
+\textbf{Definizione 4.1:} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{diofanteo} se 
 \begin{flalign}
     |k \cdot \alpha| \geq \frac{\gamma}{|k|^\tau_1} \tag{4.16}
 \end{flalign}
@@ -362,7 +383,7 @@ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, dove
 \begin{flalign}
     |k| = |k_1| + \dots + |k_n| \tag{4.17}
 \end{flalign}
-In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $\alpha \in \mathbb{R}^n$ che sono $(\gamma, \tau)$-Diofantei. Inoltre, poniamo
+In particolare, indichiamo con $D_{\gamma, \tau}$ l'insieme di tutti i vettori $\alpha \in \mathbb{R}^n$ che sono $(\gamma, \tau)$-diofantei. Inoltre, poniamo
 \begin{flalign}
     D_\tau = \bigcup_{\gamma > 0}D_{\gamma, \tau} \tag{4.18}
 \end{flalign} \\
@@ -386,6 +407,11 @@ Ponendo $k = a - b$ si ha $k \neq 0$ e
     |k \cdot \alpha - m| \leq \frac{1}{q^n} \tag{4.22}
 \end{flalign}
 dove $m$ è la parte intera di $k \cdot \alpha$, pertanto si ottiene la tesi. \qed \\ \\
+\textbf{Osservazione:} possiamo scrivere $m = k \cdot \widetilde{m}$ con $\widetilde{m} = (\widetilde{m}_1, \dots, \widetilde{m}_n)$, dove $\widetilde{m}_i = m/nk_i$. Allora
+\begin{align*}
+    |k \cdot \widetilde{\alpha}| \leq \frac{1}{q^n} \leq \frac{1}{\|k\|^n_\infty} \leq \frac{n^n}{|k|^n_1}
+\end{align*}
+con $\widetilde{\alpha} = \alpha - \widetilde{m}$. \\ \\
 \textbf{Teorema 4.1 (cfr. \cite{Poschel}):} per $\tau > n - 1$ si ha che la misura di Lebesgue $n$-dimensionale dell'insieme $D_\tau$ tende alla misura piena di $\mathbb{R}^n$, ovvero quasi tutti i vettori $\alpha \in \mathbb{R}^n$ soddisfano
 \begin{align}
     |k \cdot \alpha| \geq \frac{\gamma}{|k|^\tau} \tag{4.23}
@@ -422,7 +448,7 @@ Considerando l'unione per ogni $k \neq 0$ si ottiene
 \begin{align}
     m(R_{\gamma, \tau} \cap \Omega) \leq \sum_{k \neq 0}m(R_{\gamma, \tau, k} \cap \Omega) = O(\gamma) \tag{4.27}
 \end{align}
-se $\tau > n - 1$, in modo da far sì che la serie converga. Pertanto
+se $\tau > n - 1$, in modo che la serie converga. Pertanto
 \begin{align*}
     m(R_\tau) \leq \sum_\gamma m\left(R_{\gamma, \tau}\right) = 0
 \end{align*}
@@ -568,7 +594,7 @@ con $c, \alpha \in \mathbb{R}$. Tali hamiltoniane soddisfano
 ovvero $T^n_0$ è un toro invariante di frequenza $\alpha$ per il flusso associato a $X_K$. \\
 Infine sia $\mathcal{G}$ lo spazio dei germi lungo $T^n_0$ dei simplettomorfismi esatti della forma
 \begin{align*}
-    G(\theta, r) = (\varphi(\theta), \null^t\varphi'(\theta)(r + \rho(\theta))) \tag{5.3}
+    G(\theta, r) = (\varphi(\theta), \null^t\varphi'(\theta)(r + \rho_\theta)) \tag{5.3}
 \end{align*}
 dove $\varphi$ è isomorfismo del toro $\mathbb{T}^n$ che fissa l'origine, mentre $\rho$ è una $1$-forma esatta su $\mathbb{T}^n$. \\ \\
 Ricordiamo la notazione per lo spazio delle fasi
@@ -649,7 +675,7 @@ a $\mathcal{D}_s$ è biettiva (cfr. \cite{Fejoz02}), pertanto fornisce a $\mathc
 Siamo interessati in particolare all'azione controgradiente degli elementi di $\mathcal{D}_s$ su $T^n_s$, come visto in $(3.10)$, in modo da linearizzare la dinamica sul toro invariante. \\ \\
 Inoltre, consideriamo lo spazio $\mathcal{B}_s$ delle $1$-forme differenziali esatte su $\mathbb{T}^n_s$ del tipo
 \begin{align*}
-    \rho : (\theta, r) \mapsto (\theta, r + \rho(\theta)) \tag{5.16}
+    \rho : (\theta, r) \mapsto (\theta, r + \rho_\theta) \tag{5.16}
 \end{align*}
 ovvero che agiscono per traslazione delle azioni, in modo da raddrizzare il toro invariante perturbato. Su $\mathcal{B}_s$ definiamo la norma
 \begin{align*}
@@ -657,7 +683,7 @@ ovvero che agiscono per traslazione delle azioni, in modo da raddrizzare il toro
 \end{align*}
 Indichiamo quindi con $\mathcal{G}_s = \mathcal{D}_s \times \mathcal{B}_s$ lo spazio dei simplettomorfismi (come visto in $(3.12)$) del tipo
 \begin{align*}
-    (\varphi, \rho)(\theta, r) = \varphi \circ \rho \, (\theta, r) = (\varphi(\theta), \null^t\varphi'(\theta)^{-1}(r + \rho(\theta))) \tag{5.18}
+    (\varphi, \rho)(\theta, r) = \varphi \circ \rho \, (\theta, r) = (\varphi(\theta), \null^t\varphi'(\theta)^{-1}(r + \rho_\theta)) \tag{5.18}
 \end{align*}
 Definiamo su $T_{\mathrm{id}}\mathcal{G}_s = \mathfrak{g}_s = \chi_s \times \mathcal{B}_s$ la norma
 \begin{align*}
@@ -751,14 +777,14 @@ In particolare risolvendo
 \begin{align*}
     \begin{cases}
         \Theta &= \varphi(\theta) \\
-        R &= \null^t\varphi'(\theta)^{-1}(r + \rho(\theta))
+        R &= \null^t\varphi'(\theta)^{-1}(r + \rho_\theta)
     \end{cases} \tag{5.33}
 \end{align*}
 si ottiene
 \begin{align*}
     \begin{cases}
         \theta &= \varphi^{-1}(\Theta) \\
-        r &= \null^t\varphi'(\theta)R - \rho(\theta)
+        r &= \null^t\varphi'(\theta)R - \rho_\theta
     \end{cases} \tag{5.34}
 \end{align*}
 Pertanto, a meno di rinominare $(\Theta, R)$ in $(\theta, r)$, si ottiene
@@ -831,12 +857,61 @@ Per ogni $H \in \mathcal{H}$ vicino a $K^0$ esiste unico $(K, G, R) \in \mathcal
 \end{align*}
 in un intorno di $T^n_0$ (che è localmente uniforme rispetto a $H$), quindi $H$ possiede un toro invariante $\alpha$-quasi-periodico. \\
 
-\textbf{Dimostrazione:}
+\textbf{Dimostrazione:} poniamo
+\begin{align*}
+    K^0_2(\theta, 0) := \frac{1}{2}\frac{\partial^2 K^0}{\partial r^2}(\theta, 0) \tag{6.3}
+\end{align*}
+Allora possiamo scrivere
+\begin{align*}
+    K^0 = c + \alpha \cdot r + K^0_2 \cdot r^2 + O(r^3) \tag{6.4}
+\end{align*}
+In generale $K^0_2$ non è costante su $T^n_0$, vogliamo quindi cercare un cambio di coordinate simplettico $\varphi$ che ci permetta di avere anche il termine quadratico in $r$ costante rispetto a $\theta$. \\
+Per la \textit{proposizione 4.1}, esiste unica $F$ che soddisfa
+\begin{align*}
+    \mathcal{L}_\alpha F(\theta) = \frac{1}{2}\frac{\partial^2 K}{\partial r^2}(\theta, 0) - \int_{T^n_0} \frac{1}{2}\frac{\partial^2 K}{\partial r^2}(\theta, 0) \, d\theta \tag{6.5}
+\end{align*}
+Inoltre $F$ ha media nulla su $T^n_0$. Consideriamo l'hamiltoniana ausiliaria $S = F(\theta)r \cdot r$, il campo vettoriale associato è
+\begin{align*}
+    X_S = \left(2F(\theta)r,-\frac{\partial F}{\partial \theta}r \cdot r\right) \tag{6.6}
+\end{align*}
+Notiamo che $X_S|_{T^n_0} = (0, 0)$, quindi $\varphi|_{T^n_0} = \mathrm{id}$. In particolare $\varphi$ è determinato da
+\begin{align*}
+    \begin{cases}
+        \frac{d\Theta}{dt} &= 2F(\Theta)R \\
+        \frac{dR}{dt} &= -\frac{\partial F}{\partial \theta}(\Theta)R \cdot R
+    \end{cases} \tag{6.7}
+\end{align*}
+Quindi
+\begin{align*}
+    \begin{cases}
+        \Theta(t) &= \theta + t2F(\theta)R + O(R^2) \\
+        R(t) &= r - t\frac{\partial F}{\partial \theta}(\theta)r \cdot r + O(r^3)
+    \end{cases} \rightarrow \begin{cases}
+        \Theta(1) &= \theta + 2F(\theta)r + O(r^2) \\
+        R(1) &= r - \frac{\partial F}{\partial \theta}(\theta)r \cdot r + O(r^3)
+    \end{cases} \tag{6.8}
+\end{align*}
+per analiticità di $F$. Sostituendo $(6.8)$ in $(6.4)$ si ottiene
+\begin{align*}
+    K^0 \circ \varphi &= c + \alpha \cdot (r - \frac{\partial F}{\partial \theta}(\theta)r \cdot r) + K^0_2(\theta)r \cdot r + O(r^3) \\
+    &= c + \alpha \cdot r + (K^0_2(\theta) - \mathcal{L}_\alpha F(\theta))r \cdot r + O(r^3) \\
+    &= c + \alpha \cdot r + Qr \cdot r + O(r^3) \tag{6.9}
+\end{align*}
+posto $Q = \int_{T^n_0} K^0_2(\theta, 0) \, d\theta$, costante in $\theta$ e non degenere (per ipotesi iniziale). \\
+Poniamo $\widehat{K}^0_R := K^0 \circ \varphi (\theta, r + R)$ per $R \in \mathbb{R}$ e consideriamo la famiglia delle perturbazioni per traslazione delle azioni $(\widehat{K}^0_R)_{R \in \mathbb{R}}$ per $R$ piccolo, allora
+\begin{align*}
+    \widehat{K}^0_R(\theta, r) = (c + \alpha \cdot R) + (\alpha + 2QR) \cdot r + O(r^2) \tag{6.10}
+\end{align*}
+Notiamo che per $\widehat{K}^0_R$ si ha che $T^n_0$ è invariante e quasi-periodico con frequenza $\alpha + 2QR$. Segue che
+\begin{align*}
+    \widehat{K}^0_R = (\widehat{K}^0_R - \widehat{\beta}^0_R \cdot r) \circ \mathrm{id} + \widehat{\beta}^0_R \cdot r \tag{6.11}
+\end{align*}
+dove $\widehat{\beta}^0_R = 2QR$ e $\left.\frac{d\widehat{\beta}^0_R}{dR}\right|_{R = 0} = 2Q$ è invertibile (per ipotesi). \\
+Il \textit{teorema twist di Herman} comporta l'esistenza di una mappa $R \mapsto \beta_R$ per $H_R$ che è di classe $C^1$, per la \textit{proposizione D.2.2}, ed è una piccola perturbazione della mappa $R \mapsto \widehat{\beta}^0_R$ per $|H - K^0|_s$ e $R$ sufficientemente piccoli. \\
+Concludiamo che $R \mapsto \beta(R)$ è un diffeomorfismo locale in un intorno dell'origine localmente uniforme rispetto a $H$, pertanto esiste $R$ sufficientemente piccolo tale che $\beta_R = 0$ e quindi l'hamiltoniana che si ottiene traslando di $R$ lungo le azioni è della forma $H_R = K \circ G$ e dunque possiede un toro $\alpha$-quasi-periodico. \qed
 
-
-
-
-
+\newpage
+\section{Esempi di applicazioni in Fisica}
 
 
 
