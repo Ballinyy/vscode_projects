@@ -39,7 +39,20 @@ Invece, se $|X \setminus E_1|, |X \setminus E_2| < \infty$ si ha
 \end{align*}
 ovvero $X \setminus (E_1 \cup E_2) \in \mathcal{A}$, quindi, per definizione di $\mathcal{A}$, anche $E_1 \cup E_2 \in \mathcal{A}$. \\
 Tuttavia, $\mathcal{A}$ non è una $\sigma$-algebra, infatti se $(E_n)_{n \in \mathbb{N}} \subset \mathcal{A}$ non è detto che $E = \bigcup_{n \in \mathbb{N}} E_n$ sia finito o che $X \setminus E$ lo sia (nel primo caso è sufficiente prendere una successione di insieme disgiunti, anche finiti, nel secondo, se $X \cong \mathbb{N}$, è sufficiente porre $E_k = \{k^2\}$, $k \in \mathbb{N}$, lo stesso se $X$ è non numerabile) \\ \\
-$(3)$ Posto $X = [0, 1)$ e
+$(3)$ Dato $X$ insieme tale che $|X| = \infty$ si ha che
+\begin{align*}
+    \mathcal{A} = \{E \in \mathcal{P}(X) : E \text{ o } X \setminus E \text{ è numerabile}\}
+\end{align*}
+è una $\sigma$-algebra. Infatti, data $(E_n)_{n \in \mathbb{N}} \subset \mathcal{A}$ tale che $E_k$ è numerabile per ogni $k \in \mathbb{N}$ si ha
+\begin{align*}
+    E = \bigcup_{n \in \mathbb{N}} E_n
+\end{align*}
+è numerabile. Mentre se $X \setminus E_k$ è numerabile per ogni $k \in \mathbb{N}$ si ha
+\begin{align*}
+    X \setminus \bigcup_{n \in \mathbb{N}} E_n = \bigcap_{n \in \mathbb{N}} (X \setminus E_n)
+\end{align*}
+che è numerabile poiché contenuto in $X \setminus E_k$ per ogni $k \in \mathbb{N}$, quindi anche $E \in \mathcal{A}$. \\ \\
+$(4)$ Posto $X = [0, 1)$ e
 \begin{align*}
     \mathcal{A} = \emptyset \cup \left\{\bigcup_{i = 1}^n [a_i, b_i) : 0 \leq a_1 < b_1 \leq a_2 < b_2 \leq \dots \leq a_n < b_n \leq 1, n \in \mathbb{N}\right\}
 \end{align*}
@@ -61,13 +74,157 @@ Mentre
 In ogni caso appartiene ad $\mathcal{A}$ per definizione. \\
 Tuttavia, $\mathcal{A}$ non è una $\sigma$-algebra, infatti, posto
 \begin{align*}
-    I_k = (\frac{1}{4k + 1}, \frac{1}{4k}) \qquad k \in \mathbb{N}
+    I_k = \left(\frac{1}{4k + 1}, \frac{1}{4k}\right) \qquad k \in \mathbb{N}
 \end{align*}
 si ha $I_k \in \mathcal{A}$ per ogni $k \in \mathbb{N}$ ma
 \begin{align*}
     \bigcup_{k \in \mathbb{N}} I_k
 \end{align*}
-è unione numerabile disgiunta, pertanto non può essere espresso come unione finita di intervalli della forma $[a, b)$, $a < b$.
+è unione numerabile disgiunta, pertanto non può essere espresso come unione finita di intervalli della forma $[a, b)$, $a < b$. \\ \\
+\textbf{Definizione:} sia $X$ un insieme e $\mathcal{E} \subset \mathcal{P}(X)$ un'algebra, chiamiamo $\sigma$-\textit{algebra generata da} $\mathcal{E}$ la più piccola $\sigma$-algebra che contiene $\mathcal{E}$ è la denotiamo con $\sigma(\mathcal{E})$. \\ \\
+\textbf{Esempi:} $(1)$ poniamo $X = \{1, \dots, n\}$ e
+\begin{align*}
+    \mathcal{E} = \{\{1\}, \{2\}, \dots, \{n - 1\}, \{n - 1, n\}\}
+\end{align*}
+La $\sigma$-algebra generata da $\mathcal{E}$ deve contenere $\mathcal{P}(\{1, \dots, n - 2\})$ e $\{n - 1, n\}$, pertanto
+\begin{align*}
+    \sigma(\mathcal{E}) = \{A \cup B : A \in \mathcal{P}(\{1, \dots, n - 1\}), B = \emptyset, \{n - 1, n\}\}
+\end{align*}
+$(2)$ Posto $X = \mathbb{R}$ e
+\begin{align*}
+    \mathcal{E} = \{[a, b) : a < b, a, b \in \mathbb{R}\}
+\end{align*}
+si ha che $\sigma(\mathcal{E}) = \mathcal{B}(\mathbb{R})$, dove $\mathcal{B}(\mathbb{R})$ è la $\sigma$-algebra dei \textit{boreliani} di $\mathbb{R}$, ovvero la $\sigma$-algebra generata dagli aperti di $\mathbb{R}$. \\
+Per dimostrare l'uguaglianza è sufficiente dimostrare che i generatore di un insieme si trovano nella $\sigma$-algebra generata dall'altro e viceversa. In particolare, posti $a < b, c < d$ e scelto $\alpha$ opportuno affinché $c + \alpha < d$, si ha
+\begin{align*}
+    [a, b) &= \bigcap_{n \in \mathbb{N}} \left(a - \frac{1}{n}, b\right) \\
+    (c, d) &= \bigcup_{n \in \mathbb{N}} \left[c + \frac{\alpha}{n}, d\right)
+\end{align*}
+\textbf{Definizione:} dato $X$ insieme e $\mathcal{A} \subset \mathcal{P}(X)$ una $\sigma$-algebra, $\mu : \mathcal{A} \longrightarrow [0, \infty]$ è detta \textit{misura} se: \\
+\textbf{1.} data $(A_n)_{n \in \mathbb{N}} \subset \mathcal{A}$ tale che $A_i \cap A_j = \emptyset$ se $i \neq j$ si ha
+\begin{align*}
+    \mu\left(\bigcup_{n \in \mathbb{N}} A_n\right) = \sum_{n \in \mathbb{N}} \mu(A_n)
+\end{align*}
+ovvero se è $\sigma$-\textit{additiva}. \\
+\textbf{2.} $\mu(\emptyset) = 0$. \\ \\
+\textbf{Osservazione:} si vede immediatamente che ogni misura è anche una funzione additiva, infatti
+\begin{align*}
+    \mu(A \cup B) = \mu(A \cup B \cup \emptyset \cup \emptyset \cup \dots) = \mu(A) + \mu(B)
+\end{align*}
+\textbf{Esempi:} $(1)$ dato $X$ insieme discreto e $\mathcal{A} = \mathcal{P}(X)$, poniamo
+\begin{align*}
+    \mu : A \in \mathcal{P}(X) \mapsto \begin{cases}
+        \infty \qquad &|A| = \infty \\
+        |A| \qquad &|A| < \infty
+    \end{cases}
+\end{align*}
+Inoltre, data $(A_n)_{n \in \mathbb{N}} \subset \mathcal{P}(X)$, poniamo
+\begin{align*}
+    \mu\left(\bigcup_{n \in \mathbb{N}} A_n\right) = \begin{cases}
+        \infty \qquad &|A_i| = \infty \text{ per qualche } i \in \mathbb{N} \\
+        \sum_{n \in \mathbb{N}} |A_n| \qquad &A_i \cap A_j = \emptyset, i \neq j
+    \end{cases}
+\end{align*}
+Si vede immediatamente che $\mu$ è $\sigma$-additiva e che $\mu(\emptyset) = 0$ (per defizione), quindi $\mu$ è una misura, in particolare è detta \textit{misura di conteggio}. \\ \\
+$(2)$ Poniamo $X = \mathbb{N}$ e $\mathcal{A} = \mathcal{P}(X)$, allora
+\begin{align*}
+    \mu : A \in \mathcal{P}(X) \mapsto \begin{cases}
+        \sum_{a \in A} 2^{-a} \qquad &|A| < \infty \\
+        \infty \qquad &|A| = \infty
+    \end{cases}
+\end{align*}
+è additiva, ma non $\sigma$-additiva. Infatti, dati $A, B \in \mathcal{P}(X)$ disgiunti, si ha che
+\begin{align*}
+    \mu(A \cup B) = \sum_{a \in A}2^{-a} + \sum_{b \in B}2^{-b} = \mu(A) + \mu(B)
+\end{align*}
+Mentre, posto $A_k = \{k\}$ per ogni $k \in \mathbb{N}$, si ha
+\begin{align*}
+    A := \bigcup_{n \in \mathbb{N}} A_n = \mathbb{N}
+\end{align*}
+Pertanto
+\begin{align*}
+    \mu(A) = \infty \neq \sum_{n \in \mathbb{N}} 2^{-n} = \sum_{n \in \mathbb{N}} \mu(A)
+\end{align*}
+\textbf{Osservazione:} dati $\mu$ additiva su $\mathcal{A}$ algebra e $A, B \in \mathcal{A}$ tali che $A \subset B$, si ha
+\begin{align*}
+    \mu(A) \leq \mu(B) \qquad \mu(B \setminus A) = \mu(B) - \mu(A)
+\end{align*}
+Infatti $B = A \cup (B \setminus A)$, unione disgiunta, quindi
+\begin{align*}
+    \mu(B) = \mu(A) + \mu(B \setminus A) \geq \mu(A)
+\end{align*}
+per positività di $\mu$. \\ \\
+\textbf{Osservazione:} dati $\mu$ additiva su $\mathcal{A}$ $\sigma$-algebra e $(A_n)_{n \in \mathbb{N}} \subset \mathcal{A}$ disgiunti, si ha che
+\begin{align*}
+    \mu\left(\bigcup_{n \in \mathbb{N}} A_n\right) \geq \sum_{n \in \mathbb{N}} \mu(A_n)
+\end{align*}
+ovvero $\mu$ $\sigma$-\textit{supadditiva}. Infatti
+\begin{align*}
+    \bigcup_{n \leq k} A_n \subset \bigcup_{n \in \mathbb{N}} A_n
+\end{align*}
+per ogni $k \in \mathbb{N}$, pertanto, per l'osservazione di prima, si ha
+\begin{align*}
+    \mu\left(\bigcup_{n \leq k} A_n\right) \geq \mu\left(\bigcup_{n \leq k} A_n\right) = \sum_{n \leq k} \mu(A_n)
+\end{align*}
+per ogni $k \in \mathbb{N}$, passando al limite
+\begin{align*}
+    \mu\left(\bigcup_{n \in \mathbb{N}} A_n\right) \geq \sum_{n \in \mathbb{N}} \mu(A_n)
+\end{align*}
+\textbf{Definizione:} dati $X$ insieme e $\mathcal{A} \subset \mathcal{P}(X)$ $\sigma$-algebra, $\mu : \mathcal{A} \longrightarrow [0, \infty]$ è detta $\sigma$-\textit{subadditiva} se, dato $(A_n)_{n \in \mathbb{N}} \subset \mathcal{A}$, si ha
+\begin{align*}
+    \mu\left(\bigcup_{n \in \mathbb{N}} A_n\right) \leq \sum_{n \in \mathbb{N}} \mu(A_n)
+\end{align*}
+\textbf{Proposizione 1.1:} dati $X$ insieme e $\mathcal{A} \subset \mathcal{P}(X)$ $\sigma$-algebra, se $\mu : \mathcal{A} \longrightarrow [0, \infty]$ è $\sigma$-additiva allora $\mu$ è anche $\sigma$-subadditiva. \\
+
+\textbf{Dimostrazione:} dato $(A_n)_{n \in \mathbb{N}} \subset \mathcal{A}$, poniamo
+\begin{align*}
+    \widetilde{A}_n = A_n \setminus \bigcup_{k \leq n - 1} A_k
+\end{align*}
+Allora $\widetilde{A}_i \cap \widetilde{A}_j = \emptyset$ per ogni $i \neq j$ e
+\begin{align*}
+    A := \bigcup_{n \in \mathbb{N}} A_n = \bigcup_{n \in \mathbb{N}} \widetilde{A}_n
+\end{align*}
+Pertanto
+\begin{align*}
+    \mu(A) = \mu\left(\bigcup_{n \in \mathbb{N}} \widetilde{A}_n\right) = \sum_{n \in \mathbb{N}} \mu(\widetilde{A}_n) \leq \sum_{n \in \mathbb{N}} \mu(A_n)
+\end{align*}
+dato che $\widetilde{A}_k \subset A_k$ per ogni $k \in \mathbb{N}$. \qed \\ \\
+\textbf{Corollario 1.1:} dati $X$ insieme, $\mathcal{A} \subset \mathcal{P}(X)$ $\sigma$-algebra e $\mu : \mathcal{A} \longrightarrow [0, \infty]$ additiva, sono equivalenti: \\
+\textbf{1.} $\mu$ $\sigma$-additiva. \\
+\textbf{2.} $\mu$ $\sigma$-subadditiva. \\
+
+\textbf{Dimostrazione:} $(1 \rightarrow 2)$ per la \textit{proposizione 1.1}. \\
+$(2 \rightarrow 1)$ Abbiamo visto che se $\mu$ è additiva su $\mathcal{A}$ allora $\mu$ è anche $\sigma$-supadditiva, pertanto la tesi segue confrontando con l'ipotesi. \qed \\ \\
+\textbf{Proposizione 1.2:} dati $X$ insieme, $\mathcal{A} \subset \mathcal{P}(X)$ algebra, $\mu$ $\sigma$-additiva e $(A_n)_{n \in \mathbb{N}}$ tale che $A_1 \subset A_2 \subset \dots$, $\mu(A_k) < \infty$ per ogni $k \in \mathbb{N}$ e
+\begin{align*}
+    A := \bigcup_{n \in \mathbb{N}} A_n \in \mathcal{A}
+\end{align*}
+si ha $\mu(A) = \lim_n \mu(A_n)$. \\
+
+\textbf{Dimostrazione:} possiamo scrivere
+\begin{align*}
+    A = A_1 \cup \bigcup_{n \in \mathbb{N}} A_{n + 1} \setminus A_n
+\end{align*}
+unione disgiunta, inoltre sappiamo che $\mu(A_{k + 1} \setminus A_k) = \mu(A_{k + 1}) - \mu(A_k)$ per ogni $k \in \mathbb{N}$. Pertanto
+\begin{align*}
+    \mu(A) = \mu(A_1) + \sum_{n \in \mathbb{N}} \mu(A_{n + 1}) - \mu(A_n) = \lim_n \mu(A_n)
+\end{align*}
+dato che $\mu(A_k) = \mu(A_1) + \sum_{n \leq k - 1} \mu(A_{n + 1}) - \mu(A_n)$ per ogni $k \in \mathbb{N}$. \qed \\ \\
+\textbf{Corollario 1.2:} se $\mu(A) = \lim_n \mu(A_n)$ e $\mu$ è additiva, si ha $\mu$ $\sigma$-additiva. \\
+
+\textbf{Dimostrazione:} data $(A_n)_{n \in \mathbb{N}} \subset \mathcal{A}$ famiglia disgiunta, per ogni $k \in \mathbb{N}$ poniamo
+\begin{align*}
+    \widetilde{A}_n = \bigcup_{k \leq n} A_k
+\end{align*}
+Allora $\widetilde{A}_1 \subset \widetilde{A}_2 \subset \dots$ e 
+\begin{align*}
+    A := \bigcup_{n \in \mathbb{N}} A_n = \bigcup_{n \in \mathbb{N}} \widetilde{A}_n
+\end{align*}
+Pertanto, per la \textit{proposizione 1.2}, si ha che
+\begin{align*}
+    \mu(A) = \lim_n \mu(\widetilde{A}_n) = \lim_n \sum_{k \leq n} \mu(A_k) = \sum_{n \in \mathbb{N}} \mu(A_n)
+\end{align*}
+quindi la tesi. \qed
 
 
 
