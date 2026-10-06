@@ -277,8 +277,8 @@ per ogni $n_2 \geq n_1$, pertanto
 
 \textbf{Dimostrazione:} per definizione
 \begin{align*}
-    \liminf_n A_n &= \bigcup_{n \in \mathbb{N}}\left(\bigcap_{k \geq n} A_k\right) \\
-    \liminf_n \mu(A_n) &= \sup_{n \in \mathbb{N}} \inf_{k \geq n} \mu(A_k)
+    \liminf_n A_n &= \bigcup_{n \in \mathbb{N}}\left(\bigcap_{k \geq n} A_k\right) \qquad \limsup_n A_n = \bigcap_{n \in \mathbb{N}}\left(\bigcup_{k \geq n} A_k\right) \\
+    \liminf_n \mu(A_n) &= \sup_{n \in \mathbb{N}} \inf_{k \geq n} \mu(A_k) \qquad \limsup_n \mu(A_n) = \inf_{n \in \mathbb{N}} \sup_{k \geq n}\mu(A_k)
 \end{align*}
 Poniamo
 \begin{align*}
@@ -286,13 +286,66 @@ Poniamo
 \end{align*}
 per ogni $n \in \mathbb{N}$. Notiamo che $(B_n)_{n \in \mathbb{N}}$ è crescente, per la \textit{proposizione 1.2} si ha
 \begin{align*}
-    \mu(\liminf_n A_n) = \lim_n \mu(B_n) \leq \lim_n \inf_{k \geq n} \mu(A_k) \leq \sup_{n \in \mathbb{N}} \inf_{k \geq n} \mu(A_k) = \limsup_n \mu(A_n)
+    \mu(\liminf_n A_n) = \lim_n \mu(B_n) \leq \lim_n \inf_{k \geq n} \mu(A_k) \leq \sup_{n \in \mathbb{N}} \inf_{k \geq n} \mu(A_k) = \liminf_n \mu(A_n)
 \end{align*}
 Analogamente, poniamo
 \begin{align*}
     C_n := \bigcup_{k \geq n} A_k
 \end{align*}
-per ogni $n \in \mathbb{N}$. Notiamo che $(C_n)_{n \in \mathbb{N}}$ è decrescente
+per ogni $n \in \mathbb{N}$. Notiamo che $(C_n)_{n \in \mathbb{N}}$ è decrescente, per la \textit{proposizione 1.3} si ha
+\begin{align*}
+    \mu(\limsup_n A_n) = \lim_n \mu(C_n) \geq \lim_n \sup_{k \geq n} \mu(A_k) \geq \inf_{n \in \mathbb{N}} \sup_{k \geq n} \mu(A_k) = \limsup_n \mu(A_n)
+\end{align*}
+quindi la tesi. \qed \\ \\
+\textbf{Lemma (Borel-Cantelli):} dati $X$ insieme, $\mathcal{A} \subset \mathcal{P}(X)$ $\sigma$-algebra, $\mu : \mathcal{A} \longrightarrow [0, \infty)$ $\sigma$-additiva e finita e $(A_n)_{n \in \mathbb{N}} \subset \mathcal{A}$ tale che
+\begin{align*}
+    \sum_{n \in \mathbb{N}} \mu(A_n) < \infty
+\end{align*}
+si ha $\mu(\limsup_n A_n) = 0$. \\
+
+\textbf{Dimostrazione:} poniamo
+\begin{align*}
+    B_n := \bigcup_{k \geq n} A_k
+\end{align*}
+per ogni $n \in \mathbb{N}$. $(B_n)_{n \in \mathbb{N}}$ è decrescente, per la \textit{proposizione 1.3} si ha
+\begin{align*}
+    \mu(\limsup_n A_n) = \lim_n \mu(B_n) \leq \lim_n \sum_{k \geq n} \mu(A_k) = 0
+\end{align*}
+dato che per ipotesi $\sum_{n \in \mathbb{N}} \mu(A_n) < \infty$. \qed \\ \\
+A questo punto, data una funzione additiva $\mu$ definita su un'algebra $\mathcal{A}$, siamo interessati a costruire un'estensione $\overline{\mu}$ definita su $\sigma(\mathcal{A})$ che sia $\sigma$-additiva e quindi una misura. \\
+Ad esempio, posta
+\begin{align*}
+    \mathcal{A} = \emptyset \cup \left\{\bigcup_{i = 1}^n [a_i, b_i) : 0 \leq a_1 < b_1 \leq \dots < b_n \leq 1\right\}
+\end{align*}
+vogliamo estendere la misura naturale
+\begin{align*}
+    \mu : \bigcup_{j = 1}^s [c_j, d_j) \in \mathcal{A} \mapsto \sum_{j = 1}^s d_j - c_j
+\end{align*}
+Può capitare che, data $(A_n)_{n \in \mathbb{N}} \subset \mathcal{A}$ (algebra arbitraria), si abbia
+\begin{align*}
+    A := \bigcup_{n \in \mathbb{N}} A_n \in \mathcal{A}
+\end{align*}
+Pertanto, poiché deve valere $\overline{\mu}|_{\mathcal{A}} = \mu$, richiediamo che $\mu$ sia anche $\sigma$-additiva (anche se $\mathcal{A}$ è solo un'algebra). \\ \\
+\textbf{Definizione:} dato $X$ insieme e $\mathcal{M} \subset \mathcal{P}(X)$, $\mathcal{M}$ è detta \textit{classe monotona} se per ogni $(A_n)_{n \in \mathbb{N}} \subset \mathcal{M}$ monotona si ha $\lim_n A_n \in \mathcal{M}$. \\ \\
+\textbf{Osservazione:} se $\mathcal{M}$ è un'algebra e classe monotona si ha $\mathcal{M}$ $\sigma$-algebra, infatti data $(A_n)_{n \in \mathbb{N}} \subset \mathcal{M}$ poniamo
+\begin{align*}
+    B_n := \bigcup_{k \leq n} A_k
+\end{align*}
+Allora $(B_n)_{n \in \mathbb{N}} \subset \mathcal{M}$ è crescente, pertanto
+\begin{align*}
+    A := \bigcup_{n \in \mathbb{N}} A_n = \bigcup_{n \in \mathbb{N}} B_n \in \mathcal{M}
+\end{align*}
+\textbf{Teorema (di Halmos):} dati $X$ insieme $\mathcal{A}, \mathcal{M} \subset \mathcal{P}(X)$ con $\mathcal{A}$ algebra e $\mathcal{M}$ classe monotona tali che $\mathcal{A} \subset \mathcal{M}$, allora $\sigma(\mathcal{A}) \subset \mathcal{M}$. \\
+
+\textbf{Dimostrazione:} sia $\mathcal{M}_0$ la classe monotona minimale che contiene $\mathcal{A}$ (esiste per il \textit{lemma di Zorn}). Dato $A \in \mathcal{A}$ poniamo
+\begin{align*}
+    \mathcal{M}_A = \{B \in \mathcal{M}_0 : A \cup B, A \cap B, A \setminus B, B \setminus A \in \mathcal{M}_0\} 
+\end{align*}
+Notiamo che $\mathcal{M}_A$ è una classe monotona, infatti, data $(B_n)_{n \in \mathbb{N}} \subset \mathcal{M}_A$ monotona, si ha
+\begin{align*}
+    B := \lim_n B_n \in \mathcal{M}_0
+\end{align*}
+Inoltre
 
 
 
