@@ -598,13 +598,19 @@
 \tableofcontents
 
 \chapter*{Introduzione}
+(bozza intro)Il problema di determinare la stabilità a lungo termine delle soluzioni dei moti nei sistemi dinamici affonda le radici nei grandi problemi nati grazie alla meccanica celeste, in particolare alla legge di gravitazione universale di Newton, come il problema dei tre corpi, o più in generale il problema degli $n$ corpi. \\ \\
+Nel 1889, Poincaré dimostrò che le serie perturbative formali classiche, usate per attaccare il problema dei tre corpi, erano in realtà divergenti a causa dell'accumulo all'infinito di termini risonanti $k \cdot \alpha \rightarrow 0$, detti piccoli divisori. \\ \\
+La teoria KAM, nata grazie a Kolmogorov, Arnold e Moser, si è posta come obiettivo quello di determinare se fosse possibile ritrovare soluzioni stabili per tali sistemi perturbati, detti sistemi quasi integrabili. \\
+In particolare, nel 1954 Kolmogorov riuscì ad aggirare il problema dei piccoli divisori tramite uno schema iterativo alla Newton e dimostrò la persistenza di soluzioni stabili a lungo termine sotto opportune ipotesi di non degenerazione. \\ \\
+In questo lavoro ci poniamo come obiettivo dimostrare il celebre teorema di Kolmogorov, sotto opportune ipotesi di non degenerazione, tramite un approccio geometrico più moderno. \\
+In particolare dimostreremo prima il teorema \textit{twisted conjugacy} di Herman che ci permetterà di separare il problema della persistenza di soluzioni stabili che preservano la dinamica in un problema infinito dimensionale di inversione locale di un operatore e in un problema finito dimensionale di inversione di un diffeomorfismo locale attorno all'origine.
 
 
 \chapter{Sistemi hamiltoniani}
 \section{Punto di vista geometrico}
 Consideriamo una funzione liscia $H$ definita su $ T^*\mathbb{T}^n \cong \mathbb{T}^n \times \mathbb{R}^n$ = $\{(\theta, r)\}$ (dove $\mathbb{T}^n = \mathbb{R}^n/\mathbb{Z}^n$ è il toro $n$-dimensionale). \\
 Il \textit{campo vettoriale hamiltoniano} $X_H$ indotto da $H$ tramite le equazioni di Hamilton è dato da 
-\begin{align} 
+\begin{align}\label{HamVectField}
     X_H = \begin{pmatrix}
         \dot{\theta} \\
         \dot{r}
@@ -624,7 +630,7 @@ dove
 Notiamo immediatamente che $\nabla H \cdot X_H = 0$, il gradiente di $H$ è ortogonale al campo vettoriale hamiltoniano $X_H$, infatti $J$ è una matrice antisimmetrica. \\ \\
 In particolare, la proiezione sul piano $\{(\theta_j, r_j)\}$ del campo vettoriale hamiltoniano $X_H$ e del gradiente euclideo $\nabla H$ sono ortogonali, ovvero ogni termine della somma è nullo
 \begin{align}
-    \nabla H \cdot X_H = \sum_j\left(\frac{\partial H}{\partial \theta}\frac{\partial H}{\partial r} - \frac{\partial H}{\partial r}\frac{\partial H}{\partial \theta}\right)
+    \nabla H \cdot X_H = \sum_j\left(\frac{\partial H}{\partial \theta_j}\frac{\partial H}{\partial r_j} - \frac{\partial H}{\partial r_j}\frac{\partial H}{\partial \theta_j}\right)
 \end{align}
 Questo perché $X_H$ è tangente alle curve di livello di $H$ (curve ad energia fissata), mentre $\nabla H$ punta verso la direzione di massima pendenza (positiva) di $H$. \\ \\
 Tutta l'informazione riguardante un determinato sistema dinamico è contenuta nella funzione di Hamilton $H$ associata. \\
@@ -639,13 +645,14 @@ Per caratterizzare tali diffeomorfismi diamo una definizione instrinseca di $X_H
 \end{align}
 $\omega$ è detta \textit{forma simplettica} sullo spazio delle fasi $\mathbb{T}^n \times \mathbb{R}^n$. In particolare, $\omega$ è una mappa bilineare antisimmetrica e non degenere del fibrato tangente dello spazio delle fasi nella retta reale. \\
 Dato $X = (\dot{\theta}, \dot{r})$ campo vettoriale su $\mathbb{T}^n \times \mathbb{R}^n$, si ha
-\begin{align}
+\begin{align}\label{iota_X omega}
     \iota_X\omega = \sum_j (\dot{\theta}_jdr_j - \dot{r}_jd\theta_j) 
 \end{align}
 Segue che $X_H$ è definito implicitamente dall'equazione
-\begin{align}
+\begin{align}\label{X_H ImplDefn}
     \iota_{X_H}\omega = dH 
 \end{align}
+In generale, possiamo dire che $X_H$ è un campo vettoriale 'hamiltoniano' se esiste $H$ che soddisfa \eqref{X_H ImplDefn}, in tal caso, confrontando con \eqref{iota_X omega}, $X_H$ è caratterizzato da \eqref{HamVectField}. \\ \\
 Poniamo $\eta = (\theta, r)$, dato $\phi : \eta \mapsto \phi(\eta)$ diffeomorfismo, la condizione \eqref{SymplMorph} equivale a imporre
 \begin{align}
     J\nabla_\eta(H \circ \phi^{-1}) = (D\phi \circ \phi^{-1}) \circ (X_{H} \circ \phi^{-1})
@@ -661,7 +668,7 @@ mentre
 \end{align}
 Pertanto le uniche trasformazioni che preservano le equazioni del moto sono ora caratterizzate dall'equazione
 \begin{align}\label{SymplCond}
-    J = (D\phi) J \null^t(D\phi) 
+    (D\phi) J = J(\null^tD\phi^{-1})
 \end{align}
 Poiché $\omega(X, Y) = \null^t X J Y$, si ottiene che le uniche trasformazioni che preservano la forma delle equazioni di Hamilton sono le trasformazioni che soddisfano
 \begin{align}
@@ -671,7 +678,7 @@ Infatti, per definizione di pullback di un forma differenziale, si ha
 \begin{align}
     \phi^*\omega(X, Y) = \null^t(D\phi X)J(D\phi Y) = \null^tX \null^tD\phi J D\phi Y = \null^tX J Y = \omega(X, Y)
 \end{align}
-se \eqref{SymplCond} è soddisfatta. Tali trasformazioni sono dette \textit{simplettiche} o \textit{canoniche}. \\ \\
+se \eqref{SymplCond} è soddisfatta. Tali trasformazioni sono dette \textit{simplettiche} o \textit{canoniche}.
 \begin{ex} consideriamo una $1$-forma differenziale chiusa $\rho$ su $\mathbb{T}^n$
 \begin{align}
     \rho = \sum_j \rho_i(\theta)d\theta_i \qquad d\rho = 0 
@@ -701,7 +708,7 @@ dove con $\varphi' = D\phi$ (jacobiano). Il diffeomorfismo $\phi$ preserva la $1
     \phi^*\lambda = \tilde{r} \cdot d\tilde{\theta} = r \cdot \varphi'(\theta)^{-1}\varphi'(\theta) \cdot d\theta = \lambda
 \end{align}
 Inoltre, dato che $d\lambda = -\omega$, si ha
-\begin{align}
+\begin{align}\label{PhiSympl}
     \phi^*\omega = -\phi^*d\lambda = -d\phi^*\lambda = -d\lambda = \omega
 \end{align}
 dove si è usato che le operazioni di pullback e di differenziazione esterna commutano. Pertanto $\phi$ simplettico.
@@ -711,24 +718,24 @@ dove si è usato che le operazioni di pullback e di differenziazione esterna com
 \begin{rmk} $\mathbb{T}^n \cong \mathbb{T}^n \times \{0\} \subset \mathbb{T}^n \times \mathbb{R}^n$ è una sottovarietà lagrangiana, infatti $\dim \mathbb{T}^n \times \{0\} = n$ e $\omega|_{\mathbb{T}^n \times \{0\}} = 0$ proprio perché $dr_i(v) = 0$ per ogni $v \in T_{(\theta, 0)}\mathbb{T}^n$, per ogni $i = 1, \dots, n$.
 \end{rmk}
 \begin{lemma}
-Data $\phi$ come in $(3.6)$, le seguenti sono equivalenti: \\
+Data $\phi$ come in \eqref{ContraGrad}, le seguenti sono equivalenti: \\
 \textbf{1.} il grafico di $\rho$ ($\subset T^*\mathbb{T}^n \cong \mathbb{T}^n \times \mathbb{R}^n$) è una sottovarietà lagrangiana. \\
 \textbf{2.} la forma di Liouville $\sum_j \rho_j \, d\theta_j$ su $\mathbb{T}^n$ è chiusa. \\
 \textbf{3.} la mappa $(\theta, r) \mapsto (\theta, r + \rho_\theta)$ è simplettica.
 \end{lemma}
 \begin{proof}
 ($1 \rightarrow 2$) segue immediatamente dalla definizione di varietà lagrangiana. \\
-($2 \rightarrow 3$) lo abbiamo visto in $(3.9)$. \\
+($2 \rightarrow 3$) lo abbiamo visto in \eqref{PhiSympl}. \\
 ($3 \rightarrow 1$) perché il fatto che $(\theta, r) \mapsto (\theta, r + \rho_\theta)$ è simplettica implica che $d\rho = 0$ e $d\rho$ non è altro che la $2$-forma simplettica definita sul grafico di $\rho$, che è $\{(\theta, \rho_\theta)\}$.
 \end{proof}
-\begin{lemma}[\cite{Bost}] se $Gr \, \rho$, grafico di $\rho$, è una sottovarietà lagrangiana di $\mathbb{T}^n \times \mathbb{R}^n$, data $H$ hamiltoniana definita su $Gr \, \rho$, è sufficiente che $H$ sia costante su $Gr \, \rho$ affinché $Gr \, \rho$ sia invariante per il flusso hamiltoniano di $H$.
+\begin{lemma}[\cite{Bost}]\label{LemBost} se $Gr \, \rho$, grafico di $\rho$, è una sottovarietà lagrangiana di $\mathbb{T}^n \times \mathbb{R}^n$, data $H$ hamiltoniana definita su $Gr \, \rho$, è sufficiente che $H$ sia costante su $Gr \, \rho$ affinché $Gr \, \rho$ sia invariante per il flusso hamiltoniano di $H$.
 \end{lemma}
 
 \begin{proof} dato $p \in Gr \, \rho$ poniamo
 \begin{align}
     (T_pGr \, \rho)^\omega = \{v \in T_p \, \mathbb{T}^n \times \mathbb{R}^n : \omega_p(u, v) = 0 \text{ per ogni } u \in T_pGr \, \rho\}
 \end{align}
-detto \textit{ortogonale simplettico}. Per ipotesi $Gr \, \rho$ è una sottovarietà lagrangiana, quindi $\omega|_{Gr \rho} = 0$, segue che $T_pGr \, \rho = (T_pGr \, \rho)^\omega$. Inoltre
+detto \textit{ortogonale simplettico}. Per ipotesi $Gr \, \rho$ è una sottovarietà lagrangiana, quindi $\omega|_{Gr \rho} = 0$, segue che $T_pGr \, \rho = (T_pGr \, \rho)^\omega$, dato che $\omega$ è non degenere. Inoltre
 \begin{align}
     \iota_{X_H}\omega_p(v) = dH_p(v) = 0
 \end{align}
@@ -747,9 +754,9 @@ Concludiamo che $G^{-1}(\mathbb{T}^n \times \{0\})$ è invariante per il flusso 
 \begin{proof} per il \textit{teorema fondamentale del calcolo} si ha
 \begin{align}
     \phi^*_t\omega - \omega &= \int_0^t \frac{d}{ds}(\phi^*_s\omega) \, ds \notag \\
-    &= \int_0^t \left.\frac{d}{d\tau}\right|_{\tau = 0}(\phi^*_{s + \tau}\omega) \, ds \\
-    &= \int_0^t \left.\frac{d}{d\tau}\right|_{\tau = 0}(\phi^*_s\phi^*_\tau \omega) \, ds \\
-    &= \int_0^t \phi^*_s\left.\frac{d}{d\tau}\right|_{\tau = 0}(\phi^*_\tau \omega) \, ds \\
+    &= \int_0^t \left.\frac{d}{d\tau}\right|_{\tau = 0}(\phi^*_{s + \tau}\omega) \, ds \notag \\
+    &= \int_0^t \left.\frac{d}{d\tau}\right|_{\tau = 0}(\phi^*_s\phi^*_\tau \omega) \, ds \notag \\
+    &= \int_0^t \phi^*_s\left.\frac{d}{d\tau}\right|_{\tau = 0}(\phi^*_\tau \omega) \, ds \notag \\
     &= \int_0^t \phi^*_s(\mathcal{L}_{X_H}\omega) \, ds
 \end{align}
 Per la \textit{formula magica di Cartan} (cfr. \cref{CartanFormula}) si ha
@@ -761,27 +768,24 @@ In particolare, $d\omega = 0$, dato che che $\omega$ ha tutti coefficienti costa
 
 \chapter{Sistemi completamente integrabili}
 Studiamo ora una classe particolare di sistemi hamiltoniani: i sistemi hamiltoniani \textit{completamente integrabili}. \\
-Un sistema hamiltoniano completamente integrabile non dipende dalla variabile del moto $\theta$, ovvero $H(\theta, r) = h(r)$ per ogni $(\theta, r)$ nello spazio delle fasi. Pertanto si ottiene 
+Un sistema hamiltoniano è detto completamente integrabile se $H(\theta, r) = h(r)$ per ogni $(\theta, r)$ nello spazio delle fasi. In tal caso si ottiene 
 \begin{align}
     \begin{cases}
-        \dot{\theta} &= \partial_rh = cst \\
+        \dot{\theta} &= \frac{\partial h}{\partial r} = cst \\
         \dot{r} &= 0
     \end{cases} 
-\end{align}
-dove con $\partial_rh$ si intende il gradiente rispetto alla coordinata $r = (r_1, \dots, r_n)$, ovvero 
-\begin{align}
-    \partial_rh = \left(\frac{\partial h}{\partial r_1}, \dots, \frac{\partial h}{\partial r_n}\right) \notag
 \end{align}
 \section{Campi vettoriali costanti sul toro}
 Possiamo facilmente determinare il flusso associato a $X_H$ 
 \begin{align}
-    \phi_t(\theta, r) = \left(\theta + t\partial_rh, r\right) 
+    \phi_t(\theta, r) = \left(\theta + t\frac{\partial h}{\partial r}(r), r\right) 
 \end{align}
-per ogni $t \in \mathbb{R}$ (intervallo massimale di definizioni delle soluzioni). Notiamo che lo spazio delle fasi è foliato da tori invarianti, infatti fissato $r_0 \in \mathbb{R}^n$ si ha 
+per ogni $t \in \mathbb{R}$ (intervallo massimale di definizioni delle soluzioni). \\
+Notiamo che lo spazio delle fasi è foliato da tori invarianti, infatti fissato $r_0 \in \mathbb{R}^n$ si ha 
 \begin{align}
     \phi_t\left(\mathbb{T}^n \times \{r_0\}\right) = \mathbb{T}^n \times \{r_0\} 
 \end{align}
-Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasi-periodico} con periodo determinata dal \textit{vettore frequenza} $\omega(r_0) = \partial_rH(r_0) \in \mathbb{R}^n$.
+Il flusso ristretto ad uno qualsiasi dei tori invarianti è \textit{quasi-periodico} con periodo determinato dal \textit{vettore frequenza} $\alpha(r_0) = \frac{\partial h}{\partial r}(r_0) \in \mathbb{R}^n$.
 \begin{ex}
 Consideriamo $H : \mathbb{R}^{2} \longrightarrow \mathbb{R}$ definita da
 \begin{align}
@@ -805,18 +809,18 @@ si ottiene
     r = \frac{1}{2\pi}\int_0^{2\pi} \xi\cos\theta \xi\cos\theta \, d\theta = \frac{\xi^2}{2}
 \end{align}
 Osserviamo che $dr = \xi d\xi$, pertanto $dp \wedge dq = \xi d\xi \wedge d\theta = dr \wedge d\theta$, ovvero $(p, q) \mapsto (\theta, r)$ simplettica. \\
-Tramite questa trasformazione $H$ diventa completamente integrabile
+Tramite questa trasformazione $H \mapsto h = h(r)$ diventa completamente integrabile
 \begin{align}
-    H = H(r) = 2r
+    h(r) = 2r
 \end{align}
-con flusso hamiltoniano costante su $\mathbb{T}$.
+con campo vettoriale hamiltoniano costante su $\mathbb{T}$.
 \end{ex}
-Fissiamo $r \in \mathbb{R}^n$ e consideriamo il flusso lineare
+Fissiamo $r_0 \in \mathbb{R}^n$ e consideriamo il flusso lineare
 \begin{align}
     \varphi_t : \mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad \theta \mapsto \theta + t\alpha \notag
 \end{align}
-dove $\alpha = \partial_rH(r)$. \\
-Diciamo che $\varphi^\alpha_t, \varphi^\beta_t$ (flussi associati a due sistemi completamente integrabili con vettori frequenza $\alpha, \beta$) sono \textit{topologicamente coniugati} (cfr. \cref{TopConjDefn}) se esiste $h$ omeomorfismo di $\mathbb{T}^n$ tale che il seguente diagramma commuta
+dove $\alpha = \frac{\partial h}{\partial r}(r_0)$. \\
+Diciamo che $\varphi^\alpha_t, \varphi^\beta_t$ (flussi associati a due sistemi completamente integrabili con vettori frequenza $\alpha, \beta$) sono \textit{topologicamente coniugati} (cfr. definizione \ref{TopConjDefn}) se esiste $h$ omeomorfismo di $\mathbb{T}^n$ tale che il seguente diagramma commuta
 \[
 \begin{tikzcd}
 \mathbb{T}^n
@@ -935,7 +939,7 @@ per ogni $\theta \in \mathbb{R}^n$, con $k \in \mathbb{Z}^n \setminus \{0\}$, si
     &= \frac{1}{T}e^{i k \cdot \theta}\frac{e^{i k \cdot aT} - 1}{ik \cdot \alpha} \rightarrow 0
 \end{align}
 per $T \rightarrow \infty$, ovvero la media temporale è nulla come la media spaziale (per simmetria del toro $n$-dimensionale e disparità della funzione $f$). \\
-Se $f$ è un polinomio trigonometrico può essere espressa come somma finita di termini della forma $e^{i m \cdot \theta}$, per $m \in \mathbb{Z}^n$. Pertanto \eqref{time/spaceMean} è verificata grazie a \label{ImmExpMean} per linearità dell'integrale. \\
+Se $f$ è un polinomio trigonometrico può essere espressa come somma finita di termini della forma $e^{i m \cdot \theta}$, per $m \in \mathbb{Z}^n$. Pertanto \eqref{time/spaceMean} è verificata grazie a \eqref{ImmExpMean} per linearità dell'integrale. \\
 Per il \textit{teorema di Stone-Weierstrass} (cfr. \cite{Pedersen}), se $f$ è continua, fissato $\varepsilon > 0$, esiste $P$ polinomio trigonometrico tale che
 \begin{align}
     \max_{\theta \in \mathbb{T}^n} |f(\theta) - P(\theta)| < \varepsilon
@@ -963,17 +967,19 @@ Supponiamo che esista $\theta \in U$ tale che $t\alpha = \theta$ per qualche $t 
 \begin{align}
     0 = k \cdot \theta + k \cdot l
 \end{align}
-Tuttavia, possiamo scegliere $U$ in modo tale che $0 < |k \cdot \theta| < 1$, mentre $k \cdot l \in \mathbb{Z}$, pertanto si ottiene un assurdo. \end{proof}
+Tuttavia, possiamo scegliere $U$ in modo tale che $0 < |k \cdot \theta| < 1$, mentre $k \cdot l \in \mathbb{Z}$, pertanto si ottiene un assurdo.
+\end{proof}
 
 \section{Serie perturbativa}
-Siamo ora interessati a studiare una classe più generale di sistemi hamiltoniani, ovvero i sistemi hamiltoniani \textit{quasi integrabili}. In particolare vogliamo capire se, tramite opportuni cambi di coordinate simplettici, è possibile trovare ancora tori invarianti che conservano la stessa dinamica del sistema imperturbato, i.e. flusso lineare quasi-periodico con vettore frequenza uguale. \\ \\
+Siamo ora interessati a studiare una classe più generale di sistemi hamiltoniani, ovvero i sistemi hamiltoniani \textit{quasi integrabili}. Un sistema hamiltoniano è detto quasi integrabile se è una piccola perturbazione di un sistema completamente integrabile. \\ \\
+In particolare vogliamo capire se, tramite opportuni cambi di coordinate simplettici, è possibile trovare ancora tori invarianti che conservano la stessa dinamica del sistema imperturbato, i.e. flusso lineare quasi-periodico con vettore frequenza uguale. \\ \\
 Consideriamo un hamiltoniana $H$ definita in un intorno di $\mathbb{T}^n \times \{0\}$ in $\mathbb{T}^n \times \mathbb{R}^n$. Supponiamo che $H$ dipenda formalmente da un parametro $\varepsilon > 0$ nella forma
 \begin{align}\label{PertSeries}
     H(\theta, r) = H_0(r) + \varepsilon H_1(\theta, r) + \varepsilon^2H_2(\theta, r) + O(\varepsilon^3) 
 \end{align}
-Siamo interessati a trovare un opportuno cambio di variabili, sufficientemente vicino all'identità ($\varepsilon$ vicino), tale da rimuovere la dipendeza di $H_1$ da $\theta$. Se ciò è possibile vogliamo estendere questo procedimento in moda tale da poter gestire anche i termine di ordine $\varepsilon$ superiore. \\ \\
-A tal proposito, consideriamo un'hamiltoniana ausiliaria $F$ con flusso $\phi_t$. In particolare, vogliamo che $F$ sia tale che $\phi^*_1H = H \circ \phi_1$ non dipenda da $\theta$, almeno fino a termini di secondo ordine in $\varepsilon$. \\ \\
-Per definizione di flusso di un campo vettoriale si ha
+Vogliamo a trovare un opportuno cambio di variabili, sufficientemente vicino all'identità ($\varepsilon$ vicino), tale da rimuovere la dipendenza di $H_1$ da $\theta$. Se ciò è possibile vogliamo estendere questo procedimento in moda tale da poter gestire anche i termine di ordine $\varepsilon$ superiore.
+\subsection{Primo ordine in $\varepsilon$} Consideriamo un'hamiltoniana ausiliaria $F$ con flusso $\phi_t$. In particolare, vogliamo che $F$ sia tale che $\phi^*_1H = H \circ \phi_1$ non dipenda da $\theta$, almeno fino a termini di secondo ordine in $\varepsilon$. \\ \\
+Osserviamo che
 \begin{align}
     \frac{d}{dt}(\phi^*_tH) &= \left.\frac{d}{ds}\right|_{s = 0}(\phi^*_{t + s}H) \notag \\
     &= \left.\frac{d}{ds}\right|_{s = 0}(H \circ \phi_{t + s}) \notag \\
@@ -986,10 +992,10 @@ dove nell'ultima uguaglianza si è trattato $X_F$ come un operatore di derivazio
     X_F = \partial_rF \cdot \partial_\theta - \partial_\theta F \cdot \partial_r 
 \end{align}
 Sviluppando la mappa $t \mapsto \phi^*_tH$ in serie di Taylor (con resto integrale di Lagrange) per $0 \leq t \leq 1$ si ottiene la seguente uguaglianza
-\begin{align}
+\begin{align}\label{TaylExpPert}
     \phi^*_1H = H + \varepsilon(X_F \cdot H) + \varepsilon^2\int_0^1 (1 - t)\phi^*_t(X^2_F \cdot H) \, dt 
-\end{align}\label{TaylExpPert}
-I fattori $\varepsilon$ che compaiono a moltiplicare i termini in $(4.4)$ derivano dal fatto che stiamo sviluppando attorno ad un $\tilde{t}$ che dista $\varepsilon$ da $0$. Infatti, come detto in precedenza, cerchiamo una trasformazione $\varepsilon$-vicina all'identità ($\phi^*_0 = \mathrm{id}$). \\
+\end{align}
+I fattori $\varepsilon$ che compaiono a moltiplicare i termini in \eqref{TaylExpPert} derivano dal fatto che stiamo sviluppando attorno ad un $\tilde{t}$ che dista $\varepsilon$ da $0$. Infatti, come detto in precedenza, cerchiamo una trasformazione $\varepsilon$-vicina all'identità ($\phi^*_0 = \mathrm{id}$). \\
 Sostituendo \eqref{PertSeries} in \eqref{TaylExpPert} si ottiene
 \begin{align}
     \phi^*_1H = H_0 + \varepsilon(H_1 + X_F \cdot H_0) + O(r^2) 
@@ -1015,7 +1021,7 @@ In termini della derivata di Lie associata al campo vettoriale costante definito
 \begin{align}\label{HomolEq}
     \mathcal{L}_\alpha F = \tilde{H}_1
 \end{align}
-detta \textit{equazione omologica}.
+detta \textit{equazione omologica}. \\ \\
 Sia $\mathscr{F}$ l'insieme delle serie di Fourier (formali, quindi ancora non associate ad una particolare funzione) su $\mathbb{T}^n$ prive di termine costante.
 \begin{lemma}[esistenza soluzione all'equazione omologica, cfr. \cite{Fejoz01}] se $\alpha$ è non risonante, data $g \in \mathscr{F}$ esiste unica $f \in \mathscr{F}$ tale che $\mathcal{L}_\alpha f = g$.
 \end{lemma}
@@ -1045,7 +1051,7 @@ Dato $s > 0$, sia
 l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{A}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni analitiche definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $\|\cdot\|_\infty$. \\
 In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni analitica su un insieme è ivi continua, pertanto se $f \in \mathcal{A}(\mathbb{T}^n_s)$ segue che $\|f\|_\infty < \infty$. Concludiamo che la coppia $(\mathcal{A}(\mathbb{T}^n_s), \|\cdot\|_\infty)$ è uno spazio di Banach (cfr. \cref{SBanach})
 \section{Piccoli denominatori}
-Invertendo \eqref{HomolEq}, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni analitiche a funzioni analitiche, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza.
+Invertendo \eqref{HomolEq}, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni analitiche a funzioni analitiche, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza, ovvero vogliamo evitare l'accumulo all'infinito di termini risonanti $k \cdot \alpha \rightarrow 0$.
 \begin{defn} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{diofanteo} se 
 \begin{align}
     |k \cdot \alpha| \geq \frac{\gamma}{|k|^\tau_1}
@@ -1089,6 +1095,7 @@ ovvero racchiuso da due superfici.
         \centering
         \includegraphics[width=0.75\linewidth]{immagini/r_gamma_tau_k_3d.png}
         \label{fig:placeholder}
+        \caption{visualizzazione vettori risontanti in 3D}
     \end{figure}
 \end{center}
 Considerando l'unione per ogni $k \neq 0$ si ottiene
@@ -1105,7 +1112,7 @@ Data una funzione $f$ analitica su un dominio $D \subset \mathbb{C}$, sappiamo, 
 \begin{align}
     f(z) = \frac{1}{2\pi i}\int_{\mathcal{C}} \frac{f(\omega)}{\omega - z} \, d\omega
 \end{align}
-dove $\mathbb{C}$ è una circonferenza contenuta in $\mathring{D}$, per ogni $z$ racchiuso dalla circonferenza $\mathcal{C}$. Inoltre, si può dimostrare che differenziando si ottiene
+dove $\mathcal{C}$ è una circonferenza contenuta in $\mathring{D}$, per ogni $z$ racchiuso dalla circonferenza $\mathcal{C}$. Inoltre, si può dimostrare che differenziando si ottiene
 \begin{align}
     f'(z) = \frac{1}{2\pi i}\int_{\mathcal{C}} \frac{f(\omega)}{(\omega - z)^2} \, d\omega
 \end{align}
@@ -1144,7 +1151,7 @@ per ogni $j = 1, \dots, n$. In particolare \eqref{CoeffEst} viene ora maggiorata
 \end{align}
 ovvero i coefficienti di Fourier decadono esponenzialmente (questo è vero per ogni funzione analitica reale). \\
 Dato che per ipotesi $\alpha \in D_{\gamma, \tau}$, si ottiene
-\begin{align}
+\begin{align}\label{|f|_s Est}
     |f|_s \leq \frac{|g|_{s + \sigma}}{\gamma}\sum_{k \in \mathbb{Z}^n\setminus\{0\}} |k|^\tau e^{-|k|(s + \sigma)}
 \end{align}
 Siamo ora interessati a ricondurre la sommatoria ad una sommatoria su $\mathbb{N}$, pertanto, fissato $m \in \mathbb{N}$, dobbiamo contare quanti $k \in \mathbb{Z}^n\setminus\{0\}$ soddisfano $|k| = m$. Notiamo subito che se un dato $k$ soddisfa $|k| = m$, anche $-k$ soddisfa $|-k| = m$, pertanto ottieniamo un fattore $2^n$ a moltiplicare. Ragioniamo quadrante per quadrante, quindi contiamo quanti $k$ nell'insieme
@@ -1190,7 +1197,7 @@ In particolare, il termine
         j - 1
     \end{pmatrix}
 \end{align}
-è il numero di elementi che vivono in un quadrante $j$-dimensionale, si ottiene considerando tutte le configurazione distinte per un insieme di $m - j$ ($-j$ per imporre che nessuna componente sia nulla) oggetti indistinguibili e $j - 1$ pareti. Pertanto $(4.37)$ diventa
+è il numero di elementi che vivono in un quadrante $j$-dimensionale, si ottiene considerando tutte le configurazione distinte per un insieme di $m - j$ ($-j$ per imporre che nessuna componente sia nulla) oggetti indistinguibili e $j - 1$ pareti. Pertanto \eqref{|f|_s Est} diventa
 \begin{align}
     |f|_s \leq \frac{|g|_{s + \sigma}}{\gamma} \sum_{m \in \mathbb{N}}\sum_{j = 1}^{\min(n, m)} 2^j\begin{pmatrix}
         n \\
@@ -1232,48 +1239,96 @@ ovvero la tesi.
 \end{proof}
 
 \chapter{Persistenza di tori invarianti quasi-periodici}
+Ora vogliamo determinare se il toro invariante $\alpha$ quasi-periodico $T^n_0$ persiste, leggermente deformato, per piccole perturbazioni del sistema completamente integrabile. \\ \\
+Storicamente, Kolmogorov approcciò il problema imponendo che il vettore frequenza rimanesse sempre fissato. \\
+L'idea, più recente, che ebbe Herman fu di ammettere un termine di \textit{offset} della frequenza e quindi rompere inizialmente la coniugazione dinamica tra i due sistemi. \\
+Questo approccio permette di separare il problema in due problemi di inversiona locale di operatori, uno in dimensione infinita, che approcceremo con uno schema iterativo alla Newton e che sarà caratterizzato da perdite controllate di analiticità alla Nash-Moser, e uno in dimensione finita, per il quale sarà sufficiente il teorema classico della funzione inversa in dimensione finita, che ci permettere, sotto opportune ipotesi di non degenerazione, di compensare il termine di \textit{offset}.
 \section{Il teorema \textit{twist} di Herman}
-Consideriamo lo spazio $\mathcal{H}$ dei germi lungo $T^n_0 = \mathbb{T}^n \times \{0\}$ delle hamiltoniane analitiche reali. Sia $\mathcal{K}$ lo spazio affine dell'hamiltoniane analitiche reali della forma
+Consideriamo lo spazio $\mathcal{H}$ dei germi lungo $T^n_0 = \mathbb{T}^n \times \{0\}$ delle hamiltoniane analitiche reali. Sia $\mathcal{K}^\alpha$ il sottospazio affine dell'hamiltoniane analitiche reali della forma
 \begin{align}
     K(\theta, r) = c + \alpha \cdot r + O(r^2) 
 \end{align}
-con $c, \alpha \in \mathbb{R}$. Tali hamiltoniane soddisfano
+con $c \in \mathbb{R}$ e $\alpha \in \mathbb{R}^n$. Tali hamiltoniane soddisfano
 \begin{align}
     X_K|_{T^n_0} = (\alpha, 0) 
 \end{align}
-ovvero $T^n_0$ è un toro invariante di frequenza $\alpha$ per il flusso associato a $X_K$. \\
+ovvero $T^n_0$ è un toro invariante quasi-periodico di frequenza $\alpha$ per il flusso associato a $X_K$. \\
 Infine sia $\mathcal{G}$ lo spazio dei germi lungo $T^n_0$ dei simplettomorfismi esatti della forma
-\begin{align}
-    G(\theta, r) = (\varphi(\theta), \null^t\varphi'(\theta)(r + \rho_\theta)) 
+\begin{align}\label{ExactSympl}
+    G(\theta, r) = (\varphi(\theta), \null^t\varphi'(\theta)^{-1}(r + \rho_\theta))
 \end{align}
-dove $\varphi$ è isomorfismo del toro $\mathbb{T}^n$ che fissa l'origine, mentre $\rho$ è una $1$-forma esatta su $\mathbb{T}^n$. \\ \\
+dove $\varphi$ è isomorfismo del toro $\mathbb{T}^n$ che fissa l'origine, mentre $\rho$ è una $1$-forma esatta su $\mathbb{T}^n$.
+\begin{rmk}
+i simplettomorfismi esatti sono quelli che preservano la classe di coomologia associata alla $1$-forma di Liouville, ovvero sono simplettomorfismi $\phi$ che soddisfano
+\begin{align}
+    \phi^*\lambda - \lambda = dS
+\end{align}
+per qualche funzione liscia $S$. In particolare $G$ come in \eqref{ExactSympl} soddisfa
+\begin{align}
+    G^*\lambda &= \null^t\varphi'(\theta)^{-1}(r + \rho_\theta) \cdot d(\theta \circ \varphi) \notag \\
+    &= (r + \rho_\theta)\varphi'(\theta)^{-1} \cdot \varphi'(\theta)d\theta \\
+    &= (r + \rho_\theta) \cdot d\theta
+\end{align}
+Pertanto, data $\gamma$ curva chiusa in $\mathbb{T}^n \times \mathbb{R}^n$, si ottiene
+\begin{align}
+    \int_\gamma G^*\lambda - \lambda = \int_\gamma \rho = 0
+\end{align}
+dato che $\rho$ è esatta per ipotesi.
+\end{rmk}
 Ricordiamo la notazione per lo spazio delle fasi
 \begin{align}
-    \mathbb{T}^n = \mathbb{R}^n/\mathbb{Z}^n \qquad T^n_0 = \mathbb{T}^n \times \{0\} \subset \mathbb{T}^n \times \mathbb{R}^n
+    \mathbb{T}^n = \mathbb{R}^n/\mathbb{Z}^n \qquad T^n_0 := \mathbb{T}^n \times \{0\} \subset \mathbb{T}^n \times \mathbb{R}^n
 \end{align}
 le estensioni complesse
 \begin{align}
-    \mathbb{T}^n_\mathbb{C} = \mathbb{C}^n/\mathbb{Z}^n \qquad T^n_{\mathbb{C}} = \mathbb{T}^n_\mathbb{C} \times \mathbb{C}^n
+    \mathbb{T}^n_\mathbb{C} = \mathbb{C}^n/\mathbb{Z}^n \qquad T^n_{\mathbb{C}} := \mathbb{T}^n_\mathbb{C} \times \mathbb{C}^n
 \end{align}
 e gli intorni
 \begin{align}
-    \mathbb{T}^n_s &= \{\theta \in \mathbb{T}^n_\mathbb{C} : \max_j |\mathrm{Im} \, \theta_j| \leq s\} \\
-    T^n_s &= \{ (\theta, r) \in T^n_\mathbb{C} : \max_j \max(|\mathrm{Im} \, \theta_j|, |r_j|) \leq s\}
+    \mathbb{T}^n_s &:= \{\theta \in \mathbb{T}^n_\mathbb{C} : \max_j |\mathrm{Im} \, \theta_j| \leq s\} \\
+    T^n_s &:= \{ (\theta, r) \in T^n_\mathbb{C} : \max_j \max(|\mathrm{Im} \, \theta_j|, |r_j|) \leq s\}
 \end{align}
-Lo scopo che ci poniamo ora è formulare il seguente teorema in modo da ricondurre la dimostrazione ad un problema di inversione locale di un operatore.
 \begin{thm}[\textit{twist} di Herman, cfr. \cite{Fejoz02}]\label{TwistThmHerman1} dati $\alpha \in D_{\gamma, \tau}$ e $K^0 \in \mathcal{K}$, per ogni $H \in \mathcal{H}$ sufficientemente vicina a $K^0$ esiste unico $(K, G, \beta) \in \mathcal{K} \times \mathcal{G} \times \mathbb{R}^n$ vicina a $(K^0, \mathrm{id}, 0)$ tale che
 \begin{align}\label{TwistNormalForm}
     H = K \circ G + \beta \cdot r 
 \end{align}
 in un intorno di $T^n_0$.
 \end{thm}
-Il termine $\beta \cdot r$ rompe la coniugazione dinamica tra $K$ e $H$, ovvero $H$ avrà un toro invariante con frequenza $\alpha + \beta$. Una volta dimostrato il risultato del \cref{TwistThmHerman1}, mostreremo che il termine $\beta$ scompare sotto opportune ipotesi di non degenerazione. \\ \\
+Essendo il vettore frequenza invariante per coniugazioni topologiche, dato che $G$ è un simplettomorfismo, il termine $\beta \cdot r$ diventa necessario. Tuttavia, rompe la coniugazione dinamica tra $K$ e $H$. \\
+Notiamo che non avrebbe senso sperare di ottenere un'uguaglianza della forma
+\begin{align}
+    H = (K + \beta \cdot r) \circ G
+\end{align}
+Infatti, ciò comporterebbe che possedere un toro invariante quasi-periodico sia una proprietà aperta, ovvero che per ogni $K \in \mathcal{K}^\alpha$ sia possibile trovare un intorno aperto sufficientemente piccolo tale che ogni elemento di tale intorno possieda un toro invariante quasi periodico, quindi che sia una proprietà stabile per piccole perturbazioni di $K$. \\
+Tuttavia, possiamo costruire un esempio di funzione analitica reale $H$ arbitariamente vicina a $K$ che non ammette un toro invariante quasi-periodico. A tal proposito consideriamo $K$ della forma
+\begin{align}
+    K = \alpha \cdot r
+\end{align}
+A meno di aggiungere una prima perturbazione arbitraria, possiamo supporre che $\alpha$ sia risonante, ovvero che esiste $k \in \mathbb{R}^n$ tale che $k \cdot \alpha = 0$ (densità dei vettori non diofantei in $\mathbb{R}^n$). Pertanto aggiungiamo un termine risonante, dipendente da $\theta$ in modo periodico e proporzionale ad un parametro $\varepsilon > 0$ arbitrario
+\begin{align}
+    H = K + \varepsilon\sin(k \cdot \theta) = \alpha \cdot r + \varepsilon\sin(k \cdot \theta)
+\end{align}
+Il campo vettoriale hamiltoniano $X_H$ associato a $H$ è
+\begin{align}
+    X_H = \begin{pmatrix}
+        \alpha \\
+        \varepsilon k\cos(k \cdot \theta)
+    \end{pmatrix}
+\end{align}
+Pertanto la restrizione del flusso hamiltoniano a $\{0\} \times \mathbb{R}^n$ fornisce
+\begin{align}
+    \varphi_t : (0, r) \mapsto (t\alpha, t\varepsilon k)
+\end{align}
+quindi è non limitato per $\varepsilon > 0$. \\ \\
+Tuttavia, come osservato nel lemma \ref{LemBost}, $G^{-1}(T^n_0)$ è un toro invariante $\alpha$ quasi-periodico per l'hamiltoniana $\widehat{H} = H - \beta \cdot r = K \circ G$. \\ \\
+Una volta dimostrato il risultato del \cref{TwistThmHerman1}, mostreremo che il termine $\beta$ scompare sotto opportune ipotesi di non degenerazione.
+\subsection{Setting funzionale}
 Impostiamo gli spazi funzionali necessari per introdurre e lavorare con l'operatore
 \begin{align}
     \phi : (K, G, \beta) \mapsto H = K \circ G + \beta \cdot r 
 \end{align}
-e determinarne l'invertibilità per $\alpha$ $(\gamma, \tau)$-diofanteo. \\ \\
-Sia $\mathcal{H}_s = \mathcal{A}(T^n_s)$, su cui definiamo la seguente norma
+in modo da provare il \textit{teorema twist di Herman} come conseguenza del fatto che $\phi$ è un diffeomorfismo locale attorno a $(K^0, \mathrm{id}, 0)$, per $\alpha$ $(\gamma, \tau)$-diofanteo. \\ \\
+Sia $\mathcal{H}_s = (\mathcal{A}(T^n_s), |\cdot|_s)$, dove
 \begin{align}
     |H|_s = \sup_{(\theta, r) \in T^n_s} |H(\theta, r)| 
 \end{align}
@@ -1304,7 +1359,7 @@ e, dato che $G$ è un isomorfismo, data $\widetilde{H} \in G^*\mathcal{A}(T^n_s)
     G^*(G_*\widetilde{H}) = G^*(\widetilde{H} \circ G^{-1}) = (\widetilde{H} \circ G^{-1}) \circ G = \widetilde{H}
 \end{align}
 Gli isomorfismi suriettivi preservano la completezza, quindi anche $G^*\mathcal{A}(T^n_s)$ è uno spazio di Banach. \\
-La perdità di $|G - \mathrm{id}|_s$ nell'estensione del dominio di analiticità segue dal fatto che $G$ deforma $T^n_s$, pertanto è necessario restringere il dominio di $\sigma > |G - \mathrm{id}|_s$ in modo tale da ottenere $G(T^n_{s - \sigma}) \subset T^n_s$. Così facendo, ad ogni passo lavoreremo con funzioni analitiche su insiemi del tipo $T^n_{s - \sigma_k}$ e quindi la sarà valida la maggiorazione naturale
+La perdità di $|G - \mathrm{id}|_s$ nell'estensione del dominio di analiticità è dovuta al fatto che $G$ deforma $T^n_s$, pertanto è necessario restringere il dominio di $\sigma > |G - \mathrm{id}|_s$ in modo tale da ottenere $G(T^n_{s - \sigma}) \subset T^n_s$. Così facendo, ad ogni passo lavoreremo con funzioni analitiche su insiemi del tipo $T^n_{s - \sigma_k}$ e quindi sarà valida la maggiorazione naturale
 \begin{align}
     |G^*H|_{s - \sigma} \leq |H|_s
 \end{align}
@@ -1314,7 +1369,7 @@ Inoltre, sia $\chi_s$ lo spazio dei campi vettoriali su $\mathbb{T}^n_s$ nulli a
     |v|_s = \max_j \sup_{\theta \in \mathbb{T}^n_s} |v_j(\theta)|
 \end{align}
 che lo rende uno spazio di Banach. \\
-Vogliamo fornire a un intorno dell'identità in $\mathcal{D}_s$ struttura di varietà di Banach, in modo da poter definire uno spazio tangente e derivare in senso di Fréchet (cfr. \cref{FrechDervDefn}). In particolare si può dimostrare che la mappa
+Vogliamo fornire a un intorno dell'identità in $\mathcal{D}_s$ struttura di varietà di Banach, in modo da poter definire uno spazio tangente e derivare in senso di Fréchet (cfr. definizione \cref{FrechDervDefn}). In particolare si può dimostrare che la mappa
 \begin{align}
     v \mapsto \mathrm{id} + v
 \end{align}
@@ -1323,36 +1378,36 @@ definita dall'aperto
     \sigma\mathring{B}^\chi_{s + \sigma} = \{v \in \chi_{s + \sigma} : |v|_s < \sigma\}
 \end{align}
 a $\mathcal{D}_s$ è biettiva (cfr. \cite{Fejoz02}), pertanto fornisce a $\mathcal{D}_s$ struttura di varietà di Banach in un intorno dell'identità. \\ \\
-Siamo interessati in particolare all'azione controgradiente degli elementi di $\mathcal{D}_s$ su $T^n_s$, come visto in \eqref{ContraGrad}, in modo da linearizzare la dinamica sul toro invariante. \\ \\
+Siamo interessati in particolare all'azione controgradiente degli elementi di $\mathcal{D}_s$ su $T^n_s$, come visto in \eqref{ContraGrad}, che ci permetterà linearizzare la dinamica sul toro invariante. \\ \\
 Inoltre, consideriamo lo spazio $\mathcal{B}_s$ delle $1$-forme differenziali esatte su $\mathbb{T}^n_s$ del tipo
 \begin{align}
-    \rho : (\theta, r) \mapsto (\theta, r + \rho_\theta)
+    \rho : (\theta, r) \mapsto (\theta, r + \rho_\theta) \qquad \rho(0) = 0
 \end{align}
 ovvero che agiscono per traslazione delle azioni, in modo da raddrizzare il toro invariante perturbato. Su $\mathcal{B}_s$ definiamo la norma
 \begin{align}
     |\rho|_s = \max_j \sup_{\theta \in \mathbb{T}^n_s} |\rho_j(\theta)|
 \end{align}
-Indichiamo quindi con $\mathcal{G}_s = \mathcal{D}_s \times \mathcal{B}_s$ lo spazio dei simplettomorfismi del tipo
+Identifichiamo con $\mathcal{G}_s = \mathcal{D}_s \times \mathcal{B}_s$ lo spazio dei simplettomorfismi del tipo
 \begin{align}
     (\varphi, \rho)(\theta, r) = \varphi \circ \rho \, (\theta, r) = (\varphi(\theta), \null^t\varphi'(\theta)^{-1}(r + \rho_\theta))
 \end{align}
 Definiamo su $T_{\mathrm{id}}\mathcal{G}_s = \mathfrak{g}_s = \chi_s \times \mathcal{B}_s$ la norma
 \begin{align}
-    |\dot{G}|_s = |(v, \rho)|_s = \max(|v|_s, |\rho|_s) \qquad \dot{G} \in T_{\mathrm{id}}(\mathcal{G}_s)
+    |\dot{G}|_s = |(\dot{v}, \dot{\rho})|_s = \max(|\dot{v}|_s, |\dot{\rho}|_s) \qquad (\dot{v}, \dot{\rho}) \in \mathfrak{g}_s
 \end{align}
 Mentre su $T_G\mathcal{G}_s$ la norma
 \begin{align}
-    |\delta G|_s = |\delta G \circ G^{-1}|_s \qquad \delta G \in T_G\mathcal{G}_s
+    |\delta G|_{G, s} = |\delta G \circ G^{-1}|_s \qquad \delta G \in T_G\mathcal{G}_s
 \end{align}
-Come accade per le varietà classiche, anche per varietà di Banach lo spazio tangente ad un punto può essere identificato con lo spazio di Banach modello (per isomorfismi), pertanto, in questo contesto, $\dot{G}$ e $\delta G$ non sono altro che elementi di $\chi_s \times \mathcal{B}_s$. Segue che $\delta G \circ G^{-1}$ è un elemento dello spazio tangente all'identità. \\ \\
+Come accade per le varietà classiche, anche per varietà di Banach lo spazio tangente ad un punto può essere identificato con lo spazio di Banach modello (tramite isomorfismi), pertanto, in questo contesto, $\dot{G}$ e $\delta G$ non sono altro che elementi di $\chi_s \times \mathcal{B}_s$. Segue che $\delta G \circ G^{-1}$ è un elemento dello spazio tangente all'identità. \\ \\
 Infine, consideriamo l'intorno dell'identità
 \begin{align}
-    \mathcal{G}^\sigma_s = \{G \in \mathcal{G}_s : \sup_{(\theta, r) \in T^n_s} |(\Theta - \theta, R - r)| \leq \sigma, (\Theta, R) = G(\theta, r)\}
+    \mathcal{G}^\sigma_s = \{G \in \mathcal{G}_s : \sup_{(\theta, r) \in T^n_s} |(\Theta - \theta, R - r)| < \sigma, (\Theta, R) = G(\theta, r), \sigma > 0\}
 \end{align}
 i cui elementi sono tutti i simplettomorfismi in $\mathcal{G}_s$ che sono al più $\sigma$-lontani dall'identità, come prima discusso. \\ \\
 A questo punto è ben definito l'operatore
 \begin{align}
-    \phi : (K, G, \beta) \in \mathcal{K}_{s + \sigma} \times \mathcal{G}^\sigma_s \times \mathbb{R}^n \mapsto H = K \circ G + \beta \cdot r \in \mathcal{H}_s
+    \phi : (K, G, \beta) \in \mathcal{K}_{s + \sigma} \times \mathcal{G}^\sigma_{s + \sigma} \times \mathbb{R}^n \mapsto H = K \circ G + \beta \cdot r \in \mathcal{H}_s
 \end{align}
 Inoltre, posto $E_s = \mathcal{K}_s \times \mathcal{G}_s \times \mathbb{R}^n$ e il suo aperto
 \begin{align}
@@ -1362,15 +1417,16 @@ Inoltre, posto $E_s = \mathcal{K}_s \times \mathcal{G}_s \times \mathbb{R}^n$ e 
 \begin{align}
     \phi : \sigma B^E_{s + \sigma} \longrightarrow \mathcal{H}_s
 \end{align}
-a cui applicheremo il \textit{teorema della funzione inversa} (cfr. \cref{InvFunctThm}).
-A questo punto possiamo riformulare il \textit{teorema twist di Herman} \ref{TwistThmHerman1} in termini dell'operatore $\phi$.
-\begin{thm}[\textit{twist} di Herman, cfr. \cite{Fejoz02}]\label{TwistThmHerman2} sia $\alpha \in D_{\gamma, \tau}$, l'operatore $\phi$ ammette inversa locale unica nel senso che per ogni $0 < s < s + \sigma < 1$, data $K^0 \in \mathcal{K}_{s + \sigma}$, se $|H - K^0|_{s + \sigma}$ è sufficientemente piccolo, esiste unica $(K, G, \beta) \in \sigma B^E_s$, $|\cdot|_s$-vicina a $(K^0, \mathrm{id}, 0)$, tale che
+a cui applicheremo il \textit{teorema della funzione inversa} \ref{InvFunctThm}. \\ \\
+A questo punto possiamo riformulare il \textit{teorema di Herman} \ref{TwistThmHerman1} in termini dell'operatore $\phi$ e della sua inversa locale $\psi$.
+\begin{thm}[\textit{twist} di Herman, cfr. \cite{Fejoz02}]\label{TwistThmHerman2} sia $\alpha \in D_{\gamma, \tau}$, l'operatore $\phi$ ammette inversa locale unica $\psi$ nel senso che per ogni $0 < s < s + \sigma < 1$, data $K^0 \in \mathcal{K}_{s + \sigma}$, se $|H - K^0|_{s + \sigma}$ è sufficientemente piccolo, esiste unica $(K, G, \beta) \in \sigma B^E_s$, $|\cdot|_s$-vicina a $(K^0, \mathrm{id}, 0)$, tale che
 \begin{align}
-    H = K \circ G + \beta \cdot r
+    \psi(H) = (K, G, \beta) \qquad H = K \circ G + \beta \cdot r
 \end{align}
-su $T^n_s$. Inoltre, $\beta \circ \phi^{-1}$ è di classe $C^1$ in un $|\cdot|_{s + \sigma}$-intorno di $K^0$.
+su $T^n_s$. Inoltre, $\beta \circ \psi$ è di classe $C^1$ in un $|\cdot|_{s + \sigma}$-intorno di $K^0$.
 \end{thm}
-Verifichiamo che $\phi$ soddisfa le condizioni necessarie per applicare i risultati dell'appendice D. \\
+\subsection{Invertibilità di $\phi'$ e stime su $\phi'^{-1}$ e $\phi''$}
+Verifichiamo che $\phi$ soddisfa le condizioni necessarie per applicare lo schemo iterativo alla Newton con perdita controllata di analiticità alla Nash-Moser. \\
 Poniamo $x = (K, G, \beta)$ e $\delta x = (\delta K, \delta G, \delta \beta)$ e fissiamo $0 < s < s + \sigma < 1$.
 \begin{lemma}[cfr. \cite{Fejoz02}] esiste $C' > 0$ localmente uniforme rispetto a $x \in E_{s + \sigma}$ in un intorno di $G = \mathrm{id}$ tale che la mappa $\phi'(x)$ ammette inversa locale $\phi'(x)^{-1}$ che soddisfa
 \begin{align}
@@ -1378,7 +1434,7 @@ Poniamo $x = (K, G, \beta)$ e $\delta x = (\delta K, \delta G, \delta \beta)$ e 
 \end{align}
 \end{lemma}
 
-\begin{proof} siamo interessati a determinare la mappa lineare $\phi'(x)$ che soddisfa
+\begin{proof} determiniamo la mappa lineare $\phi'(x)$ che soddisfa
 \begin{align}
     \lim_{|\delta x|_{s + \sigma} \rightarrow 0} \frac{|\phi(x + \delta x) - \phi(x) - \phi'(x)\delta x|_{G, s}}{|\delta x|_{s + \sigma}} = 0
 \end{align}
@@ -1470,7 +1526,7 @@ dove si è usato
     \end{pmatrix}
 \end{align}
 In particolare i termini $O(r^2)$ dipendono esclusivamente da $K$ e da $\dot{G}$. \\ 
-A questo punto (applicando \textit{proposizione 24} in \cite{Fejoz02} per garantire che $\delta\beta$ sia ben definito), posto
+A questo punto (applicando \cite[Proposizione~24]{Fejoz02} per garantire che $\delta\beta$ sia ben definito), posto
 \begin{align}
     \delta\beta &= \left(\int_{\mathbb{T}^n} \varphi' \circ \varphi^{-1} \, d\theta\right)^{-1}\int_{\mathbb{T}^n} \dot{H}_1 \, d\theta \\
     \delta c &= \int_{\mathbb{T}^n} \dot{H}_0 \, d\theta + \int_{\mathbb{T}^n} \rho \circ \varphi^{-1} \, d\theta \cdot \delta\beta
@@ -1666,7 +1722,7 @@ dove $x_1 = x_{11}e_1 + x_{12}e_2$ e $x_2 = x_{21}e_1 + x_{22}e_2$. Dalle propri
 segue che $\omega^{(2)}(x, x) = 0$ per ogni $x \in \mathbb{R}^n$.
 \end{rmk}
 Introducendo le operazioni di somma e prodotto per scalare per le $2$-forme in maniera identica a come fatto per le $1$-forme su $\mathbb{R}^n$, si definisce struttura di spazio lineare sull'insieme delle $2$-forme su $\mathbb{R}^n \times \mathbb{R}^n$.
-\begin{prop} lo spazio duale $(\mathbb{R}^n \times \mathbb{R}^n)^*$ ha dimensione $\frac{n(n - 1)}{2}$.
+\begin{prop}\label{R^n x R^n DualDim} lo spazio duale $(\mathbb{R}^n \times \mathbb{R}^n)^*$ ha dimensione $\frac{n(n - 1)}{2}$.
 \end{prop}
 
 \begin{proof} sia $\omega^{(2)}$ una $2$-forma su $\mathbb{R}^n \times \mathbb{R}^n$. Fissiamo una base $\{e_1, \dots, e_n\}$ su $\mathbb{R}^n$. Dati $x, y \in \mathbb{R}^n$, indichiamo con $a_1, \dots, a_n$ e $b_1, \dots, b_n$ rispettivamente le coordinate di $x$ e $y$ rispetto alla base $\{e_1, \dots, e_n\}$. Allora 
@@ -1779,7 +1835,7 @@ per ogni $i, j = 1, \dots, n$. Possiamo interpretare geometricamente il prodotto
 \begin{align}
     (dx_i \wedge dx_j)(e_k, e_k) = dx_{ij}(e_k, e_l) 
 \end{align}
-per ogni $1 \leq i < j \leq n$ e ogni $k, l = 1, \dots, n$, dove $dx_{ij}$ è la $2$-forma definita nella \textit{proposizione B.1.1}. La tesi segue. \end{proof}
+per ogni $1 \leq i < j \leq n$ e ogni $k, l = 1, \dots, n$, dove $dx_{ij}$ è la $2$-forma definita nella \ref{R^n x R^n DualDim}. La tesi segue. \end{proof}
 
 \section{Monomi esterni}
 Date $k$ $1$-forme $\omega_1, \dots, \omega_k$, definiamo il prodotto esterno $\omega_1 \wedge \dots \wedge \omega_k$ come segue
@@ -1868,7 +1924,7 @@ Il termine \textit{anticommutativo graduato} sta a sottolineare una particolare 
 
 \section{Prodotto esterno}
 \begin{defn} date $\omega^{(k)}$ e $\omega^{(l)}$, rispettivamente una $k$-forma e una $l$-forma su $\mathbb{R}^n$, definiamo il prodotto esterno $\omega^{(k)} \wedge \omega^{(l)}$ come
-\begin{align}\label{ExtProdDef}
+\begin{align}\label{ExtProdDefn}
     (\omega^{(k)} \wedge \omega^{(l)})(x_1, \dots, x_{k + l}) = \sum_{\substack{i_1 < \dots < i_k \\ j_1 < \dots < j_l}}(-1)^\nu \omega^{(k)}(x_{i_1}, \dots, x_{i_k})\omega^{(l)}(x_{j_1}, \dots, x_{j_l}) 
 \end{align}
 dove $(i_1, \dots, i_k, j_1, \dots, j_l)$ è una permutazione di $(1, \dots, k, k + 1, \dots, k + l)$, mentre 
@@ -1912,7 +1968,7 @@ La distributività si vede immediatamente notando che la mappa
 \begin{align}
     (\omega^{(k)}, \omega^{(l)}) \mapsto \omega^{(k)} \wedge \omega^{(l)} \notag
 \end{align}
-è bilineare, infatti ogni termine della \eqref{ExtProdDef} è lineare rispetto a $\omega^{(k)}$ e $\omega^{(l)}$. \\ \\
+è bilineare, infatti ogni termine della \eqref{ExtProdDefn} è lineare rispetto a $\omega^{(k)}$ e $\omega^{(l)}$. \\ \\
 Infine, per dimostrare l'associatività facciamo uso del \textit{teorema di Laplace}, che permette di sviluppare il determinante secondi i minori delle colonne. \\
 Notiamo che se l'associatività vale separatemente per $\omega'_1, \omega''_1$, allora vale anche per la somma $\omega'_1 + \omega''_1$, ovvero 
 \begin{align}
@@ -1932,8 +1988,8 @@ Per la bilinearità della mappa $(\omega, \omega') \mapsto \omega \wedge \omega'
         (\omega'_1 + \omega''_1) \wedge (\omega_2 \wedge \omega_3) = \omega'_1 \wedge (\omega_2 \wedge \omega_3) + \omega''_1 \wedge (\omega_2 \wedge \omega_3)
     \end{cases} 
 \end{align}
-Per la \textit{proposizione B.3.1} sappiamo che ogni forma è somma di monomi, pertanto è sufficiente dimostrare l'associatività per i monomi. \\
-Per ora indicheremo il prodotto esterno tra monomi con il simbolo $*$, dato che ancora non è stata verificata l'uguaglianza con al definizione \eqref{ExtProdDef}. \\
+Per la \ref{UniqueReprExtForm} sappiamo che ogni forma è somma di monomi, pertanto è sufficiente dimostrare l'associatività per i monomi. \\
+Per ora indicheremo il prodotto esterno tra monomi con il simbolo $*$, dato che ancora non è stata verificata l'uguaglianza con al definizione \eqref{ExtProdDefn}. \\
 Mostriamo che il prodotto esterno tra monomi è il monomio 
 \begin{align}\label{FormalExtProd}
     (\omega_1 * \dots * \omega_k) \wedge (\omega_{k + 1} * \dots * \omega_{k + l}) = \omega_1 * \dots * \omega_{k + l} 
@@ -1943,7 +1999,7 @@ Valutiamo le espressioni dei due membri della \eqref{FormalExtProd} in $(x_1, \d
     \sum_{\substack{i_1 < \dots < i_k \\ j_1 < \dots < j_l}} (\pm) \det\{\omega_\nu(x_{i_m})\} \cdot \det\{\omega_\mu(x_{j_m})\} 
 \end{align}
 dove $1 \leq \nu \leq k$ e $k + 1 \leq \mu \leq k + l$. Per il \textit{teorema di Laplace}, il termine $\det\{\omega_i(x_j)\}$ è uguale alla \eqref{ExtProdExpr}, scegliendo opportunamente i segni di ogni termine. \\ \\
-Concludiamo che le operazioni $*$ e $\wedge$ coincidono. Inoltre, per quanto sopra osservato, dall'associatività del prodotto di $1$-forme segue l'associatività per il prodotto definito in \eqref{ExtProdDef} e quindi si ottiene la tesi.
+Concludiamo che le operazioni $*$ e $\wedge$ coincidono. Inoltre, per quanto sopra osservato, dall'associatività del prodotto di $1$-forme segue l'associatività per il prodotto definito in \eqref{ExtProdDefn} e quindi si ottiene la tesi.
 \end{proof}
 \begin{rmk} l'anticommutatività graduata comporta $\omega^{(k)} \wedge \omega^{(k)} = 0$ se $k$ è dispari. Infatti
 \begin{align}
@@ -2345,10 +2401,10 @@ dove il segno è positivo se e solo se il diffeomorfismo $\varphi$ preserva l'or
 ovvero la tesi.
 \end{proof}
 Per estendere questa definizione a tutto $M$ utilizziamo una partizione dell'unità. In particolare, dato $\{U_i\}_{i \in I}$ un ricoprimento aperto (finito per compattezza) di $\mathrm{supp} \, \omega^{(k)}$ e $\{\psi_\alpha\}_{\alpha \in A}$ una partizione dell'unità (subordinata al ricoprimento), poniamo
-\begin{align}\label{DefByPartOfUnity}
+\begin{align}\label{DefnByPartOfUnity}
     \int_M \omega^{(k)} = \sum_\alpha \int_M \psi_\alpha \omega^{(k)}
 \end{align}
-Analogamente, si può dimostrare che la definizione \label{DefByPartOfUnity} non dipende dalla scelta della partizione dell'unità.
+Analogamente, si può dimostrare che la definizione \eqref{DefnByPartOfUnity} non dipende dalla scelta della partizione dell'unità.
 \begin{prop} siano $M, N$ $k$-varietà differenziabili e siano $\omega^{(k)}, \eta^{(k)} \in \Omega(M)$ a supporto compatto. Allora: \\
 \textbf{1.} dati $\alpha, \beta \in \mathbb{R}$ si ha
 \begin{align}
@@ -2471,7 +2527,7 @@ chiamiato \textit{differenziazione esterna}, che soddisfa le seguenti proprietà
 \end{align}
 \textbf{3.} $d \circ d = 0$. \\
 \textbf{4.} per ogni $f \in \Omega^{(0)}(M) = C^\infty(M)$ si ha che $df$ è il suo differenziale, dato da $df(X) = Xf$ ($X$ campo vettoriale su $M$). \\
-Definiamo $d$ per ogni carta locale come in $B.10.4$.
+Definiamo $d$ per ogni carta locale come in \eqref{LocalCoordDiffForm}.
 \end{thm}
 
 \begin{proof} date $(U, \varphi)$ una carta locale di $M$ e $\omega$ una $k$-forma differenziale su $M$, definiamo la derivata esterna di $\omega$ su $U$ come segue
@@ -2717,7 +2773,7 @@ Siano $E = (E_s)_{0 < s < 1}$ una famiglia decrescente ($E_s \subset E_{s'}$ se 
 \end{align}
 il disco di raggio $\epsilon$ centrato nell'origine in $E_s$. Sia $F = (F_s)$ una famiglia analoga e $\phi : \sigma B^E_{s + \sigma} \longrightarrow F_s$, $0 < s < s + \sigma$, una mappa di classe $C^2$ che fissa l'origine e commuta con le inclusioni. Consideriamo mappe definite su $\sigma B^E_{s + \sigma}$ in particolare perché siamo interessati solamente a simplettomorfismi al più $\sigma$-lontani dall'identità, in modo da poter sempre lavorare con funzione analitiche su estensioni complesse rettangolari di tori $n$-dimensionali. \\
 Inoltre, consideriamo varie norme deformate del tipo $|\cdot|_{x, s}$ per $x \in sB^E_{s}$ che sono necessarie per per trattare la composizione di mappe senza dover restringere brutalmente i domini di analiticità. Gli spazi vengono invece deformati e le norme $|\cdot|_{x, s}$ ci permettono di vederli come 'dritti'. In particolare supponiamo che tali norme soddisfino
-\begin{align}\label{DefNormEst}
+\begin{align}\label{DefrmNormEst}
     |y|_{0, s} = |y|_s \qquad |y|_{x', s} \leq |y|_{x, s + |x - x'|_s} 
 \end{align}
 dove l'uguaglianza ci dice che la composizione con l'identità non deforma, mentre la disuguaglianza è ovvia, infatti basta notare che l'estensione di $s + |x - x'|_s$ contiene gli elementi di entrambe le deformazioni ($x$ e $x'$). \\
@@ -2778,7 +2834,7 @@ dove $x_t = (1 - t)x + t\hat{x}$. Pertanto
     &\leq \int_0^1 (1 - t)|\phi''(x_t)(\hat{x} - x)^{\otimes 2}|_{x_t, s + |x_t - x|_s} \, dt \notag \\
     &\leq \frac{1}{2}C''\sigma^{-\tau''}|(\hat{x} - x)|^2_{s + \sigma + |\hat{x} - x|_s}
 \end{align}
-dove il fattore $1/2$ deriva dall'integrale e si sono usate le stime in \eqref{DefNormEst} e \eqref{InvDiff&SecDiff Est}.
+dove il fattore $1/2$ deriva dall'integrale e si sono usate le stime in \eqref{DefrmNormEst} e \eqref{InvDiff&SecDiff Est}.
 \end{proof}
 Ora fissiamo $s, \sigma, \eta > 0$ come nell'enunciato e consideriamo $y \in \epsilon B^F_{s + \sigma}$ per qualche opportuno $\epsilon > 0$. Mostreremo che per $\epsilon$ sufficientemente piccolo la successione in \eqref{NewtonSeq} è definita per ogni $n \geq 0$ e converge a qualche preimmagine $x \in \eta B^E_{s}$ di $y$ tramite $\phi$. \\ \\
 Siano $(\sigma_n)_{n \geq 0}$ una successione  di termini positivi tale che $3\sum \sigma_n = \sigma$ e $(s_n)_{n \geq 0}$ la successione definita per induzione
@@ -2803,7 +2859,7 @@ Sostituendo in \eqref{x_k+1 - x_k} si ottiene
     x_{k + 1} - x_k = \phi'(x_k)^{-1}(y - \phi(x_k)) = -\phi'(x_k)^{-1}Q(x_{k - 1}, x_k)
 \end{align}
 A questo punto, tenendo a mente le stime in \eqref{InvDiff&SecDiff Est}, osserviamo che è necessario che la successione $(x_n)_{n \geq 0}$ converga abbastanza velocemente. Questo perché la perdità sempre più piccola di analiticità ad ogni passo dell'algoritmo comporta una stima sempre più debole sulla norma del differenziale inverso $\phi'(x)^{-1}$. \\ \\
-Supponiamo che $|x_k - x_{k - 1}|_{s_k} \leq \sigma_k$ (ipotesi induttiva) per $0 \leq k \leq n$, per il risultato del lemma \ref{QEst} e per le proprietà delle norme deformate citate in \eqref{DefNormEst}, si ottiene
+Supponiamo che $|x_k - x_{k - 1}|_{s_k} \leq \sigma_k$ (ipotesi induttiva) per $0 \leq k \leq n$, per il risultato del lemma \ref{QEst} e per le proprietà delle norme deformate citate in \eqref{DefrmNormEst}, si ottiene
 \begin{align}\label{IndHP}
     |x_{n + 1} - x_n|_{s_{n + 1}} \leq c_n|x_n - x_{n - 1}|^2_{s_n} \leq \dots \leq c_n c^2_{n - 1} \dots c^{2^{n - 1}}_1|x_1|^{2n}_{s_1}
 \end{align}
@@ -2816,7 +2872,7 @@ dove $c_k = \frac{1}{2}C\sigma^{-\tau}_k$. A questo punto ricordiamo che, ai fin
     &\leq \frac{1}{2}C(\sigma_0)^{-\tau}\epsilon \notag \\
     &= c_0\epsilon
 \end{align}
-per le stime in \eqref{InvDiff&SecDiff Est} e per il fatto che $|y|_{0, s} = |y|_s$, come visto in \eqref{DefNormEst}. Il primo passo dell'ipotesi induttiva è verificato grazie al limite superiore posto su $\epsilon$, infatti
+per le stime in \eqref{InvDiff&SecDiff Est} e per il fatto che $|y|_{0, s} = |y|_s$, come visto in \eqref{DefrmNormEst}. Il primo passo dell'ipotesi induttiva è verificato grazie al limite superiore posto su $\epsilon$, infatti
 \begin{align}
     \frac{1}{2}C(\sigma_0)^{-\tau}\epsilon &\leq \frac{1}{2}(\sigma_0)^{-\tau}2^{-8\tau}C^{-2}\sigma^{2\tau}\eta \notag \\
     &\leq \frac{1}{2}C(\sigma/6)^{-\tau}2^{-8\tau}C^{-2}(\sigma)^{2\tau}\eta \notag \\
@@ -2875,7 +2931,7 @@ Assumiamo che la famiglie di norme $(|\cdot|_s)_{s > 0}$ sia $\log$-convessa e c
 
 \begin{proof} l'algoritmo di Newton definisce per induzione un'unica successione di punti (per unicità del differenziale inverso), per unicità del limite in spazi di Hausdorff si ottiene la tesi.
 \end{proof}
-\begin{prop}\cite{Massetti}\label{LipschCont} siano $y, \hat{y} \in \epsilon B^F_{s + \sigma}$, con $\epsilon = 3^{-4\tau}2^{-16\tau}(\sigma^{6\tau}/4C^3)$, allora si ha
+\begin{prop}\label{LipschCont}\cite{Massetti} siano $y, \hat{y} \in \epsilon B^F_{s + \sigma}$, con $\epsilon = 3^{-4\tau}2^{-16\tau}(\sigma^{6\tau}/4C^3)$, allora si ha
 \begin{align}
     |\psi(y) - \psi(\hat{y})|_{s} \leq L|y - \hat{y}|_{x, s + \sigma} 
 \end{align}
@@ -2884,14 +2940,14 @@ dove $x = \psi(y)$ e $L = 2C'/\sigma^{-\tau'}$.
 
 \begin{proof} siano $x := \psi(y)$ e $\hat{x} = \psi(\hat{y})$, introduciamo un parametro intermedio $\xi > 0$ tale che $\eta < \xi < \sigma < s < s + \sigma$. Posto $\epsilon = \eta(\xi^{2\tau}/2^{8\tau}C^2)$, se $y, \hat{y} \in \epsilon B^F_{s + \sigma}$ si ha $x, \hat{x} \in \eta B^E_{s + \sigma - \xi}$, per il \textit{teorema della funzione inversa} (dato che $\xi < \sigma$), a patto che $\eta < s + \sigma - \xi$. Osserviamo che se $x, \hat{x} \in \eta B^E_{s + \sigma - \xi}$ si ha $|x - \hat{x}|_{s + \sigma - \eta} \leq 2\eta$. \\
 Per ipotesi $\phi'(x)$ ammette anche inversa sinistra, pertanto
-\begin{align}
+\begin{align}\label{LeftInvIdentityPhi'}
     x - \hat{x} = \phi'(x)^{-1}\phi'(x)(x - \hat{x}) 
 \end{align}
 Inoltre, per definizione della mappa $Q$, si ha
 \begin{align}
     \phi'(x)(x - \hat{x}) = \phi(x) - \phi(\hat{x}) + Q(x, \hat{x}) 
 \end{align}
-Sostituendo in $(D.2.4)$ si ha
+Sostituendo in \eqref{LeftInvIdentityPhi'} si ha
 \begin{align}
     x - \hat{x} = \phi'(x)^{-1}(\phi(x) - \phi(\hat{x}) + Q(x, \hat{x})) 
 \end{align}
