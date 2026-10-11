@@ -10,5 +10,8 @@ __pycache__/
 *.synctex.gz
 *.toc
 *.gz
+*.bbl
+*.blg
+*.out
 
-Format
+format.text

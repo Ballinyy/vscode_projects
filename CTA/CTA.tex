@@ -1,20 +1,597 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage{amsfonts, amsmath, amssymb, amsthm, float, cancel, bm, mathrsfs, mathtools}
-\usepackage{tikz-cd}
+\documentclass[oneside, 11pt]{amsbook}
+\linespread{1.1}
 
-\title{CTA}
-\author{Alessandro Ballini}
-\date{October 2026}
+\def\a{\alpha}
+\def\Id{\rm Id}
+%\UseRawInputEncoding
+\usepackage{graphics}
+\usepackage[english, italian]{babel}
+\usepackage{amssymb,amsmath,amsfonts, mathrsfs, cancel, tikz, tikz-cd}
+\usepackage{aliascnt}
+\usepackage{datetime}
+\usepackage{color}
+\usepackage{ulem}
+\usepackage{lipsum}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{cite}
+\synctex=1
+\RequirePackage{amscd}
+\usepackage{marginnote}
+\newcommand{\margem}[1]{\marginpar{{\scriptsize {#1}}}}
 
+\RequirePackage{epic}
+\RequirePackage[all]{xy}
+\RequirePackage{url}
+\RequirePackage[shortlabels]{enumitem}
+\usepackage{empheq}
+\usepackage{epsfig}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[english]{babel}
+
+%\newcommand{\margem}[1]{\marginpar{{\scriptsize {#1}}}}
+\usepackage[utf8]{inputenc}
+\usepackage{cite}
+%\usepackage{geometry}
+\synctex=1
+\RequirePackage{amscd}
+%\RequirePackage[dvips]{graphicx}
+\RequirePackage{epic}
+\RequirePackage{eepic}
+\RequirePackage[all]{xy}
+\RequirePackage{url}
+\RequirePackage[shortlabels]{enumitem}
+\usepackage{empheq}
+\usepackage{nomencl}
+\usepackage{epsfig}
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\comment}[1]{}
+\renewcommand{\labelitemi}{$-$}   
+    \newcommand{\set}[1]{{\left\{#1\right\}}}
+\newcommand{\pa}[1]{{\left(#1\right)}}
+\newcommand{\sq}[1]{{\left[#1\right]}}
+\newcommand{\gen}[1]{{\left\langle #1\right\rangle}}
+\newcommand{\abs}[1]{{\left|#1\right|}}
+\newcommand{\norm}[1]{{\left\|#1\right\|}}
+\newcommand{\res}[1]{\left.#1\right|} %restriction
+\newcommand{\normal}{\mathrm}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\A}{\mathcal{A}}
+ \newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\qpsys}{(q,p)=(q_1,\ldots,q_n,p_1,\ldots,p_n)}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\teta}{\theta}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Mat}{\operatorname{Mat}}
+\newcommand{\GL}{\operatorname{GL}}
+
+\newcommand{\mat}[1]{{\begin{matrix}#1\end{matrix}}}
+\newcommand{\pmat}[1]{{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\amat}[2]{{\begin{array}{#1}#2\end{array}}}
+\newcommand{\eqsys}[1]{{\left\{\begin{array}{ll}#1\end{array}\right.}}
+\newcommand{\conj}{h\circ R_{2\pi\alpha}\circ h^{-1}}
+\newcommand{\Ham}{\operatorname{Ham}}
+\newcommand{\h}{\operatorname{H}}
+\newcommand{\average}[1]{\int_{\T^n}#1}
+\newcommand{\media}[1]{\int_\T #1}
+\newcommand{\uh}{u^{\text{H}}} % Hamiltonian u
+\newcommand{\vh}{v^{\text{H}}} % Hamiltonian v 
+\newcommand{\Uh}{\mathcal{U}^{\operatorname{Ham}}}
+\newcommand{\Vh}{\mathcal{V}^{\operatorname{Ham}}}
+\newcommand{\Vhz}{\mathcal{V}^{\operatorname{Ham}}\oplus (-\eta r + \eta\Omega\,\base{r})}
+\newcommand{\Vhd}{\mathcal{V}^{\operatorname{Ham}}\oplus (-\eta (r + \Omega)\base{r})}
+\newcommand{\Uhd}{\mathcal{U}^{\operatorname{Ham}}\oplus (-\eta r\base{r})}
+\newcommand{\tensor}{\otimes}% prodotto tensore
+\newcommand{\inderiv}[1]{#1'^{-1}}    
+\newcommand{\pull}[1]{#1^\ast} %pull back
+\newcommand{\push}[1]{#1_\ast}%push forward
+\newcommand{\base}[1]{{\frac{\partial}{\partial{#1}}}} %base campo vettoriale
+\newcommand{\elh}[1]{{\frac{\partial #1}{\partial q}-\frac{d}{dt}\frac{\partial #1}{\partial\dot{q}}}}
+\newcommand{\eli}[1]{{\frac{\partial #1}{\partial q_i}-\frac{d}{dt}\frac{\partial #1}{\partial\dot{q}_i}}}
+\newcommand{\ph}[1]{\frac{\partial H}{\partial #1}}
+\newcommand{\co}[1]{\textit{#1}}%corsivo
+\newcommand{\gr}[1]{\textbf{#1}}%grassetto
+\newcommand{\bla}[1]{\int_0^{{#1}}}
+\newcommand{\tl}[1]{\tilde{#1}}
+\newcommand{\blas}[1]{\int_{t_0}^{t_{#1}}}
+\newcommand{\upp}[1]{\uppercase{#1}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\heta}{{\eta}}
+%%%%%%%%%%%%%%%%%%%%%% fine macros %%%%%%
+% % % % % % % % % % % % % % % % % % % % %macromi % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\newcommand{\wtd}{{\widetilde{d}}}
+\newcommand{\wtg}{{\widetilde{g}}}
+\newcommand{\g}{\gamma}
+\newcommand{\wth}{{\widetilde{h}}}
+\newcommand{\wtp}{{\widetilde{p}}}
+\newcommand{\wtq}{{\widetilde{q}}}
+\newcommand{\wtr}{{\widetilde{r}}}
+\newcommand{\wts}{{\widetilde{s}}}
+\newcommand{\wtu}{{\widetilde{u}}}
+\newcommand{\wtx}{{\widetilde{x}}}
+\newcommand{\wtz}{{\widetilde{z}}}
+\newcommand{\wty}{{\widetilde{y}}}
+\newcommand{\wtw}{{\widetilde{w}}}
+\newcommand{\new}{{\small{\mathtt{ New}}}}
+\newcommand{\yy}{{\mathcal Y}}%{{ \mbox{\Fontlukas Y}}}
+\newcommand{\s}{{\sigma}}
+%\newcommand{\id}{{\rm Id}}
+\newcommand{\jj}{{\vec \jmath}}
+\newcommand{\ii}{{\vec \imath}}
+\newcommand{\li}{{\mathfrak h}}
+% widetilde uppercase letters
+\newcommand{\wtH}{\widetilde{H}}
+\newcommand{\wtK}{\widetilde{K}}
+\newcommand{\wtL}{{\widetilde L}}
+\newcommand{\wtM}{\widetilde{M}}
+\newcommand{\wtN}{\widetilde{N}}
+\newcommand{\wtP}{\widetilde{P}}
+\newcommand{\wtQ}{\widetilde{Q}}
+\newcommand{\wtR}{\widetilde{R}}
+\newcommand{\wtS}{\widetilde{S}}
+\newcommand{\wtT}{\widetilde{T}}
+\newcommand{\wtU}{{\widetilde U}}
+\newcommand{\wtV}{\widetilde{V}}
+\newcommand{\wtX}{\widetilde{X}}
+\newcommand{\wtZ}{\widetilde{Z}}
+\def\wcK{\widetilde{\cK}}
+\def\wwcK{\widetilde{\widetilde{\cK}}}
+\def\norma#1{\left\|#1\right\|}
+\def\sleq{\preceq}
+%\newcommand{\ad}{{\rm ad}}
+\newcommand{\ccC}{{\mathscr{C}}}
+\newcommand{\ccL}{{\mathscr{L}}}
+\newcommand{\om}{{\omega}}
+% widetilde misc letters
+\newcommand{\wt}[1]{{\widetilde{#1}}}
+\newcommand{\wtomega}{\widetilde{\omega}}
+\newcommand{\wtpi}{{\widetilde{pi}}}
+\newcommand{\wtnu}{{\widetilde{\nu}}}
+\newcommand{\wtiota}{{\widetilde{\iota}}}
+\newcommand{\wteta}{\ex{-s^j}\eta_{\ps}}
+\newcommand{\wtchi}{{\widetilde{\chi}}}
+\newcommand{\wttau}{{\widetilde{\tau}}}
+\newcommand{\wtvp}{{\widetilde{\varphi}}}
+\newcommand{\wtgamma}{{\widetilde{\gamma}}}
+\newcommand{\wtGamma}{\widetilde{\Gamma}}
+\newcommand{\wtlambda}{{\widetilde{\lambda}}}
+\newcommand{\wtLambda}{{\widetilde{\Lambda}}}
+\newcommand{\wtDelta}{{\widetilde{\Delta}}}
+\newcommand{\wtOmega}{{\widetilde{\Omega}}}
+\newcommand{\wtPsi}{{\widetilde{\Psi}}}
+\newcommand{\wtPhi}{{\widetilde{\Phi}}}
+\newcommand{\wtsigma}{{\widetilde{\sigma}}}
+\newcommand{\wtxi}{{\widetilde{\xi}}}
+\newcommand{\wtXi}{{\widetilde{\Xi}}}
+\newcommand{\wtcA}{{\widetilde{\mathcal A}}}
+\newcommand{\wtcB}{{\widetilde{\mathcal B}}}
+\newcommand{\wtcC}{{\widetilde{\mathcal C}}}
+\newcommand{\wtcD}{{\widetilde{\mathcal D}}}
+\newcommand{\wtcK}{{\widetilde{\mathcal K}}}
+\newcommand{\wtcH}{{\widetilde{\mathcal H}}}
+\newcommand{\wtcN}{{\widetilde{\mathcal N}}}
+\newcommand{\wtcP}{{\widetilde{\mathcal P}}}
+\newcommand{\wtcQ}{{\widetilde{\mathcal Q}}}
+\newcommand{\wtcR}{{\widetilde{\mathcal R}}}
+\newcommand{\wtcS}{{\widetilde{\mathcal S}}}
+\newcommand{\wtcT}{{\widetilde{\mathcal T}}}
+\newcommand{\wtcU}{{\widetilde{\mathcal U}}}
+\newcommand{\wU}{{\widetilde{\mathcal U}}}
+\newcommand{\wtcV}{{\widetilde{\mathcal V}}}
+\newcommand{\wtcZ}{{\widetilde{\mathcal Z}}}
+\newcommand{\wtfN}{\widetilde{\mathfrak{N}}}
+\newcommand{\wtfT}{\widetilde{\mathfrak{T}}}
+\newcommand{\wtfU}{\widetilde{\mathfrak{U}}}
+\newcommand{\wtfS}{\widetilde{\mathfrak{S}}}
+\newcommand{\wtcM}{\widetilde{\mathcal M}}
+\def\U{{\mathcal U}}
+\newcommand{\fro}{{\mathfrak{r}}}
+\newcommand{\dd}{{\mathfrak{d}}}
+% widehat lowercase letters
+\newcommand{\whb}{{\widehat b}}
+\newcommand{\whd}{{\widehat d}}
+\newcommand{\whu}{{\widehat u}}
+
+% widehat uppercase letters
+\newcommand{\whF}{{\widehat F}}
+\newcommand{\whG}{{\widehat G}}
+\newcommand{\whK}{{\widehat K}}
+\newcommand{\whL}{{\widehat L}}
+\newcommand{\whN}{{\widehat N}}
+\newcommand{\whM}{{\widehat M}}
+\newcommand{\whP}{{\widehat P}}
+\newcommand{\whU}{{\widehat U}}
+\newcommand{\whV}{{\widehat V}}
+\newcommand{\whcD}{{\widehat{\mathcal D}}}
+\newcommand{\whcH}{{\widehat{\mathcal H}}}
+\newcommand{\whcR}{{\widehat{\mathcal R}}}
+\newcommand{\whcN}{{\widehat{\mathcal N}}}
+\newcommand{\whcP}{{\widehat{\mathcal P}}}
+\newcommand{\whcM}{{\widehat{\mathcal M}}}
+\newcommand{\whcT}{{\widehat{\mathcal T}}}
+\newcommand{\whcX}{{\widehat{\mathcal X}}}
+\newcommand{\whcZ}{{\widehat{\mathcal Z}}}
+\newcommand{\whXi}{{\widehat{\Xi}}}
+\newcommand{\wtwhXi}{\widetilde{\widehat{\Xi}}}
+\newcommand{\whOmega}{{\widehat \Omega}}
+
+
+% overline letters
+\newcommand{\oA}{{\overline{A}}}
+\newcommand{\oU}{{\overline{U}}}
+\newcommand{\oV}{{\overline{V}}}
+\newcommand{\Om}{\Omega}
+
+% the rest of these are shortcuts for standard text formats
+
+% blackboard bolds
+%\newcommand{\B}{{\mathbb B}}
+%\newcommand{\C}{{\mathbb C}}
+\newcommand{\D}{{\mathbb D}}
+\newcommand{\E}{{\mathbb E}}
+\newcommand{\F}{{\mathbb F}}
+%\newcommand{\G}{{\mathbb G}}
+\newcommand{\K}{{\mathbb K}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Q}{{\mathbb Q}}
+%\newcommand{\R}{{\mathbb R}}
+\renewcommand{\S}{{\mathbb S}}
+%\newcommand{\T}{{\mathbb T}}
+%\newcommand{\Z}{{\mathbb Z}}
+
+% cal script letters
+\newcommand{\cA}{{\mathcal A}}
+\newcommand{\cB}{{\mathcal B}}
+\newcommand{\cC}{{\mathcal C}}
+\newcommand{\cD}{{\mathcal D}}
+\newcommand{\cE}{{\mathcal E}}
+\newcommand{\cF}{{\mathcal F}}
+\newcommand{\cG}{{\mathcal G}}
+\newcommand{\cH}{{\mathcal H}}
+\newcommand{\cI}{{\mathcal I}}
+\newcommand{\cJ}{{\mathcal J}}
+\newcommand{\cK}{{\mathcal K}}
+\newcommand{\cL}{{\mathcal L}}
+\newcommand{\cM}{{\mathcal M}}
+\newcommand{\cN}{{\mathcal N}}
+\newcommand{\cO}{{\mathcal O}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\cQ}{{\mathcal Q}}
+\newcommand{\cR}{{\mathcal R}}
+\newcommand{\cS}{{\mathcal S}}
+\newcommand{\cT}{{\mathcal T}}
+\newcommand{\cU}{{\mathcal U}}
+\newcommand{\cV}{{\mathcal V}}
+\newcommand{\cW}{{\mathcal W}}
+\newcommand{\cX}{{\mathcal X}}
+\newcommand{\cY}{{\mathcal Y}}
+\newcommand{\cZ}{{\mathcal Z}}
+
+
+% fraktur letters
+
+\newcommand{\fA}{{\mathfrak{A}}}
+\newcommand{\fa}{{\mathfrak{a}}}
+\newcommand{\fB}{{\mathfrak{B}}}
+\newcommand{\fb}{{\mathfrak{b}}}
+\newcommand{\fC}{{\mathfrak{C}}}
+\newcommand{\fD}{{\mathfrak{D}}}
+\newcommand{\fg}{\mathfrak{g}}
+\newcommand{\fG}{\mathfrak{G}}
+\newcommand{\fH}{\mathfrak{H}}
+\newcommand{\fh}{{\mathfrak{h}}}
+\newcommand{\fk}{{\mathfrak{k}}}
+\newcommand{\fK}{{\mathfrak{K}}}
+\newcommand{\fl}{{\mathfrak{l}}}
+\newcommand{\fm}{{\mathfrak{m}}}
+\newcommand{\fL}{{\mathfrak{L}}}
+\newcommand{\fM}{{\mathfrak{M}}}
+\newcommand{\fN}{{\mathfrak{N}}}
+\newcommand{\fO}{{\mathfrak{O}}}
+\newcommand{\fP}{{\text{\gothfamily P}}}
+\newcommand{\fp}{{\mathfrak{p}}}
+\newcommand{\fQ}{{\text{\gothfamily Q}}}
+\newcommand{\fq}{{\mathfrak{q}}}
+\newcommand{\fR}{{\text{\gothfamily R}}}
+\newcommand{\fr}{{\mathfrak{r}}}
+\newcommand{\fS}{{\mathfrak{S}}}
+\newcommand{\fT}{{\mathfrak{T}}}
+\newcommand{\fU}{{\mathfrak{U}}}
+\newcommand{\fV}{{\mathfrak{V}}}
+\newcommand{\fX}{{\mathfrak{X}}}
+\newcommand{\fY}{{\mathfrak{Y}}}
+\newcommand{\fZ}{{\mathfrak{Z}}}
+
+%text letters
+\newcommand{\ta}{{\mathtt{a}}}
+\newcommand{\tb}{{\mathtt{b}}}
+\newcommand{\tc}{{\mathtt{b}}}
+\newcommand{\td}{{\mathtt{d}}}
+\newcommand{\te}{{\mathtt{e}}}
+\newcommand{\tf}{{\mathtt{f}}}
+\newcommand{\tg}{{\mathtt{g}}}
+
+\newcommand{\ti}{{\mathtt{i}}}
+\newcommand{\tj}{{\mathtt{j}}}
+\newcommand{\tk}{{\mathtt{d}}}
+%\newcommand{\tl}{{\mathtt{l}}}
+\newcommand{\tm}{{(\mathtt{m})}}
+\newcommand{\tn}{{\mathtt{n}}}
+
+\newcommand{\tA}{{\mathtt{A}}}
+\newcommand{\tB}{{\mathtt{B}}}
+\newcommand{\tC}{{\mathtt{C}}}
+\newcommand{\tD}{{\mathtt{D}}}
+\newcommand{\tE}{{\mathtt{E}}}
+\newcommand{\tF}{{\mathtt{F}}}
+\newcommand{\tG}{{\mathtt{G}}}
+\newcommand{\tH}{{\mathtt{H}}}
+\newcommand{\tK}{{\mathtt{K}}}
+\newcommand{\tI}{{\mathtt{I}}}
+\newcommand{\tL}{{\mathtt{L}}}
+\newcommand{\tM}{{(\mathtt{M})}}
+\newcommand{\tN}{{\mathtt{N}}}
+\newcommand{\tO}{{\mathtt{O}}}
+\newcommand{\Tan}{{\cS_0}}
+
+
+%bold letters
+\newcommand{\ba}{{\bf a}}
+\newcommand{\bb}{{\bf b}}
+\newcommand{\bc}{{\bf c}}
+%\newcommand{\bd}{{\vec \bf 2}}
+\newcommand{\be}{{\bf e}}
+\newcommand{\bi}{{\bf i}}
+\newcommand{\bj}{{\bf j}}
+\newcommand{\bk}{{\bf k}}
+%\newcommand{\bm}{{\bf m}}
+\newcommand{\bn}{{\bf n}}
+\newcommand{\bu}{{\bf u}}
+\newcommand{\bw}{{\bf w}}
+\newcommand{\bv}{{\bf v}}
+\newcommand{\bz}{{\bf z}}
+\newcommand{\bN}{{\bf N}}
+\newcommand{\bM}{{\bf M}}
+%\usepackage{eufrak}
+\usepackage{bm}
+
+
+%wide check calligraphic letters
+\newcommand{\wccT}{{\widecheck{\cT}}}
+
+
+%greek letters
+\newcommand{\oo}{{\omega}}
+\newcommand{\al}{{\alpha}}
+\newcommand{\bt}{{\beta}}
+
+
+% differential operator
+\renewcommand{\d}{\partial}
+\newcommand{\dt}{\partial_t}
+\newcommand{\lap}{\Delta}
+\newcommand{\grad}{\nabla}
+\newcommand{\derx}{\partial_x}
+\newcommand{\derxx}{\partial_{xx}^2}
+\newcommand{\suma}{\sum_{\substack{\al,\bt\in \N^\Z\\ |\al|=|\bt|\\ \sum_j j(\al_j-\bt_j)=0}}}
+\newcommand{\w}[1]{\mathtt{w}_{#1}}
+\newcommand{\ww}[1]{\mathtt{w}_{#1}\times \mathtt{w}_{#1}}
+
+% norms
+%\newcommand{\norm}[1]{\| #1 \|}
+%\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\0}{{(0)}}
+%\newcommand{\2}{{(2)}}
+%\newcommand{\1}{{(1)}}
+\newcommand{\3}{{(3)}}
+% braces
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+% mix
+%\newcommand{\id}{\mathbbm{1}}
+\newcommand{\im}{{\rm i}}
+\newcommand{\jap}[1]{\langle #1 \rangle}
+\newcommand{\re}[1] {\mbox{\Fontlukas T}\!_{#1}}  % {{\mathfrak T}\!_{#1}}
+\newcommand{\und}[1]{\underline{#1}}
+%\newcommand{\be}{{\bf e}}
+\newcommand{\di}{{\rm d}}
+\newcommand{\e}{{\varepsilon}}
+\newcommand{\hh}{ h }
+
+
+\newcommand{\pix}{{\pi_x}}
+\newcommand{\piy}{{\pi_y}}
+%\newcommand{\gen}{\fg}
+\newcommand{\inv}{\partial_x^{-1}}
+\newcommand{\uno}{{\mathbb I}}
+\newcommand{\rdelta}{{\textcolor{red}{\delta}}}
+\newcommand{\meas}{{\rm meas}}
+\newcommand{\mix}{{\rm mix}}
+\newcommand{\hor}{{\rm hor}}
+\newcommand{\out}{{\rm out}}
+\newcommand{\diag}{{\rm diag}}
+\renewcommand{\line}{{\rm line}}
+\newcommand{\fin}{{\rm fin}}
+\newcommand{\Fjs}{{F^{(j,\s)}}}
+\newcommand{\Fjsab}{{F^{(j,\s)}_{\al,\bt}}}
+%\newcommand{\bu}{{\vec{\bf 1}}}
+\newcommand{\bd}{{\vec{\bf 2}}}
+%\newcommand{\red}[1]{{\textcolor{red}{#1}}}
+\newcommand{\kam}{{\eta}}
+\newcommand{\bnorm}[1]{{|\mkern-6mu |\mkern-6mu | \,  #1 \,  |\mkern-6mu |\mkern-6mu |}  }
+
+\newcommand{\sQ}{{\mathscr{Q}}}
+\newcommand{\sH}{{\mathscr{H}}}
+\newcommand{\sD}{{\mathscr{D}}}
+\newcommand{\sR}{{\mathscr{R}}}
+\newcommand{\sS}{{\mathscr{S}}}
+\newcommand{\tw}{{\mathtt{w}}}
+\newcommand{\nnorm}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\coef}[1]{#1_{m,\alpha,\beta}}    %%%%%%prima c'era il b invece dell m
+\newcommand{\coeffu}[1]{#1_{b^{1},\alpha^{1},\beta^{1}}}
+\newcommand{\coeffd}[1]{#1_{b^{2},\alpha^{2},\beta^{2}}}
+\newcommand{\bcoef}[1]{#1_{\alpha,\beta}}
+\newcommand{\bcoeffu}[1]{#1_{\alpha^{1},\beta^{1}}}
+\newcommand{\bcoeffd}[1]{#1_{\alpha^{2},\beta^{2}}}
+\newcommand{\buno}{b^{1}}
+\newcommand{\bdue}{b^{2}}
+\newcommand{\aluno}{\alpha^{1}}
+\newcommand{\aldue}{\alpha^{2}}
+\newcommand{\btuno}{\beta^{1}}
+\newcommand{\btdue}{\beta^{2}}
+\newcommand{\uu}{{u^\alpha}{\bar{u}^\beta}}
+\newcommand{\uuu}{u^{\aluno}\bar{u}^{\btuno}}
+\newcommand{\uud}{u^{\aldue}\bar{u}^{\btdue}}
+\newcommand{\buu}{{u^\bal}{\bar{u}^\bbt}}
+\newcommand{\buuu}{u^{\baluno}\bar{u}^{\bbtuno}}
+\newcommand{\buud}{u^{\baldue}\bar{u}^{\bbtdue}}
+\newcommand{\pon}{{{\Pi^{0,\mathcal{K}}}}} %%%%% prima era \cN ma ora con le nuove notazioni e la storia del Taylor è proprio K
+\newcommand{\por}{{\Pi^{0,\mathcal{R}}}}
+\newcommand{\pd}{{\Pi^{-2}}}
+\newcommand{\ono}[1]{#1^{0,\mathcal{N}}}
+\newcommand{\oro}[1]{#1^{0,\mathcal{R}}}
+\newcommand{\odo}[1]{#1^{-2}}
+\newcommand{\modi}[1]{\abs{u_{#1}}^2}
+\newcommand{\modu}{\abs{u}^2}
+\newcommand{\La}[1]{\Lambda^{\pa{#1}}}
+\newcommand{\es}{e^{\set{S,\cdot}}}
+\newcommand{\bal}{{\bm \al}}
+\newcommand{\bbt}{{\bm \bt}}
+\newcommand{\baluno}{\bal^{1}}
+\newcommand{\baldue}{\bal^{2}}
+\newcommand{\bbtuno}{\bbt^{1}}
+\newcommand{\bbtdue}{\bbt^{2}}
+\newcommand{\Heta}{\cH_{r,s, \eta}}
+\newcommand{\peseta}{e^{\eta\abs{\pi(\al - \bt)}}} %%%%% peso del momento 
+\newcommand{\nore}[1]{\abs{#1}_{r,s,\eta}}
+\newcommand{\noreq}[1]{\abs{#1}_{r,s,\eta}^{(q,a,p,\dep)} } %%% norma s,r,eta
+\newcommand{\Lnor}[1]{\abs{#1}^{\rm Lip}}  %%% seminorma lipschitz
+\newcommand{\gnor}[1]{\abs{#1}^{\gamma}}  %%% norma gamma
+\newcommand{\Dom}[1]{\sum_{#1} \omega_{#1} \pa{\abs{u_{#1}}^2 - I_{#1}}}  %% D_omega con l'indice che voglio
+\newcommand{\azioj}[1]{\pa{\abs{u_{#1}}^2 - I_{#1}}} %%% coef azioni con indici 
+\newcommand{\azio}{\pa{\abs{u}^2 - I}} %% coeff azione
+\newcommand{\divisor}[1]{#1\cdot\pa{\bal - \bbt}}
+\newcommand{\zero}[1]{#1^{(0)}}
+\newcommand{\zeroR}[1]{#1^{(0,\cR)}}
+\newcommand{\zeroK}[1]{#1^{(0,\cK)}}
+\newcommand{\due}[1]{#1^{(-2)}}
+\newcommand{\buon}[1]{#1^{\ge 2}}
+\newcommand{\costa}{C e^{C(\teta,p){\pa{\frac{\sigma}{2}}}^{-3/\teta}}}  %% la costante del lemma eqz homologica
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\esp}[2]{e^{\set{#1, #2}}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\hv}{\hat{v}}
+\newcommand{\hp}{\hat{\varphi}}
+\newcommand{\hu}{u^\eta}
+
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+%%%%%%%%%%%%%%%%%%%%%% fine macros %%%%%%
+
+
+% -------------------------------------------------------------
+% SPAZIATURE, DUE PUNTI E TEOREMI IN ITALIANO
+% -------------------------------------------------------------
+\usepackage{amsthm}
+
+% Stile enunciati: corsivo, intestazione grassetto con ":" e spaziatura verticale garantita
+\newtheoremstyle{colonplain}
+  {\bigskipamount}% Spazio sopra l'ambiente
+  {\bigskipamount}% Spazio sotto l'ambiente (anche senza \begin{proof})
+  {\itshape}% Testo corsivo
+  {}% Rientro
+  {\bfseries}% Intestazione grassetto
+  {:}% Segno di punteggiatura
+  { }% Spazio orizzontale
+  {}%
+
+% Stile definizioni ed esempi: testo dritto con ":"
+\newtheoremstyle{colondefinition}
+  {\bigskipamount}% Spazio sopra
+  {\bigskipamount}% Spazio sotto
+  {\normalfont}% Testo dritto
+  {}% Rientro
+  {\bfseries}% Intestazione grassetto
+  {:}% Segno di punteggiatura
+  { }% Spazio orizzontale
+  {}%
+
+% Stile osservazioni: titolo corsivo con ":"
+\newtheoremstyle{colonremark}
+  {\medskipamount}% Spazio sopra
+  {\medskipamount}% Spazio sotto
+  {\normalfont}% Testo dritto
+  {}% Rientro
+  {\itshape}% Intestazione corsivo
+  {:}% Segno di punteggiatura
+  { }% Spazio orizzontale
+  {}%
+
+\theoremstyle{colonplain}
+\newtheorem{thm}{Teorema}[chapter]
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem*{thm*}{Teorema}
+
+% Assegna esplicitamente i nomi per cleveref (dopo \usepackage{cleveref}):
+\crefname{lemma}{lemma}{lemmi}
+\Crefname{lemma}{Lemma}{Lemmi}
+
+\crefname{prop}{proposizione}{proposizioni}
+\Crefname{prop}{Proposizione}{Proposizioni}
+
+\crefname{cor}{corollario}{corollari}
+\Crefname{cor}{Corollario}{Corollari}
+
+\theoremstyle{colondefinition}
+\newtheorem{defn}[thm]{Definizione}
+\newtheorem{ex}[thm]{Esempio}
+\newtheorem{esercizio}[thm]{Esercizio}
+
+\theoremstyle{colonremark}
+\newtheorem{rmk}[thm]{Osservazione}
+\newtheorem*{rmk*}{Osservazione}
+
+% Correzione: "equation" è il contatore delle formule (non align)
+\numberwithin{equation}{chapter}
+
+% Dimostrazione con "Dimostrazione:" in grassetto e spaziatura corretta
+\renewcommand{\proofname}{Dimostrazione}
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\bfseries #1:]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+\newcommand{\To}{\operatorname{T}_0}
+\usepackage{showkeys}
+%%%%%%%%%%
+%
 \begin{document}
+\date{\today}
+\author{Alessandro Ballini}
 
-\maketitle
-\tableofcontents
-\newpage
-
-\newpage
-\section{Complessi simpliciali}
+\chapter{Simplessi e complessi simpliciali}
 
 
 \end{document}
