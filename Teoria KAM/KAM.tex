@@ -597,9 +597,9 @@
 \tableofcontents
 
 \chapter*{Introduzione}
-Il problema di determinare la stabilità a lungo termine delle soluzioni dei moti nei sistemi dinamici affonda le proprie radici nei grandi problemi nati grazie alla meccanica celeste, in particolare alla legge di gravitazione universale di Newton, come il problema dei tre corpi, o più in generale il problema degli $n$ corpi. \\ \\
-Il punto di partenza sono i \textit{sistemi hamiltoniani completamente integrabili} in cui possiamo introdurre le variabili azione-angolo, ovvero tutti quei sistemi che sono descritti da un'hamiltoniana $H$ che può essere espressa, tramite opportuni cambi di coordinate, nella forma $H(\theta, r) = H_0(r)$. \\
-Tali sistemi prendono nome proprio dalla possibilità immediata di integrare le equazioni del moto ad essi associate e quindi determinarne le soluzioni. In particolare il campo di velocità associato alle equazioni del moto di Hamilton sarà della forma
+**Arnold** \\ \\
+Consideriamo un'hamiltoniana analitica $H : \mathbb{T}^n \times \mathbb{R}^n \longrightarrow \mathbb{R}$ della forma $H(\theta, r) = H_0(r)$. \\
+In particolare un sistema descritto da un'hamiltoniana come $H$ rientra nella classe dei \textit{sistemi hamiltoniani completamente integrabili}, che prendono nome proprio dalla possibilità immediata di integrare le equazioni del moto ad essi associate e quindi determinarne le soluzioni. Il campo di velocità associato alle equazioni del moto di Hamilton sarà della forma
 \begin{align}
     \begin{pmatrix}
         \dot{\theta} \\
@@ -609,7 +609,21 @@ Tali sistemi prendono nome proprio dalla possibilità immediata di integrare le 
         0
     \end{pmatrix} \notag
 \end{align}
-Quindi lo spazio della fasi $\mathbb{T}^n \times \mathbb{R}^n = \{(\theta, r)\}$ sarà foliato da tori $\mathbb{T}^n \times \{r_0\}$ invarianti per il flusso del campo di velocità hamiltoniano
+dove
+\begin{align}
+    \begin{pmatrix}
+        \dot{\theta} \\
+        \dot{r}
+    \end{pmatrix} = \begin{pmatrix}
+        \dot{\theta}_1 \\
+        \\
+        \dot{\theta}_n \\
+        \dot{r}_1 \\
+        \\
+        \dot{r}_n
+    \end{pmatrix} \qquad \frac{\partial H_0}{\partial r} = \left(\frac{\partial H_0}{\partial r_1}, \dots, \frac{\partial H_0}{\partial r_n}\right) \notag
+\end{align}
+Osserviamo che lo spazio delle fasi $\mathbb{T}^n \times \mathbb{R}^n$ sarà foliato da tori $\mathbb{T}^n \times \{r_0\}$ invarianti per il flusso del campo di velocità hamiltoniano
 \begin{align}
     \varphi_t : \begin{pmatrix}
         \theta \\
@@ -617,16 +631,27 @@ Quindi lo spazio della fasi $\mathbb{T}^n \times \mathbb{R}^n = \{(\theta, r)\}$
     \end{pmatrix} \mapsto \begin{pmatrix}
         \theta + t\frac{\partial H_0}{\partial r}(r_0) \\
         r_0
-    \end{pmatrix}
+    \end{pmatrix} \notag
 \end{align}
-In questo contesto inseriamo il \textit{celebre teorema di Kolmogorov} sulla persistenza di tori invarianti. \\
-Lo schema è quello del \textit{problema generale della dinamica} formulato da Poincaré. Consideriamo un'hamiltoniana $H$ analitica della forma
+Più in generale, osserviamo che ogni hamiltoniana $K$ della forma
+\begin{align}
+    K = c + \alpha \cdot r + O(r^2) \notag
+\end{align}
+dove $c \in \mathbb{R}$, $\alpha \in \mathbb{R}^n$ e $O(r^2)$ è un termine di resto $P = P(\theta, r)$ che soddisfa
+\begin{align}
+    \begin{cases}
+        P(\theta, 0) = 0 \\
+        \frac{\partial P}{\partial r}(\theta, 0) = 0
+    \end{cases} \notag
+\end{align}
+per ogni $\theta \in \mathbb{T}^n$, possiede un toro invariante $\alpha$ quasi-periodico, ovvero $\mathbb{T}^n \times \{0\}$. \\ \\
+A questo punto, è interessante chiedersi se il moto caratteristico dei sistemi descritti da hamiltoniane come $K$ sui tori invarianti sopravvive, seppur leggermente deformato, anche per piccole perturbazioni dei sistemi stessi. \\
+Pertanto consideriamo un'hamiltoniana $H$ analitica della forma
 \begin{align}
     H(\theta, r) = H_0(r) + \varepsilon H_1(\theta, r) + \varepsilon^2H_2(\theta, r) + O(\varepsilon^3) \notag 
 \end{align}
-dove $0 \leq \varepsilon \ll 1$. L'hamiltoniana $H$ descrive un \textit{sistema hamiltoniano quasi integrabile}, ovvero una piccola perturbazione di un sistema completamente integrabile, infatti, per $\varepsilon = 0$, si ottiene $H(\theta, r) = H_0(r)$. \\ \\
-A questo punto ci chiediamo se il moto caratteristico dei sistemi integrabili sui tori invarianti sopravvive, seppur leggermente deformato, anche per piccole perturbazioni dei sistemi stessi. \\ \\
-A tal proposito, storicamente, l'approccio risolutivo consisteva nel cercare rimuovere la dipendenza dalla variabile del moto $\theta$ per il termine di ordine $\varepsilon$, tramite opportuni cambi di coordinate, e, in caso di successo, procedere iterativamente per ogni ordine successivo in $\varepsilon$. \\
+dove $0 \leq \varepsilon \ll 1$. L'hamiltoniana $H$ descrive un \textit{sistema hamiltoniano quasi integrabile}, ovvero una piccola perturbazione di un sistema completamente integrabile, infatti, per $\varepsilon = 0$, si ottiene $H(\theta, r) = H_0(r)$. \\
+Storicamente, l'approccio risolutivo consisteva nel cercare di rimuovere la dipendenza dalla variabile del moto $\theta$ per il termine di ordine $\varepsilon$, tramite opportuni cambi di coordinate, e, in caso di successo, procedere iterativamente per ogni ordine successivo in $\varepsilon$. \\
 Tale procedimento prevede, ad ogni passo, la risoluzione di equazioni della forma
 \begin{align}
     \mathcal{L}_\alpha f = g \notag 
@@ -642,37 +667,42 @@ si ottiene come soluzione formale
 \end{align}
 Inizialmente si pensava che fosse sufficiente supporre che $\alpha$ fosse \textit{non risonante}, ovvero che $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, per garantire la convergenza delle serie perturbative classiche. \\
 Tuttavia, in seguito, Poincaré dimostrò che si trattava in realtà di serie divergenti a causa dell'accumulo all'infinito di termini risonanti $k \cdot \alpha \rightarrow 0$, detti \textit{piccoli divisori}. \\ \\
-Fu poi Kolmogorov ad aggiungere l'ulteriore ipotesi di \textit{forte non risonanza} su $\alpha$, ovvero richiese che
+Fu poi Kolmogorov ad aggiungere l'ipotesi di \textit{forte non risonanza} su $\alpha$, richiedendo che
 \begin{align}
     |k \cdot \alpha| \geq \frac{\gamma}{|k|^\tau} \notag
 \end{align}
 per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, dove $\gamma > 0$ e $\tau > n - 1$. Tali vettori $\alpha$ sono detti $(\gamma, \tau)$-\textit{diofantei}. In particolare, dimostreremo che il sottoinsieme di $\mathbb{R}^n$ composto dai vettori $(\gamma, \tau)$-diofantei, per qualche $\gamma > 0$, ha misura di Lebesgue piena, ovvero quasi tutti i vettori di $\mathbb{R}^n$ soddisfano tale condizione. \\ \\
-Successivamente, fu sempre Kolmogorov a dimostrare la persistenza di tori invarianti $\alpha$ quasi-periodici, sotto opportune ipotesi di non degenerazione, per piccole perturbazioni e quindi a fornire una risposta al problema posto da Poincaré. \\
-In particolare, l'idea di Kolmogorov fu quella di fissare un vettore frequenza $\alpha$ diofanteo e cercare una correzione delle azioni e una deformazione del toro tali che il sistema perturbato conservasse la dinamica $\alpha$ quasi-periodica sul toro deformato. \\
-Kolmogorov ideò uno schema iterativo ispirato al metodo della tangente di Newton, caratterizzato da una \textit{superconvergenza}, infatti l'errore residuo dell'$m$-esimo passo viene dell'ordine di $\varepsilon^{2^m}$. Questo metodo gli permise di controllare le perdite di analiticità dovute alla risoluzione delle equazioni omologiche ad ogni passo dello schema iterativo alla Newton (vedere \eqref{HomEq&CauchyEst}). \\ \\
-Più recentemente, Herman propose un'ulteriore dimostrazione del teorema di Kolmogorov, usando un approccio differente. \\
-In particolare decise di non fissare inizialmente la frequenza, quindi di applicare sempre uno schema risolutivo alla Newton con perdite controllate di analiticità ottenendo una hamiltoniana con un controtermine $\beta \cdot r$ alla frequenza, che quindi rompe la coniugazione dinamica con il sistema non perturbato, per poi cercare un'opportuna correzione delle azioni per la quale il controtermine è nullo. \\ \\
-In questo lavoro ci proponiamo di dimostrare il \textit{celebre teorema di Kolmogorov} (vedere \ref{KolmThmStrongNonDeg}) sotto ipotesi di non degenerazione
+Supponendo frequenza $\alpha$ diofantea ed opportune condizioni di non degenerazione, nel 1954 Kolmogorov dimostrò la persitenza di tori invarianti $\alpha$ quasi-periodici per piccole perturbazioni di sistemi descritti da hamiltoniane come $K$ (si veda \ref{KolmThmStrongNonDeg}):
 \begin{thm}[di Kolmogorov, forte non degenerazione]
-    dati $\alpha$ diofanteo e $K^0$ completamente integrabile, fino a un certo ordine in $r$, tale che
+dati $\alpha$ diofanteo e $K^0 = c + \alpha \cdot r + \frac{1}{2}Qr \cdot r + O(r^3)$ con $Q$ forma quadratica non degenere, per ogni $H$ vicino a $K^0$ esistono unici $K = c + \alpha \cdot r + O(r^3)$ vicino a $K^0$ e $G$ opportuno cambio di coordinate vicino all'identità tali che
 \begin{align}
-    \det \int_{\mathbb{T}^n} \frac{\partial^2 K^0}{\partial r^2}(\theta, 0) \, d\theta \neq 0 \notag
-\end{align}
-Per ogni perturbazione sufficientemente piccola $H$ di $K^0$ esistono unici $K$ completamente integrabile, fino a un certo ordine in $r$, $G$ cambio di coordinate canonico e $R \in \mathbb{R}^n$ tali che
-\begin{align}
-    H(\theta, r + R) = K \circ G \, (\theta, r) 
+    H = K \circ G \notag
 \end{align}
 in un intorno di $\mathbb{T}^n \times \{0\}$, ovvero $H$ possiede un toro invariante $\alpha$ quasi-periodico.
 \end{thm}
-Passando per il teorema '\textit{twisted conjugacy}' di Herman (vedere \ref{TwistThmHerman2})
-\begin{thm}[di Herman]
-    dati $\alpha$ diofanteo e $K^0$ completamente integrabile, fino a un certo ordine in $r$, per ogni perturbazione sufficientemente piccola $H$ di $K^0$ esistono unici $K$ completamente integrabile, fino a un certo ordine in $r$, $G$ cambio di coordinate canonico e $\beta \in \mathbb{R}^n$ tali che
+L'idea di Kolmogorov consisteva nel fissare un vettore frequenza $\alpha$ diofanteo e cercare una correzione delle azioni e una deformazione del toro tali che il sistema perturbato conservasse la dinamica $\alpha$ quasi-periodica sul toro deformato. \\
+In particolare, ideò uno schema iterativo ispirato al metodo della tangente di Newton, caratterizzato da una \textit{superconvergenza}, con errore residuo all'$m$-esimo passo dell'ordine di $\varepsilon^{\chi^m}$, $1 < \chi < 2$. Questo metodo gli permise di controllare le perdite di analiticità dovute alla risoluzione delle equazioni omologiche ad ogni passo dello schema iterativo alla Newton (si veda \ref{HomEq&CauchyEst}). \\ \\
+Più recentemente Herman propose un'ulteriore dimostrazione del teorema di Kolmogorov usando un approccio differente, che gli permise di separare il problema originale in due problemi di inversione locale di operatori. \\
+In particolare, fissato $\alpha$ diofanteo, riuscì a modificare opportunamente $H$ introducendo un controtermine $\beta \cdot r$, per qualche $\beta \in \mathbb{R}^n$, in modo da poterlo coniugare, tramite un cambio di coordinate, ad un'hamiltoniana $K$ che possiede un toro invariante quasi-periodico. \\
+Questo passaggio è quello che contiene tutta la \textit{hard analysis} del problema, ovvero tutte le difficoltà tecniche principali. Infatti, si tratta sempre di applicare uno schema iterativo alla Newton, come fece Kolmogorov, per invertire localmente l'operatore non lineare
 \begin{align}
-    H = K \circ G + \beta \cdot r \notag
+    \phi : (K, G, \beta) \mapsto H = K \circ G + \beta \cdot r \notag
+\end{align}
+In realtà questa idea di separare il problema in due passaggi è nata da Arnold stesso duranto lo studio delle rotazioni del cerchio, ovvero
+\begin{align}
+    f : \theta \in \mathbb{T} \mapsto \theta + \alpha \in \mathbb{T} \notag
+\end{align}
+e del loro comportamento sotto piccole perturbazioni. Nel tentativo di riconiugare le perturbazioni a rotazioni di frequenza fissata $\alpha$, Arnold suddivise il problema nei due passaggi che hanno caratterizzato poi il metodo di Herman. \\
+Una volta risolto il primo passaggio, diventa sufficiente assumere le stesse condizioni di non degenerazione imposte da Kolmogorov per poter applicare il teorema della funzione implicita classico (in dimensione finita) e trovare una piccola correzione delle azioni per la quale il controtermine $\beta \cdot r$ diventa identicamente nullo. \\ \\
+In questo lavoro ci proponiamo di dimostrare il \textit{celebre teorema di Kolmogorov} sotto ipotesi di non degenerazione, passando, appunto, per il teorema '\textit{twisted conjugacy}' di Herman (si veda \ref{TwistThmHerman2}):
+\begin{thm}[di Herman]
+    dati $\alpha$ diofanteo e $K^0 = c + \alpha \cdot r + O(r^2)$, per ogni $H$ vicino a $K^0$ esistono unici $K$ vicino a $K^0$, $G$ cambio di coordinate vicino all'identità e $\beta \in \mathbb{R}^n$ vicino all'origine tali che
+\begin{align}
+    H - \beta \cdot r = K \circ G \notag
 \end{align}
 in un intorno di $\mathbb{T}^n \times \{0\}$.
 \end{thm}
-Una volta dimostrato il teorema di Herman sarà sufficiente cercare una piccola correzione delle azioni per la quale il controtermine $\beta \cdot r$ è identicamente nullo.
+
 
 
 \chapter{Sistemi hamiltoniani}
@@ -873,7 +903,7 @@ Osserviamo che
 \end{align}
 dove
 \begin{align}
-    r = p^2 + q^2 \qquad \theta = \frac{\pi}{2} - \frac{p \cdot q}{\|p\|\|q\|}
+    r^2 = p^2 + q^2 \qquad \theta = \arcsin \frac{r}{p}
 \end{align}
 è simplettico, infatti
 \begin{align}
@@ -911,7 +941,7 @@ Diciamo che $\varphi^\alpha_t, \varphi^\beta_t$ (flussi associati a due sistemi 
 \mathbb{T}^n
 \end{tikzcd}
 \]
-\begin{lemma}[\cite{Fejoz01}]\label{FlowTopConj} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li coniuga preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$.
+\begin{lemma}\label{FlowTopConj} il vettore frequenza $\alpha$ è invariante per coniugazione topologica a meno di azione di elementi di $GL_n(\mathbb{Z})$: se due flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$, con $\alpha, \beta \in \mathbb{R}^n$, sono topologicamente coniugati, esiste $A \in GL_n(\mathbb{Z})$ tale che $\alpha = A\beta$. In particolare, se l'omeomorfismo che li coniuga preserva l'orientamento si ha $A \in SL_n(\mathbb{Z})$.
 \end{lemma}
 
 \begin{proof} supponiamo che i flussi $\theta \mapsto \theta + t\alpha$ e $\theta \mapsto \theta + t\beta$ siano topologicamente coniugati. Per definizione esiste un omeomorfismo $h$ di $\mathbb{T}^n$ tale che 
@@ -975,7 +1005,7 @@ In particolare, per $\theta = 0$, si ha
 \end{align}
 Il membro di sinistra è limitato (dato che $V$ è $\mathbb{Z}^n$-periodico), allora deve valere $\beta = A\alpha$. \end{proof}
 \section{Moti quasi-periodici}
-\begin{prop}[cfr. \cite{Fejoz01}]\label{NonResErgFlowEq} le seguenti affermazioni sono equivalenti: \\
+\begin{prop}\label{NonResErgFlowEq} le seguenti affermazioni sono equivalenti: \\
 \textbf{1.} Il vettore frequenza $\alpha$ è \textit{non risonante}, ovvero $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$. \\
 \textbf{2.} Il flusso $\varphi_t$ del campo vettoriale costante $\alpha$ è \textit{ergotico}, ovvero tutte le funzioni continue $f$ di $\mathbb{T}^n$ che soddisfano
 \begin{align}
@@ -986,7 +1016,7 @@ per ogni $\theta \in \mathbb{T}^n$ e ogni $t \in \mathbb{R}$, ovvero le funzioni
 \begin{align}\label{time/spaceMean}
     \lim_{T \rightarrow \infty}\frac{1}{T}\int_0^T f(\theta + t\alpha) \, dt = \int_{\mathbb{T}^n} f(\theta) \, d\theta
 \end{align}
-ricordando che $\mathbb{T}^n$ ha misura di Lebesgue unitaria dato che è identificato con il cubo $[0, 1)^n$ ad estremi "incollati". \\
+considerando misura normalizzata sul toro. \\
 \textbf{4.} Ogni traiettoria di $\varphi_t$ è densa in $\mathbb{T}^n$.
 \end{prop}
 
@@ -1044,14 +1074,11 @@ Supponiamo che esista $\theta \in U$ tale che $t\alpha = \theta$ per qualche $t 
 \end{align}
 Tuttavia, possiamo scegliere $U$ in modo tale che $0 < |k \cdot \theta| < 1$, mentre $k \cdot l \in \mathbb{Z}$, pertanto si ottiene un assurdo.
 \end{proof}
-L'ergodicità della del flusso lineare $\varphi_t$, e quindi la possibilità di scambiare media temporale e spaziale, sarà quello che ci permetterà successivamente di poter lavorare con l'equazione omologica in modo che sia ben posta. \\ \\
-Storicamente si pensava che fosse sufficiente la non risonanza del vettore frequenza per eliminare il problema dei piccoli divisori e garantire la convergenza delle serie perturbative classiche. \\
-Fu poi Poincaré a dimostrare che si trattava in realtà serie divergenti e, ancora dopo, Kolmogorov ad aggiungere l'ulteriore ipotesi diofantea sui vettori frequenza per permettere la convergenza delle serie perturbative.
+L'ergodicità della del flusso lineare $\varphi_t$, e quindi la possibilità di scambiare media temporale e spaziale, sarà quello che ci permetterà successivamente di poter lavorare con l'equazione omologica in modo che sia ben posta.
 
 \section{Serie perturbativa}
-Siamo ora interessati a studiare una classe più generale di sistemi hamiltoniani, ovvero i sistemi hamiltoniani \textit{quasi integrabili}. Un sistema hamiltoniano è detto quasi integrabile se è una piccola perturbazione di un sistema completamente integrabile. \\ \\
-In particolare vogliamo capire se, tramite opportuni cambi di coordinate simplettici, è possibile trovare ancora tori invarianti che conservano la stessa dinamica del sistema non perturbato, i.e. flusso lineare quasi-periodico con vettore frequenza uguale. \\ \\
-Consideriamo un hamiltoniana $H$ definita in un intorno di $\mathbb{T}^n \times \{0\}$ in $\mathbb{T}^n \times \mathbb{R}^n$. Supponiamo che $H$ dipenda formalmente da un parametro $\varepsilon > 0$ nella forma
+Siamo ora interessati a determinare se, tramite opportuni cambi di coordinate simplettici, è possibile coniugare l'hamiltoniana perturbata ad un sistema che possiede un toro invariante $\alpha$ quasi-periodico. \\ \\
+Consideriamo un hamiltoniana $H$ definita in un intorno aperto di $\mathbb{T}^n \times \{0\}$ in $\mathbb{T}^n \times \mathbb{R}^n$. Supponiamo che $H$ dipenda formalmente da un parametro $\varepsilon > 0$ nella forma
 \begin{align}\label{PertSeries}
     H(\theta, r) = H_0(r) + \varepsilon H_1(\theta, r) + \varepsilon^2H_2(\theta, r) + O(\varepsilon^3) 
 \end{align}
@@ -1126,11 +1153,13 @@ Dato $s > 0$, sia
 \begin{align}
     \mathbb{T}^n_s = \{\theta \in \mathbb{C}^n/2\pi\mathbb{Z}^n : |\mathrm{Im}\theta_j| < s\}
 \end{align}
-l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $\mathcal{A}(\mathbb{T}^n_s)$ lo spazio vettoriale delle funzioni analitiche definite su un aperto di $\mathbb{T}^n_s$, a cui associamo la norma $|\cdot|_s$, definita da
+l'estensione complessa di $\mathbb{T}^n$ di larghezza $s$. Inoltre, sia $(\mathcal{A}(\mathbb{T}^n_s), |\cdot|_s)$ lo spazio vettoriale delle funzioni analitiche reali definite su un aperto che contiene $\mathbb{T}^n_s$ che ammettono unica estensione complessa, dotato della norma $|\cdot|_s$, definita da
 \begin{align}
     |f|_s := \sup_{\theta \in \mathbb{T}^n_s} |f(\theta)|
 \end{align}
-In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni analitica su un insieme è ivi continua, pertanto se $f \in \mathcal{A}(\mathbb{T}^n_s)$ segue che $|f|_s < \infty$. Concludiamo che la coppia $(\mathcal{A}(\mathbb{T}^n_s), |\cdot|_s)$ è uno spazio di Banach (cfr. teorema \ref{SBanach})
+In particolare, $\mathbb{T}^n_s$ è compatto e ogni funzioni analitica su un insieme è ivi continua, pertanto se $f \in \mathcal{A}(\mathbb{T}^n_s)$ segue che $|f|_s < \infty$. Concludiamo che la coppia $(\mathcal{A}(\mathbb{T}^n_s), |\cdot|_s)$ è uno spazio di Banach (cfr. teorema \ref{SBanach}). \\
+In seguito identificheremo direttamente con $\mathcal{A}(\mathbb{T}^n_s)$ la coppia $(\mathcal{A}(\mathbb{T}^n_s), |\cdot|_s)$.
+
 \section{Piccoli denominatori}
 Invertendo \eqref{HomolEq}, $F$ è univocamente determinato dall'azione di $\mathcal{L}^{-1}_\alpha$ su $\tilde{H}_1$. Tuttavia, affinché $\mathcal{L}^{-1}_\alpha$ mappi funzioni analitiche in funzioni analitiche, necessitiamo di condizioni aritmetiche sul vettore frequenza $\alpha$ che garantiscano sufficiente 'lontananza' dalla risonanza, ovvero vogliamo evitare l'accumulo all'infinito di termini risonanti $k \cdot \alpha \rightarrow 0$.
 \begin{defn} per $\gamma, \tau > 0$, $\alpha \in \mathbb{R}^n$ è detto $(\gamma, \tau)$-\textit{diofanteo} se 
@@ -1401,9 +1430,9 @@ e gli intorni
     \mathbb{T}^n_s &:= \{\theta \in \mathbb{T}^n_\mathbb{C} : \max_j |\mathrm{Im} \, \theta_j| \leq s\} \\
     T^n_s &:= \{ (\theta, r) \in T^n_\mathbb{C} : \max_j \max(|\mathrm{Im} \, \theta_j|, |r_j|) \leq s\}
 \end{align}
-\begin{thm}[\textit{twist} di Herman, cfr. \cite{Fejoz02}]\label{TwistThmHerman1} dati $\alpha \in D_{\gamma, \tau}$ e $K^0 \in \mathcal{K}$, per ogni $H \in \mathcal{H}$ sufficientemente vicina a $K^0$ esiste unico $(K, G, \beta) \in \mathcal{K} \times \mathcal{G} \times \mathbb{R}^n$ vicina a $(K^0, \mathrm{id}, 0)$ tale che
+\begin{thm}[\textit{twist} di Herman, cfr. \cite{Massetti}]\label{TwistThmHerman1} dati $\alpha \in D_{\gamma, \tau}$ e $K^0 \in \mathcal{K}$, per ogni $H \in \mathcal{H}$ sufficientemente vicina a $K^0$ esiste unico $(K, G, \beta) \in \mathcal{K} \times \mathcal{G} \times \mathbb{R}^n$ vicina a $(K^0, \mathrm{id}, 0)$ tale che
 \begin{align}\label{TwistNormalForm}
-    H = K \circ G + \beta \cdot r 
+    H - \beta \cdot r = K \circ G 
 \end{align}
 in un intorno di $T^n_0$.
 \end{thm}
@@ -1496,7 +1525,7 @@ definita dall'aperto
 \begin{align}
     \sigma\mathring{B}^\chi_{s + \sigma} = \{v \in \chi_{s + \sigma} : |v|_s < \sigma\}
 \end{align}
-a $\mathcal{D}_s$ è biettiva (cfr. \cite{Fejoz02}), pertanto fornisce a $\mathcal{D}_s$ struttura di varietà di Banach in un intorno dell'identità. \\ \\
+a $\mathcal{D}_s$ è biettiva (cfr. \cite{Fejoz17}), pertanto fornisce a $\mathcal{D}_s$ struttura di varietà di Banach in un intorno dell'identità. \\ \\
 Siamo interessati in particolare all'azione controgradiente degli elementi di $\mathcal{D}_s$ su $T^n_s$, come visto in \eqref{ContraGrad}, che ci permetterà di linearizzare la dinamica sul toro invariante. \\ \\
 Inoltre, consideriamo lo spazio $\mathcal{B}_s$ delle $1$-forme differenziali esatte su $\mathbb{T}^n_s$ del tipo
 \begin{align}
@@ -1538,7 +1567,7 @@ Inoltre, posto $E_s = \mathcal{K}_s \times \mathcal{G}_s \times \mathbb{R}^n$ e 
 \end{align}
 a cui applicheremo il \textit{teorema della funzione inversa} \ref{InvFunctThm}. \\ \\
 A questo punto possiamo riformulare il \textit{teorema di Herman} \ref{TwistThmHerman1} in termini dell'operatore $\phi$ e della sua inversa locale $\psi$.
-\begin{thm}[\textit{twist} di Herman, cfr. \cite{Fejoz02}]\label{TwistThmHerman2} sia $\alpha \in D_{\gamma, \tau}$, l'operatore $\phi$ ammette inversa locale unica $\psi$ nel senso che per ogni $0 < s < s + \sigma < 1$, data $K^0 \in \mathcal{K}_{s + \sigma}$, se $|H - K^0|_{s + \sigma}$ è sufficientemente piccolo, esiste unica $(K, G, \beta) \in \sigma B^E_s$, $|\cdot|_s$-vicina a $(K^0, \mathrm{id}, 0)$, tale che
+\begin{thm}[\textit{twist} di Herman, cfr. \cite{Fejoz17}]\label{TwistThmHerman2} sia $\alpha \in D_{\gamma, \tau}$, l'operatore $\phi$ ammette inversa locale unica $\psi$ nel senso che per ogni $0 < s < s + \sigma < 1$, data $K^0 \in \mathcal{K}_{s + \sigma}$, se $|H - K^0|_{s + \sigma}$ è sufficientemente piccolo, esiste unica $(K, G, \beta) \in \sigma B^E_s$, $|\cdot|_s$-vicina a $(K^0, \mathrm{id}, 0)$, tale che
 \begin{align}
     \psi(H) = (K, G, \beta) \qquad H = K \circ G + \beta \cdot r
 \end{align}
@@ -1547,7 +1576,7 @@ su $T^n_s$. Inoltre, $\beta \circ \psi$ è di classe $C^1$ in un $|\cdot|_{s + \
 \subsection{Invertibilità di $\phi'$ e stime su $\phi'^{-1}$ e $\phi''$}
 Verifichiamo che $\phi$ soddisfa le condizioni necessarie per applicare lo schemo iterativo alla Newton con perdita controllata di analiticità alla Nash-Moser. \\
 Poniamo $x = (K, G, \beta)$ e $\delta x = (\delta K, \delta G, \delta \beta)$ e fissiamo $0 < s < s + \sigma < 1$.
-\begin{lemma}[cfr. \cite{Fejoz02}] esiste $C' > 0$ localmente uniforme rispetto a $x \in E_{s + \sigma}$ in un intorno di $G = \mathrm{id}$ tale che la mappa $\phi'(x)$ ammette inversa locale $\phi'(x)^{-1}$ che soddisfa
+\begin{lemma} esiste $C' > 0$ localmente uniforme rispetto a $x \in E_{s + \sigma}$ in un intorno di $G = \mathrm{id}$ tale che la mappa $\phi'(x)$ ammette inversa locale $\phi'(x)^{-1}$ che soddisfa
 \begin{align}
     |\phi'(x)^{-1}\delta H|_{s} \leq C'\sigma^{-\tau - n - 1}|\delta H|_{G, s + \sigma}
 \end{align}
@@ -1691,7 +1720,7 @@ Una volta determinato $\dot{\rho}$ possiamo determinare anche $\dot{\varphi}'$. 
 \end{align}
 e che soddisfa una stima analoga a quella per $\dot{\rho}$. Infine, i termini $O(r^2)$ di $\dot{H}$ determinano i termini $O(r^2)$ di $\delta K$, pertanto, ricordando che $\dot{H} = \delta H \circ G^{-1}$ e quindi che $|\dot{H}|_s = |\delta H|_{G, s}$, si ottiene la tesi.
 \end{proof}
-\begin{lemma}[cfr. \cite{Fejoz02}] esiste $C'' > 0$ localmente uniforme rispetto a $x \in E_{s + \sigma}$ in un intorno di $G = \mathrm{id}$ tale che la mappa bilineare $\phi''(x)$ soddisfa
+\begin{lemma}[cfr. \cite{Massetti}] esiste $C'' > 0$ localmente uniforme rispetto a $x \in E_{s + \sigma}$ in un intorno di $G = \mathrm{id}$ tale che la mappa bilineare $\phi''(x)$ soddisfa
 \begin{align}
     |\phi''(x)\delta x^{\otimes 2}|_{G, s} \leq \sigma^{-2}C''|\delta x|^2_{s + \sigma}
 \end{align}
@@ -1715,13 +1744,13 @@ Pertanto
 La tesi segue immediatamente dalla stima di Cauchy, dalla stima sulla norma di composizione $|\cdot|_{G, s}$ e notando che $|\delta K' \cdot \dot{G}|_s \leq |K' \cdot \dot{G}|_s$.
 \end{proof}
 \begin{proof}[Dimostrazione del teorema di Herman \ref{TwistThmHerman2}]
-Il contesto è quello dell'appendice D. Dato $H \in \mathcal{H}_{s + \sigma}$ tale che $|H - K^0| < \epsilon$, per il teorema \eqref{InvFunctThm} e le proposizioni \eqref{LipschCont} e \eqref{PsiC^1}, $\phi$ ammette inversa locale $\psi : \epsilon B^\mathcal{H}_{s + \sigma} \longrightarrow \eta B^{E}_s$ di classe $C^1$ tale che $\psi(H) = K \circ G + \beta \cdot r$.
+Il contesto è quello dell'appendice D. Dato $H \in \mathcal{H}_{s + \sigma}$ tale che $|H - K^0|_{s + \sigma} < \epsilon$, per il teorema \eqref{InvFunctThm} e le proposizioni \eqref{LipschCont} e \eqref{PsiC^1}, $\phi$ ammette inversa locale $\psi : \epsilon B^\mathcal{H}_{s + \sigma} \longrightarrow \eta B^{E}_s$ di classe $C^1$ tale che $\psi(H) = K \circ G + \beta \cdot r$.
 \end{proof}
 
 \section{Il teorema di Kolmogorov}
 \begin{thm}[dei tori invarianti di Kolmogorov, forte non degenerazione]\label{KolmThmStrongNonDeg} siano $\alpha \in D_{\gamma, \tau}$ e $K^0 \in \mathcal{K}$ tale che
 \begin{align}
-    \det \int_{\mathbb{T}^n} \frac{\partial^2 K}{\partial r^2}(\theta, 0) \, d\theta \neq 0 
+    \det \int_{\mathbb{T}^n} \frac{\partial^2 K^0}{\partial r^2}(\theta, 0) \, d\theta \neq 0 
 \end{align}
 Per ogni $H \in \mathcal{H}$ vicino a $K^0$ esiste unico $(K, G, R) \in \mathcal{K} \times \mathcal{G} \times \mathbb{R}^n$ vicino a $(K^0, \mathrm{id}, 0)$ tale che
 \begin{align}
@@ -3069,26 +3098,12 @@ ovvero il limite superiore fissato per $\epsilon$ inizialmente è più che suffc
 \end{proof}
 
 \section{Regolarità della mappa inversa}
-\begin{defn} una famiglia di norme $(|\cdot|_s)_{s > 0}$ su una scala di spazi di Banach $(E_s)_{s > 0}$ è detta $\log$-convessa se la mappa $g_x : s \mapsto \log |x|_s$ è convessa per ogni $x \in E_s$.
-\end{defn}
-\begin{lemma}[cfr. \cite{Massetti}] se $(|\cdot|_s)_{s > 0}$ è $\log$-convessa si ha
+Assumiamo che la famiglia di norme $(|\cdot|_s)_s$ soddisfi la seguente disuguaglianza di interpolazione
 \begin{align}
-    |x|^2_{s + \sigma} \leq |x|_s|x|_{s + \widetilde{\sigma}} \qquad \widetilde{\sigma} = \sigma\left(1 + \frac{1}{s}\right) 
+    |x|^2_{s + \sigma} \leq |x|_s|x|_{s + \widetilde{\sigma}} \qquad \widetilde{\sigma} = \sigma\left(1 + \frac{1}{s}\right)
 \end{align}
-per ogni $x \in E_s$.
-\end{lemma}
-
-\begin{proof} dato $x \in E_s$, per definizione di funzione convessa si ha
-\begin{align}
-    g_x\left(\frac{s_1 + s_2}{2}\right) \leq \frac{g_x(s_1) + g_x(s_2)}{2}
-\end{align}
-a patto che $s_1 + s_2 \leq s$. Pertanto si ottiene
-\begin{align}
-    \log |x|_{s + \sigma} \leq \log |x|_{(2s + \widetilde{\sigma})/2} \leq \frac{1}{2}(\log |x|_s + \log |x|_{s + \widetilde{\sigma}}) = \log |x|_s|x|_{s + \widetilde{\sigma}} 
-\end{align}
-dove si è usato $2\sigma \leq \widetilde{\sigma}$ per $s$ sufficientemente piccolo.
-\end{proof}
-Assumiamo che la famiglie di norme $(|\cdot|_s)_{s > 0}$ sia $\log$-convessa e che $\phi'(x)$ sia anche invertibile da sinistra, pertanto che il differenziale inverso sia unico (bilatero).
+Per più dettagli vedere \cite{Fejoz17}.
+Inoltre, assumiamo che $\phi'(x)$ sia anche invertibile da sinistra, pertanto che il differenziale inverso sia unico (bilatero).
 \begin{cor}[cfr. \cite{Massetti}] $\psi$ è l'unica inversa destra di $\phi$, ovvero $\psi$ è l'inversa locale bilatera unica (sotto tutte le ipotesi sopra citate).
 \end{cor}
 
@@ -3122,7 +3137,7 @@ Calcolando la norma, tenendo a mente le stime in \eqref{InvDiff&SecDiff Est} e i
     &\leq C'\sigma^{-\tau'}|y - \hat{y}|_{x, s + \sigma} + \frac{1}{2}C\xi^{-\tau}|x - \hat{x}|^2_{s + 2\xi + 2\eta} 
 \end{align}
 dove si è scelto $\xi$ tale che $2\xi < \sigma$. \\
-Posto $\widetilde{\sigma} = (2\xi + 2\eta)(1 + 1/2)$, dall'ipotesi di $\log$-convessità si ha
+Posto $\widetilde{\sigma} = (2\xi + 2\eta)(1 + 1/2)$, si ha
 \begin{align}
     |x - \hat{x}|^2_{s + 2\xi + 2\eta} \leq |x - \hat{x}|_s|x - \hat{x}|_{s + \widetilde{\sigma}} 
 \end{align}
