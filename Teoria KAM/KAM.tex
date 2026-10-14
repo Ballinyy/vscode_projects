@@ -597,9 +597,10 @@
 \tableofcontents
 
 \chapter*{Introduzione}
-**Arnold** \\ \\
+Il problema di determinare la stabilità a lungo termini delle soluzioni in sistemi dinamici affonda le proprie radici nei grandi problemi della meccanica celeste, nati grazie alla legge di gravitazione di Newton, in particolare nel problema della stabilità del sistema solare. \\
+Negli anni 60, Arnold dimostrò ... \\ \\
 Consideriamo un'hamiltoniana analitica $H : \mathbb{T}^n \times \mathbb{R}^n \longrightarrow \mathbb{R}$ della forma $H(\theta, r) = H_0(r)$. \\
-In particolare un sistema descritto da un'hamiltoniana come $H$ rientra nella classe dei \textit{sistemi hamiltoniani completamente integrabili}, che prendono nome proprio dalla possibilità immediata di integrare le equazioni del moto ad essi associate e quindi determinarne le soluzioni. Il campo di velocità associato alle equazioni del moto di Hamilton sarà della forma
+Un sistema descritto da un'hamiltoniana come $H$ rientra nella classe dei \textit{sistemi hamiltoniani completamente integrabili}, che prendono nome proprio dalla possibilità immediata di integrare le equazioni del moto ad essi associate e quindi determinarne le soluzioni. Il campo di velocità indotto dalle equazioni del moto di Hamilton sarà della forma
 \begin{align}
     \begin{pmatrix}
         \dot{\theta} \\
@@ -609,21 +610,11 @@ In particolare un sistema descritto da un'hamiltoniana come $H$ rientra nella cl
         0
     \end{pmatrix} \notag
 \end{align}
-dove
+dove $(\dot{\theta}, \dot{r}) = (\dot{\theta}_1, \dots, \dot{\theta}_n, \dot{r}_1, \dots, \dot{r}_n)$ e
 \begin{align}
-    \begin{pmatrix}
-        \dot{\theta} \\
-        \dot{r}
-    \end{pmatrix} = \begin{pmatrix}
-        \dot{\theta}_1 \\
-        \\
-        \dot{\theta}_n \\
-        \dot{r}_1 \\
-        \\
-        \dot{r}_n
-    \end{pmatrix} \qquad \frac{\partial H_0}{\partial r} = \left(\frac{\partial H_0}{\partial r_1}, \dots, \frac{\partial H_0}{\partial r_n}\right) \notag
+    \frac{\partial H_0}{\partial r} = \left(\frac{\partial H_0}{\partial r_1}, \dots, \frac{\partial H_0}{\partial r_n}\right) \notag
 \end{align}
-Osserviamo che lo spazio delle fasi $\mathbb{T}^n \times \mathbb{R}^n$ sarà foliato da tori $\mathbb{T}^n \times \{r_0\}$ invarianti per il flusso del campo di velocità hamiltoniano
+Osserviamo che lo spazio delle fasi $\mathbb{T}^n \times \mathbb{R}^n$ sarà foliato da tori della forma $\mathbb{T}^n \times \{r_0\}$ invarianti per il flusso del campo di velocità hamiltoniano
 \begin{align}
     \varphi_t : \begin{pmatrix}
         \theta \\
@@ -688,11 +679,11 @@ Questo passaggio è quello che contiene tutta la \textit{hard analysis} del prob
 \begin{align}
     \phi : (K, G, \beta) \mapsto H = K \circ G + \beta \cdot r \notag
 \end{align}
-In realtà questa idea di separare il problema in due passaggi è nata da Arnold stesso duranto lo studio delle rotazioni del cerchio, ovvero
+In realtà, l'idea di separare il problema in due passaggi nacque da Arnold, durante lo studio delle rotazioni del cerchio
 \begin{align}
-    f : \theta \in \mathbb{T} \mapsto \theta + \alpha \in \mathbb{T} \notag
+    f : \mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad f(\theta) = \theta + \alpha \notag
 \end{align}
-e del loro comportamento sotto piccole perturbazioni. Nel tentativo di riconiugare le perturbazioni a rotazioni di frequenza fissata $\alpha$, Arnold suddivise il problema nei due passaggi che hanno caratterizzato poi il metodo di Herman. \\
+e del loro comportamento sotto piccole perturbazioni. Nel tentativo di riconiugare le perturbazioni a rotazioni di frequenza fissata $\alpha$, Arnold suddivise il problema esattamente nei due passaggi che hanno caratterizzato poi il metodo impiegato da Herman nella dimostrazione del suo teorema. \\
 Una volta risolto il primo passaggio, diventa sufficiente assumere le stesse condizioni di non degenerazione imposte da Kolmogorov per poter applicare il teorema della funzione implicita classico (in dimensione finita) e trovare una piccola correzione delle azioni per la quale il controtermine $\beta \cdot r$ diventa identicamente nullo. \\ \\
 In questo lavoro ci proponiamo di dimostrare il \textit{celebre teorema di Kolmogorov} sotto ipotesi di non degenerazione, passando, appunto, per il teorema '\textit{twisted conjugacy}' di Herman (si veda \ref{TwistThmHerman2}):
 \begin{thm}[di Herman]
