@@ -597,10 +597,14 @@
 \tableofcontents
 
 \chapter*{Introduzione}
-Il problema di determinare la stabilità a lungo termini delle soluzioni in sistemi dinamici affonda le proprie radici nei grandi problemi della meccanica celeste, nati grazie alla legge di gravitazione di Newton, in particolare nel problema della stabilità del sistema solare. \\
-Negli anni 60, Arnold dimostrò ... \\ \\
-Consideriamo un'hamiltoniana analitica $H : \mathbb{T}^n \times \mathbb{R}^n \longrightarrow \mathbb{R}$ della forma $H(\theta, r) = H_0(r)$. \\
-Un sistema descritto da un'hamiltoniana come $H$ rientra nella classe dei \textit{sistemi hamiltoniani completamente integrabili}, che prendono nome proprio dalla possibilità immediata di integrare le equazioni del moto ad essi associate e quindi determinarne le soluzioni. Il campo di velocità indotto dalle equazioni del moto di Hamilton sarà della forma
+Il problema di determinare la stabilità a lungo termine delle soluzioni nei sistemi dinamici affonda le proprie radici nei grandi problemi della meccanica celeste, nati con la legge di gravitazione di Newton, in particolare nel problema della stabilità del sistema solare. \\
+Nel 1963 Arnold \cite{Arn63} enunciò il seguente risultato: nel modello newtoniano del sistema planetario, costituito dal Sole e da $n \geq 2$ pianeti, se il massimo dei rapporti tra le masse dei pianeti e la massa del Sole è sufficientemente piccolo, in un intorno nello spazio delle fasi dei moti kepleriani circolari e complanari, esiste un insieme di condizioni iniziali di misura di Lebesgue strettamente positiva che dà luogo a moti \textit{quasi-periodici}. Questo risultato è noto come \textit{teorema di Arnold} sulla stabilità del sistema planetario. \\
+La dimostrazione originale di Arnold è completa solo nel caso del problema piano dei tre corpi, mentre l'argomento con cui egli ricava il caso spaziale è discutibile e quello di $n$ pianeti nello spazio in generale non è corretto. Una dimostrazione completa e rigorosa del teorema è stata data da Herman, che nel corso degli anni '90 dimostrò un teorema astratto di \textit{tori invarianti}, generalizzando quello di Arnold, e mostrò poi che il sistema planetario rientra nelle sue ipotesi (si veda \cite{Fejoz04} per una dimostrazione). \\
+L'idea alla base del risultato è la seguente. Poiché le masse dei pianeti sono molto più piccole di quella del Sole, in prima approssimazione ogni pianeta si muove su un'ellisse kepleriana, come se risentisse della sola attrazione solare, e il sistema è integrabile. Le interazioni mutue tra i pianeti si comportano come una piccola perturbazione, il cui parametro è proprio il rapporto massimo tra le masse. Il sistema planetario è dunque una perturbazione di un sistema ben noto, che sappiamo integrare esattamente, composto da $n$ corpi non interagenti che orbitano attorno ad una massa centrale fissa. \\ \\
+Il risultato di Arnold è un esempio significativo di un fenomeno più generale, legato ai \textit{sistemi completamente integrabili} e alle loro perturbazioni. \\
+Abbandoniamo ora il caso planetario, che richiede ipotesi più delicate di quelle con cui lavoreremo in seguito, e studiamo le caratteristiche (in parte sopra citate) e i comportamententi rispetto a piccole perturbazioni di questa classe di sistemi. \\ \\
+Consideriamo dunque un'hamiltoniana analitica $H : \mathbb{T}^n \times \mathbb{R}^n \longrightarrow \mathbb{R}$ della forma $H(\theta, r) = H_0(r)$. \\
+Un sistema descritto da un'hamiltoniana come $H$ rientra nella classe dei sistemi hamiltoniani completamente integrabili, che prendono nome proprio dalla possibilità immediata di integrare le equazioni del moto ad essi associate e quindi determinarne le soluzioni. Il campo di velocità indotto dalle equazioni del moto di Hamilton sarà della forma
 \begin{align}
     \begin{pmatrix}
         \dot{\theta} \\
@@ -624,7 +628,12 @@ Osserviamo che lo spazio delle fasi $\mathbb{T}^n \times \mathbb{R}^n$ sarà fol
         r_0
     \end{pmatrix} \notag
 \end{align}
-Più in generale, osserviamo che ogni hamiltoniana $K$ della forma
+Dato $\alpha = (\alpha_1, \dots, \alpha_n) \in \mathbb{R}^n$ tale che $k \cdot \alpha \neq 0$ per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, la soluzione $u$ associata ad una condizione iniziale nello spazio delle fasi $\mathbb{T}^n \times \{r_0\}$ è detta $\alpha$-\textit{quasi-periodica} se esiste un'immersione del toro nello spazio delle fasi
+\begin{align}
+    \theta \mapsto U(\theta, r_0) \notag
+\end{align}
+tale che $u(t) = U(\alpha t, r_0)$ per ogni $t \in \mathbb{R}$ (dominio massimale di definizione). \\ \\
+In generale, osserviamo che ogni hamiltoniana $K$ della forma
 \begin{align}
     K = c + \alpha \cdot r + O(r^2) \notag
 \end{align}
@@ -635,8 +644,8 @@ dove $c \in \mathbb{R}$, $\alpha \in \mathbb{R}^n$ e $O(r^2)$ è un termine di r
         \frac{\partial P}{\partial r}(\theta, 0) = 0
     \end{cases} \notag
 \end{align}
-per ogni $\theta \in \mathbb{T}^n$, possiede un toro invariante $\alpha$ quasi-periodico, ovvero $\mathbb{T}^n \times \{0\}$. \\ \\
-A questo punto, è interessante chiedersi se il moto caratteristico dei sistemi descritti da hamiltoniane come $K$ sui tori invarianti sopravvive, seppur leggermente deformato, anche per piccole perturbazioni dei sistemi stessi. \\
+per ogni $\theta \in \mathbb{T}^n$, possiede un toro invariante $\alpha$-quasi-periodico, ovvero $\mathbb{T}^n \times \{0\}$. \\ \\
+A questo punto, è interessante chiedersi se il moto caratteristico dei sistemi completamente integrabili (o, più in generale, descritti da hamiltoniane come $K$) sui tori invarianti sopravvive, seppur leggermente deformato, anche per piccole perturbazioni dei sistemi stessi. \\
 Pertanto consideriamo un'hamiltoniana $H$ analitica della forma
 \begin{align}
     H(\theta, r) = H_0(r) + \varepsilon H_1(\theta, r) + \varepsilon^2H_2(\theta, r) + O(\varepsilon^3) \notag 
@@ -663,28 +672,28 @@ Fu poi Kolmogorov ad aggiungere l'ipotesi di \textit{forte non risonanza} su $\a
     |k \cdot \alpha| \geq \frac{\gamma}{|k|^\tau} \notag
 \end{align}
 per ogni $k \in \mathbb{Z}^n \setminus \{0\}$, dove $\gamma > 0$ e $\tau > n - 1$. Tali vettori $\alpha$ sono detti $(\gamma, \tau)$-\textit{diofantei}. In particolare, dimostreremo che il sottoinsieme di $\mathbb{R}^n$ composto dai vettori $(\gamma, \tau)$-diofantei, per qualche $\gamma > 0$, ha misura di Lebesgue piena, ovvero quasi tutti i vettori di $\mathbb{R}^n$ soddisfano tale condizione. \\ \\
-Supponendo frequenza $\alpha$ diofantea ed opportune condizioni di non degenerazione, nel 1954 Kolmogorov dimostrò la persitenza di tori invarianti $\alpha$ quasi-periodici per piccole perturbazioni di sistemi descritti da hamiltoniane come $K$ (si veda \ref{KolmThmStrongNonDeg}):
+Supponendo vettore frequenza $\alpha$ diofanteo ed opportune condizioni di non degenerazione, nel 1954 Kolmogorov dimostrò la persistenza di tori invarianti $\alpha$-quasi-periodici per piccole perturbazioni di sistemi descritti da hamiltoniane come $K$ (si veda \ref{KolmThmStrongNonDeg}):
 \begin{thm}[di Kolmogorov, forte non degenerazione]
 dati $\alpha$ diofanteo e $K^0 = c + \alpha \cdot r + \frac{1}{2}Qr \cdot r + O(r^3)$ con $Q$ forma quadratica non degenere, per ogni $H$ vicino a $K^0$ esistono unici $K = c + \alpha \cdot r + O(r^3)$ vicino a $K^0$ e $G$ opportuno cambio di coordinate vicino all'identità tali che
 \begin{align}
     H = K \circ G \notag
 \end{align}
-in un intorno di $\mathbb{T}^n \times \{0\}$, ovvero $H$ possiede un toro invariante $\alpha$ quasi-periodico.
+in un intorno di $\mathbb{T}^n \times \{0\}$, ovvero $H$ possiede un toro invariante $\alpha$-quasi-periodico.
 \end{thm}
-L'idea di Kolmogorov consisteva nel fissare un vettore frequenza $\alpha$ diofanteo e cercare una correzione delle azioni e una deformazione del toro tali che il sistema perturbato conservasse la dinamica $\alpha$ quasi-periodica sul toro deformato. \\
-In particolare, ideò uno schema iterativo ispirato al metodo della tangente di Newton, caratterizzato da una \textit{superconvergenza}, con errore residuo all'$m$-esimo passo dell'ordine di $\varepsilon^{\chi^m}$, $1 < \chi < 2$. Questo metodo gli permise di controllare le perdite di analiticità dovute alla risoluzione delle equazioni omologiche ad ogni passo dello schema iterativo alla Newton (si veda \ref{HomEq&CauchyEst}). \\ \\
+L'idea di Kolmogorov consisteva nel fissare un vettore frequenza $\alpha$ diofanteo e cercare una correzione delle azioni e una deformazione del toro tali che il sistema perturbato conservasse la dinamica $\alpha$-quasi-periodica sul toro deformato. \\
+In particolare, ideò uno schema iterativo ispirato al metodo della tangente di Newton, caratterizzato da una \textit{superconvergenza}, con errore residuo all'$m$-esimo passo dell'ordine di $\varepsilon^{\chi^m}$, $1 < \chi < 2$. Questo metodo gli permise di controllare le perdite di analiticità dovute alla risoluzione delle equazioni omologiche ad ogni passo dello schema iterativo alla Newton (si veda \ref{HomEq&CauchyEst}) e quindi di garantire la convergenza della successione costruita. \\ \\
 Più recentemente Herman propose un'ulteriore dimostrazione del teorema di Kolmogorov usando un approccio differente, che gli permise di separare il problema originale in due problemi di inversione locale di operatori. \\
 In particolare, fissato $\alpha$ diofanteo, riuscì a modificare opportunamente $H$ introducendo un controtermine $\beta \cdot r$, per qualche $\beta \in \mathbb{R}^n$, in modo da poterlo coniugare, tramite un cambio di coordinate, ad un'hamiltoniana $K$ che possiede un toro invariante quasi-periodico. \\
-Questo passaggio è quello che contiene tutta la \textit{hard analysis} del problema, ovvero tutte le difficoltà tecniche principali. Infatti, si tratta sempre di applicare uno schema iterativo alla Newton, come fece Kolmogorov, per invertire localmente l'operatore non lineare
+Questo passaggio è quello che contiene tutta la \textit{hard analysis} del problema, ovvero tutte le difficoltà tecniche principali. Infatti, si tratta sempre di applicare uno schema iterativo alla Newton, come fece Kolmogorov, per invertire localmente l'operatore non lineare (di natura perturbativa)
 \begin{align}
     \phi : (K, G, \beta) \mapsto H = K \circ G + \beta \cdot r \notag
 \end{align}
+Una volta risolto il primo passaggio, diventa sufficiente assumere le stesse condizioni di non degenerazione imposte da Kolmogorov per poter applicare il teorema della funzione implicita classico (in dimensione finita) e trovare una piccola correzione delle azioni per la quale il controtermine $\beta \cdot r$ diventa identicamente nullo. \\
 In realtà, l'idea di separare il problema in due passaggi nacque da Arnold, durante lo studio delle rotazioni del cerchio
 \begin{align}
-    f : \mathbb{T}^n \longrightarrow \mathbb{T}^n \qquad f(\theta) = \theta + \alpha \notag
+    f : \mathbb{T} \longrightarrow \mathbb{T} \qquad f(\theta) = \theta + \omega, \qquad \omega \in \mathbb{R} \notag
 \end{align}
-e del loro comportamento sotto piccole perturbazioni. Nel tentativo di riconiugare le perturbazioni a rotazioni di frequenza fissata $\alpha$, Arnold suddivise il problema esattamente nei due passaggi che hanno caratterizzato poi il metodo impiegato da Herman nella dimostrazione del suo teorema. \\
-Una volta risolto il primo passaggio, diventa sufficiente assumere le stesse condizioni di non degenerazione imposte da Kolmogorov per poter applicare il teorema della funzione implicita classico (in dimensione finita) e trovare una piccola correzione delle azioni per la quale il controtermine $\beta \cdot r$ diventa identicamente nullo. \\ \\
+e del loro comportamento sotto piccole perturbazioni. Nel tentativo di riconiugare le perturbazioni a rotazioni di frequenza fissata $\alpha$, Arnold suddivise il problema esattamente nei due passaggi che hanno caratterizzato poi il metodo impiegato da Herman nella dimostrazione del suo teorema. \\ \\
 In questo lavoro ci proponiamo di dimostrare il \textit{celebre teorema di Kolmogorov} sotto ipotesi di non degenerazione, passando, appunto, per il teorema '\textit{twisted conjugacy}' di Herman (si veda \ref{TwistThmHerman2}):
 \begin{thm}[di Herman]
     dati $\alpha$ diofanteo e $K^0 = c + \alpha \cdot r + O(r^2)$, per ogni $H$ vicino a $K^0$ esistono unici $K$ vicino a $K^0$, $G$ cambio di coordinate vicino all'identità e $\beta \in \mathbb{R}^n$ vicino all'origine tali che
@@ -1068,7 +1077,7 @@ Tuttavia, possiamo scegliere $U$ in modo tale che $0 < |k \cdot \theta| < 1$, me
 L'ergodicità della del flusso lineare $\varphi_t$, e quindi la possibilità di scambiare media temporale e spaziale, sarà quello che ci permetterà successivamente di poter lavorare con l'equazione omologica in modo che sia ben posta.
 
 \section{Serie perturbativa}
-Siamo ora interessati a determinare se, tramite opportuni cambi di coordinate simplettici, è possibile coniugare l'hamiltoniana perturbata ad un sistema che possiede un toro invariante $\alpha$ quasi-periodico. \\ \\
+Siamo ora interessati a determinare se, tramite opportuni cambi di coordinate simplettici, è possibile coniugare l'hamiltoniana perturbata ad un sistema che possiede un toro invariante $\alpha$-quasi-periodico. \\ \\
 Consideriamo un hamiltoniana $H$ definita in un intorno aperto di $\mathbb{T}^n \times \{0\}$ in $\mathbb{T}^n \times \mathbb{R}^n$. Supponiamo che $H$ dipenda formalmente da un parametro $\varepsilon > 0$ nella forma
 \begin{align}\label{PertSeries}
     H(\theta, r) = H_0(r) + \varepsilon H_1(\theta, r) + \varepsilon^2H_2(\theta, r) + O(\varepsilon^3) 
@@ -1378,7 +1387,7 @@ Tuttavia, come prima accennato, la perdita di analiticità può essere abritrari
 Inoltre, la superconvergenza del metodo iterativo alla Newton schiaccia nettamente la stime di Cauchy sulle soluzioni delle equazioni omologiche, che saranno sempre più deboli a causa della scelta fatta sulla successione $(\sigma_k)_k$.
 
 \chapter{Persistenza di tori invarianti quasi-periodici}
-Ora vogliamo determinare se il toro invariante $\alpha$ quasi-periodico $T^n_0$ persiste, seppur leggermente deformato, per piccole perturbazioni del sistema integrabile. \\
+Ora vogliamo determinare se il toro invariante $\alpha$-quasi-periodico $T^n_0$ persiste, seppur leggermente deformato, per piccole perturbazioni del sistema integrabile. \\
 A tal proposito vogliamo trovare un simplettomorfismo $G$ che coniughi il sistema integrabile e la perturbazione.
 \section{Il teorema \textit{twist} di Herman}
 Consideriamo lo spazio $\mathcal{H}$ dei germi lungo $T^n_0 = \mathbb{T}^n \times \{0\}$ delle hamiltoniane analitiche reali. Sia $\mathcal{K}^\alpha$ il sottospazio affine dell'hamiltoniane analitiche reali della forma
