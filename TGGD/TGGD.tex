@@ -549,6 +549,8 @@
 \newtheorem*{thm*}{Teorema}
 
 % Assegna esplicitamente i nomi per cleveref (dopo \usepackage{cleveref}):
+\crefname{thm}{teorema}{teoremi}
+\Crefname{thm}{Teorema}{Teoremi}
 \crefname{lemma}{lemma}{lemmi}
 \Crefname{lemma}{Lemma}{Lemmi}
 
@@ -820,7 +822,7 @@ la famiglia $\mathcal{B}$ è un ricoprimento di $X$ perché $X = X_1 \times X_2$
 \begin{align}
     (A_1 \times A_2) \cap (B_1 \times B_2) = (A_1 \cap B_1) \times (A_2 \times B_2) \in \mathcal{B} \notag
 \end{align}
-pertanto, perché $A_1 \cap B_1 \in \tau_1$ e $A_2 \cap B_2 \in \tau_2$, per la \ref{CarattFunzCont}, si ottiene che $\mathcal{B}$ è base di un'unica topologia $\tau$ su $X$, detta \textit{topologia prodotto} (delle topologie $\tau_1$ e $\tau_2$).
+pertanto, perché $A_1 \cap B_1 \in \tau_1$ e $A_2 \cap B_2 \in \tau_2$, per la \cref{CarattFunzCont}, si ottiene che $\mathcal{B}$ è base di un'unica topologia $\tau$ su $X$, detta \textit{topologia prodotto} (delle topologie $\tau_1$ e $\tau_2$).
 \end{rmk}
 \begin{rmk}
 per definizione, gli aperti di $X$ sono unione di elementi di $\mathcal{B}$; segue immediatamente che un sottoinsieme $N$ di $X$ è un intorno del punto $(x_1, x_2)$ se e solo se esistono $N_1$ e $N_2$ intorni di $x_1$ e $x_2$ rispettivamente tali che $N \supset N_1 \times N_2$. \\ \\
@@ -1042,7 +1044,7 @@ uno spazio topologico $X$ è $T_1$ se e solo se per ogni coppia di punti distint
 $(\rightarrow)$ sia $X$ uno spazio $T_1$, ovvero i punti sono chiusi, allora $X \setminus \{ p \}$ è un aperto e $q \in X \setminus \{ p \}$ ma $p \not\in X \setminus \{ p \}$. Analogamente, $X \setminus \{ q \}$ è un aperto e $p \in X \setminus \{ q \}$ ma $q \not\in X \setminus \{ q \}$. \\ \\
 $(\leftarrow)$ supponiamo che per ogni coppia di punti distinti $p, q \in X$ esistono $V, W$ aperti tali che $p \in V$ ma $q \not\in V$ e $q \in W$ ma $p \not\in W$. Sia $u \in X$, per ogni $v \in X$ tale che $u \neq v$ esistono $V, W$ aperti tali che $u \in V \subset X \setminus W \subset X \setminus \{ v \}$, pertanto $X \setminus \{ v \}$ è un aperto, quindi i punti sono chiusi.
 \end{proof}
-\begin{prop}
+\begin{prop}\label{SeqAccPtT1}
 sia $\{ x_n : n \in \mathbb{N} \}$ una successione di punti in uno spazio $X$ $T_1$ che soddisfa il primo assioma di numerabilità e sia $x \in X$ un punto di accumulazione per $\{ x_n \}$. Allora $\{ x_n \}$ ammette una sottosuccessione convergente in $x$.
 \end{prop}
 \begin{proof}
@@ -1261,9 +1263,9 @@ Verifichiamo che si tratta effettivamente di una relazione di equivalenza: \\
 \textbf{2.} $p \rho q$ e $q \rho r$ implica $p \rho r$, segue dalle \textit{prop. 1.3.3} e \textit{prop. 1.3.2}, infatti se $p, q$ sono connessi esiste $M$ connesso tale che $p, q \in M$, se $q, r$ sono connessi esiste $N$ connesso tale che $q, r \in N$, pertanto anche $p, r$ sono connessi poiché $M \cup N$ è un connesso (\textit{prop. 1.3.2}) tale che $p, r \in M \cup N$. \\ \\
 Le classi di $\rho$\textit{-equivalenza} sono dette componenti connesse di X. Per ogni $p \in X$ denotiamo con $C(p)$ la \textit{componente connessa di} $p$.
 \begin{rmk}
-dalla \textit{proposizione 1.3.3} segue che $X$ è connesso se e solo se possiede un'unica componente connessa.
+dalla \cref{CarattConct} segue che $X$ è connesso se e solo se possiede un'unica componente connessa.
 \end{rmk}
-\begin{prop}
+\begin{prop}\label{ConctComponent}
 per ogni $p \in X$, $C(p)$ è il più grande sottoinsieme connesso di $X$ contenente $p$.
 \end{prop}
 \begin{proof}
@@ -1287,7 +1289,7 @@ e per la transitività si ha
 \begin{align}
     (x_1, y_2) \rho (x_2, y_1) \notag
 \end{align}
-Concludiamo che $X \times Y$ è connesso per la \textit{proposizione 1.3.3}. Ragionando per induzione si ottiene che il prodotto topologico di un numero finito di insiemi connessi è connesso. \\ \\
+Concludiamo che $X \times Y$ è connesso per la \cref{CarattConct}. Ragionando per induzione si ottiene che il prodotto topologico di un numero finito di insiemi connessi è connesso. \\ \\
 Dimostriamo ora il caso generale. Sia $\{ X_\mu : \mu \in M \}$ una famiglia di insiemi connessi e sia 
 \begin{align}
     X := \prod_{\mu \in M} X_\mu \notag
@@ -1320,7 +1322,7 @@ $G$ è connesso poiché omeomorfo a $X_{\mu_1} \times \dots \times X_{\mu_s}$, i
 \begin{align}
     G = X_{\mu_1} \times \dots \times X_{\mu_s} \times \prod_{\mu \neq \mu_i} p(\mu), \quad i = 1, \dots, s \notag
 \end{align}
-inoltre si ha $q, p \in G$, pertanto $G \subset C(p)$ e $C(p) \cap B \neq \emptyset$, dunque, essendo $B$ un aperto qualsiasi, si ha che $C(p)$ è denso ed è chiuso per la \textit{proposizione 1.3.6}, otteniamo allora che $C(p) = X$, cioè $X$ è connesso.
+inoltre si ha $q, p \in G$, pertanto $G \subset C(p)$ e $C(p) \cap B \neq \emptyset$, dunque, essendo $B$ un aperto qualsiasi, si ha che $C(p)$ è denso ed è chiuso per la \cref{ConctComponent}, otteniamo allora che $C(p) = X$, cioè $X$ è connesso.
 \end{proof}
 
 \section{Esercizi}
@@ -1373,7 +1375,7 @@ La connessione per archi è una proprietà più forte della connessione.
 se $X$ è connesso per archi si ha che $X$ è connesso.
 \end{prop}
 \begin{proof}
-siano $p, q \in X$, per ipotesi esiste $\gamma : \mathbf{I} \longrightarrow X$ continua tale che $\gamma(0) = p$ e $\gamma(1) = q$. Consideriamo l'insieme $\gamma(\mathbf{I})$, per ipotesi di continuità di $\gamma$ si ha che $\gamma(\mathbf{I})$ è connesso (gli intervalli sono connessi), inoltre $p, q \in \gamma(\mathbf{I})$. Concludiamo che per ogni coppia di punti di $X$ esiste un sottoinsieme connesso che li contiene, segue dalla \textit{proposizione 1.3.3} che $X$ è connesso.
+siano $p, q \in X$, per ipotesi esiste $\gamma : \mathbf{I} \longrightarrow X$ continua tale che $\gamma(0) = p$ e $\gamma(1) = q$. Consideriamo l'insieme $\gamma(\mathbf{I})$, per ipotesi di continuità di $\gamma$ si ha che $\gamma(\mathbf{I})$ è connesso (gli intervalli sono connessi), inoltre $p, q \in \gamma(\mathbf{I})$. Concludiamo che per ogni coppia di punti di $X$ esiste un sottoinsieme connesso che li contiene, segue dalla \cref{CarattConct} che $X$ è connesso.
 \end{proof}
 Il viceversa non è vero in generale, esistono insiemi connessi, ma non connessi per archi. Inoltre segue che un insieme sconnesso non è connesso per archi.
 \begin{prop}
@@ -1427,7 +1429,7 @@ Ogni intervallo aperto $(a, b)$ di $\mathbb{R}$ non è compatto, infatti la fami
 \end{align}
 è un ricoprimento aperto di $(a, b)$, tuttavia ogni sottoricoprimento finito di $\mathcal{U}$ ha come unione un intervallo ancora appartenente ad $\mathcal{U}$, pertanto diverso da $(a, b)$.
 \end{rmk}
-\begin{thm}[di Heine-Borel]
+\begin{thm}[di Heine-Borel]\label{HeineBorel}
 ogni intervallo chiuso e limitato $[a, b]$ di $\mathbb{R}$ è compatto.
 \end{thm}
 \begin{proof}
@@ -1448,7 +1450,7 @@ Sia $z := \sup X$, poiché $X \subset [a, b]$ che è chiuso e limitato, si ha $z
 \end{align}
 dunque $X$ è sia chiuso che aperto in $[a, b]$, tuttavia l'unico intervallo chiuso e aperto in $[a, b]$ è $[a, b]$ stesso, perciò $X = [a, b]$, la tesi segue.
 \end{proof}
-\begin{prop}
+\begin{prop}\label{ClosedInCompact}
 $(a)$ Ogni sottoinsieme chiuso $K$ di uno spazio compatto $X$ è compatto. \\
 $(b)$ Ogni sottoinsieme compatto $K$ di uno spazio di Hausdorff $X$ è chiuso.
 \begin{proof}
@@ -1484,32 +1486,32 @@ e
 è un intorno aperto di $p$ contenuto in $X \setminus K$. Poiché ciò vale per ogni $p \in X \setminus K$ si ha che $X \setminus K$ è aperto, quindi $K$ è chiuso.
 \end{proof}
 \end{prop}
-\begin{cor}
+\begin{cor}\label{CompactR}
 un sottoinsieme $K$ di $\mathbb{R}$ è compatto se e solo se è chiuso e limitato.
 \end{cor}
 \begin{proof}
-$(\rightarrow)$ Sia $K \subset \mathbb{R}$ compatto e sia $X$ di Hausdorff. Per la \textit{proposizione 1.5.1} si ha che $K$ è chiuso. Inoltre è sicuramente limitato, altrimenti $\{ (-n, n) \}_{n \geq 1}$ sarebbe un ricoprimento aperto che non ammette sottoricoprimento finito. \\ \\
+$(\rightarrow)$ Sia $K \subset \mathbb{R}$ compatto e sia $X$ di Hausdorff. Per la \cref{ClosedInCompact} si ha che $K$ è chiuso. Inoltre è sicuramente limitato, altrimenti $\{ (-n, n) \}_{n \geq 1}$ sarebbe un ricoprimento aperto che non ammette sottoricoprimento finito. \\ \\
 $(\leftarrow)$ Sia $K$ chiuso e limitato. Poniamo
 \begin{align}
     a := \inf K, \quad b := \sup K \notag
 \end{align}
-poiché $K$ è chiuso si ha $a, b \in K$, allora $K \subseteq [a, b]$ che è compatto perché è un intervallo chiuso di $\mathbb{R}$, inoltre $K$ è chiuso in $[a, b]$, pertanto $K$ è un sottoinsieme chiuso di uno spazio compatto, per la \textit{proposizione 1.5.1} $K$ è compatto.
+poiché $K$ è chiuso si ha $a, b \in K$, allora $K \subseteq [a, b]$ che è compatto perché è un intervallo chiuso di $\mathbb{R}$, inoltre $K$ è chiuso in $[a, b]$, pertanto $K$ è un sottoinsieme chiuso di uno spazio compatto, per la \cref{ClosedInCompact} $K$ è compatto.
 \end{proof}
-\begin{prop}
+\begin{prop}\label{InfSubsetAccPt}
 $(a)$ Ogni sottoinsieme infinito $Z$ di uno spazio compatto $X$ possiede almeno un punto di accumulazione in $X$. \\
 $(b)$ Ogni successione di punti di uno spazio compatto e $T_1$ $X$ che soddisfa il primo assioma di numerabilità ammette una sottosuccessione convergente.
 \end{prop}
 \begin{proof}
 $(a)$ Supponiamo che $Z$ non abbia punti di accumulazione, $Z$ è chiuso in $X$ e dunque compatto. Inoltre la topologia relativa di $Z$ è la topologia discreta. Tuttavia uno spazio infinito con la topologia discreta NON può essere compatto, perciò si ottiene un assurdo. Concludiamo che $Z$ ha almeno un punto di accumulazione in $X$. \\ \\
-$(b)$ Se la successione ha infiniti numeri uguali, essi formano una sottosuccessione convergente. Se la successione ha infiniti punti distinti, allora possiede un punto di accumulazione in $X$ e, per la \textit{proposizione 1.2.7}, ammette una sottosuccessione convergente.
+$(b)$ Se la successione ha infiniti numeri uguali, essi formano una sottosuccessione convergente. Se la successione ha infiniti punti distinti, allora possiede un punto di accumulazione in $X$ e, per la \cref{SeqAccPtT1}, ammette una sottosuccessione convergente.
 \end{proof}
 \begin{thm}[di Bolzano-Weierstrass]
 ogni successione limitata $\{ x_n : n \in \mathbb{N} \}$ di numeri reali ammette una sottosuccessione convergente.
 \end{thm}
 \begin{proof}
-poiché $\{ x_n \}$ è limitata esiste $M > 0$ tale che $\{ x_n \} \subset [-M, M]$, ma $[-M, M]$ è un sottoinsieme compatto di $\mathbb{R}$, pertanto, per la \textit{proposizione 1.5.2}, $\{ x_n \}$ ammette una sottosuccessione convergente.
+poiché $\{ x_n \}$ è limitata esiste $M > 0$ tale che $\{ x_n \} \subset [-M, M]$, ma $[-M, M]$ è un sottoinsieme compatto di $\mathbb{R}$, pertanto, per la \cref{InfSubsetAccPt}, $\{ x_n \}$ ammette una sottosuccessione convergente.
 \end{proof}
-\begin{prop}
+\begin{prop}\label{ContImageCompact}
 sia $f : X \longrightarrow Y$ un'applicazione continua di spazio topologici e sia $X$ compatto, allora $f(X)$ è compatto in $Y$.
 \end{prop}
 \begin{proof}
@@ -1531,12 +1533,12 @@ Dunque si ha che
 \end{align}
 (contenuto poiché $f$ potrebbe non essere suriettiva), ovvero $\{ U_1, \dots, U_n\}$ è un ricoprimento aperto finito di $f(X)$. $f(X)$ è compatto.
 \end{proof}
-Dalla \textit{proposizione 1.5.3} segue immediatamente che la compattezza è una proprietà topologica, dunque invariante per omeomorfismi.
+Dalla \cref{ContImageCompact} segue immediatamente che la compattezza è una proprietà topologica, dunque invariante per omeomorfismi.
 \begin{cor}
 sia $X$ uno spazio topologico e $f : X \longrightarrow \mathbb{R}$ continua. Se $X$ è compatto $f$ assume un valore massimo ed un valore minimo su $\mathbb{R}$.
 \end{cor}
 \begin{proof}
-dalla \textit{proposizione 1.5.3} segue che $f(X)$ è compatto, pertanto per il \textit{corollario 1.5.1} è chiuso e limitato, dunque $f(X)$ contiene il suo estremo superiore ed il suo estremo inferiore.
+dalla \cref{ContImageCompact} segue che $f(X)$ è compatto, pertanto per il \cref{CompactR} è chiuso e limitato, dunque $f(X)$ contiene il suo estremo superiore ed il suo estremo inferiore.
 \end{proof}
 \begin{prop}
 siano $X$ compatto, $Y$ di Hausdorff, $f : X \longrightarrow Y$ continua. Allora $f$ è chiusa; inoltre se $f$ è biunivoca, $f$ è un omeomorfismo.
@@ -1544,7 +1546,7 @@ siano $X$ compatto, $Y$ di Hausdorff, $f : X \longrightarrow Y$ continua. Allora
 \begin{proof}
 sia $C \subset X$ chiuso, allora è compatto (sottoinsieme chiuso di spazio compatto), per ipotesi di continuità $f(C) \subset Y$ è compatto e dunque chiuso (sottoinsieme compatto di spazio di Hausdorff), pertanto $f$ è chiusa. Se $f$ è anche biunivoca segue immediatamente che $f$ è omeomorfismo, poiché $f$ è continua, biunivoca e chiusa.
 \end{proof}
-\begin{prop}
+\begin{prop}\label{CompactSubbase}
 condizione \textit{necessaria} e \textit{sufficiente} affinché uno spazio $X$ sia compatto è che ogni famiglia $\mathcal{F}$ di sottoinsiemi chiusi di $X$ che ha la proprietà dell'intersezione finita, ovvero $F_1 \cap \dots \cap F_n \neq \emptyset$ per ogni $F_1, \dots, F_n \in \mathcal{F}$, abbia intersezione non vuota, ovvero $\bigcap_{F \in \mathcal{F}} F \neq \emptyset$.
 \end{prop}
 \begin{proof}
@@ -1575,7 +1577,7 @@ ovvero $\mathcal{F}$ ha intersezione nulla, pertanto non ha la proprietà dell'i
 \end{align}
 ovvero $A_1 \cup \dots \cup A_m = X$, pertanto $\mathcal{A}$ ammette un sottoricoprimento finito, quindi $X$ è compatto.
 \end{proof}
-\begin{thm}[di Tichonov]
+\begin{thm}[di Tichonov]\label{Tichonov}
 il prodotto topologico di una qualsiasi famiglia di spazi compatti è compatto.
 \end{thm}
 \begin{proof}
@@ -1616,7 +1618,7 @@ Consideriamo una famiglia qualsiasi $\mathcal{B}$ di sottoinsiemi di $X$ con la 
 \begin{align}
     \bigcap_{B \in \mathcal{B}} \overline{B} \neq \emptyset \notag
 \end{align}
-da ciò seguirà la compattezza dalla \textit{proposizione 1.5.5}. \\
+da ciò seguirà la compattezza dalla \cref{CompactSubbase}. \\
 Consideriamo la classe $\mathcal{I}$ di tutte le famiglie di sottoinsiemi di $X$ che hanno la proprietà dell'intersezione finita. $\mathcal{I}$ è \textit{parzialmente ordinata} rispetto all'inclusione, ovvero
 \begin{align}
     \mathcal{B} \subseteq \mathcal{B} \text{ per ogni } \mathcal{B} \in \mathcal{I} \notag \\
@@ -1662,17 +1664,17 @@ Segue che
 \end{align}
 dalla $(b)$ segue che $p_\mu^{-1}(U_\mu) \in \mathcal{B}$ per ogni $\mu \in M$. Dalla $(a)$ segue che ogni intersezione $U^*$ di una numero finito di insiemi $p_\mu^{-1}(U_\mu)$, con $\mu \in M$, appartiene a $\mathcal{B}$. Inoltre, dato che $x \in p_\mu^{-1}(U_\mu)$ per ogni $\mu \in M$, si ha che $U^*$ forma un sistema fonda
 mentale di intorni di $x$ che interseca ogni $B \in \mathcal{B}$. Di conseguenza ogni intorno di $x$ interseca ogni $B \in \mathcal{B}$, segue che $x \in \overline{B}$ per ogni $B \in \mathcal{B}$.\end{proof}
-\begin{cor}
+\begin{cor}\label{CompactRn}
 un sottoinsieme $K$ di $\mathbb{R}^n$ è compatto se e solo se è chiuso e limitato.
 \end{cor}
 \begin{proof}
 sia $K$ compatto, poiché $\mathbb{R}^n$ è di Hausdorff, si ha che $K$ è chiuso, inoltre è limitato poiché altrimenti la famiglia dei dischi aperti centrati nell'origine di raggio crescente sarebbe un ricoprimento aperto che non ammette un sottoricoprimento finito. \\ \\
-Sia $K$ chiuso e limitato, allora $K \subset \mathbf{I}_1 \times \dots \times \mathbf{I}_1$ ($n$ copie di $\mathbf{I}_1$) che è compatto per il \textit{teorema di Tichonov}, inoltre $K$ è chiuso in $\mathbf{I}_1 \times \dots \times \mathbf{I}_1$ poiché è chiuso in $\mathbb{R}^n$, pertanto $K$ è un sottoinsieme chiuso di uno spazio compatto, segue che $K$ è compatto.
+Sia $K$ chiuso e limitato, allora $K \subset \mathbf{I}_1 \times \dots \times \mathbf{I}_1$ ($n$ copie di $\mathbf{I}_1$) che è compatto per il \cref{Tichonov}, inoltre $K$ è chiuso in $\mathbf{I}_1 \times \dots \times \mathbf{I}_1$ poiché è chiuso in $\mathbb{R}^n$, pertanto $K$ è un sottoinsieme chiuso di uno spazio compatto, segue che $K$ è compatto.
 \end{proof}
 
 \section{Complementi}
-\textbf{1.} Dal \textit{corollario 1.5.1} segue che gli unici intervalli compatti di $\mathbb{R}$ sono gli intervalli chiusi e limitati. Inoltre due intervalli chiusi e limitati qualsiasi sono omeomorfi, pertanto, poiché la compattezza è una proprietà topologica, si ha che se $\mathbf{J}_1, \mathbf{J}_2 \subset \mathbb{R}$ sono intervalli omeomorfi e $\mathbf{J}_1$ è compatto, anche $\mathbf{J}_2$ è compatto. \\ \\
-\textbf{2.} Dal \textit{corollario 1.5.3} segue che $D_r(\mathbf{x})$, $\mathbf{x} \in \mathbb{R}^n$, non è compatto poiché è aperto. Un ricoprimento aperto che non ammette sottoricoprimento finito è
+\textbf{1.} Dal \cref{CompactR} segue che gli unici intervalli compatti di $\mathbb{R}$ sono gli intervalli chiusi e limitati. Inoltre due intervalli chiusi e limitati qualsiasi sono omeomorfi, pertanto, poiché la compattezza è una proprietà topologica, si ha che se $\mathbf{J}_1, \mathbf{J}_2 \subset \mathbb{R}$ sono intervalli omeomorfi e $\mathbf{J}_1$ è compatto, anche $\mathbf{J}_2$ è compatto. \\ \\
+\textbf{2.} Dal \cref{CompactRn} segue che $D_r(\mathbf{x})$, $\mathbf{x} \in \mathbb{R}^n$, non è compatto poiché è aperto. Un ricoprimento aperto che non ammette sottoricoprimento finito è
 \begin{align}
     \{ D_\rho (\mathbf{x}) : 0 < \rho < r \} \notag
 \end{align}
@@ -1682,7 +1684,7 @@ Il \textit{toro} $n$-dimensionale
 \begin{align}
     \mathbf{T}^n = \mathbf{S}^1 \times \dots \times \mathbf{S}^1 \notag
 \end{align}
-è compatto per il \textit{teorema di Tichonov}. \\ \\
+è compatto per il \cref{Tichonov}. \\ \\
 \textbf{4.} Il gruppo ortogonale $\mathbf{O}_n(\mathbb{R})$ è compatto. Infatti la condizione che definisce le matrici $A = (a_{ij}) \in \mathbf{O}_n(\mathbb{R}^n)$ è $AA^t = \mathbf{I}_n$, cioè:
 \begin{align}
     \sum_h a_{hi}a_{jh} = \delta_{ij}, \quad 1 \leq i, j \leq n \notag
@@ -1807,7 +1809,7 @@ non è compatto. Infatti per ogni $M \in \mathbb{R}$ esiste $n \in \mathbb{N}$ t
     |\det A^n| = a^n > M \notag
 \end{align}
 basta scegliere $n > \log_a M$, perciò $\det G$ non è limitato e per il teorema di Heine-Borel non è compatto. \\
-Tuttavia $\det : \mathbf{M}_n \longrightarrow \mathbb{R}$ è continua, dunque per la \textit{proposizione 1.5.3} si ha che $\det(G)$ è compatto, ma ciò è un assurdo. \\ \\
+Tuttavia $\det : \mathbf{M}_n \longrightarrow \mathbb{R}$ è continua, dunque per la \cref{ContImageCompact} si ha che $\det(G)$ è compatto, ma ciò è un assurdo. \\ \\
 Supponiamo ora che esiste $A \in G$ tale che $|\det A| < 1$, poiché per ipotesi $G$ è un gruppo si ha che $A^{-1} \in G$ e, conseguenza del teorema di Binet, $|\det A^{-1}| = \frac{1}{|\det A|} > 1$, pertanto, procedendo con un ragionamento analogo al precedente, si ottiene la tesi.
 \end{proof}
 \textbf{6.} Sia $X$ uno spazio topologico compatto, $U \subset X$ un aperto e
@@ -1843,7 +1845,7 @@ $(b)$ sia $X$ uno spazio localmente compatto di Hausdorff. Ogni punto $p \in X$ 
 $(a)$ sia $p \in C$, sia $K \subset X$ un intorno compatto di $p$, si ha che $K \cap C$ è un intorno di $p$ in $C$ ed è compatto. \\ \\
 $(b)$ Sia $p \in X$, per ipotesi $p$ possiede un intorno compatto $K \subset X$. Sia $U$ un aperto contenente $p$, si ha che $V := \mathring{K} \cap U$ è un aperto contenente $p$, inoltre $\overline{V} \subset \overline{K} = K$, ovvero $\overline{V}$ è un chiuso contenuto in insieme compatto $K$ di uno spazio di Hausdorff e quindi $\overline{V}$ è compatto.
 \end{proof}
-\begin{prop}
+\begin{prop}\label{ExhaustionCompacts}
 sia $X$ uno spazio topologico localmente compatto che soddisfa il secondo assioma di numerabilità, allora $X$ è unione di una famiglia numerabile di sottoinsiemi compatti $\{K_i : i \in \mathbb{N}\}$ tale che $K_i \subset \mathring{K}_{i + 1}$ per ogni $i \in \mathbb{N}$.
 \end{prop}
 \begin{proof}
@@ -1864,7 +1866,7 @@ dove $J(i)$ è un sottoinsieme di $\mathbb{N}$ tale che
     K_i \subset \bigcup_{j \in J(i)}\mathring{H}_j \notag
 \end{align}
 La famiglia di sottoinsiemi compatti $\{K_i\}$ soddisfa le proprietà ricercate. \\ \\
-L'esistenza di una famiglia di compatti con le proprietà enunciate nella \textit{proposizione 1.6.2} si può dimostrare direttamente nel caso $X = \mathbb{R}^n$, o più generale nel caso $X = S \subset \mathbb{R}^n$, con $S$ aperto o chiuso. Infatti se $X$ è chiuso basta prendere
+L'esistenza di una famiglia di compatti con le proprietà enunciate nella \cref{ExhaustionCompacts} si può dimostrare direttamente nel caso $X = \mathbb{R}^n$, o più generale nel caso $X = S \subset \mathbb{R}^n$, con $S$ aperto o chiuso. Infatti se $X$ è chiuso basta prendere
 \begin{align}
     K_i = X \cap \overline{D}_i(p) \notag
 \end{align}
@@ -1890,7 +1892,7 @@ ogni spazio $X$ compatto è anche paracompatto, infatti se $X$ è compatto ogni 
 sia $X$ uno spazio topologico localmente compatto di Hausdorff che soddisfa il secondo assioma di numerabilità. Allora ogni ricoprimento aperto $\mathcal{U}$ di $X$ possiede un raffinamento $\mathcal{V}$ localmente finito costituito al più da un'infinità numerabile di aperti. In particolare $X$ è paracompatto.
 \end{prop}
 \begin{proof} 
-sia $\mathcal{U}$ un ricoprimento aperto di $X$, per la \textit{proposizione 1.6.2} $X$ è unione di una famiglia numerabile $\{K_i\}_{i \in I}$ di insiemi compatti tali che $K_i \subset \mathring{K}_{i + 1}$. Per ogni $i \in I$ la famiglia 
+sia $\mathcal{U}$ un ricoprimento aperto di $X$, per la \cref{ExhaustionCompacts} $X$ è unione di una famiglia numerabile $\{K_i\}_{i \in I}$ di insiemi compatti tali che $K_i \subset \mathring{K}_{i + 1}$. Per ogni $i \in I$ la famiglia 
 \begin{align}
     \mathcal{V}_i = \{[\mathring{K}_{i + 2} \setminus K_{i - 1}] \cap U : U \in \mathcal{U}\} \notag
 \end{align}
@@ -1914,11 +1916,11 @@ ogni aperto o chiuso di $\mathbb{R}^n$ è paracompatto, ogni varietà topologica
 \begin{defn}
 uno spazio topologico $X$ è detto \textit{numerabilmente compatto} se ogni sottoinsieme infinito $Z \subset X$ possiede un punto di accumulazione. Uno spazio topologico $X$ è detto \textit{compatto per successioni} se ogni successione di punti in $X$ ammette una sottosuccessione convergente in $X$.
 \end{defn}
-Ogni spazio compatto per successioni è anche numerabilmente compatto, inoltre per la \textit{proposizione 1.5.2} ogni spazio compatto è anche numerabilmente compatto.
+Ogni spazio compatto per successioni è anche numerabilmente compatto, inoltre per la \cref{InfSubsetAccPt} ogni spazio compatto è anche numerabilmente compatto.
 \begin{defn}
 sia $X$ uno spazio metrizzabile e sia $\mathcal{U}$ un ricoprimento aperto di $X$. Se esiste $\varepsilon > 0$ tale che il ricoprimento aperto costituito dai dischi aperti di raggio $\varepsilon$ è un raffinamento di $\mathcal{U}$, $\varepsilon$ è detto numero di Lebesgue del ricoprimento $\mathcal{U}$.
 \end{defn}
-\begin{prop}
+\begin{prop}\label{LebesgueNumber}
 sia $X$ uno spazio metrizzabile compatto per successioni, allora ogni ricoprimento aperto $\mathcal{U}$ di $X$ ammette numero di Lebesgue.
 \end{prop}
 \begin{proof}
@@ -1948,15 +1950,15 @@ per ogni $n > N$, quindi $\varepsilon(x_n) \geq \frac{1}{4}\varepsilon(x_0)$ per
 \end{align}
 pertanto si ottiene un assurdo.
 \end{proof}
-\begin{thm}
+\begin{thm}\label{CompactSeqCompactMetric}
 sia $X$ uno spazio metrizzabile, allora le seguenti sono equivalenti: \\
 \textbf{1.} $X$ è compatto. \\
 \textbf{2.} $X$ è numerabilmente compatto. \\
 \textbf{3.} $X$ è compatto per successioni.
 \begin{proof}
-$(1 \rightarrow 2)$ segue dalla \textit{proposizione 1.5.2}. \\ \\
-$(2 \rightarrow 3)$ Poiché $X$ è uno spazio metrizzabile è anche $T_1$ e soddisfa il primo assioma di numerabilità, pertanto per la \textit{proposizione 1.2.7} ogni successione che ha un punto di accumulazione ammette una sottosuccessione convergente, segue che $X$ è compatto per successioni. \\ \\
-$(3 \rightarrow 1)$ Sia $\mathcal{U}$ un ricoprimento aperto di $X$, per la \textit{proposizione 1.6.4} $\mathcal{U}$ ammette un numero di Lebesgue $\varepsilon > 0$ tale che la famiglia $\mathcal{V}_\varepsilon$ dei dischi aperti di raggio $\varepsilon$ è un raffinamento di $\mathcal{U}$. Supponiamo per assurdo che $\mathcal{U}$ non ammetta sottoricoprimento finito, allora neanche $\mathcal{V}_\varepsilon$ ammette sottoricoprimento finito. Sia $x_1 \in X$, allora esiste $x_2 \in X$ tale che $x_2 \not\in D_\varepsilon(x_1)$. Analogamente, dato che $\{D_\varepsilon(x_1), D_\varepsilon(x_2)\}$ non è un ricoprimento, esiste $x_3 \in X$ tale che $x_3 \not\in D_\varepsilon(x_2) \cup D_\varepsilon(x_1)$. Ragionando per induzione, esiste $x_k \in X$ tale che
+$(1 \rightarrow 2)$ segue dalla \cref{InfSubsetAccPt}. \\ \\
+$(2 \rightarrow 3)$ Poiché $X$ è uno spazio metrizzabile è anche $T_1$ e soddisfa il primo assioma di numerabilità, pertanto per la \cref{SeqAccPtT1} ogni successione che ha un punto di accumulazione ammette una sottosuccessione convergente, segue che $X$ è compatto per successioni. \\ \\
+$(3 \rightarrow 1)$ Sia $\mathcal{U}$ un ricoprimento aperto di $X$, per la \cref{LebesgueNumber} $\mathcal{U}$ ammette un numero di Lebesgue $\varepsilon > 0$ tale che la famiglia $\mathcal{V}_\varepsilon$ dei dischi aperti di raggio $\varepsilon$ è un raffinamento di $\mathcal{U}$. Supponiamo per assurdo che $\mathcal{U}$ non ammetta sottoricoprimento finito, allora neanche $\mathcal{V}_\varepsilon$ ammette sottoricoprimento finito. Sia $x_1 \in X$, allora esiste $x_2 \in X$ tale che $x_2 \not\in D_\varepsilon(x_1)$. Analogamente, dato che $\{D_\varepsilon(x_1), D_\varepsilon(x_2)\}$ non è un ricoprimento, esiste $x_3 \in X$ tale che $x_3 \not\in D_\varepsilon(x_2) \cup D_\varepsilon(x_1)$. Ragionando per induzione, esiste $x_k \in X$ tale che
 \begin{align}
     x_k \not\in \bigcup_{i = 1}^{k - 1}D_\varepsilon(x_k) \notag
 \end{align}
@@ -1987,12 +1989,12 @@ Ovviamente ogni spazio metrico totalmente limitato è anche limitato dato che l'
 uno spazio metrico è compatto se e solo se è completo e totalmente limitato.
 \end{thm}
 \begin{proof}
-$(\rightarrow)$ sia $(X, d)$ uno spazio metrico compatto. Per il \textit{teorema 1.6.1} $(X, d)$ è compatto per successioni, pertanto ogni successione in $X$ ammette una sottosuccessione convergente ad un opportuno punto di $X$. Sia $\{x_n\}_{n \in \mathbb{N}}$ una successione di Cauchy in $X$. $\{x_n\}_{n \in \mathbb{N}}$ ammette una sottosuccessione $\{x_{\nu(k)}\}_{k \in \mathbb{N}}$ convergente ad un opportuno $x \in X$. Fissato $k$ abbastanza grande segue che 
+$(\rightarrow)$ sia $(X, d)$ uno spazio metrico compatto. Per il \cref{CompactSeqCompactMetric} $(X, d)$ è compatto per successioni, pertanto ogni successione in $X$ ammette una sottosuccessione convergente ad un opportuno punto di $X$. Sia $\{x_n\}_{n \in \mathbb{N}}$ una successione di Cauchy in $X$. $\{x_n\}_{n \in \mathbb{N}}$ ammette una sottosuccessione $\{x_{\nu(k)}\}_{k \in \mathbb{N}}$ convergente ad un opportuno $x \in X$. Fissato $k$ abbastanza grande segue che 
 \begin{align}
     d(x_n, x) \leq d(x_n, x_{\nu(k)}) + d(x_{\nu(k)}, x) < 2\varepsilon \notag
 \end{align}
 per ogni $n > N_\varepsilon$ (per ipotesi di Cauchy), ovvero $\{x_n\}_{n \in \mathbb{N}}$ converge a $x$, pertanto $(X, d)$ è completo. Inoltre $X$ è totalmente limitato, infatti ogni ricoprimento aperto ammette sottoricoprimento finito, in particolare anche il ricoprimento aperto costituito dai dischi di raggio $\varepsilon$ per ogni $\varepsilon > 0$. \\ \\
-$(\leftarrow)$ Sia $(X, d)$ completo e totalmente limitato. Dimostriamo che $X$ è compatto per successioni e dal \textit{teorema 1.6.1} seguirà la tesi. Sia $\{x_n\}_{n \in \mathbb{N}}$ una successione di punti in $X$. Se $\{x_n\}_{n \in \mathbb{N}}$ ha un numero finito di punti distinti esiste certamente una sottosuccessione convergente. Supponiamo allora che $\{x_n\}_{n \in \mathbb{N}}$ abbia un numero infinito di punti distinti e costruiamo per induzione una sottosuccessione convergente. Per ogni $k \in \mathbb{N}$ consideriamo un ricoprimento chiuso di $X$ composto da un numero finito di dischi di raggio $\frac{1}{2^k}$. Sia $k = 1$, per ipotesi uno dei dischi contiene un numero infinito di termini della successione, chiamiamo $D_1$ tale disco ed indichiamo con $I_1$ l'insieme (infinito) degli indici che identificano i termini della successione contenuti in $D_1$. Sia $k = 2$, poiché $\{x_n\}_{n \in I_1}$ ha sempre infiniti termini distinti esiste un disco, che chiamiamo $D_2$, che contiene un numero infinito di termini della successione ed indichiamo con $I_2$ l'insieme degli indici che li identificano, ovviamente si ha $I_2 \subset I_1$. Per ogni $k \geq 2$ possiamo costruire induttivamente $I_k$ in modo analogo. Costruiamo una sottosuccessione $\{x_{n_k}\}_{k \in \mathbb{N}}$ con $n_1 < n_2 < \dots$ tale che $n_k \in I_k$ per ogni $k \in \mathbb{N}$. Allora per ogni $i, j > k$ si ha 
+$(\leftarrow)$ Sia $(X, d)$ completo e totalmente limitato. Dimostriamo che $X$ è compatto per successioni e dal \cref{CompactSeqCompactMetric} seguirà la tesi. Sia $\{x_n\}_{n \in \mathbb{N}}$ una successione di punti in $X$. Se $\{x_n\}_{n \in \mathbb{N}}$ ha un numero finito di punti distinti esiste certamente una sottosuccessione convergente. Supponiamo allora che $\{x_n\}_{n \in \mathbb{N}}$ abbia un numero infinito di punti distinti e costruiamo per induzione una sottosuccessione convergente. Per ogni $k \in \mathbb{N}$ consideriamo un ricoprimento chiuso di $X$ composto da un numero finito di dischi di raggio $\frac{1}{2^k}$. Sia $k = 1$, per ipotesi uno dei dischi contiene un numero infinito di termini della successione, chiamiamo $D_1$ tale disco ed indichiamo con $I_1$ l'insieme (infinito) degli indici che identificano i termini della successione contenuti in $D_1$. Sia $k = 2$, poiché $\{x_n\}_{n \in I_1}$ ha sempre infiniti termini distinti esiste un disco, che chiamiamo $D_2$, che contiene un numero infinito di termini della successione ed indichiamo con $I_2$ l'insieme degli indici che li identificano, ovviamente si ha $I_2 \subset I_1$. Per ogni $k \geq 2$ possiamo costruire induttivamente $I_k$ in modo analogo. Costruiamo una sottosuccessione $\{x_{n_k}\}_{k \in \mathbb{N}}$ con $n_1 < n_2 < \dots$ tale che $n_k \in I_k$ per ogni $k \in \mathbb{N}$. Allora per ogni $i, j > k$ si ha 
 \begin{align}
     d(x_{n_i}, x_{n_j}) < \frac{1}{2^{k - 1}} \notag
 \end{align}
@@ -2193,7 +2195,7 @@ Notiamo subito che $\mathbf{SO}_n(\mathbb{R}) \leq \mathbf{O}_n(\mathbb{R})$. \\
 \end{defn}
 \begin{defn} $f : \mathbb{R}^n \longrightarrow \mathbb{R}^n$ si dice \textit{isometria} se $\| x - y \| = \| f(x) - f(y) \|$ per ogni $x, y \in \mathbb{R}^n$. \\ \\
 \end{defn}
-\begin{thm} sia $B \in \mathbf{O}_n(\mathbb{R})$ e sia $f$ un'isometria tale che $f(0) = 0$ (fissa l'origine). Allora: \\
+\begin{thm}\label{IsomFixOrigin} sia $B \in \mathbf{O}_n(\mathbb{R})$ e sia $f$ un'isometria tale che $f(0) = 0$ (fissa l'origine). Allora: \\
 \textbf{1.} $x \hookrightarrow xB$ è un'isometria. \\
 \textbf{2.} esiste $A \in \mathbf{O}_n(\mathbb{R})$ tale che $f(x) = xA$ per ogni $x \in \mathbb{R}^n$. \\
 
@@ -2243,7 +2245,7 @@ ovvero $g(x) = x$ per ogni $x \in \mathbb{R}^n$, dunque $g = \mathbf{I}_n$. \end
 Notiamo che gli elementi di $\mathbf{SO}_3(\mathbb{R})$ sono le isometrie che fissano l'origine e mandano la base canonica di $\mathbb{R}^3$ in una base destra. \\ \\
 Poniamo $Isom(\mathbb{R}^n) := \{ f : \mathbb{R}^n \longrightarrow \mathbb{R}^n : f \text{ isometria} \}$. \\ \\
 Osserviamo che $Isom(\mathbb{R}^n)$ è un gruppo rispetto alla composizione di funzioni. Inoltre $\mathbf{O}_(\mathbb{R}) \leq Isom(\mathbb{R}^n)$, infatti il gruppo ortogonale è composto dalle isometrie che fissano l'origine.  \\
-Tuttavia ponendo $v := f(0)$ si ha che $g(x) := f(x) - v$ è un isometria che fissa l'origine per ogni isometria $f$, pertanto, per il \textit{teorema 2.2.2} esiste $A \in \mathbf{O}_n(\mathbb{R})$ tale che $g(x) = xA$ per ogni $x \in \mathbb{R}^n$, cioè $f(x) = xA + v$. \\
+Tuttavia ponendo $v := f(0)$ si ha che $g(x) := f(x) - v$ è un isometria che fissa l'origine per ogni isometria $f$, pertanto, per il \cref{IsomFixOrigin} esiste $A \in \mathbf{O}_n(\mathbb{R})$ tale che $g(x) = xA$ per ogni $x \in \mathbb{R}^n$, cioè $f(x) = xA + v$. \\
 Pertanto, aggiungendo una dimesione, si ottiene
 \begin{align}
     (f(x), 1) = (x, 1) \begin{pmatrix}
@@ -2252,7 +2254,7 @@ Pertanto, aggiungendo una dimesione, si ottiene
     \end{pmatrix}
     = (xA + v, 1) \notag
 \end{align} \\ \\
-\begin{thm} sia $A \in \mathbf{SO}_3(\mathbb{R})$. Allora esiste une retta $r$ passante per l'origine tale che $x \hookrightarrow xA$ è una rotazione attorno a $r$. \\
+\begin{thm}\label{SOThreeRotations} sia $A \in \mathbf{SO}_3(\mathbb{R})$. Allora esiste une retta $r$ passante per l'origine tale che $x \hookrightarrow xA$ è una rotazione attorno a $r$. \\
 
 \begin{proof} siano $\lambda_1, \lambda_2, \lambda_3 \in \mathbb{C}$ gli autovalori di $A$, mostriamo che almeno uno di loro è uguale a $1$. Poiché $A$ è a coefficienti reali almeno uno degli autovalori è reale, supponiamo, per fissare le idee, che $\lambda_1 \in \mathbb{R}$. \\
 Notiamo che se $\lambda_1 \in \mathbb{R}$ si ha $|\lambda_1| = 1$ perché si conservano le distanze e i moduli. Infatti, sia $v_1 \in \mathbb{R}^3 \setminus \{ 0 \}$ autovettore corrispondente all'autovalore $\lambda_1$, si ha che
@@ -2344,7 +2346,7 @@ Inoltre $Symm^+(cubo) \cong S_4$, $Symm^+(tetraedro) \cong A_4$ e $Symm^+(icosae
 \end{thm}
 Dato $X \subset \mathbb{R}^3$ scriviamo un algoritmo per calcolare $Symm^+(X)$. \\ \\
 \textbf{1.} Posizioniamo $X$ in modo tale che il baricentro corrisponda con l'origine degli assi. Perciò se $f \in Symm^+(X)$ si ha $f(0) = 0$, ovvero $Symm^+(X) \leq \mathbf{SO}_3(\mathbb{R})$. \\ \\
-\textbf{2.} Per il \textit{teorema 2.2.3} si ha che gli elementi di $\mathbf{SO}_3(\mathbb{R})$ sono rotazioni attorno ad una retta $r$ passante per l'origine. Pertanto gli elementi di $Symm^+(X)$ sono rotazioni attorno a qualche retta $r$ passante per l'origine $\underline{0}$ che mandano $X$ in $X$. \\ \\
+\textbf{2.} Per il \cref{SOThreeRotations} si ha che gli elementi di $\mathbf{SO}_3(\mathbb{R})$ sono rotazioni attorno ad una retta $r$ passante per l'origine. Pertanto gli elementi di $Symm^+(X)$ sono rotazioni attorno a qualche retta $r$ passante per l'origine $\underline{0}$ che mandano $X$ in $X$. \\ \\
 \textbf{3.} Determinare quante coppie $(\hat{u}, \theta) \in \mathbf{S}^2 \times \mathbf{S}^1$ ci sono tali che una rotazione di $\theta$ attorno a $\hat{u}$ manda $X$ in $X$. \\ \\
 \textbf{4.} Se le coppie sono infinite si ha che $Symm^+(X)$ è un gruppo di matrici. L'analisi in questo caso viene omessa poiché complessa. \\ \\
 \textbf{5.} Se le coppie sono finite, determinare il numero $n$ di coppie tali che $\theta \neq 0$ e dividerlo per due (infatti una rotazione di $\theta$ attorno a $\hat{u}$ è identica ad una rotazione di $2\pi - \theta$ attorno a $-\hat{u}$). \\ \\
@@ -2392,7 +2394,7 @@ quindi si ottiene
 \begin{align}
     \sum_{h, i} a^2_{ih} = n \notag
 \end{align}
-cioè $\mathbf{O}_n(\mathbb{R}) \subset \overline{D_{\sqrt{n}}(0)}$, allora $\mathbf{O}_n(\mathbb{R})$ è un sottoinsieme chiuso e limitato di $\mathbb{R}^{n^2}$ e per il \textit{corollario 1.5.3} è compatto. Inoltre $\mathbf{SO}_n(\mathbb{R})$ è un sottoinsieme chiuso di un insieme compatto e pertanto compatto. \end{proof}
+cioè $\mathbf{O}_n(\mathbb{R}) \subset \overline{D_{\sqrt{n}}(0)}$, allora $\mathbf{O}_n(\mathbb{R})$ è un sottoinsieme chiuso e limitato di $\mathbb{R}^{n^2}$ e per il \cref{CompactRn} è compatto. Inoltre $\mathbf{SO}_n(\mathbb{R})$ è un sottoinsieme chiuso di un insieme compatto e pertanto compatto. \end{proof}
 
 \section{Esercizi}
 \textbf{1.} Dimostrare se $\mathbf{O}_n(\mathbb{R}) \leq \mathbf{O}_{n + 1}(\mathbb{R})$, cioè se esiste $S \leq \mathbf{O}_{n + 1}(\mathbb{R})$ tale che $\mathbf{O}_n(\mathbb{R}) \cong S$. \\
@@ -2544,7 +2546,7 @@ per ogni $\rho > 0$ esiste $\widetilde{k} \in \mathbb{N}$ tale che
 \begin{align}
     \widetilde{k} > \rho \implies M(\widetilde{k}) \not\subset D_\rho(0) \notag
 \end{align}
-ovvero $\mathbf{GL}_n(\mathbb{R})$ non è limitato, pertanto per il \textit{teorema di Heine-Borel} non può essere compatto. \\ \\
+ovvero $\mathbf{GL}_n(\mathbb{R})$ non è limitato, pertanto per il \cref{HeineBorel} non può essere compatto. \\ \\
 \end{proof}
 \textbf{6.} Dimostrare se $\textbf{SL}_n(\mathbb{R})$ è compatto in $\mathbf{M}_n(\mathbb{R}$). \\
 
@@ -2570,7 +2572,7 @@ e si ha
 \begin{align}
     A(\widetilde{k}) \not\subset D_\rho(0) \notag
 \end{align}
-pertanto $\mathbf{SL}_n(\mathbb{R})$ non è limitato e dunque è compatto per il \textit{teorema di Heine-Borel}. \\ \\ \\
+pertanto $\mathbf{SL}_n(\mathbb{R})$ non è limitato e dunque è compatto per il \cref{HeineBorel}. \\ \\ \\
 \end{proof}
 \textbf{7.} Sia $G := \left\{ A \in \mathbf{M}_n(\mathbb{R}) : \det A \in \{ 2^k : k \in \mathbb{Z} \} \right\}$, dimostrare che $G$ è un gruppo di matrici. \\
 
@@ -2736,7 +2738,7 @@ Poniamo $\mathfrak{gl}_n(\mathbb{R}) = \mathfrak{g}(\mathbf{GL}_n(\mathbb{R}))$,
 per ogni $A \in \mathbf{M}_n(\mathbb{R})$. Chiaramente $\gamma$ è differenziabile poiché è un polinomio,  $\gamma(0) = \mathbf{I}_n$ e $\gamma'(0) = A$. \\
 Inoltre la funzione $\det$ è continua dunque, per il teorema della permanenza del segno, esiste $\varepsilon > 0$ tale che $\det \gamma(t) > 0$ per ogni $t \in (-\varepsilon, \varepsilon)$, pertanto la tesi segue e $\dim \mathbf{GL}_n(\\mathbb{R}) = n^2$. \end{proof}
 \end{prop}
-\begin{lemma} sia $\gamma : (-\varepsilon, \varepsilon) \longrightarrow \mathbf{M}_n(\mathbb{R})$ differenziabile tale che $\gamma(0) = \mathbf{I}_n$, si ha che
+\begin{lemma}\label{DetDerivTrace} sia $\gamma : (-\varepsilon, \varepsilon) \longrightarrow \mathbf{M}_n(\mathbb{R})$ differenziabile tale che $\gamma(0) = \mathbf{I}_n$, si ha che
 \begin{align}
     \frac{\mathrm{d}}{\mathrm{d}t} \det \gamma(t) |_{t = 0} = \mathrm{tr}(\gamma'(0)) \notag
 \end{align} \\
@@ -2774,7 +2776,7 @@ si ha che $\alpha$ è differenziabile (per teoremi generali sulle funzioni scala
     \frac{\mathrm{d}}{\mathrm{d}t} \left( \frac{\gamma_{1i}}{\det \gamma(t)} \right)|_{t = 0} = \left( \frac{\gamma'_{1i}(0) \det \gamma(0) - \gamma_{1i}(0) \frac{\mathrm{d}}{\mathrm{d}t} (\det \gamma(t))|_{t = 0}}{(\det \gamma(0))^2} \right) = \notag \\
     =  \gamma'_{1i}(0) - \gamma_{11}(0)\mathrm{tr}(A) = \gamma'_{1i}(0) \notag
 \end{align}
-per il \textit{lemma 2.4.1} e poiché, per ipotesi, $\mathrm{tr}(\gamma'(0)) = \mathrm{tr}(A) = 0$. Pertanto $\alpha'(0) = \gamma'(0)$ e quindi si ottiene la tesi. \\ \\
+per il \cref{DetDerivTrace} e poiché, per ipotesi, $\mathrm{tr}(\gamma'(0)) = \mathrm{tr}(A) = 0$. Pertanto $\alpha'(0) = \gamma'(0)$ e quindi si ottiene la tesi. \\ \\
 In particolare si ha che $\dim \mathbf{SO}_n(\mathbb{R}) = n^2 - 1$ poiché la condizione per appartenere all'algebra di Lie è $\mathrm{tr}(A) = 0$, pertanto è una condizione che influisce solamente sugli $n$ elementi della diagonale, in particolare $n - 1$ sono indipendenti mentre l'$n$-esimo è dipendente poiché deve soddisfare la condizione di traccia nulla, ovvero deve soddisfare la seguente equazione:
 \begin{align}
     \sum_{1 \leq i = j \leq n - 1} a_{ij} = - a_{nn} \notag
@@ -3143,12 +3145,13 @@ pertanto, poiché $V \cong (V^*)^*$ si ottiene
     \mathrm{Mult}(V \times \dots \times V \times V^* \times \dots \times V^*, \mathbb{K}) \cong (V \otimes \dots \otimes V \otimes V^* \otimes \dots \otimes V^*) \notag
 \end{align}
 ovvero un tensore è una funzione multilineare $t : V^{\otimes r} \otimes (V^*)^{\otimes s} \longrightarrow \mathbb{K}$. \\ \\
-\textbf{Corollario 3.3.1:} dalla \textit{proprietà universale del prodotto tensoriale} si ottiene: \\
+\begin{cor}\label{TensorIso} dalla \textit{proprietà universale del prodotto tensoriale} si ottiene: \\
 \textbf{1.} $V \otimes W \cong W \otimes V$. \\
 \textbf{2.} $(V \otimes W) \otimes U \cong V \otimes (W \otimes U)$. \\
 \textbf{3.} $V \otimes (W \oplus U) \cong (V \oplus W) \otimes U$. \\
-\textbf{4.} $V \otimes \mathbb{R} \cong V$. \\ \\
-\begin{prop} siano $V, W$ spazi vettoriali di dimensione finita, siano $\{ e_i : i = 1, \dots, n \}$ una base di $V$ e $\{ f_j : j = 1, \dots, m \}$ una base di $W$, si ha che
+\textbf{4.} $V \otimes \mathbb{R} \cong V$.
+\end{cor}
+\begin{prop}\label{TensorBasis} siano $V, W$ spazi vettoriali di dimensione finita, siano $\{ e_i : i = 1, \dots, n \}$ una base di $V$ e $\{ f_j : j = 1, \dots, m \}$ una base di $W$, si ha che
 \begin{align}
     \{ e_i \otimes f_j : i = 1, \dots, n; j = 1, \dots, m \} \notag
 \end{align}
@@ -3171,13 +3174,13 @@ genera $V \otimes W$. Inoltre
     V = \bigoplus_{i = 1}^n \mathbb{R} \notag \\
     W = \bigoplus_{j = 1}^m \mathbb{R} \notag
 \end{align}
-pertanto, per i punti $(3)$ e $(4)$ del \textit{corollario 3.3.1}
+pertanto, per i punti $(3)$ e $(4)$ del \cref{TensorIso}
 \begin{align}
     V \otimes W \cong \bigoplus_i \bigoplus_j (\mathbb{R} \otimes \mathbb{R}) \cong \bigoplus_i \bigoplus_j \mathbb{R} \notag
 \end{align}
 ovvero $\dim (V \otimes W) = n \cdot m$. \end{proof}
 \end{prop}
-Ragionando per induzione si può generalizzare la \textit{proposizione 3.3.1} al prodotto tensoriale di una famiglia finita di spazi vettoriali di dimensione finita.
+Ragionando per induzione si può generalizzare la \cref{TensorBasis} al prodotto tensoriale di una famiglia finita di spazi vettoriali di dimensione finita.
 
 \section{Esercizi}
 \textbf{1.} Sia $V$ uno spazio vettoriale, sia $W \leq V$, determinare $\ker (\pi)$. \\
@@ -3298,7 +3301,7 @@ si ha che $\{ e^i : i = 1, \dots, n \}$ è una base di $V^*$ ed è detta \textit
 \end{align}
 $p$ copie di $V$ e $q$ copie di $V^*$. \\ \\
 Un tensore di tipo $(p, 0)$ si dice \textit{controvariante} di grado $p$, un tensore di tipo $(0, q)$ si dice \textit{covariante} di grado $q$. Un tensore di tipo $(1, 0)$ si dice \textit{vettore}, un tensore di tipo $(0, 1)$ si dice \textit{covettore} (o \textit{vettore covariante}). \\ \\ 
-Sia $\{ e_i : i = 1, \dots, n \}$ una base di $V$ e sia $\{ e^i : i = 1, \dots, n \}$ la base duale, per la \textit{proposizione 3.3.1} si ha che esistono unici $a^{i_1, \dots, i_p}_{j_1, \dots, j_q}$ tali che
+Sia $\{ e_i : i = 1, \dots, n \}$ una base di $V$ e sia $\{ e^i : i = 1, \dots, n \}$ la base duale, per la \cref{TensorBasis} si ha che esistono unici $a^{i_1, \dots, i_p}_{j_1, \dots, j_q}$ tali che
 \begin{align}
     t = \sum_{1 \leq i_1, \dots, i_p \leq n} \sum_{1 \leq j_1, \dots, j_q \leq n} a^{i_1, \dots, i_p}_{j_1, \dots, j_q} e_{i_1} \otimes \dots \otimes e_{i_p} \otimes e^{j_1} \otimes \dots \otimes e^{j_q} \notag
 \end{align} \\ \\
@@ -3811,7 +3814,7 @@ Inoltre, $\omega^{(k)} \wedge \omega^{(l)}$ è antisimmetrico perché $\omega^{(
 \end{proof}
 \begin{thm} il prodotto esterno è anticommutativo, distributivo e associativo.
 \end{thm}
-\begin{proof} per la proposizione \ref{UniqueReprExtForm} sappiamo che $\omega^{(k)}$ e $\omega^{(l)}$ possono essere rappresentate come combinazione lineare dei monomi di base. Inoltre, per la proposizione \ref{Assoc&CommExtProd}, sappiamo che il prodotto di monomi è anticommutativo graduato. Pertanto, concludiamo che $\omega^{(k)} \wedge \omega^{(l)}$ può essere rappresentato come somma di prodotti di monomi, ognuno anticommutativo graduato. \\ \\
+\begin{proof} per la \cref{UniqueReprExtForm} sappiamo che $\omega^{(k)}$ e $\omega^{(l)}$ possono essere rappresentate come combinazione lineare dei monomi di base. Inoltre, per la \cref{Assoc&CommExtProd}, sappiamo che il prodotto di monomi è anticommutativo graduato. Pertanto, concludiamo che $\omega^{(k)} \wedge \omega^{(l)}$ può essere rappresentato come somma di prodotti di monomi, ognuno anticommutativo graduato. \\ \\
 La distributività si vede immediatamente notando che la mappa
 \begin{align}
     (\omega^{(k)}, \omega^{(l)}) \mapsto \omega^{(k)} \wedge \omega^{(l)} \notag
@@ -4105,7 +4108,7 @@ La composizione, moltiplicazione per scalare e prodotto esterno di $k$-forme dif
 dove $a_{i_1, \dots, i_k} : M \longrightarrow \mathbb{R}$ è differenziabile per ogni $i_1 < \dots <i_k$.
 \end{thm}
 
-\begin{proof} la dimostrazione è analoga a quella del teorema \ref{LocalCoordDiffForm}. Osserviamo che, per definizione, fissato $x \in M$, $\omega^{(k)}_x$ è una $k$-forma esterna su $T_xM$, pertanto può essere scritta come combinazione lineare degli elementi della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Inoltre, dato che la dipendenza da $x$ deve essere differenziabile, si ottiene la tesi.
+\begin{proof} la dimostrazione è analoga a quella del \cref{LocalCoordDiffForm}. Osserviamo che, per definizione, fissato $x \in M$, $\omega^{(k)}_x$ è una $k$-forma esterna su $T_xM$, pertanto può essere scritta come combinazione lineare degli elementi della base $\{dx_{i_1} \wedge \dots \wedge dx_{i_k}\}_{i_1 < \dots < i_k}$. Inoltre, dato che la dipendenza da $x$ deve essere differenziabile, si ottiene la tesi.
 \end{proof}
 \begin{prop} l'insieme $\Omega^{(k)}(M)$ delle $k$-forme differenziali sulla varietà $M$ è uno spazio vettoriale (di dimensione infinita se $k \leq \dim M$).
 \end{prop}
