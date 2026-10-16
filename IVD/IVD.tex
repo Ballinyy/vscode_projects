@@ -1,0 +1,664 @@
+\documentclass[oneside, 11pt]{amsbook}
+\linespread{1.1}
+
+% -------------------------------------------------------------
+% PACCHETTI FONDAMENTALI
+% -------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[english, italian]{babel}
+\usepackage{amssymb, amsmath, amsfonts, amsthm, mathrsfs, amscd}
+\usepackage{cancel}
+\usepackage{tikz, tikz-cd}
+\usepackage{aliascnt}
+\usepackage{datetime}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{lipsum}
+\usepackage{cite}
+\usepackage{marginnote}
+\usepackage{epic}
+\usepackage[all]{xy}
+\usepackage{url}
+\usepackage[shortlabels]{enumitem}
+\usepackage{empheq}
+\usepackage{graphicx}
+\usepackage{nomencl}
+\usepackage{bm}
+
+% Synctex abilitato
+\synctex=1
+
+% hyperref va caricato quasi per ultimo, seguito da cleveref e showkeys
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{showkeys}
+
+% -------------------------------------------------------------
+% MACROS & OPERATORI
+% -------------------------------------------------------------
+\def\a{\alpha}
+\def\Id{\rm Id}
+
+\newcommand{\margem}[1]{\marginpar{{\scriptsize {#1}}}}
+\newcommand{\comment}[1]{}
+\renewcommand{\labelitemi}{$-$}   
+\newcommand{\set}[1]{{\left\{#1\right\}}}
+\newcommand{\pa}[1]{{\left(#1\right)}}
+\newcommand{\sq}[1]{{\left[#1\right]}}
+\newcommand{\gen}[1]{{\left\langle #1\right\rangle}}
+\newcommand{\abs}[1]{{\left|#1\right|}}
+\newcommand{\norm}[1]{{\left\|#1\right\|}}
+\newcommand{\res}[1]{\left.#1\right|} %restriction
+\newcommand{\normal}{\mathrm}
+
+% Insiemi e lettere calligrafiche (corrette le ricorsioni su A e C)
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+
+\newcommand{\qpsys}{(q,p)=(q_1,\ldots,q_n,p_1,\ldots,p_n)}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\teta}{\theta}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vp}{\varphi}
+\newcommand{\p}{\phi}
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Mat}{\operatorname{Mat}}
+\newcommand{\GL}{\operatorname{GL}}
+
+\newcommand{\mat}[1]{{\begin{matrix}#1\end{matrix}}}
+\newcommand{\pmat}[1]{{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\amat}[2]{{\begin{array}{#1}#2\end{array}}}
+\newcommand{\eqsys}[1]{{\left\{\begin{array}{ll}#1\end{array}\right.}}
+\newcommand{\conj}{h\circ R_{2\pi\alpha}\circ h^{-1}}
+\newcommand{\Ham}{\operatorname{Ham}}
+\newcommand{\h}{\operatorname{H}}
+\newcommand{\average}[1]{\int_{\T^n}#1}
+\newcommand{\media}[1]{\int_\T #1}
+\newcommand{\uh}{u^{\text{H}}} % Hamiltonian u
+\newcommand{\vh}{v^{\text{H}}} % Hamiltonian v 
+\newcommand{\Uh}{\mathcal{U}^{\operatorname{Ham}}}
+\newcommand{\Vh}{\mathcal{V}^{\operatorname{Ham}}}
+\newcommand{\Vhz}{\mathcal{V}^{\operatorname{Ham}}\oplus (-\eta r + \eta\Omega\,\base{r})}
+\newcommand{\Vhd}{\mathcal{V}^{\operatorname{Ham}}\oplus (-\eta (r + \Omega)\base{r})}
+\newcommand{\Uhd}{\mathcal{U}^{\operatorname{Ham}}\oplus (-\eta r\base{r})}
+\newcommand{\tensor}{\otimes}
+\newcommand{\inderiv}[1]{#1'^{-1}}    
+\newcommand{\pull}[1]{#1^\ast}
+\newcommand{\push}[1]{#1_\ast}
+\newcommand{\base}[1]{{\frac{\partial}{\partial{#1}}}}
+\newcommand{\elh}[1]{{\frac{\partial #1}{\partial q}-\frac{d}{dt}\frac{\partial #1}{\partial\dot{q}}}}
+\newcommand{\eli}[1]{{\frac{\partial #1}{\partial q_i}-\frac{d}{dt}\frac{\partial #1}{\partial\dot{q}_i}}}
+\newcommand{\ph}[1]{\frac{\partial H}{\partial #1}}
+\newcommand{\co}[1]{\textit{#1}}
+\newcommand{\gr}[1]{\textbf{#1}}
+\newcommand{\bla}[1]{\int_0^{{#1}}}
+\newcommand{\tl}[1]{\tilde{#1}}
+\newcommand{\blas}[1]{\int_{t_0}^{t_{#1}}}
+\newcommand{\upp}[1]{\uppercase{#1}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\heta}{{\eta}}
+
+% Widetilde
+\newcommand{\wtd}{{\widetilde{d}}}
+\newcommand{\wtg}{{\widetilde{g}}}
+\newcommand{\g}{\gamma}
+\newcommand{\wth}{{\widetilde{h}}}
+\newcommand{\wtp}{{\widetilde{p}}}
+\newcommand{\wtq}{{\widetilde{q}}}
+\newcommand{\wtr}{{\widetilde{r}}}
+\newcommand{\wts}{{\widetilde{s}}}
+\newcommand{\wtu}{{\widetilde{u}}}
+\newcommand{\wtx}{{\widetilde{x}}}
+\newcommand{\wtz}{{\widetilde{z}}}
+\newcommand{\wty}{{\widetilde{y}}}
+\newcommand{\wtw}{{\widetilde{w}}}
+\newcommand{\new}{{\small{\mathtt{ New}}}}
+\newcommand{\yy}{{\mathcal Y}}
+\newcommand{\s}{{\sigma}}
+\newcommand{\jj}{{\vec \jmath}}
+\newcommand{\ii}{{\vec \imath}}
+\newcommand{\li}{{\mathfrak h}}
+
+\newcommand{\wtH}{\widetilde{H}}
+\newcommand{\wtK}{\widetilde{K}}
+\newcommand{\wtL}{{\widetilde L}}
+\newcommand{\wtM}{\widetilde{M}}
+\newcommand{\wtN}{\widetilde{N}}
+\newcommand{\wtP}{\widetilde{P}}
+\newcommand{\wtQ}{\widetilde{Q}}
+\newcommand{\wtR}{\widetilde{R}}
+\newcommand{\wtS}{\widetilde{S}}
+\newcommand{\wtT}{\widetilde{T}}
+\newcommand{\wtU}{{\widetilde U}}
+\newcommand{\wtV}{\widetilde{V}}
+\newcommand{\wtX}{\widetilde{X}}
+\newcommand{\wtZ}{\widetilde{Z}}
+\def\wcK{\widetilde{\cK}}
+\def\wwcK{\widetilde{\widetilde{\cK}}}
+\def\norma#1{\left\|#1\right\|}
+\def\sleq{\preceq}
+\newcommand{\ccC}{{\mathscr{C}}}
+\newcommand{\ccL}{{\mathscr{L}}}
+\newcommand{\om}{{\omega}}
+
+\newcommand{\wt}[1]{{\widetilde{#1}}}
+\newcommand{\wtomega}{\widetilde{\omega}}
+\newcommand{\wtpi}{{\widetilde{pi}}}
+\newcommand{\wtnu}{{\widetilde{\nu}}}
+\newcommand{\wtiota}{{\widetilde{\iota}}}
+\newcommand{\wteta}{\ex{-s^j}\eta_{\ps}}
+\newcommand{\wtchi}{{\widetilde{\chi}}}
+\newcommand{\wttau}{{\widetilde{\tau}}}
+\newcommand{\wtvp}{{\widetilde{\varphi}}}
+\newcommand{\wtgamma}{{\widetilde{\gamma}}}
+\newcommand{\wtGamma}{\widetilde{\Gamma}}
+\newcommand{\wtlambda}{{\widetilde{\lambda}}}
+\newcommand{\wtLambda}{{\widetilde{\Lambda}}}
+\newcommand{\wtDelta}{{\widetilde{\Delta}}}
+\newcommand{\wtOmega}{{\widetilde{\Omega}}}
+\newcommand{\wtPsi}{{\widetilde{\Psi}}}
+\newcommand{\wtPhi}{{\widetilde{\Phi}}}
+\newcommand{\wtsigma}{{\widetilde{\sigma}}}
+\newcommand{\wtxi}{{\widetilde{\xi}}}
+\newcommand{\wtXi}{{\widetilde{\Xi}}}
+\newcommand{\wtcA}{{\widetilde{\mathcal A}}}
+\newcommand{\wtcB}{{\widetilde{\mathcal B}}}
+\newcommand{\wtcC}{{\widetilde{\mathcal C}}}
+\newcommand{\wtcD}{{\widetilde{\mathcal D}}}
+\newcommand{\wtcK}{{\widetilde{\mathcal K}}}
+\newcommand{\wtcH}{{\widetilde{\mathcal H}}}
+\newcommand{\wtcN}{{\widetilde{\mathcal N}}}
+\newcommand{\wtcP}{{\widetilde{\mathcal P}}}
+\newcommand{\wtcQ}{{\widetilde{\mathcal Q}}}
+\newcommand{\wtcR}{{\widetilde{\mathcal R}}}
+\newcommand{\wtcS}{{\widetilde{\mathcal S}}}
+\newcommand{\wtcT}{{\widetilde{\mathcal T}}}
+\newcommand{\wtcU}{{\widetilde{\mathcal U}}}
+\newcommand{\wU}{{\widetilde{\mathcal U}}}
+\newcommand{\wtcV}{{\widetilde{\mathcal V}}}
+\newcommand{\wtcZ}{{\widetilde{\mathcal Z}}}
+\newcommand{\wtfN}{\widetilde{\mathfrak{N}}}
+\newcommand{\wtfT}{\widetilde{\mathfrak{T}}}
+\newcommand{\wtfU}{\widetilde{\mathfrak{U}}}
+\newcommand{\wtfS}{\widetilde{\mathfrak{S}}}
+\newcommand{\wtcM}{\widetilde{\mathcal M}}
+\newcommand{\fro}{{\mathfrak{r}}}
+\newcommand{\dd}{{\mathfrak{d}}}
+
+% Widehat
+\newcommand{\whb}{{\widehat b}}
+\newcommand{\whd}{{\widehat d}}
+\newcommand{\whu}{{\widehat u}}
+\newcommand{\whF}{{\widehat F}}
+\newcommand{\whG}{{\widehat G}}
+\newcommand{\whK}{{\widehat K}}
+\newcommand{\whL}{{\widehat L}}
+\newcommand{\whN}{{\widehat N}}
+\newcommand{\whM}{{\widehat M}}
+\newcommand{\whP}{{\widehat P}}
+\newcommand{\whU}{{\widehat U}}
+\newcommand{\whV}{{\widehat V}}
+\newcommand{\whcD}{{\widehat{\mathcal D}}}
+\newcommand{\whcH}{{\widehat{\mathcal H}}}
+\newcommand{\whcR}{{\widehat{\mathcal R}}}
+\newcommand{\whcN}{{\widehat{\mathcal N}}}
+\newcommand{\whcP}{{\widehat{\mathcal P}}}
+\newcommand{\whcM}{{\widehat{\mathcal M}}}
+\newcommand{\whcT}{{\widehat{\mathcal T}}}
+\newcommand{\whcX}{{\widehat{\mathcal X}}}
+\newcommand{\whcZ}{{\widehat{\mathcal Z}}}
+\newcommand{\whXi}{{\widehat{\Xi}}}
+\newcommand{\wtwhXi}{\widetilde{\widehat{\Xi}}}
+\newcommand{\whOmega}{{\widehat \Omega}}
+
+% Overline
+\newcommand{\oA}{{\overline{A}}}
+\newcommand{\oU}{{\overline{U}}}
+\newcommand{\oV}{{\overline{V}}}
+\newcommand{\Om}{\Omega}
+
+% Blackboard & Calligraphic
+\newcommand{\D}{{\mathbb D}}
+\newcommand{\E}{{\mathbb E}}
+\newcommand{\F}{{\mathbb F}}
+\newcommand{\K}{{\mathbb K}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Q}{{\mathbb Q}}
+\renewcommand{\S}{{\mathbb S}}
+
+\newcommand{\cA}{{\mathcal A}}
+\newcommand{\cD}{{\mathcal D}}
+\newcommand{\cE}{{\mathcal E}}
+\newcommand{\cF}{{\mathcal F}}
+\newcommand{\cG}{{\mathcal G}}
+\newcommand{\cH}{{\mathcal H}}
+\newcommand{\cI}{{\mathcal I}}
+\newcommand{\cJ}{{\mathcal J}}
+\newcommand{\cK}{{\mathcal K}}
+\newcommand{\cL}{{\mathcal L}}
+\newcommand{\cM}{{\mathcal M}}
+\newcommand{\cN}{{\mathcal N}}
+\newcommand{\cO}{{\mathcal O}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\cQ}{{\mathcal Q}}
+\newcommand{\cR}{{\mathcal R}}
+\newcommand{\cS}{{\mathcal S}}
+\newcommand{\cT}{{\mathcal T}}
+\newcommand{\cU}{{\mathcal U}}
+\newcommand{\cV}{{\mathcal V}}
+\newcommand{\cW}{{\mathcal W}}
+\newcommand{\cX}{{\mathcal X}}
+\newcommand{\cY}{{\mathcal Y}}
+\newcommand{\cZ}{{\mathcal Z}}
+
+% Fraktur
+\newcommand{\fA}{{\mathfrak{A}}}
+\newcommand{\fa}{{\mathfrak{a}}}
+\newcommand{\fB}{{\mathfrak{B}}}
+\newcommand{\fb}{{\mathfrak{b}}}
+\newcommand{\fC}{{\mathfrak{C}}}
+\newcommand{\fD}{{\mathfrak{D}}}
+\newcommand{\fg}{\mathfrak{g}}
+\newcommand{\fG}{\mathfrak{G}}
+\newcommand{\fH}{\mathfrak{H}}
+\newcommand{\fh}{{\mathfrak{h}}}
+\newcommand{\fk}{{\mathfrak{k}}}
+\newcommand{\fK}{{\mathfrak{K}}}
+\newcommand{\fl}{{\mathfrak{l}}}
+\newcommand{\fm}{{\mathfrak{m}}}
+\newcommand{\fL}{{\mathfrak{L}}}
+\newcommand{\fM}{{\mathfrak{M}}}
+\newcommand{\fN}{{\mathfrak{N}}}
+\newcommand{\fO}{{\mathfrak{O}}}
+\newcommand{\fP}{{\text{\gothfamily P}}}
+\newcommand{\fp}{{\mathfrak{p}}}
+\newcommand{\fQ}{{\text{\gothfamily Q}}}
+\newcommand{\fq}{{\mathfrak{q}}}
+\newcommand{\fR}{{\text{\gothfamily R}}}
+\newcommand{\fr}{{\mathfrak{r}}}
+\newcommand{\fS}{{\mathfrak{S}}}
+\newcommand{\fT}{{\mathfrak{T}}}
+\newcommand{\fU}{{\mathfrak{U}}}
+\newcommand{\fV}{{\mathfrak{V}}}
+\newcommand{\fX}{{\mathfrak{X}}}
+\newcommand{\fY}{{\mathfrak{Y}}}
+\newcommand{\fZ}{{\mathfrak{Z}}}
+
+% Teletype
+\newcommand{\ta}{{\mathtt{a}}}
+\newcommand{\tb}{{\mathtt{b}}}
+\newcommand{\tc}{{\mathtt{b}}}
+\newcommand{\td}{{\mathtt{d}}}
+\newcommand{\te}{{\mathtt{e}}}
+\newcommand{\tf}{{\mathtt{f}}}
+\newcommand{\tg}{{\mathtt{g}}}
+\newcommand{\ti}{{\mathtt{i}}}
+\newcommand{\tj}{{\mathtt{j}}}
+\newcommand{\tk}{{\mathtt{d}}}
+\newcommand{\tm}{{(\mathtt{m})}}
+\newcommand{\tn}{{\mathtt{n}}}
+\newcommand{\tA}{{\mathtt{A}}}
+\newcommand{\tB}{{\mathtt{B}}}
+\newcommand{\tC}{{\mathtt{C}}}
+\newcommand{\tD}{{\mathtt{D}}}
+\newcommand{\tE}{{\mathtt{E}}}
+\newcommand{\tF}{{\mathtt{F}}}
+\newcommand{\tG}{{\mathtt{G}}}
+\newcommand{\tH}{{\mathtt{H}}}
+\newcommand{\tK}{{\mathtt{K}}}
+\newcommand{\tI}{{\mathtt{I}}}
+\newcommand{\tL}{{\mathtt{L}}}
+\newcommand{\tM}{{(\mathtt{M})}}
+\newcommand{\tN}{{\mathtt{N}}}
+\newcommand{\tO}{{\mathtt{O}}}
+\newcommand{\Tan}{{\cS_0}}
+
+% Bold
+\newcommand{\ba}{{\bf a}}
+\newcommand{\bb}{{\bf b}}
+\newcommand{\bc}{{\bf c}}
+\newcommand{\be}{{\bf e}}
+\newcommand{\bi}{{\bf i}}
+\newcommand{\bj}{{\bf j}}
+\newcommand{\bk}{{\bf k}}
+\newcommand{\bn}{{\bf n}}
+\newcommand{\bu}{{\bf u}}
+\newcommand{\bw}{{\bf w}}
+\newcommand{\bv}{{\bf v}}
+\newcommand{\bz}{{\bf z}}
+\newcommand{\bN}{{\bf N}}
+\newcommand{\bM}{{\bf M}}
+
+\newcommand{\wccT}{{\widecheck{\cT}}}
+\newcommand{\oo}{{\omega}}
+\newcommand{\al}{{\alpha}}
+\newcommand{\bt}{{\beta}}
+
+% Differential operator & Sum
+\renewcommand{\d}{\partial}
+\newcommand{\dt}{\partial_t}
+\newcommand{\lap}{\Delta}
+\newcommand{\grad}{\nabla}
+\newcommand{\derx}{\partial_x}
+\newcommand{\derxx}{\partial_{xx}^2}
+\newcommand{\suma}{\sum_{\substack{\al,\bt\in \N^\Z\\ |\al|=|\bt|\\ \sum_j j(\al_j-\bt_j)=0}}}
+\newcommand{\w}[1]{\mathtt{w}_{#1}}
+\newcommand{\ww}[1]{\mathtt{w}_{#1}\times \mathtt{w}_{#1}}
+
+\newcommand{\0}{{(0)}}
+\newcommand{\3}{{(3)}}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+\newcommand{\im}{{\rm i}}
+\newcommand{\jap}[1]{\langle #1 \rangle}
+\newcommand{\und}[1]{\underline{#1}}
+\newcommand{\di}{{\rm d}}
+\newcommand{\e}{{\varepsilon}}
+\newcommand{\hh}{ h }
+
+\newcommand{\pix}{{\pi_x}}
+\newcommand{\piy}{{\pi_y}}
+\newcommand{\inv}{\partial_x^{-1}}
+\newcommand{\uno}{{\mathbb I}}
+\newcommand{\rdelta}{{\textcolor{red}{\delta}}}
+\newcommand{\meas}{{\rm meas}}
+\newcommand{\mix}{{\rm mix}}
+\newcommand{\hor}{{\rm hor}}
+\newcommand{\out}{{\rm out}}
+\newcommand{\diag}{{\rm diag}}
+\renewcommand{\line}{{\rm line}}
+\newcommand{\fin}{{\rm fin}}
+\newcommand{\Fjs}{{F^{(j,\s)}}}
+\newcommand{\Fjsab}{{F^{(j,\s)}_{\al,\bt}}}
+\newcommand{\bd}{{\vec{\bf 2}}}
+\newcommand{\kam}{{\eta}}
+\newcommand{\bnorm}[1]{{|\mkern-6mu |\mkern-6mu | \,  #1 \,  |\mkern-6mu |\mkern-6mu |}}
+
+\newcommand{\sQ}{{\mathscr{Q}}}
+\newcommand{\sH}{{\mathscr{H}}}
+\newcommand{\sD}{{\mathscr{D}}}
+\newcommand{\sR}{{\mathscr{R}}}
+\newcommand{\sS}{{\mathscr{S}}}
+\newcommand{\tw}{{\mathtt{w}}}
+\newcommand{\nnorm}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\coef}[1]{#1_{m,\alpha,\beta}}
+\newcommand{\coeffu}[1]{#1_{b^{1},\alpha^{1},\beta^{1}}}
+\newcommand{\coeffd}[1]{#1_{b^{2},\alpha^{2},\beta^{2}}}
+\newcommand{\bcoef}[1]{#1_{\alpha,\beta}}
+\newcommand{\bcoeffu}[1]{#1_{\alpha^{1},\beta^{1}}}
+\newcommand{\bcoeffd}[1]{#1_{\alpha^{2},\beta^{2}}}
+\newcommand{\buno}{b^{1}}
+\newcommand{\bdue}{b^{2}}
+\newcommand{\aluno}{\alpha^{1}}
+\newcommand{\aldue}{\alpha^{2}}
+\newcommand{\btuno}{\beta^{1}}
+\newcommand{\btdue}{\beta^{2}}
+\newcommand{\uu}{{u^\alpha}{\bar{u}^\beta}}
+\newcommand{\uuu}{u^{\aluno}\bar{u}^{\btuno}}
+\newcommand{\uud}{u^{\aldue}\bar{u}^{\btdue}}
+\newcommand{\buu}{{u^\bal}{\bar{u}^\bbt}}
+\newcommand{\buuu}{u^{\baluno}\bar{u}^{\bbtuno}}
+\newcommand{\buud}{u^{\baldue}\bar{u}^{\bbtdue}}
+\newcommand{\pon}{{{\Pi^{0,\mathcal{K}}}}}
+\newcommand{\por}{{\Pi^{0,\mathcal{R}}}}
+\newcommand{\pd}{{\Pi^{-2}}}
+\newcommand{\ono}[1]{#1^{0,\mathcal{N}}}
+\newcommand{\oro}[1]{#1^{0,\mathcal{R}}}
+\newcommand{\odo}[1]{#1^{-2}}
+\newcommand{\modi}[1]{\abs{u_{#1}}^2}
+\newcommand{\modu}{\abs{u}^2}
+\newcommand{\La}[1]{\Lambda^{\pa{#1}}}
+\newcommand{\es}{e^{\set{S,\cdot}}}
+\newcommand{\bal}{{\bm \al}}
+\newcommand{\bbt}{{\bm \bt}}
+\newcommand{\baluno}{\bal^{1}}
+\newcommand{\baldue}{\bal^{2}}
+\newcommand{\bbtuno}{\bbt^{1}}
+\newcommand{\bbtdue}{\bbt^{2}}
+\newcommand{\Heta}{\cH_{r,s, \eta}}
+\newcommand{\peseta}{e^{\eta\abs{\pi(\al - \bt)}}}
+\newcommand{\nore}[1]{\abs{#1}_{r,s,\eta}}
+\newcommand{\noreq}[1]{\abs{#1}_{r,s,\eta}^{(q,a,p,\dep)}}
+\newcommand{\Lnor}[1]{\abs{#1}^{\rm Lip}}
+\newcommand{\gnor}[1]{\abs{#1}^{\gamma}}
+\newcommand{\Dom}[1]{\sum_{#1} \omega_{#1} \pa{\abs{u_{#1}}^2 - I_{#1}}}
+\newcommand{\azioj}[1]{\pa{\abs{u_{#1}}^2 - I_{#1}}}
+\newcommand{\azio}{\pa{\abs{u}^2 - I}}
+\newcommand{\divisor}[1]{#1\cdot\pa{\bal - \bbt}}
+\newcommand{\zero}[1]{#1^{(0)}}
+\newcommand{\zeroR}[1]{#1^{(0,\cR)}}
+\newcommand{\zeroK}[1]{#1^{(0,\cK)}}
+\newcommand{\due}[1]{#1^{(-2)}}
+\newcommand{\buon}[1]{#1^{\ge 2}}
+\newcommand{\costa}{C e^{C(\teta,p){\pa{\frac{\sigma}{2}}}^{-3/\teta}}}
+\newcommand{\call}{\mathcal{L}}
+\newcommand{\esp}[2]{e^{\set{#1, #2}}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\hv}{\hat{v}}
+\newcommand{\hp}{\hat{\varphi}}
+\newcommand{\hu}{u^\eta}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\To}{\operatorname{T}_0}
+
+
+% -------------------------------------------------------------
+% SPAZIATURE, DUE PUNTI E TEOREMI IN ITALIANO
+% -------------------------------------------------------------
+\newtheoremstyle{colonplain}
+  {\bigskipamount}% Spazio sopra l'ambiente
+  {\bigskipamount}% Spazio sotto l'ambiente
+  {\itshape}% Testo corsivo
+  {}% Rientro
+  {\bfseries}% Intestazione grassetto
+  {:}% Segno di punteggiatura
+  { }% Spazio orizzontale
+  {}%
+
+\newtheoremstyle{colondefinition}
+  {\bigskipamount}%
+  {\bigskipamount}%
+  {\normalfont}%
+  {}%
+  {\bfseries}%
+  {:}%
+  { }%
+  {}%
+
+\newtheoremstyle{colonremark}
+  {\medskipamount}%
+  {\medskipamount}%
+  {\normalfont}%
+  {}%
+  {\itshape}%
+  {:}%
+  { }%
+  {}%
+
+\theoremstyle{colonplain}
+\newtheorem{thm}{Teorema}[chapter]
+\newtheorem{prop}[thm]{Proposizione}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollario}
+\newtheorem*{thm*}{Teorema}
+
+% Assegna esplicitamente i nomi per cleveref
+\crefname{lemma}{lemma}{lemmi}
+\Crefname{lemma}{Lemma}{Lemmi}
+
+\crefname{prop}{proposizione}{proposizioni}
+\Crefname{prop}{Proposizione}{Proposizioni}
+
+\crefname{cor}{corollario}{corollari}
+\Crefname{cor}{Corollario}{Corollari}
+
+\theoremstyle{colondefinition}
+\newtheorem{defn}[thm]{Definizione}
+\newtheorem{ex}[thm]{Esempio}
+\newtheorem{esercizio}[thm]{Esercizio}
+
+\theoremstyle{colonremark}
+\newtheorem{rmk}[thm]{Osservazione}
+\newtheorem*{rmk*}{Osservazione}
+
+\numberwithin{equation}{chapter}
+
+% Dimostrazione con "Dimostrazione:" in grassetto e spaziatura corretta
+\renewcommand{\proofname}{Dimostrazione}
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\bfseries #1:]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+\usepackage{showkeys}
+%%%%%%%%%%
+%
+\begin{document}
+\date{\today}
+\author{Alessandro Ballini}
+
+
+\title{IVD}
+
+\maketitle
+\tableofcontents
+
+\chapter{Varietà}
+\section{Varietà topologiche}
+\begin{defn}
+    uno spazio topologico $M$ è detto \co{varietà topologica} se soddisfa le seguenti: \\
+    \gr{1.} $M$ è di Hausdorff \\
+    \gr{2.} per ogni $p \in M$ esistono $U \subset M$ intorno aperto di $p$ e $\vp : U \mapsto \vp(U) \subset \R^n$ omeomorfismo, ovvero ogni punto possiede un intorno omeomorfo a $\R^n$, per qualche $n \in \mathbb{N}$. \\
+    \gr{3.} $M$ soddisfa il secondo assioma di numerabilità, ovvero possiede una base numerabile $\B$ della topologia. \\ \\
+    Una coppia $(U, \vp)$ come nel punto $(2)$ è detta \co{carta locale} di $M$. Ogni carta induce delle \co{coordinate locali} su $M$, infatti, dato $p \in M$, si ha
+    \begin{align}
+        \vp(p) = (x_1, \dots, x_n) = (x_1(p), \dots, x_n(p)) \in \R^n.
+    \end{align}
+    Quindi chiamiamo coordinate locali le mappe $x_i : U \longrightarrow \R$, $i = 1, \dots, n$ definite da
+    \begin{align}
+        x_i : p \in U \mapsto (\vp(p), e_i)
+    \end{align}
+    dove con $(e_i)_{1 \leq i \leq n}$ identifichiamo la base canonica di $\R^n$ e con $(\cdot, \cdot)$ il prodotto scalare euclideo in $\R^n$. \\ \\
+    Mentre $\vp^{-1} : \vp(U) \longrightarrow U$ è detta \co{parametrizzazione locale} di $M$.
+\end{defn}
+\begin{defn}
+    siano $k \geq 1$ e $M$ una varietà topologica, due carte locali $(U, \vp)$ e $(V, \psi)$ di $M$ sono dette $k$-\co{compatibili} se vale una delle seguenti: \\
+    \gr{1.} $U \cap V = \emptyset$. \\
+    \gr{2.} $U \cap V \neq \emptyset$ e $\psi \circ \vp^{-1} : \vp(U \cap V) \longrightarrow \psi(U \cap V)$ è un $\C^k$-diffeomorfismo.
+\end{defn}
+\begin{defn}
+    siano $k \geq 1$ e $M$ una varietà topologica, chiamiamo \co{atlante} $\C^k$-\co{differenziabile} una famiglia di carte locale $\A = \{(U_\alpha, \vp_\alpha)\}_{\alpha \in A}$ che sono a due a due $\C^k$-compatibili.
+\end{defn}
+\begin{defn}
+    siano $k \geq 1$ e $\A_1, \A_2$ atlanti $\C^k$-differenziabili di $M$. $\A_1, \A_2$ sono detti \co{equivalenti} se la loro unione è ancora un atlante $\C^k$-differenziabile di $M$. \\
+    Si può dimostrare che questa relazione è una relazione di equivalenza. 
+\end{defn}
+\begin{defn}
+    una \co{struttura} $\C^k$-\co{differenziabile} su $M$ è una classe di equivalenza di atlanti $\C^k$-differenziabili di $M$. \\
+    Fissata una struttura $\C^k$-differenziabile su $M$, chiamiamo $M$ \co{varietà} $\C^k$-differenziabile.
+\end{defn}
+Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe di regolarità della struttura differenziabile intendiamo che la struttura è $\C^\infty$-differenziabile, ovvero $\C^k$-differenziabile per ogni $k \geq 1$.
+\begin{rmk}
+    l'unione di tutti gli atlanti in una classe di equivalenza è detto \co{atlante massimale}, esiste per il \co{lemma di Zorn}.
+\end{rmk}
+\begin{ex}
+    \gr{1.} $M = \R$ è varietà differenzabile con atlante canonico $(\R, \id_\R)$\\
+    \gr{2.} $(\R, f)$ dove $f : x \in \R \mapsto x^3 \in \R$ \\ \\
+    Osserviamo che gli atlanti $(\R, \id)$ e $(\R, f)$ non sono compatibili. Infatti, $\R \cap \R = \R$, tuttavia
+    \begin{align}
+        f \circ \id^{-1} = f
+    \end{align}
+    è un omeomorfismo ma la funzione inversa
+    \begin{align}
+        f^{-1} : y \in \R \mapsto y^{1/3}
+    \end{align}
+    non è differenziabile in $y = 0$. Pertanto $f \circ \id^{-1} = f$ non è un diffeomorfismo.
+\end{ex}
+\begin{ex}
+    sia $n \geq 2$ e consideriamo la sfera unitaria $S^{n - 1} := \{x \in \R^n : \|x\| = 1\}$ e poniamo
+    \begin{align}
+        p_N = (0, \dots, 0, 1) \qquad p_S = (1, 0, \dots, 0)
+    \end{align}
+    e definiamo gli aperti
+    \begin{align}
+        U_N = S^{n - 1} \setminus \{p_N\} \qquad U_S := S^{n - 1} \setminus \{p_S\}
+    \end{align}
+    Osserviamo immediatamente che $\{U_N, U_S\}$ è un ricoprimento aperto di $S^{n - 1}$. \\
+    Ora vogliamo definire le mappe $\vp_N, \vp_S$ da associare agli aperti $U_N, U_S$. In particolare, immaginiamo di dividere la sfera all'equatore con un iperpiano e di tracciare una retta che parte da $p_N$ e interseca un punto qualsiasi $x$ della sfera fino a raggiungere anche l'iperpiano. Vogliamo definire $\vp_N$ come la mappa che ad ogni punto $x$ associa il punto dell'iperpiano che la retta passante per $p_N$ e $x$ interseca. La retta $r$ passante per $p_N$ e $x = (x_1, \dots, x_n)$ è data da
+    \begin{align}
+        r = \{(1 - t)p_N + tx : t \in \mathbb{R}\} = \{(x_1, \dots, 1 - t(1 - x_n)) \in \R^n : t \in \R\}
+    \end{align}
+    mentre l'iperpiano che passa per l'equatore è
+    \begin{align}
+        E = \{x = (x_1, \dots, x_n) \in \R^n : x_n = 0\}
+    \end{align}
+    Notiamo che per $t^* = \frac{1}{1 - x_n}$ si ha $(1 - t^*)p_N + t^*x \in E$, pertanto definiamo $\vp_N$ come la mappa
+    \begin{align}
+        \vp_N : x = (x_1, \dots, x_n) \in U_N \mapsto \frac{1}{1 - x_n}(x_1, \dots, x_{n - 1}) \in \R^{n - 1}
+    \end{align}
+    Verifichiamo che $\vp_N$ sia un omeomorfismo. Si vede immediatamente che $\vp_N$ è iniettiva, infatti
+    \begin{align}
+        \frac{1}{1 - x_n}(x_1, \dots, x_{n - 1}) = \frac{1}{1 - y_n}(y_1, \dots, y_{n - 1})
+    \end{align}
+    se e solo se $x_i = y_i$ per ogni $i = 1, \dots, n$. Inoltre, dato $z \in \R^{n - 1}$, esiste $\wtz = (\wtz_1, \dots, \wtz_n) \in S^{n - 1}$ tale che $\varphi_N(\wtz) = z$, infatti, affinché
+    \begin{align}
+        \frac{1}{1 - \wtz_n}(\wtz_1, \dots, \wtz_{n - 1}) = (z_1, \dots, z_{n - 1})
+    \end{align}
+    basta scegliere $\wtz_i = z_i/\lambda$ per $i = 1, \dots, n - 1$ per qualche opportuno $\lambda > 0$ e
+    \begin{align}
+        \wtz_n = 1 - \frac{1}{\lambda}
+    \end{align}
+    In particolare $\wtz_n$ deve soddisfare
+    \begin{align}
+        \wtz_1^2 + \dots + \wtz_n^2 = 1
+    \end{align}
+    ovvero
+    \begin{align}
+        \frac{1}{\lambda^2}\|z\|^2 + 1 + \frac{1}{\lambda^2} - \frac{2}{\lambda} = 1
+    \end{align}
+    che equivale a
+    \begin{align}
+        \frac{1}{\lambda}\left(\frac{\|z\|^2 + 1}{\lambda} - 2\right) = 0
+    \end{align}
+    Quindi si ottiene
+    \begin{align}
+        \lambda = \frac{\|z\|^2 + 1}{2}
+    \end{align}
+    Pertanto $\vp_N$ suriettiva. Infine, si vede immediatamente che $\vp_N$ è continua su $U_N$ (dato che $p_N \not\in U_N)$, quindi $\vp_N$ omeomorfismo. \\ 
+    Analogamente si costruisce $\vp_S$, in particolare si ottiene
+    \begin{align}
+        \vp_S : x = (x_1, \dots, x_n) \in S^n \mapsto \frac{1}{1 + x_n}(x_1, \dots, x_{n - 1}) \in \R^{n - 1}
+    \end{align}
+    Verifichiamo ora che $\vp_N \circ \vp_S^{-1} : \vp_S(U_S) \longrightarrow \vp_N(U_N)$ è di classe $\C^\infty$, ovvero che le carte locali $(U_N, \vp_N)$ e $(U_S, \vp_S)$ sono $\C^\infty$-compatibili.
+\end{ex}
+
+
+\section{Esercizi}
+
+
+
+\backmatter
+\let\appendixname\empty
+\def\chaptername{\bibname}
+
+\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{bibliografia}
+\end{document}
