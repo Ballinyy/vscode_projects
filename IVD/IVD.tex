@@ -56,6 +56,7 @@
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
 \newcommand{\U}{\mathcal{U}}
 \newcommand{\V}{\mathcal{V}}
 
@@ -63,6 +64,7 @@
 \newcommand{\T}{\mathbb{T}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\cC}{\mathbb{C}}
 \newcommand{\teta}{\theta}
 \newcommand{\eps}{\varepsilon}
 \newcommand{\vp}{\varphi}
@@ -229,7 +231,6 @@
 \newcommand{\Om}{\Omega}
 
 % Blackboard & Calligraphic
-\newcommand{\D}{{\mathbb D}}
 \newcommand{\E}{{\mathbb E}}
 \newcommand{\F}{{\mathbb F}}
 \newcommand{\K}{{\mathbb K}}
@@ -535,13 +536,12 @@
 \author{Alessandro Ballini}
 
 
-\title{IVD}
+\title{Note di IVD}
 
 \maketitle
 \tableofcontents
 
 \chapter{Varietà}
-\section{Varietà topologiche}
 \begin{defn}
     uno spazio topologico $M$ è detto \co{varietà topologica} se soddisfa le seguenti: \\
     \gr{1.} $M$ è di Hausdorff \\
@@ -589,7 +589,7 @@ Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe d
     \begin{align}
         f^{-1} : y \in \R \mapsto y^{1/3}
     \end{align}
-    non è differenziabile in $y = 0$. Pertanto $f \circ \id^{-1} = f$ non è un diffeomorfismo.
+    non è differenziabile in $y = 0$.
 \end{ex}
 \begin{ex}
     sia $n \geq 2$ e consideriamo la sfera unitaria $S^{n - 1} := \{x \in \R^n : \|x\| = 1\}$ e poniamo
@@ -603,11 +603,11 @@ Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe d
     Osserviamo immediatamente che $\{U_N, U_S\}$ è un ricoprimento aperto di $S^{n - 1}$. \\
     Ora vogliamo definire le mappe $\vp_N, \vp_S$ da associare agli aperti $U_N, U_S$. In particolare, immaginiamo di dividere la sfera all'equatore con un iperpiano e di tracciare una retta che parte da $p_N$ e interseca un punto qualsiasi $x$ della sfera fino a raggiungere anche l'iperpiano. Vogliamo definire $\vp_N$ come la mappa che ad ogni punto $x$ associa il punto dell'iperpiano che la retta passante per $p_N$ e $x$ interseca. La retta $r$ passante per $p_N$ e $x = (x_1, \dots, x_n)$ è data da
     \begin{align}
-        r = \{(1 - t)p_N + tx : t \in \mathbb{R}\} = \{(x_1, \dots, 1 - t(1 - x_n)) \in \R^n : t \in \R\}
+        r = \{(1 - t)p_N + tx : t \in \mathbb{R}\} = \{(tx_1, \dots, 1 - t(1 - x_n)) \in \R^n : t \in \R\}
     \end{align}
     mentre l'iperpiano che passa per l'equatore è
     \begin{align}
-        E = \{x = (x_1, \dots, x_n) \in \R^n : x_n = 0\}
+        E = \{x = (x_1, \dots, x_n) \in \R^n : x_n = 0\} \cong \R^{n - 1}
     \end{align}
     Notiamo che per $t^* = \frac{1}{1 - x_n}$ si ha $(1 - t^*)p_N + t^*x \in E$, pertanto definiamo $\vp_N$ come la mappa
     \begin{align}
@@ -641,24 +641,179 @@ Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe d
     \begin{align}
         \lambda = \frac{\|z\|^2 + 1}{2}
     \end{align}
-    Pertanto $\vp_N$ suriettiva. Infine, si vede immediatamente che $\vp_N$ è continua su $U_N$ (dato che $p_N \not\in U_N)$, quindi $\vp_N$ omeomorfismo. \\ 
+    Pertanto $\vp_N$ suriettiva. \\
+    L'inversa di $\vp_N$ è data da
+    \begin{align}
+        \vp_N^{-1} : x = (x_1, \dots, x_{n - 1}) \in \R^{n - 1} \mapsto \left(x_1, \dots, x_{n - 1}, \frac{\|x\|^2 - 1}{\|x\|^2 + 1}\right)
+    \end{align}
+    Si vede immediatamente che $\vp_N^{-1}$ è biettiva e continua. \\
+    Infine, si vede immediatamente che $\vp_N$ è continua su $U_N$ (dato che $p_N \not\in U_N)$, quindi $\vp_N$ omeomorfismo. \\ 
     Analogamente si costruisce $\vp_S$, in particolare si ottiene
     \begin{align}
         \vp_S : x = (x_1, \dots, x_n) \in S^n \mapsto \frac{1}{1 + x_n}(x_1, \dots, x_{n - 1}) \in \R^{n - 1}
     \end{align}
-    Verifichiamo ora che $\vp_N \circ \vp_S^{-1} : \vp_S(U_S) \longrightarrow \vp_N(U_N)$ è di classe $\C^\infty$, ovvero che le carte locali $(U_N, \vp_N)$ e $(U_S, \vp_S)$ sono $\C^\infty$-compatibili.
+    Verifichiamo ora che le carte locali $(U_N, \vp_N)$ e $(U_S, \vp_S)$ sono $\C^\infty$-compatibili, ovvero che $\vp_S \circ \vp_N^{-1} : \vp_N(U_S \cap U_N) \longrightarrow \vp_S(U_N \cap U_S)$ è di classe $\C^\infty$. Dato $x \vp_N(\in U_N \cap U_S)$ si ha che
+    \begin{align}
+        \vp_S \circ \vp_N^{-1}(x) = \frac{2\|x\|^2}{\|x\|^2 + 1}(x_1, \dots, x_{n - 1})
+    \end{align}
+    quindi si vede immeditamente che $\vp_S \circ \vp_N^{-1}$ è $\C^\infty$.
+\end{ex}
+
+ \section{Esercizi}
+\gr{1.} Dimostrare che lo spazio proiettivo $\mathbb{P}^n(\R) = \R^{n + 1}_{*} / \sim$, dove $x \sim y$ se e solo se $x = ty$ per qualche $t \in \R$, ammette struttura differenziabile. \\
+
+\gr{2.} Dimostrare che il prodotto cartesiano di due varietà differenziabili ammette struttura differenziabile.
+
+\chapter{Funzioni e mappe lisce}
+\begin{defn}\label{C^k(M, R)}
+    sia $M$ una varietà $\C^k$-differenziabile, dato $p \in M$ diciamo che $f : M \longrightarrow \R$ è $\C^k$ in un intorno di $p$ se esiste una carta $(U, \vp)$ di $M$ tale che $p \in U$ e
+    \begin{align}
+        f \circ \vp^{-1} : \vp(U) \longrightarrow \R
+    \end{align} 
+    è $\C^k$ in un intorno di $\vp(p)$. \\ \\
+    Se $f$ è $\C^k$ in un intorno di $p$ per ogni $k \geq 0$ diciamo che $f$ è \co{liscia}. Inoltre, se $f$ è $\C^k$ ($\C^\infty$) in un intorno di ogni $p \in M$ diciamo che $f$ è $\C^k$ ($\C^\infty$). Poniamo
+    \begin{align}
+        \C^k(M) := \{f : M \longrightarrow \R : f \text{ è } \C^k\}
+    \end{align}
+\end{defn}
+\begin{prop}\label{ChartIndipC^k(M, R)}
+    la definizione \ref{C^k(M, R)} non dipende dalla scelta della carta.
+\end{prop}
+\begin{proof}
+    siano $p \in M$, $f$ $\C^k$ in un intorno di $p$ e $(U, \vp)$ e $(V, \psi)$ due carte $\C^k$-compatibili di $M$ con $p \in U \cap V$, ovvero tali che $\vp \circ \psi^{-1}$ è $\C^k$ su $\psi(U \cap V)$. \\
+    Supponiamo (senza perdita di generalità) che $f \circ \vp^{-1}$ è $\C^k$ in un intorno di $\vp(p)$, allora
+    \begin{align}
+        f \circ \vp^{-1} \circ (\vp \circ \psi^{-1}) = f \circ \psi^{-1}
+    \end{align}
+    è $\C^k$ in un intorno di $\psi(p)$ contenuto in $\psi(U \cap V)$ poiché composizione di mappe $\C^k$ nel medesimo intorno.
+\end{proof}
+\begin{defn}\label{C^k(M, N)}
+    siano $M, N$ varietà $\C^k$-differenziabili e $f : M \longrightarrow N$ continua. Diciamo che $f$ è $\C^k$ in un intorno di $p \in M$ se esistono $(U, \vp)$ carta locale di $M$ tale che $p \in U$ e $(V, \psi)$ carta locale di $N$ tale che $f(p) \in V$ tali che
+    \begin{align}
+        \psi \circ f \circ \vp^{-1} : \vp(U \cap f^{-1}(V)) \longrightarrow \psi(V \cap f(U))
+    \end{align}
+    è $\C^k$ in un intorno di $\vp(p)$.
+\end{defn}
+\begin{rmk}
+    l'ipotesi $f$ continua serve a garantire che $f^{-1}(V)$ sia un aperto.
+\end{rmk}
+\begin{prop}
+    la definizione \ref{C^k(M, N)} non dipende dalla scelta delle carte.
+\end{prop}
+\begin{proof}
+    la dimostrazione è analoga a quella della proposizione \ref{ChartIndipC^k(M, R)}.
+\end{proof}
+\begin{lemma}
+    siano $f : M \longrightarrow N$ e $g : N \longrightarrow L$ mappe $\C^k$ tra varietà, allora $g \circ f : M \longrightarrow L$ è $\C^k$.
+\end{lemma}
+\begin{proof}
+    fissato $p \in M$, per ipotesi esistono $(U, \vp), (V \psi)$ e $(W, \eta)$ carte locali di $M, N$ e $L$ rispettivamente tali che $p \in U$, $f(p) \in V$ e $g(f(p)) \in W$ e
+    \begin{align}
+        \psi \circ f \circ \vp^{-1} \qquad \eta \circ g \circ \psi^{-1}
+    \end{align}
+    sono $\C^k$ in un intorno di $\vp(p)$ e in un intorno di $\psi(f(p))$ rispettivamente. Allora
+    \begin{align}
+        (\eta \circ g \circ \psi^{-1}) \circ (\psi \circ f \circ \vp^{-1}) = \eta \circ (g \circ f) \circ \vp^{-1}
+    \end{align}
+    è $\C^k$ in un intorno di $\vp(p)$.
+\end{proof}
+\begin{defn}
+    siano $M, N$ varietà $\C^k$-differenziabili, $f : M \longrightarrow N$ è detto $\C^k$-\co{diffeomorifsmo} se è $\C^k$, invertibile e con inversa $\C^k$. \\
+    Se esiste tale $f$ da $M$ in $N$ diciamo che $M$ e $N$ sono diffeomorfi e scriviamo $M \cong N$.
+\end{defn}
+\begin{defn}
+    siano $M, N$ varietà $\C^k$-differenziabili, $f : M \longrightarrow N$ è detto $\C^k$-\co{diffeomorfismo locale} se per ogni $p \in M$ esiste $U \subset M$ intorno aperto di $p$ tale che $f|_U : U \longrightarrow f(U)$ è un $\C^k$-diffeomorfismo. \\ \\
+    Ovviamente notiamo che ogni diffeomorfismo è anche un diffeomorfismo locale.
+\end{defn}
+\begin{rmk}
+    data $f : X \longrightarrow Y$ omeomorfismo locale tra spazi topologici, si ha che $f$ è una mappa aperta. Infatti, dato $U \subset X$ aperto, per ipotesi, per ogni $x \in U$ esiste $U_x \subset X$ intorno aperto di $x$ tale che $f|_{U_x} : U_x \longrightarrow f(U_x)$ è un omeomorfismo. Inoltre, dato che $U$ è un aperto, per ogni $x \in U$ esiste $V_x \subset U$ intorno aperto di $x$. \\
+    Concludiamo che
+    \begin{align}
+        f(U) = \bigcup_{x \in U} f|_{U_x}(U_x \cap V_x)
+    \end{align}
+    unione di una famiglia di aperti, pertanto $f(U)$ aperto, quindi $f$ mappa aperta.
+\end{rmk}
+
+
+\section{Esercizi}
+\gr{1.} Dimostrare che $f : S^2 \longrightarrow \mathbb{P}^2(\R) = S^2 / \sim$, dove $\sim$ identifica i punti antipolari, definita da $f : p \in S^1 \mapsto [p] \in \mathbb{P}^2(\R)$ è liscia. \\
+
+\gr{2.} Mostrare che $\D^n := \{x \in \R^n : \|x\| < 1\} \cong \R^n$. \\
+
+\gr{3.} Mostare che $(\R, \id_\R)$ e $(\R, f)$, con $f : x \in R \mapsto x^3$, sono atlanti diffeomorfi di $\R$.
+
+\chapter{Gruppi di Lie}
+\begin{defn}
+    un \co{gruppo di Lie} è una varietà differenziabile che ammette struttura di gruppo tale che le operazioni di prodotto e inversione sono lisce.
+\end{defn}
+\begin{rmk}
+    dato $G$ gruppo di Lie, è sufficiente verificare che la mappa $j : (a, b) \mapsto a \cdot b^{-1}$ è liscia.
+\end{rmk}
+\begin{ex}
+    $GL_n(\R)$ ammette struttura di gruppo di Lie, infatti per definizione
+    \begin{align}
+        GL_n(\R) = \{A \in M_n(\R) : \det A \neq 0\}
+    \end{align}
+    e $\det : M_n(\R) \cong \R^{n^2} \longrightarrow \R$ è continua, dato che è essenzialmente una funzione polinomiale. Inoltre, la moltiplicazione tra matrici è liscia, dato he è quadratica in ogni entrata, e anche l'inversione è liscia in $GL_n(\R)$ dato che $\det A \neq 0$ se $A \in GL_n(\R)$.
+\end{ex}
+\begin{prop}
+    se $G, H$ sono gruppi di Lie, allora $G \times H$ ammette struttura di gruppo di Lie.
+\end{prop}
+\begin{proof}
+    se $G, H$ sono gruppi, anche $G \times H$ ammette struttura di gruppo (è sufficiente definire le operazione singolarmente per le due componenti $(g, h)$). Inoltre, sappiamo che il prodotto cartesiano di due varietà $\C^k$-differenziabili ammette struttura di varietà $\C^k$-differenziabile (è sufficiente prendere il prodotto cartesiano delle carte e definire coppie di omeomorfismi locali).
+\end{proof}
+\begin{cor}
+    $(S^1)^n = \T^n$ è un gruppo di Lie.
+\end{cor}
+\begin{defn}
+    dati $G, H$ gruppi di Lie, $f : G \longrightarrow H$ è detto \co{omomorfismo di gruppi di Lie} se è un omomorfismo di gruppi ed in più è liscia. \\ \\
+    Diciamo che $f$ è un \co{isomorfismo di gruppi di Lie} se anche l'inversa è un omomorfismo di gruppi di Lie.
+\end{defn}
+\begin{ex}
+    $\det : GL_n(\R) \longrightarrow (\R^*, \cdot)$ è un omeomorfismo di gruppi, infatti $\det AB = \det A \cdot \det B$.
 \end{ex}
 
 
 \section{Esercizi}
+\gr{1.} Mostrare che uno spazio vettoriale reale $V$ di dimensione $n \geq 1$ ammette struttra di gruppo di Lie rispetto all'operazione di somma. \\
 
+\gr{2.} Mostrare che $\R^*, \R_{\geq 0}, \cC^*$ e $S^1 \subset \cC$ ammettono struttura di gruppo di Lie rispetto all'operazione di moltiplicazione e all'atlante standard (sono aperti). \\
 
+\gr{3.} Mostrare che $\exp : (\R, \cdot) \longrightarrow (\R^*, \cdot)$ e $\exp : (\C, \cdot) \longrightarrow (\C^*, \cdot)$ sono omeomorfismi di gruppi di Lie. \\
 
-\backmatter
-\let\appendixname\empty
-\def\chaptername{\bibname}
+\gr{4.} Mostrare che $\exp : M_n(\R) \longrightarrow GL_n(\R)$ non è un omeomorfismo di gruppi di Lie.
 
-\nocite{*}
-\bibliographystyle{alpha}
-\bibliography{bibliografia}
+\chapter{Rivestimenti}
+\begin{defn}
+    sia $X$ uno spazio topologico connesso e localmente connesso per archi, la coppia $(\wtX, \pi)$, dove $\wtX$ è uno spazio topologico connesso e $\pi : \wtX \longrightarrow X$, è detta \co{rivestimento topologico} se $\pi$ è suriettiva e per ogni $x \in X$ esiste $U \subset X$ intorno aperto di $x$, detto \co{intorno ben ricoperto}, tale che $\pi^{-1}(U)$ è unione disgiunta di aperti connessi $(V_i)_{i \in I}$ di $\wtX$ e la restrizione $\pi_{V_i} : V_i \longrightarrow U$ è un omeomorfismo per ogni $i \in I$. \\ \\
+    $(\wtX, \pi)$ è detto \co{rivestimento universale} se $\wtX$ è semplicemente connesso.
+\end{defn}
+\begin{defn}
+    sia $M$ una varietà differenziabile connessa, un rivestimento $(\wtM, \pi)$ è detto \co{rivestimento liscio} se $\wtM$ è una varietà differenziabile e $\pi : \wtM \longrightarrow M$ è una mappa liscia suriettiva tale che per ogni $p \in M$ esiste $U \subset M$ intorno aperto di $p$ tale che $\pi^{-1}(U)$ è unione disgiunta di aperti connessi $(V_i)_{i \in I}$ di $\wtM$ e $\pi|_{V_i} : V_i \longrightarrow U$ è un diffeomorfismo.
+\end{defn}
+\begin{thm}
+    siano $M$ una varietà differenziabile liscia e $(\wtM, \pi)$ un rivestimento topologico di $M$, allora esiste unica struttura differenziabile su $\wtM$ tale che $\pi$ è rivestimento liscio.
+\end{thm}
+\begin{proof}
+    consideriamo $\wtp \neq \wtq$ in $\wtM$, se $\pi(\wtp) = \pi(\wtq)$ e consideriamo l'intorno ben ricoperto $U$ di $\pi(\wtp) = \pi(\wtq)$. Necessariamente $\wtp$ e $\wtq$ non possono appartenere alla stessa componente connessa di $\pi^{-1}(U)$, dato che la restrizione di $\pi$ su di essa è un omeomorfismo. Siano $V_{i_0}, V_{i_1}$ le componenti connesse di $\pi^{-1}(U)$ che contengono $\wtp$ e $\wtq$ rispettivamente ($V_{i_0} \cap V_{i_1} = 0$). \\
+    Se $\pi(\wtp) \neq \pi(\wtq)$ esistono $U_1, U_2$ intorni aperti di $\pi(\wtp)$ e $\pi(\wtq)$ rispettivamente tali che $U_1 \cap U_2 = \emptyset$. Poniamo $\wtU_1 := \pi^{-1}(U_1)$ e $\wtU_2 := \pi^{-1}(U_2)$, allora $\wtU_1 \cap \wtU_2 = \emptyset$. \\
+    Dato $\wtp \in \wtM$ e $U$ intorno ben ricoperto di $\pi(\wtp)$, possiamo assumere che $U$ è una carta di $M$ (a meno di restringere), pertanto esiste $\vp$ omemomorfismo di $U$ in $\R^n$. Sia $V$ la componente connessa di $\pi^{-1}(U)$ che contiene $\wtp$, allora
+    \begin{align}
+        \wt{\vp} : V \longrightarrow \vp(U)
+    \end{align}
+    la mappa $\wt{\vp} : \wtq \in \wtM \mapsto \vp \circ \pi (\wtq)$ è un omeomorfismo. \\
+    Facciamo vedere che i cambi di carta sono lisci, siano $(V, \wt{\vp})$ e $(W, \wt{\psi})$ due carte di $\wtM$, come sopra definita. Poniamoci nel caso interessante $V \cap W \neq \emptyset$, allora
+    \begin{align}
+        \wt{\psi} \circ \wt{\vp}^{-1} = (\psi \circ \pi|_W) \circ (\vp \circ \pi|_{V})^{-1} = \psi \circ \vp^{-1} 
+    \end{align}
+    che è liscia in $\vp(V \cap W)$.
+\end{proof}
+
+\section{Esercizi}
+\gr{1.} Data $M$ varietà differenziabile e $(\wtM, \pi)$ rivestimento liscio di $M$, mostrare che $\pi$ è liscio se e solo se $\pi$ è un diffeomorfismo locale. \\
+
+\gr{2.} Dato $X$ spazio topologico, mostrare che il suo rivestimento universale $(\wtX,\pi)$ è unico a meno di omeomorfismi.
+
+\chapter{Mappe proprie}
+
 \end{document}

@@ -13,5 +13,7 @@ __pycache__/
 *.bbl
 *.blg
 *.out
+*.nav
+*.snm
 
 format.text
