@@ -815,5 +815,37 @@ Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe d
 \gr{2.} Dato $X$ spazio topologico, mostrare che il suo rivestimento universale $(\wtX,\pi)$ è unico a meno di omeomorfismi.
 
 \chapter{Mappe proprie}
+\begin{defn}
+    siano $X, Y$ spazi topologici e $f : X \longrightarrow Y$, $f$ è detta \co{propria} se per ogni $K \subset Y$ compatto si ha $f^{-1}(K) \subset X$ compatto.
+\end{defn}
+\begin{lemma}
+    se $X$ è uno spazio topologico compatto e $Y$ è $T_2$, ogni funzione continua $f : X \longrightarrow Y$ è propria.
+\end{lemma}
+\begin{proof}
+    dato $K \subset Y$ compatto si ha $K$ chiuso, poiché $Y$ è $T_2$, pertanto $f^{-1}(K) \subset X$ è chiuso (dato che $f$ è continua) in un compatto, quindi è compatto.
+\end{proof}
+\begin{defn}
+    sia $X$ uno spazio topologico, diciamo che $(x_n)_{n \in \N}$ \co{esce da ogni compatto di} $X$ se per ogni $K \subset X$ compatto esiste $N \in \N$ tale che $x_n \in X \setminus K$ \co{frequentemente} per ogni $n > N$.
+\end{defn}
+\begin{prop}
+    siano $X, Y$ spazi topologici, $X$ secondo numerabile e $T_2$ e $f : X \longrightarrow Y$ continua, allora $f$ mappa propria se e solo se per ogni $(x_n)_{n \in N} \subset X$ che esce da ogni compatto si ha $(f(x_n))_{n \in \N}$ esce da ogni compatto.
+\end{prop}
+\begin{proof}
+    $(\rightarrow)$ sia $(x_n)_{n \in \N} \subset X$ che esce da ogni compatto e consideriamo la successione in $Y$ data da $(f(x_n))_{n \in N}$. Supponiamo che $(f(x_n))_{n \in \N}$ è contenuta in un compatto $K$ di $Y$, allora $(x_n)_{n \in \N} \subset f^{-1}(K)$ che è un compatto in $X$ dato che $f$ è propria, che è assurdo. \\
+    $(\leftarrow)$ sia $K \subset Y$ compatto e consideriamo l'insieme $f^{-1}(K) \subset X$. Per ipotesi $X$ è secondo numerabile e $T_2$, pertanto $f^{-1}(K)$ è compatto se e solo se è compatto per successione, ovvero se e solo se ogni successione $(x_n)_{n \in \N} \subset f^{-1}(K)$ ammette sottosuccessione convergente in $f^{-1}(K)$. Supponiamo che $f^{-1}(K)$ non è compatto, allora $(x_n)_{n \in \N}$ non ammette sottosuccessione convergente in $Y$, ovvero esce da ogni compatto, quindi anche $(f(x_n))_{n \in \N}$ esce da ogni compatto, ma $(f(x_n))_{n \in \N} \subset K$, quindi si ottiene un assurdo.
+\end{proof}
+\begin{lemma}
+    siano $M, N$ varietà topologiche e $f : M \longrightarrow N$ propria, allora $f$ è chiusa.
+\end{lemma}
+\begin{proof}
+    sia $C \subset M$ chiuso e consideriamo $(y_n)_{n \in \N} \subset f(C)$ successione convergente in $N$, mostriamo che $\lim x_n \in C$.      
+\end{proof}
+\begin{prop}
+    siano $M, N$ varietà differenziabili e $f : M \longrightarrow N$ diffeomorfismo locale e propria. Allora $f$ è un rivestimento liscio (finito).
+\end{prop}
+
+
+\section{Esercizi}
+\gr{1.} Mostrare che se $f : X \longrightarrow Y$ mappa propria tra spazi topologici, allora per ogni $Z \subset Y$ si ha $f|_{f^{-1}(Z)} : f^{-1}(Z) \longrightarrow Z$ è propria.
 
 \end{document}

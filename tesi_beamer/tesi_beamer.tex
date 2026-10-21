@@ -61,7 +61,7 @@
 \newcommand{\rosso}[1]{\textcolor{UniRed}{\textbf{#1}}}
 
 % frontespizio
-\title{\textbf{Robustezza di tori invarianti lagrangiani quasi-periodici:}\\ \large il teorema \textit{twist} di Herman}
+\title{\textbf{Robustezza di tori invarianti lagrangiani quasi-periodici: \\ il teorema \textit{twist} di Herman}}
 \author{\large Alessandro Ballini}
 \institute{\large Università degli Studi di Roma Tor Vergata}
 \date{Anno Accademico 2025/2026}
@@ -81,16 +81,25 @@
     \item \blu{Il teorema di Arnold (1963):}
     \begin{itemize}
       \item Sistema planetario: Sole e $n \ge 2$ pianeti con masse molto più piccole.
-      \item Trascurando mutee interazioni, ogni pianeta descrive un'ellisse kepleriana disaccoppiata (sistema \alert{completamente integrabile}).
-      \item Per interazioni sufficientemente deboli, nello spazio delle fasi esiste un insieme di \textbf{misura di Lebesgue strettamente positiva} di condizioni iniziali che generano moti \alert{quasi-periodici}.
+      \item Trascurando mutue interazioni, ogni pianeta descrive un'ellisse kepleriana (sistema \alert{completamente integrabile}).
+      \item Per interazioni sufficientemente deboli, nello spazio delle fasi esiste un insieme di \textbf{misura di Lebesgue strettamente positiva} di condizioni iniziali (posizione, velocità) che generano moti \alert{quasi-periodici}.
     \end{itemize}
     \medskip
     \item \blu{La dimostrazione rigorosa di Herman (anni '90):}
     \begin{itemize}
-      \item Arnold completò la prova solo per il problema piano dei 3 corpi.
-      \item Herman formulò un \textbf{teorema astratto di tori invarianti}, permettendo una chiusura completa e trasparente del problema.
+      \item Arnold diede una dimostrazione completa solo per il problema piano dei 3 corpi.
+      \item Herman formulò un \textbf{teorema astratto di tori invarianti}, da cui dedusse in modo rigoroso il teorema di Arnold nella sua completezza.
     \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Soluzioni quasi-periodiche}
+    In generale, dato $\alpha = (\alpha_1, \dots, \alpha_n) \in \R^n$ tale che $k \cdot \alpha \neq 0$ per ogni $k \in \Z^n \setminus \{0\}$, una soluzione $u$ associata ad una condizione iniziale nello spazio delle fasi $\mathcal{P}$ è detta \textit{quasi-periodica} di frequenza $\alpha$ se esiste un'embedding del toro
+    \[
+      \theta \mapsto U(\theta)
+    \]
+    tale che $u(t) = U(\alpha t)$ per ogni $t$ nel dominio massimale di definizione della soluzione. \\ 
+    In seguito lavoreremo sempre con moti quasi-periodici.
 \end{frame}
 
 % slide 3
@@ -99,9 +108,7 @@
   \[
     \omega = \sum_{j=1}^n d\theta_j \wedge dr_j, \qquad X_H = \begin{pmatrix} \partial_r H \\ -\partial_\theta H \end{pmatrix}.
   \]
-  \pause
-  \begin{block}{Hamiltoniane integrabili in coordinate azione-angolo}
-    Un'hamiltoniana $H(\theta, r) = H_0(r)$ dipende unicamente dalle azioni $r$:
+  e consideriamo una hamiltoniana $H(\theta, r) = H_0(r)$:
     \[
       \begin{cases}
         \dot{\theta} = \partial_r H_0(r) =: \alpha(r) \\
@@ -109,15 +116,15 @@
       \end{cases}
       \implies 
       \begin{cases}
-        \theta(t) = \theta_0 + t\,\alpha(r_0) \pmod{\T^n} \\
+        \theta(t) = \theta_0 + t\,\alpha(r_0) \pmod{2\pi\Z^n} \\
         r(t) = r_0
       \end{cases}
     \]
-  \end{block}
   \begin{itemize}
     \item Lo spazio delle fasi è \textbf{foliato da tori invarianti lagrangiani} $\T^n \times \{r_0\}$.
     \item Il flusso su ciascun toro è una traslazione lineare a frequenza $\alpha = \alpha(r_0)$.
   \end{itemize}
+   \alert{Domanda:} il moto caratteristico dei sistemi completamente integrabili persiste per perturbazioni sufficientemente piccole?
 \end{frame}
 
 % slide 4
@@ -143,7 +150,7 @@
 
 % slide 5
 \begin{frame}{Condizione aritmetica diofantea}
-  Kolmogorov (1954) intuì che per controllare i piccoli denominatori serviva una stima quantitativa dal basso:
+  Siccome $\inf_{k \neq 0} |k \cdot \alpha| = 0$ è senza speranza cercare di ottenere una stima del tipo $|k \cdot \alpha| \geq \delta$, per qualche $\delta > 0$.
   \begin{block}{Vettori $(\gamma, \tau)$-diofantei}
     Un vettore di frequenza $\alpha \in \R^n$ è detto \blu{$(\gamma, \tau)$-diofanteo} ($D_{\gamma, \tau}$) se:
     \[
@@ -152,28 +159,28 @@
   \end{block}
   \pause
   \begin{itemize}
-    \item \blu{Misura piena:} L'insieme $D_\tau = \bigcup_{\gamma > 0} D_{\gamma, \tau}$ ha \textbf{misura di Lebesgue piena} in $\R^n$.
-    \item \blu{Risolubilità dell'equazione omologica:} Per ogni $g$ analitica su $\T^n_{s+\sigma}$ con $\int g = 0$, esiste un'unica soluzione $f$ analitica su $\T^n_s$ soddisfacente:
+    \item \blu{Quantità vettori diofantei:} \underline{quasi tutti} i vettori di $\R^n$ sono diofantei, $m(D_{\gamma, \tau}) = 1 - O(\gamma)$, possiamo visualizzarlo facilmente in $\R^2$. 
+    \item \blu{Risolubilità dell'equazione omologica:} Per ogni $g$ analitica su $\T^n_{s+\sigma}$ con $\int g = 0$, esiste un'unica soluzione $f$ analitica su $\T^n_s$ soddisfacente (stima di Cauchy):
     \[
-      |f|_s \le C \gamma^{-1} \sigma^{-(n+\tau)} |g|_{s+\sigma}
+      f = \mathcal{L}_\alpha^{-1}g \qquad |f|_s \le C \gamma^{-1} \sigma^{-(n+\tau)} |g|_{s+\sigma}
     \]
   \end{itemize}
-  \alert{Prezzo da pagare:} inevitabile \textbf{perdita di analiticità} $\sigma > 0$ (arbitraria) ad ogni risoluzione.
+  \alert{Prezzo da pagare:} inevitabile \textbf{perdita di analiticità} $\sigma > 0$ (ma arbitraria $\rightsquigarrow$ scale di spazi di Banach).
 \end{frame}
 
 % slide 7
 \begin{frame}{Il teorema di Kolmogorov e la superconvergenza}
   \begin{block}{Teorema dei tori invarianti (Kolmogorov, 1954)}
-    Fissato $\alpha \in D_{\gamma, \tau}$ e una hamiltoniana imperturbata
+    Fissato $\alpha \in D_{\gamma, \tau}$ e una hamiltoniana che possiede un toro invariante $\alpha$-quasi-periodico $\T^n \times \{0\}$
     \[
-      K^0 = c + \alpha \cdot r + \frac{1}{2}Qr \cdot r + O(r^3), \qquad \det Q \neq 0
+      K^0 = c + \alpha \cdot r + \frac{1}{2}K^0_2(\theta)r \cdot r + O(r^3), \qquad \det \int K^0_2(\theta) \, d\theta \neq 0
     \]
-    per ogni perturbazione $H$ sufficientemente vicina a $K^0$, esiste una trasformazione simplettica vicina all'identità che preserva un toro invariante lagrangiano su cui il moto è $\alpha$-quasi-periodico.
+    per ogni perturbazione $H$ sufficientemente vicina a $K^0$, esiste una trasformazione simplettica $G$ vicina all'identità e $K$ vicina a $K^0$, tale che $H = K \circ G$.
   \end{block}
   \pause
   \blu{L'idea rivoluzionaria di Kolmogorov:}
   \begin{itemize}
-    \item Non eliminare la perturbazione ordine per ordine ($\eps, \eps^2, \dots$), ma usare uno \textbf{schema iterativo quadratico alla Newton}:
+    \item Usare uno \textbf{schema iterativo quadratico alla Newton}:
     \[
       \eps_{m+1} \sim \eps_m^2 \qquad (\text{o più precisamente } \eps_m^{\chi}, \; 1 < \chi < 2)
     \]
@@ -191,11 +198,11 @@
         \begin{itemize}
           \item Fissiamo la frequenza $\alpha \in D_{\gamma, \tau}$.
           \item \textbf{Nessuna ipotesi di non degenerazione} su $K^0$.
-          \item Si introduce un \alert{controtermine} $\beta \cdot r$ con $\beta \in \R^n$:
+          \item Si introduce un controtermine $\beta \cdot r$ con \alert{$\beta \in \R^n$} (da determinare):
           \[
             H - \beta \cdot r = K \circ G
           \]
-          \item Inversione locale dell'operatore non lineare $\phi(K, G, \beta) = K \circ G + \beta \cdot r$ con metodo tipo Nash-Moser.
+          \item Inversione locale dell'operatore non lineare $\phi : (K, G, \beta) \mapsto K \circ G + \beta \cdot r$, $|H - K^0|_{s + \sigma} \ll 1$.
         \end{itemize}
       \end{block}
     \end{column}
@@ -204,11 +211,12 @@
       \begin{block}{\blu{Passo 2: Eliminazione del Parametro}}
         \begin{itemize}
           \item Il controtermine $\beta$ rompe la coniugazione dinamica di $H$.
-          \item Sotto l'ipotesi $\det Q \neq 0$:
+          \pause
+          \item Sotto l'ipotesi $\det \int K^0_2 \neq 0$, considero $r \mapsto r + R$ (parametri liberi):
           \[
             \beta = \beta(R), \qquad \det \frac{\partial \beta}{\partial R}(0) \neq 0
           \]
-          \item \textbf{Teorema della Funzione Implicita classica} (in dimensione finita) per annullare $\beta$:
+          \item \textbf{Teorema classico della funzione inversa} per annullare $\beta$:
           \[
             \beta(R^*) = 0 \implies H_{R^*} = K \circ G
           \]
@@ -233,7 +241,7 @@
     \end{enumerate}
     tali che:
     \[
-      \alert{H - \beta \cdot r = K \circ G}
+      H - \beta \cdot r = K \circ G
     \]
     in un intorno del toro $T_0^n = \T^n \times \{0\}$.
   \end{block}
@@ -242,12 +250,20 @@
 % slide 10
 \begin{frame}{Necessità geometrica del controtermine $\beta$}
   \begin{itemize}
-    \item \blu{Invarianza del vettore frequenza:} Se due flussi quasi-periodici su $\T^n$ sono topologicamente coniugati tramite un omeomorfismo omotopo all'identità, le loro frequenze devono coincidere esattamente:
-    \[
-      \alpha = \beta
-    \]
-    \item \blu{Non stabilità aperta:} Avere un toro invariante con frequenza fissata $\alpha$ \textbf{non è una proprietà aperta} (cioà stabile per piccole perturbazioni).
+    \item \blu{Invarianza del vettore frequenza:} se $\dot{\theta} = \alpha$ è coniugato a $\dot{\theta}' = \beta$ tramite un diffeomorfismo $\varphi(\theta) = \theta + v(\theta)$, necessariamente $\alpha = \beta$. \\
+    In realtà, già Arnold si accorse di questo studiando le rotazioni del cerchio $\T$ e fu lui ad avere l'idea di separare il problema in due passaggi, poi ripresa da Herman.
   \end{itemize}
+  \bigbreak  
+  \begin{itemize}
+    \item \blu{Non stabilità aperta:} avere un toro invariante con frequenza fissata $\alpha$ \textbf{non è una proprietà aperta} (cioà stabile per piccole perturbazioni).
+  \end{itemize}
+  \pause
+  \begin{block}{Hamiltoniana 'modificata'}
+    Osserviamo che $G^{-1}(T^n_0)$ è invariante per il flusso della hamiltoniana
+    \[
+      \widehat{H} := H - \beta \cdot r = K \circ G
+    \]
+  \end{block}
 \end{frame}
 
 % slide 11
@@ -257,52 +273,35 @@
     G(\theta, r) = \Big(\varphi(\theta), \; {}^t\varphi'(\theta)^{-1}\big(r + \rho(\theta)\big)\Big)
   \]
   \begin{itemize}
-    \item $\varphi : \T^n \to \T^n$ è un diffeomorfismo del toro che raddrizza il moto sul toro ($\varphi(0) = 0$).
+    \item $\varphi : \T^n \to \T^n$ è un diffeomorfismo del toro vicino all'identità che raddrizza il moto sul toro ($\varphi(0) = 0$).
     \item $\rho(\theta) = dS(\theta)$ è una $1$-forma \textbf{esatta} su $\T^n$ che trasla le azioni per riposizionare il toro nello spazio delle fasi.
   \end{itemize}
-  \pause
-  \begin{block}{Hamiltoniana 'modificata'}
-    Il toro $G^{-1}(T^n_0)$ è invariante per il flusso associato all'hamiltoniana 'modificata' $\widehat{H} = H - \beta \cdot r = K \circ G$.
-  \end{block}
 \end{frame}
 
 % slide 12
-\begin{frame}{Setting funzionale: scale di Banach e norme deformate}
+\begin{frame}{Setting funzionale: scale di Banach e l'operatore $\phi$}
   Per gestire rigorosamente le perdite di analiticità senza restringere brutalmente i domini:
   \begin{itemize}
     \item Dominio complesso: $T^n_s = \{(\theta, r) \in \C^n/2\pi\Z^n \times \C^n : \max(|\mathrm{Im}\,\theta|, |r|) \le s\}$.
     \item Spazio di Banach $(\mathcal{H}_s, |\cdot|_s)$ delle funzioni analitiche con norma del sup su $T^n_s$.
   \end{itemize}
-  \pause
-  \begin{block}{Norme deformate dalla composizione}
-    Dato che $G \in \mathcal{G}$ deforma geometricamente il toro, definiamo la norma su $G^*\mathcal{A}(T^n_s)$:
-    \[
-      |H|_{G, s} := |H \circ G^{-1}|_s
-    \]
-    Ciò consente di preservare la struttura di Banach e di misurare l'operatore non lineare:
+A questo punto è ben definito l'operatore $\phi$ da invertire:
     \[
       \phi : (K, G, \beta) \in \mathcal{K}_{s+\sigma} \times \mathcal{G}_{s+\sigma}^\sigma \times \R^n \longmapsto H = K \circ G + \beta \cdot r \in \mathcal{H}_s
     \]
-  \end{block}
 \end{frame}
 
 % slide 13
-\begin{frame}{Linearizzazione e stime di derivata prima e seconda}
-  Calcolando il differenziale di $\phi(x) = K \circ G + \beta \cdot r$ in $x=(K, G, \beta)$:
+\begin{frame}{Costruzione successione con metodo alla Newton}
+  Applichiamo il metodo alla Newton per risolvere l'equazione fortemente non lineare $\phi(K, G, \beta) = H$, quindi determinare $x := (K, G, \beta)$ avendo noto $y := H$. In particolare, vogliamo trovare lo zero della funzione $F : x \mapsto \phi(x) - y$. Sia
   \[
-    \phi'(x)\delta x = (K' \circ G)\delta G + \delta K \circ G + \delta\beta \cdot r = \delta H
+    f : x \mapsto x + \phi'(x)^{-1}(y - \phi(x))
   \]
-  Componendo a destra con $G^{-1}$ e proiettando sui gradi di Taylor in $r$:
-  \begin{enumerate}
-    \item \blu{Scelta di $\delta\beta$ e $\delta c$:} Assorbono le componenti di media spaziale (termini non oscillanti):
-    \[
-      \delta\beta = \left(\int_{\T^n} \varphi' \circ \varphi^{-1} d\theta\right)^{-1} \int_{\T^n} \dot{H}_1 \, d\theta \quad \delta c = \int_{\T^n} \dot{H}_0 \, d\theta + \int_{\T^n} \rho \circ \varphi^{-1} \, d\theta \cdot \delta\beta
-    \]
-    \item \blu{Risoluzione di $\dot{\rho}$ e $\dot{\varphi}$:} Si riducono a \textbf{due equazioni omologiche disaccoppiate}:
-    \[
-      \mathcal{L}_\alpha f = \widetilde{\dot{H}}_0 \implies \dot{\rho} = -df, \qquad \mathcal{L}_\alpha \dot{\varphi} = 2K_2(\theta)\dot{\rho} + \widetilde{\dot{H}}_1
-    \]
-  \end{enumerate}
+  e poniamo
+  \[
+    x_0 := (K^0, \operatorname{id}, 0) \qquad x_n := f(f(\dots f(x_0)))
+  \]
+  Partendo da $x_0$, ad ogni passo risolviamo l'equazione linearizzata nel punto dato dal passo precedente.
   \begin{alertblock}{Stime fondamentali alla Nash-Moser}
     \[
       |\phi'(x)^{-1}\delta H|_s \le C' \sigma^{-(\tau+n+1)} |\delta H|_{G, s+\sigma}, \qquad |\phi''(x)\delta x^{\otimes 2}|_{G, s} \le C'' \sigma^{-2} |\delta x|_{s+\sigma}^2
@@ -316,45 +315,34 @@
   \[
     \sigma_k = \frac{\sigma}{6} 2^{-k}, \qquad s_{k+1} = s_k - 3\sigma_k, \qquad 3\sum_{k=0}^\infty \sigma_k = \sigma > 0
   \]
-  \begin{columns}[c]
-    \begin{column}{0.55\textwidth}
-      \begin{itemize}
-        \item Residuo quadratico:
-        \[
-          |x_{k+1} - x_k|_{s_{k+1}} \le c_k |x_k - x_{k-1}|_{s_k}^2
-        \]
-        con costante di perdita $c_k = \frac{1}{2} C \sigma_k^{-\tau} \sim 2^{k\tau}$
-        \medskip
-        \item \blu{La superconvergenza vince la perdita:}
-        \[
-          |x_{k+1} - x_k|_{s_{k+1}} \le \Big(\eps \prod_{j=0}^k c_j^{2^{-j}}\Big)^{2^k} \le \text{cost} \cdot \eps^{2^k}
-        \]
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.42\textwidth}
-      \begin{block}{Regolarità di $\psi = \phi^{-1}$}
-        \begin{itemize}
-          \item La serie $\sum (x_{k+1} - x_k)$ converge nello spazio analitico limite $E_s$.
-          \item L'inversa locale $\psi : H \mapsto (K, G, \beta)$ è \textbf{lipschitziana} e di classe $C^1$.
-        \end{itemize}
-      \end{block}
-    \end{column}
-  \end{columns}
+  \pause
+  \begin{itemize}
+      \item \blu{Residuo quadratico}:
+      \[
+        |x_{k+1} - x_k|_{s_{k+1}} \le c_k |x_k - x_{k-1}|_{s_k}^2
+      \]
+      con costante di perdita $c_k = \frac{1}{2} C \sigma_k^{-\tau} \sim 2^{k\tau}$
+      \medskip
+      \item \blu{Superconvergenza:}
+      \[
+        |x_{k+1} - x_k|_{s_{k+1}} \le \Big(\eps \prod_{j=0}^k c_j^{2^{-j}}\Big)^{2^k} \le \text{cost} \cdot \eps^{2^k}
+      \]
+  \end{itemize}
 \end{frame}
 
 % slide 15
 \begin{frame}{Ritorno al Teorema di Kolmogorov e Conclusioni}
-  \blu{Passo finale: Annullamento del controtermine $\beta$}
+  \blu{Passo finale: annullamento del controtermine $\beta$}
   \begin{itemize}
     \item Introduciamo una famiglia di perturbazioni per traslazione delle azioni: $r \mapsto r + R$.
     \item Per l'hamiltoniana traslata imperturbata $K^0(r+R)$, il controtermine vale:
     \[
-      \widehat{\beta}^0(R) = 2QR + O(R^2) \implies \left.\frac{\partial \widehat{\beta}^0}{\partial R}\right|_{R=0} = 2Q
+      \widehat{\beta}^0(R) = 2QR + O(R^2) \implies \left.\frac{\partial \widehat{\beta}^0}{\partial R}\right|_{R=0} = 2\int Q
     \]
-    \item Poiché per ipotesi di Kolmogorov $\det Q \neq 0$ (non degenerazione), $R \mapsto \beta(R)$ è un \textbf{diffeomorfismo locale} per ogni $H$ vicina a $K^0$.
+    \item Poiché per ipotesi di Kolmogorov $\det \int Q \neq 0$ (non degenerazione), $R \mapsto \beta(R)$ è un \textbf{diffeomorfismo locale} per ogni $H$ vicina a $K^0$.
     \item Esiste un unico $R^*$ tale che $\beta(R^*) = 0$:
     \[
-      \alert{H(\theta, r+R^*) = K \circ G(\theta, r)}
+      H(\theta, r+R^*) = K \circ G(\theta, r)
     \]
     Il toro invariante con moto $\alpha$-quasi-periodico persiste.
   \end{itemize}
