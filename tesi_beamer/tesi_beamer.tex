@@ -94,7 +94,7 @@
 \end{frame}
 
 \begin{frame}{Soluzioni quasi-periodiche}
-    In generale, dato $\alpha = (\alpha_1, \dots, \alpha_n) \in \R^n$ tale che $k \cdot \alpha \neq 0$ per ogni $k \in \Z^n \setminus \{0\}$, una soluzione $u$ associata ad una condizione iniziale nello spazio delle fasi $\mathcal{P}$ è detta \textit{quasi-periodica} di frequenza $\alpha$ se esiste un'embedding del toro
+    In generale, dato $\alpha = (\alpha_1, \dots, \alpha_n) \in \R^n$ tale che $k \cdot \alpha \neq 0$ per ogni $k \in \Z^n \setminus \{0\}$, una soluzione $u$ associata ad una condizione iniziale nello spazio delle fasi $\mathcal{P}$ è detta \textit{quasi-periodica} di frequenza $\alpha$ se esiste un embedding del toro
     \[
       \theta \mapsto U(\theta)
     \]
@@ -175,7 +175,7 @@
     \[
       K^0 = c + \alpha \cdot r + \frac{1}{2}K^0_2(\theta)r \cdot r + O(r^3), \qquad \det \int K^0_2(\theta) \, d\theta \neq 0
     \]
-    per ogni perturbazione $H$ sufficientemente vicina a $K^0$, esiste una trasformazione simplettica $G$ vicina all'identità e $K$ vicina a $K^0$, tale che $H = K \circ G$.
+    per ogni perturbazione $H$ sufficientemente vicina a $K^0$, esiste una trasformazione simplettica $G$ vicina all'identità e $K$ vicina a $K^0$, tale che $H = K \circ G$, a meno di traslare le azioni per $H$.
   \end{block}
   \pause
   \blu{L'idea rivoluzionaria di Kolmogorov:}
@@ -255,7 +255,7 @@
   \end{itemize}
   \bigbreak  
   \begin{itemize}
-    \item \blu{Non stabilità aperta:} avere un toro invariante con frequenza fissata $\alpha$ \textbf{non è una proprietà aperta} (cioà stabile per piccole perturbazioni).
+    \item \blu{Non stabilità aperta:} avere un toro invariante con frequenza fissata $\alpha$ \textbf{non è una proprietà aperta} (cioè stabile per piccole perturbazioni).
   \end{itemize}
   \pause
   \begin{block}{Hamiltoniana 'modificata'}
@@ -287,12 +287,12 @@
   \end{itemize}
 A questo punto è ben definito l'operatore $\phi$ da invertire:
     \[
-      \phi : (K, G, \beta) \in \mathcal{K}_{s+\sigma} \times \mathcal{G}_{s+\sigma}^\sigma \times \R^n \longmapsto H = K \circ G + \beta \cdot r \in \mathcal{H}_s
+      \phi : (K, G, \beta) \in \mathcal{K}^\alpha_{s+\sigma} \times \mathcal{G}_{s+\sigma}^\sigma \times \R^n \longmapsto H = K \circ G + \beta \cdot r \in \mathcal{H}_s
     \]
 \end{frame}
 
 % slide 13
-\begin{frame}{Costruzione successione con metodo alla Newton}
+\begin{frame}{Costruzione della successione con metodo alla Newton}
   Applichiamo il metodo alla Newton per risolvere l'equazione fortemente non lineare $\phi(K, G, \beta) = H$, quindi determinare $x := (K, G, \beta)$ avendo noto $y := H$. In particolare, vogliamo trovare lo zero della funzione $F : x \mapsto \phi(x) - y$. Sia
   \[
     f : x \mapsto x + \phi'(x)^{-1}(y - \phi(x))
@@ -310,7 +310,7 @@ A questo punto è ben definito l'operatore $\phi$ da invertire:
 \end{frame}
 
 % slide 14
-\begin{frame}{Schema di Newton a perdita controllata di analiticità}
+\begin{frame}{Perdita controllata di analiticità}
   Fissiamo le riduzioni di dominio ad ogni passo dello schema di Newton:
   \[
     \sigma_k = \frac{\sigma}{6} 2^{-k}, \qquad s_{k+1} = s_k - 3\sigma_k, \qquad 3\sum_{k=0}^\infty \sigma_k = \sigma > 0
@@ -334,12 +334,12 @@ A questo punto è ben definito l'operatore $\phi$ da invertire:
 \begin{frame}{Ritorno al Teorema di Kolmogorov e Conclusioni}
   \blu{Passo finale: annullamento del controtermine $\beta$}
   \begin{itemize}
-    \item Introduciamo una famiglia di perturbazioni per traslazione delle azioni: $r \mapsto r + R$.
+    \item Sia $Q = \frac{1}{2}\int K^0_2$ e introduciamo una famiglia di perturbazioni per traslazione delle azioni: $r \mapsto r + R$.
     \item Per l'hamiltoniana traslata imperturbata $K^0(r+R)$, il controtermine vale:
     \[
-      \widehat{\beta}^0(R) = 2QR + O(R^2) \implies \left.\frac{\partial \widehat{\beta}^0}{\partial R}\right|_{R=0} = 2\int Q
+      \widehat{\beta}^0(R) = 2QR + O(R^2) \implies \left.\frac{\partial \widehat{\beta}^0}{\partial R}\right|_{R=0} = 2Q
     \]
-    \item Poiché per ipotesi di Kolmogorov $\det \int Q \neq 0$ (non degenerazione), $R \mapsto \beta(R)$ è un \textbf{diffeomorfismo locale} per ogni $H$ vicina a $K^0$.
+    \item Poiché per ipotesi di Kolmogorov $\det Q \neq 0$ (non degenerazione), $R \mapsto \beta(R)$ è un \textbf{diffeomorfismo locale} per ogni $H$ sufficientemente vicina a $K^0$.
     \item Esiste un unico $R^*$ tale che $\beta(R^*) = 0$:
     \[
       H(\theta, r+R^*) = K \circ G(\theta, r)
