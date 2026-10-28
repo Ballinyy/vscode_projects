@@ -98,17 +98,16 @@
     \[
       \theta \mapsto U(\theta)
     \]
-    tale che $u(t) = U(\alpha t)$ per ogni $t$ nel dominio massimale di definizione della soluzione. \\ 
-    In seguito lavoreremo sempre con moti quasi-periodici.
+    tale che $u(t) = U(\alpha t)$ per ogni $t$ nel dominio massimale di definizione della soluzione.
 \end{frame}
 
 % slide 3
 \begin{frame}{Sistemi completamente integrabili}
   Consideriamo lo spazio delle fasi $T^*\T^n \cong \T^n \times \R^n = \{(\theta, r)\}$ dotato della forma simplettica standard:
   \[
-    \omega = \sum_{j=1}^n d\theta_j \wedge dr_j, \qquad X_H = \begin{pmatrix} \partial_r H \\ -\partial_\theta H \end{pmatrix}.
+    \omega = \sum_{j=1}^n d\theta_j \wedge dr_j
   \]
-  e consideriamo una hamiltoniana $H(\theta, r) = H_0(r)$:
+  e consideriamo una hamiltoniana analitica reale $H(\theta, r) = H_0(r)$:
     \[
       \begin{cases}
         \dot{\theta} = \partial_r H_0(r) =: \alpha(r) \\
@@ -133,8 +132,10 @@
   \[
     H(\theta, r) = H_0(r) + \eps H_1(\theta, r) + \eps^2 H_2(\theta, r) + O(\varepsilon^3)
   \]
+  In questo caso stiamo supponendo analiticità anche in $\varepsilon$.
+  \bigbreak
   \pause
-  \blu{Metodo classico:} cercare un simplettomorfismo generato dal flusso al tempo $1$ di un'hamiltoniana ausiliaria $F$:
+  \blu{Metodo classico:} cercare un simplettomorfismo generato dal flusso al tempo $1$ di una hamiltoniana ausiliaria $F$:
   \[
     H \circ \phi_1 = H_0 + \eps \big(H_1 + \{H_0, F\}\big) + O(\eps^2) = H_0 + \eps \big(H_1 - \alpha \cdot \partial_\theta F\big) + O(\eps^2)
   \]
@@ -159,8 +160,8 @@
   \end{block}
   \pause
   \begin{itemize}
-    \item \blu{Quantità vettori diofantei:} \underline{quasi tutti} i vettori di $\R^n$ sono diofantei, $m(D_{\gamma, \tau}) = 1 - O(\gamma)$, possiamo visualizzarlo facilmente in $\R^2$. 
-    \item \blu{Risolubilità dell'equazione omologica:} Per ogni $g$ analitica su $\T^n_{s+\sigma}$ con $\int g = 0$, esiste un'unica soluzione $f$ analitica su $\T^n_s$ soddisfacente (stima di Cauchy):
+    \item \blu{Quantità vettori diofantei:} \underline{quasi tutti} i vettori di $\R^n$ sono diofantei $(m(D_{\gamma, \tau}) = 1 - O(\gamma))$, possiamo visualizzarlo facilmente in $\R^2$. 
+    \item \blu{Risolubilità dell'equazione omologica (stima di Cauchy):} per ogni $g$ analitica su $\T^n_{s+\sigma}$ con media nulla, esiste un'unica soluzione $f$ analitica su $\T^n_s$ soddisfacente:
     \[
       f = \mathcal{L}_\alpha^{-1}g \qquad |f|_s \le C \gamma^{-1} \sigma^{-(n+\tau)} |g|_{s+\sigma}
     \]
@@ -171,9 +172,9 @@
 % slide 7
 \begin{frame}{Il teorema di Kolmogorov e la superconvergenza}
   \begin{block}{Teorema dei tori invarianti (Kolmogorov, 1954)}
-    Fissato $\alpha \in D_{\gamma, \tau}$ e una hamiltoniana che possiede un toro invariante $\alpha$-quasi-periodico $\T^n \times \{0\}$
+    Fissato $\alpha \in D_{\gamma, \tau}$ e una hamiltoniana analitica reale che possiede un toro invariante $\alpha$-quasi-periodico $\T^n \times \{0\}$
     \[
-      K^0 = c + \alpha \cdot r + \frac{1}{2}K^0_2(\theta)r \cdot r + O(r^3), \qquad \det \int K^0_2(\theta) \, d\theta \neq 0
+      K^0 = c + \alpha \cdot r + \frac{1}{2}K^0_2(\theta)r \cdot r + O(r^3), \qquad \det \int_{\T^n} K^0_2(\theta) \, d\theta \neq 0
     \]
     per ogni perturbazione $H$ sufficientemente vicina a $K^0$, esiste una trasformazione simplettica $G$ vicina all'identità e $K$ vicina a $K^0$, tale che $H = K \circ G$, a meno di traslare le azioni per $H$.
   \end{block}
@@ -210,7 +211,7 @@
     \begin{column}{0.48\textwidth}
       \begin{block}{\blu{Passo 2: Eliminazione del Parametro}}
         \begin{itemize}
-          \item Il controtermine $\beta$ rompe la coniugazione dinamica di $H$.
+          \item Il controtermine $\beta$ ostruisce la coniugazione dinamica.
           \pause
           \item Sotto l'ipotesi $\det \int K^0_2 \neq 0$, considero $r \mapsto r + R$ (parametri liberi):
           \[

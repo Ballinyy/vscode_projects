@@ -82,7 +82,9 @@
 \newcommand{\eqsys}[1]{{\left\{\begin{array}{ll}#1\end{array}\right.}}
 \newcommand{\conj}{h\circ R_{2\pi\alpha}\circ h^{-1}}
 \newcommand{\Ham}{\operatorname{Ham}}
-\newcommand{\h}{\operatorname{H}}
+\newcommand{\f}{\mathbf{f}}
+\newcommand{\g}{\mathbf{\g}}
+\newcommand{\h}{\mathbf{H}}
 \newcommand{\average}[1]{\int_{\T^n}#1}
 \newcommand{\media}[1]{\int_\T #1}
 \newcommand{\uh}{u^{\text{H}}} % Hamiltonian u
@@ -114,7 +116,6 @@
 % Widetilde
 \newcommand{\wtd}{{\widetilde{d}}}
 \newcommand{\wtg}{{\widetilde{g}}}
-\newcommand{\g}{\gamma}
 \newcommand{\wth}{{\widetilde{h}}}
 \newcommand{\wtp}{{\widetilde{p}}}
 \newcommand{\wtq}{{\widetilde{q}}}
@@ -832,20 +833,148 @@ Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe d
 \end{prop}
 \begin{proof}
     $(\rightarrow)$ sia $(x_n)_{n \in \N} \subset X$ che esce da ogni compatto e consideriamo la successione in $Y$ data da $(f(x_n))_{n \in N}$. Supponiamo che $(f(x_n))_{n \in \N}$ è contenuta in un compatto $K$ di $Y$, allora $(x_n)_{n \in \N} \subset f^{-1}(K)$ che è un compatto in $X$ dato che $f$ è propria, che è assurdo. \\
-    $(\leftarrow)$ sia $K \subset Y$ compatto e consideriamo l'insieme $f^{-1}(K) \subset X$. Per ipotesi $X$ è secondo numerabile e $T_2$, pertanto $f^{-1}(K)$ è compatto se e solo se è compatto per successione, ovvero se e solo se ogni successione $(x_n)_{n \in \N} \subset f^{-1}(K)$ ammette sottosuccessione convergente in $f^{-1}(K)$. Supponiamo che $f^{-1}(K)$ non è compatto, allora $(x_n)_{n \in \N}$ non ammette sottosuccessione convergente in $Y$, ovvero esce da ogni compatto, quindi anche $(f(x_n))_{n \in \N}$ esce da ogni compatto, ma $(f(x_n))_{n \in \N} \subset K$, quindi si ottiene un assurdo.
+    $(\leftarrow)$ sia $K \subset Y$ compatto e consideriamo l'insieme $f^{-1}(K) \subset X$. Per ipotesi $X$ è secondo numerabile e $T_2$, pertanto $f^{-1}(K)$ è compatto se e solo se è compatto per successioni, ovvero se e solo se ogni successione $(x_n)_{n \in \N} \subset f^{-1}(K)$ ammette sottosuccessione convergente in $f^{-1}(K)$. Supponiamo che $f^{-1}(K)$ non è compatto, allora $(x_n)_{n \in \N}$ non ammette sottosuccessione convergente in $Y$, ovvero esce da ogni compatto, quindi anche $(f(x_n))_{n \in \N}$ esce da ogni compatto, ma $(f(x_n))_{n \in \N} \subset K$, quindi si ottiene un assurdo.
 \end{proof}
 \begin{lemma}
     siano $M, N$ varietà topologiche e $f : M \longrightarrow N$ propria, allora $f$ è chiusa.
 \end{lemma}
 \begin{proof}
-    sia $C \subset M$ chiuso e consideriamo $(y_n)_{n \in \N} \subset f(C)$ successione convergente in $N$, mostriamo che $\lim x_n \in C$.      
+    sia $C \subset M$ chiuso e consideriamo $(y_n)_{n \in \N} \subset f(C)$ successione convergente in $N$, mostriamo che $y := \lim y_n \in C$. $N$ è localmente euclideo, pertanto esistono $U$ intorno aperto di $y$ e $\vp : U \longrightarrow \vp(U)$ omeomorfismo, inoltre esiste $K_y \subset \R^n$ intorno compatto di $\vp(y)$. Poniamo $K := \vp^{-1}(K_y)$, che è compatto dato che $\vp$ è un omeomorfismo, per definizione di convergenza in spazi topologici si ha che $y_n \in K$ definitivamente ($n \geq N$). Per ogni $n > N$ prendiamo $x_n \in f^{-1}(K \cap C)$ (una delle preimmagini di $y_n$). Allora esiste una sottosuccessione $(x_{n_k})_{k \in \N} \subset f^{-1}(K \cap C)$ convergente in $x \in f^{-1}(K \cap C)$, dato che $f^{-1}(K \cap C)$ è compatto ($f$ propria). Concludiamo che
+    \begin{align}
+        y := \lim_{n \rightarrow \infty} y_n = \lim_{k \rightarrow \infty} f(x_{n_k}) \in f(C)
+    \end{align}
+    quindi $C$ chiuso.
 \end{proof}
 \begin{prop}
-    siano $M, N$ varietà differenziabili e $f : M \longrightarrow N$ diffeomorfismo locale e propria. Allora $f$ è un rivestimento liscio (finito).
+    siano $M, N$ varietà differenziabili connesse e $f : M \longrightarrow N$ diffeomorfismo locale e propria. Allora $f$ è un rivestimento liscio (finito).
 \end{prop}
-
+\begin{proof}
+    Notiamo immediatamente che se $f$ è un diffeomorfismo locale si ha $f$ aperta, chiusa. Segue che $f(M)$ è un aperto e chiuso in $N$, che è connesso, quindi $f(M) = N$, ovvero $f$ suriettiva. \\
+    Dato $y \in N$, per ogni $x \in f^{-1}(y)$ esiste $U_x$ intorno aperto di $x$ in $M$ tale che $f|_{U_x} : U_x \longrightarrow f(U_x)$ è un diffeomorfismo. Inoltre, $f^{-1}(y)$ è un compatto ($f$ propria) discreto (in topologia di sottoinsieme), infatti i punti non possono accumularsi attorno a qualche altra preimmagine dato che $f$ è un diffeomorfismo locale. Segue che $f^{-1}(y)$ è un insieme finito (un compatto discreto è sempre finito). \\
+    Costruiamo l'intorno ben ricoperto di $y$, quindi poniamo
+    \begin{align}
+        f^{-1}(y) = \{x_1, \dots, x_k\}
+    \end{align}
+    e
+    \begin{align}
+        V := \bigcap_{i = 1}^k f(U_{x_i}) \setminus f\left(M \setminus \bigcup_{i = 1}^k U_{x_i}\right)
+    \end{align}
+    La necessità di sottrarre l'insieme $f\left(M \setminus \bigcup_{i = 1}^k U_{x_i}\right)$ viene dal fatto che $f$ è un diffeomorfismo locale, non globale, pertanto, in generale, potrebbero esserci dei punti $x \in M \setminus \bigcup_{i = 1}^k U_{x_i}$ che vengono mappati in $f(U_{x_i})$ da $f$, per qualche $i = 1, \dots, k$, quindi, in tal caso, $f$ non sarebbe biettiva sulle componenti connesse di $f^{-1}(V)$ se non eliminassimo l'immagine tramite $f$ di $M \setminus \bigcup_{i = 1}^k U_{x_i}$ da $V$. \\
+    Notiamo che $V$ è un aperto, dato che è la differenza tra un aperto e un chiuso. Se $V$ è sconnesso consideriamo la componente connessa di $V$ che contiene $y$. \\
+    Mostriamo che $V$ è ben ricoperto. Poniamo $\wtU_{x_i} := f^{-1}(V) \cap U_{x_i}$ per ogni $i = 1, \dots, k$ e osserviamo che
+    \begin{align}
+        f^{-1}(V) = \bigcup_{i = 1}^k \wtU_{x_i}
+    \end{align}
+    Infatti se $x \in f^{-1}(V)$ si ha $f(x) \in V$, quindi $f(x) \in f(U_{x_i})$ per ogni $i = 1, \dots, k$ e $f(x) \not\in f\left(M \setminus \bigcup_{i = 1}^k U_{x_i}\right)$, quindi necessariamente $x \in U_{x_i}$ per qualche $i = 1, \dots, k$. Mentre, se $x \in \bigcup_{i = 1}^k \wtU_{x_i}$ necessariamente $x \in f^{-1}(V)$. \\
+    Facciamo vedere che la restrizione suriettiva di $f$ su $\wtU_{x_i}$ è un diffeomorfismo per ogni $i = 1, \dots, k$. Osserviamo che è suriettiva per definizione di restrizione suriettiva, iniettiva dato che $\wtU_{x_i} \subset U_{x_i}$ e diffeomorfismo poiché restrizione di $f|_{U_{x_i}} : U_{x_i} \longrightarrow f(U_{x_i})$ che è un diffeomorfismo. 
+\end{proof}
 
 \section{Esercizi}
 \gr{1.} Mostrare che se $f : X \longrightarrow Y$ mappa propria tra spazi topologici, allora per ogni $Z \subset Y$ si ha $f|_{f^{-1}(Z)} : f^{-1}(Z) \longrightarrow Z$ è propria.
 
+\chapter{Varietà complesse}
+\begin{defn}
+    siano $M$ una varietà topologica di dimensione $2n$ per qualche $n \geq 1$ e $(U, \vp)$, $(V, \psi)$ due carte di $M$
+    \begin{align}
+        \vp : U \longrightarrow \vp(U) \subset \cC^n \qquad \psi : V \longrightarrow \psi(V) \subset \cC^n
+    \end{align}
+    $(U, \vp)$ e $(V, \psi)$ sono dette \co{olomorficamente compatibili} se $U \cap V = \emptyset$ o se $U \cap V \neq \emptyset$ e
+    \begin{align}
+        \psi \circ \vp^{-1} : \vp(U \cap V) \longrightarrow \psi(U \cap V)
+    \end{align}
+    è olomorfa.
+\end{defn}
+\begin{defn}
+    un \co{atlante olomorfo} di $M$ è una famiglia di carte olomorficamente compatibili di $M$. \\
+    Analogamente al caso reale, la \co{struttura olomorfa} è la classe di equivalenza di atlanti equivalenti. \\ \\
+    Fissata una struttura olomorfa, $M$ è detta \co{varietà complessa}.
+\end{defn}
+\begin{ex}
+    gli aperti $\Omega \subset \cC^n$ sono varietà complesse con carte $(\Omega, \id_\Omega)$.
+\end{ex}
+\begin{defn}
+    le varietà complesse di dimensione $1$ sono dette \co{superfici di Riemann}.
+\end{defn}
+\begin{ex}
+    sia $\hat{\cC}$ la compattificazione ad un punto di $\cC$, ovvero $\hat{cC} = \cC \cup \{\infty\}$. Consideriamo le carte
+    \begin{align}
+        (\cC, \id_\cC) \qquad (\cC^* \cup \{\infty\}, \psi)
+    \end{align}
+    dove
+    \begin{align}
+        \psi : z \in \cC^* \mapsto \frac{1}{z}
+    \end{align}
+    con la convenzione $\psi(\infty) = 0$. Osserviamo che le due carte definite sono olomorficamente compatibili, infatti
+    \begin{align}
+        \psi \circ \id^{-1}_\cC : \cC^* \longrightarrow \cC^*
+    \end{align}
+    è olomorfa, dato che $z \mapsto 1/z$ è olomorfa in $\cC^*$.
+\end{ex}
+
+\section{Esercizi}
+\gr{1.} Definire atlante olomorfo su $\mathbb{P}^n(\cC)$. \\
+
+\gr{2.} Definire atlante olomorfo su $S^2$ per proiezione stereografica su $\cC$.
+
+\chapter{Partizioni dell'unità}
+\begin{defn}
+    sia $X$ uno spazio topologico, un'\co{esaustione normale di compatti} è una famiglia di compatti $(K_i)_{i \in \N}$ tale che: \\
+    \gr{1.} $\bigcup_{i \in \N} K_i = X$. \\
+    \gr{2.} $K_i \subset \mathring{K}_{i + 1}$ per ogni $i \in \N$.
+\end{defn}
+\begin{ex}
+    la famiglia $(K_i)_{i \in \N} \subset \R^n$ dove $K_i := \overline{D(0, i)}$ è un'esaustione normale di compatti di $\R^n$.
+\end{ex}
+\begin{defn}
+    siano $X$ uno spazio topologico e $(U_\alpha)_\alpha$ un ricoprimento di $X$. Un \co{raffinemanto} di $(U_\alpha)_\alpha$ è un ricoprimento di $X$ $(V_\beta)_\beta$ tale che per ogni $\beta$ esiste $\alpha$ tale che $V_\beta \subset U_\alpha$.
+\end{defn}
+\begin{defn}
+    siano $X$ uno spazio topologico e $(U_\alpha)_\alpha$ ricoprimento aperto di $X$. $(U_\alpha)_\alpha$ è detto \co{localmente finito} se per ogni $p \in X$ esiste $U$ intorno di $p$ che interseca con un numero finito di elementi del ricoprimento $(U_\alpha)_\alpha$.
+\end{defn}
+\begin{ex}
+    sia $X = \R$ e consideriamo il ricoprimento aperto $\U = (U_n)_{n \in \N}$, dove $U_n := (-\infty, n)$ per ogni $n \in \N$. Osserviamo che $\U$ non è localmente finito, infatti ogni $x \in \R$ non possiede nessun intorno che interseca con un numero finito di elementi di $\U$. 
+\end{ex}
+\begin{defn}
+    uno spazio topologico $X$ è detto \co{paracompatto} se ogni ricoprimento aperto di $X$ ammette raffinamento localmente finito.
+\end{defn}
+\begin{rmk}
+    Osserviamo che se $X$ è uno spazio topologico localmente euclideo, allora $X$ è anche localmente compatto. Infatti, dato $x \in X$ esiste $U$ intorno aperto di $x$ in $X$ e $\vp : U \longrightarrow \vp(U) \subset \R^n$ omeomorfismo, quindi, fissato $0 < \varepsilon < \inf \{\|\vp(x) - z\| : z \in \R^n \setminus \vp(U)\}$, consideriamo
+    \begin{align}
+        V_\varepsilon := \overline{D(\vp(x), \varepsilon)} := \{y \in \R^n : \|\vp(x) - y\| \leq n\}
+    \end{align}
+    Allora $\vp^{-1}(V_\varepsilon) \subset U$ è un intorno compatto di $x$ ($\vp$ omeomorfismo).
+\end{rmk}
+\begin{thm}
+    sia $X$ uno spazio topologico localmente compatto e $T_2$, allora le seguenti sono equivalenti: \\
+    \gr{1.} $X$ è secondo numerabile. \\
+    \gr{2.} $X$ ammette un'esaustione normale di compatti. \\
+    \gr{3.} $X$ è paracompatto. \\
+    \gr{4.} $X$ è metrizzabile.
+\end{thm}
+\begin{proof}
+    $(1 \rightarrow 2)$ Sia $X$ secondo numerabile e consideriamo una base numerabile $\B$ della topologia di $X$. Osserviamo che possiamo supporre che $\B$ sia composta da intorni relativamente compatti, dato che $X$ è localmente compatto. \\
+    Fissato $x \in X$ consideriamo $K$ un suo intorno compatto, pertanto $x \in \mathring{K}$. Dato che $K$ è compatto, un numero finito di elementi di $\B$ ricoprono $K$, ovvero esistono $B_{i_1}, \dots, B_{i_k} \in \B$ tali che
+    \begin{align}
+        K \subset B_{i_1} \cup \dots \cup B_{i_k}
+    \end{align}
+    Poniamo $K_1 := K$ e $\wt{i}$ il massimo tra gli indici $i_1, \dots, i_k$, allora definiamo
+    \begin{align}
+        K_2 := \overline{\bigcup_{j \leq \wt{i}} B_j}
+    \end{align}
+    $K_2$ è ancora un compatto, dato che è unione finita di chiusi relativamente compatti in uno spazio topologico $T_2$. Inoltre, chiaramente $K_1 \subset \mathring{K}_2$. Procedendo analogamente, per induzione si costruisce una famiglia $(K_j)_{j \in \N}$ che è un'esaustione di compatti. \\
+    $(2 \rightarrow 3)$ Sia $\U = (U_\alpha)_\alpha$ un ricoprimento aperto di $X$ e consideriamo $(K_j)_{j \in \N}$ esaustione normale di compatti di $X$. Per ogni $j \in \N$ esiste un numero finito di indici $\alpha_{j_1}, \dots, \alpha_{j_k}$ tali che
+    \begin{align}
+        K_j \subset U_{\alpha_{j_1}} \cup \dots \cup U_{\alpha_{j_k}}
+    \end{align}
+    dato che $K_j$ è compatto per ogni $j \in \N$. \\ 
+    Definiamo quindi il ricoprimento aperto $\wt{\U} = (U_{\alpha_j})_{j \in \N}$. Osserviamo che $\wt{\U}$ è un raffinamento di $\U$, infatti si tratta semplicemente di una sottofamiglia di elementi di $\U$. Dato $x \in X$, esiste $K_\wt{j} \in (K_j)_{j \in \N}$ tale che $x \in \mathring{K}_\wt{j}$. Dato $U$ intorno aperto di $x$ contenuto in $\mathring{K}_\wt{j}$, si ha che $U$ interseca al più con un numero finito di elementi di $\wt{\U}$, quindi $\wt{\U}$ raffinamento localmente finito di $\U$. \\
+    $(3 \rightarrow 4)$ da fare. \\
+    $(4 \rightarrow 1)$ Supponiamo $X$ metrizzabile e consideriamo la metrica $d$ definita su $X$. Fissato un certo $x \in X$ si vede immediatamente che la famiglia $\B$ di aperti di $X$ data da
+    \begin{align}
+        \B = \{D(y, 1/n) : d(x, y) = p, p \in \Q, n \in \N\}
+    \end{align}
+    è una base numerabile della topologia di $X$.
+\end{proof}
+\section{Esercizi}
+\gr{1.} Sia $X$ uno spazio topologico e $(K_i)_{i \in \N}$ un'esaustione normale di compatti di $X$. Mostrare che per ogni $K \subset X$.
 \end{document}
