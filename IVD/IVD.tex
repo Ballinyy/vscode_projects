@@ -59,6 +59,7 @@
 \newcommand{\D}{\mathcal{D}}
 \newcommand{\U}{\mathcal{U}}
 \newcommand{\V}{\mathcal{V}}
+\newcommand{\W}{\mathcal{W}}
 
 \newcommand{\qpsys}{(q,p)=(q_1,\ldots,q_n,p_1,\ldots,p_n)}
 \newcommand{\T}{\mathbb{T}}
@@ -945,36 +946,75 @@ Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe d
     Allora $\vp^{-1}(V_\varepsilon) \subset U$ è un intorno compatto di $x$ ($\vp$ omeomorfismo).
 \end{rmk}
 \begin{thm}
-    sia $X$ uno spazio topologico localmente compatto e $T_2$, allora le seguenti sono equivalenti: \\
-    \gr{1.} $X$ è secondo numerabile. \\
-    \gr{2.} $X$ ammette un'esaustione normale di compatti. \\
-    \gr{3.} $X$ è paracompatto. \\
-    \gr{4.} $X$ è metrizzabile.
+    sia $X$ uno spazio topologico localmente compatto e $T_2$, se $X$ è secondo numerabile allora $X$ ammette un'esaustione normale di compatti, è paracompatto ed è metrizzabile.
 \end{thm}
 \begin{proof}
-    $(1 \rightarrow 2)$ Sia $X$ secondo numerabile e consideriamo una base numerabile $\B$ della topologia di $X$. Osserviamo che possiamo supporre che $\B$ sia composta da intorni relativamente compatti, dato che $X$ è localmente compatto. \\
-    Fissato $x \in X$ consideriamo $K$ un suo intorno compatto, pertanto $x \in \mathring{K}$. Dato che $K$ è compatto, un numero finito di elementi di $\B$ ricoprono $K$, ovvero esistono $B_{i_1}, \dots, B_{i_k} \in \B$ tali che
+    sia $X$ secondo numerabile e consideriamo una base numerabile $\B = (B_i)_{i \in \N}$ della topologia di $X$. Osserviamo che possiamo supporre che $\B$ sia composta da intorni relativamente compatti, dato che $X$ è localmente compatto. \\
+    Per ogni $n \in \N$ poniamo
     \begin{align}
-        K \subset B_{i_1} \cup \dots \cup B_{i_k}
+        C_n := \overline{\bigcup_{i = 1}^n B_i}
     \end{align}
-    Poniamo $K_1 := K$ e $\wt{i}$ il massimo tra gli indici $i_1, \dots, i_k$, allora definiamo
+    Osserviamo che la famiglia $(C_i)_{i \in \N}$ è un'esaustione di compatti, infatti
     \begin{align}
-        K_2 := \overline{\bigcup_{j \leq \wt{i}} B_j}
+        C_i \subset C_{i + 1} \qquad X = \bigcup_{i \in \N} C_i
     \end{align}
-    $K_2$ è ancora un compatto, dato che è unione finita di chiusi relativamente compatti in uno spazio topologico $T_2$. Inoltre, chiaramente $K_1 \subset \mathring{K}_2$. Procedendo analogamente, per induzione si costruisce una famiglia $(K_j)_{j \in \N}$ che è un'esaustione di compatti. \\
-    $(2 \rightarrow 3)$ Sia $\U = (U_\alpha)_\alpha$ un ricoprimento aperto di $X$ e consideriamo $(K_j)_{j \in \N}$ esaustione normale di compatti di $X$. Per ogni $j \in \N$ esiste un numero finito di indici $\alpha_{j_1}, \dots, \alpha_{j_k}$ tali che
+    Tuttavia non è detto che sia normale, ovvero non è detto che $C_i \subset \mathring{C}_{i + 1}$. \\
+    Ragioniamo per induzione, fissiamo $K_1 := \overline{B}_1$, supponiamo di aver definito anche $K_n$ per qualche $n > 1$ e costruiamo $K_{n + 1}$ compatto tale che $K_n \subset \mathring{K}_{n + 1}$. Per ipotesi $K_n$ è compatto, pertanto esistono finiti $x_1, \dots, x_k \in K_n$ e loro intorno aperti relativamente compatti $V_{x_1}, \dots, V_{x_k} \subset X$ tali che
     \begin{align}
-        K_j \subset U_{\alpha_{j_1}} \cup \dots \cup U_{\alpha_{j_k}}
+        K_n \subset V_{x_1} \cup \dots \cup V_{x_k}
     \end{align}
-    dato che $K_j$ è compatto per ogni $j \in \N$. \\ 
-    Definiamo quindi il ricoprimento aperto $\wt{\U} = (U_{\alpha_j})_{j \in \N}$. Osserviamo che $\wt{\U}$ è un raffinamento di $\U$, infatti si tratta semplicemente di una sottofamiglia di elementi di $\U$. Dato $x \in X$, esiste $K_\wt{j} \in (K_j)_{j \in \N}$ tale che $x \in \mathring{K}_\wt{j}$. Dato $U$ intorno aperto di $x$ contenuto in $\mathring{K}_\wt{j}$, si ha che $U$ interseca al più con un numero finito di elementi di $\wt{\U}$, quindi $\wt{\U}$ raffinamento localmente finito di $\U$. \\
-    $(3 \rightarrow 4)$ da fare. \\
-    $(4 \rightarrow 1)$ Supponiamo $X$ metrizzabile e consideriamo la metrica $d$ definita su $X$. Fissato un certo $x \in X$ si vede immediatamente che la famiglia $\B$ di aperti di $X$ data da
+    Allora poniamo
     \begin{align}
-        \B = \{D(y, 1/n) : d(x, y) = p, p \in \Q, n \in \N\}
+        K_{n + 1} := \overline{\bigcup_{i = 1}^{n + 1} B_i} \cup \overline{\bigcup_{j = 1}^k V_{x_j}}
     \end{align}
-    è una base numerabile della topologia di $X$.
+    Si vede immediatamente che $K_{n + 1}$ è compatto dato che è unione finita di chiusure di aperti relativemente compatti in un $T_2$. Inoltre, $K_n \subset \mathring{K}_{n + 1}$, infatti contiene $V_{x_1}, \dots, V_{x_k}$ e anche $B_1, \dots, B_{n + 1}$. Infine, si vede immediatamente che
+    \begin{align}
+        \bigcup_{i \in \N} K_i = X
+    \end{align}
+    A questo punto consideriamo un ricoprimento aperto $\U = (U_\alpha)_\alpha$ di $X$ e costruiamo un raffinamento localmente finito di $\U$. \\
+    Per ogni $j \in \N$ consideriamo l'insieme
+    \begin{align}
+        A_j := \mathring{K}_{j + 1} \setminus K_{j - 1}
+    \end{align}
+    con la convenzione $K_{-1} = \emptyset$. Osserviamo che $A_j$ è un aperto per ogni $j \in \N$, dato che $K_{j - 1} \subset \mathring{K}_{j + 1}$, inoltre, è relativamente compatto, infatti la sua chiusura è contenuta in $K_{j + 1}$, pertanto esiste un numero finito di elementi $U^j_{\alpha_1}, \dots, U^j_{\alpha_k}$ tali che
+    \begin{align}
+        A_j \subset U^j_{\alpha_1} \cup \dots \cup U^j_{\alpha_{k_j}}
+    \end{align}
+    Consideriamo ora gli aperti $W^j_{\alpha_i} := A_j \cap U^j_{\alpha_i}$ per ogni $j \in \N$ e ogni $i = 1, \dots, k_j$. Gli aperti $\W = \{W^j_{\alpha_i} : j \in \N, i = 1, \dots, k_j\}$ formano un ricoprimento aperto numerabile di $X$ (dato che si tratta di unione numerabile di famiglie finite di aperti). Inoltre, per ogni $x \in X$ esiste $j \in \N$ tale che $x \in A_j$ e quindi esiste un intorno aperto $V$ di $x$ tale che $V \subset A_j$. Segue che $V$ interseca solamente con un numero finito di elementi di $\W$, quindi $\W$ raffinamento localmente finito di $\U$, ovvero $X$ paracompatto. \\
+    Dimostriamo ora che $X$ è metrizzabile, ovvero costruiamo una funzione distanza $d : X \longrightarrow [0, +\infty)$ (da fare).
 \end{proof}
+\begin{defn}
+    sia $M$ una varietà liscia, una \co{partizione dell'unità} è una famiglia di funzioni $(\rho_\alpha)_\alpha \subset \C^\infty(M)$ tale che: \\
+    \gr{1.} $0 \leq \rho_\alpha \leq 1$ per ogni $\alpha$. \\
+    \gr{2.} $\{\operatorname{supp} \rho_\alpha\}_\alpha$ è un ricoprimento localmente finito di $M$. \\
+    \gr{3.} $\sum_\alpha \rho_\alpha = 1$. \\
+    Diremo che $(\rho_\alpha)_\alpha$ è \co{subordinata} a un ricoprimento aperto $(U_\alpha)_\alpha$ se $\{\operatorname{supp}_\alpha\}_\alpha$ è un raffinamento di $(U_\alpha)_\alpha$, in particolare se $\operatorname{supp}_\alpha \subset U_\alpha$ per ogni $\alpha$.
+\end{defn}
+\begin{rmk}
+    per la proprietà $(2)$, per ogni $x \in M$ esiste $U$ intorno aperto di $x$ tale che $U$ interseca solamente con un numero finito di elementi di $\{\operatorname{supp}_\alpha\}_\alpha$, pertanto la serie definita in $(3)$ è in realtà una somma finita (puntualmente). 
+\end{rmk}
+\begin{thm}
+    sia $M$ una varietà liscia, allora ogni ricoprimento aperto di $M$ ammette una partizione dell'unità subordinata ad esso.
+\end{thm}
+\begin{proof}
+    consideriamo la funzione $f : \R \longrightarrow \R$ definita da
+    \begin{align}
+        f : t \mapsto \begin{cases}
+            e^{-1/t} &\qquad t > 0 \\
+            0 &\qquad t \leq 0
+        \end{cases}
+    \end{align}
+    Osserviamo che $f$ è di classe $\C^\infty$, infatti si vede immediatamente che è $\C^\infty$ in $(0, +\infty)$ e $(-\infty, 0)$, inoltre si 'incolla' in modo liscio nell'origine
+    \begin{align}
+        \lim_{t \rightarrow 0^+} -\frac{1}{t}e^{-1/t} = \lim_{s \rightarrow \infty} -se^{-s} = 0
+    \end{align}
+    Mostriamo che esiste $h : [0, +\infty) \longrightarrow \R$ di classe $\C^\infty$ tale che: \\
+    \gr{1.} $h(t) = 1$ per $0 \leq t \leq 1$. \\
+    \gr{2.} $0 < h(t) < 1$ per $1 < t < 2$. \\
+    \gr{3.} $h(t) = 0$ per $t \geq 2$, \\
+    detta funzione \co{cut-off}.
+\end{proof}
+
 \section{Esercizi}
 \gr{1.} Sia $X$ uno spazio topologico e $(K_i)_{i \in \N}$ un'esaustione normale di compatti di $X$. Mostrare che per ogni $K \subset X$.
 \end{document}
