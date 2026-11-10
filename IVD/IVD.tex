@@ -67,7 +67,6 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\cC}{\mathbb{C}}
 \newcommand{\teta}{\theta}
-\newcommand{\eps}{\varepsilon}
 \newcommand{\vp}{\varphi}
 \newcommand{\p}{\phi}
 \renewcommand{\Re}{\operatorname{Re}}
@@ -84,8 +83,8 @@
 \newcommand{\conj}{h\circ R_{2\pi\alpha}\circ h^{-1}}
 \newcommand{\Ham}{\operatorname{Ham}}
 \newcommand{\f}{\mathbf{f}}
-\newcommand{\g}{\mathbf{\g}}
-\newcommand{\h}{\mathbf{H}}
+\newcommand{\g}{\mathbf{g}}
+\newcommand{\h}{\mathbf{h}}
 \newcommand{\average}[1]{\int_{\T^n}#1}
 \newcommand{\media}[1]{\int_\T #1}
 \newcommand{\uh}{u^{\text{H}}} % Hamiltonian u
@@ -933,23 +932,36 @@ Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe d
     siano $X$ uno spazio topologico e $(U_\alpha)_\alpha$ ricoprimento aperto di $X$. $(U_\alpha)_\alpha$ è detto \co{localmente finito} se per ogni $p \in X$ esiste $U$ intorno di $p$ che interseca con un numero finito di elementi del ricoprimento $(U_\alpha)_\alpha$.
 \end{defn}
 \begin{ex}
-    sia $X = \R$ e consideriamo il ricoprimento aperto $\U = (U_n)_{n \in \N}$, dove $U_n := (-\infty, n)$ per ogni $n \in \N$. Osserviamo che $\U$ non è localmente finito, infatti ogni $x \in \R$ non possiede nessun intorno che interseca con un numero finito di elementi di $\U$. 
+    sia $X = \R$ e consideriamo il ricoprimento aperto $\U = (U_n)_{n \in \N}$, dove $U_n := (-\infty, n)$ per ogni $n \in \N$. Si vede immediatamente che $\U$ non è localmente finito.
 \end{ex}
 \begin{defn}
     uno spazio topologico $X$ è detto \co{paracompatto} se ogni ricoprimento aperto di $X$ ammette raffinamento localmente finito.
 \end{defn}
 \begin{rmk}
-    Osserviamo che se $X$ è uno spazio topologico localmente euclideo, allora $X$ è anche localmente compatto. Infatti, dato $x \in X$ esiste $U$ intorno aperto di $x$ in $X$ e $\vp : U \longrightarrow \vp(U) \subset \R^n$ omeomorfismo, quindi, fissato $0 < \varepsilon < \inf \{\|\vp(x) - z\| : z \in \R^n \setminus \vp(U)\}$, consideriamo
+    Osserviamo che se $X$ è uno spazio topologico localmente euclideo, allora $X$ è anche localmente compatto. Infatti, dato $x \in X$ esiste $U$ intorno aperto di $x$ in $X$ e $\vp : U \longrightarrow \vp(U) \subset \R^n$ omeomorfismo, quindi, fissato $0 < \e < \inf \{\|\vp(x) - z\| : z \in \R^n \setminus \vp(U)\}$, consideriamo
     \begin{align}
-        V_\varepsilon := \overline{D(\vp(x), \varepsilon)} := \{y \in \R^n : \|\vp(x) - y\| \leq n\}
+        V_\e := \overline{D(\vp(x), \e)} := \{y \in \R^n : \|\vp(x) - y\| \leq \e\}
     \end{align}
-    Allora $\vp^{-1}(V_\varepsilon) \subset U$ è un intorno compatto di $x$ ($\vp$ omeomorfismo).
+    Allora $\vp^{-1}(V_\e) \subset U$ è un intorno compatto di $x$ ($\vp$ omeomorfismo).
 \end{rmk}
-\begin{thm}
+\begin{rmk}\label{RelCptBase}
+    se $X$ è uno spazio topologico secondo numerabile, $T_2$ e localmente compatto, data $\B$ una base numerabile della topologia di $X$, possiamo supporre che gli aperti di $\B$ siano relativamente compatti. \\
+    Infatti la sottofamiglia
+    \begin{align}
+        \B' = \{B \in \B : \overline{B} \text{ è compatto}\}
+    \end{align}
+    è una famiglia numerabile di aperti ($\B' \subset B$) ed è ancora una base della topologia. \\
+    Per verificarlo mostriamo che per ogni aperto $U \subset X$ e per ogni $x \in U$ esiste $B \in \B'$ tale che $x \in B \subset U$. Dato che $X$ è localmente compatto esiste $K$ compatto tale che $x \in \mathring{K}$, pertanto consideriamo l'aperto
+    \begin{align}
+        V := \mathring{K} \cap U
+    \end{align}
+    Osserviamo che $V$ è relativamente compatto, infatti $\overline{V} \subset K$ e $X$ è $T_2$ per ipotesi. Inoltre, dato che $\B$ è una base della topologia di $X$, esiste $B \in \B$ tale che $x \in B \subset V$, segue che $B$ è relativamente compatto, ovvero $B \in \B'$, quindi $\B'$ è una base numerabile della topologia di $X$.
+\end{rmk}
+\begin{thm}\label{SecNumConsVTop}
     sia $X$ uno spazio topologico localmente compatto e $T_2$, se $X$ è secondo numerabile allora $X$ ammette un'esaustione normale di compatti, è paracompatto ed è metrizzabile.
 \end{thm}
 \begin{proof}
-    sia $X$ secondo numerabile e consideriamo una base numerabile $\B = (B_i)_{i \in \N}$ della topologia di $X$. Osserviamo che possiamo supporre che $\B$ sia composta da intorni relativamente compatti, dato che $X$ è localmente compatto. \\
+    sia $X$ secondo numerabile e consideriamo una base numerabile $\B = (B_i)_{i \in \N}$ della topologia di $X$, per l'osservazione \ref{RelCptBase} possiamo supporre che $\B$ sia composta da aperti relativamente compatti. \\
     Per ogni $n \in \N$ poniamo
     \begin{align}
         C_n := \overline{\bigcup_{i = 1}^n B_i}
@@ -976,7 +988,7 @@ Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe d
     \begin{align}
         A_j := \mathring{K}_{j + 1} \setminus K_{j - 1}
     \end{align}
-    con la convenzione $K_{-1} = \emptyset$. Osserviamo che $A_j$ è un aperto per ogni $j \in \N$, dato che $K_{j - 1} \subset \mathring{K}_{j + 1}$, inoltre, è relativamente compatto, infatti la sua chiusura è contenuta in $K_{j + 1}$, pertanto esiste un numero finito di elementi $U^j_{\alpha_1}, \dots, U^j_{\alpha_k}$ tali che
+    con la convenzione $K_0 = \emptyset$. Osserviamo che $A_j$ è un aperto per ogni $j \in \N$, dato che $K_{j - 1} \subset \mathring{K}_{j + 1}$, inoltre, è relativamente compatto, infatti la sua chiusura è contenuta in $K_{j + 1}$, pertanto esiste un numero finito di elementi $U^j_{\alpha_1}, \dots, U^j_{\alpha_k}$ tali che
     \begin{align}
         A_j \subset U^j_{\alpha_1} \cup \dots \cup U^j_{\alpha_{k_j}}
     \end{align}
@@ -993,11 +1005,16 @@ Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe d
 \begin{rmk}
     per la proprietà $(2)$, per ogni $x \in M$ esiste $U$ intorno aperto di $x$ tale che $U$ interseca solamente con un numero finito di elementi di $\{\operatorname{supp}_\alpha\}_\alpha$, pertanto la serie definita in $(3)$ è in realtà una somma finita (puntualmente). 
 \end{rmk}
-\begin{thm}
+\begin{defn}
+    sia $M$ una varietà differenziabile, un ricoprimento aperto $(U_\alpha)_\alpha$ di $M$ è detto $\C^\infty$ \co{regolare} se: \\
+    \gr{1.} per ogni indice $\alpha$ si ha che $U_\alpha$ è il dominio di una carta locale $\vp_\alpha : U_\alpha \longrightarrow D(0, 3) \subset \R^n$ di classe $\C^\infty$. \\
+    \gr{2.} posto $V_\alpha := \vp^{-1}_\alpha(D(0, 1))$ si ha che $(V_\alpha)_\alpha$ è un ricoprimento aperto di $M$.
+\end{defn}
+\begin{thm}\label{PartOfUnity}
     sia $M$ una varietà liscia, allora ogni ricoprimento aperto di $M$ ammette una partizione dell'unità subordinata ad esso.
 \end{thm}
 \begin{proof}
-    consideriamo la funzione $f : \R \longrightarrow \R$ definita da
+    (funzioni \co{cut-off}) consideriamo la funzione $f : \R \longrightarrow \R$ definita da
     \begin{align}
         f : t \mapsto \begin{cases}
             e^{-1/t} &\qquad t > 0 \\
@@ -1006,15 +1023,150 @@ Da ora in poi, $k \geq 1$ sarà sempre un intero e quando ometteremo la classe d
     \end{align}
     Osserviamo che $f$ è di classe $\C^\infty$, infatti si vede immediatamente che è $\C^\infty$ in $(0, +\infty)$ e $(-\infty, 0)$, inoltre si 'incolla' in modo liscio nell'origine
     \begin{align}
-        \lim_{t \rightarrow 0^+} -\frac{1}{t}e^{-1/t} = \lim_{s \rightarrow \infty} -se^{-s} = 0
+        \lim_{t \rightarrow 0^+} \frac{1}{t^k}e^{-1/t} = \lim_{s \rightarrow \infty} s^ke^{-s} = 0
     \end{align}
-    Mostriamo che esiste $h : [0, +\infty) \longrightarrow \R$ di classe $\C^\infty$ tale che: \\
+    per ogni $k \in \N$. \\
+    Mostriamo che esiste $h : [0, +\infty) \longrightarrow \R$ di classe $\C^\infty$, detta funzione \co{cut-off}, tale che: \\
     \gr{1.} $h(t) = 1$ per $0 \leq t \leq 1$. \\
     \gr{2.} $0 < h(t) < 1$ per $1 < t < 2$. \\
-    \gr{3.} $h(t) = 0$ per $t \geq 2$, \\
-    detta funzione \co{cut-off}.
+    \gr{3.} $h(t) = 0$ per $t \geq 2$. \\
+    Notiamo che la seguente definizione di $h$ soddisfa tutte le proprietà sopra discusse
+    \begin{align}
+        h : t \in [0, +\infty) \mapsto \frac{f(2 - t)}{f(2 - t) + f(t - 1)}
+    \end{align}
+    Infatti, per $t \in [0, 1]$ si ha $f(t - 1) = 0$ e $f(2 - t) > 0$, pertanto $h(t) = 1$, per $t \in [2, +\infty)$ si ha $f(2 - t) = 0$ e $f(t - 1) > 0$ quindi $h(t) = 0$, infine per $t \in (0, 1)$ si ha necessariamente $0 < h(t) < 1$. Inoltre, $h$ è di classe $\C^\infty$ poiché somma e prodotto di funzioni $\C^\infty$. \\
+    Estendiamo questa costruzione ad $\R^n$, ovvero mostriamo che esiste una funzione cut-off $\psi : \R^n \longrightarrow \R$ di classe $\C^\infty$ tale che: \\
+    \gr{1.} $\psi(x) = 1$ se $x \in \overline{D(0, 1)}$. \\
+    \gr{2.} $0 < \psi(x) < 1$ se $x \in D(0, 2) \setminus \overline{D(0, 1)}$. \\
+    \gr{3.} $\psi(x) = 0$ se $x \in \R^n \setminus D(0, 2)$. \\
+    Notiamo che la mappa $\wt{\psi} = h \circ \|\cdot\|$ è di classe $\C^\infty$ in $\R^n \setminus \{0\}$, inoltre $\wt{\psi}$ è costantemente $1$ in un intorno aperto di $0$, quindi possiamo definire $\psi$ come segue
+    \begin{align}\label{CutOffFunc}
+        \psi : x \in \R^n \mapsto \begin{cases}
+            h(\|x\|) &\qquad x \in \R^n \setminus \{0\} \\
+            1 &\qquad x = 0
+        \end{cases}
+    \end{align}
+    Pertanto si vede immediatamente che $\psi$ è $\C^\infty$ e soddisfa $(1)-(3)$. \\
+    (Ricoprimento localmente finito $\C^\infty$ regolare) Sia $\U = (U_\alpha)_\alpha$ un ricoprimento aperto di $M$ e poniamoci nel contesto del teorema \ref{SecNumConsVTop}. Per ogni $x \in A_j$ possiamo trovare una carta $(V^j_x, \vp^j_x)$ tale che: \\
+    \gr{1.} $\vp^j_x(x) = 0$, a meno di traslare. \\
+    \gr{2.} $V^j_x \subset A_j$, a meno di prendere l'intersezione. \\
+    \gr{3.} $V^j_x \subset U_\alpha$ per qualche indice $\alpha$, a meno di prendere l'intersezione. \\
+    \gr{4.} $\vp^j_x(V^j_x) \supset D(0, 3)$, a meno di dilatare la carta $\vp^j_x \mapsto \lambda\vp^j_x$ per qualche $\lambda > 1$ opportuno, per poi ridefinire $V^j_x := (\vp^j_x)^{-1}(D(0, 3))$, in modo tale da ottenere
+    \begin{align}
+        \vp^j_x : V^j_x \longrightarrow D(0, 3)
+    \end{align}
+    diffeomorfismo. \\
+    A questo punto, per ogni $x \in M$ poniamo $W^j_x := (\vp^j_x)^{-1}(D(0, 1))$ e osserviamo che $(W^j_x)_{x \in A_j}$ è un ricoprimento aperto di $A_j$, che è relativamente compatto, pertanto esistono finiti $x_{j, 1}, \dots, x_{j, s_j} \in A_j$ tali che
+    \begin{align}
+        A_j \subset W^j_{x_{j, 1}} \cup \dots \cup W^j_{x_{j, s_j}}
+    \end{align}
+    Osserviamo quindi che $\W := \{W^j_{x_{j, \mu}} : j \in \N, \mu = 1, \dots, s_j\}$ è un ricoprimento aperto numerabile, localmente finito e $\C^\infty$ regolare di $M$. \\
+    (Partizione dell'unità) Per semplicità riscriviamo $\W = (W_i)_{i \in I}$ per un opportuno insieme numerabile di indici $I$. Consideriamo le carte $(\vp_j, W_j)$ su $M$, dove
+    \begin{align}
+        \vp_j : W_j \longrightarrow D(0, 3)
+    \end{align}
+    Poniamo $U_j := \vp^{-1}_j(D(0, 1))$ e osserviamo che $(U_i)_{i \in I}$ è un ricoprimento aperto di $M$ per quanto visto sopra. Definiamo le mappe
+    \begin{align}
+        f_j : M \longrightarrow \R \qquad f_j(x) = \begin{cases}
+            0 &\qquad x \in M \setminus W_j \\
+            \psi(\vp_j(x)) &\qquad x \in W_j
+        \end{cases}
+    \end{align}
+    per ogni $j \in I$ e ogni $x \in M$, dove $\psi$ è la funzione cut-off definita in $\eqref{CutOffFunc}$. Osserviamo che $f_j$ è di classe $\C^\infty$ e $\operatorname{supp} f_j \subset W_j$ per ogni $j \in I$. Inoltre, dato che $(U_i)_{i \in I}$ ricopre $M$, per ogni $x \in M$ esiste $i \in I$ tale che $x \in U_i$ e $f_i(x) > 0$. \\
+    Ora definiamo
+    \begin{align}
+        g_j : M \longrightarrow \R \qquad g_j(x) = \frac{f_j(x)}{\sum_j f_j(x)}
+    \end{align}
+    In particolare ha senso scrivere $\sum_j f_j(x)$ puntualmente dato che $\operatorname{supp} f_j$ interseca solamente con un numero finito di elementi del ricoprimento, quindi si tratta di una somma finita (escludendo i termini identicamente nulli). \\
+    Infine, per ottenere una partizione dell'unità indicizzata come il ricoprimento iniziale $(U_\alpha)_\alpha$ prendiamo una mappa
+    \begin{align}
+        \tau : \N \longrightarrow A \qquad (\alpha \in A)
+    \end{align}
+    tale che $\tau(j) = \alpha$ se $W_j \subset U_\alpha$ e definiamo
+    \begin{align}
+        \rho_\alpha = \sum_{\tau(j) = \alpha} g_j
+    \end{align}
+    con la convenzione $\rho_\alpha = 0$ se $\tau^{-1}(\alpha) = \emptyset$ (dato che dobbiamo fare una scelta sulla mappa $\tau$). Allora $\{\rho_\alpha\}_{\alpha \in A}$ è una partizione dell'unità subordinata a $(U_\alpha)_\alpha$.
+\end{proof}
+\begin{cor}
+    sia $M$ una varietà liscia, dati $C \subset M$ chiuso e $U \subset$ aperto tale che $C \subset U$, esiste $\psi : M \longrightarrow \R$ tale che: \\
+    \gr{1.} $\psi(x) = 1$ se $x \in C$. \\
+    \gr{2.} $0 \leq \psi(x) \leq 1$ per ogni $x \in M$. \\
+    \gr{3.} $\operatorname{supp} \psi \subset U$.
+\end{cor}
+\begin{proof}
+    basta osservare che $\{U, M \setminus U\}$ è un ricoprimento aperto di $M$, pertanto per il teorema \ref{PartOfUnity} esiste una partizione dell'unità $\{\rho_1, \rho_2\}$ ad esso subordinata, tale che $\operatorname{supp} \rho_1 \subset U$. Allora è sufficiente porre $\psi := \rho_1$.
 \end{proof}
 
 \section{Esercizi}
-\gr{1.} Sia $X$ uno spazio topologico e $(K_i)_{i \in \N}$ un'esaustione normale di compatti di $X$. Mostrare che per ogni $K \subset X$.
+\gr{1.} Sia $X$ uno spazio topologico e $(K_i)_{i \in \N}$ un'esaustione normale di compatti di $X$. Mostrare che per ogni $K \subset X$ compatto esiste $n \in \N$ tale che $K \subset K_n$.
+
+\chapter{Spazio tangente}
+\begin{defn}
+    sia $M$ una varietà liscia e $p \in M$, poniamo
+    \begin{align}
+        \mathscr{F}_p := \{(U, f) : U \text{ intorno aperto di } p, f \in \C^\infty(U)\}
+    \end{align}
+    Su $\mathscr{F}_p$ possiamo introdurre una relazione di equivalenza $\sim$ definita come segue
+    \begin{align}
+        (U, f), (V, g) \in \mathscr{F}_p \qquad (U, f) \sim (V, g)
+    \end{align}
+    se esiste $W \subset U \cap V$ tale che $f|_W = g|_W$. Definiamo
+    \begin{align}
+        \C^\infty_p(M) := \mathscr{F}_p / \sim
+    \end{align}
+    detto \co{spazio dei germi di} $p$ e indichiamo una classe di equivalenza $[(U, f)]$ con $\f$, omettendo l'intorno.
+\end{defn}
+\begin{lemma}
+    $\C^\infty_p(M)$ possiede una naturale struttura di algebra.
+\end{lemma}
+\begin{proof}
+    per ogni $\f = [(U, f)], \g = [(V, g)] \in \C^\infty_p(M)$ e $\lambda \in \R$ poniamo
+    \begin{align}
+        \f + \g &= [(U \cap V, f + g)] \\
+        \f\g &= [(U \cap V, fg)] \\
+        \lambda \f &= [(U, \lambda f)]
+    \end{align}
+    si vede immediatamente che le operazioni sono ben poste, ovvero che non dipendono dalla scelta del rappresentante.
+\end{proof}
+\begin{defn}
+    dati $F : M \longrightarrow N$ mappa liscia tra varietà differenziabili e $\g \in \C^\infty_{F(p)}(M)$, poniamo
+    \begin{align}
+        F^*_p(\g) = [g \circ F]
+    \end{align}
+    dove se $\g = (V, g)$ si ha $F^*_p(\g) = (F^{-1}(V), g \circ F)$. Questa operazione induce una mappa detta \co{pull-back} tramite $F$ sullo spazio dei germi $F(p)$ nello spazio dei germi di $p$
+    \begin{align}
+        F^*_p : \C^\infty_{F(p)}(M) \longrightarrow \C^\infty_p(M)
+    \end{align}
+    controvariante.
+\end{defn}
+\begin{prop}
+    la mappa $F^*_p$ è un omomorfismo di algebre. Inoltre, se $F$ è un diffeomorfismo, si ha che $F^*_p$ è un isomorfismo di algebre.
+\end{prop}
+\begin{proof}
+    siano $\f, \g \in \C^\infty_{F(p)}(M)$, allora
+    \begin{align}
+        F^*_p(\f\g) = [(F^{-1}(U \cap V), fg \circ F)]
+    \end{align}
+    Inoltre $F^{-1}(U \cap V) = F^{-1}(U) \cap F^{-1}(V)$ e $fg \circ F = (f \circ F)(g \circ F)$, pertanto
+    \begin{align}
+        F^*_p(\f\g) &= [(F^{-1}(U) \cap F^{-1}(V), (f \circ F)(g \circ F))] \notag \\
+        &= F^*_p(\f)F^*_p(\g)
+    \end{align}
+    Analogamente si dimostra per somma e prodotto per scalare. Osserviamo che
+    \begin{align}
+        \id^*_p(\f) = [(U, f \circ \id)] = [(U, f)]
+    \end{align}
+    ovvero $\id^*_p = \id_{\C^\infty_p(M)}$. \\
+    Data un'altra mappa liscia $G : N \longrightarrow P$ si ha
+    \begin{align}
+        (G \circ F)^*_p(\f) &= [((G \circ F)^{-1}(U), f \circ (G \circ F))] \notag \\
+        &= [(F^{-1}(G^{-1}(U)), f \circ (G \circ F))] \notag \\
+        &= F^*_p(G^*_p(\f))
+    \end{align}
+    proprio a causa della natura controvariante.
+\end{proof}
+
+
 \end{document}
+

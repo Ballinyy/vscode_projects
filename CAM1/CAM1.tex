@@ -68,7 +68,6 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\teta}{\theta}
-\newcommand{\eps}{\varepsilon}
 \renewcommand{\Re}{\operatorname{Re}}
 \renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\sgn}{\operatorname{sgn}}
@@ -592,7 +591,7 @@
 \author{Alessandro Ballini}
 
 
-\title{CAM1}
+\title{Note di CAM1}
 
 \maketitle
 \tableofcontents
@@ -996,7 +995,143 @@ Notiamo che $\mathcal{M}_A$ è una classe monotona, infatti, data $(B_n)_{n \in 
 \begin{align}
     B := \lim_n B_n \in \mathcal{M}_0
 \end{align}
-Inoltre $(A \cup B_n)_n, (A \cap B_n)_n, (A \setminus B_n)_n$ e $(B_n \setminus A)_n$ sono tutte successioni monotone in $\mathcal{M}_0$, pertanto il loro limite appartiene a $\mathcal{M}_0$ e quindi, per definizione, anche a $\mathcal{M}_A$.
+Inoltre $(A \cup B_n)_n, (A \cap B_n)_n, (A \setminus B_n)_n$ e $(B_n \setminus A)_n$ sono tutte successioni monotone in $\mathcal{M}_0$, pertanto il loro limite appartiene a $\mathcal{M}_0$ e quindi, per definizione, anche a $\mathcal{M}_A$ (da terminare).
+\end{proof}
+
+\chapter{Funzioni misurabili}
+(...)
+\begin{rmk}\label{ApproxDelta}
+    sia $\rho : \R \longrightarrow [0, 1]$ di classe $\cC^\infty$ tale che $\rho(0) = 1$, crescente per $x \leq 0$ e decrescente per $x \geq 0$, pari e normalizzata, ovvero
+    \begin{align}
+        \int_\R \rho(x) \, dx = 1
+    \end{align}
+    Una funzione che soddisfa queste condizioni (a meno di normalizzare) è $\rho : x \in \R \mapsto e^{-|x|^2}$. Tuttavia, se vogliamo che $\rho$ soddisfi anche $\rho(x) = 0$ per $|x| \geq 1$ non è più valida come scelta. \\
+    Sia $\e > 0$ un parametro continuo, $f : \R \longrightarrow \R$ continua e $\rho : \R \longrightarrow [0, 1]$ che soddisfa tutte le proprietà discusse all'inizio e in più che soddisfa $\rho(x) = 0$ per $|x| \geq 1$, quindi consideriamo la famiglia di funzioni $(f_\e)_{\e > 0}$ dove
+    \begin{align}
+        f_\e(x) := \int_{\R} f(y)\rho\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{\e}
+    \end{align}
+    per ogni $x \in \R$. Notiamo che $f_\e(x) \rightarrow f(x)$ per ogni $x \in \R$, infatti osserviamo che
+    \begin{align}
+        \lim_{\e \rightarrow 0} \int_{\R} \rho\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{\e} &= \lim_{\e \rightarrow 0} \int_{|x - y| < \e} \rho\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{\e}
+    \end{align}
+    Ponendo $t = \frac{y - x}{\e}$ si ottiene
+    \begin{align}
+        \lim_{\e \rightarrow 0} \int_{|x - y| < \e} \rho\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{\e} = \int_{|t| < 1} \rho(t) \, d\lambda(t) = 1
+    \end{align}
+    Segue che
+    \begin{align}
+        \lim_{\e \rightarrow 0} f_\e(x) = f(x)
+    \end{align}
+    Infatti
+    \begin{align}
+        \int_\R f(y)\rho\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{\e} \leq \max_{|x - y| < \e} f(y) \int_{|x - y| < \e} \rho\left(\frac{x - y}{\e}\right) \frac{d\lambda(y)}{\e}
+    \end{align}
+    e analogamente
+    \begin{align}
+        \int_\R f(y)\rho\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{\e} \geq \min_{|x - y| < \e} f(y) \int_{|x - y| < \e} \rho\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{\e}
+    \end{align}
+    Inoltre, si ottiene lo stesso risultato se al posto di $\rho$ si utilizza la funzione caratteristica $\chi_I$ dove $I = [-1, 1]$. Infatti
+    \begin{align}
+        \int_\R \chi_I\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{2\e} &= \int_{x - y < \e} \chi_I\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{2\e} = 1
+    \end{align}
+    dato che
+    \begin{align}
+        \chi_I\left(\frac{x - y}{\e}\right) = \chi_{(x - \e, x + \e)}(y)
+    \end{align}
+    quasi ovunque.
+\end{rmk}
+\begin{thm}[Lebesgue density theorem]\label{LebDensThm}
+    sia $E \subset \R$ un insieme misurabile secondo Lebesgue, dato $x \in E$ poniamo
+    \begin{align}
+        \epsilon(x) := \lim_{\e \rightarrow 0} \frac{1}{2\e}\int_{|x - y| < \e} \chi_E(y)d\lambda(y)
+    \end{align}
+    detta \co{funzione densità dell'insieme} $E$. Allora si ha $\epsilon(x) = \chi_E(x)$ quasi ovunque in $\R$.
+\end{thm}
+\begin{proof}
+    Consideriamo un insieme $G \subset \R$ che è intersezione numerabile di aperti $(U_k)_{k \in \N}$, ovvero
+    \begin{align}
+        G = \bigcap_{k \in \N} U_k
+    \end{align}
+    e mostriamo che la tesi vale anche per $G$. Notiamo che è sufficiente mostrare il caso $U_1 \supset U_2 \supset U_3 \supset \dots$ con $\lambda(U_1) < \infty$ e $G = \lim U_k$ (basterebbe poi considerare la successione $V_1 := U_1$, $V_n = U_1 \cap \dots \cap U_n$, che è decrescente, per ottenere il caso originale). \\
+    Osserviamo che $\chi_G \leq \chi_{U_k}$ per ogni $k \in \N$, infatti $G \subset U_k$ per ogni $k \in \N$. Come visto in \eqref{ApproxDelta}, poniamo
+    \begin{align}
+        (\chi_G)_\e(x) = \int_\R \chi_G(y)\chi_I\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{2\e}
+    \end{align}
+    Osserviamo che
+    \begin{align}
+        \lim_{\e \rightarrow 0} \int_\R \chi_G(y)\chi_I\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{2\e} = \lim_{\e \rightarrow 0} \int_\R \lim_{k \rightarrow \infty}\chi_{U_k}(y)\chi_I\left(\frac{x - y}{\e}\right)\frac{d\lambda(y)}{2\e}
+    \end{align}
+    Inoltre, notiamo che $(\chi_G)_\e \leq (\chi_{U_k})_\e$ per ogni $k \in \N$ e per ogni $\e > 0$ e che
+    \begin{align}
+        \lim_{\e \rightarrow 0} (\chi_{U_k})_\e(x) = \chi_{U_k}(x)
+    \end{align}
+    Quindi, per convergenza dominata, si ottiene
+    \begin{align}
+        \epsilon_G(x) = \limsup_{\e \rightarrow 0} (\chi_G)_\e(x) \leq \lim_k \chi_{U_k}(x) = \chi_G(x)
+    \end{align}
+    Mostriamo che l'insieme $E := \bigcup_{n \in \N} E_n$, dove
+    \begin{align}
+        E_n := \{x \in \R : \epsilon_G(x) \leq \chi_G(x) - \frac{1}{n}\}
+    \end{align}
+    ha misura nulla. Se $x \not\in E$ si ha necessariamente $\epsilon_G(x) \geq \chi_G(x)$, pertanto si ottiene l'uguaglianza $\epsilon_G(x) = \chi_G(x)$ quasi ovunque in $\R$. Osserviamo che per $x \in E_n$ si ha
+    \begin{align}
+        \chi_{E_n}(x) \leq n(\chi_G(x) - \epsilon_G(x))
+    \end{align}
+    Quindi integrando su $\R$ si ottiene
+    \begin{align}
+        \lambda(E_n) &\leq n\left(\lambda(G) - \int_\R \limsup_{\e \rightarrow 0} (\chi_G(x))_\e \, d\lambda(x)\right) \notag \\
+        &= n\left((\chi_G, 1) - (\limsup_{\e \rightarrow 0} (\chi_G)_\e, 1)\right) \notag \\
+        &= n\left((\chi_G, 1) - \limsup_{\e \rightarrow 0}((\chi_G)_\e, 1)\right) \notag \\
+        &= n\left((\chi_G, 1) - \limsup_{\e \rightarrow 0}(\chi_G, 1_\e)\right) = 0
+    \end{align}
+    dove si è usato il \co{teorema di Fubini} per scambiare l'operazione di approssimazione. Dato che si tratta di un'unione numerabile, concludiamo che $\lambda(E) = 0$. \\ \\
+    Vediamo ora il caso generale di un insieme $E$ misurabile secondo Lebesgue. In tal caso sappiamo che la misura esterna combacia con la misura di $E$, dove la misura esterna è data da
+    \begin{align}
+        \lambda^*(E) = \inf\{\lambda(V) : V \supset E \text{ aperto}\} = \lambda(E)
+    \end{align}
+    Allora consideriamo $(V_k)_{k \in \N} \subset \R$ decrescente tale che $V_k \supset E$ per ogni $k \in \N$ e
+    \begin{align}
+        \lambda(V_k) \leq \lambda(E) + \frac{1}{k}
+    \end{align}
+    possiamo scrivere
+    \begin{align}
+        E = \bigcap_{k \in \N} V_k \setminus Z
+    \end{align}
+    dove
+    \begin{align}
+        Z = \left\{x \in \bigcap_{k \in \N} V_k : x \not\in E\right\}
+    \end{align}
+    e ha necessariamente misura nulla. Quindi si ottiene
+    \begin{align}
+        \chi_V = \chi_E + \chi_Z
+    \end{align}
+    dove $V = \lim_k V_k$. Pertanto
+    \begin{align}
+        \epsilon_V(x) = \epsilon_E(x) + \epsilon_Z(x) = \epsilon_E(x)
+    \end{align}
+    quasi ovunque, dato che $\lambda(Z) = 0$ e quindi $\epsilon_Z(x) = 0$ quasi ovunque. Infine, osserviamo che $\chi_V(x) = \chi_E$ quasi ovunque, pertanto si ottiene $\chi_E(x) = \epsilon_E(x)$ quasi ovunque.
+\end{proof}
+
+\section{Esercizi}
+\gr{1.} Esibire un sottoinsieme $C \subset \R$ chiuso, con interno vuoto e misura di Lebesgue strettamente positiva.
+\begin{proof}[Soluzione]
+    consideriamo l'intervallo $[0, 1] \subset \R$ e un'enumerazione $(q_n)_{n \in \N}$ dei razionali in $(0, 1)$. Per ogni $n \in \N$ definiamo
+    \begin{align}
+        A_n := \left(q_n - \frac{a_n}{2^{n + 1}}, q_n + \frac{a_n}{2^{n + 1}}\right)
+    \end{align}
+    Osserviamo che $A_n$ è un intorno aperto di $q_n$ per ogni $n \in \N$, inoltre possiamo scegliere $a_n \in \R$ tale che $A_n \subset (0, 1)$ per ogni $n \in \N$, dato che $(0, 1)$ è un aperto e $q_n \in (0, 1)$. Sia $A := \bigcup_{n \in \N} A_n$, notiamo che
+    \begin{align}
+        0 < \lambda(A) \leq \sum_{n \in \N} \lambda(A_n) = \sum_{n \in \N} \frac{a_n}{2^n}
+    \end{align}
+    Possiamo supporre $0 < a_n < 1$ per ogni $n \in \N$ (ad esempio considerando la parte frazionaria $\{a_n\}$), in tal caso
+    \begin{align}
+        0 < \lambda(A) < \sum_{n \in \N}\frac{1}{2^n} = 1
+    \end{align}
+    Pertanto
+    \begin{align}
+        0 < \lambda([0, 1] \setminus A) = \lambda([0, 1]) - \lambda(A) = 1 - \lambda(A) < 1
+    \end{align}
+    dato che $A \subset [0, 1]$. Poniamo $C := [0, 1] \setminus A$ e osserviamo che $0 < \lambda(C) < 1$, $C$ è chiuso dato che è il complementare di un aperto ($A$ è unione di intervalli aperti) e che $\mathring{C} = \emptyset$ dato che $C \subset [0, 1] \setminus \Q$ e $[0, 1] \setminus \Q$ ha interno vuoto dato che $\Q$ è denso in $\R$. 
 \end{proof}
 
 
